@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+  
+  <title>給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上) | Hexo</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="身為工程師，除了精進開發技術、學習新框架、看更多的範例、刷更多的題，為了與其他團隊成員有效合作，也需要學習使用其他協作軟體，例如 Trello, Notion。 而如果是要跟設計師合作，目前最主要的就是使用 Figma了！Figma 是現在最主流的 UIUX 設計軟體，自從開創了「協作功能」之後，幾乎就是把 Adobe XD 和 Sketch 遠遠甩在後頭！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)">
+<meta property="og:url" content="http://example.com/posts/figma-dev-mode-part-one/">
+<meta property="og:site_name" content="Hexo">
+<meta property="og:description" content="身為工程師，除了精進開發技術、學習新框架、看更多的範例、刷更多的題，為了與其他團隊成員有效合作，也需要學習使用其他協作軟體，例如 Trello, Notion。 而如果是要跟設計師合作，目前最主要的就是使用 Figma了！Figma 是現在最主流的 UIUX 設計軟體，自從開創了「協作功能」之後，幾乎就是把 Adobe XD 和 Sketch 遠遠甩在後頭！">
+<meta property="og:locale" content="en_US">
+<meta property="article:published_time" content="2023-10-17T16:00:00.000Z">
+<meta property="article:modified_time" content="2024-04-12T10:41:41.000Z">
+<meta property="article:author" content="John Doe">
+<meta property="article:tag" content="UI&#x2F;UX 新知">
+<meta name="twitter:card" content="summary">
+  
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Tourney&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header
+    class="py-md-4 border-bottom border-primary-200"
+    style="margin-bottom: 1px;"
+  >
+  <nav class="navbar navbar-expand-md py-md-1">
+    <div class="container">
+      <a class="navbar-brand py-0" href="/">
+        <img src="/images/logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
+      </button>
+      <div class="collapse navbar-collapse offset-md-2 offset-lg-3" id="navbarToggler">
+        <ul class="navbar-nav me-auto mb-2 mb-md-0 text-center">
+          
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-7">
+              <a
+                class="nav-link "
+                href="/"
+              >
+                <span class="position-relative px-2 py-1">首頁</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-7">
+              <a
+                class="nav-link "
+                href="/collection"
+              >
+                <span class="position-relative px-2 py-1">作品集</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-7">
+              <a
+                class="nav-link "
+                href="/service"
+              >
+                <span class="position-relative px-2 py-1">服務項目</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-7">
+              <a
+                class="nav-link "
+                href="/blog"
+              >
+                <span class="position-relative px-2 py-1">部落格</span>
+              </a>
+            </li>
+          
+            <li class="nav-item ">
+              <a
+                class="nav-link "
+                href="/contact"
+              >
+                <span class="position-relative px-2 py-1">聯絡我</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <aside class="blog__menu px-3 py-4 p-lg-7 bg-primary-100">
+  <ul class="d-flex flex-lg-column justify-content-md-center justify-content-lg-start gap-7 mb-0 p-xxl-7 list-unstyled">
+    <li class="flex-shrink-0">
+      
+      <a href="/blog" class=" pb-1 fs-5 text-primary-600 link-primary-500 bg-transparent text-decoration-none" type="button">全部文章</a>
+    </li>
+    
+      
+      <li class="flex-shrink-0">
+        <a href="/tags/UI-UX-%E6%96%B0%E7%9F%A5/" class=" pb-1 fs-5 text-primary-600 link-primary-500 bg-transparent text-decoration-none">
+          UI/UX 新知
+        </a>
+      </li>
+    
+      
+      <li class="flex-shrink-0">
+        <a href="/tags/%E6%95%B8%E4%BD%8D%E7%94%A2%E5%93%81%E8%A8%AD%E8%A8%88/" class=" pb-1 fs-5 text-primary-600 link-primary-500 bg-transparent text-decoration-none">
+          數位產品設計
+        </a>
+      </li>
+    
+      
+      <li class="flex-shrink-0">
+        <a href="/tags/%E5%89%8D%E7%AB%AF%E9%96%8B%E7%99%BC/" class=" pb-1 fs-5 text-primary-600 link-primary-500 bg-transparent text-decoration-none">
+          前端開發
+        </a>
+      </li>
+    
+  </ul>
+</aside>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/UI-UX-%E6%96%B0%E7%9F%A5/" rel="tag">UI/UX 新知</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2023/10/18 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)</h1>
+        
+        <p>身為工程師，除了精進開發技術、學習新框架、看更多的範例、刷更多的題，為了與其他團隊成員有效合作，也需要學習使用其他協作軟體，例如 Trello, Notion。 而如果是要跟設計師合作，目前最主要的就是使用 Figma了！Figma 是現在最主流的 UIUX 設計軟體，自從開創了「協作功能」之後，幾乎就是把 Adobe XD 和 Sketch 遠遠甩在後頭！</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+        
+          
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="/images/article-image1.png" class="img-fluid card-img-top rounded-3">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700">Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上)</h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">UI/UX 新知</span>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2024/02/10</small></p>
+                  </div>
+                  <a class="stretched-link" href="/posts/vision-pro-ui-ux/"></a>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="/images/article-image2.png" class="img-fluid card-img-top rounded-3">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700">給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (下)</h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">UI/UX 新知</span>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2023/11/20</small></p>
+                  </div>
+                  <a class="stretched-link" href="/posts/figma-dev-mode-part-two/"></a>
+                </div>
+              </div>
+            </div>
+          
+        
+      
+    </div>
+
+  </section>
+</main>
+
+  <footer
+    class="py-7"
+    style="background-image: url('/images/footer-bg-lg.png');
+      background-repeat: no-repeat;
+      background-size: cover;"
+  >
+  <div class="container">
+    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          class="mb-4"
+          style="width: 120px;"
+          src="/images/logo.svg" alt="logo"
+        >
+        <p class="mb-4 fs-5 text-primary-700">歡迎填寫表單，或直接與我聯絡！</p>
+        <a
+          class="link-primary-500 fs-5 text-decoration-none" href="mailto:service@hexschool.com">service@hexschool.com</a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="#">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          填寫表單
+        </a>
+        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" href="#">
+          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
+          hexschool_demo
+        </a>
+        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" href="#">
+          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
+          hexschoolTW
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+</body>
+</html>
