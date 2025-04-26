@@ -109,10 +109,13 @@
           <source media="(min-width: 768px)" srcset="/images/hero-lg.png">
           <img class="w-100" src="/images/hero-sm.png" alt="hero banner">
         </picture>
-        <!-- <picture>
-          <source media="(min-width: 768px)" srcset="/AI-Consultant/images/hero-lg.png">
-          <img class="img-fluid" src="/AI-Consultant/images/hero-sm.png" alt="hero banner">
-        </picture> -->
+        <div class="col-12 col-md-7 px-0 overflow-hidden">
+          <!-- 移除這個 picture 元素，因為下面已經有一個使用 url_for 的 picture 元素 -->
+          <picture>
+            <source media="(min-width: 768px)" srcset="/AI-Consultant/images/hero-lg.png">
+            <img class="img-fluid" src="/AI-Consultant/images/hero-sm.png" alt="hero banner">
+          </picture>
+        </div>
       </div>
       <div class="col-10 col-md-4 mx-auto mx-md-0">
         <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start h-100">
@@ -140,7 +143,7 @@
     <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">作品介紹</h2>
     <div
       class="pt-9"
-      style="background-image: url('/images/homepage-work1-bg.png');background-repeat: no-repeat;background-position: center;background-size: cover;"
+      style="background-image: url('/AI-Consultant/images/homepage-work1-bg.png');background-repeat: no-repeat;background-position: center;background-size: cover;"
     >
       <div class="container">
         <div class="row">
