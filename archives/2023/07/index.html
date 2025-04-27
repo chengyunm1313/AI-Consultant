@@ -104,41 +104,66 @@
 </header>
 
 
-  
-  
+  <section class="container py-9">
   
     
     
       
       
-      <section class="archives-wrap">
-        <div class="archive-year-wrap">
-          <a href="/archives/2023" class="archive-year">2023</a>
+        
+        
+        <section class="container py-9">
+          <div class="archive-year text-center text-primary-500 fs-3 mb-7">
+            2023
+          </div>
+          <div class="row row-gap-6 archive-posts">
+      
+      <div class="col-12 col-md-6">
+        <div class="card shadow-sm p-5 rounded-4 h-100">
+          <div class="text-primary-400 fs-6 mb-2">7月3日</div>
+          <h3 class="h5 mb-0">
+            <a href="/posts/react-vs-vue/" class="text-primary-700 text-decoration-none">
+              React vs. Vue，哪種前端框架比較好用？從三大面向談起
+            </a>
+          </h3>
         </div>
-        <div class="archives">
+      </div>
     
-    <article class="archive-article archive-type-post">
-  <div class="archive-article-inner">
-    <header class="archive-article-header">
-      <a href="/posts/react-vs-vue/" class="archive-article-date">
-  <time class="dt-published" datetime="2023-07-02T16:00:00.000Z" itemprop="datePublished">7月 3</time>
-</a>
-      
-  
-    <h1 itemprop="name">
-      <a class="archive-article-title" href="/posts/react-vs-vue/">React vs. Vue，哪種前端框架比較好用？從三大面向談起</a>
-    </h1>
+    
+        </div></section>
+    
   
 
-    </header>
-  </div>
-</article>
   
-  
-    </div></section>
-  
+</section>
 
+<style>
+  /* --- Archive頁專用樣式 --- */
+  .archive-year {
+    font-weight: 700;
+    letter-spacing: 2px;
+  }
 
+  .archive-posts .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+
+  .archive-posts .card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+  }
+
+  .archive-posts .card h3 a {
+    color: #333;
+    transition: color 0.3s ease;
+  }
+
+  .archive-posts .card h3 a:hover {
+    color: #0d6efd;
+    text-decoration: underline;
+  }
+  /* --- End Archive頁專用樣式 --- */
+</style>
 
 
   <footer
