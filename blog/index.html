@@ -33,6 +33,41 @@
   
 <link rel="stylesheet" href="/css/all.min.css">
 
+  
+  <script>
+    document.addEventListener("DOMContentLoaded", function () {
+      document.querySelectorAll('figure.highlight').forEach((block) => {
+        const button = document.createElement('button');
+        button.className = 'copy-btn';
+        button.textContent = '複製';
+  
+        block.style.position = 'relative';
+        button.style.position = 'absolute';
+        button.style.top = '0.5rem';
+        button.style.right = '0.5rem';
+        button.style.zIndex = '10';
+        button.style.padding = '4px 8px';
+        button.style.fontSize = '12px';
+        button.style.backgroundColor = '#007aff';
+        button.style.color = 'white';
+        button.style.border = 'none';
+        button.style.borderRadius = '4px';
+  
+        block.appendChild(button);
+  
+        button.addEventListener('click', () => {
+          const codeElement = block.querySelector('td.code');
+          if (codeElement) {
+            const codeText = codeElement.innerText;
+            navigator.clipboard.writeText(codeText).then(() => {
+              button.textContent = '已複製！';
+              setTimeout(() => button.textContent = '複製', 1500);
+            });
+          }
+        });
+      });
+    });
+  </script>
 <meta name="generator" content="Hexo 7.3.0"></head>
 
 <body>
@@ -131,7 +166,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
-            生成式AI應用 (3)
+            生成式AI應用 (4)
           </a>
         </li>
       
@@ -168,6 +203,118 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-7 row-gap-lg-9 gx-9 gx-lg-4 col-12 col-lg-9 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+<li
+  id="post-我受夠ChatGPT-4o的土色濾鏡了"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/default-cover.png"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        alt="article-我受夠ChatGPT 4o的土色濾鏡了。一行指令，讓AI別再把世界修成沙漠色"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2025/5/1
+            </small>
+          </p>
+
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          我受夠ChatGPT 4o的土色濾鏡了。一行指令，讓AI別再把世界修成沙漠色
+        </h5>
+        <div class="cutoff-text mb-0 text-primary-700">
+          <div class="iframe-wrapper">
+  <iframe 
+    src="https://gamma.app/embed/8ki95yae03wrg5u" 
+    title="我受夠ChatGPT 4o的土色濾鏡了" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+<p>我真心受不了那種「仿舊土黃感」。</p>
+<p>每次請 ChatGPT 幫我生成一張圖，尤其是人物或場景，第一眼看到的不是驚豔，是困惑——這顏色也太土了吧？整張圖像像是從 1998 年數位相機倒出來的：黃得像秋天枯葉、灰得像辦公室牆壁，連天空都喪失生氣。</p>
+<p>我試過各種 prompt 想要救它，什麼「vibrant color」「neutral tone」「realistic light」全丟進去，但還是土氣滿點。直到我發現：<strong>這不是我的錯，是它內建的風格偏好搞鬼。</strong></p>
+<h2 id="官方風格太「藝術片」，用戶只想要「真實世界」"><a href="#官方風格太「藝術片」，用戶只想要「真實世界」" class="headerlink" title="官方風格太「藝術片」，用戶只想要「真實世界」"></a>官方風格太「藝術片」，用戶只想要「真實世界」</h2><p>ChatGPT 4o 的圖像生成功能，預設走一種「電影感」「油畫風」「低飽和」的風格。說好聽是文藝，有品味；說白了就是：不適合日常使用。</p>
+<p>你想生成一張用在簡報的商業人物肖像？它給你一張像某種義大利獨立電影劇照的暗黃圖。</p>
+<p>你要一個快樂溫暖的家庭客廳？它修出來像晚秋英劇裡那種有點哀傷的回憶畫面。</p>
+<p><strong>不改設定，就別指望它懂你要的是現實生活感。</strong></p>
+<h2 id="色覺重置法：一行-prompt-解決一切"><a href="#色覺重置法：一行-prompt-解決一切" class="headerlink" title="色覺重置法：一行 prompt 解決一切"></a>色覺重置法：一行 prompt 解決一切</h2><p>名字很中二，但實在太好用了，我就叫它——<strong>「色覺重置法」</strong>。</p>
+<p>只要在第一次叫圖前，加上一句關鍵語：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">請建立之後所有的創作圖像，除非我有指明要求，一般都以正常色彩飽和度、中性色溫為主。</span><br></pre></td></tr></table></figure>
+
+<p>這句話就像對 ChatGPT 下咒語，從此它生成的圖像會自動帶有你要的色彩風格，不再默默套用它預設的美術濾鏡。</p>
+<h2 id="教學：三步搞定"><a href="#教學：三步搞定" class="headerlink" title="教學：三步搞定"></a>教學：三步搞定</h2><ol>
+<li><p><strong>打開 ChatGPT，切到圖像創作模式</strong></p>
+<ul>
+<li>不管是你要它畫人物、場景還是設計概念圖，只要是會生成圖片的都可以。</li>
+</ul>
+</li>
+<li><p><strong>先輸入「色覺重置法」這句指令</strong></p>
+<ul>
+<li>請建立之後所有的創作圖像，除非我有指明要求，一般都以正常色彩飽和度、中性色溫為主。</li>
+</ul>
+</li>
+<li><p><strong>再輸入你的正式需求</strong></p>
+<ul>
+<li>例：「請幫我畫一位穿著紅色風衣走在街頭的女性。」</li>
+</ul>
+</li>
+</ol>
+<h2 id="AB測試比較：效果一目了然"><a href="#AB測試比較：效果一目了然" class="headerlink" title="AB測試比較：效果一目了然"></a>AB測試比較：效果一目了然</h2><p>我做過一次 A&#x2F;B 測試，輸入完全一樣的內容，只差有沒有加那句「色覺重置法」。</p>
+<table>
+<thead>
+<tr>
+<th>項目</th>
+<th>沒加設定</th>
+<th>加上色覺重置法</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>膚色</td>
+<td>灰黃、不健康</td>
+<td>自然透亮</td>
+</tr>
+<tr>
+<td>衣物色彩</td>
+<td>鈍、沒對比</td>
+<td>飽和但真實</td>
+</tr>
+<tr>
+<td>整體氛圍</td>
+<td>像舊報紙照片</td>
+<td>像手機拍的好照片</td>
+</tr>
+</tbody></table>
+<h2 id="底層洞察：別讓AI的「審美偏見」綁架你"><a href="#底層洞察：別讓AI的「審美偏見」綁架你" class="headerlink" title="底層洞察：別讓AI的「審美偏見」綁架你"></a>底層洞察：別讓AI的「審美偏見」綁架你</h2><p>這其實是一個「預設值霸權」的問題。ChatGPT 的圖像生成，雖然強大，但預設審美其實帶有設計者的文化與美學偏好。</p>
+<p>不設限，你就會默默被它的「土色世界觀」洗腦，最後自己都以為世界本來就該長這樣。</p>
+<p><strong>我們要做的是奪回控制權，讓AI聽我們的，而不是當它的濾鏡奴隸。</strong></p>
+<h2 id="行動呼籲：讓色彩回到人類的世界"><a href="#行動呼籲：讓色彩回到人類的世界" class="headerlink" title="行動呼籲：讓色彩回到人類的世界"></a>行動呼籲：讓色彩回到人類的世界</h2><p>如果你也厭倦了每張AI圖像看起來像舊金山陰天下午4點的感覺，那就把「色覺重置法」加進你的日常 prompt 吧。</p>
+<p>你會發現：世界本來就是有光、有色、有溫度的。</p>
+<p>👇把這句貼起來、設成常用指令，下一張圖就會乾淨清爽不再土👇</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">請建立之後所有的創作圖像，除非我有指明要求，一般都以正常色彩飽和度、中性色溫為主。</span><br></pre></td></tr></table></figure>
+        </p>
+        <a class="stretched-link" href="/posts/%E6%88%91%E5%8F%97%E5%A4%A0ChatGPT-4o%E7%9A%84%E5%9C%9F%E8%89%B2%E6%BF%BE%E9%8F%A1%E4%BA%86/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -504,55 +651,6 @@
 
         </p>
         <a class="stretched-link" href="/posts/figma-dev-mode-part-two/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-<li
-  id="post-figma-dev-mode-part-one"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/article-image3.png"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        alt="article-給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2023/10/18
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              UI/UX 新知
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)
-        </h5>
-        <div class="cutoff-text mb-0 text-primary-700">
-          <p>身為工程師，除了精進開發技術、學習新框架、看更多的範例、刷更多的題，為了與其他團隊成員有效合作，也需要學習使用其他協作軟體，例如 Trello, Notion。 而如果是要跟設計師合作，目前最主要的就是使用 Figma了！Figma 是現在最主流的 UIUX 設計軟體，自從開創了「協作功能」之後，幾乎就是把 Adobe XD 和 Sketch 遠遠甩在後頭！</p>
-
-        </p>
-        <a class="stretched-link" href="/posts/figma-dev-mode-part-one/"></a>
       </div>
     </div>
   </article>
