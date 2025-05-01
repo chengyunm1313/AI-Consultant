@@ -4,19 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上) | AI個資保護顧問｜生成式AI行銷應用｜中小企業數位轉型｜徐享（享哥）</title>
+  <title>探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作 | AI個資保護顧問｜生成式AI行銷應用｜中小企業數位轉型｜徐享（享哥）</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="標題XXXXXXXXXXXXXX標題OOOOOOOOOOOOVision Pro 終於在 2024 年 2 月正式開賣，距離正式發表的 2023 年 6 月，已有半年時間。這半年間，各種質疑聲不斷冒出，例如「太貴了，這是做給投資家看的產品，不能真的大量生產」、「續航力明顯不足，電池太重，不利於隨身攜帶使用」、「隔絕現實世界，會更加深世代或人際關係的隔閡」。">
+  <meta name="description" content="微軟推出的《Generative AI for Beginners》課程，共 18 堂完整入門課程，從 LLM 原理、Prompt 工程到 AI 代理人與微調實作，零基礎也能全面掌握生成式 AI 技術。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="Vision Pro 登場！Vision Pro UI&#x2F;UX 設計重點大公開 (上)">
-<meta property="og:url" content="https://blog.es2idea.com/posts/vision-pro-ui-ux/">
+<meta property="og:title" content="探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作">
+<meta property="og:url" content="https://blog.es2idea.com/posts/%E5%BE%AE%E8%BB%9FGenerative-AI-for-Beginners%E5%AE%98%E6%96%B9%E8%AA%B2%E7%A8%8B/">
 <meta property="og:site_name" content="AI個資保護顧問｜生成式AI行銷應用｜中小企業數位轉型｜徐享（享哥）">
-<meta property="og:description" content="標題XXXXXXXXXXXXXX標題OOOOOOOOOOOOVision Pro 終於在 2024 年 2 月正式開賣，距離正式發表的 2023 年 6 月，已有半年時間。這半年間，各種質疑聲不斷冒出，例如「太貴了，這是做給投資家看的產品，不能真的大量生產」、「續航力明顯不足，電池太重，不利於隨身攜帶使用」、「隔絕現實世界，會更加深世代或人際關係的隔閡」。">
+<meta property="og:description" content="微軟推出的《Generative AI for Beginners》課程，共 18 堂完整入門課程，從 LLM 原理、Prompt 工程到 AI 代理人與微調實作，零基礎也能全面掌握生成式 AI 技術。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2024-02-09T16:00:00.000Z">
-<meta property="article:modified_time" content="2025-04-28T13:51:52.078Z">
+<meta property="article:published_time" content="2025-05-01T08:36:54.000Z">
+<meta property="article:modified_time" content="2025-05-01T08:49:16.811Z">
 <meta property="article:author" content="hsu hsiang">
-<meta property="article:tag" content="UI&#x2F;UX 新知">
+<meta property="article:tag" content="AI 教學">
+<meta property="article:tag" content="Prompt Engineering">
 <meta name="twitter:card" content="summary">
   
   
@@ -211,7 +212,7 @@
     <div class="d-flex flex-wrap gap-2">
       
         <div id="toc" class="toc-article">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A8%99%E9%A1%8CXXXXXXXXXXXXXX"><span class="toc-number">1.</span> <span class="toc-text">標題XXXXXXXXXXXXXX</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%A8%99%E9%A1%8COOOOOOOOOOOO"><span class="toc-number">1.1.</span> <span class="toc-text">標題OOOOOOOOOOOO</span></a></li></ol></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%B2%E7%A8%8B%E6%9E%B6%E6%A7%8B%E8%88%87%E4%B8%BB%E9%A1%8C%E4%BA%AE%E9%BB%9E"><span class="toc-number">1.</span> <span class="toc-text">課程架構與主題亮點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A7-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E8%88%87%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">🔧 開發環境與基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-%E5%BB%BA%E6%A7%8B%E6%A8%A1%E5%9E%8B%E6%87%89%E7%94%A8%E8%88%87%E5%80%AB%E7%90%86%E8%80%83%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">🤖 建構模型應用與倫理考量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F-%E5%90%84%E9%A1%9E%E5%9E%8B%E6%87%89%E7%94%A8%E9%96%8B%E7%99%BC%E5%AF%A6%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">✍️ 各類型應用開發實作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%84-%E7%B3%BB%E7%B5%B1%E6%95%B4%E5%90%88%E8%88%87%E9%AB%94%E9%A9%97%E5%84%AA%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">🔄 系統整合與體驗優化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-%E7%B6%AD%E9%81%8B%E6%B5%81%E7%A8%8B%E8%88%87%E6%A8%A1%E5%9E%8B%E5%BB%B6%E4%BC%B8"><span class="toc-number">1.5.</span> <span class="toc-text">📈 維運流程與模型延伸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E9%80%B2%E9%9A%8E%E6%99%BA%E8%83%BD%E8%88%87%E6%A8%A1%E5%9E%8B%E5%84%AA%E5%8C%96"><span class="toc-number">1.6.</span> <span class="toc-text">🧠 進階智能與模型優化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%BE%9E%E6%96%B0%E6%89%8B%E5%88%B0%E5%AF%A6%E6%88%B0%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84%E6%88%90%E9%95%B7%E4%B9%8B%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">結語：從新手到實戰開發者的成長之路</span></a></li></ol>
         </div>
       
     </div>
@@ -224,16 +225,60 @@
           <ol class="breadcrumb">
             
               <li class="breadcrumb-item text-primary-500">
-                <a class="text-primary-500 text-decoration-none" href="/tags/UI-UX-%E6%96%B0%E7%9F%A5/" rel="tag">UI/UX 新知</a>
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI-%E6%95%99%E5%AD%B8/" rel="tag">AI 教學</a>
 
               </li>
             
-            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2024/02/10 發佈</li>
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/05/01 發佈</li>
           </ol>
         </nav>
-        <h1 class="mb-3 mb-lg-4 fs-2 text-center">Vision Pro 登場！Vision Pro UI/UX 設計重點大公開 (上)</h1>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作</h1>
         
-        <h2 id="標題XXXXXXXXXXXXXX"><a href="#標題XXXXXXXXXXXXXX" class="headerlink" title="標題XXXXXXXXXXXXXX"></a>標題XXXXXXXXXXXXXX</h2><h3 id="標題OOOOOOOOOOOO"><a href="#標題OOOOOOOOOOOO" class="headerlink" title="標題OOOOOOOOOOOO"></a>標題OOOOOOOOOOOO</h3><p>Vision Pro 終於在 2024 年 2 月正式開賣，距離正式發表的 2023 年 6 月，已有半年時間。這半年間，各種質疑聲不斷冒出，例如「太貴了，這是做給投資家看的產品，不能真的大量生產」、「續航力明顯不足，電池太重，不利於隨身攜帶使用」、「隔絕現實世界，會更加深世代或人際關係的隔閡」。</p>
+        <div class="iframe-wrapper">
+  <iframe 
+    src="https://gamma.app/embed/5vkueg9etm6z9dt" 
+    title="探索 Microsoft《Generative AI for Beginners》" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+<p>在生成式 AI 正迅速重塑數位世界的今日，如何從零起步，扎實地學會這門技術，成為每位工程師與產品開發者的共同課題。針對此一趨勢，Microsoft Learn 推出了一套系統化的學習資源 ——《Generative AI for Beginners》系列課程。此系列共 18 堂精心設計的入門課，從基本觀念到實務應用，帶領學習者逐步建構完整的生成式 AI 能力圖譜。</p>
+<p>這套課程特別針對 <strong>零基礎學習者</strong> 設計，無論你是開發新手、產品經理，或是對生成式 AI 有興趣的技術愛好者，都能藉由這一系列循序漸進的教學內容，有效掌握從開發環境設置、Prompt 工程、模型應用，到 RAG、AI 代理人與 LLM 微調等進階技術。</p>
+<p>每一堂課不僅提供 <strong>理論講解</strong>，更搭配 <strong>實作程式碼、互動教學、實例參考</strong> 與 <strong>官方指南</strong>，幫助學員真正將所學應用於真實場景，快速進入生成式 AI 的開發實戰。</p>
+<h2 id="課程架構與主題亮點"><a href="#課程架構與主題亮點" class="headerlink" title="課程架構與主題亮點"></a>課程架構與主題亮點</h2><h3 id="🔧-開發環境與基礎概念"><a href="#🔧-開發環境與基礎概念" class="headerlink" title="🔧 開發環境與基礎概念"></a>🔧 開發環境與基礎概念</h3><ul>
+<li><strong>00｜Course Setup</strong>：教你如何建立開發環境，包括必要工具安裝與帳號設定。</li>
+<li><strong>01｜Introduction to Generative AI and LLMs</strong>：理解什麼是生成式 AI 與大型語言模型（LLM），探索其原理與實際應用場景。</li>
+<li><strong>02｜Exploring and Comparing Different LLMs</strong>：介紹各大 LLM 模型（如 GPT、Claude、Mistral 等）的差異與選擇建議。</li>
+</ul>
+<h3 id="🤖-建構模型應用與倫理考量"><a href="#🤖-建構模型應用與倫理考量" class="headerlink" title="🤖 建構模型應用與倫理考量"></a>🤖 建構模型應用與倫理考量</h3><ul>
+<li><strong>03｜Using Generative AI Responsibly</strong>：探討生成式 AI 的責任與倫理，包括偏誤偵測、隱私與合規議題。</li>
+<li><strong>04｜Understanding Prompt Engineering Fundamentals</strong>：Prompt 撰寫基礎，學會讓 AI 準確理解並生成內容。</li>
+<li><strong>05｜Creating Advanced Prompts</strong>：進階技巧如 Chain-of-Thought 推理與 Few-shot Prompt，提升 AI 回應品質與精準度。</li>
+</ul>
+<h3 id="✍️-各類型應用開發實作"><a href="#✍️-各類型應用開發實作" class="headerlink" title="✍️ 各類型應用開發實作"></a>✍️ 各類型應用開發實作</h3><ul>
+<li><strong>06｜Building Text Generation Applications</strong>：以 OpenAI API&#x2F;Azure OpenAI 實作文字生成應用。</li>
+<li><strong>07｜Building Chat Applications</strong>：設計對話式應用，探討狀態管理與多輪互動邏輯。</li>
+<li><strong>08｜Building Search Applications</strong>：結合向量資料庫與語意嵌入技術，打造 RAG 式搜尋應用。</li>
+<li><strong>09｜Building Image Generation Applications</strong>：整合 DALL·E 等影像模型，創建視覺生成應用。</li>
+<li><strong>10｜Building Low Code AI Applications</strong>：以 Power Apps 等工具進行低程式碼開發。</li>
+</ul>
+<h3 id="🔄-系統整合與體驗優化"><a href="#🔄-系統整合與體驗優化" class="headerlink" title="🔄 系統整合與體驗優化"></a>🔄 系統整合與體驗優化</h3><ul>
+<li><strong>11｜Integrating External Applications with Function Calling</strong>：實作 Function Calling，連結外部 API。</li>
+<li><strong>12｜Designing UX for AI Applications</strong>：強化使用者體驗，關注互動與可解釋性設計。</li>
+<li><strong>13｜Securing Your Generative AI Applications</strong>：導入資安策略，避免模型濫用與資料外洩。</li>
+</ul>
+<h3 id="📈-維運流程與模型延伸"><a href="#📈-維運流程與模型延伸" class="headerlink" title="📈 維運流程與模型延伸"></a>📈 維運流程與模型延伸</h3><ul>
+<li><strong>14｜The Generative AI Application Lifecycle</strong>：介紹 LLMOps 流程，監控與維護模型效能。</li>
+<li><strong>15｜Retrieval-Augmented Generation (RAG) and Vector Databases</strong>：結合語意搜尋與文件生成的完整流程。</li>
+<li><strong>16｜Open Source Models and Hugging Face</strong>：探索開源模型與 Hugging Face 生態系整合方式。</li>
+</ul>
+<h3 id="🧠-進階智能與模型優化"><a href="#🧠-進階智能與模型優化" class="headerlink" title="🧠 進階智能與模型優化"></a>🧠 進階智能與模型優化</h3><ul>
+<li><strong>17｜AI Agents</strong>：構建自主任務型 AI 代理人，多代理協作與決策實作。</li>
+<li><strong>18｜Fine-Tuning LLMs</strong>：學習模型微調，提升特定任務表現。</li>
+</ul>
+<h2 id="結語：從新手到實戰開發者的成長之路"><a href="#結語：從新手到實戰開發者的成長之路" class="headerlink" title="結語：從新手到實戰開發者的成長之路"></a>結語：從新手到實戰開發者的成長之路</h2><p>《Generative AI for Beginners》不只是入門課，更是一條實務導向的技術養成路徑。它不僅讓學員理解「如何操作 AI」，更深入思考「如何設計有用、可靠且負責任的 AI 系統」。</p>
+<p>無論你是想提升競爭力的開發者、跨足 AI 領域的產品經理，或是單純對這股技術浪潮感興趣的探索者，這 18 堂課都是你進入生成式 AI 世界的最佳起點。</p>
+<p>👉 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/shows/generative-ai-for-beginners/?fbclid=IwY2xjawKAD0hleHRuA2FlbQIxMQABHi2ZtncenAzmHttWn9p46_-NlpXGvhPBao1VL7GVE7EgA5yIaBgc6kkf3MTG_aem_2y5YTCnjskLNQ7D4hfwJYQ">立即前往官方課程頁面開始學習</a></p>
 
 
         
@@ -247,37 +292,7 @@
       
         
           
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/article-image2.png" class="img-fluid card-img-top rounded-3" alt="給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (下)">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (下)</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">UI/UX 新知</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2023/11/20</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/figma-dev-mode-part-two/"></a>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/article-image3.png" class="img-fluid card-img-top rounded-3" alt="給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">給設計師和工程師的 Figma-Dev Mode 開發模式使用指南 (上)</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">UI/UX 新知</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2023/10/18</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/figma-dev-mode-part-one/"></a>
-                </div>
-              </div>
-            </div>
+        
           
         
       
