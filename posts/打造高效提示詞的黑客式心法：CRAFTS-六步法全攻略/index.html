@@ -4,20 +4,20 @@
   <meta charset="utf-8">
   
   
-  <title>探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作 | 生成式AI行銷應用 | 個資保護顧問 | 徐享（享哥）</title>
+  <title>打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略 | 生成式AI行銷應用 | 個資保護顧問 | 徐享（享哥）</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="微軟推出的《Generative AI for Beginners》課程，共 18 堂完整入門課程，從 LLM 原理、Prompt 工程到 AI 代理人與微調實作，零基礎也能全面掌握生成式 AI 技術。">
+  <meta name="description" content="明明 AI 很聰明，為什麼老是答非所問？你是不是也有過這種挫折感？精心打了一行問題丟給 ChatGPT，結果對方回了一堆八股空話，或是跟你想的根本南轅北轍。你懷疑，是不是 AI 還不夠聰明？ 事實上，問題不在 AI，而在「你給的提示詞」太模糊、不夠具體。就像請一個高手幫忙畫畫，但你卻只丟一句「畫一個人」，畫出來不滿意也是剛好而已。 我自己一開始也在這個坑裡跌跌撞撞，直到我歸納出一">
 <meta property="og:type" content="article">
-<meta property="og:title" content="探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作">
-<meta property="og:url" content="https://blog.es2idea.com/posts/%E5%BE%AE%E8%BB%9FGenerative-AI-for-Beginners%E5%AE%98%E6%96%B9%E8%AA%B2%E7%A8%8B/">
+<meta property="og:title" content="打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略">
+<meta property="og:url" content="https://blog.es2idea.com/posts/%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%9A%84%E9%BB%91%E5%AE%A2%E5%BC%8F%E5%BF%83%E6%B3%95%EF%BC%9ACRAFTS-%E5%85%AD%E6%AD%A5%E6%B3%95%E5%85%A8%E6%94%BB%E7%95%A5/">
 <meta property="og:site_name" content="生成式AI行銷應用 | 個資保護顧問 | 徐享（享哥）">
-<meta property="og:description" content="微軟推出的《Generative AI for Beginners》課程，共 18 堂完整入門課程，從 LLM 原理、Prompt 工程到 AI 代理人與微調實作，零基礎也能全面掌握生成式 AI 技術。">
+<meta property="og:description" content="明明 AI 很聰明，為什麼老是答非所問？你是不是也有過這種挫折感？精心打了一行問題丟給 ChatGPT，結果對方回了一堆八股空話，或是跟你想的根本南轅北轍。你懷疑，是不是 AI 還不夠聰明？ 事實上，問題不在 AI，而在「你給的提示詞」太模糊、不夠具體。就像請一個高手幫忙畫畫，但你卻只丟一句「畫一個人」，畫出來不滿意也是剛好而已。 我自己一開始也在這個坑裡跌跌撞撞，直到我歸納出一">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-05-01T08:36:54.000Z">
-<meta property="article:modified_time" content="2025-05-04T11:29:54.522Z">
+<meta property="article:published_time" content="2025-05-06T10:27:01.000Z">
+<meta property="article:modified_time" content="2025-05-06T11:14:11.087Z">
 <meta property="article:author" content="hsu hsiang">
 <meta property="article:tag" content="提示工程">
-<meta property="article:tag" content="AI 線上課程">
+<meta property="article:tag" content="提示詞設計">
 <meta name="twitter:card" content="summary">
   
   
@@ -261,7 +261,7 @@
       <h3 class="mb-4 text-primary-700">文章目錄</h3>
       <div class="d-flex flex-wrap gap-2">
         <div id="toc" class="toc-article">
-          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%AA%B2%E7%A8%8B%E6%9E%B6%E6%A7%8B%E8%88%87%E4%B8%BB%E9%A1%8C%E4%BA%AE%E9%BB%9E"><span class="toc-number">1.</span> <span class="toc-text">課程架構與主題亮點</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%A7-%E9%96%8B%E7%99%BC%E7%92%B0%E5%A2%83%E8%88%87%E5%9F%BA%E7%A4%8E%E6%A6%82%E5%BF%B5"><span class="toc-number">1.1.</span> <span class="toc-text">🔧 開發環境與基礎概念</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A4%96-%E5%BB%BA%E6%A7%8B%E6%A8%A1%E5%9E%8B%E6%87%89%E7%94%A8%E8%88%87%E5%80%AB%E7%90%86%E8%80%83%E9%87%8F"><span class="toc-number">1.2.</span> <span class="toc-text">🤖 建構模型應用與倫理考量</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%8D%EF%B8%8F-%E5%90%84%E9%A1%9E%E5%9E%8B%E6%87%89%E7%94%A8%E9%96%8B%E7%99%BC%E5%AF%A6%E4%BD%9C"><span class="toc-number">1.3.</span> <span class="toc-text">✍️ 各類型應用開發實作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%84-%E7%B3%BB%E7%B5%B1%E6%95%B4%E5%90%88%E8%88%87%E9%AB%94%E9%A9%97%E5%84%AA%E5%8C%96"><span class="toc-number">1.4.</span> <span class="toc-text">🔄 系統整合與體驗優化</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%93%88-%E7%B6%AD%E9%81%8B%E6%B5%81%E7%A8%8B%E8%88%87%E6%A8%A1%E5%9E%8B%E5%BB%B6%E4%BC%B8"><span class="toc-number">1.5.</span> <span class="toc-text">📈 維運流程與模型延伸</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-%E9%80%B2%E9%9A%8E%E6%99%BA%E8%83%BD%E8%88%87%E6%A8%A1%E5%9E%8B%E5%84%AA%E5%8C%96"><span class="toc-number">1.6.</span> <span class="toc-text">🧠 進階智能與模型優化</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%BE%9E%E6%96%B0%E6%89%8B%E5%88%B0%E5%AF%A6%E6%88%B0%E9%96%8B%E7%99%BC%E8%80%85%E7%9A%84%E6%88%90%E9%95%B7%E4%B9%8B%E8%B7%AF"><span class="toc-number">2.</span> <span class="toc-text">結語：從新手到實戰開發者的成長之路</span></a></li></ol>
+          <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%98%8E%E6%98%8E-AI-%E5%BE%88%E8%81%B0%E6%98%8E%EF%BC%8C%E7%82%BA%E4%BB%80%E9%BA%BC%E8%80%81%E6%98%AF%E7%AD%94%E9%9D%9E%E6%89%80%E5%95%8F%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">明明 AI 很聰明，為什麼老是答非所問？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%8C%AF%E8%AA%A4%E7%A4%BA%E7%AF%84%EF%BC%9A%E4%BD%A0%E4%B8%8D%E6%98%AF%E5%9C%A8%E5%AF%AB%E6%8F%90%E7%A4%BA%E8%A9%9E%EF%BC%8C%E4%BD%A0%E6%98%AF%E5%9C%A8%E8%80%8D%E7%8C%9C%E8%AC%8E"><span class="toc-number">2.</span> <span class="toc-text">錯誤示範：你不是在寫提示詞，你是在耍猜謎</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRAFTS-%E6%8F%90%E7%A4%BA%E8%A9%9E%E5%85%AD%E6%AD%A5%E6%B3%95%EF%BC%9A%E5%AF%AB%E5%87%BA%E7%B2%BE%E6%BA%96%E9%AB%98%E6%95%88-AI-%E6%8C%87%E4%BB%A4%E7%9A%84%E7%A7%98%E5%AF%86"><span class="toc-number">3.</span> <span class="toc-text">CRAFTS 提示詞六步法：寫出精準高效 AI 指令的秘密</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#C-Context%EF%BC%88%E8%84%88%E7%B5%A1%EF%BC%89"><span class="toc-number">3.1.</span> <span class="toc-text">C - Context（脈絡）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#R-Role%EF%BC%88%E8%A7%92%E8%89%B2%EF%BC%89"><span class="toc-number">3.2.</span> <span class="toc-text">R - Role（角色）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#A-Assignment%EF%BC%88%E4%BB%BB%E5%8B%99%EF%BC%89"><span class="toc-number">3.3.</span> <span class="toc-text">A - Assignment（任務）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#F-Format%EF%BC%88%E6%A0%BC%E5%BC%8F%EF%BC%89"><span class="toc-number">3.4.</span> <span class="toc-text">F - Format（格式）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#T-Tone-Example%EF%BC%88%E8%AA%9E%E6%B0%A3%EF%BC%8F%E7%AF%84%E4%BE%8B%EF%BC%89"><span class="toc-number">3.5.</span> <span class="toc-text">T - Tone &#x2F; Example（語氣／範例）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#S-Step-by-step%EF%BC%88%E5%A4%9A%E8%BC%AA%E8%BF%AD%E4%BB%A3%EF%BC%89"><span class="toc-number">3.6.</span> <span class="toc-text">S - Step-by-step（多輪迭代）</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#CRAFTS-%E5%B0%8F%E6%8A%84%E9%80%9F%E8%A8%98%E8%A1%A8"><span class="toc-number">4.</span> <span class="toc-text">CRAFTS 小抄速記表</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%8F%A5%E8%A9%B1%E6%8F%90%E7%A4%BA%E8%A9%9E%E8%90%AC%E7%94%A8%E6%A8%A1%E6%9D%BF%EF%BC%88%E5%A5%97%E4%B8%8A%E5%8E%BB%E5%B0%B1%E8%83%BD%E7%94%A8%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">一句話提示詞萬用模板（套上去就能用）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AF%84%E4%BE%8B%E8%BD%89%E6%8F%9B%E5%B0%8D%E6%AF%94"><span class="toc-number">5.1.</span> <span class="toc-text">範例轉換對比</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%9D%E7%B6%AD%E6%A0%B8%E5%BF%83%EF%BC%9A%E6%8F%90%E7%A4%BA%E8%A9%9E-%E2%89%A0-%E6%8C%87%E4%BB%A4%EF%BC%8C%E8%80%8C%E6%98%AF%E4%BB%8B%E9%9D%A2%E8%A8%AD%E8%A8%88"><span class="toc-number">6.</span> <span class="toc-text">思維核心：提示詞 ≠ 指令，而是介面設計</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E6%8F%90%E7%A4%BA%E8%A9%9E%E5%AF%AB%E5%BE%97%E5%A5%BD%EF%BC%8CAI-%E5%B9%AB%E5%88%B0%E9%A3%BD"><span class="toc-number">7.</span> <span class="toc-text">結語：提示詞寫得好，AI 幫到飽</span></a></li></ol>
         </div>
       </div>
     </div>
@@ -274,60 +274,140 @@
           <ol class="breadcrumb">
             
               <li class="breadcrumb-item text-primary-500">
-                <a class="text-primary-500 text-decoration-none" href="/tags/AI-%E7%B7%9A%E4%B8%8A%E8%AA%B2%E7%A8%8B/" rel="tag">AI 線上課程</a>
+                <a class="text-primary-500 text-decoration-none" href="/tags/%E6%8F%90%E7%A4%BA%E5%B7%A5%E7%A8%8B/" rel="tag">提示工程</a>
 
               </li>
             
-            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/05/01 發佈</li>
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/05/06 發佈</li>
           </ol>
         </nav>
-        <h1 class="mb-3 mb-lg-4 fs-2 text-center">探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作</h1>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 再也不用瞎猜怎麼問 ChatGPT，學會這套提示詞心法，效率 x10 倍 -</h4>
         
         <div class="iframe-wrapper">
   <iframe 
-    src="https://gamma.app/embed/5vkueg9etm6z9dt" 
-    title="探索 Microsoft《Generative AI for Beginners》" 
+    src="https://gamma.app/embed/jwedwqwiurjlnb8" 
+    title="打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略" 
     allow="fullscreen">
   </iframe>
 </div>
 
-<p>在生成式 AI 正迅速重塑數位世界的今日，如何從零起步，扎實地學會這門技術，成為每位工程師與產品開發者的共同課題。針對此一趨勢，Microsoft Learn 推出了一套系統化的學習資源 ——《Generative AI for Beginners》系列課程。此系列共 18 堂精心設計的入門課，從基本觀念到實務應用，帶領學習者逐步建構完整的生成式 AI 能力圖譜。</p>
-<p>這套課程特別針對 <strong>零基礎學習者</strong> 設計，無論你是開發新手、產品經理，或是對生成式 AI 有興趣的技術愛好者，都能藉由這一系列循序漸進的教學內容，有效掌握從開發環境設置、Prompt 工程、模型應用，到 RAG、AI 代理人與 LLM 微調等進階技術。</p>
-<p>每一堂課不僅提供 <strong>理論講解</strong>，更搭配 <strong>實作程式碼、互動教學、實例參考</strong> 與 <strong>官方指南</strong>，幫助學員真正將所學應用於真實場景，快速進入生成式 AI 的開發實戰。</p>
-<h2 id="課程架構與主題亮點"><a href="#課程架構與主題亮點" class="headerlink" title="課程架構與主題亮點"></a>課程架構與主題亮點</h2><h3 id="🔧-開發環境與基礎概念"><a href="#🔧-開發環境與基礎概念" class="headerlink" title="🔧 開發環境與基礎概念"></a>🔧 開發環境與基礎概念</h3><ul>
-<li><strong>00｜Course Setup</strong>：教你如何建立開發環境，包括必要工具安裝與帳號設定。</li>
-<li><strong>01｜Introduction to Generative AI and LLMs</strong>：理解什麼是生成式 AI 與大型語言模型（LLM），探索其原理與實際應用場景。</li>
-<li><strong>02｜Exploring and Comparing Different LLMs</strong>：介紹各大 LLM 模型（如 GPT、Claude、Mistral 等）的差異與選擇建議。</li>
+<h2 id="明明-AI-很聰明，為什麼老是答非所問？"><a href="#明明-AI-很聰明，為什麼老是答非所問？" class="headerlink" title="明明 AI 很聰明，為什麼老是答非所問？"></a>明明 AI 很聰明，為什麼老是答非所問？</h2><p>你是不是也有過這種挫折感？精心打了一行問題丟給 ChatGPT，結果對方回了一堆八股空話，或是跟你想的根本南轅北轍。你懷疑，是不是 AI 還不夠聰明？</p>
+<p>事實上，問題不在 AI，而在「你給的提示詞」太模糊、不夠具體。就像請一個高手幫忙畫畫，但你卻只丟一句「畫一個人」，畫出來不滿意也是剛好而已。</p>
+<p>我自己一開始也在這個坑裡跌跌撞撞，直到我歸納出一套方法——<strong>CRAFTS 提示詞六步法</strong>。從此以後，問一次就中、產出一次就讚。</p>
+<h2 id="錯誤示範：你不是在寫提示詞，你是在耍猜謎"><a href="#錯誤示範：你不是在寫提示詞，你是在耍猜謎" class="headerlink" title="錯誤示範：你不是在寫提示詞，你是在耍猜謎"></a>錯誤示範：你不是在寫提示詞，你是在耍猜謎</h2><p>多數人對 ChatGPT 的提示詞長這樣：</p>
+<ul>
+<li>幫我寫一篇文章  </li>
+<li>整理一下這些重點  </li>
+<li>給我一個點子</li>
 </ul>
-<h3 id="🤖-建構模型應用與倫理考量"><a href="#🤖-建構模型應用與倫理考量" class="headerlink" title="🤖 建構模型應用與倫理考量"></a>🤖 建構模型應用與倫理考量</h3><ul>
-<li><strong>03｜Using Generative AI Responsibly</strong>：探討生成式 AI 的責任與倫理，包括偏誤偵測、隱私與合規議題。</li>
-<li><strong>04｜Understanding Prompt Engineering Fundamentals</strong>：Prompt 撰寫基礎，學會讓 AI 準確理解並生成內容。</li>
-<li><strong>05｜Creating Advanced Prompts</strong>：進階技巧如 Chain-of-Thought 推理與 Few-shot Prompt，提升 AI 回應品質與精準度。</li>
-</ul>
-<h3 id="✍️-各類型應用開發實作"><a href="#✍️-各類型應用開發實作" class="headerlink" title="✍️ 各類型應用開發實作"></a>✍️ 各類型應用開發實作</h3><ul>
-<li><strong>06｜Building Text Generation Applications</strong>：以 OpenAI API&#x2F;Azure OpenAI 實作文字生成應用。</li>
-<li><strong>07｜Building Chat Applications</strong>：設計對話式應用，探討狀態管理與多輪互動邏輯。</li>
-<li><strong>08｜Building Search Applications</strong>：結合向量資料庫與語意嵌入技術，打造 RAG 式搜尋應用。</li>
-<li><strong>09｜Building Image Generation Applications</strong>：整合 DALL·E 等影像模型，創建視覺生成應用。</li>
-<li><strong>10｜Building Low Code AI Applications</strong>：以 Power Apps 等工具進行低程式碼開發。</li>
-</ul>
-<h3 id="🔄-系統整合與體驗優化"><a href="#🔄-系統整合與體驗優化" class="headerlink" title="🔄 系統整合與體驗優化"></a>🔄 系統整合與體驗優化</h3><ul>
-<li><strong>11｜Integrating External Applications with Function Calling</strong>：實作 Function Calling，連結外部 API。</li>
-<li><strong>12｜Designing UX for AI Applications</strong>：強化使用者體驗，關注互動與可解釋性設計。</li>
-<li><strong>13｜Securing Your Generative AI Applications</strong>：導入資安策略，避免模型濫用與資料外洩。</li>
-</ul>
-<h3 id="📈-維運流程與模型延伸"><a href="#📈-維運流程與模型延伸" class="headerlink" title="📈 維運流程與模型延伸"></a>📈 維運流程與模型延伸</h3><ul>
-<li><strong>14｜The Generative AI Application Lifecycle</strong>：介紹 LLMOps 流程，監控與維護模型效能。</li>
-<li><strong>15｜Retrieval-Augmented Generation (RAG) and Vector Databases</strong>：結合語意搜尋與文件生成的完整流程。</li>
-<li><strong>16｜Open Source Models and Hugging Face</strong>：探索開源模型與 Hugging Face 生態系整合方式。</li>
-</ul>
-<h3 id="🧠-進階智能與模型優化"><a href="#🧠-進階智能與模型優化" class="headerlink" title="🧠 進階智能與模型優化"></a>🧠 進階智能與模型優化</h3><ul>
-<li><strong>17｜AI Agents</strong>：構建自主任務型 AI 代理人，多代理協作與決策實作。</li>
-<li><strong>18｜Fine-Tuning LLMs</strong>：學習模型微調，提升特定任務表現。</li>
-</ul>
-<h2 id="結語：從新手到實戰開發者的成長之路"><a href="#結語：從新手到實戰開發者的成長之路" class="headerlink" title="結語：從新手到實戰開發者的成長之路"></a>結語：從新手到實戰開發者的成長之路</h2><p>《Generative AI for Beginners》不只是入門課，更是一條實務導向的技術養成路徑。它不僅讓學員理解「如何操作 AI」，更深入思考「如何設計有用、可靠且負責任的 AI 系統」。</p>
-<p>無論你是想提升競爭力的開發者、跨足 AI 領域的產品經理，或是單純對這股技術浪潮感興趣的探索者，這 18 堂課都是你進入生成式 AI 世界的最佳起點。</p>
-<p>👉 <a target="_blank" rel="noopener" href="https://learn.microsoft.com/en-us/shows/generative-ai-for-beginners/?fbclid=IwY2xjawKAD0hleHRuA2FlbQIxMQABHi2ZtncenAzmHttWn9p46_-NlpXGvhPBao1VL7GVE7EgA5yIaBgc6kkf3MTG_aem_2y5YTCnjskLNQ7D4hfwJYQ">立即前往官方課程頁面開始學習</a></p>
+<p>這些話對人講還勉強通，但 AI 可不是讀心術大師。你沒有給它背景、角色、目標、語氣，它就只能靠自己瞎猜，然後你又說：「AI 怎麼這麼爛？」</p>
+<p>如果你也常陷入這種對話困境，是時候進入提示詞設計的進階領域了。</p>
+<h2 id="CRAFTS-提示詞六步法：寫出精準高效-AI-指令的秘密"><a href="#CRAFTS-提示詞六步法：寫出精準高效-AI-指令的秘密" class="headerlink" title="CRAFTS 提示詞六步法：寫出精準高效 AI 指令的秘密"></a>CRAFTS 提示詞六步法：寫出精準高效 AI 指令的秘密</h2><p>CRAFTS 是一套提示詞設計原則，它把寫提示詞這件事，變成像工匠雕刻作品一樣，有步驟、有邏輯、有成果。</p>
+<p>每一個字母代表一個核心關鍵：</p>
+<h3 id="C-Context（脈絡）"><a href="#C-Context（脈絡）" class="headerlink" title="C - Context（脈絡）"></a>C - Context（脈絡）</h3><p>說明你提問的背景。讓 AI 進入情境，像演員進入劇本。</p>
+<p>👉 例：這是一場大學課堂報告，我需要做出一份10分鐘的簡報。</p>
+<h3 id="R-Role（角色）"><a href="#R-Role（角色）" class="headerlink" title="R - Role（角色）"></a>R - Role（角色）</h3><p>指定 AI 的角色。醫生、行銷總監、歷史學家，每個身份會帶出不同風格與專業。</p>
+<p>👉 例：你是一位資深 B2B SaaS 業務顧問。</p>
+<h3 id="A-Assignment（任務）"><a href="#A-Assignment（任務）" class="headerlink" title="A - Assignment（任務）"></a>A - Assignment（任務）</h3><p>清楚說明你要 AI 做什麼，不要模糊不清。</p>
+<p>👉 例：請你根據用戶行為數據，提出三種再行銷策略。</p>
+<h3 id="F-Format（格式）"><a href="#F-Format（格式）" class="headerlink" title="F - Format（格式）"></a>F - Format（格式）</h3><p>你希望 AI 用什麼格式回答？清單、段落、表格、劇本……先講清楚！</p>
+<p>👉 例：請用表格方式呈現每一個策略的對應行動與目標族群。</p>
+<h3 id="T-Tone-Example（語氣／範例）"><a href="#T-Tone-Example（語氣／範例）" class="headerlink" title="T - Tone &#x2F; Example（語氣／範例）"></a>T - Tone &#x2F; Example（語氣／範例）</h3><p>告訴 AI 你喜歡什麼風格，越具體越好，也可以提供參考範例。</p>
+<p>👉 例：請用 Notion 官方網站那種親切清爽又具專業感的語氣。</p>
+<h3 id="S-Step-by-step（多輪迭代）"><a href="#S-Step-by-step（多輪迭代）" class="headerlink" title="S - Step-by-step（多輪迭代）"></a>S - Step-by-step（多輪迭代）</h3><p>好提示詞不應只打一發就走。請 AI 先草擬，再一步步調整、優化，才會做出最適合你的版本。</p>
+<p>👉 例：先給我一個初稿，我會再指出修改重點。</p>
+<h2 id="CRAFTS-小抄速記表"><a href="#CRAFTS-小抄速記表" class="headerlink" title="CRAFTS 小抄速記表"></a>CRAFTS 小抄速記表</h2><table>
+<thead>
+<tr>
+<th>步驟</th>
+<th>問自己什麼問題？</th>
+<th>例子簡記</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>C</td>
+<td>發生在什麼情境？誰會用這東西？</td>
+<td>這是大學簡報，要給教授看</td>
+</tr>
+<tr>
+<td>R</td>
+<td>我希望 AI 是誰？</td>
+<td>你是資深品牌策略顧問</td>
+</tr>
+<tr>
+<td>A</td>
+<td>我要它幹嘛？具體任務是什麼？</td>
+<td>幫我寫一段品牌故事</td>
+</tr>
+<tr>
+<td>F</td>
+<td>希望輸出成什麼形式？</td>
+<td>用三段式說故事法</td>
+</tr>
+<tr>
+<td>T</td>
+<td>希望 AI 用什麼語氣或風格說？</td>
+<td>模仿 Airbnb 網站語氣</td>
+</tr>
+<tr>
+<td>S</td>
+<td>要不要分段完成、先出初稿？</td>
+<td>請先給草稿，我會回饋調整</td>
+</tr>
+</tbody></table>
+<h2 id="一句話提示詞萬用模板（套上去就能用）"><a href="#一句話提示詞萬用模板（套上去就能用）" class="headerlink" title="一句話提示詞萬用模板（套上去就能用）"></a>一句話提示詞萬用模板（套上去就能用）</h2><p>這是一個萬用句型，直接照抄也能變專家：</p>
+<p><code>你是 **[角色]**，我需要你在 **[脈絡]** 下，幫我完成以下任務：請 **[任務內容]**，格式為 **[格式要求]**，語氣風格請參考：**[語氣描述或範例]**。如果可以，請分步執行或提出初稿供我調整。</code></p>
+<h3 id="範例轉換對比"><a href="#範例轉換對比" class="headerlink" title="範例轉換對比"></a>範例轉換對比</h3><p><strong>普通提示詞：</strong></p>
+<blockquote>
+<p>幫我寫一封產品行銷 Email</p>
+</blockquote>
+<p><strong>CRAFTS 提示詞：</strong></p>
+<blockquote>
+<p>你是資深行銷總監，我們要推廣一款智慧手錶給 25~35 歲的科技族。請寫一封產品行銷 Email，內容包含吸睛開頭、兩大特色說明與一個行動呼籲。語氣參考 Apple 官網那種簡約俐落風。請先提供兩個版本讓我挑。</p>
+</blockquote>
+<p>試過你就知道，後者命中率高得嚇人。</p>
+<h2 id="思維核心：提示詞-≠-指令，而是介面設計"><a href="#思維核心：提示詞-≠-指令，而是介面設計" class="headerlink" title="思維核心：提示詞 ≠ 指令，而是介面設計"></a>思維核心：提示詞 ≠ 指令，而是介面設計</h2><p>CRAFTS 的精髓，是把「提示詞」當作一種<strong>人機介面的設計語言</strong>。</p>
+<p>你不是在下命令，而是在幫助 AI 建構一個清晰的世界觀。這會大幅提升它的輸出品質與效率。</p>
+<p>簡單對照一下心法：</p>
+<table>
+<thead>
+<tr>
+<th>常見錯誤</th>
+<th>CRAFTS 優化後</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>廣泛模糊</td>
+<td>精準定位（Context）</td>
+</tr>
+<tr>
+<td>沒有身分感</td>
+<td>明確角色（Role）</td>
+</tr>
+<tr>
+<td>交代不清</td>
+<td>清楚任務（Assignment）</td>
+</tr>
+<tr>
+<td>沒有框架</td>
+<td>明示格式（Format）</td>
+</tr>
+<tr>
+<td>主觀不一</td>
+<td>給參考語氣（Tone）</td>
+</tr>
+<tr>
+<td>一次搞定</td>
+<td>多輪優化（Step-by-step）</td>
+</tr>
+</tbody></table>
+<h2 id="結語：提示詞寫得好，AI-幫到飽"><a href="#結語：提示詞寫得好，AI-幫到飽" class="headerlink" title="結語：提示詞寫得好，AI 幫到飽"></a>結語：提示詞寫得好，AI 幫到飽</h2><p>AI 本來就不是會讀心的神，而是會回應<strong>清楚任務設計</strong>的工具。寫提示詞，就像設計使用者介面。越細緻、越具體，越能釋放 AI 真正的潛力。</p>
+<p>從今天起，丟掉「隨便問、隨便錯」的壞習慣，記住這六個字母：</p>
+<p><strong>CRAFTS：Context、Role、Assignment、Format、Tone、Step-by-step</strong></p>
+<p>學會這套提示詞心法，你就能真正成為用 AI 的高手。</p>
+<p>#CRAFTS提示詞 #ChatGPT寫作術 #AI提示工程 #提示詞優化</p>
 
 
         
@@ -343,18 +423,18 @@
           
             <div class="col-12 col-md-6 col-lg-4">
               <div class="card border-0">
-                <img src="/images/cover10.png" class="img-fluid card-img-top rounded-3" alt="打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略">
+                <img src="/images/cover5.png" class="img-fluid card-img-top rounded-3" alt="探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作">
                 <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">打造高效提示詞的黑客式心法：CRAFTS 六步法全攻略</h5>
+                  <h5 class="card-title mb-3 text-primary-700">探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作</h5>
                   <div class="d-flex justify-content-between align-items-center">
                     
                       <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">提示工程</span>
                     
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">提示詞設計</span>
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI 線上課程</span>
                     
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/06</small></p>
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/01</small></p>
                   </div>
-                  <a class="stretched-link" href="/posts/%E6%89%93%E9%80%A0%E9%AB%98%E6%95%88%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%9A%84%E9%BB%91%E5%AE%A2%E5%BC%8F%E5%BF%83%E6%B3%95%EF%BC%9ACRAFTS-%E5%85%AD%E6%AD%A5%E6%B3%95%E5%85%A8%E6%94%BB%E7%95%A5/"></a>
+                  <a class="stretched-link" href="/posts/%E5%BE%AE%E8%BB%9FGenerative-AI-for-Beginners%E5%AE%98%E6%96%B9%E8%AA%B2%E7%A8%8B/"></a>
                 </div>
               </div>
             </div>
