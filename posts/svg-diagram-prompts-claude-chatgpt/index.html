@@ -1,0 +1,579 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>教你用提示詞讓 Claude 或 ChatGPT 生成 SVG 圖表 | 生成式AI應用規劃師 | 徐享</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/svg-diagram-prompts-claude-chatgpt/">
+  <meta name="description" content="想讓 AI 幫你畫出漂亮的知識圖解？這篇教你用提示詞快速生成 SVG 圖表，支援 ChatGPT 與 Claude，還能直接在線上編輯！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="教你用提示詞讓 Claude 或 ChatGPT 生成 SVG 圖表">
+<meta property="og:url" content="https://blog.es2idea.com/posts/svg-diagram-prompts-claude-chatgpt/">
+<meta property="og:site_name" content="生成式AI應用規劃師 | 徐享">
+<meta property="og:description" content="想讓 AI 幫你畫出漂亮的知識圖解？這篇教你用提示詞快速生成 SVG 圖表，支援 ChatGPT 與 Claude，還能直接在線上編輯！">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-06-09T07:16:18.000Z">
+<meta property="article:modified_time" content="2025-06-09T08:26:16.507Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI繪圖">
+<meta property="article:tag" content="Claude 教學">
+<meta name="twitter:card" content="summary">
+  
+    <meta property="og:image" content="/images/hero-lg.webp">
+  
+  
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Tourney&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+  <script src="/js/copy-code.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header
+    class="py-md-4 border-bottom border-primary-200"
+    style="margin-bottom: 1px;"
+  >
+  <nav class="navbar navbar-expand-md py-md-1">
+    <div class="container">
+      <a class="navbar-brand py-0 me-3" style="min-width: 120px;" href="/">
+        <img src="/images/es2idea-logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+          
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/"
+              >
+                <span class="position-relative px-2 py-1">首頁</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/blog"
+              >
+                <span class="position-relative px-2 py-1">部落格</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/generative-ai-planning/"
+              >
+                <span class="position-relative px-2 py-1">生成式AI應用規劃</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/ai-virtual-avatar-marketing/"
+              >
+                <span class="position-relative px-2 py-1">AI數位分身</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/personal-data-protection/"
+              >
+                <span class="position-relative px-2 py-1">AI風險控管</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/collection"
+              >
+                <span class="position-relative px-2 py-1">關於享哥</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/service"
+              >
+                <span class="position-relative px-2 py-1">服務項目</span>
+              </a>
+            </li>
+          
+            <li class="nav-item ">
+              <a
+                class="nav-link "
+                href="/contact"
+              >
+                <span class="position-relative px-2 py-1">聯絡我</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E6%98%AF%E5%90%A6%E4%B9%9F%E9%81%87%E9%81%8E%E9%80%99%E7%A8%AE%E7%8B%80%E6%B3%81%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">你是否也遇過這種狀況？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E7%94%A8-AI-%E7%95%AB%E5%9C%96%E9%81%B8-SVG%EF%BC%9F%E4%B8%89%E5%A4%A7%E7%90%86%E7%94%B1%E5%B8%B6%E4%BD%A0%E4%BA%86%E8%A7%A3"><span class="toc-number">2.</span> <span class="toc-text">為什麼用 AI 畫圖選 SVG？三大理由帶你了解</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-1-%E5%AE%83%E6%98%AF-AI-%E6%9C%80%E5%AE%B9%E6%98%93%E7%94%A2%E5%87%BA%E7%9A%84%E5%9C%96%E5%BD%A2%E6%A0%BC%E5%BC%8F"><span class="toc-number">2.1.</span> <span class="toc-text">✅ 1. 它是 AI 最容易產出的圖形格式</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-2-%E6%94%BE%E5%A4%A7%E4%B8%8D%E6%A8%A1%E7%B3%8A%E3%80%81%E5%B5%8C%E5%85%A5%E7%B6%B2%E9%A0%81%E8%88%87%E7%B0%A1%E5%A0%B1%E9%83%BD%E5%BE%88%E6%96%B9%E4%BE%BF"><span class="toc-number">2.2.</span> <span class="toc-text">✅ 2. 放大不模糊、嵌入網頁與簡報都很方便</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-3-%E6%90%AD%E9%85%8D%E7%B7%9A%E4%B8%8A%E7%B7%A8%E8%BC%AF%E5%99%A8%EF%BC%8C%E7%94%9F%E6%88%90%E5%BE%8C%E5%8F%AF%E5%8D%B3%E6%99%82%E4%BF%AE%E6%94%B9"><span class="toc-number">2.3.</span> <span class="toc-text">✅ 3. 搭配線上編輯器，生成後可即時修改</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%B0%8F%E7%B5%90%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E9%81%B8%E6%93%87-SVG%EF%BC%9F"><span class="toc-number">2.4.</span> <span class="toc-text">小結：為什麼選擇 SVG？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatGPT-Claude-%E7%94%9F%E6%88%90-SVG-%E5%9C%96%E7%9A%84%E4%B8%89%E7%A8%AE%E6%8F%90%E7%A4%BA%E8%A9%9E%E8%A8%AD%E8%A8%88%E6%B3%95"><span class="toc-number">3.</span> <span class="toc-text">ChatGPT &#x2F; Claude 生成 SVG 圖的三種提示詞設計法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%A7%A0-1-%E5%9F%BA%E7%A4%8E%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">3.1.</span> <span class="toc-text">🧠 1. 基礎提示詞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%8D-2-%E5%B0%88%E6%A5%AD%E7%B5%90%E6%A7%8B%E5%8C%96%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">3.2.</span> <span class="toc-text">🔍 2. 專業結構化提示詞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%9B%A0-3-%E6%8A%80%E8%A1%93%E8%A6%8F%E6%A0%BC%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">3.3.</span> <span class="toc-text">🛠 3. 技術規格提示詞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#ChatGPT-%E5%B0%88%E7%94%A8%E6%8F%90%E7%A4%BA%E8%A9%9E%E5%A4%A7%E5%85%A8%EF%BC%88%E6%8E%A8%E8%96%A6%E7%B5%A6%E6%96%B0%E6%89%8B%EF%BC%89"><span class="toc-number">4.</span> <span class="toc-text">ChatGPT 專用提示詞大全（推薦給新手）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%AF-%E5%9F%BA%E7%A4%8E%E7%89%88%EF%BC%9A%E7%9B%B4%E6%8E%A5%E7%94%A2%E5%9C%96%EF%BC%88%E5%90%AB-base64%EF%BC%89"><span class="toc-number">4.1.</span> <span class="toc-text">🎯 基礎版：直接產圖（含 base64）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%96%BC-%E7%B2%BE%E7%B4%B0%E5%9C%96%E7%A4%BA%E8%A8%AD%E8%A8%88%EF%BC%88%E6%BC%B8%E5%B1%A4%E3%80%81%E5%9C%93%E8%A7%92%E3%80%81%E5%85%A8%E5%BD%A9%EF%BC%89"><span class="toc-number">4.2.</span> <span class="toc-text">🖼 精細圖示設計（漸層、圓角、全彩）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%94%B2-%E5%9F%BA%E7%A4%8E%E5%9C%96%E5%BD%A2%E7%94%9F%E6%88%90%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">4.3.</span> <span class="toc-text">🔲 基礎圖形生成提示詞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E9%9A%8E%E6%AE%B5%E6%A6%82%E5%BF%B5%E5%8C%96%E5%9C%96%E8%A7%A3%E6%8F%90%E7%A4%BA%E8%A9%9E%EF%BC%88%E9%80%B2%E9%9A%8E%EF%BC%9A%E5%88%86%E6%9E%90%E2%86%92%E8%A8%AD%E8%A8%88%E2%86%92%E5%84%AA%E5%8C%96%EF%BC%89"><span class="toc-number">5.</span> <span class="toc-text">三階段概念化圖解提示詞（進階：分析→設計→優化）</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Claude-vs-ChatGPT-%E7%94%9F%E6%88%90%E5%B7%AE%E7%95%B0"><span class="toc-number">6.</span> <span class="toc-text">Claude vs ChatGPT 生成差異</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#SVG-%E5%9C%96%E8%A1%A8%E7%94%9F%E6%88%90%E5%BE%8C%E6%80%8E%E9%BA%BC%E7%94%A8%EF%BC%9F%E5%9B%9B%E6%AD%A5%E9%A9%9F%E5%BF%AB%E9%80%9F%E7%B7%A8%E8%BC%AF%E8%88%87%E8%BC%B8%E5%87%BA"><span class="toc-number">7.</span> <span class="toc-text">SVG 圖表生成後怎麼用？四步驟快速編輯與輸出</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E5%9C%96%E8%A7%A3%E4%B8%BB%E9%A1%8C%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AF%84%E4%BE%8B"><span class="toc-number">8.</span> <span class="toc-text">🎯 圖解主題提示詞範例</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-AI-%E5%B7%A5%E5%85%B7%E6%87%89%E7%94%A8%E6%B5%81%E7%A8%8B%E5%9C%96"><span class="toc-number">8.1.</span> <span class="toc-text">1. AI 工具應用流程圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%87%AA%E5%AA%92%E9%AB%94%E7%B6%93%E7%87%9F%E4%B8%89%E9%9A%8E%E6%AE%B5"><span class="toc-number">8.2.</span> <span class="toc-text">2. 自媒體經營三階段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%83%B9%E5%80%BC%E5%A0%86%E7%96%8A%E6%A8%A1%E5%9E%8B%E5%9C%96"><span class="toc-number">8.3.</span> <span class="toc-text">3. 價值堆疊模型圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%93%81%E7%89%8C%E5%BD%B1%E9%9F%BF%E5%8A%9B%E6%93%B4%E6%95%A3%E8%B7%AF%E5%BE%91%E5%9C%96"><span class="toc-number">8.4.</span> <span class="toc-text">4. 品牌影響力擴散路徑圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%81%B7%E5%A0%B4%E6%99%89%E5%8D%87%E5%9C%B0%E5%9C%96%E5%9C%96%E8%A7%A3"><span class="toc-number">8.5.</span> <span class="toc-text">5. 職場晉升地圖圖解</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94%EF%BC%88FAQ%EF%BC%89"><span class="toc-number">9.</span> <span class="toc-text">常見問答（FAQ）</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E7%94%A8-SVG-%E8%80%8C%E4%B8%8D%E6%98%AF-PNG%EF%BC%9F"><span class="toc-number">9.1.</span> <span class="toc-text">Q1：為什麼要用 SVG 而不是 PNG？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9AAI-%E7%94%9F%E6%88%90%E7%9A%84%E5%9C%96%E6%9C%83%E5%BE%88%E9%86%9C%E5%97%8E%EF%BC%9F"><span class="toc-number">9.2.</span> <span class="toc-text">Q2：AI 生成的圖會很醜嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E6%88%91%E4%B8%8D%E6%9C%83%E5%AF%AB%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%8C%E4%B9%9F%E8%83%BD%E7%94%A8%E9%80%99%E6%96%B9%E6%B3%95%E5%97%8E%EF%BC%9F"><span class="toc-number">9.3.</span> <span class="toc-text">Q3：我不會寫程式碼，也能用這方法嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9ASVG-%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E7%94%A8%E5%9C%A8%E7%B0%A1%E5%A0%B1%E6%88%96%E9%83%A8%E8%90%BD%E6%A0%BC%E5%97%8E%EF%BC%9F"><span class="toc-number">9.4.</span> <span class="toc-text">Q4：SVG 可以直接用在簡報或部落格嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q5%EF%BC%9AClaude-%E5%92%8C-ChatGPT-%E5%93%AA%E5%80%8B%E6%AF%94%E8%BC%83%E6%8E%A8%E8%96%A6%EF%BC%9F"><span class="toc-number">9.5.</span> <span class="toc-text">Q5：Claude 和 ChatGPT 哪個比較推薦？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q6%EF%BC%9A%E5%8F%AF%E4%BB%A5%E8%AE%93-AI-%E7%95%AB%E5%87%BA%E6%B5%81%E7%A8%8B%E5%9C%96%E6%88%96%E5%BF%83%E6%99%BA%E5%9C%96%E5%97%8E%EF%BC%9F"><span class="toc-number">9.6.</span> <span class="toc-text">Q6：可以讓 AI 畫出流程圖或心智圖嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q7%EF%BC%9ASVG-%E7%B7%A8%E8%BC%AF%E5%BE%8C%E8%83%BD%E5%86%8D%E4%B8%9F%E5%9B%9E-AI-%E6%94%B9%E5%97%8E%EF%BC%9F"><span class="toc-number">9.7.</span> <span class="toc-text">Q7：SVG 編輯後能再丟回 AI 改嗎？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E"><span class="toc-number">10.</span> <span class="toc-text">結語</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (16)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI 風險控管 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/chatgpt-%E6%95%99%E5%AD%B8/">
+          chatgpt 教學 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%BD%B1%E7%89%87%E8%A3%BD%E4%BD%9C/">
+          AI影片製作 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%AA%92%E9%AB%94/">
+          AI自媒體 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BB%A3%E5%91%8A%E6%8A%95%E6%94%BE/">
+          廣告投放 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%A1%8C%E9%8A%B7%E7%AD%96%E7%95%A5/">
+          行銷策略 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BC%81%E6%A5%ADAI%E5%B0%8E%E5%85%A5/">
+          企業AI導入 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%82%A1%E6%AC%8A%E8%A8%AD%E8%A8%88/">
+          股權設計 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E6%A8%A1%E5%BC%8F/">
+          商業模式 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Bing-Video-Creator/">
+          Bing Video Creator (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%93%81%E7%89%8C%E7%AD%96%E7%95%A5/">
+          品牌策略 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%93%81%E7%89%8C%E8%A1%8C%E9%8A%B7%E7%AD%96%E7%95%A5/">
+          品牌行銷策略 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E8%B7%AF%E8%B3%87%E6%BA%90/">
+          網路資源 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO-%E6%95%99%E5%AD%B8/">
+          SEO 教學 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/E-E-A-T/">
+          E-E-A-T (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E7%AB%99%E6%8E%92%E5%90%8D%E5%84%AA%E5%8C%96/">
+          網站排名優化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%97%9C%E9%8D%B5%E5%AD%97%E7%A0%94%E7%A9%B6/">
+          關鍵字研究 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E7%B4%85%E8%A1%8C%E9%8A%B7/">
+          網紅行銷 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%AD%E5%BD%B1%E9%9F%B3/">
+          短影音 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Suno-AI/">
+          Suno AI (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%91%97%E4%BD%9C%E6%AC%8A/">
+          著作權 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/No-Code/">
+          No-Code (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-%E6%95%99%E5%AD%B8/">
+          Claude 教學 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%B5%E6%A5%AD%E9%99%B7%E9%98%B1/">
+          創業陷阱 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%8A%B7%E5%94%AE%E7%AD%96%E7%95%A5/">
+          銷售策略 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Youtube/">
+          Youtube (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Parser-Prompting/">
+          Parser Prompting (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/" rel="tag">AI繪圖</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/06/09 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">教你用提示詞讓 Claude 或 ChatGPT 生成 SVG 圖表</h1>
+        
+        <blockquote>
+<p>靈感來源：路導的AI知識庫<br><a target="_blank" rel="noopener" href="https://v0qy0enn8r.feishu.cn/wiki/Yd1yw4DTti5Et7ksELecROMOnIf">點我閱讀原文</a></p>
+</blockquote>
+<h2 id="你是否也遇過這種狀況？"><a href="#你是否也遇過這種狀況？" class="headerlink" title="你是否也遇過這種狀況？"></a>你是否也遇過這種狀況？</h2><ul>
+<li>做簡報時，想加張圖解圖，結果找圖找了半小時還是沒頭緒</li>
+<li>想讓文章看起來更有層次，但自己畫圖太慢、外包太貴</li>
+<li>用 AI 畫圖，卻不是看不懂就是無法改圖</li>
+</ul>
+<p>別擔心，這篇文章就是要教你一招超簡單的方法：<strong>用提示詞 + AI（Claude &#x2F; ChatGPT）就能自動畫圖，而且還能直接修改！</strong></p>
+<p>不需要寫程式、不需要會設計，從今天開始，人人都能畫出好看的知識圖解。</p>
+<h2 id="為什麼用-AI-畫圖選-SVG？三大理由帶你了解"><a href="#為什麼用-AI-畫圖選-SVG？三大理由帶你了解" class="headerlink" title="為什麼用 AI 畫圖選 SVG？三大理由帶你了解"></a>為什麼用 AI 畫圖選 SVG？三大理由帶你了解</h2><p>如果你剛開始接觸 AI 協作工具、或是想用 ChatGPT 幫你做資料視覺化，SVG 圖表是最友善也最實用的選擇。</p>
+<p>以下是為什麼你應該學會生成 SVG 圖表的三個原因：</p>
+<h3 id="✅-1-它是-AI-最容易產出的圖形格式"><a href="#✅-1-它是-AI-最容易產出的圖形格式" class="headerlink" title="✅ 1. 它是 AI 最容易產出的圖形格式"></a>✅ 1. 它是 AI 最容易產出的圖形格式</h3><p>SVG 是用純文字描述的向量圖形，這表示你只要對 AI 下對「文字指令」，它就可以直接幫你畫圖，不需要你會繪圖軟體或寫程式。</p>
+<h3 id="✅-2-放大不模糊、嵌入網頁與簡報都很方便"><a href="#✅-2-放大不模糊、嵌入網頁與簡報都很方便" class="headerlink" title="✅ 2. 放大不模糊、嵌入網頁與簡報都很方便"></a>✅ 2. 放大不模糊、嵌入網頁與簡報都很方便</h3><p>不像 PNG 或 JPG 圖片會模糊變形，SVG 在簡報、教學網站、部落格裡都能保持清晰畫質。</p>
+<h3 id="✅-3-搭配線上編輯器，生成後可即時修改"><a href="#✅-3-搭配線上編輯器，生成後可即時修改" class="headerlink" title="✅ 3. 搭配線上編輯器，生成後可即時修改"></a>✅ 3. 搭配線上編輯器，生成後可即時修改</h3><p>即使你對圖形設計不熟，也可以用免費的 <a target="_blank" rel="noopener" href="https://www.jyshare.com/more/svgeditor/">SVG 編輯工具</a> 一鍵貼上 AI 程式碼，調整字體顏色、位置與圖層，最後匯出高品質圖檔。</p>
+<h3 id="小結：為什麼選擇-SVG？"><a href="#小結：為什麼選擇-SVG？" class="headerlink" title="小結：為什麼選擇 SVG？"></a>小結：為什麼選擇 SVG？</h3><p>SVG（Scalable Vector Graphics）是可縮放向量圖形格式，非常適合知識圖解、流程圖與概念圖，不失真、支援互動，也容易透過 AI 自動生成。</p>
+<h2 id="ChatGPT-Claude-生成-SVG-圖的三種提示詞設計法"><a href="#ChatGPT-Claude-生成-SVG-圖的三種提示詞設計法" class="headerlink" title="ChatGPT &#x2F; Claude 生成 SVG 圖的三種提示詞設計法"></a>ChatGPT &#x2F; Claude 生成 SVG 圖的三種提示詞設計法</h2><h3 id="🧠-1-基礎提示詞"><a href="#🧠-1-基礎提示詞" class="headerlink" title="🧠 1. 基礎提示詞"></a>🧠 1. 基礎提示詞</h3><p>最簡單有效的做法是：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你是製作知識圖解的大師，請閱讀下面文章，思考應該如何設計資訊圖表，請一步一步閱讀、推理與設計，並提供我 SVG 程式碼。</span><br></pre></td></tr></table></figure>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">你是製作知識圖解的大師，請閱讀下面文章，思考應該如何設計資訊圖表，請一步一步閱讀、推理與設計，設計時跳脫只是整理知識重點的邏輯，從更加概念、示意的層面進行圖解設計，用極簡風格，並提供我 SVG 程式碼。</span><br></pre></td></tr></table></figure>
+
+<p>通常能得到結構合理、重點突顯、視覺清晰的圖表。</p>
+<h3 id="🔍-2-專業結構化提示詞"><a href="#🔍-2-專業結構化提示詞" class="headerlink" title="🔍 2. 專業結構化提示詞"></a>🔍 2. 專業結構化提示詞</h3><p>用於知識整理、流程說明、教育訓練等：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">根據下面資料，設計一張 SVG 知識圖表，主題為【XXX】，目的是【解釋概念/呈現數據/傳達流程】。目標觀眾是【XXX】，他們偏好【XXX】的設計。</span><br><span class="line"></span><br><span class="line">目標：</span><br><span class="line">- 資訊結構：按照【問題→過程→解決方案】的邏輯，用圖像化、圖表方式呈現資訊。</span><br><span class="line">- 視覺層次：重點使用【字體加粗、色彩對比、尺寸放大】突顯，並用【箭頭、連接線】引導視線。</span><br><span class="line">- 配色設計：保持專業現代感，並讓顏色更豐富。</span><br><span class="line">- 圖示風格：選用【扁平化設計】的圖示，統一風格且直觀易懂，適度加上ICON。</span><br><span class="line">- 構圖與排版：依【標題→重點→細節】的層次結構，使用【色塊、線條】劃分區塊，保持適當留白。</span><br></pre></td></tr></table></figure>
+
+<h3 id="🛠-3-技術規格提示詞"><a href="#🛠-3-技術規格提示詞" class="headerlink" title="🛠 3. 技術規格提示詞"></a>🛠 3. 技術規格提示詞</h3><p>若需符合特定樣式，可使用如下提示：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">生成一張表現【主題】過程的 SVG 圖，包含從【起點】到【終點】各個關鍵過程，使用【科技藍漸變配色】，參考 Material Design 風格。</span><br><span class="line"></span><br><span class="line">要求：</span><br><span class="line">- 尺寸：宽800px，高500px</span><br><span class="line">- 使用簡潔現代的設計風格</span><br><span class="line">- 配色方案：主色為藍色(#3498db)，輔助色為灰色(#95a5a6)</span><br><span class="line">- 確保所有中文正確顯示</span><br><span class="line">- 包含3-5個關鍵步驟/概念</span><br><span class="line">- 添加適當的連接線和方向箭頭</span><br><span class="line">- 使用圓角矩形和圖標增強可讀性</span><br></pre></td></tr></table></figure>
+
+<h2 id="ChatGPT-專用提示詞大全（推薦給新手）"><a href="#ChatGPT-專用提示詞大全（推薦給新手）" class="headerlink" title="ChatGPT 專用提示詞大全（推薦給新手）"></a>ChatGPT 專用提示詞大全（推薦給新手）</h2><p>針對 ChatGPT，可以使用這些「即插即用」提示詞：</p>
+<h3 id="🎯-基礎版：直接產圖（含-base64）"><a href="#🎯-基礎版：直接產圖（含-base64）" class="headerlink" title="🎯 基礎版：直接產圖（含 base64）"></a>🎯 基礎版：直接產圖（含 base64）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">我想讓你作為一個SVG設計師。我將要求你創建圖片，而你將為圖片想出SVG代碼，將代碼轉換為base64數據url，然後給我一個回應，其中只包含一個指向該數據url的markdown圖片標籤。</span><br></pre></td></tr></table></figure>
+
+<p>或者更直接的方式</p>
+<h3 id="🖼-精細圖示設計（漸層、圓角、全彩）"><a href="#🖼-精細圖示設計（漸層、圓角、全彩）" class="headerlink" title="🖼 精細圖示設計（漸層、圓角、全彩）"></a>🖼 精細圖示設計（漸層、圓角、全彩）</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">請產生一個大小為100x100的 SVG 程式碼，主題為：【AI助手】，設計風格要求如下：</span><br><span class="line">- 1:1 正方形</span><br><span class="line">- 全彩</span><br><span class="line">- 圓角設計</span><br><span class="line">- 使用線性漸層背景</span><br><span class="line">- 包含代表「AI」的圖標或符號</span><br></pre></td></tr></table></figure>
+
+<h3 id="🔲-基礎圖形生成提示詞"><a href="#🔲-基礎圖形生成提示詞" class="headerlink" title="🔲 基礎圖形生成提示詞"></a>🔲 基礎圖形生成提示詞</h3><p>對於簡單的幾何圖形，可以使用具體的座標描述：</p>
+<ul>
+<li>直線：用svg從點 (0, 0) 到點 (100, 100) 画一條線</li>
+<li>矩形：用svg在坐標點（0, 0）處繪製一個正方形，其右下角坐標為（100, 100）</li>
+<li>圓形：用svg画一個圓心在 (50,50)，半徑 50 的圓</li>
+</ul>
+<p>延伸閱讀：<a target="_blank" rel="noopener" href="https://github.com/lixiaoyu2011/chatgpt-share/blob/main/docs/chatgpt03/3.5ChatGPT%E5%B8%AE%E4%BD%A0%E8%BD%BB%E6%9D%BE%E7%BB%98%E5%9B%BE.md">《ChatGPT幫你輕鬆畫圖》</a></p>
+<h2 id="三階段概念化圖解提示詞（進階：分析→設計→優化）"><a href="#三階段概念化圖解提示詞（進階：分析→設計→優化）" class="headerlink" title="三階段概念化圖解提示詞（進階：分析→設計→優化）"></a>三階段概念化圖解提示詞（進階：分析→設計→優化）</h2><p>這是一組適合處理「複雜內容轉圖表」的結構性提示詞，特別推薦給教育訓練、產品邏輯、商業策略等應用場景：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">請閱讀以下文章，並依三階段創建 SVG 知識圖表：</span><br><span class="line"></span><br><span class="line">1. 分析階段：</span><br><span class="line">- 提取核心概念與邏輯關係</span><br><span class="line">- 判斷適合的圖表類型（流程圖、概念圖、比較圖…）</span><br><span class="line">- 考慮目標受眾的認知需求</span><br><span class="line"></span><br><span class="line">2. 設計階段：</span><br><span class="line">- 建立清晰的視覺層次結構，突出最重要的資訊</span><br><span class="line">- 使用適當的圖像隱喻、標籤與符號，使抽象概念更容易理解</span><br><span class="line">- 搭配 3~5 種互補色，保持一致風格，增強可讀性和美感</span><br><span class="line">- 平衡文字與視覺元素，確保簡潔性和完整性</span><br><span class="line"></span><br><span class="line">3. 優化階段：</span><br><span class="line">- 精簡資訊避免雜訊，去除不必要的細節</span><br><span class="line">- 圖表應能單獨解釋核心概念，無需原文也能傳達完整資訊</span><br><span class="line">- 驗證視覺圖解是否正確反映原意的核心思想</span><br></pre></td></tr></table></figure>
+
+<h2 id="Claude-vs-ChatGPT-生成差異"><a href="#Claude-vs-ChatGPT-生成差異" class="headerlink" title="Claude vs ChatGPT 生成差異"></a>Claude vs ChatGPT 生成差異</h2><table>
+<thead>
+<tr>
+<th>項目</th>
+<th>Claude</th>
+<th>ChatGPT</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>圖解理解力</td>
+<td>✅ 高：摘要清楚、搭配圖示準確</td>
+<td>⚠ 有時圖像與內容連結較弱</td>
+</tr>
+<tr>
+<td>美感與配色</td>
+<td>✅ 自動吸睛、風格統一</td>
+<td>⚠ 須明確指定樣式</td>
+</tr>
+<tr>
+<td>回應格式</td>
+<td>✅ 支援 Artifacts 圖形預覽</td>
+<td>⚠ 偶爾轉為 Python，需強調純 SVG 格式</td>
+</tr>
+</tbody></table>
+<h2 id="SVG-圖表生成後怎麼用？四步驟快速編輯與輸出"><a href="#SVG-圖表生成後怎麼用？四步驟快速編輯與輸出" class="headerlink" title="SVG 圖表生成後怎麼用？四步驟快速編輯與輸出"></a>SVG 圖表生成後怎麼用？四步驟快速編輯與輸出</h2><ol>
+<li><strong>複製 AI 提供的 SVG 程式碼</strong></li>
+<li><strong>使用線上編輯器貼上並修改：</strong><br>👉 <a target="_blank" rel="noopener" href="https://www.jyshare.com/more/svgeditor/">SVG 線上編輯工具</a></li>
+<li><strong>匯出為高解析 PNG &#x2F; SVG</strong></li>
+<li><strong>嵌入簡報、網頁、文章中</strong></li>
+</ol>
+<h2 id="🎯-圖解主題提示詞範例"><a href="#🎯-圖解主題提示詞範例" class="headerlink" title="🎯 圖解主題提示詞範例"></a>🎯 圖解主題提示詞範例</h2><p>以下為實用範例，可直接貼入 AI 工具中使用：</p>
+<h3 id="1-AI-工具應用流程圖"><a href="#1-AI-工具應用流程圖" class="headerlink" title="1. AI 工具應用流程圖"></a>1. AI 工具應用流程圖</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">根據下面資料，設計一張 SVG 流程圖，主題為【AI 工具應用流程】，目的是【幫助職場工作者了解導入 AI 工具的步驟】。</span><br><span class="line"></span><br><span class="line">目標結構：</span><br><span class="line">- 問題：重複性高的日常工作</span><br><span class="line">- 過程：需求辨識 → 工具選擇 → 提示詞設計 → 結果驗證</span><br><span class="line">- 解決方案：提升效率與減少錯誤</span><br><span class="line"></span><br><span class="line">圖像風格：扁平化設計、主色調為科技藍(#3498db)，搭配圖標、箭頭與步驟框。</span><br></pre></td></tr></table></figure>
+
+<h3 id="2-自媒體經營三階段"><a href="#2-自媒體經營三階段" class="headerlink" title="2. 自媒體經營三階段"></a>2. 自媒體經營三階段</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">設計一張 SVG 概念圖，主題為【自媒體經營的三階段】，目的是【協助創作者明確定位與優化策略】。</span><br><span class="line"></span><br><span class="line">階段內容：</span><br><span class="line">1. 初期探索（內容實驗、定位測試）</span><br><span class="line">2. 穩定成長（受眾分析、內容優化）</span><br><span class="line">3. 商業變現（聯盟行銷、付費產品）</span><br><span class="line"></span><br><span class="line">格式需求：橫向三欄區塊、每一區塊配有 icon、標題加粗、漸層底色。</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-價值堆疊模型圖"><a href="#3-價值堆疊模型圖" class="headerlink" title="3. 價值堆疊模型圖"></a>3. 價值堆疊模型圖</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line">請生成一張表現【價值堆疊】的 SVG 圖表，目的為【展示如何提升產品感知價值】。</span><br><span class="line"></span><br><span class="line">設計要求：</span><br><span class="line">- 層層堆疊的矩形圖示（如蛋糕層）</span><br><span class="line">- 每層文字：「內容價值」「社群互動」「售後支援」「限時優惠」「稀缺性」</span><br><span class="line">- 使用黃色(#f1c40f)、橘色(#e67e22)、紅色(#e74c3c)漸層配色</span><br><span class="line">- 加入金幣 icon 與箭頭，構成視覺中心</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-品牌影響力擴散路徑圖"><a href="#4-品牌影響力擴散路徑圖" class="headerlink" title="4. 品牌影響力擴散路徑圖"></a>4. 品牌影響力擴散路徑圖</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">設計一張 SVG 路徑圖，主題為【品牌影響力擴散路徑】，目的是【幫助品牌理解如何從種子用戶擴展至大眾市場】。</span><br><span class="line"></span><br><span class="line">結構邏輯：</span><br><span class="line">- 起點：創作者內容發布</span><br><span class="line">- 中段：鐵粉轉發 → 微網紅合作 → 媒體曝光</span><br><span class="line">- 終點：品牌成長與信任建立</span><br><span class="line"></span><br><span class="line">風格：圓圈節點連接線、淺灰配色、加入 emoji 表情符號</span><br></pre></td></tr></table></figure>
+
+<h3 id="5-職場晉升地圖圖解"><a href="#5-職場晉升地圖圖解" class="headerlink" title="5. 職場晉升地圖圖解"></a>5. 職場晉升地圖圖解</h3><figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">生成一張 SVG 知識圖表，主題為【職場晉升地圖】，目的是【讓新鮮人理解從基層到主管的能力升級路徑】。</span><br><span class="line"></span><br><span class="line">關鍵節點：</span><br><span class="line">- 技能建立 → 團隊協作 → 專案管理 → 決策與影響力 → 領導與策略</span><br><span class="line"></span><br><span class="line">設計風格：</span><br><span class="line">- 橫向階梯樣式，每階配有標題與圖示</span><br><span class="line">- 主色為綠色(#2ecc71)，輔色為灰藍(#7f8c8d)</span><br></pre></td></tr></table></figure>
+
+<h2 id="常見問答（FAQ）"><a href="#常見問答（FAQ）" class="headerlink" title="常見問答（FAQ）"></a>常見問答（FAQ）</h2><h3 id="Q1：為什麼要用-SVG-而不是-PNG？"><a href="#Q1：為什麼要用-SVG-而不是-PNG？" class="headerlink" title="Q1：為什麼要用 SVG 而不是 PNG？"></a>Q1：為什麼要用 SVG 而不是 PNG？</h3><p>SVG 不會失真，可互動且適合 AI 生成；PNG 則為靜態圖片。</p>
+<h3 id="Q2：AI-生成的圖會很醜嗎？"><a href="#Q2：AI-生成的圖會很醜嗎？" class="headerlink" title="Q2：AI 生成的圖會很醜嗎？"></a>Q2：AI 生成的圖會很醜嗎？</h3><p>不會，只要提示詞設計正確，Claude 與 ChatGPT 都能畫出結構清楚的圖。</p>
+<h3 id="Q3：我不會寫程式碼，也能用這方法嗎？"><a href="#Q3：我不會寫程式碼，也能用這方法嗎？" class="headerlink" title="Q3：我不會寫程式碼，也能用這方法嗎？"></a>Q3：我不會寫程式碼，也能用這方法嗎？</h3><p>可以，本文提供的提示詞可直接複製使用，搭配線上編輯器即可操作。</p>
+<h3 id="Q4：SVG-可以直接用在簡報或部落格嗎？"><a href="#Q4：SVG-可以直接用在簡報或部落格嗎？" class="headerlink" title="Q4：SVG 可以直接用在簡報或部落格嗎？"></a>Q4：SVG 可以直接用在簡報或部落格嗎？</h3><p>可以。你可直接嵌入 <code>&lt;svg&gt;...&lt;/svg&gt;</code>，或匯出為 PNG 再使用。</p>
+<h3 id="Q5：Claude-和-ChatGPT-哪個比較推薦？"><a href="#Q5：Claude-和-ChatGPT-哪個比較推薦？" class="headerlink" title="Q5：Claude 和 ChatGPT 哪個比較推薦？"></a>Q5：Claude 和 ChatGPT 哪個比較推薦？</h3><p>若你有使用 Claude Pro，Claude 對提示詞的理解更細緻。若習慣 ChatGPT，也完全能達到需求。</p>
+<h3 id="Q6：可以讓-AI-畫出流程圖或心智圖嗎？"><a href="#Q6：可以讓-AI-畫出流程圖或心智圖嗎？" class="headerlink" title="Q6：可以讓 AI 畫出流程圖或心智圖嗎？"></a>Q6：可以讓 AI 畫出流程圖或心智圖嗎？</h3><p>當然可以。請指定「流程圖」、「概念圖」、「比較圖」等圖形類型，AI 會據此設計結構。</p>
+<h3 id="Q7：SVG-編輯後能再丟回-AI-改嗎？"><a href="#Q7：SVG-編輯後能再丟回-AI-改嗎？" class="headerlink" title="Q7：SVG 編輯後能再丟回 AI 改嗎？"></a>Q7：SVG 編輯後能再丟回 AI 改嗎？</h3><p>若懂 SVG 語法，可以調整後回貼給 AI 優化；或使用 SVG 編輯器再轉為提示詞。</p>
+<h2 id="結語"><a href="#結語" class="headerlink" title="結語"></a>結語</h2><p>無論你是創作者、講師、工程師還是產品人員，掌握「AI + SVG」的圖表生成技術，都是視覺表達的超能力！從基礎幾何、流程圖、到進階分析圖，只要用對提示詞，你也能生成一流圖解。</p>
+<p>🖊 線上工具推薦：<a target="_blank" rel="noopener" href="https://www.jyshare.com/more/svgeditor/">jyshare SVG Editor</a></p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+        
+          
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="/images/cover14.webp" class="img-fluid card-img-top rounded-3" alt="用 ChatGPT-4o + 一張自拍，打造專屬你的程式碼風電子名片">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700">用 ChatGPT-4o + 一張自拍，打造專屬你的程式碼風電子名片</h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">品牌行銷策略</span>
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI繪圖</span>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/08</small></p>
+                  </div>
+                  <a class="stretched-link" href="/posts/developer-digital-card-creation/"></a>
+                </div>
+              </div>
+            </div>
+          
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="/images/cover8.webp" class="img-fluid card-img-top rounded-3" alt="2025 生成式AI應用規劃">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700">2025 生成式AI應用規劃</h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">chatgpt 教學</span>
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI繪圖</span>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/05</small></p>
+                  </div>
+                  <a class="stretched-link" href="/posts/generative-ai-planning/"></a>
+                </div>
+              </div>
+            </div>
+          
+        
+          
+        
+      
+    </div>
+
+  </section>
+</main>
+
+  <footer
+    class="py-7"
+    style="background-image: url('/images/footer-bg-lg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;"
+  >
+  <div class="container">
+    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          class="mb-4"
+          style="width: 120px;"
+          src="/images/es2idea-logo.svg" alt="logo"
+        >
+        <p class="mb-4 fs-5 text-primary-700">歡迎邀約合作，或直接與我聯絡！</p>
+        <a
+          class="link-primary-500 fs-5 text-decoration-none" href="mailto:chengyunm1313@gmail.com">chengyunm1313@gmail.com</a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <!-- <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="mailto:chengyunm1313@gmail.com">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          填寫表單
+        </a> -->
+        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" target="_blank" rel="noopener" href="https://lin.ee/epeTR8o">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          LINE邀約合作
+        </a>
+        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
+          AI享哥哥
+        </a>
+        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.facebook.com/HsiangPMKT?locale=zh_TW">
+          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
+          享哥玩行銷
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+</body>
+</html>
