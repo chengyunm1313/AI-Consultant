@@ -1,0 +1,613 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>Make.com 教學：零成本打造 AI YouTube 影片摘要自動化系統 | 徐享 | 生成式AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/make-com-ai-youtube-summary-automation-tutorial/">
+  <meta name="description" content="厭倦了永遠看不完的 YouTube 待看清單？本篇教學將帶你使用 Make.com、Apify 與 Gemini，零成本打造一個全自動的 AI 影片摘要系統，在觀看前就獲取重點報告，奪回你的時間主導權。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Make.com 教學：零成本打造 AI YouTube 影片摘要自動化系統">
+<meta property="og:url" content="https://blog.es2idea.com/posts/make-com-ai-youtube-summary-automation-tutorial/">
+<meta property="og:site_name" content="徐享 | 生成式AI應用規劃師">
+<meta property="og:description" content="厭倦了永遠看不完的 YouTube 待看清單？本篇教學將帶你使用 Make.com、Apify 與 Gemini，零成本打造一個全自動的 AI 影片摘要系統，在觀看前就獲取重點報告，奪回你的時間主導權。">
+<meta property="og:locale" content="zh_TW">
+<meta property="article:published_time" content="2025-09-02T16:36:11.000Z">
+<meta property="article:modified_time" content="2025-09-02T17:00:17.964Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="無程式碼AI">
+<meta property="article:tag" content="Make.com">
+<meta name="twitter:card" content="summary">
+  
+    <meta property="og:image" content="/images/hero-lg.webp">
+  
+  
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Tourney&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+  <script src="/js/copy-code.js"></script>
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header
+    class="py-md-4 border-bottom border-primary-200"
+    style="margin-bottom: 1px;"
+  >
+  <nav class="navbar navbar-expand-md py-md-1">
+    <div class="container">
+      <a class="navbar-brand py-0 me-3" style="min-width: 120px;" href="/">
+        <img src="/images/es2idea-logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+          
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/"
+              >
+                <span class="position-relative px-2 py-1">首頁</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/blog"
+              >
+                <span class="position-relative px-2 py-1">部落格</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/generative-ai-planning/"
+              >
+                <span class="position-relative px-2 py-1">生成式AI應用規劃</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/ai-virtual-avatar-marketing/"
+              >
+                <span class="position-relative px-2 py-1">AI數位分身</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/personal-data-protection/"
+              >
+                <span class="position-relative px-2 py-1">AI風險控管</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/collection"
+              >
+                <span class="position-relative px-2 py-1">關於享哥</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/service"
+              >
+                <span class="position-relative px-2 py-1">服務項目</span>
+              </a>
+            </li>
+          
+            <li class="nav-item ">
+              <a
+                class="nav-link "
+                href="/contact"
+              >
+                <span class="position-relative px-2 py-1">聯絡我</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84-YouTube-%E5%BE%85%E7%9C%8B%E6%B8%85%E5%96%AE%EF%BC%8C%E6%98%AF%E5%90%A6%E5%B7%B2%E6%88%90%E8%B3%87%E8%A8%8A%E7%84%A6%E6%85%AE%E5%B1%B1%E8%84%88%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">你的 YouTube 待看清單，是否已成資訊焦慮山脈？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%81%8A%E6%88%B2%E8%A6%8F%E5%89%87%E6%94%B9%E8%AE%8A%E8%80%85%EF%BC%9A%E5%88%A5%E8%AE%93-AI%E3%80%8C%E7%9C%8B%E3%80%8D%E5%BD%B1%E5%83%8F%EF%BC%8C%E8%AB%8B%E5%AE%83%E3%80%8C%E8%AE%80%E3%80%8D%E5%8A%87%E6%9C%AC"><span class="toc-number">2.</span> <span class="toc-text">遊戲規則改變者：別讓 AI「看」影像，請它「讀」劇本</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E5%BD%B1%E5%83%8F%E5%88%86%E6%9E%90%E7%9A%84%E9%99%B7%E9%98%B1%EF%BC%9A%E9%AB%98%E6%88%90%E6%9C%AC%E8%88%87%E4%BD%8E%E6%95%88%E7%9B%8A"><span class="toc-number">2.1.</span> <span class="toc-text">AI 影像分析的陷阱：高成本與低效益</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%A0%E7%9A%84%E5%A4%A2%E5%B9%BB%E5%9C%98%E9%9A%8A%EF%BC%9A%E8%AA%8D%E8%AD%98-Make-com-%E8%87%AA%E5%8B%95%E5%8C%96%E9%90%B5%E4%B8%89%E8%A7%92"><span class="toc-number">3.</span> <span class="toc-text">你的夢幻團隊：認識 Make.com 自動化鐵三角</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E5%BB%A0%E8%97%8D%E5%9C%96%EF%BC%9A%E5%A6%82%E4%BD%95%E4%B8%80%E6%AD%A5%E6%AD%A5%E6%90%AD%E5%BB%BA%E4%BD%A0%E7%9A%84-Make-com-%E6%91%98%E8%A6%81%E5%A0%B4%E6%99%AF%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">工廠藍圖：如何一步步搭建你的 Make.com 摘要場景？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E7%AB%99%EF%BC%9A%E8%A7%B8%E7%99%BC%E5%99%A8-%E4%B8%80%E5%88%87%E7%9A%84%E9%96%8B%E7%AB%AF"><span class="toc-number">4.1.</span> <span class="toc-text">第一站：觸發器 (一切的開端)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E7%AB%99%EF%BC%9A%E4%B8%8B%E9%81%94%E6%8C%87%E4%BB%A4-%E5%95%9F%E5%8B%95-Apify"><span class="toc-number">4.2.</span> <span class="toc-text">第二站：下達指令 (啟動 Apify)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E7%AB%99%EF%BC%9A%E7%B5%A6%E5%AE%83%E4%B8%80%E9%BB%9E%E6%99%82%E9%96%93-%E8%80%90%E5%BF%83%E7%AD%89%E5%BE%85"><span class="toc-number">4.3.</span> <span class="toc-text">第三站：給它一點時間 (耐心等待)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E7%AB%99%EF%BC%9A%E7%A2%BA%E8%AA%8D%E4%BB%BB%E5%8B%99%E7%8B%80%E6%85%8B-%E5%8F%96%E5%BE%97%E5%A0%B1%E5%91%8A"><span class="toc-number">4.4.</span> <span class="toc-text">第四站：確認任務狀態 (取得報告)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E7%AB%99%EF%BC%9A%E5%93%81%E8%B3%AA%E6%AA%A2%E9%A9%97-%E8%A8%AD%E5%AE%9A%E7%AF%A9%E9%81%B8%E5%99%A8"><span class="toc-number">4.5.</span> <span class="toc-text">第五站：品質檢驗 (設定篩選器)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E7%AB%99%EF%BC%9A%E6%94%B6%E7%A9%AB%E6%88%90%E6%9E%9C-%E6%8B%BF%E5%9B%9E%E5%AD%97%E5%B9%95"><span class="toc-number">4.6.</span> <span class="toc-text">第六站：收穫成果 (拿回字幕)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%83%E7%AB%99%EF%BC%9A%E9%80%81%E4%BA%A4%E5%88%86%E6%9E%90-%E5%91%BC%E5%8F%AB-Gemini"><span class="toc-number">4.7.</span> <span class="toc-text">第七站：送交分析 (呼叫 Gemini)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E5%85%AB%E7%AB%99%EF%BC%9A%E6%AD%B8%E6%AA%94%E5%A0%B1%E5%91%8A-%E6%9B%B4%E6%96%B0%E5%9B%9E-Notion"><span class="toc-number">4.8.</span> <span class="toc-text">第八站：歸檔報告 (更新回 Notion)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%90%E6%9C%AC%E7%B2%BE%E7%AE%97%EF%BC%9A%E6%AF%8F%E6%9C%88%E9%96%8B%E9%8A%B7%E6%98%AF%E5%A4%9A%E5%B0%91%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">成本精算：每月開銷是多少？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C%E8%88%87%E8%A7%A3%E6%B1%BA%E6%96%B9%E6%A1%88-FAQ"><span class="toc-number">6.</span> <span class="toc-text">常見問題與解決方案 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-%E5%BD%B1%E7%89%87%E6%B2%92%E6%9C%89%E5%AD%97%E5%B9%95%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">Q1: 影片沒有字幕怎麼辦？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-TikTok-%E6%88%96-FB-%E5%BD%B1%E7%89%87%E4%B9%9F%E8%83%BD%E9%80%99%E6%A8%A3%E7%8E%A9%E5%97%8E%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">Q2: TikTok 或 FB 影片也能這樣玩嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3-%E9%80%99%E6%A8%A3%E6%9C%83%E4%B8%8D%E6%9C%83%E6%9C%89%E6%B3%95%E5%BE%8B%E9%A2%A8%E9%9A%AA%EF%BC%9F"><span class="toc-number">6.3.</span> <span class="toc-text">Q3: 這樣會不會有法律風險？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4-%E5%A6%82%E4%BD%95%E8%AE%93%E6%91%98%E8%A6%81%E5%93%81%E8%B3%AA%E6%9B%B4%E4%B8%8A%E4%B8%80%E5%B1%A4%E6%A8%93%EF%BC%9F"><span class="toc-number">6.4.</span> <span class="toc-text">Q4: 如何讓摘要品質更上一層樓？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%82%E6%A5%B5%E6%AD%A6%E5%99%A8%EF%BC%9A%E5%8F%AF%E4%B8%80%E9%8D%B5%E8%A4%87%E8%A3%BD%E7%9A%84%E3%80%8C%E9%BB%83%E9%87%91%E6%8C%87%E4%BB%A4%E7%A8%BF%E3%80%8D"><span class="toc-number">7.</span> <span class="toc-text">終極武器：可一鍵複製的「黃金指令稿」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%A5%AA%E5%9B%9E%E4%BD%A0%E7%9A%84%E6%99%82%E9%96%93%E4%B8%BB%E5%B0%8E%E6%AC%8A"><span class="toc-number">8.</span> <span class="toc-text">結語：奪回你的時間主導權</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (31)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (13)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E5%B7%A5%E5%85%B7/">
+          自動化工具 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MVP%E5%BF%AB%E9%80%9F%E9%96%8B%E7%99%BC/">
+          MVP快速開發 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BB%A3%E5%91%8A%E6%8A%95%E6%94%BE/">
+          廣告投放 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%A1%8C%E9%8A%B7%E7%AD%96%E7%95%A5/">
+          行銷策略 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO-%E6%95%99%E5%AD%B8/">
+          SEO 教學 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BC%81%E6%A5%ADAI%E5%B0%8E%E5%85%A5/">
+          企業AI導入 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI 風險控管 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/chatgpt-%E6%95%99%E5%AD%B8/">
+          chatgpt 教學 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%BD%B1%E7%89%87%E8%A3%BD%E4%BD%9C/">
+          AI影片製作 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E7%AB%99%E6%8E%92%E5%90%8D%E5%84%AA%E5%8C%96/">
+          網站排名優化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%84%A1%E7%A8%8B%E5%BC%8F%E7%A2%BCAI/">
+          無程式碼AI (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Bing-Video-Creator/">
+          Bing Video Creator (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%93%81%E7%89%8C%E7%AD%96%E7%95%A5/">
+          品牌策略 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%AA%92%E9%AB%94/">
+          AI自媒體 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%9C%96%E8%A1%A8%E5%8D%B3%E7%A8%8B%E5%BC%8F%E7%A2%BC/">
+          圖表即程式碼 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%93%81%E7%89%8C%E8%A1%8C%E9%8A%B7%E7%AD%96%E7%95%A5/">
+          品牌行銷策略 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%82%A1%E6%AC%8A%E8%A8%AD%E8%A8%88/">
+          股權設計 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E6%A8%A1%E5%BC%8F/">
+          商業模式 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%BD%B1%E7%89%87/">
+          AI影片 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/E-E-A-T/">
+          E-E-A-T (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Make-com/">
+          Make.com (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Parser-Prompting/">
+          Parser Prompting (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E8%B7%AF%E8%B3%87%E6%BA%90/">
+          網路資源 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%B5%E6%A5%AD%E9%99%B7%E9%98%B1/">
+          創業陷阱 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%97%9C%E9%8D%B5%E5%AD%97%E7%A0%94%E7%A9%B6/">
+          關鍵字研究 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%AD%E5%BD%B1%E9%9F%B3/">
+          短影音 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Suno-AI/">
+          Suno AI (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%91%97%E4%BD%9C%E6%AC%8A/">
+          著作權 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-%E6%95%99%E5%AD%B8/">
+          Claude 教學 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/No-Code/">
+          No-Code (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%80%9D%E8%BE%A8%E8%A1%A8%E9%81%94/">
+          思辨表達 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Youtube/">
+          Youtube (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%BA%9D%E9%80%9A%E5%8D%94%E4%BD%9C/">
+          溝通協作 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%B6%B2%E7%B4%85%E8%A1%8C%E9%8A%B7/">
+          網紅行銷 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%8A%B7%E5%94%AE%E7%AD%96%E7%95%A5/">
+          銷售策略 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/Make-com/" rel="tag">Make.com</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/09/03 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">Make.com 教學：零成本打造 AI YouTube 影片摘要自動化系統</h1>
+        
+        <div class="iframe-wrapper">
+  <iframe 
+    src="https://gamma.app/embed/l5m29ofc9xuf8ix" 
+    title="零成本打造 AI YouTube 影片摘要自動化系統" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+<h2 id="你的-YouTube-待看清單，是否已成資訊焦慮山脈？"><a href="#你的-YouTube-待看清單，是否已成資訊焦慮山脈？" class="headerlink" title="你的 YouTube 待看清單，是否已成資訊焦慮山脈？"></a>你的 YouTube 待看清單，是否已成資訊焦慮山脈？</h2><p>每天，演算法都像個熱情的情報員，不斷往你懷裡塞滿「錯過會後悔」的影片連結。結果，你的 Watch Later 清單越積越厚，從一個小小的願望清單，變成了一座巨大的資訊焦慮山脈。</p>
+<p>最讓人沮喪的是，你咬牙花 20 分鐘看完一支影片，卻發現真正的黃金內容只有 30 秒。那種被浪費的時間，簡直是對專注力的公然搶劫。</p>
+<p>但是，如果，你能擁有一位 24 小時待命的「AI 內容預覽師」呢？</p>
+<p>在你親自觀看前，這位助理會先幫你把影片完整「讀」一遍，然後交給你一份超精簡的「決策報告」，告訴你：「這支影片重點是 A、B、C，適合你，建議直接跳到 5:32 開始看。」</p>
+<p>這不是未來，這是現在就能用 Make.com 輕鬆打造的自動化系統。今天，我就帶你一步步，從零開始，蓋出這座屬於你自己的「AI 內容摘要工廠」。🚀</p>
+<h2 id="遊戲規則改變者：別讓-AI「看」影像，請它「讀」劇本"><a href="#遊戲規則改變者：別讓-AI「看」影像，請它「讀」劇本" class="headerlink" title="遊戲規則改變者：別讓 AI「看」影像，請它「讀」劇本"></a>遊戲規則改變者：別讓 AI「看」影像，請它「讀」劇本</h2><p>在我們動手之前，必須先建立一個核心的致勝觀念。直接把影片連結丟給 AI 模型，就像請一位世界級名廚去屠宰場處理一整頭牛，只為了要一份菲力牛排。過程昂貴、緩慢，而且成品充滿了不確定性。</p>
+<h3 id="AI-影像分析的陷阱：高成本與低效益"><a href="#AI-影像分析的陷阱：高成本與低效益" class="headerlink" title="AI 影像分析的陷阱：高成本與低效益"></a>AI 影像分析的陷阱：高成本與低效益</h3><p>AI 在處理影像時，會消耗極其驚人的 <strong>Token</strong> (你可以想像成 AI 的腦力點數)。產出的結果，也往往是「畫面中出現了一個人在說話」這類流水帳，而不是你需要的深度洞察。</p>
+<p>真正的駭客思維是：先抓字幕，再餵給 AI 分析。</p>
+<p>這一步，直接將成本砍到見骨，效能卻能提升數倍。把一部影片變成純文字的「劇本」，AI 處理起來不僅快、狠、準，更能進行結構化的邏輯分析。這，就是我們能實現「近乎免費」的秘密武器。🌟</p>
+<h2 id="你的夢幻團隊：認識-Make-com-自動化鐵三角"><a href="#你的夢幻團隊：認識-Make-com-自動化鐵三角" class="headerlink" title="你的夢幻團隊：認識 Make.com 自動化鐵三角"></a>你的夢幻團隊：認識 Make.com 自動化鐵三角</h2><p>要搭建這座工廠，你不需要寫一行程式碼。只需要像玩樂高一樣，把三個強大的雲端服務串接起來。</p>
+<ul>
+<li><p><strong>流程總指揮：Make.com</strong><br>  這就是我們的主角，一個極度視覺化的自動化平台。你可以在上面用拖拉「泡泡」（他們稱為 <strong>模組 Module</strong>）的方式，來設計整個工作流程（他們稱為 <strong>場景 Scenario</strong>）。它就是我們工廠的總設計師兼廠長。</p>
+</li>
+<li><p><strong>前線情報員：Apify</strong><br>  把它想像成一個巨大的「雲端機器人租賃中心」。需要從網路上抓取任何公開資料（比如 YouTube 字幕），直接租用一個現成的專業機器人就行。操作簡單，而且極其便宜。</p>
+</li>
+<li><p><strong>首席分析師：Gemini</strong><br>  Google 的 AI 大腦，我們最聰明的員工。你把從 Apify 拿回來的「劇本」（字幕），交給 Gemini，它就能根據你的指令，產出精闢的摘要、重點，和觀看建議。</p>
+</li>
+</ul>
+<p>好了，團隊介紹完畢。現在，讓我們開始動工吧！</p>
+<h2 id="工廠藍圖：如何一步步搭建你的-Make-com-摘要場景？"><a href="#工廠藍圖：如何一步步搭建你的-Make-com-摘要場景？" class="headerlink" title="工廠藍圖：如何一步步搭建你的 Make.com 摘要場景？"></a>工廠藍圖：如何一步步搭建你的 Make.com 摘要場景？</h2><p>請登入你的 Make.com 帳號，開啟一個新的 Scenario，我們來串接泡泡！</p>
+<h3 id="第一站：觸發器-一切的開端"><a href="#第一站：觸發器-一切的開端" class="headerlink" title="第一站：觸發器 (一切的開端)"></a>第一站：觸發器 (一切的開端)</h3><ul>
+<li><strong>模組：</strong> Notion (或 Google Sheets)</li>
+<li><strong>功能：</strong> Watch Database Items</li>
+<li><strong>設定：</strong> 連接你的帳號，選定你的影片清單資料庫。這一站就像在門口裝了個感應器，只要有新影片連結被你加進來，整條生產線就立刻啟動。</li>
+</ul>
+<h3 id="第二站：下達指令-啟動-Apify"><a href="#第二站：下達指令-啟動-Apify" class="headerlink" title="第二站：下達指令 (啟動 Apify)"></a>第二站：下達指令 (啟動 Apify)</h3><ul>
+<li><strong>模組：</strong> Apify</li>
+<li><strong>功能：</strong> Run Actor</li>
+<li><strong>設定：</strong> 連接你的 Apify 帳號，填入 YouTube Scraper 的 Actor ID。然後，將影片 URL 的欄位，映射（也就是連線）到從 Notion 傳過來的連結資料。這一步是告訴 Apify：「收到新任務！用這個爬蟲，去處理這個網址。」</li>
+</ul>
+<h3 id="第三站：給它一點時間-耐心等待"><a href="#第三站：給它一點時間-耐心等待" class="headerlink" title="第三站：給它一點時間 (耐心等待)"></a>第三站：給它一點時間 (耐心等待)</h3><ul>
+<li><strong>模組：</strong> Tools</li>
+<li><strong>功能：</strong> Sleep</li>
+<li><strong>設定：</strong> 讓流程暫停 30 到 60 秒。因為 Apify 去抓資料需要一點時間，這個步驟就像在微波食物時的等待，是確保成品完美的必要過程。</li>
+</ul>
+<h3 id="第四站：確認任務狀態-取得報告"><a href="#第四站：確認任務狀態-取得報告" class="headerlink" title="第四站：確認任務狀態 (取得報告)"></a>第四站：確認任務狀態 (取得報告)</h3><ul>
+<li><strong>模組：</strong> Apify</li>
+<li><strong>功能：</strong> Get Actor Run</li>
+<li><strong>設定：</strong> 把上一步 Run Actor 模組回傳的 Run ID 映射過來。這一步是去 Apify 的辦公室敲門問：「嘿，我剛才交辦的那個任務，處理得怎麼樣了？」</li>
+</ul>
+<h3 id="第五站：品質檢驗-設定篩選器"><a href="#第五站：品質檢驗-設定篩選器" class="headerlink" title="第五站：品質檢驗 (設定篩選器)"></a>第五站：品質檢驗 (設定篩選器)</h3><p>在 Get Actor Run 和下個模組的連線上，點擊一下，選擇 Set up a filter。</p>
+<ul>
+<li><strong>設定：</strong> 建立一個規則，條件是 Get Actor Run 回傳的 <code>status</code> 變數，必須等於 <code>SUCCEEDED</code>。這個篩選器就像工廠裡的品管員，只有確認「成功完成」的任務，才會蓋章放行，進入下一步。</li>
+</ul>
+<h3 id="第六站：收穫成果-拿回字幕"><a href="#第六站：收穫成果-拿回字幕" class="headerlink" title="第六站：收穫成果 (拿回字幕)"></a>第六站：收穫成果 (拿回字幕)</h3><ul>
+<li><strong>模組：</strong> Apify</li>
+<li><strong>功能：</strong> Get Dataset Items</li>
+<li><strong>設定：</strong> 把 Get Actor Run 模組回傳的 <code>defaultDatasetId</code> 映射過來。恭喜！到這裡，熱騰騰的影片字幕，已經成功送到你的生產線上了。</li>
+</ul>
+<h3 id="第七站：送交分析-呼叫-Gemini"><a href="#第七站：送交分析-呼叫-Gemini" class="headerlink" title="第七站：送交分析 (呼叫 Gemini)"></a>第七站：送交分析 (呼叫 Gemini)</h3><ul>
+<li><strong>模組：</strong> Google Gemini</li>
+<li><strong>功能：</strong> Generate Content</li>
+<li><strong>設定：</strong> 在 Text 輸入框裡，貼上我們後面會提供給你的那份「魔法指令稿」，然後在指令稿的下方，映射從 Get Dataset Items 拿到的字幕 <code>text</code>。</li>
+</ul>
+<h3 id="第八站：歸檔報告-更新回-Notion"><a href="#第八站：歸檔報告-更新回-Notion" class="headerlink" title="第八站：歸檔報告 (更新回 Notion)"></a>第八站：歸檔報告 (更新回 Notion)</h3><ul>
+<li><strong>模組：</strong> Notion (或 Google Sheets)</li>
+<li><strong>功能：</strong> Update a Database Item</li>
+<li><strong>設定：</strong> 將 Database Item ID 映射回第一步觸發時的 ID (這樣才知道要更新哪一筆資料)。然後，把 Notion 裡的「摘要」、「重點」、「是否推薦」等欄位，一一映射到 Gemini 產出的對應結果。</li>
+</ul>
+<p><strong>生產線視覺圖：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">[Notion] -\&gt; [Apify: Run] -\&gt; [Sleep] -\&gt; [Apify: Get Run] -\&gt; [篩選器] -\&gt; [Apify: Get Data] -\&gt; [Gemini] -\&gt; [Notion: Update]</span><br></pre></td></tr></table></figure>
+
+<h2 id="成本精算：每月開銷是多少？"><a href="#成本精算：每月開銷是多少？" class="headerlink" title="成本精算：每月開銷是多少？"></a>成本精算：每月開銷是多少？</h2><p>這就是最神奇的地方了。</p>
+<ul>
+<li><strong>Make.com：</strong> 免費方案每月有 1,000 次操作，對於個人使用綽綽有餘。</li>
+<li><strong>Apify：</strong> 免費帳號每月送 $5 美元額度，剛好可以處理約 1,000 支 YouTube 影片。</li>
+<li><strong>Gemini API：</strong> 目前的免費額度，對於這種小量的文字摘要任務來說，基本上也夠你用到飽。</li>
+</ul>
+<p>結論：打造一個每月能幫你預覽 1,000 支影片的 AI 助理，每月成本約等於 $0。</p>
+<h2 id="常見問題與解決方案-FAQ"><a href="#常見問題與解決方案-FAQ" class="headerlink" title="常見問題與解決方案 (FAQ)"></a>常見問題與解決方案 (FAQ)</h2><h3 id="Q1-影片沒有字幕怎麼辦？"><a href="#Q1-影片沒有字幕怎麼辦？" class="headerlink" title="Q1: 影片沒有字幕怎麼辦？"></a>Q1: 影片沒有字幕怎麼辦？</h3><p>備案有二：一是先用 ASR (語音轉文字) 服務處理；二是降級抓取影片的「描述＋留言」做粗略分析，並標記為低可信度。</p>
+<h3 id="Q2-TikTok-或-FB-影片也能這樣玩嗎？"><a href="#Q2-TikTok-或-FB-影片也能這樣玩嗎？" class="headerlink" title="Q2: TikTok 或 FB 影片也能這樣玩嗎？"></a>Q2: TikTok 或 FB 影片也能這樣玩嗎？</h3><p>完全可以！Apify 的機器人商店裡有對應的抓取工具，只是計價方式可能不同，可以按需選用。</p>
+<h3 id="Q3-這樣會不會有法律風險？"><a href="#Q3-這樣會不會有法律風險？" class="headerlink" title="Q3: 這樣會不會有法律風險？"></a>Q3: 這樣會不會有法律風險？</h3><p>關鍵是「合理且尊重」。遵守平台規範、控制抓取頻率、僅供個人學習研究，就沒有太大問題。商業用途前請務必諮詢法務。</p>
+<h3 id="Q4-如何讓摘要品質更上一層樓？"><a href="#Q4-如何讓摘要品質更上一層樓？" class="headerlink" title="Q4: 如何讓摘要品質更上一層樓？"></a>Q4: 如何讓摘要品質更上一層樓？</h3><p>答案永遠是：優化你的指令 (Prompt)！</p>
+<h2 id="終極武器：可一鍵複製的「黃金指令稿」"><a href="#終極武器：可一鍵複製的「黃金指令稿」" class="headerlink" title="終極武器：可一鍵複製的「黃金指令稿」"></a>終極武器：可一鍵複製的「黃金指令稿」</h2><p>這不僅是一段指令，更是一份專業的「任務委託書」。它能確保 AI 精準地按照你的需求產出結構化報告。</p>
+<p>請完整複製以下內容，直接貼入 Make.com 的 Gemini 模組 <code>Text</code> 欄位中。指令稿的最後，我們留下了一個佔位符 <code>[請在此貼上字幕文字]</code>，你只需將上一步 (Apify) 傳回來的字幕 <code>text</code> 內容，映射到這段指令稿的 <strong>下方</strong> 即可。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br></pre></td><td class="code"><pre><span class="line">你是一位頂尖的 YouTube 內容分析師。你的核心任務是分析影片字幕，幫助使用者在 30 秒內判斷影片是否值得觀看。</span><br><span class="line"></span><br><span class="line">分析時，你必須保持絕對客觀，只基於我提供的字幕文字進行判斷。</span><br><span class="line"></span><br><span class="line">請嚴格遵循以下 JSON 格式進行輸出，不要有任何多餘的文字或解釋：</span><br><span class="line"></span><br><span class="line">&#123;</span><br><span class="line">  &quot;key_points&quot;: [</span><br><span class="line">    &quot;重點一 (不超過 20 字)&quot;,</span><br><span class="line">    &quot;重點二 (不超過 20 字)&quot;,</span><br><span class="line">    &quot;重點三 (不超過 20 字)&quot;,</span><br><span class="line">    &quot;重點四 (不超過 20 字)&quot;,</span><br><span class="line">    &quot;重點五 (不超過 20 字)&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;verdict&quot;: &#123;</span><br><span class="line">    &quot;recommend&quot;: true, // 布林值: true 或 false</span><br><span class="line">    &quot;reason&quot;: &quot;一句話說明推薦或不推薦的理由 (40 字內)&quot;</span><br><span class="line">  &#125;,</span><br><span class="line">  &quot;target_audience&quot;: [</span><br><span class="line">    &quot;適合的觀眾類型一&quot;,</span><br><span class="line">    &quot;適合的觀眾類型二&quot;,</span><br><span class="line">    &quot;適合的觀眾類型三&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;actionable_steps&quot;: [</span><br><span class="line">    &quot;看完後可執行的行動一&quot;,</span><br><span class="line">    &quot;看完後可執行的行動二&quot;,</span><br><span class="line">    &quot;看完後可執行的行動三&quot;</span><br><span class="line">  ],</span><br><span class="line">  &quot;timestamps&quot;: [</span><br><span class="line">    &#123; &quot;time&quot;: &quot;mm:ss&quot;, &quot;desc&quot;: &quot;精華片段描述 (10 字內)&quot; &#125;,</span><br><span class="line">    &#123; &quot;time&quot;: &quot;mm:ss&quot;, &quot;desc&quot;: &quot;精華片段描述 (10 字內)&quot; &#125;</span><br><span class="line">  ]</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line">---</span><br><span class="line">[請在此貼上字幕文字]</span><br></pre></td></tr></table></figure>
+
+<h2 id="結語：奪回你的時間主導權"><a href="#結語：奪回你的時間主導權" class="headerlink" title="結語：奪回你的時間主導權"></a>結語：奪回你的時間主導權</h2><p>在這個注意力被無限分割的時代，最頂級的生產力，不是做得更多，而是「過濾得更多」。</p>
+<p>這套基於 Make.com 的自動化系統，就是你最強大的數位內容過濾器。它能為你擋掉無謂的資訊噪音，讓你把生命中最寶貴的資產——「時間與專注力」，只留給那些真正能讓你心靈富足、技能增長的內容。</p>
+<p>現在，動手去打造你的第一條自動化生產線吧！🤖</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+        
+          
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="/images/cover49.webp" class="img-fluid card-img-top rounded-3" alt="BMAD 方法論深度解析：告別 Vibe Coding，擁抱 AI 驅動的敏捷開發團隊">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700">BMAD 方法論深度解析：告別 Vibe Coding，擁抱 AI 驅動的敏捷開發團隊</h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                    
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">無程式碼AI</span>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/08/26</small></p>
+                  </div>
+                  <a class="stretched-link" href="/posts/bmad-methodology-for-ai-driven-agile-teams/"></a>
+                </div>
+              </div>
+            </div>
+          
+        
+          
+        
+      
+    </div>
+
+  </section>
+</main>
+
+  <footer
+    class="py-7"
+    style="background-image: url('/images/footer-bg-lg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;"
+  >
+  <div class="container">
+    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          class="mb-4"
+          style="width: 120px;"
+          src="/images/es2idea-logo.svg" alt="logo"
+        >
+        <p class="mb-4 fs-5 text-primary-700">歡迎邀約合作，或直接與我聯絡！</p>
+        <a
+          class="link-primary-500 fs-5 text-decoration-none" href="mailto:chengyunm1313@gmail.com">chengyunm1313@gmail.com</a>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <!-- <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="mailto:chengyunm1313@gmail.com">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          填寫表單
+        </a> -->
+        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" target="_blank" rel="noopener" href="https://lin.ee/epeTR8o">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          LINE邀約合作
+        </a>
+        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
+          AI享哥哥
+        </a>
+        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.facebook.com/HsiangPMKT?locale=zh_TW">
+          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
+          享哥玩行銷
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+</body>
+</html>
