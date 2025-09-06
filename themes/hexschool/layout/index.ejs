@@ -1,0 +1,352 @@
+<main>
+  <!-- hero 區塊 -->
+  <div class="container-fluid px-0">
+    <div class="row flex-md-row-reverse mb-7 mb-md-9">
+      <div class="col-12 col-md-7 px-0 overflow-hidden">
+        <picture>
+          <source media="(min-width: 768px)" srcset="<%= url_for('/images/hero-lg.png') %>">
+          <img class="w-100 d-block" src="<%= url_for('/images/hero-sm.png') %>" alt="hero banner">
+        </picture>
+      </div>
+      <div class="col-10 col-md-4 mx-auto mx-md-0">
+        <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start h-100">
+          <h1 class="mb-4 text-primary-700 fw-semibold">Hi！我是 徐享（享哥）</h1>
+          <p class="text-center text-md-start text-primary-600 fs-5 mb-0">具有 10 年經驗在<mark class="mark text-primary-600">數位行銷</mark>與<mark class="mark text-primary-600">電商廣告</mark>領域</p>
+          <p class="text-center text-md-start text-primary-600 fs-5">專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。</p>
+          <p class="text-center text-md-start text-primary-400 mb-9">生成式AI行銷應用 / 個資保護促進顧問 / AI自動化工作流 / 電商品牌行銷設計 / 中小企業數位轉型服務</p>
+          <div class="d-flex gap-3">
+            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.instagram.com/skypassion2013/">
+              <i class="bi bi-instagram"></i>
+            </a>
+            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.facebook.com/aihsaing/">
+              <i class="bi bi-facebook"></i>
+            </a>
+            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+              <i class="bi bi-youtube"></i>
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  
+  <!-- 熱門主題1 區塊 -->
+  <!-- <section class="container py-7 py-md-9">
+    <h2 class="title-deco text-center text-primary-700 tracking-wide fw-semibold mb-7">熱門主題</h2>
+    <div class="row row-gap-5">
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="生成式AI賦能電商行銷">
+          <div class="card-body px-3 py-4">
+            <h5 class="card-title mb-2 text-primary-700">2025 生成式AI應用規劃</h5>
+            <p class="card-subtitle mb-2 text-primary-500 small">AI自動化打造電商行銷即戰力</p>
+            <p class="card-text text-primary-600 fs-6">學會用生成式AI優化文案與流程，提升轉換率、降低行銷成本，打造能成長的智慧商模。</p>
+            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="個資保護與AI應用實務">
+          <div class="card-body px-3 py-4">
+            <h5 class="card-title mb-2 text-primary-700">2025 個人資料保護與AI風險控管</h5>
+            <p class="card-subtitle mb-2 text-primary-500 small">AI世代必備的安維辦法</p>
+            <p class="card-text text-primary-600 fs-6">掌握AI應用下的資安與風控重點，打造值得信任的數位服務，強化品牌防禦力與信譽。</p>
+            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="col-12 col-md-6 col-lg-4">
+        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
+          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="社群行銷與內容策略">
+          <div class="card-body px-3 py-4">
+            <h5 class="card-title mb-2 text-primary-700">2025 AI數位分身與影音行銷</h5>
+            <p class="card-subtitle mb-2 text-primary-500 small">打造你專屬的虛擬影響力角色</p>
+            <p class="card-text text-primary-600 fs-6">用AI生成數位分身 + KOL行銷策略，創造個人品牌內容矩陣，搶佔短影音與影響力紅利。</p>
+            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section> -->
+
+  <!-- 熱門主題2 區塊 -->
+  <section>
+    <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">熱門主題</h2>
+    <!-- 2025 生成式AI應用規劃 -->
+    <div
+      class="pt-9"
+      style="background-image: url('<%= url_for('/images/homepage-work1-bg.png') %>');background-repeat: no-repeat;background-position: center;background-size: cover;"
+    >
+      <div class="container">
+        <div class="row">
+          <div class="col-12 col-md-6 col-xl-7">
+            <img class="img-fluid" src="<%= url_for('/images/homepage-work1.png') %>" alt="work1">
+          </div>
+          <div class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center">
+            <div class="px-7 py-9 bg-white-overlay rounded-5">
+              <h3 class="mb-2 text-primary-50">2025 生成式AI應用規劃</h3>
+              <p class="mb-4 fs-6 text-primary-50">AI自動化打造電商行銷即戰力</p>
+              <div class="pb-7 mb-7 border-bottom border-white">
+                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">生成式AI</span>
+                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">行銷自動化</span>
+                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">電商轉換率優化</span>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a
+                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
+                  href="<%= url_for('/posts/generative-ai-planning/') %>"
+                >
+                  完整介紹
+                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-none pt-4 pb-8 text-center">
+      <h3 class="mb-2">2025 生成式AI應用規劃</h3>
+      <p class="mb-3 fs-6 text-primary-600">AI自動化打造電商行銷即戰力</p>
+      <div class="mb-4">
+        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">生成式AI</span>
+        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">行銷自動化</span>
+        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">電商轉換率優化</span>
+      </div>
+      <a
+        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
+        href="<%= url_for('/posts/generative-ai-planning/') %>"
+      >
+        完整介紹
+        <span class="material-symbols-outlined align-top">arrow_forward</span>
+      </a>
+    </div>
+    <!-- 2025 個人資料保護與AI風險控管 -->
+    <div
+      class="position-relative py-9"
+      style="background-image: url('<%= url_for('/images/homepage-work2-bg.png') %>');background-repeat: no-repeat;background-position: center;
+      background-size: cover;"
+    >
+      <div class="container">
+        <div class="row">
+          <div
+            class="d-none d-md-block col-md-6 position-absolute top-0 start-0 h-100"
+            style="background-color: #0A101380;"
+          >
+          </div>
+          <div
+            class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center"
+            
+          >
+            <div class="px-7 py-9 bg-white-overlay rounded-5">
+              <h3 class="mb-2 text-primary-50">2025 個人資料保護與AI風險控管</h3>
+              <p class="mb-4 fs-6 text-primary-50">AI世代必備的風險心智防身術</p>
+              <div class="pb-7 mb-7 border-bottom border-white">
+                <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI風險控管</span>
+                <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個資法規</span>
+                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">安維辦法</span>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a
+                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
+                  href="<%= url_for('/posts/personal-data-protection/') %>"
+                >
+                  完整介紹
+                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+          <div class="col-12 col-md-6 invisible">
+            <img class="img-fluid" src="<%= url_for('/images/homepage-work1.png') %>" alt="work1">
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-none pt-4 pb-8 text-center">
+      <h3 class="mb-2">2025 個人資料保護與AI風險控管</h3>
+      <p class="mb-3 fs-6 text-primary-600">AI世代必備的風險心智防身術</p>
+      <div class="mb-4">
+        <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI風險控管</span>
+        <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個資法規</span>
+        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">安維辦法</span>
+      </div>
+      <a
+        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
+        href="<%= url_for('/posts/personal-data-protection/') %>"
+      >
+        完整介紹
+        <span class="material-symbols-outlined align-top">arrow_forward</span>
+      </a>
+    </div>
+    <!-- 2025 AI數位分身與影音行銷 -->
+    <div
+      class="position-relative py-9"
+      style="background-image: url('<%= url_for('/images/homepage-work3-bg.png') %>');background-repeat: no-repeat;background-position: center;background-size: cover;"
+    >
+      <div class="container">
+        <div class="row">
+          <div
+            class="col-12 position-absolute top-0 start-0 bottom-0 end-0 h-100"
+            style="background-color: #0D0C0780;"
+          ></div>
+          <div class="col-12 col-md-6 col-xl-7 z-1">
+            <img class="img-fluid" src="<%= url_for('/images/homepage-work3.png') %>" alt="work1">
+          </div>
+          <div class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center">
+            <div class="px-7 py-9 bg-white-overlay rounded-5">
+              <h3 class="mb-2 text-primary-50">2025 AI數位分身與影音行銷</h3>
+              <p class="mb-4 fs-6 text-primary-50">打造你專屬的虛擬影響力角色</p>
+              <div class="pb-7 mb-7 border-bottom border-white">
+                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">數位分身</span>
+                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷策略</span>
+                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個人品牌經營</span>
+              </div>
+              <div class="d-flex justify-content-center">
+                <a
+                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
+                  href="<%= url_for('/posts/ai-virtual-avatar-marketing/') %>"
+                >
+                  完整介紹
+                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
+                </a>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="d-md-none pt-4 pb-8 text-center">
+      <h3 class="mb-2">2025 AI數位分身與影音行銷</h3>
+      <p class="mb-3 fs-6 text-primary-600">打造你專屬的虛擬影響力角色</p>
+      <div class="mb-4">
+        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">數位分身</span>
+        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷策略</span>
+        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個人品牌經營</span>
+      </div>
+      <a
+        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
+        href="<%= url_for('/posts/ai-virtual-avatar-marketing/') %>"
+      >
+        完整介紹
+        <span class="material-symbols-outlined align-top">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+
+  <!-- 服務項目 區塊 -->
+  <section
+    class="pt-7 pb-7 pb-md-9"
+    style="background-image: url('<%= url_for('/images/homepage-services-bg.png') %>');
+    background-repeat: no-repeat;
+    background-size: cover;"
+  >
+    <div class="container px-6 px-md-4">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">服務項目</h2>
+      <div class="row row-gap-4 mb-7 mb-md-9">
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-front-end.svg') %>" alt="visual design">
+              <h3 class="text-primary-50">生成式AI應用</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-ui.svg') %>" alt="ui design">
+              <h3 class="text-primary-50">個資保護顧問</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-html&css.svg') %>" alt="html and css">
+              <h3 class="text-primary-50">電商品牌行銷</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-lg-3">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-visual.svg') %>" alt="visual design">
+              <h3 class="text-primary-50">廣告媒體曝光</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+      <p class="mb-4 mb-md-7 fs-3 fw-semibold text-center text-primary-700">想要合作或瞭解更多？</p>
+      <div class="d-flex justify-content-center pb-7 pb-md-9">
+        <a
+          class="d-none d-md-block btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
+          href="<%= url_for('/service') %>"
+        >
+          詳細內容與合作流程
+          <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
+        </a>
+        <a
+          class="d-md-none btn px-3 py-2 fw-bold text-primary-50 bg-primary-900"
+          href="<%= url_for('/service') %>"
+        >
+          詳細內容與合作流程
+          <span class="material-symbols-outlined align-text-bottom">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 精選文章 區塊 -->
+  <section class="container pb-7 pb-md-9">
+    <h2 class="title-deco py-7 py-md-9 mt-7 mt-md-9 text-center text-primary-700 tracking-wide fw-semibold">精選文章</h2>
+
+      <div class="row row-gap-5 mb-7">
+        <div class="swiper">
+          <div class="swiper-wrapper mb-9">
+          <% const limit = 5 %>
+          <% page.posts.slice(0, limit).each((post) => { %>
+            <div class="swiper-slide col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="<%= url_for(post.cover) %>" class="card-img-top rounded-3" alt="article-1">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700"><%= post.title %></h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <%- list_tags(post.tags, {
+                      show_count: false,
+                      amount: 2,
+                      style: 'list',
+                      separator: '',
+                      class: {
+                        ul: 'd-flex gap-2 mb-0 overflow-x-hidden list-unstyled',
+                        a: 'badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none '
+                      }
+                    }) %>
+                    
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary"><%= date(post.date, 'YYYY/MM/DD') %></small></p>
+                  </div>
+                  <a class="stretched-link" href="<%= post.path %>"></a>
+                </div>
+              </div>
+            </div>
+          <% }) %>
+
+          </div>
+          <div class="swiper-pagination d-none d-md-block"></div>
+        </div>
+      </div>
+
+    <div class="d-flex d-md-none justify-content-center mb-7">
+      <a
+        class="btn btn-lg fs-6 fw-bold text-primary-50 bg-primary-900"
+        href="/blog"
+      >
+        更多文章
+        <span class="material-symbols-outlined align-text-bottom">arrow_forward</span>
+      </a>
+    </div>
+  </section>
+</main>

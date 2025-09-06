@@ -1,0 +1,338 @@
+<main>
+  <!-- 服務項目 區塊 -->
+  <section class="pt-md-7 pb-7 pb-md-9">
+    <div class="container">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">服務項目</h2>
+      <div class="row row-gap-4 mb-7 mb-md-9">
+        <div class="col-11 col-md-6 col-lg-3 mx-auto">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-front-end.svg') %>" alt="visual design">
+              <h3 class="text-primary-50">生成式AI應用</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-11 col-md-6 col-lg-3 mx-auto">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-ui.svg') %>" alt="ui design">
+              <h3 class="text-primary-50">個資保護顧問</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-11 col-md-6 col-lg-3 mx-auto">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-html&css.svg') %>" alt="html and css">
+              <h3 class="text-primary-50">電商品牌行銷</h3>
+            </div>
+          </div>
+        </div>
+        <div class="col-11 col-md-6 col-lg-3 mx-auto">
+          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
+            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
+              <img class="mb-4" src="<%= url_for('/images/service-item-visual.svg') %>" alt="visual design">
+              <h3 class="text-primary-50">廣告媒體曝光</h3>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 服務流程 區塊 -->
+  <section class="bg-service px-2 py-7 pb-md-9">
+    <div class="container">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-50 tracking-wide fw-semibold">服務流程</h2>
+      <div class="d-flex flex-column row-gap-3 mx-auto" style="max-width: 655px;">
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">1</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">需求諮詢</h3>
+            <p class="mb-0 fs-5 text-primary-300">客戶透過 LINE、表單或信件聯繫，簡述需求與現況</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">2</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">初步診斷</h3>
+            <p class="mb-0 fs-5 text-primary-300">安排會議診斷現況，釐清企業問題並提供初步建議</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">3</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">合作提案與報價</h3>
+            <p class="mb-0 fs-5 text-primary-300">根據分析結果提供建議方案、服務時程與報價</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">4</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">簽約與訂金</h3>
+            <p class="mb-0 fs-5 text-primary-300">簽署合約並支付訂金，保留合作時段與資源</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">5</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">專案啟動與執行</h3>
+            <p class="mb-0 fs-5 text-primary-300">進行企業輔導、顧問諮詢或行銷規劃等實作內容</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">6</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">回饋調整與追蹤</h3>
+            <p class="mb-0 fs-5 text-primary-300">根據成效追蹤與回饋進行優化與調整</p>
+          </div>
+        </div>
+        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
+        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 mb-7 mb-md-9 bg-primary-700 border border-1 border-primary-500 rounded-1">
+          <div class="font-tourney display-2 text-primary-500">7</div>
+          <div class="ms-0 ms-md-6">
+            <h3 class="text-center text-md-start text-primary-50">結案與成果交付</h3>
+            <p class="mb-0 fs-5 text-primary-300">交付成果並結案，安排尾款與後續協作建議</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 價格表 區塊 -->
+  <section class="py-7 pb-md-9">
+    <div class="container px-4">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">價格表</h2>
+      <div class="row row-gap-4 gx-8 gx-md-4">
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="平面設計">
+            <h3 class="mb-0 text-primary-600 fw-semibold">企業輔導</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              4,000/小時
+              <span class="fs-6 text-primary-600 fw-normal">起</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="平面設計">
+            <h3 class="mb-0 text-primary-600 fw-semibold">企業內訓工作坊</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              16,000/天
+              <span class="fs-6 text-primary-600 fw-normal">起</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="UI 設計">
+            <h3 class="mb-0 text-primary-600 fw-semibold">個資保護顧問</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              依專案報價
+              <span class="fs-6 text-primary-600 fw-normal"></span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="UI 設計">
+            <h3 class="mb-0 text-primary-600 fw-semibold">品牌整合行銷</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              50,000
+              <span class="fs-6 text-primary-600 fw-normal">起</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 mb-7 mb-md-9 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="前端開發">
+            <h3 class="mb-0 text-primary-600 fw-semibold">品牌電商官網</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              50,000
+              <span class="fs-6 text-primary-600 fw-normal">起</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-12 col-lg-6 col-xxl-4">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 mb-7 mb-md-9 bg-primary-100 rounded-2">
+            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="前端開發">
+            <h3 class="mb-0 text-primary-600 fw-semibold">廣告媒體曝光</h3>
+            <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
+            <div class="fs-2 text-primary-800 fw-bold">
+              50,000/月
+              <span class="fs-6 text-primary-600 fw-normal">起</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 公開課程 區塊 -->
+  <section class="py-7 bg-primary-100">
+    <div class="container">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">公開課程</h2>
+      <ul class="row row-gap-7 mb-6 mb-md-7 list-unstyled">
+        <% for (const collectionKey in site.data.collections) { %>
+          <% const collection = site.data.collections[collectionKey] %>
+          <li class="col-12 col-md-6 mb-2 mb-md-7">
+            <!-- 課程卡片 區塊 -->
+            <div class="card bg-transparent border-0">
+              <button
+                data-bs-toggle="modal"
+                data-bs-target="#collectionModal-<%= collection.id %>"
+                class="bg-transparent border-0"
+                type="button"
+              >
+                <img
+                  src="<%= url_for('/images/work-image' + collection.id + '.png') %>"
+                  class="card-img-top rounded-4"
+                  alt="work-<%=collection.id %>"
+                >
+              </button>
+              <div class="card-body pb-0">
+                <h3 class="card-title text-primary-700">
+                  <%= collection.name %>
+                </h3>
+                <p class="card-text mb-3 mb-md-4 text-primary-500">
+                  <%= collection.description %>
+                </p>
+                <div class="d-flex gap-3">
+                  <% for (const tagKey in collection.tags) { %>
+                    <% const tag = collection.tags[tagKey] %>
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+                      <%= tag %>
+                    </span>
+                  <% } %>
+                </div>
+              </div>
+            </div>
+            <!-- modal 區塊 -->
+            <div class="modal" id="collectionModal-<%= collection.id %>" tabindex="-1" aria-labelledby="modal-<%= collection.id %>" aria-hidden="true">
+              <div class="modal-dialog modal-dialog-centered" style="--bs-modal-width: 1076px;">
+                <div class="modal-content rounded-4">
+                  <div class="modal-header pt-6 pb-0 px-6 px-md-7 mb-4 mb-md-7 border-0">
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                  </div>
+                  <div class="px-6 px-md-9">
+                    
+                    <h3 class="modal-title mb-2 text-primary-700 text-center"><%= collection.name %></h3>
+                    <p class="mb-4 mb-md-7 text-primary-500 text-center"><%= collection.description %></p>
+                    <div class="row row-gap-4 justify-content-center justify-content-md-between align-items-center mb-4 mb-md-7">
+                      <div class="col-12 col-md-5 col-lg-7 text-primary-800">
+                        <!-- <p class="mb-0">這是關於「<%= collection.name %>」的更多細節介紹。</p> -->
+                        <!-- <p class="mb-0">您可以根據需要填入更多說明文字或課程重點。</p> -->
+                        <% if (collection.outline && collection.outline.length > 0) { %>
+                          <h4 class="text-primary-600 mt-5 mb-3">課程大綱</h4>
+                          <ul class="list-unstyled text-primary-700">
+                            <% collection.outline.forEach(function(item) { %>
+                              <li class="mb-2">• <%= item %></li>
+                            <% }) %>
+                          </ul>
+                        <% } %>
+                      </div>
+                      <div class="divider col-12 col-md-5 w-auto text-center text-md-start ps-md-4 pt-4 pt-md-0 text-primary-600">
+                        <% if (collection.goal) { %>
+                          <p class="mb-1">課程目的：<%= collection.goal %></p>
+                        <% } %>
+                        <% if (collection.benefit) { %>
+                          <p class="mb-0">課程效益：<%- collection.benefit.replace(/\n/g, '<br>') %></p>
+                        <% } %>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="modal-body py-7 text-center bg-primary-100">
+                    <img class="img-fluid mt-0 mt-md-7 mb-3 mb-md-4 rounded-4" src="<%= url_for('/images/work-image' + collection.id + '.png') %>" alt="modal-image<%= collection.id %>">
+                    <h4 class="mb-2 mb-md-3 fs-5 text-primary-800">課程主圖</h4>
+                    <!-- <p class="mb-9 text-primary-600">這張圖可替換為課程海報或展示重點內容。</p> -->
+                  </div>
+                </div>
+              </div>
+            </div>
+          </li>
+        <% } %>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 常見問題 區塊 -->
+  <section class="py-7 pb-md-9">
+    <div class="container px-4 mb-7 mb-md-9">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">常見問題</h2>
+      <div class="row row-gap-4 gx-7 gx-md-4 justify-content-xl-center">
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">時程很趕的話可以加快作業嗎？</h4>
+            <p class="mb-0 text-primary-600">每提早一天，只要支付總報價的 5%，我們即會視為急件為您趕工！</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">白天可以開會討論嗎？</h4>
+            <p class="mb-0 text-primary-600">每週一到五的白天，可以約定線上開會時間！</p>
+          </div>
+        </div>
+        
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">顧問服務可以線上進行嗎？</h4>
+            <p class="mb-0 text-primary-600">可以，提供 Google Meet 或 Zoom 線上會議服務，免除地區限制。</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">可以一次委託多項服務嗎？</h4>
+            <p class="mb-0 text-primary-600">沒問題，可整合顧問、行銷與廣告等服務，提供完整規劃與執行。</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">是否可協助教育訓練或內訓？</h4>
+            <p class="mb-0 text-primary-600">可安排講座、企業內訓、實作課程，內容可依需求客製化設計。</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">是否可先試談一次再決定合作？</h4>
+            <p class="mb-0 text-primary-600">可安排一次線上諮詢，初步釐清需求與方向後再決定是否展開合作。</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">合作是否會提供簡報或成果報告？</h4>
+            <p class="mb-0 text-primary-600">會提供簡報或診斷報告，方便團隊內部對齊與持續追蹤進展。</p>
+          </div>
+        </div>
+        <div class="col-12 col-md-6 col-xl-5">
+          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+            <h4 class="mb-3 text-primary-700">你們有配合的技術或設計團隊嗎？</h4>
+            <p class="mb-0 text-primary-600">有，我們與多位設計、程式、行銷專業工作者協作，能提供整合式解決方案。</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 邀約授課 CTA 區塊 -->
+  <div class="bg-primary-700 text-white py-7">
+    <div class="container text-center">
+      <h5 class="mb-3">想邀請享哥授課或合作嗎？</h5>
+      <p class="mb-4">無論是企業內訓、公開課、講座分享，歡迎透過下方管道聯繫！</p>
+      <a href="https://lin.ee/epeTR8o" target="_blank" class="btn btn-light text-primary-700 fw-bold px-4 py-2">
+        立即聯絡我（LINE）
+      </a>
+    </div>
+  </div>
+</main>
+

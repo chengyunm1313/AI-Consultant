@@ -1,0 +1,69 @@
+<main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <%- partial('_partial/sidebar') %>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            <% if (page.tags.length > 0) { %>
+              <li class="breadcrumb-item text-primary-500">
+                <%- list_tags(page.tags, {
+                  show_count: false,
+                  amount: 1,
+                  style: '',
+                  separator: '',
+                  class: {
+                    a: 'text-primary-500 text-decoration-none'
+                  }
+                }) %>
+
+              </li>
+            <% } %>
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page"><%= date(page.date, 'YYYY/MM/DD') %> 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center"><%= page.title %></h1>
+        <% if (page.subtitle) { %>
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- <%= page.subtitle %> -</h4>
+        <% } %>
+        <%- page.content %>
+
+        <% if (page.author) { %>
+          <span><%= page.author%> 主筆</span>
+        <% } %>
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      <% if (page.tags && page.tags.length) { %>
+        <% page.tags.forEach(function(tag) { %>
+          <% site.tags.findOne({ name: tag.name }).posts.filter(function(item) {
+            return item.title !== page.title;
+          }).sort('date', -1).slice(0, 3).each(function(item) { %>
+            <div class="col-12 col-md-6 col-lg-4">
+              <div class="card border-0">
+                <img src="<%= url_for(item.cover) %>" class="img-fluid card-img-top rounded-3" alt="<%= item.title %>">
+                <div class="card-body">
+                  <h5 class="card-title mb-3 text-primary-700"><%= item.title %></h5>
+                  <div class="d-flex justify-content-between align-items-center">
+                    <% item.tags.each(function(tag) {%>
+                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4"><%= tag.name %></span>
+                    <% }) %>
+                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary"><%= date(item.date, 'YYYY/MM/DD') %></small></p>
+                  </div>
+                  <a class="stretched-link" href="<%- url_for(item.path) %>"></a>
+                </div>
+              </div>
+            </div>
+          <% }); %>
+        <% }); %>
+      <% } %>
+    </div>
+
+  </section>
+</main>

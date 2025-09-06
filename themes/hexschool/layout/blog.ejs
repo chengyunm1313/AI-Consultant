@@ -1,0 +1,31 @@
+<main>
+  <section class="container pb-7 pb-md-9">
+    <div class="py-4 py-md-7 py-lg-9 mt-0 mt-lg-9">
+      <h2 class="title-deco mb-3 mb-lg-4 text-center text-primary-700 tracking-wide fw-semibold"><%- theme.blog_title %></h2>
+      <p class="mb-0 text-center text-primary-500"><%- theme.blog_subtitle %></p>
+    </div>
+    <div class="row flex-row-reverse mb-lg-9">
+      <div class="col-12 col-lg-3">
+        <%- partial('_partial/sidebar') %>
+      </div>
+
+      <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        <% page.posts.each((post) => { %>
+          <%- partial('_partial/blog-post.ejs', {post: post, index: true}) %>
+        <% }) %>
+      </ul>
+    </div>
+
+    <nav class="mb-7 mb-md-9" aria-label="Page navigation">
+      <ul class="pagination justify-content-center gap-3">
+        <% if (page.total > 1) { %>
+          <%- pagination({
+            current: page.current,
+            total: page.total
+          }) %>
+        <% } %>
+      </ul>
+    </nav>
+  </section>
+    
+</main>

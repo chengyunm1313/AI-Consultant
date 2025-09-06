@@ -1,0 +1,494 @@
+/* Bootstrap style override */
+.badge {
+  --bs-badge-padding-x: 0.75rem;
+  --bs-badge-padding-y: 0.25rem;
+}
+
+.navbar-nav .nav-link.active, .navbar-nav .nav-link.show {
+  font-weight: 600;
+}
+
+.navbar-nav .nav-link.active span::before {
+  --size: 8px;   /* the size on the corner */
+  content: "";
+  position: absolute;
+  inset: 0;
+  border: 1px solid #919191;
+  mask: conic-gradient(at var(--size) var(--size), rgba(0, 0, 0, 0) 75%, #000 0) 0 0/calc(100% - var(--size)) calc(100% - var(--size)), linear-gradient(#000 0 0) content-box;
+}
+
+.breadcrumb-item + .breadcrumb-item::before {
+  --bs-breadcrumb-divider-color: #919191;
+  color: var(--bs-breadcrumb-divider-color);
+}
+
+.page-link.active, .active > .page-link {
+  background-color: #1E1E1E !important;
+  color: #fff !important;
+}
+
+/* Typography */
+
+.font-tourney {
+  font-family: "Tourney", sans-serif;
+}
+
+.tracking-wide {
+  letter-spacing: 0.12em;
+}
+
+/* Text decorate */
+.mark {
+  background-color: #fff;
+  background-image: url("/images/mark.png");
+  background-repeat: no-repeat;
+  background-position: bottom;
+  background-size: contain;
+}
+
+.title-deco::before {
+  content: '';
+  display: inline-block;
+  width: 56px;
+  height: 6px;
+  background-image: url("/images/title-deco-left-sm.png");
+  vertical-align: middle;
+  margin-right: 1rem;
+}
+
+.title-deco::after {
+  content: '';
+  display: inline-block;
+  width: 56px;
+  height: 6px;
+  background-image: url("/images/title-deco-right-sm.png");
+  vertical-align: middle;
+  margin-left: 1rem;
+}
+
+@include media-breakpoint-up(md) {
+  .title-deco::before {
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 6px;
+    background-image: url("/images/title-deco-left-lg.png");
+    vertical-align: middle;
+    margin-right: 1rem;
+  }
+
+  .title-deco::after {
+    content: '';
+    display: inline-block;
+    width: 100px;
+    height: 6px;
+    background-image: url("/images/title-deco-right-lg.png");
+    vertical-align: middle;
+    margin-left: 1rem;
+  }
+}
+
+/* Background */
+.bg-white-overlay {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(5px);
+}
+
+.bg-service {
+  background: linear-gradient(315deg, #1E1E1E 0%, #1E1E1E 49.97%, #000000 50%);
+  padding: 0 30px;
+  padding-top: 100%;
+  position: relative;
+}
+
+/* Collection section */
+.divider {
+  border-top: 1px solid #C1C1C1; 
+}
+
+@include media-breakpoint-up(md) {
+  .divider {
+    border-left: 1px solid #C1C1C1; 
+    border-top: 0;
+  }
+}
+
+.border-half::after {
+  content: '';
+  border-bottom: 2px solid #c1c1c1;
+  position: absolute;
+  width: 50%;
+  bottom: 0;
+  left: 0;
+  transform: translate(50%);
+}
+
+/* Price list section */
+.price-list__item--shadow {
+  box-shadow: 0px 4px 8px 0px #00000014;
+}
+
+/* BlogView */
+.blog__menu {
+  position: absolute;
+  left: 0;
+  width: 100%;
+  overflow-x: auto;
+}
+
+@include media-breakpoint-up(lg) {
+  .blog__menu {
+    position: static;
+    width: auto;
+    height: 100%;
+  }
+}
+
+.blog__menu--active {
+  border: 0;
+  border-bottom: 2px solid #1E1E1E;
+  color: $primary-800 !important;
+}
+.blog__menu--active:hover {
+  border-bottom: 2px solid currentColor;
+}
+
+.cutoff-text {
+  --max-lines: 3;
+
+  display: -webkit-box;
+  overflow: hidden;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: var(--max-lines);
+}
+
+@include media-breakpoint-up(lg) {
+  .cutoff-text {
+    --max-lines: 5;
+  }
+}
+
+/* PostView */
+.article-container h1 {
+  font-size: 2.25rem;
+  margin-bottom: 2rem;
+}
+
+.article-container h2 {
+  font-size: 1.75rem;
+  margin-bottom: 1.75rem;
+}
+
+.article-container h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1.5rem;
+}
+
+.article-container h4 {
+  font-size: 1.25rem;
+  margin-bottom: 1.25rem;
+}
+
+.article-container h5 {
+  font-size: 1.125rem;
+  margin-bottom: 1rem;
+}
+
+.article-container p {
+  font-size: 1.125rem;
+  line-height: 1.8;
+  margin-bottom: 1.75rem;
+}
+
+@include media-breakpoint-up(lg) {
+  .article-container p {
+    margin-bottom: 2.25rem;
+  }
+}
+
+.article-container img {
+  max-width: 100%;
+}
+// .article-container h1 {
+//   font-size: 2rem;
+//   margin-bottom: 1.5rem;
+// }
+
+// .article-container h2 {
+//   font-size: 1.5rem;
+//   margin-bottom: 1rem;
+// }
+
+// .article-container h3 {
+//   font-size: 1.25rem;
+//   margin-bottom: 1rem;
+// }
+
+// .article-container p {
+//   font-size: 1.25rem;
+//   margin-bottom: 2rem;
+// }
+
+// .article-container img {
+//   max-width: 100%;
+// }
+
+// @include media-breakpoint-up(lg) {
+//   .article-container p {
+//     margin-bottom: 2.5rem;
+//   }
+// }
+
+/* --- Archive頁專用樣式 --- */
+.archive-year {
+  font-weight: 700;
+  letter-spacing: 2px;
+}
+
+.archive-posts {
+  .card {
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+
+    &:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    }
+
+    h3 {
+      a {
+        color: #333;
+        transition: color 0.3s ease;
+
+        &:hover {
+          color: #0d6efd;
+          text-decoration: underline;
+        }
+      }
+    }
+  }
+}
+/* --- End Archive頁專用樣式 --- */
+
+/* --- toc文章目錄專用樣式 --- */
+.toc-article {
+  background: #f9f9f9;
+  border: 1px solid #e0e0e0;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  margin-bottom: 1.5rem;
+  font-size: 1rem;
+  line-height: 1.6;
+  border-radius: 8px;
+
+  ol {
+    padding-left: 0;
+    margin: 0;
+    list-style: none;
+
+    li {
+      margin: 0.5rem 0;
+      font-size: 1rem;
+      color: #333;
+
+      ol {
+        padding-left: 1.5rem;
+        margin-top: 0.5rem;
+
+        li {
+          font-size: 0.95rem;
+          color: #666;
+        }
+      }
+    }
+  }
+
+  a {
+    color: #333;
+    text-decoration: none;
+    display: block;
+
+    &:hover {
+      color: #3498db;
+      text-decoration: underline;
+    }
+  }
+}
+/* --- End toc文章目錄專用樣式 --- */
+
+/* --- md 基本表格樣式優化 --- */
+table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+  text-align: left;
+}
+
+/* 表格頭部 */
+table th {
+  background-color: #f5f5f5;
+  font-weight: bold;
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+/* 表格內容 */
+table td {
+  padding: 0.75rem;
+  border: 1px solid #ddd;
+}
+
+/* 隔行變色，提升可讀性 */
+table tbody tr:nth-child(odd) {
+  background-color: #fafafa;
+}
+
+/* 滑鼠移上去高亮 */
+table tbody tr:hover {
+  background-color: #f1f1f1;
+}
+
+/* 小螢幕時橫向捲動 */
+.table-wrapper {
+  overflow-x: auto;
+}
+/* --- End md 基本表格樣式優化 --- */
+
+/* --- Gamma 內嵌程式碼，自動 RWD 響應寬高 --- */
+.iframe-wrapper {
+  max-width: 100%;
+  margin: 2rem auto;
+  padding: 0;
+  aspect-ratio: 16 / 9;
+  position: relative;
+  border-radius: 12px;
+  overflow: hidden;
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
+}
+
+.iframe-wrapper iframe {
+  position: absolute;
+  top: 0; left: 0;
+  width: 100%;
+  height: 100%;
+  border: none;
+}
+/* --- End Gamma 內嵌程式碼，自動 RWD 響應寬高 --- */
+
+/* --- 首頁熱門主題的了解更多hover功能 --- */
+.link-hover-arrow {
+  transition: all 0.2s ease-in-out;
+  display: inline-block;
+}
+
+.link-hover-arrow:hover {
+  transform: translateX(4px);
+  text-decoration: underline;
+  color: #0056b3; /* 深一階的藍，可依你的品牌色調整 */
+}
+/* --- End 首頁熱門主題的了解更多hover功能 --- */
+
+/* --- 講師介紹區塊右側文字功能 --- */
+.text-content {
+  line-height: 1.8;
+  text-align: justify;
+  word-break: break-word;
+}
+/* --- End 講師介紹區塊右側文字功能 --- */
+
+/* --- 表格與程式碼區塊互動樣式優化 --- */
+
+
+pre {
+  position: relative;
+  overflow-x: auto;
+}
+
+pre code {
+  white-space: pre-wrap;
+  word-break: break-word;
+  padding-right: 3rem; // 預留 copy button 空間
+}
+
+/* 表格橫向滾動容器強化 */
+table {
+  display: block;
+  overflow-x: auto;
+  max-width: 100%;
+  white-space: normal !important;
+}
+
+/* 表格欄位內文字自動換行 */
+table td {
+  word-break: break-word;
+  white-space: normal !important;
+}
+
+/* 表格中的程式碼區塊也能換行 */
+table pre,
+table code {
+  white-space: pre-wrap !important;
+  word-break: break-word !important;
+}
+
+/* 複製按鈕只針對 code block 定位 */
+.code-block {
+  position: relative;
+  margin-bottom: 1.5rem;
+
+  .copy-btn {
+    position: absolute;
+    top: 0.25rem;
+    right: 0.25rem;
+    transform: translateY(0%);
+    background-color: #007aff;
+    color: white;
+    border: none;
+    padding: 4px 8px;
+    font-size: 12px;
+    border-radius: 4px;
+    cursor: pointer;
+    white-space: nowrap;
+    z-index: 10;
+  }
+}
+
+.highlight pre {
+  width: 100%;
+  white-space: pre-wrap;
+  word-break: break-word;
+  overflow-x: auto;
+  padding-right: 3rem; // 預留 copy button 空間
+}
+
+/* --- End 表格與程式碼區塊互動樣式優化 --- */
+
+/* --- article-container p 預設 mb 2.5rem --- */
+.article-container p {
+  margin-bottom: 1rem; // 或你要的值，如 16px
+}
+/* --- End article-container p 預設 mb 2.5rem --- */
+
+/* --- blockquote 樣式優化 --- */
+blockquote {
+  border-left: 6px solid #3182ce; /* 藍色邊框 */
+  padding: 1rem 1.5rem;
+  margin: 1.5rem 0;
+  background-color: #f0f8ff; /* 淡藍背景 */
+  color: #1a202c; /* 深灰文字 */
+  font-style: normal;
+  border-radius: 4px;
+}
+
+blockquote p {
+  margin-bottom: 0 !important;
+}
+
+.article-container blockquote p {
+  margin-bottom: 0 !important;
+}
+
+.article-container blockquote > * {
+  margin-bottom: 0 !important;
+}
+/* --- End blockquote 樣式優化 --- */

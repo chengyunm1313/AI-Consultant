@@ -1,0 +1,359 @@
+<main>
+  <!-- Banner 區塊 -->
+  <div class="bg-primary-100 pt-9 pb-7">
+    <div class="container">
+      <div class="row">
+        <div class="col-12 col-md-10 col-lg-6 offset-md-1 offset-lg-3">
+          <h2 class="position-relative py-9 mb-7 mb-md-4 fs-4 text-center text-primary-800">
+            <img class="d-md-none position-absolute start-50 top-0 translate-middle-x" src="<%= url_for('/images/quote-left.png') %>" alt="quote-left">
+            <img class="d-none d-md-block position-absolute start-0 top-0" src="<%= url_for('/images/quote-left.png') %>" alt="quote-left">
+            <p class="mt-3 mt-md-0 mb-3">AI，不只是潮流，而是上場的基本功。</p>
+            <p>-- 徐享（享哥）</p>
+            <img class="d-none d-md-block position-absolute end-0 bottom-0" src="<%= url_for('/images/quote-right.png') %>" alt="quote-right">
+          </h2>
+        </div>
+      </div>
+      <div class="row row-gap-4 justify-content-center pb-7">
+        <div class="col-10 col-md-4 col-lg-3">
+          <div class="text-center">
+            <h6 class="border-half position-relative d-inline-block pb-1 mb-2 lh-base fw-normal text-primary-600">生成式AI應用規劃</h6>
+            <p class="text-primary-700">AI自動化打造電商行銷即戰力</p>
+          </div>
+        </div>
+        <div class="col-10 col-md-4 col-lg-3">
+          <div class="text-center">
+            <h6 class="border-half position-relative d-inline-block pb-1 mb-2 lh-base fw-normal text-primary-600">個人資料保護與AI風險控管</h6>
+            <p class="text-primary-700">AI世代必備的風險心智防身術</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 講師介紹區塊 -->
+  <div class="bg-white py-7">
+    <div class="container">
+      <div class="row align-items-center flex-column flex-md-row g-5">
+        <!-- 左側圖片 -->
+        <div class="col-md-5 text-center text-md-center">
+          <img src="<%= url_for('/images/hsu-hsiang.jpg') %>" alt="講師徐享" class="img-fluid rounded shadow-sm mb-4 mb-md-0" style="max-width: 280px; margin: 0 auto;">
+        </div>
+        <!-- 右側文字 -->
+        <div class="col-md-7 text-content">
+          <h2 class="title-deco py-7 py-md-4 text-center text-primary-700 tracking-wide fw-semibold">講師介紹</h2>
+          <p class="text-primary-800 mb-3">
+            我是徐享（享哥）Sean Hsu，國立中央大學電機工程研究所畢業，原為硬體工程師，後轉戰網路行銷領域，從自由接案、創辦生鮮電商，到協助多個產業數位轉型，累積豐富實戰經驗。
+          </p>
+          <p class="text-primary-800 mb-3">
+            我始終相信：在快速變動的市場中，唯有掌握趨勢、快速行動與持續創新，才能創造競爭優勢。
+          </p>
+          <p class="text-primary-800 mb-3">
+            近年來，我積極投入生成式AI與自動化工具在行銷與電商領域的應用，協助中小企業善用AI進行內容產製、廣告優化、顧客關係管理等工作，有效降低成本、提升效率。
+          </p>
+          <p class="text-primary-800 mb-0">
+            AI 不僅是工具，更是加速品牌成長與創新的引擎。我專長於社群電商、品牌規劃與AI行銷應用，擁有超過10年數位行銷與電商廣告投放經驗，並受邀擔任多所大專院校與教育平台的顧問講師，致力將實務經驗轉化為可執行的方法，啟發更多創業者與行銷人走出自己的路。
+          </p>
+          <div class="row mt-5">
+            <div class="col-md-6">
+              <h5 class="text-primary-700 fw-semibold">現任</h5>
+              <ul class="text-primary-800 mb-4 ps-3">
+                <li>中華網路行銷講師協會 秘書長</li>
+                <li>台灣個資保護促進協會 理事</li>
+                <li>中華科技文化產業交流協會 秘書長</li>
+                <li>新北市政府青年局 青創顧問</li>
+                <li>AIGCxTaiwan 顧問講師</li>
+                <li>蝦皮大學 認證講師/顧問</li>
+                <li>AIRNET網路行銷公司 顧問講師</li>
+              </ul>
+            </div>
+            <div class="col-md-6">
+              <h5 class="text-primary-700 fw-semibold">經歷</h5>
+              <ul class="text-primary-800 ps-3">
+                <li>中華民國全國創新創業總會 講師</li>
+                <li>財團法人台中世界貿易中心 講師</li>
+                <li>中華民國進出口商業同業公會 講師</li>
+                <li>中華民國全國商業總會 講師</li>
+                <li>中華職訓教育創新發展學會 講師</li>
+                <li>台灣電商發展協會 講師</li>
+                <li>桃園市原住民族發展基金會 講師</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 證照展示區塊 -->
+  <div class="bg-primary-50 py-7">
+    <div class="container text-center">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">專業證照</h2>
+      <p class="text-primary-600 mb-5">生成式AI能力認證，通過專業能力考試，具備實務應用與教學資格。</p>
+      <div class="row justify-content-center">
+        <div class="col-md-6 col-lg-5">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#aiCertModal1">
+            <img src="<%= url_for('/images/ai-cert-hsiang.png') %>" alt="114年資策會生成式能力認證_徐享" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-md-6 col-lg-5">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#aiCertModal2">
+            <img src="<%= url_for('/images/ai-cert-hsiang2.jpg') %>" alt="114年iPAS初級AI應用規劃師能力鑑定_徐享" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+      </div>
+      <!-- Lightbox Modal for AI Certificate -->
+      <div class="modal fade" id="aiCertModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/ai-cert-hsiang.png') %>" class="img-fluid rounded" alt="114年資策會生成式能力認證_徐享">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="aiCertModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/ai-cert-hsiang2.jpg') %>" class="img-fluid rounded" alt="114年iPAS初級AI應用規劃師能力鑑定_徐享">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 輔導授課輪播區塊 -->
+  <div class="bg-white py-7">
+    <div class="container">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">輔導授課</h2>
+      <div id="lectureCarousel" class="carousel slide" data-bs-ride="carousel" data-bs-interval="3000">
+        <div class="carousel-inner">
+          <% for(let i=1; i<=9; i++) { %>
+            <div class="carousel-item <%= i === 1 ? 'active' : '' %>">
+              <img src="<%= url_for('/images/lecture' + i + '.jpg') %>" class="d-block w-100 rounded shadow-sm" alt="授課剪影 <%= i %>">
+            </div>
+          <% } %>
+        </div>
+        <button class="carousel-control-prev" type="button" data-bs-target="#lectureCarousel" data-bs-slide="prev">
+          <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">上一張</span>
+        </button>
+        <button class="carousel-control-next" type="button" data-bs-target="#lectureCarousel" data-bs-slide="next">
+          <span class="carousel-control-next-icon" aria-hidden="true"></span>
+          <span class="visually-hidden">下一張</span>
+        </button>
+      </div>
+    </div>
+  </div>
+  <!-- 合作單位 logo 牆區塊 -->
+  <div class="bg-white py-7">
+    <div class="container text-center">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">曾合作單位</h2>
+      <div class="d-flex flex-wrap justify-content-center gap-4 align-items-center">
+        <img src="<%= url_for('/images/Brand 1.png') %>" alt="Brand 1" height="80">
+        <img src="<%= url_for('/images/Brand 2.png') %>" alt="Brand 2" height="80">
+        <img src="<%= url_for('/images/Brand 3.png') %>" alt="Brand 3" height="80">
+        <img src="<%= url_for('/images/Brand 4.png') %>" alt="Brand 4" height="80">
+        <img src="<%= url_for('/images/Brand 5.png') %>" alt="Brand 5" height="80">
+        <img src="<%= url_for('/images/Brand 6.png') %>" alt="Brand 6" height="80">
+        <img src="<%= url_for('/images/Brand 7.png') %>" alt="Brand 7" height="80">
+        <img src="<%= url_for('/images/Brand 8.png') %>" alt="Brand 8" height="80">
+        <img src="<%= url_for('/images/Brand 9.png') %>" alt="Brand 9" height="80">
+        <img src="<%= url_for('/images/Brand 10.png') %>" alt="Brand 10" height="80">
+        <img src="<%= url_for('/images/Brand 11.png') %>" alt="Brand 11" height="80">
+        <img src="<%= url_for('/images/Brand 12.png') %>" alt="Brand 12" height="80">
+        <img src="<%= url_for('/images/Brand 13.svg') %>" alt="Brand 13" height="80">
+        <img src="<%= url_for('/images/Brand 14.jpg') %>" alt="Brand 14" height="80">
+        <img src="<%= url_for('/images/Brand 15.svg') %>" alt="Brand 15" height="80">
+        <img src="<%= url_for('/images/Brand 16.svg') %>" alt="Brand 16" height="80">
+        <img src="<%= url_for('/images/Brand 17.png') %>" alt="Brand 17" height="80">
+      </div>
+    </div>
+  </div>
+  <!-- 學員評價滑動區塊（Carousel 簡化版） -->
+  <!-- <div class="bg-primary-50 py-7">
+    <div class="container text-center">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">學員怎麼說？</h2>
+      <div class="row justify-content-center row-gap-4">
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <p class="text-primary-800">「老師講解非常清楚，馬上就能應用到工作！」</p>
+            <p class="fw-bold mb-0">— 小美（行銷人員）</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <p class="text-primary-800">「實戰案例很多，完全不像傳統講師那麼無聊！」</p>
+            <p class="fw-bold mb-0">— 阿豪（創業者）</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <p class="text-primary-800">「第一次覺得 AI 不再遙遠，講師實在太有親和力了！」</p>
+            <p class="fw-bold mb-0">— 小芸（行政人員）</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <p class="text-primary-800">「課程實用到馬上就拿去改公司簡報，主管還誇我專業！」</p>
+            <p class="fw-bold mb-0">— 阿哲（業務主管）</p>
+          </div>
+        </div>
+        <div class="col-md-4">
+          <div class="bg-white p-4 rounded shadow-sm h-100">
+            <p class="text-primary-800">「享哥不只教工具，更教我們怎麼思考與轉換工作方式！」</p>
+            <p class="fw-bold mb-0">— Esther（自媒體經營者）</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div> -->
+  <!-- 聘書與感謝狀 區塊 -->
+  <div class="bg-white py-7">
+    <div class="container text-center">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">感謝與肯定</h2>
+
+      <p class="text-primary-600 mb-5">來自企業、學校與社群組織的聘書與感謝狀，是對我專業的最高肯定。</p>
+      <div class="row g-4 justify-content-center">
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal1">
+            <img src="<%= url_for('/images/cert1.jpg') %>" alt="感謝狀 1" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal2">
+            <img src="<%= url_for('/images/cert2.jpg') %>" alt="感謝狀 2" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal3">
+            <img src="<%= url_for('/images/cert3.jpg') %>" alt="感謝狀 3" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal4">
+            <img src="<%= url_for('/images/cert4.jpg') %>" alt="感謝狀 4" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal5">
+            <img src="<%= url_for('/images/cert5.jpg') %>" alt="感謝狀 5" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal6">
+            <img src="<%= url_for('/images/cert6.png') %>" alt="感謝狀 6" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal7">
+            <img src="<%= url_for('/images/cert7.jpg') %>" alt="感謝狀 7" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal8">
+            <img src="<%= url_for('/images/cert8.jpg') %>" alt="感謝狀 8" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal9">
+            <img src="<%= url_for('/images/cert9.png') %>" alt="感謝狀 9" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal10">
+            <img src="<%= url_for('/images/cert10.jpg') %>" alt="感謝狀 10" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+        <div class="col-6 col-md-3">
+          <a href="#" data-bs-toggle="modal" data-bs-target="#certModal11">
+            <img src="<%= url_for('/images/cert11.png') %>" alt="感謝狀 11" class="img-fluid rounded shadow-sm">
+          </a>
+        </div>
+      </div>
+      <!-- Lightbox Modals -->
+      <div class="modal fade" id="certModal1" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert1.jpg') %>" class="img-fluid rounded" alt="感謝狀 1">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal2" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert2.jpg') %>" class="img-fluid rounded" alt="感謝狀 2">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal3" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert3.jpg') %>" class="img-fluid rounded" alt="感謝狀 3">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal4" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert4.jpg') %>" class="img-fluid rounded" alt="感謝狀 4">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal5" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert5.jpg') %>" class="img-fluid rounded" alt="感謝狀 5">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal6" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert6.png') %>" class="img-fluid rounded" alt="感謝狀 6">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal7" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert7.jpg') %>" class="img-fluid rounded" alt="感謝狀 7">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal8" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert8.jpg') %>" class="img-fluid rounded" alt="感謝狀 8">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal9" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert9.png') %>" class="img-fluid rounded" alt="感謝狀 9">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal10" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert10.jpg') %>" class="img-fluid rounded" alt="感謝狀 10">
+          </div>
+        </div>
+      </div>
+      <div class="modal fade" id="certModal11" tabindex="-1" aria-hidden="true">
+        <div class="modal-dialog modal-dialog-centered modal-lg">
+          <div class="modal-content bg-transparent border-0">
+            <img src="<%= url_for('/images/cert11.png') %>" class="img-fluid rounded" alt="感謝狀 11">
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- 邀約授課 CTA 區塊 -->
+  <div class="bg-primary-700 text-white py-7">
+    <div class="container text-center">
+      <h5 class="mb-3">想邀請享哥授課或合作嗎？</h5>
+      <p class="mb-4">無論是企業內訓、公開課、講座分享，歡迎透過下方管道聯繫！</p>
+      <a href="https://lin.ee/epeTR8o" target="_blank" class="btn btn-light text-primary-700 fw-bold px-4 py-2">
+        立即聯絡我（LINE）
+      </a>
+    </div>
+  </div>
+</main>
+  

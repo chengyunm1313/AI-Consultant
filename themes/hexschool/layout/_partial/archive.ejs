@@ -1,0 +1,59 @@
+<section class="container py-9">
+  <% if (pagination == 2) { %>
+    <div class="row row-gap-6 archive-posts">
+      <% page.posts.each(function(post) { %>
+        <div class="col-12 col-md-6">
+          <div class="card shadow-sm p-5 rounded-4 h-100">
+            <div class="text-primary-400 fs-6 mb-2"><%= post.date.format('YYYY年M月D日') %></div>
+            <h3 class="h5 mb-0">
+              <a href="<%- url_for(post.path) %>" class="text-primary-700 text-decoration-none">
+                <%= post.title %>
+              </a>
+            </h3>
+          </div>
+        </div>
+      <% }); %>
+    </div>
+  <% } else { %>
+    <% var last; %>
+    <% page.posts.each(function(post, i) { %>
+      <% var year = post.date.year(); %>
+      <% if (last != year) { %>
+        <% if (last != null) { %>
+            </div></section>
+        <% } %>
+        <% last = year; %>
+        <section class="container py-9">
+          <div class="archive-year text-center text-primary-500 fs-3 mb-7">
+            <%= year %>
+          </div>
+          <div class="row row-gap-6 archive-posts">
+      <% } %>
+      <div class="col-12 col-md-6">
+        <div class="card shadow-sm p-5 rounded-4 h-100">
+          <div class="text-primary-400 fs-6 mb-2"><%= post.date.format('M月D日') %></div>
+          <h3 class="h5 mb-0">
+            <a href="<%- url_for(post.path) %>" class="text-primary-700 text-decoration-none">
+              <%= post.title %>
+            </a>
+          </h3>
+        </div>
+      </div>
+    <% }); %>
+    <% if (page.posts.length) { %>
+        </div></section>
+    <% } %>
+  <% } %>
+
+  <% if (page.total > 1) { %>
+    <nav id="page-nav" class="text-center mt-7">
+      <% var prev_text = "&laquo; " + __('prev'); var next_text = __('next') + " &raquo;" %>
+      <%- paginator({
+        prev_text: prev_text,
+        next_text: next_text,
+        escape: false
+      }) %>
+    </nav>
+  <% } %>
+</section>
+

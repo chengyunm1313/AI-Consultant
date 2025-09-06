@@ -1,0 +1,32 @@
+# Header
+menu:
+  首頁: /
+  部落格: /blog
+  生成式AI應用規劃: /posts/generative-ai-planning/
+  AI數位分身: /posts/ai-virtual-avatar-marketing/
+  AI風險控管: /posts/personal-data-protection/
+  關於享哥: /collection
+  服務項目: /service
+  聯絡我: /contact
+
+# social 標籤 - 加入社群分享 meta
+og_image: /images/hero-lg.png
+
+# Blog
+blog_title: 部落格
+blog_subtitle: 不定期分享最新資訊文章
+
+# Blog pagination
+# path: Root path for your blogs index page. (default = '/blog')
+# per_page: Posts displayed per page. (0 = disable pagination)
+# order_by: Posts order. (Order by date descending by default)
+blog_generator:
+  per_page: 10
+  path: /blog
+  order_by: -date
+
+# Miscellaneous
+favicon: /images/logo.svg
+
+# Google analytics
+google_analytics: G-KD5W9RGBR5
