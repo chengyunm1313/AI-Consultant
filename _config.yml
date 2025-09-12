@@ -117,4 +117,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:Make.com 教學：零成本打造 AI YouTube 影片摘要自動化系統'
+  message: 'collection:Google Gemini Certified Educator 認證_徐享'
