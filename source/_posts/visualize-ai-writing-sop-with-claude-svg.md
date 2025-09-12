@@ -105,9 +105,9 @@ Claude 特別適合生成結構圖、概念圖，只需給予正確提示詞，�
 
 [https://claude.ai/public/artifacts/b54e24a1-539a-47e6-9cc6-da8044a05795](https://claude.ai/public/artifacts/b54e24a1-539a-47e6-9cc6-da8044a05795)
 
-![Claude 生成 SVG 原始碼](https://firebasestorage.googleapis.com/v0/b/es2idea-37425.firebasestorage.app/o/blog.es2idea.com%2F%E7%94%A8%20Claude%20%E7%94%A2%E7%94%9F%20SVG%20%E5%9C%96%E8%A1%A8%EF%BC%8C%E5%AF%A6%E4%BD%9C%E4%BD%A0%E7%9A%84%20AI%20%E5%AF%AB%E6%96%87%20SOP%20%E8%A6%96%E8%A6%BA%E5%8C%96%EF%BC%81%2Fvisualize-ai-writing-sop-with-claude-svg.webp?alt=media&token=fe1270e7-bf00-477e-8048-04401b28f98e)
+![Claude 生成 SVG 原始碼](/images/visualize-ai-writing-sop-with-claude-svg.png)
 
-![AI寫文全流程 SVG 圖表](https://firebasestorage.googleapis.com/v0/b/es2idea-37425.firebasestorage.app/o/blog.es2idea.com%2F%E7%94%A8%20Claude%20%E7%94%A2%E7%94%9F%20SVG%20%E5%9C%96%E8%A1%A8%EF%BC%8C%E5%AF%A6%E4%BD%9C%E4%BD%A0%E7%9A%84%20AI%20%E5%AF%AB%E6%96%87%20SOP%20%E8%A6%96%E8%A6%BA%E5%8C%96%EF%BC%81%2Fai_content_workflow.svg?alt=media&token=f6c73002-11c3-4e14-bf87-f09f86626132)
+![AI寫文全流程 SVG 圖表](/images/ai_content_workflow.svg)
 
 延伸閱讀：[《教你用提示詞讓 Claude 或 ChatGPT 生成 SVG 圖表》](/posts/svg-diagram-prompts-claude-chatgpt)
 

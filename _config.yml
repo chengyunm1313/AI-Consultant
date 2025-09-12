@@ -117,4 +117,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'collection:Google Gemini Certified Educator 認證_徐享'
+  message: 'fix:用 Claude 產生 SVG 圖表，實作你的 AI 寫文 SOP 視覺化！-- images資料夾匯入圖片'
