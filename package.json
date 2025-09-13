@@ -5,7 +5,7 @@
   "scripts": {
     "build": "hexo generate && node toWebp",
     "clean": "hexo clean",
-    "deploy": "hexo generate && node toWebp && hexo deploy",
+    "deploy": "hexo clean && hexo generate && node toWebp && hexo deploy",
     "server": "hexo server"
   },
   "hexo": {
