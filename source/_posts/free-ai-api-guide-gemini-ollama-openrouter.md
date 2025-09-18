@@ -1,6 +1,6 @@
 ---
 title: 2025 最新免費 AI API 指南：Gemini, Ollama, OpenRouter 尋寶圖
-cover: /images/default-cover.png
+cover: /images/cover55.png
 toc: true
 categories:
   - 生成式AI應用
