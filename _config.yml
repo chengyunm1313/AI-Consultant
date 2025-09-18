@@ -41,7 +41,7 @@ external_link:
   exclude: ''
 filename_case: 0
 render_drafts: false
-post_asset_folder: true # 圖片放在文章md -> ![描述](my-image.png)
+post_asset_folder: false # 圖片放在文章md -> ![描述](my-image.png) ，現在統一是放到 source/posts/images/
 marked:
   prependRoot: true
   postAsset: true
@@ -117,4 +117,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:行銷人 Vibe Coding 速成指南：從前端到 GTM，一次搞懂工程師的語言'
+  message: 'post:2025 最新免費 AI API 指南：Gemini, Ollama, OpenRouter 尋寶圖'
