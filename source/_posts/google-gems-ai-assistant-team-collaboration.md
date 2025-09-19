@@ -13,8 +13,8 @@ description: 探索 Google Gems 的革命性功能！學習如何免費打造專
 
 <div class="iframe-wrapper">
   <iframe 
-    src="https://gamma.app/embed/186lv1khymfupy5" 
-    title="使用 Suno 創作音樂的著作權須知" 
+    src="https://gamma.app/embed/0ahrf2quadlbv72" 
+    title="Google Gems 完全解析：打造可分享的專屬 AI 助理" 
     allow="fullscreen">
   </iframe>
 </div>
