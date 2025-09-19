@@ -117,4 +117,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:Google Gems 完全解析：打造可分享的專屬 AI 助理，引爆團隊協作革命'
+  message: 'post:解鎖 n8n 網路爬蟲超能力：4 大神級平台與四周實戰攻略'
