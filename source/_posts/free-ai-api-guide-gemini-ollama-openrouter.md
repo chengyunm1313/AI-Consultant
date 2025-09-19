@@ -14,8 +14,8 @@ description: 想打造自己的 AI 應用卻被複雜的 API 定價勸退？本�
 
 <div class="iframe-wrapper">
   <iframe 
-    src="https://gamma.app/embed/fi8v2k881er1i9q" 
-    title="2025 最新免費 AI API 指南" 
+    src="https://gamma.app/embed/0ahrf2quadlbv72" 
+    title="Google Gems 完全解析：打造可分享的專屬 AI 助理" 
     allow="fullscreen">
   </iframe>
 </div>
