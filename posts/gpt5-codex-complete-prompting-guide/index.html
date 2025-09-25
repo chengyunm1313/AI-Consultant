@@ -17,22 +17,21 @@
 
 
   
-  <title>別再瞎調EQ了！我用AI幫影片音訊調出專業聲音，只花5分鐘 | 徐享 | 生成式AI應用規劃師</title>
+  <title>GPT-5-Codex Prompting 完全指南：從新手入門到情境實戰 | 徐享 | 生成式AI應用規劃師</title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
   
-  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-tools-to-improve-video-audio-fast/">
-  <meta name="description" content="🎬 為什麼你的影片看起來專業，但聽起來很業餘？你是不是也有這種經驗： 影片畫面拍得很用心，剪接也到位，但聲音一出來就是——  糊糊的、悶悶的，還帶點底噪空氣聲？  別懷疑，這不只是「麥克風不好」，更多時候，是EQ沒有調對！ 過去我也一直在用土法煉鋼亂調EQ，直到我發現了這套只要5分鐘的AI調音法，才真正讓聲音質感升級，接近錄音室水準。 🎯 傳統EQ調法：就是一場聲音災難很多人">
+  <link rel="canonical" href="https://blog.es2idea.com/posts/gpt5-codex-complete-prompting-guide/">
+  <meta name="description" content="這是一份專為程式新手設計的 GPT-5-Codex Prompting 完整指南，不僅包含基礎入門教學，更深入探討實戰情境應用與常見問答，助你快速上手 AI 程式設計。">
 <meta property="og:type" content="article">
-<meta property="og:title" content="別再瞎調EQ了！我用AI幫影片音訊調出專業聲音，只花5分鐘">
-<meta property="og:url" content="https://blog.es2idea.com/posts/ai-tools-to-improve-video-audio-fast/">
+<meta property="og:title" content="GPT-5-Codex Prompting 完全指南：從新手入門到情境實戰">
+<meta property="og:url" content="https://blog.es2idea.com/posts/gpt5-codex-complete-prompting-guide/">
 <meta property="og:site_name" content="徐享 | 生成式AI應用規劃師">
-<meta property="og:description" content="🎬 為什麼你的影片看起來專業，但聽起來很業餘？你是不是也有這種經驗： 影片畫面拍得很用心，剪接也到位，但聲音一出來就是——  糊糊的、悶悶的，還帶點底噪空氣聲？  別懷疑，這不只是「麥克風不好」，更多時候，是EQ沒有調對！ 過去我也一直在用土法煉鋼亂調EQ，直到我發現了這套只要5分鐘的AI調音法，才真正讓聲音質感升級，接近錄音室水準。 🎯 傳統EQ調法：就是一場聲音災難很多人">
+<meta property="og:description" content="這是一份專為程式新手設計的 GPT-5-Codex Prompting 完整指南，不僅包含基礎入門教學，更深入探討實戰情境應用與常見問答，助你快速上手 AI 程式設計。">
 <meta property="og:locale" content="zh_TW">
-<meta property="article:published_time" content="2025-05-07T08:28:45.000Z">
-<meta property="article:modified_time" content="2025-06-01T10:24:49.730Z">
+<meta property="article:published_time" content="2025-09-25T10:44:59.000Z">
+<meta property="article:modified_time" content="2025-09-25T11:08:11.134Z">
 <meta property="article:author" content="hsu hsiang">
-<meta property="article:tag" content="chatgpt 教學">
-<meta property="article:tag" content="AI影片製作">
+<meta property="article:tag" content="Codex">
 <meta name="twitter:card" content="summary">
   
     <meta property="og:image" content="/images/hero-lg.webp">
@@ -188,7 +187,7 @@
     <h3 class="mb-4 text-primary-700">文章目錄</h3>
     <div class="d-flex flex-wrap gap-2">
       <div id="toc" class="toc-article">
-        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AC-%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E7%9A%84%E5%BD%B1%E7%89%87%E7%9C%8B%E8%B5%B7%E4%BE%86%E5%B0%88%E6%A5%AD%EF%BC%8C%E4%BD%86%E8%81%BD%E8%B5%B7%E4%BE%86%E5%BE%88%E6%A5%AD%E9%A4%98%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">🎬 為什麼你的影片看起來專業，但聽起來很業餘？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%AF-%E5%82%B3%E7%B5%B1EQ%E8%AA%BF%E6%B3%95%EF%BC%9A%E5%B0%B1%E6%98%AF%E4%B8%80%E5%A0%B4%E8%81%B2%E9%9F%B3%E7%81%BD%E9%9B%A3"><span class="toc-number">2.</span> <span class="toc-text">🎯 傳統EQ調法：就是一場聲音災難</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%A7%A0-AI%E6%99%BA%E8%83%BDEQ%E8%AA%BF%E9%9F%B3%E6%B3%95%EF%BC%9A%E7%94%A8%E9%A0%BB%E8%AD%9C%E7%9C%8B%E8%A6%8B%E8%81%B2%E9%9F%B3%EF%BC%8C%E7%B2%BE%E6%BA%96%E8%AA%BF%E6%95%B4"><span class="toc-number">3.</span> <span class="toc-text">🧠 AI智能EQ調音法：用頻譜看見聲音，精準調整</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E4%B8%8A%E5%82%B3%E9%9F%B3%E8%A8%8A%EF%BC%8CAI%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90%E9%A0%BB%E8%AD%9C%E5%9C%96"><span class="toc-number">3.1.</span> <span class="toc-text">第一步：上傳音訊，AI自動生成頻譜圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%B0%8D%E7%85%A7%E9%A0%BB%E7%8E%87%E5%9C%96%EF%BC%8C%E7%94%A2%E5%87%BAEQ%E5%BB%BA%E8%AD%B0%E5%80%BC"><span class="toc-number">3.2.</span> <span class="toc-text">第二步：對照頻率圖，產出EQ建議值</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%B2%BC%E4%B8%8A%E8%A8%AD%E5%AE%9A%EF%BC%8C%E9%9F%B3%E8%A8%8A%E7%AB%8B%E5%88%BB%E5%8D%87%E7%B4%9A"><span class="toc-number">3.3.</span> <span class="toc-text">第三步：貼上設定，音訊立刻升級</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8E%A7-%E5%AF%A6%E6%88%B0%E5%B0%8D%E6%AF%94%EF%BC%9A%E8%AA%BFEQ%E5%89%8D%E5%BE%8C%EF%BC%8C%E5%B7%AE%E4%B8%80%E5%80%8B%E6%AA%94%E6%AC%A1"><span class="toc-number">4.</span> <span class="toc-text">🎧 實戰對比：調EQ前後，差一個檔次</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%F0%9F%8E%99%EF%B8%8F-%E6%9C%AA%E8%AA%BF%E6%95%B4%E5%89%8D%EF%BC%9A"><span class="toc-number">4.1.</span> <span class="toc-text">🎙️ 未調整前：</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E2%9C%85-%E8%AA%BF%E6%95%B4%E5%BE%8C%EF%BC%88%E7%94%A8AI%E5%BB%BA%E8%AD%B0%EF%BC%89%EF%BC%9A"><span class="toc-number">4.2.</span> <span class="toc-text">✅ 調整後（用AI建議）：</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%92%A1-%E7%82%BA%E4%BB%80%E9%BA%BC%E9%80%99%E6%96%B9%E6%B3%95%E7%89%B9%E5%88%A5%E6%9C%89%E6%95%88%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">💡 為什麼這方法特別有效？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%F0%9F%8F%81-%E7%B5%90%E8%AA%9E%EF%BC%9A%E4%BD%A0%E7%9A%84%E5%BD%B1%E7%89%87%E5%80%BC%E5%BE%97%E4%B8%80%E5%80%8B%E5%A5%BD%E8%81%B2%E9%9F%B3"><span class="toc-number">6.</span> <span class="toc-text">🏁 結語：你的影片值得一個好聲音</span></a></li></ol>
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E5%AD%B8%E7%BF%92-GPT-5-Codex-Prompting%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">為什麼要學習 GPT-5-Codex Prompting？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8C%87%E5%8D%97%E9%96%B1%E8%AE%80%E9%87%8D%E9%BB%9E%EF%BC%9A%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E4%B8%8A%E6%89%8B%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">指南閱讀重點：如何快速上手？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E6%89%8B%E5%85%A5%E9%96%80%E5%AF%A6%E6%88%B0%E8%B7%AF%E5%BE%91"><span class="toc-number">3.</span> <span class="toc-text">新手入門實戰路徑</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%BE%9E%E6%9C%80%E7%B0%A1%E5%96%AE%E7%9A%84%E8%A3%9C%E5%85%A8%E9%96%8B%E5%A7%8B"><span class="toc-number">3.1.</span> <span class="toc-text">1. 從最簡單的補全開始</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%98%97%E8%A9%A6%E8%A7%A3%E9%87%8B%E7%A8%8B%E5%BC%8F%E7%A2%BC"><span class="toc-number">3.2.</span> <span class="toc-text">2. 嘗試解釋程式碼</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8B%95%E6%89%8B%E9%99%A4%E9%8C%AF"><span class="toc-number">3.3.</span> <span class="toc-text">3. 動手除錯</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%98%97%E8%A9%A6%E8%BD%89%E6%8F%9B%E7%A8%8B%E5%BC%8F%E8%AA%9E%E8%A8%80"><span class="toc-number">3.4.</span> <span class="toc-text">4. 嘗試轉換程式語言</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E6%88%B0%E6%83%85%E5%A2%83%E6%87%89%E7%94%A8%EF%BC%9A%E8%AE%93-AI-%E6%88%90%E7%82%BA%E4%BD%A0%E7%9A%84%E5%B0%88%E5%B1%AC%E5%8A%A9%E6%95%99"><span class="toc-number">4.</span> <span class="toc-text">實戰情境應用：讓 AI 成為你的專屬助教</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%85%E5%A2%83%E4%B8%80%EF%BC%9A%E6%88%91%E6%83%B3%E5%AF%AB%E5%80%8B%E5%B0%8F%E5%B7%A5%E5%85%B7%EF%BC%8C%E4%BD%86%E4%B8%8D%E7%9F%A5%E5%BE%9E%E4%BD%95%E4%B8%8B%E6%89%8B"><span class="toc-number">4.1.</span> <span class="toc-text">情境一：我想寫個小工具，但不知從何下手</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%85%E5%A2%83%E4%BA%8C%EF%BC%9A%E5%9C%A8-GitHub-%E7%9C%8B%E5%88%B0%E4%B8%80%E6%AE%B5%E9%85%B7%E7%82%AB%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%8C%E4%BD%86%E5%AE%8C%E5%85%A8%E7%9C%8B%E4%B8%8D%E6%87%82"><span class="toc-number">4.2.</span> <span class="toc-text">情境二：在 GitHub 看到一段酷炫程式碼，但完全看不懂</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%83%85%E5%A2%83%E4%B8%89%EF%BC%9A%E6%88%91%E7%9A%84%E5%87%BD%E5%BC%8F%E5%AF%AB%E5%A5%BD%E4%BA%86%EF%BC%8C%E4%BD%86%E8%A6%81%E6%80%8E%E9%BA%BC%E6%B8%AC%E8%A9%A6%E5%AE%83%E5%B0%8D%E4%B8%8D%E5%B0%8D%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">情境三：我的函式寫好了，但要怎麼測試它對不對？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E6%89%8B%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">5.</span> <span class="toc-text">新手常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1-%E7%82%BA%E4%BB%80%E9%BA%BC%E6%A8%A1%E5%9E%8B%E7%B5%A6%E6%88%91%E7%9A%84%E7%AD%94%E6%A1%88%E6%98%AF%E9%8C%AF%E7%9A%84%E6%88%96%E4%B8%8D%E5%AE%8C%E6%95%B4%EF%BC%9F"><span class="toc-number">5.1.</span> <span class="toc-text">Q1: 為什麼模型給我的答案是錯的或不完整？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2-%E6%88%91%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E8%A4%87%E8%A3%BD%E8%B2%BC%E4%B8%8A-AI-%E7%94%A2%E7%94%9F%E7%9A%84%E7%A8%8B%E5%BC%8F%E7%A2%BC%E5%97%8E%EF%BC%9F"><span class="toc-number">5.2.</span> <span class="toc-text">Q2: 我可以直接複製貼上 AI 產生的程式碼嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3-%E4%BD%BF%E7%94%A8-AI-%E5%AF%AB%E7%A8%8B%E5%BC%8F%EF%BC%8C%E6%9C%83%E4%B8%8D%E6%9C%83%E8%AE%93%E6%88%91%E8%AE%8A%E6%87%B6%E3%80%81%E5%AD%B8%E4%B8%8D%E5%88%B0%E6%9D%B1%E8%A5%BF%EF%BC%9F"><span class="toc-number">5.3.</span> <span class="toc-text">Q3: 使用 AI 寫程式，會不會讓我變懶、學不到東西？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%A0%B8%E5%BF%83%E5%BF%83%E6%B3%95%E7%B8%BD%E7%B5%90"><span class="toc-number">6.</span> <span class="toc-text">核心心法總結</span></a></li></ol>
       </div>
     </div>
   </div>
@@ -435,141 +434,102 @@
           <ol class="breadcrumb">
             
               <li class="breadcrumb-item text-primary-500">
-                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%BD%B1%E7%89%87%E8%A3%BD%E4%BD%9C/" rel="tag">AI影片製作</a>
+                <a class="text-primary-500 text-decoration-none" href="/tags/Codex/" rel="tag">Codex</a>
 
               </li>
             
-            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/05/07 發佈</li>
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2025/09/25 發佈</li>
           </ol>
         </nav>
-        <h1 class="mb-3 mb-lg-4 fs-2 text-center">別再瞎調EQ了！我用AI幫影片音訊調出專業聲音，只花5分鐘</h1>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">GPT-5-Codex Prompting 完全指南：從新手入門到情境實戰</h1>
         
         <div class="iframe-wrapper">
   <iframe 
-    src="https://gamma.app/embed/1o6gq992po6docs" 
-    title="別再瞎調EQ了！AI智能聲音提升術" 
+    src="https://gamma.app/embed/8whyk25axb8xnid" 
+    title="IG-GPT-5-Codex Prompting 完全指南：從新手入門到情境實戰" 
     allow="fullscreen">
   </iframe>
 </div>
 
-<h2 id="🎬-為什麼你的影片看起來專業，但聽起來很業餘？"><a href="#🎬-為什麼你的影片看起來專業，但聽起來很業餘？" class="headerlink" title="🎬 為什麼你的影片看起來專業，但聽起來很業餘？"></a>🎬 為什麼你的影片看起來專業，但聽起來很業餘？</h2><p>你是不是也有這種經驗：</p>
-<p>影片畫面拍得很用心，剪接也到位，但聲音一出來就是——</p>
-<blockquote>
-<p>糊糊的、悶悶的，還帶點底噪空氣聲？</p>
-</blockquote>
-<p>別懷疑，這不只是「麥克風不好」，更多時候，是<strong>EQ沒有調對</strong>！</p>
-<p>過去我也一直在用土法煉鋼亂調EQ，直到我發現了這套只要5分鐘的AI調音法，才真正讓聲音質感升級，接近錄音室水準。</p>
-<h2 id="🎯-傳統EQ調法：就是一場聲音災難"><a href="#🎯-傳統EQ調法：就是一場聲音災難" class="headerlink" title="🎯 傳統EQ調法：就是一場聲音災難"></a>🎯 傳統EQ調法：就是一場聲音災難</h2><p>很多人處理EQ的方式，就像是蒙著眼睛調飛機儀表板：</p>
+<p><em>資料來源：<a target="_blank" rel="noopener" href="https://cookbook.openai.com/examples/gpt-5-codex_prompting_guide">GPT-5-Codex Prompting Guide</a></em></p>
+<h2 id="為什麼要學習-GPT-5-Codex-Prompting？"><a href="#為什麼要學習-GPT-5-Codex-Prompting？" class="headerlink" title="為什麼要學習 GPT-5-Codex Prompting？"></a>為什麼要學習 GPT-5-Codex Prompting？</h2><p>如果你是程式新手，常常遇到「不會寫」、「不懂錯在哪」、「怎麼轉換語言」的困擾，GPT-5-Codex 就像一個會幫你補全、解釋、改寫、測試程式的好夥伴。這份指南的重點在於：</p>
 <ul>
-<li>沒頻譜圖，全靠耳朵瞎猜</li>
-<li>明明是人聲為主，卻亂加低頻高頻</li>
-<li>不懂 1kHz、4kHz 的意義，結果越調越糟</li>
+<li><strong>少即是多</strong>：不要塞太多廢話，直接告訴模型你要什麼。</li>
+<li><strong>明確任務</strong>：用一句話清楚定義需求。</li>
+<li><strong>用程式碼區塊</strong>：把程式碼放在 &#96;&#96;&#96; 裡面，模型讀得更準確。</li>
 </ul>
-<p>聲音這種東西，<strong>光靠聽是不夠的，要靠「看」才能準！</strong></p>
-<h2 id="🧠-AI智能EQ調音法：用頻譜看見聲音，精準調整"><a href="#🧠-AI智能EQ調音法：用頻譜看見聲音，精準調整" class="headerlink" title="🧠 AI智能EQ調音法：用頻譜看見聲音，精準調整"></a>🧠 AI智能EQ調音法：用頻譜看見聲音，精準調整</h2><p>我稱這套方法為——</p>
-<p> 🎚️「頻譜讀心術」</p>
-<p>只要 3 步驟，搞定整段聲音：</p>
-<h3 id="第一步：上傳音訊，AI自動生成頻譜圖"><a href="#第一步：上傳音訊，AI自動生成頻譜圖" class="headerlink" title="第一步：上傳音訊，AI自動生成頻譜圖"></a>第一步：上傳音訊，AI自動生成頻譜圖</h3><p>AI會分析音訊的頻率分佈，標出低頻、中頻與高頻的能量集中區，幫你快速辨別聲音問題在哪裡。</p>
-<p>📊 例如這段音訊的AI分析結果是：</p>
-<ul>
-<li>主頻集中在低頻（100Hz～1kHz） → 代表是人聲主導</li>
-<li>高頻能量偏低 → 咬字（s音）不夠清楚</li>
-<li>次低頻（31～63Hz）略有能量 → 環境噪音偏高</li>
+<h2 id="指南閱讀重點：如何快速上手？"><a href="#指南閱讀重點：如何快速上手？" class="headerlink" title="指南閱讀重點：如何快速上手？"></a>指南閱讀重點：如何快速上手？</h2><ul>
+<li><strong>先看模式分類</strong> → 知道常見用途（補全、轉換、解釋、修正）。</li>
+<li><strong>再看提示設計原則</strong> → 學會怎麼下指令。</li>
+<li><strong>最後看範例</strong> → 複製幾個試試看，邊練習邊體會。</li>
 </ul>
-<h3 id="第二步：對照頻率圖，產出EQ建議值"><a href="#第二步：對照頻率圖，產出EQ建議值" class="headerlink" title="第二步：對照頻率圖，產出EQ建議值"></a>第二步：對照頻率圖，產出EQ建議值</h3><p>AI不只告訴你哪裡有問題，還會直接提供<strong>每段頻率的EQ建議數值</strong>與原因：</p>
-<table>
-<thead>
-<tr>
-<th>頻段</th>
-<th>EQ建議值</th>
-<th>功能說明</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>31Hz</td>
-<td>-5dB</td>
-<td>降低低頻隆隆聲，減少環境噪音</td>
-</tr>
-<tr>
-<td>63Hz</td>
-<td>-4dB</td>
-<td>精細處理底噪厚度，避免過度渲染</td>
-</tr>
-<tr>
-<td>125Hz</td>
-<td>+1dB</td>
-<td>保留溫暖感</td>
-</tr>
-<tr>
-<td>250Hz</td>
-<td>+2dB</td>
-<td>增加中低頻人聲厚度</td>
-</tr>
-<tr>
-<td>500Hz</td>
-<td>+3dB</td>
-<td>強化人聲本體存在感</td>
-</tr>
-<tr>
-<td>1kHz</td>
-<td>+3dB</td>
-<td>提升語音清晰度</td>
-</tr>
-<tr>
-<td>2kHz</td>
-<td>+4dB</td>
-<td>提升咬字與語音穿透力</td>
-</tr>
-<tr>
-<td>4kHz</td>
-<td>+5dB</td>
-<td>加亮齒音，使語音更銳利</td>
-</tr>
-<tr>
-<td>8kHz</td>
-<td>+4dB</td>
-<td>增加空氣感與清晰度</td>
-</tr>
-<tr>
-<td>16kHz</td>
-<td>+2dB</td>
-<td>提升高頻延展性與空間感</td>
-</tr>
-</tbody></table>
-<p>你可以直接貼進EQ介面中設定，一鍵完成。</p>
-<h3 id="第三步：貼上設定，音訊立刻升級"><a href="#第三步：貼上設定，音訊立刻升級" class="headerlink" title="第三步：貼上設定，音訊立刻升級"></a>第三步：貼上設定，音訊立刻升級</h3><p>只要複製這段設定：</p>
-<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">31Hz：-5.00</span><br><span class="line">63Hz：-4.00</span><br><span class="line">125Hz：+1.00</span><br><span class="line">250Hz：+2.00</span><br><span class="line">500Hz：+3.00</span><br><span class="line">1kHz：+3.00</span><br><span class="line">2kHz：+4.00</span><br><span class="line">4kHz：+5.00</span><br><span class="line">8kHz：+4.00</span><br><span class="line">16kHz：+2.00</span><br></pre></td></tr></table></figure>
+<p>把它當成一本「範例字典」，要用什麼就翻到那一段。你不需要一次全記住，只要知道它能幫你做什麼。</p>
+<h2 id="新手入門實戰路徑"><a href="#新手入門實戰路徑" class="headerlink" title="新手入門實戰路徑"></a>新手入門實戰路徑</h2><h3 id="1-從最簡單的補全開始"><a href="#1-從最簡單的補全開始" class="headerlink" title="1. 從最簡單的補全開始"></a>1. 從最簡單的補全開始</h3><p>試著給一個不完整的程式，請模型幫你補齊：</p>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">def</span> <span class="title function_">fibonacci</span>(<span class="params">n</span>): <span class="comment"># 請補齊遞迴版本</span></span><br></pre></td></tr></table></figure>
 
-<p>聲音瞬間從悶糊 → 清晰立體、專業感爆棚！</p>
-<h2 id="🎧-實戰對比：調EQ前後，差一個檔次"><a href="#🎧-實戰對比：調EQ前後，差一個檔次" class="headerlink" title="🎧 實戰對比：調EQ前後，差一個檔次"></a>🎧 實戰對比：調EQ前後，差一個檔次</h2><h3 id="🎙️-未調整前："><a href="#🎙️-未調整前：" class="headerlink" title="🎙️ 未調整前："></a>🎙️ 未調整前：</h3><ul>
-<li>聲音模糊、鼻音重</li>
-<li>咬字模糊，講話沒力氣</li>
-<li>背景空氣聲明顯</li>
-</ul>
-<h3 id="✅-調整後（用AI建議）："><a href="#✅-調整後（用AI建議）：" class="headerlink" title="✅ 調整後（用AI建議）："></a>✅ 調整後（用AI建議）：</h3><ul>
-<li>人聲清楚有力</li>
-<li>咬字銳利、清晰</li>
-<li>底噪大幅減少，整體更乾淨</li>
-</ul>
-<h2 id="💡-為什麼這方法特別有效？"><a href="#💡-為什麼這方法特別有效？" class="headerlink" title="💡 為什麼這方法特別有效？"></a>💡 為什麼這方法特別有效？</h2><p>因為它的核心原則是：</p>
+<p>👉 模型會自動幫你完成。</p>
+<h3 id="2-嘗試解釋程式碼"><a href="#2-嘗試解釋程式碼" class="headerlink" title="2. 嘗試解釋程式碼"></a>2. 嘗試解釋程式碼</h3><p>如果你看不懂某段程式，可以讓模型解釋：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">解釋以下 Python 程式碼的功能：</span><br><span class="line">s = &quot;hello&quot;</span><br><span class="line">print(s[::-1])</span><br></pre></td></tr></table></figure>
+
+<p>👉 模型會告訴你這是反轉字串的寫法。</p>
+<h3 id="3-動手除錯"><a href="#3-動手除錯" class="headerlink" title="3. 動手除錯"></a>3. 動手除錯</h3><p>給一段有 bug 的程式，請模型幫忙修正：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">找出以下 Python 程式碼錯誤並修正：</span><br><span class="line">def add(a, b):</span><br><span class="line">    return a - b</span><br></pre></td></tr></table></figure>
+
+<p>👉 模型會改成正確的 <code>a + b</code>。</p>
+<h3 id="4-嘗試轉換程式語言"><a href="#4-嘗試轉換程式語言" class="headerlink" title="4. 嘗試轉換程式語言"></a>4. 嘗試轉換程式語言</h3><p>想學不同語言，可以試著轉換：</p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">將以下 Python 程式轉換成 JavaScript：</span><br><span class="line">for i in range(5):</span><br><span class="line">    print(i)</span><br></pre></td></tr></table></figure>
+
+<p>👉 模型會輸出 JavaScript 版本。</p>
+<h2 id="實戰情境應用：讓-AI-成為你的專屬助教"><a href="#實戰情境應用：讓-AI-成為你的專屬助教" class="headerlink" title="實戰情境應用：讓 AI 成為你的專屬助教"></a>實戰情境應用：讓 AI 成為你的專屬助教</h2><p>理論看完了，讓我們看看在真實學習場景中，Codex 能如何幫你。</p>
+<h3 id="情境一：我想寫個小工具，但不知從何下手"><a href="#情境一：我想寫個小工具，但不知從何下手" class="headerlink" title="情境一：我想寫個小工具，但不知從何下手"></a>情境一：我想寫個小工具，但不知從何下手</h3><p>假設你想寫一個 Python 小爬蟲，抓取某個網頁的所有圖片連結，但你完全沒頭緒。</p>
+<p><strong>你可以這樣問：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># Python</span><br><span class="line"># 寫一個函式，接收一個 URL 作為參數</span><br><span class="line"># 功能是：</span><br><span class="line"># 1. 使用 requests 函式庫抓取網頁 HTML 內容</span><br><span class="line"># 2. 使用 BeautifulSoup4 函式庫解析 HTML</span><br><span class="line"># 3. 找出所有 &lt;img&gt; 標籤的 src 屬性</span><br><span class="line"># 4. 回傳一個包含所有圖片 URL 的列表</span><br></pre></td></tr></table></figure>
+
 <blockquote>
-<p>EQ 要依據「聲音結構」來調整，不是靠感覺亂猜。</p>
+<p>💡 <strong>學習點</strong>：即使你不會寫，但只要能用文字描述出「步驟」和「想用的工具」，Codex 就能幫你生成初步的程式碼，讓你從「無」到「有」，再從範本去修改和學習。</p>
 </blockquote>
-<p>大多數影片錄音的問題，都集中在以下幾點：</p>
-<ol>
-<li>中頻弱 → 聲音沒聚焦，人聲虛弱</li>
-<li>齒音不足 → 咬字模糊、不清楚</li>
-<li>低頻殘留 → 空氣聲多、音訊混濁</li>
-</ol>
-<p>AI頻譜分析可以精準對應這些症狀，讓你對症下藥，<strong>每一段頻率都調得有根據、有邏輯。</strong></p>
-<h2 id="🏁-結語：你的影片值得一個好聲音"><a href="#🏁-結語：你的影片值得一個好聲音" class="headerlink" title="🏁 結語：你的影片值得一個好聲音"></a>🏁 結語：你的影片值得一個好聲音</h2><p>影像可以吸引人點進來，但聲音會決定觀眾「願不願意聽下去」。</p>
-<p>別讓你的好畫面被爛聲音拖垮！只要5分鐘，「頻譜讀心術」就能幫你：</p>
+<h3 id="情境二：在-GitHub-看到一段酷炫程式碼，但完全看不懂"><a href="#情境二：在-GitHub-看到一段酷炫程式碼，但完全看不懂" class="headerlink" title="情境二：在 GitHub 看到一段酷炫程式碼，但完全看不懂"></a>情境二：在 GitHub 看到一段酷炫程式碼，但完全看不懂</h3><p>看到一段 JavaScript 特效程式碼，你想學習它的原理。</p>
+<p><strong>你可以這樣問：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"># 解釋以下 JavaScript 程式碼</span><br><span class="line"># 請逐行為我加上中文註解，並在最後總結它的功能</span><br><span class="line"></span><br><span class="line">// 貼上你看不懂的程式碼...</span><br><span class="line">const arr = [1, 2, 3];</span><br><span class="line">const double = arr.map(num =&gt; num * 2);</span><br><span class="line">console.log(double);</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>學習點</strong>：Codex 是絕佳的程式碼閱讀器。它能幫你把複雜的邏輯拆解成易懂的語言，讓你專注於理解演算法和設計模式，而不是卡在語法細節。</p>
+</blockquote>
+<h3 id="情境三：我的函式寫好了，但要怎麼測試它對不對？"><a href="#情境三：我的函式寫好了，但要怎麼測試它對不對？" class="headerlink" title="情境三：我的函式寫好了，但要怎麼測試它對不對？"></a>情境三：我的函式寫好了，但要怎麼測試它對不對？</h3><p>你寫好了一個判斷電子郵件格式是否正確的函式，但你不確定是否考慮了所有情況。</p>
+<p><strong>你可以這樣問：</strong></p>
+<figure class="highlight plaintext"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line"># 我寫了一個 Python 函式 is_valid_email</span><br><span class="line"># 請幫我使用 pytest 框架，為它產生 5 個測試案例</span><br><span class="line"># 包含 3 個應該通過的正確 email 格式</span><br><span class="line"># 以及 2 個應該失敗的錯誤 email 格式</span><br><span class="line"></span><br><span class="line">def is_valid_email(email):</span><br><span class="line">  import re</span><br><span class="line">  # 一個簡單的 regex 範例</span><br><span class="line">  pattern = r&quot;^[a-zA-Z0-9_.+-]+@[a-zA-Z0-9-]+\.[a-zA-Z0-9-.]+$&quot;</span><br><span class="line">  return re.match(pattern, email) is not None</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p>💡 <strong>學習點</strong>：透過讓 AI 產生測試案例，你可以學到如何從「測試者」的角度思考，找出程式的邊界條件與潛在漏洞，這對寫出更穩健的程式非常有幫助。</p>
+</blockquote>
+<h2 id="新手常見問答-FAQ"><a href="#新手常見問答-FAQ" class="headerlink" title="新手常見問答 (FAQ)"></a>新手常見問答 (FAQ)</h2><h3 id="Q1-為什麼模型給我的答案是錯的或不完整？"><a href="#Q1-為什麼模型給我的答案是錯的或不完整？" class="headerlink" title="Q1: 為什麼模型給我的答案是錯的或不完整？"></a>Q1: 為什麼模型給我的答案是錯的或不完整？</h3><p>🤔 <strong>答：</strong> 最常見的原因是「提示不夠精確」。請檢查：</p>
 <ul>
-<li>整理EQ設定</li>
-<li>立即升級聲音質感</li>
-<li>讓影片更有說服力與專業度</li>
+<li><strong>任務是否單一</strong>：避免在一個提示中要求太多事。例如，不要同時要求「寫程式、加註解、產生測試、還要解釋」。一次只做一件事。</li>
+<li><strong>上下文是否充足</strong>：如果你在處理一段既有程式，記得把相關的程式碼片段也貼給它。</li>
+<li><strong>是否有給予範例</strong>：如果你想要特定的輸出格式，可以先給它一個範例（Few-shot prompting），它會學得更快。</li>
 </ul>
-<p>#AI調音術 #影片剪輯教學 #EQ均衡器 #頻譜讀心術 #音訊調整技巧</p>
+<h3 id="Q2-我可以直接複製貼上-AI-產生的程式碼嗎？"><a href="#Q2-我可以直接複製貼上-AI-產生的程式碼嗎？" class="headerlink" title="Q2: 我可以直接複製貼上 AI 產生的程式碼嗎？"></a>Q2: 我可以直接複製貼上 AI 產生的程式碼嗎？</h3><p>✅ <strong>答：</strong> <strong>絕對不要！</strong> 請將 AI 視為一位資深但偶爾會出錯的顧問。它給的程式碼可能有以下問題：</p>
+<ul>
+<li><strong>安全漏洞</strong>：可能包含不安全的寫法。</li>
+<li><strong>版本問題</strong>：可能使用過時的函式庫或語法。</li>
+<li><strong>邏輯錯誤</strong>：在複雜情境下可能存在 Bug。</li>
+</ul>
+<p><strong>最佳實踐</strong>：先讀懂它給你的程式碼，理解每一行的作用，然後親手測試、修改，最後才整合到你的專案中。</p>
+<h3 id="Q3-使用-AI-寫程式，會不會讓我變懶、學不到東西？"><a href="#Q3-使用-AI-寫程式，會不會讓我變懶、學不到東西？" class="headerlink" title="Q3: 使用 AI 寫程式，會不會讓我變懶、學不到東西？"></a>Q3: 使用 AI 寫程式，會不會讓我變懶、學不到東西？</h3><p>🧠 <strong>答：</strong> 這完全取決於你「如何使用」它。</p>
+<ul>
+<li><strong>錯誤用法</strong>：把它當作答案產生器，只會複製貼上。</li>
+<li><strong>正確用法</strong>：把它當作<strong>學習加速器</strong>。卡關時，請它給你方向；看不懂時，請它解釋給你聽；寫完後，請它幫你優化或找出錯誤。</li>
+</ul>
+<p>關鍵在於<strong>保持好奇心</strong>，把 AI 的輸出當成學習素材，而不是最終答案。</p>
+<h2 id="核心心法總結"><a href="#核心心法總結" class="headerlink" title="核心心法總結"></a>核心心法總結</h2><ol>
+<li><strong>從簡單的任務開始</strong>（補全、解釋）。</li>
+<li><strong>每次只做一件事</strong>（避免複雜要求）。</li>
+<li><strong>漸進擴充</strong>（debug → 重構 → 測試）。</li>
+<li><strong>多動手練習</strong>，模型就是你的即時教練。</li>
+</ol>
+<blockquote>
+<p>👉 <strong>建議</strong>：每天花 10-15 分鐘，用 Codex 解決一個你在學習上遇到的小問題，無論是搞懂一個語法，還是寫一個小功能，持續累積會讓你進步飛快。</p>
+</blockquote>
 
 
         
@@ -582,102 +542,6 @@
     <div class="row row-gap-5">
       
         
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/cover27.webp" class="img-fluid card-img-top rounded-3" alt="不再雞同鴨講！學會 Parser Prompting，讓 AI 秒懂你的每個指令">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">不再雞同鴨講！學會 Parser Prompting，讓 AI 秒懂你的每個指令</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">chatgpt 教學</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Parser Prompting</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/06/03</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/parser-prompting-guide/"></a>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/cover22.webp" class="img-fluid card-img-top rounded-3" alt="2025 行銷策略應用與拆解">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">2025 行銷策略應用與拆解</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">行銷策略</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">chatgpt 教學</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業模式</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/17</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/marketing-strategy-application-breakdown/"></a>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/cover20.webp" class="img-fluid card-img-top rounded-3" alt="用 ChatGPT 解剖你的行銷漏斗，找出真正的痛點！別再亂打廣告了">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">用 ChatGPT 解剖你的行銷漏斗，找出真正的痛點！別再亂打廣告了</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">chatgpt 教學</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">品牌策略</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/17</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/chatgpt-funnel-diagnosis/"></a>
-                </div>
-              </div>
-            </div>
-          
-        
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/cover17.webp" class="img-fluid card-img-top rounded-3" alt="如何快速製作高品質字幕檔：通用提示詞模板＋操作流程">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">如何快速製作高品質字幕檔：通用提示詞模板＋操作流程</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI影片製作</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/11</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/fast-subtitle-file-creation-guide/"></a>
-                </div>
-              </div>
-            </div>
-          
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="/images/cover15.webp" class="img-fluid card-img-top rounded-3" alt="2025 AI數位分身與影音行銷">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700">2025 AI數位分身與影音行銷</h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI影片製作</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自媒體</span>
-                    
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2025/05/09</small></p>
-                  </div>
-                  <a class="stretched-link" href="/posts/ai-virtual-avatar-marketing/"></a>
-                </div>
-              </div>
-            </div>
           
         
       
