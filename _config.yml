@@ -117,4 +117,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:Vibe Coding Basics：AI 超級員工、Cloudflare 部署與 API Key 安全心法'
+  message: 'post:給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整教訓'
