@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整教訓'
+  message: 'post:如何利用 Portaly 與 YouTube 建立低成本自動化線上課程銷售流程'
