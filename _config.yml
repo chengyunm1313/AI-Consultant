@@ -110,6 +110,11 @@ toc:
   slugify: transliteration
   decodeEntities: false
 
+# tags 去重
+related_posts:
+  max_count: 9          # 最多顯示幾篇（預設 6）
+  min_common_tags: 1    # 至少有幾個共同標籤（預設 1）
+
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
@@ -117,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整教訓'
+  message: 'fix:tags 去重-修改layout/post.ejs'

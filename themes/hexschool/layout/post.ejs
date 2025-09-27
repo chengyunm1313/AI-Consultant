@@ -40,28 +40,62 @@
   <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
     <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
     <div class="row row-gap-5">
-      <% if (page.tags && page.tags.length) { %>
-        <% page.tags.forEach(function(tag) { %>
-          <% site.tags.findOne({ name: tag.name }).posts.filter(function(item) {
-            return item.title !== page.title;
-          }).sort('date', -1).slice(0, 3).each(function(item) { %>
-            <div class="col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="<%= url_for(item.cover) %>" class="img-fluid card-img-top rounded-3" alt="<%= item.title %>">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700"><%= item.title %></h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <% item.tags.each(function(tag) {%>
-                      <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4"><%= tag.name %></span>
-                    <% }) %>
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary"><%= date(item.date, 'YYYY/MM/DD') %></small></p>
-                  </div>
-                  <a class="stretched-link" href="<%- url_for(item.path) %>"></a>
+      <%
+        // 設定：從根目錄 _config.yml 讀取，若無則給預設值
+        const maxCount = (config.related_posts && config.related_posts.max_count) || 6;
+        const minCommon = (config.related_posts && config.related_posts.min_common_tags) || 1;
+
+        // 當前文章的標籤集合
+        const pageTagsArr = (page.tags && page.tags.length) ? page.tags.map(t => t.name) : [];
+        const currentTagSet = new Set(pageTagsArr);
+
+        // 依標籤彙整候選清單（可能含重複與自己）
+        let pool = [];
+        (page.tags || []).forEach(function(tag) {
+          const bucket = site.tags.findOne({ name: tag.name });
+          if (bucket) pool = pool.concat(bucket.posts.toArray());
+        });
+
+        // 去重 + 排除自己
+        const seen = new Set();
+        let related = pool.filter(function(p) {
+          if (p.path === page.path) return false;
+          if (seen.has(p.path)) return false;
+          seen.add(p.path);
+          return true;
+        });
+
+        // 依共同標籤數過濾（至少 minCommon 個）
+        related = related.filter(function(p) {
+          if (!p.tags || !p.tags.length) return false;
+          var cnt = 0;
+          p.tags.forEach(function(t) { if (currentTagSet.has(t.name)) cnt++; });
+          return cnt >= minCommon;
+        });
+
+        // 依日期新→舊排序，並截取數量
+        related.sort(function(a, b) { return b.date - a.date; });
+        related = related.slice(0, maxCount);
+      %>
+
+      <% if (related.length) { %>
+        <% related.forEach(function(item) { %>
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="<%= url_for(item.cover) %>" class="img-fluid card-img-top rounded-3" alt="<%= item.title %>">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700"><%= item.title %></h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  <% (item.tags || []).each(function(tag) { %>
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4"><%= tag.name %></span>
+                  <% }) %>
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary"><%= date(item.date, 'YYYY/MM/DD') %></small></p>
                 </div>
+                <a class="stretched-link" href="<%- url_for(item.path) %>"></a>
               </div>
             </div>
-          <% }); %>
-        <% }); %>
+          </div>
+        <% }) %>
       <% } %>
     </div>
 
