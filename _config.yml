@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:如何利用 Portaly 與 YouTube 建立低成本自動化線上課程銷售流程'
+  message: 'post:Portaly vs 1shop 賣課程怎麼選？不只看抽成，創作者必看的全面中立分析'
