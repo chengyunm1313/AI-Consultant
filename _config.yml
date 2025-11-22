@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:別再把 ChatGPT 當玩具！這份 AI 協作地圖，讓你晉升頂尖使用者'
+  message: 'post:別再把 ChatGPT 當玩具！這份 AI 協作地圖，讓你晉升頂尖使用者-微修改'
