@@ -15,6 +15,14 @@ subtitle:
 description: 錄音檔太長導致 AI 處理卡關？本文解析 Google Gemini、NotebookLM 與 AI Studio 的檔案限制，並提供突破 100MB 限制的完整攻略，教你如何利用 Google AI Studio 輕鬆處理數小時的會議錄音與逐字稿。
 ---
 
+<div class="iframe-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/Az03D7LJxoA?si=6fYW9oBp_Xwvqw8D" 
+    title="長會議錄音檔 AI 處理全攻略：突破 100MB 限制的終極解法" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
 錄音檔一長，處理起來就是災難。想要丟進 AI 偷個懶，結果系統第一步就卡關，告訴你檔案太大，請你另請高明。
 
 這時候你需要的不是放棄，而是搞清楚你手上的工具，到底哪一把才切得動這塊肉。
