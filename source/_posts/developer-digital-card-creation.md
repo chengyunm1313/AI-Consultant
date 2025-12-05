@@ -64,7 +64,7 @@ description:
 ### 🔧 提示詞範例如下：
 
 ```
-A close-up of a hand holding a famous film, which looks like a JSON file opened in VS Code. The card displays code formatted with JSON, which contains keys such as {"name": "Hsu Hsiang"}, {"title": "2025 Taiwan Artificial Intelligence Application Planner"}, {"email": "chengyunm1313@gmail.com"}, and {"link": "https://blog.es2idea.com/"}. This window contains the typical toolbar icons and a title bar labeled business card.json, and its style is exactly the same as the VS Code interface. The background is slightly blurred and the card is in focus. Please refer to the picture I gave and use programming language to add a man's face. And make sure to keep all the information I provided above.
+A close-up of a hand holding a famous film, which looks like a JSON file opened in VS Code. The card displays code formatted with JSON, which contains keys such as {"name": "Hsu Hsiang"}, {"title": "2025 Taiwan Artificial Intelligence Application Planner"}, {"email": "seanhsu1313@gmail.com"}, and {"link": "https://blog.es2idea.com/"}. This window contains the typical toolbar icons and a title bar labeled business card.json, and its style is exactly the same as the VS Code interface. The background is slightly blurred and the card is in focus. Please refer to the picture I gave and use programming language to add a man's face. And make sure to keep all the information I provided above.
 ```
 
 **🪄 你可以更換內容：**

@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:長會議錄音檔 AI 處理全攻略：突破 100MB 限制的終極解法-加入YT'
+  message: 'fix:把網站裡面所有聯繫chengyunm1313@gmail.com的部分全部換成seanhsu1313@gmail.com'
