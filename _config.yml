@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:AI 影片字幕工作流：結合 Gemini 與剪映的極速上字幕教學'
+  message: 'post:別存垃圾格式！用 AI 把 PDF 洗成 Markdown，資料利用率翻倍'
