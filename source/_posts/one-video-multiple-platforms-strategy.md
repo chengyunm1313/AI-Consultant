@@ -81,6 +81,9 @@ description: 揭秘自媒體「一次產出，無限分發」的高效邏輯！�
 * 剛剛做好的封面圖
 
 上傳，發布。你的 YouTube 更新完成了。
+<p>
+{% post_link ai-subtitle-workflow-gemini-capcut %}
+</p>
 
 ## 內容變現：部落格文章的最後一哩路
 

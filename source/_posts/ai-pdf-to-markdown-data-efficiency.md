@@ -8,8 +8,6 @@ tags:
   - Google Gemini
   - PDF轉檔
   - Markdown
-  - Prompt Engineering
-  - 資料清洗
 date: 2025-12-11 23:47:35
 subtitle:
 description: PDF 難以整理利用？本文分享如何透過 Google Gemini 的 Gems 功能，建立自動化 Prompt 工作流，將 PDF 轉為結構乾淨的 Markdown，大幅提升資料在 NotebookLM 或簡報製作的利用率。
@@ -38,6 +36,8 @@ PDF 這種檔案格式，閱讀體驗極佳，但要整理或再利用時，簡�
 3.  幫它取個直白的名字，例如「PDF 轉 Markdown 助手」。
 
 接下來的重點在於「使用說明（Prompt）」。千萬不要只寫「幫我轉檔」，那樣你會得到一堆垃圾。你需要植入一套有邏輯的結構化指令。
+
+[PDF 轉 Markdown 助手提示詞](https://docs.google.com/document/d/1UIvnIxNVhwAewVrgpsFoUcjOBFDBarmD8JEXdtXNMTE/edit?usp=sharing)
 
 ## 設計 Prompt 的核心邏輯
 
