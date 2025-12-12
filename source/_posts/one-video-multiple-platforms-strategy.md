@@ -8,8 +8,6 @@ tags:
   - AI工作流
   - 內容行銷
   - Google AI Studio
-  - Gemini
-  - 效率提升
 date: 2025-12-06 16:45:21
 subtitle:
 description: 揭秘自媒體「一次產出，無限分發」的高效邏輯！利用 Google AI Studio 與 Gemini，將一支影片快速轉換為 FB 貼文、YouTube 字幕與 Hexo 部落格文章，極大化內容行銷效益。
