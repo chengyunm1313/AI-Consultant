@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'post:從咒語到去背全自動：打造你的 LINE 貼圖自動化 AI 生產線'
+  message: 'fix:從咒語到去背全自動：打造你的 LINE 貼圖自動化 AI 生產線'

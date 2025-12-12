@@ -40,6 +40,8 @@ description: 想靠 LINE 貼圖創造被動收入，卻卡在繪畫速度？本�
 
 ## 第一階段：企劃與咒語生成
 
+[系統提示詞 - LINE 貼圖企劃與生圖提示詞專家](https://docs.google.com/document/d/1fZqjSvrLRz1P7vgPnFhadhPjy1g7dXL_rmuAlO56Zlk/edit?usp=sharing)
+
 不要自己想破頭寫英文 Prompt。直接把你的需求丟給 Gemini，讓它幫你翻譯成繪圖 AI 聽得懂的話。
 
 你需要給 Gemini 明確的「規格書」：
@@ -55,6 +57,8 @@ description: 想靠 LINE 貼圖創造被動收入，卻卡在繪畫速度？本�
 
 Gemini 會吐出一串包含動作描述的精準英文 Prompt。
 
+[Gem:LINE 貼圖企劃與生圖提示詞專家](https://gemini.google.com/gem/1zLAQu02LpM_KaeUFhf56j839HwV_DjA2?usp=sharing)
+
 ## 第二階段：鎖定角色一致性
 
 拿到 Prompt 後，轉場到 Nano Banana。這裡最大的挑戰是「角色一致性」（Consistency）。你不能第一張是米老鼠，第二張變成皮卡丘。
@@ -68,6 +72,8 @@ Gemini 會吐出一串包含動作描述的精準英文 Prompt。
 按下生成後，你會得到一張包含 9 到 12 個小動作的 Sheet（大圖）。這時候還是連在一起的，別急。
 
 ## 第三階段：切割與參數調校
+
+[貼圖分離與去背神器](https://gemini.google.com/share/63be98b91d44)
 
 這一步是把「圖片」變成「產品」的關鍵。將生成的大圖丟進「貼圖分離與去背神器」。
 
