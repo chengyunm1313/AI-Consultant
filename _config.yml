@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'fix:tag不能超過３個'
+  message: 'update:松音的Magic Eraser：自動消除圖片中的星星水印'
