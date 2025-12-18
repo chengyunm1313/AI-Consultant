@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:松音的Magic Eraser：自動消除圖片中的星星水印'
+  message: 'post:Canva 自動化實戰：大量證書、聘書一鍵生成工作流'
