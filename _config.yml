@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:Watermark Remover'
+  message: 'post:用 AI 暴力中文化 Cursor 教學網站，並用 GitHub Pages 免費部署'
