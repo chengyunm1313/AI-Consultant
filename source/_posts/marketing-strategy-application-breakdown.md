@@ -5,9 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - chatgpt 教學
-  - 行銷策略  
-  - 商業模式
+  - ChatGPT
+  - 商業策略
 date: 2025-05-17 15:46:15
 subtitle: 
 description:

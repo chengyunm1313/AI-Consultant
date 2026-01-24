@@ -5,8 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - chatgpt 教學
-  - AI影片製作
+  - ChatGPT
+  - 影音行銷
 date: 2025-05-07 16:28:45
 subtitle:
 description:

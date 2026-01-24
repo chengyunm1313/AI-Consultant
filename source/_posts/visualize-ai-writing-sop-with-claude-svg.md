@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Claude 教學
+  - Claude
 date: 2025-06-10 11:18:49
 subtitle:
 description: 用一張圖，讓你的 AI 寫文流程 SOP 更專業、更可傳播，還能變成簡報與影片！

@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Google Gemini
+  - Gemini
   - PDF轉檔
   - Markdown
 date: 2025-12-11 23:47:35

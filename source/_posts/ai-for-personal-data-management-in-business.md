@@ -7,7 +7,6 @@ subtitle:
 categories:
   - 個人資料保護
 tags:
-  - 企業AI導入
   - AI 風險控管
 ---
 

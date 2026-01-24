@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - chatgpt 教學
+  - ChatGPT
 date: 2025-05-06 18:27:01
 subtitle: 再也不用瞎猜怎麼問 ChatGPT，學會這套提示詞心法，效率 x10 倍
 description:

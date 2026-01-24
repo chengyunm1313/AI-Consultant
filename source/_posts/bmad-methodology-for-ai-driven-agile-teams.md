@@ -6,7 +6,6 @@ categories:
   - 生成式AI應用
 tags:
   - Vibe Coding
-  - 無程式碼AI
 date: 2025-08-26 00:08:11
 subtitle:
 description: 深入探討 BMAD (突破性敏捷 AI 驅動開發方法)，一種將 AI 模擬成完整敏捷團隊的開發框架。本文將解析 BMAD 如何透過代理式規劃與上下文工程，解決 Vibe Coding 帶來的上下文遺失與規劃不一致問題，助你從個人開發者晉升為 AI 團隊的指揮官。

@@ -5,7 +5,6 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Bing Video Creator
   - AI工具
 date: 2025-06-03 17:27:10
 subtitle:

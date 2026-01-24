@@ -6,7 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - AI繪圖
-  - Claude 教學
+  - Claude
 date: 2025-06-09 15:16:18
 subtitle:
 description: 想讓 AI 幫你畫出漂亮的知識圖解？這篇教你用提示詞快速生成 SVG 圖表，支援 ChatGPT 與 Claude，還能直接在線上編輯！

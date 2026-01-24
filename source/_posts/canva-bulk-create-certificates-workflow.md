@@ -6,7 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - Canva
-  - 自動化工作流
+  - 自動化工具
   - 批量製作
 date: 2025-12-18 19:56:59
 subtitle:

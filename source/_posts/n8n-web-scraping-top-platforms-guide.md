@@ -6,7 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - 自動化工具
-  - 無程式碼AI
+  - Vibe Coding
 date: 2025-09-19 21:59:42
 subtitle:
 description: 想讓你的 n8n 自動化流程學會網路爬蟲嗎？本文精選 Firecrawl、Apify 等 4 大神級平台，並提供一份四周實戰地圖，教你從零開始擷取網頁數據，晉升為自動化高手。

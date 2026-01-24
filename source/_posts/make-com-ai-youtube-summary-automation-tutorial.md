@@ -5,8 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Make.com
-  - 無程式碼AI
+  - 自動化工具
+  - Vibe Coding
 date: 2025-09-03 00:36:11
 subtitle:
 description: 厭倦了永遠看不完的 YouTube 待看清單？本篇教學將帶你使用 Make.com、Apify 與 Gemini，零成本打造一個全自動的 AI 影片摘要系統，在觀看前就獲取重點報告，奪回你的時間主導權。

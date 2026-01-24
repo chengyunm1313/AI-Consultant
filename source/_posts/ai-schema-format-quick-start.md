@@ -5,7 +5,7 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - SEO 教學
+  - SEO 優化
 date: 2025-06-22 01:03:16
 subtitle:
 description: 透過生活化比喻與實用AI提示詞範例，讓你輕鬆理解 Schema (JSON-LD) 的核心概念與實作方法，快速提升網站SEO成效。

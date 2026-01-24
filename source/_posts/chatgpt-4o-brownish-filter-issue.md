@@ -7,7 +7,7 @@ subtitle:
 categories:
   - 生成式AI應用
 tags:
-  - chatgpt 教學
+  - ChatGPT
 ---
 
 <div class="iframe-wrapper">

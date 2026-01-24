@@ -5,7 +5,6 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Google AI Studio
   - 會議記錄
   - 逐字稿
 date: 2025-12-05 22:11:27

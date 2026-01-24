@@ -7,7 +7,7 @@ categories:
 tags:
   - LINE貼圖製作
   - Nano Banana
-  - Gemini應用
+  - Gemini
 date: 2025-12-13 04:11:31
 subtitle:
 description: 想靠 LINE 貼圖創造被動收入，卻卡在繪畫速度？本文揭露一套完整的 AI 自動化生產線：利用 Google Gemini 生成咒語、Nano Banana 繪圖、以及專業去背工具，解決角色一致性與深色模式適配問題，讓你從手繪苦海中解放，實現貼圖量產。

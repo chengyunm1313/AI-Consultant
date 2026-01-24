@@ -5,7 +5,7 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - 銷售策略
+  - 商業策略
 date: 2025-06-06 11:38:53
 subtitle:
 description: 用奶茶與職涯諮詢的例子，教你用價值堆疊提升產品說服力，打造超值銷售頁。

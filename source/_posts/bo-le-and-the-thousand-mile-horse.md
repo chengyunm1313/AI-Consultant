@@ -6,7 +6,7 @@ categories:
   - 創業思維
 tags:
   - 股權設計
-  - 商業模式
+  - 商業策略
 date: 2025-05-13 08:52:41
 subtitle: 不只是找人才，更是考驗你是否願意給出信任與舞台
 description:

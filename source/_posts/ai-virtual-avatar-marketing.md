@@ -5,9 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - AI自媒體
+  - 內容行銷
   - 影音行銷
-  - AI影片製作
 date: 2025-05-09 16:49:26
 subtitle:
 description:

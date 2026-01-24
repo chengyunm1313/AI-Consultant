@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - chatgpt 教學
+  - ChatGPT
 date: 2025-05-05 02:48:15
 subtitle:
 description:

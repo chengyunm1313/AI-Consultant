@@ -5,8 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Parser Prompting
-  - chatgpt 教學
+  - ChatGPT
 date: 2025-06-03 06:45:20
 subtitle:
 description: 學習專為 AI 設計的結構化指令語法，讓 AI 精準理解並執行複雜任務，告別溝通障礙，釋放 AI 真正潛能。

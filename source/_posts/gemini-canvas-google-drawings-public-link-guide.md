@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Gemini Canvas
+  - Gemini
 date: 2025-09-13 11:34:07
 subtitle:
 description: 總是遇到 Gemini Canvas 圖片上傳轉圈圈或失敗嗎？本文將教你一個終極技巧，透過 Google 繪圖的「發布到網路」功能，產生 Gemini 最喜歡的公開圖片連結，徹底解決上傳惡夢。

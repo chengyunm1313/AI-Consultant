@@ -6,7 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - AI工具
-  - AI影片製作
+  - 影音行銷
 date: 2025-05-11 23:33:27
 subtitle: 教你打造一致風格、高可讀性的 AI 自動生成 SRT 字幕流程
 description:

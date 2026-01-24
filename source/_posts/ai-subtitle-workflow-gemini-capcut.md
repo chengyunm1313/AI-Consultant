@@ -5,8 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Google AI Studio
-  - Gemini 3 Pro
+  - Gemini
   - 剪映 CapCut
 date: 2025-12-09 17:08:34
 subtitle:

@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 品牌行銷策略
+  - 商業策略
   - AI繪圖
 date: 2025-05-08 15:27:11
 subtitle: 結合 JSON 結構與 VS Code 視覺，讓你的專業形象瞬間出圈 
