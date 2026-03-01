@@ -88,6 +88,8 @@ AI 能夠讀取與修改的範圍，僅限於我們日常開發最常接觸的 `
 
 為了測試它的極限，我準備了一份由 ChatGPT 簡單生成的「Mini Contact Form (迷你聯絡表單)」PRD (產品需求文件)，並直接丟給透過 MCP 連接的 AI 助理（我使用的是 Google 的 Antigravity 搭配免費額度）。
 
+[Mini Contact Form.md](https://drive.google.com/file/d/1jt0tCJ6FCXjAdLJdEM8ef-3nJh-XFjE0/view?usp=sharing)
+
 **神奇的事情發生了：**
 1. AI 首先讀取了我提供的需求文件。
 2. 它自動擬定了一份實作計畫 (Plan) 與任務清單 (Task)。
