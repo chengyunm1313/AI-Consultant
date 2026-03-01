@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'fix:文章的tags重新整理1-3個'
+  message: 'update:顛覆 WordPress 開發模式！免費開源外掛 Novamira 讓 AI 直接修改網站程式碼'
