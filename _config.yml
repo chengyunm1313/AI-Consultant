@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:顛覆 WordPress 開發模式！免費開源外掛 Novamira 讓 AI 直接修改網站程式碼'
+  message: 'update:我的 Vibecoding 作品大公開：用 AI 打造內建 CMS 的全功能接案網站'
