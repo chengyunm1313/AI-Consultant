@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'fix:自媒體極速工作流：一支影片如何通吃 FB、YT 與部落格？'
+  message: 'update:如何使用 Remotion 與 AI 自動化生成科普短影音：喵喵經濟學人'
