@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:如何使用 Remotion 與 AI 自動化生成科普短影音：喵喵經濟學人'
+  message: 'update:用 AI 快速生成短影音？九宮格分鏡技巧解決人物變形'
