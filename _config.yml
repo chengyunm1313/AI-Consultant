@@ -122,4 +122,4 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:用 AI 快速生成短影音？九宮格分鏡技巧解決人物變形'
+  message: 'update:用 Google Gemini 當剪輯助手：6 個提示詞，讓剪輯從苦力變策略，一天出 4 支成片'
