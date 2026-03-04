@@ -1,0 +1,62 @@
+<%
+const aeo = site.data && site.data.aeo ? site.data.aeo : {};
+const business = aeo.business || {};
+const pages = aeo.pages || {};
+
+function buildFaqEntity(faqItems) {
+  return {
+    '@type': 'FAQPage',
+    mainEntity: (faqItems || []).map((item) => ({
+      '@type': 'Question',
+      name: item.question,
+      acceptedAnswer: {
+        '@type': 'Answer',
+        text: item.answer
+      }
+    }))
+  };
+}
+
+if (is_home()) {
+  const homeFaq = pages.home && pages.home.faq ? pages.home.faq : [];
+  const schemaGraph = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      {
+        '@type': 'WebSite',
+        name: config.title,
+        url: business.url || config.url,
+        description: business.description || config.description,
+        inLanguage: config.language
+      },
+      {
+        '@type': business.type || 'ProfessionalService',
+        name: business.name || config.title,
+        url: business.url || config.url,
+        description: business.description || config.description,
+        email: business.email,
+        areaServed: business.address && business.address.country ? business.address.country : 'TW',
+        sameAs: business.same_as || [],
+        serviceType: business.service_types || [],
+        address: business.address ? {
+          '@type': 'PostalAddress',
+          streetAddress: business.address.street,
+          addressLocality: business.address.locality,
+          addressRegion: business.address.region,
+          addressCountry: business.address.country || 'TW'
+        } : undefined
+      },
+      buildFaqEntity(homeFaq)
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(schemaGraph) %></script>
+<% } else if (page.layout === 'service') {
+  const serviceFaq = pages.service && pages.service.faq ? pages.service.faq : [];
+  const serviceFaqSchema = {
+    '@context': 'https://schema.org',
+    ...buildFaqEntity(serviceFaq)
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(serviceFaqSchema) %></script>
+<% } %>

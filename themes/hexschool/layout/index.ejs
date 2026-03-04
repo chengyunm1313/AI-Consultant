@@ -1,3 +1,10 @@
+<%
+const homeAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.home : null;
+const homeServiceCards = homeAeo && homeAeo.service_cards ? homeAeo.service_cards : [];
+const homeFaq = homeAeo && homeAeo.faq ? homeAeo.faq : [];
+const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business : null;
+const socialLinks = businessAeo && businessAeo.same_as ? businessAeo.same_as : [];
+%>
 <main>
   <!-- hero 區塊 -->
   <div class="container-fluid px-0">
@@ -12,16 +19,16 @@
         <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start h-100">
           <h1 class="mb-4 text-primary-700 fw-semibold">Hi！我是 徐享（享哥）</h1>
           <p class="text-center text-md-start text-primary-600 fs-5 mb-0">具有 10 年經驗在<mark class="mark text-primary-600">數位行銷</mark>與<mark class="mark text-primary-600">電商廣告</mark>領域</p>
-          <p class="text-center text-md-start text-primary-600 fs-5">專精AI應用規劃與VibeCoding，打造產業競爭力，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。</p>
-          <p class="text-center text-md-start text-primary-400 mb-9">AI應用規劃師 / AI轉型顧問 / AI自動化工作流 / 電商品牌行銷設計 / 中小企業數位轉型服務</p>
+          <p class="text-center text-md-start text-primary-600 fs-5"><%= homeAeo ? homeAeo.hero_intro : '專精 AI 應用規劃、n8n 自動化工作流與中小企業數位轉型顧問。' %></p>
+          <p class="text-center text-md-start text-primary-400 mb-9"><%= homeAeo ? homeAeo.service_line : 'AI應用規劃 / n8n自動化工作流 / 電商品牌行銷 / AI轉型顧問諮詢 / 中小企業數位轉型服務' %></p>
           <div class="d-flex gap-3">
-            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.instagram.com/skypassion2013/">
+            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[0] || 'https://www.instagram.com/skypassion2013/' %>">
               <i class="bi bi-instagram"></i>
             </a>
-            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.facebook.com/aihsaing/">
+            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[1] || 'https://www.facebook.com/HsiangPMKT?locale=zh_TW' %>">
               <i class="bi bi-facebook"></i>
             </a>
-            <a class="icon-link link-primary-600 px-2 fs-1" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[2] || 'https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ' %>">
               <i class="bi bi-youtube"></i>
             </a>
           </div>
@@ -251,7 +258,7 @@
           <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
             <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
               <img class="mb-4" src="<%= url_for('/images/service-item-front-end.svg') %>" alt="visual design">
-              <h3 class="text-primary-50">生成式AI應用</h3>
+              <h3 class="text-primary-50"><%= homeServiceCards[0] || 'AI應用規劃' %></h3>
             </div>
           </div>
         </div>
@@ -259,7 +266,7 @@
           <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
             <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
               <img class="mb-4" src="<%= url_for('/images/service-item-ui.svg') %>" alt="ui design">
-              <h3 class="text-primary-50">個資保護顧問</h3>
+              <h3 class="text-primary-50"><%= homeServiceCards[1] || 'n8n自動化工作流' %></h3>
             </div>
           </div>
         </div>
@@ -267,7 +274,7 @@
           <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
             <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
               <img class="mb-4" src="<%= url_for('/images/service-item-html&css.svg') %>" alt="html and css">
-              <h3 class="text-primary-50">電商品牌行銷</h3>
+              <h3 class="text-primary-50"><%= homeServiceCards[2] || '電商品牌行銷' %></h3>
             </div>
           </div>
         </div>
@@ -275,7 +282,7 @@
           <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
             <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
               <img class="mb-4" src="<%= url_for('/images/service-item-visual.svg') %>" alt="visual design">
-              <h3 class="text-primary-50">廣告媒體曝光</h3>
+              <h3 class="text-primary-50"><%= homeServiceCards[3] || 'AI轉型顧問諮詢' %></h3>
             </div>
           </div>
         </div>
@@ -296,6 +303,23 @@
           詳細內容與合作流程
           <span class="material-symbols-outlined align-text-bottom">arrow_forward</span>
         </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 常見問題 區塊 -->
+  <section class="py-7 pb-md-9">
+    <div class="container px-4">
+      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">常見問題</h2>
+      <div class="row row-gap-4 gx-7 gx-md-4 justify-content-xl-center">
+        <% homeFaq.forEach(function(item) { %>
+          <div class="col-12 col-md-6 col-xl-5">
+            <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+              <h3 class="mb-3 fs-4 text-primary-700"><%= item.question %></h3>
+              <p class="mb-0 text-primary-600"><%= item.answer %></p>
+            </div>
+          </div>
+        <% }) %>
       </div>
     </div>
   </section>

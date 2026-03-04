@@ -2,6 +2,8 @@
   <meta charset="utf-8">
   <%- partial('google-analytics') %>
   <%
+  const aeo = site.data && site.data.aeo ? site.data.aeo : {};
+  const aeoBusiness = aeo.business || {};
   var title = page.title;
 
   switch(page.base) {
@@ -28,9 +30,30 @@
   } else if (is_tag()){
     title = __('tag') + ': ' + page.tag;
   }
+
+  var excerptText = '';
+  if (page.excerpt) {
+    excerptText = String(page.excerpt)
+      .replace(/<[^>]*>/g, ' ')
+      .replace(/\s+/g, ' ')
+      .trim();
+  }
+
+  var metaDescription = page.description || excerptText || aeoBusiness.description || config.description || '';
+  if (metaDescription.length > 160) {
+    metaDescription = metaDescription.slice(0, 157).trim() + '...';
+  }
+
+  var metaKeywords = page.keywords || config.keywords;
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <% if (metaKeywords) { %>
+    <meta name="keywords" content="<%= metaKeywords %>">
+  <% } %>
+  <% if (config.author) { %>
+    <meta name="author" content="<%= config.author %>">
+  <% } %>
   <% 
     var canonicalUrl = page.permalink || config.url + '/' + page.path;
     if (canonicalUrl.endsWith('index.html')) {
@@ -38,7 +61,8 @@
     }
   %>
   <link rel="canonical" href="<%= canonicalUrl %>">
-  <%- open_graph({twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
+  <link rel="llms-txt" href="<%= (aeoBusiness.url || config.url || '').replace(/\/$/, '') %><%= aeo.llms && aeo.llms.path ? aeo.llms.path : '/llms.txt' %>">
+  <%- open_graph({description: metaDescription, twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (page.og_image || theme.og_image || config.og_image) { %>
     <meta property="og:image" content="<%= page.og_image || theme.og_image || config.og_image %>">
   <% } %>
@@ -65,4 +89,5 @@
   <%- css('css/all.min.css') %>
   
   <script src="<%= config.root %>js/copy-code.js"></script>
+  <%- partial('structured-data') %>
 </head>

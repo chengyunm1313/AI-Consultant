@@ -1,3 +1,7 @@
+<%
+const serviceAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.service : null;
+const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
+%>
 <main>
   <!-- 服務項目 區塊 -->
   <section class="pt-md-7 pb-7 pb-md-9">
@@ -271,55 +275,14 @@
     <div class="container px-4 mb-7 mb-md-9">
       <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">常見問題</h2>
       <div class="row row-gap-4 gx-7 gx-md-4 justify-content-xl-center">
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">時程很趕的話可以加快作業嗎？</h4>
-            <p class="mb-0 text-primary-600">每提早一天，只要支付總報價的 5%，我們即會視為急件為您趕工！</p>
+        <% serviceFaq.forEach(function(item) { %>
+          <div class="col-12 col-md-6 col-xl-5">
+            <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
+              <h4 class="mb-3 text-primary-700"><%= item.question %></h4>
+              <p class="mb-0 text-primary-600"><%= item.answer %></p>
+            </div>
           </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">白天可以開會討論嗎？</h4>
-            <p class="mb-0 text-primary-600">每週一到五的白天，可以約定線上開會時間！</p>
-          </div>
-        </div>
-        
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">顧問服務可以線上進行嗎？</h4>
-            <p class="mb-0 text-primary-600">可以，提供 Google Meet 或 Zoom 線上會議服務，免除地區限制。</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">可以一次委託多項服務嗎？</h4>
-            <p class="mb-0 text-primary-600">沒問題，可整合顧問、行銷與廣告等服務，提供完整規劃與執行。</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">是否可協助教育訓練或內訓？</h4>
-            <p class="mb-0 text-primary-600">可安排講座、企業內訓、實作課程，內容可依需求客製化設計。</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">是否可先試談一次再決定合作？</h4>
-            <p class="mb-0 text-primary-600">可安排一次線上諮詢，初步釐清需求與方向後再決定是否展開合作。</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">合作是否會提供簡報或成果報告？</h4>
-            <p class="mb-0 text-primary-600">會提供簡報或診斷報告，方便團隊內部對齊與持續追蹤進展。</p>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-xl-5">
-          <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-            <h4 class="mb-3 text-primary-700">你們有配合的技術或設計團隊嗎？</h4>
-            <p class="mb-0 text-primary-600">有，我們與多位設計、程式、行銷專業工作者協作，能提供整合式解決方案。</p>
-          </div>
-        </div>
+        <% }) %>
       </div>
     </div>
   </section>
@@ -335,4 +298,3 @@
     </div>
   </div>
 </main>
-

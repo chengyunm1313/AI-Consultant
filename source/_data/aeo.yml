@@ -1,0 +1,63 @@
+business:
+  type: ProfessionalService
+  name: 徐享 | AI應用規劃師
+  url: https://blog.es2idea.com/
+  description: 享哥，10年數位行銷與電商廣告經驗，專精AI應用規劃、n8n自動化工作流與中小企業數位轉型顧問。
+  email: seanhsu1313@gmail.com
+  address:
+    street: 新北市中和捷運站步行五分鐘
+    locality: 新北市中和區
+    region: 新北市
+    country: TW
+  same_as:
+    - https://www.instagram.com/skypassion2013/
+    - https://www.facebook.com/HsiangPMKT?locale=zh_TW
+    - https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ
+    - https://lin.ee/epeTR8o
+  service_types:
+    - AI應用規劃
+    - n8n自動化工作流
+    - 電商品牌行銷
+    - AI轉型顧問諮詢
+
+pages:
+  home:
+    hero_intro: 專精 AI 應用規劃、n8n 自動化工作流與中小企業數位轉型顧問，結合 10 年數位行銷與電商廣告實戰經驗，協助品牌把 AI 導入可執行、可衡量的成長流程。
+    service_line: AI應用規劃 / n8n自動化工作流 / 電商品牌行銷 / AI轉型顧問諮詢 / 中小企業數位轉型服務
+    service_cards:
+      - AI應用規劃
+      - n8n自動化工作流
+      - 電商品牌行銷
+      - AI轉型顧問諮詢
+    faq:
+      - question: 徐享（享哥）提供哪些主要服務？
+        answer: 提供 AI 應用規劃、n8n 自動化工作流設計、電商品牌行銷策略與 AI 轉型顧問諮詢，協助中小企業把 AI 導入實際營運與成長流程。
+      - question: 哪些企業適合找徐享合作？
+        answer: 適合想導入 AI 內容產製、行銷流程自動化、客服問答優化、電商轉換提升與內部數位轉型的中小企業、個人品牌與教育型團隊。
+      - question: 如何開始合作與聯絡？
+        answer: 可透過 Email 或 LINE 說明需求與現況，先安排初步診斷，再依目標提供合作提案、時程與報價。
+
+  service:
+    description: 提供 AI 應用規劃、n8n 自動化工作流、電商品牌行銷與 AI 轉型顧問服務，協助中小企業把 AI 導入實際營運。
+    faq:
+      - question: 徐享（享哥）提供哪些主要服務？
+        answer: 提供 AI 應用規劃、n8n 自動化工作流設計、電商品牌行銷策略與 AI 轉型顧問諮詢，協助企業把 AI 與行銷能力整合到可落地的營運流程中。
+      - question: n8n 自動化工作流可以協助哪些流程？
+        answer: 可串接表單、LINE、Email、CRM、內容排程與資料整理，建立從蒐集、生成、通知到追蹤的自動化流程，降低重複作業與人力成本。
+      - question: AI 應用規劃適合哪些企業或品牌？
+        answer: 適合想導入 AI 內容產製、內部 SOP、客服輔助、知識庫、行銷自動化或電商營運優化的中小企業、教育單位與個人品牌。
+      - question: 顧問服務可以線上進行嗎？
+        answer: 可以，提供 Google Meet 或 Zoom 線上會議，也可依合作需求安排實體會議與工作坊。
+      - question: 可以安排企業內訓或客製工作坊嗎？
+        answer: 可以，能依產業、部門角色與目標，設計 AI 導入、n8n 流程、自媒體內容與電商行銷相關課程。
+      - question: 合作流程與報價方式為何？
+        answer: 先蒐集需求與現況，進行初步診斷後提供建議方案、執行時程與報價；單次顧問、企業內訓與自動化專案可依需求客製。
+
+  contact:
+    description: 歡迎洽詢 AI 應用規劃、企業內訓、n8n 自動化與數位轉型顧問服務，可透過 Email 或 LINE 聯絡徐享（享哥）。
+
+  collection:
+    description: 認識徐享（享哥）的背景、專長與顧問經驗，了解生成式 AI 應用規劃、行銷實戰與數位轉型服務定位。
+
+llms:
+  path: /llms.txt
