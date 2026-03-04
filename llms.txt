@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 網站如何被 AI 看見？免費 AEO 實作工具與微調全攻略
+  網址：https://blog.es2idea.com/posts/aeo-implementation-tools-optimization-guide/
+  日期：2026-03-05
+  摘要：大家都在談 SEO，但現在更重要的是 AEO（AI 搜尋最佳化）。本文實測分享如何透過免費 AEO 掃描工具，搭配 AI 助手自動修復程式碼，讓網站順利被 Meta AI 等模型讀取與抓取。
+  主題：AEO、網站優化、AI搜尋、SEO
+
 - 用 Google Gemini 當剪輯助手：6 個提示詞，讓剪輯從苦力變策略，一天出 4 支成片
   網址：https://blog.es2idea.com/posts/ai-video-editing-strategy-google-gemini/
   日期：2026-03-03
@@ -99,12 +105,6 @@
   日期：2025-12-09
   摘要：解決字幕製作痛點！本教學分享如何利用 Gemini 3 Pro 進行精準聽寫與潤飾，並搭配剪映「文稿匹配」功能，實現高準確率、閱讀體驗優化且極速同步的 AI 字幕工作流。
   主題：Gemini、剪映 CapCut
-
-- 自媒體極速工作流：一支影片如何通吃 FB、YT 與部落格？
-  網址：https://blog.es2idea.com/posts/one-video-multiple-platforms-strategy/
-  日期：2025-12-06
-  摘要：揭秘自媒體「一次產出，無限分發」的高效邏輯！利用 Google AI Studio 與 Gemini，將一支影片快速轉換為 FB 貼文、YouTube 字幕與 Hexo 部落格文章，極大化內容行銷效益。
-  主題：內容行銷、AI工作流
 
 ## 語言
 - zh-TW
