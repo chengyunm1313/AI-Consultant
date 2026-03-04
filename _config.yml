@@ -122,4 +122,6 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:調整AEO相關內容'
+  message: 'update:AEO 強化版'
+
+

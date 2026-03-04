@@ -45,6 +45,7 @@
   }
 
   var metaKeywords = page.keywords || config.keywords;
+  var shareImage = page.og_image || page.cover || theme.og_image || config.og_image;
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
@@ -62,10 +63,7 @@
   %>
   <link rel="canonical" href="<%= canonicalUrl %>">
   <link rel="llms-txt" href="<%= (aeoBusiness.url || config.url || '').replace(/\/$/, '') %><%= aeo.llms && aeo.llms.path ? aeo.llms.path : '/llms.txt' %>">
-  <%- open_graph({description: metaDescription, twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
-  <% if (page.og_image || theme.og_image || config.og_image) { %>
-    <meta property="og:image" content="<%= page.og_image || theme.og_image || config.og_image %>">
-  <% } %>
+  <%- open_graph({description: metaDescription, image: shareImage, twitter_image: shareImage, twitter_id: theme.twitter, fb_admins: theme.fb_admins, fb_app_id: theme.fb_app_id}) %>
   <% if (config.feed) { %>
     <%- feed_tag() %>
   <% } else if (theme.rss) { %>

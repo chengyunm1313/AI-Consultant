@@ -4,21 +4,53 @@ business:
   url: https://blog.es2idea.com/
   description: 享哥，10年數位行銷與電商廣告經驗，專精AI應用規劃、n8n自動化工作流與中小企業數位轉型顧問。
   email: seanhsu1313@gmail.com
+  image: /images/hero-lg.png
+  logo: /images/es2idea-logo.svg
+  contact_url: /contact/
   address:
     street: 新北市中和捷運站步行五分鐘
     locality: 新北市中和區
     region: 新北市
     country: TW
+  available_languages:
+    - zh-TW
+    - zh-Hant
   same_as:
     - https://www.instagram.com/skypassion2013/
     - https://www.facebook.com/HsiangPMKT?locale=zh_TW
     - https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ
     - https://lin.ee/epeTR8o
+  founder:
+    name: 徐享（享哥）
+    alternate_name: 享哥
+    job_title: AI應用規劃師
+    description: 具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、n8n 自動化工作流與中小企業數位轉型顧問。
   service_types:
     - AI應用規劃
     - n8n自動化工作流
     - 電商品牌行銷
     - AI轉型顧問諮詢
+  knows_about:
+    - AI應用規劃
+    - n8n自動化工作流
+    - 電商品牌行銷
+    - AI轉型顧問諮詢
+    - 生成式AI應用
+    - AI自媒體與影音策略
+    - 中小企業數位轉型
+  service_catalog:
+    - name: AI應用規劃
+      description: 協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。
+      url: /service/
+    - name: n8n自動化工作流
+      description: 透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。
+      url: /service/
+    - name: 電商品牌行銷
+      description: 結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。
+      url: /service/
+    - name: AI轉型顧問諮詢
+      description: 提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。
+      url: /service/
 
 pages:
   home:

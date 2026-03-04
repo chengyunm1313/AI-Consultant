@@ -2,6 +2,67 @@
 const aeo = site.data && site.data.aeo ? site.data.aeo : {};
 const business = aeo.business || {};
 const pages = aeo.pages || {};
+const siteUrl = (business.url || config.url || '').replace(/\/$/, '');
+const websiteId = siteUrl + '/#website';
+const professionalServiceId = siteUrl + '/#professional-service';
+
+function absoluteUrl(path) {
+  if (!path) return undefined;
+  if (/^https?:\/\//.test(path)) return path;
+  return siteUrl + (String(path).startsWith('/') ? path : '/' + path);
+}
+
+function stripText(input) {
+  return String(input || '')
+    .replace(/<[^>]*>/g, ' ')
+    .replace(/\s+/g, ' ')
+    .trim();
+}
+
+function currentPageUrl() {
+  const fallback = page.path ? absoluteUrl('/' + page.path) : siteUrl + '/';
+  const url = page.permalink || fallback;
+  return String(url).replace(/index\.html$/, '');
+}
+
+function isoDate(value) {
+  if (!value) return undefined;
+  if (typeof value.toISOString === 'function') return value.toISOString();
+  const date = new Date(value);
+  if (Number.isNaN(date.getTime())) return undefined;
+  return date.toISOString();
+}
+
+function toNameList(collection) {
+  if (!collection) return [];
+  if (Array.isArray(collection)) {
+    return collection.map((item) => item && item.name ? item.name : item).filter(Boolean);
+  }
+  if (typeof collection.toArray === 'function') {
+    return collection.toArray().map((item) => item && item.name ? item.name : item).filter(Boolean);
+  }
+  return [];
+}
+
+function toPostArray(collection) {
+  if (!collection) return [];
+  if (Array.isArray(collection)) return collection;
+  if (typeof collection.toArray === 'function') return collection.toArray();
+  if (typeof collection.each === 'function') {
+    const items = [];
+    collection.each((item) => items.push(item));
+    return items;
+  }
+  return [];
+}
+
+function pageDescription(currentPage) {
+  return currentPage.description
+    || stripText(currentPage.excerpt)
+    || stripText(currentPage.content).slice(0, 160)
+    || business.description
+    || config.description;
+}
 
 function buildFaqEntity(faqItems) {
   return {
@@ -17,35 +78,151 @@ function buildFaqEntity(faqItems) {
   };
 }
 
+function buildBreadcrumbEntity(items) {
+  return {
+    '@type': 'BreadcrumbList',
+    itemListElement: items.map((item, index) => ({
+      '@type': 'ListItem',
+      position: index + 1,
+      name: item.name,
+      item: item.item
+    }))
+  };
+}
+
+function buildProfessionalServiceEntity() {
+  const serviceCatalog = business.service_catalog || [];
+  return {
+    '@id': professionalServiceId,
+    '@type': [business.type || 'ProfessionalService', 'LocalBusiness'],
+    name: business.name || config.title,
+    url: business.url || config.url,
+    description: business.description || config.description,
+    image: absoluteUrl(business.image || theme.og_image || config.og_image),
+    logo: business.logo ? {
+      '@type': 'ImageObject',
+      '@id': siteUrl + '/#logo',
+      url: absoluteUrl(business.logo)
+    } : undefined,
+    email: business.email,
+    sameAs: business.same_as || [],
+    areaServed: {
+      '@type': 'Country',
+      name: 'Taiwan'
+    },
+    availableLanguage: business.available_languages || [config.language],
+    knowsAbout: business.knows_about || business.service_types || [],
+    serviceType: business.service_types || [],
+    founder: business.founder ? {
+      '@type': 'Person',
+      name: business.founder.name,
+      alternateName: business.founder.alternate_name,
+      jobTitle: business.founder.job_title,
+      description: business.founder.description
+    } : undefined,
+    contactPoint: business.email ? [{
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: business.email,
+      url: absoluteUrl(business.contact_url || '/contact/'),
+      availableLanguage: business.available_languages || [config.language],
+      areaServed: 'Taiwan'
+    }] : undefined,
+    address: business.address ? {
+      '@type': 'PostalAddress',
+      streetAddress: business.address.street,
+      addressLocality: business.address.locality,
+      addressRegion: business.address.region,
+      addressCountry: business.address.country || 'TW'
+    } : undefined,
+    hasOfferCatalog: serviceCatalog.length ? {
+      '@type': 'OfferCatalog',
+      name: 'AI 顧問與自動化服務',
+      itemListElement: serviceCatalog.map((service) => ({
+        '@type': 'Offer',
+        name: service.name,
+        description: service.description,
+        url: absoluteUrl(service.url || '/service/'),
+        itemOffered: {
+          '@type': 'Service',
+          name: service.name,
+          description: service.description,
+          serviceType: service.name,
+          url: absoluteUrl(service.url || '/service/')
+        }
+      }))
+    } : undefined
+  };
+}
+
+function buildWebsiteEntity() {
+  return {
+    '@id': websiteId,
+    '@type': 'WebSite',
+    name: config.title,
+    url: siteUrl + '/',
+    description: business.description || config.description,
+    inLanguage: config.language,
+    publisher: {
+      '@id': professionalServiceId
+    }
+  };
+}
+
+function buildWebPageEntity(type, nameOverride, descriptionOverride) {
+  return {
+    '@type': type || 'WebPage',
+    name: nameOverride || page.title || config.title,
+    url: currentPageUrl(),
+    description: descriptionOverride || pageDescription(page),
+    inLanguage: config.language,
+    isPartOf: {
+      '@id': websiteId
+    },
+    about: {
+      '@id': professionalServiceId
+    },
+    primaryImageOfPage: absoluteUrl(page.og_image || page.cover || business.image || theme.og_image || config.og_image)
+  };
+}
+
+function buildBlogPostingEntity() {
+  const tagNames = toNameList(page.tags);
+  const categoryNames = toNameList(page.categories);
+  return {
+    '@type': 'BlogPosting',
+    headline: page.title,
+    name: page.title,
+    description: pageDescription(page),
+    url: currentPageUrl(),
+    mainEntityOfPage: currentPageUrl(),
+    inLanguage: config.language,
+    datePublished: isoDate(page.date),
+    dateModified: isoDate(page.updated || page.date),
+    image: absoluteUrl(page.og_image || page.cover || business.image || theme.og_image || config.og_image),
+    articleSection: categoryNames[0],
+    keywords: tagNames,
+    author: {
+      '@type': 'Person',
+      name: page.author || (business.founder && business.founder.name) || config.author || business.name
+    },
+    publisher: {
+      '@id': professionalServiceId
+    },
+    about: tagNames.length || categoryNames.length ? categoryNames.concat(tagNames) : (business.knows_about || business.service_types || []),
+    isPartOf: {
+      '@id': websiteId
+    }
+  };
+}
+
 if (is_home()) {
   const homeFaq = pages.home && pages.home.faq ? pages.home.faq : [];
   const schemaGraph = {
     '@context': 'https://schema.org',
     '@graph': [
-      {
-        '@type': 'WebSite',
-        name: config.title,
-        url: business.url || config.url,
-        description: business.description || config.description,
-        inLanguage: config.language
-      },
-      {
-        '@type': business.type || 'ProfessionalService',
-        name: business.name || config.title,
-        url: business.url || config.url,
-        description: business.description || config.description,
-        email: business.email,
-        areaServed: business.address && business.address.country ? business.address.country : 'TW',
-        sameAs: business.same_as || [],
-        serviceType: business.service_types || [],
-        address: business.address ? {
-          '@type': 'PostalAddress',
-          streetAddress: business.address.street,
-          addressLocality: business.address.locality,
-          addressRegion: business.address.region,
-          addressCountry: business.address.country || 'TW'
-        } : undefined
-      },
+      buildWebsiteEntity(),
+      buildProfessionalServiceEntity(),
       buildFaqEntity(homeFaq)
     ]
   };
@@ -53,10 +230,62 @@ if (is_home()) {
 <script type="application/ld+json"><%- JSON.stringify(schemaGraph) %></script>
 <% } else if (page.layout === 'service') {
   const serviceFaq = pages.service && pages.service.faq ? pages.service.faq : [];
-  const serviceFaqSchema = {
+  const serviceSchema = {
     '@context': 'https://schema.org',
-    ...buildFaqEntity(serviceFaq)
+    '@graph': [
+      buildWebsiteEntity(),
+      buildProfessionalServiceEntity(),
+      buildWebPageEntity('CollectionPage'),
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: page.title || '服務項目', item: currentPageUrl()}
+      ]),
+      buildFaqEntity(serviceFaq)
+    ]
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(serviceFaqSchema) %></script>
+<script type="application/ld+json"><%- JSON.stringify(serviceSchema) %></script>
+<% } else if (is_post()) {
+  const postSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildWebsiteEntity(),
+      buildProfessionalServiceEntity(),
+      buildBlogPostingEntity(),
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: '部落格', item: absoluteUrl('/blog/')},
+        {name: page.title, item: currentPageUrl()}
+      ])
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(postSchema) %></script>
+<% } else if (page.layout === 'contact' || page.layout === 'collection' || page.base === '/blog/') {
+  const pageType = page.base === '/blog/' ? 'CollectionPage' : 'WebPage';
+  const breadcrumbLabel = page.title || (page.base === '/blog/' ? '部落格' : config.title);
+  const blogPosts = page.base === '/blog/' ? toPostArray(page.posts).slice(0, 10).map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    url: absoluteUrl(post.path),
+    description: pageDescription(post),
+    datePublished: isoDate(post.date)
+  })) : undefined;
+  const pageSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildWebsiteEntity(),
+      buildProfessionalServiceEntity(),
+      {
+        ...buildWebPageEntity(pageType, breadcrumbLabel),
+        hasPart: blogPosts && blogPosts.length ? blogPosts : undefined
+      },
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: breadcrumbLabel, item: currentPageUrl()}
+      ])
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(pageSchema) %></script>
 <% } %>
