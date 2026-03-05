@@ -6,7 +6,8 @@
     "build": "hexo generate && node toWebp",
     "clean": "hexo clean",
     "deploy": "hexo clean && hexo generate && node toWebp && hexo deploy",
-    "server": "hexo server"
+    "server": "hexo server",
+    "verify:jsonld": "node scripts/validate-jsonld.js"
   },
   "hexo": {
     "version": "7.3.0"

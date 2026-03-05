@@ -122,6 +122,6 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'update:網站如何被 AI 看見？免費 AEO 實作工具與微調全攻略'
+  message: 'fix:AEO進一步優化'
 
 

@@ -44,14 +44,10 @@
     metaDescription = metaDescription.slice(0, 157).trim() + '...';
   }
 
-  var metaKeywords = page.keywords || config.keywords;
   var shareImage = page.og_image || page.cover || theme.og_image || config.og_image;
   %>
   <title><% if (title){ %><%= title %> | <% } %><%= config.title %></title>
   <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <% if (metaKeywords) { %>
-    <meta name="keywords" content="<%= metaKeywords %>">
-  <% } %>
   <% if (config.author) { %>
     <meta name="author" content="<%= config.author %>">
   <% } %>

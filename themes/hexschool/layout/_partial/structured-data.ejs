@@ -5,6 +5,8 @@ const pages = aeo.pages || {};
 const siteUrl = (business.url || config.url || '').replace(/\/$/, '');
 const websiteId = siteUrl + '/#website';
 const professionalServiceId = siteUrl + '/#professional-service';
+const organizationId = siteUrl + '/#organization';
+const personId = siteUrl + '/#person';
 
 function absoluteUrl(path) {
   if (!path) return undefined;
@@ -23,6 +25,30 @@ function currentPageUrl() {
   const fallback = page.path ? absoluteUrl('/' + page.path) : siteUrl + '/';
   const url = page.permalink || fallback;
   return String(url).replace(/index\.html$/, '');
+}
+
+function pageWebPageId() {
+  return currentPageUrl() + '#webpage';
+}
+
+function pageBreadcrumbId() {
+  return currentPageUrl() + '#breadcrumb';
+}
+
+function pagePrimaryImageId() {
+  return currentPageUrl() + '#primaryimage';
+}
+
+function pageBlogPostingId() {
+  return currentPageUrl() + '#blogposting';
+}
+
+function pageFaqId() {
+  return currentPageUrl() + '#faqpage';
+}
+
+function pageHowToId() {
+  return currentPageUrl() + '#howto';
 }
 
 function isoDate(value) {
@@ -64,8 +90,328 @@ function pageDescription(currentPage) {
     || config.description;
 }
 
-function buildFaqEntity(faqItems) {
+function normalizeLanguageValues(languages) {
+  if (!languages) return [];
+  if (Array.isArray(languages)) return languages.filter(Boolean).map((language) => String(language));
+  return [String(languages)];
+}
+
+function toLanguageEntities(languages) {
+  return normalizeLanguageValues(languages).map((language) => ({
+    '@type': 'Language',
+    name: language
+  }));
+}
+
+function normalizeImagePath(value) {
+  const cleaned = String(value || '').split('?')[0].split('#')[0];
+  const absoluteMatch = cleaned.match(/^https?:\/\/[^/]+(\/.*)$/i);
+  return absoluteMatch ? absoluteMatch[1] : cleaned;
+}
+
+function imageDimensionsForUrl(imageUrl) {
+  const normalized = normalizeImagePath(imageUrl);
+  if (/^\/images\/cover[^/]*\.(?:webp|png|jpe?g)$/i.test(normalized)) {
+    return {width: 1200, height: 800};
+  }
+  if (/^\/images\/hero-lg\.(?:webp|png|jpe?g)$/i.test(normalized)) {
+    return {width: 1154, height: 792};
+  }
+  return undefined;
+}
+
+function buildImageObject(imagePath, imageId, width, height) {
+  const url = absoluteUrl(imagePath);
+  if (!url) return undefined;
+  const image = {
+    '@type': 'ImageObject',
+    url
+  };
+  if (imageId) image['@id'] = imageId;
+  const dimension = width && height ? {width, height} : imageDimensionsForUrl(url);
+  if (dimension) {
+    image.width = dimension.width;
+    image.height = dimension.height;
+  }
+  return image;
+}
+
+function currentPageImagePath() {
+  return page.og_image || page.cover || business.image || theme.og_image || config.og_image;
+}
+
+function sanitizeMarkdownText(value) {
+  return stripText(String(value || '')
+    .replace(/!\[[^\]]*\]\(([^)]+)\)/g, ' ')
+    .replace(/\[([^\]]+)\]\(([^)]+)\)/g, '$1')
+    .replace(/`{1,3}([^`]+)`{1,3}/g, '$1')
+    .replace(/\*\*([^*]+)\*\*/g, '$1')
+    .replace(/\*([^*]+)\*/g, '$1'));
+}
+
+function normalizeQuestion(value) {
+  return sanitizeMarkdownText(value).replace(/^Q\d*[\.:：、]?\s*/i, '').trim();
+}
+
+function normalizeAnswer(value) {
+  return sanitizeMarkdownText(value).replace(/\s+/g, ' ').trim();
+}
+
+function collectFirstParagraph(lines) {
+  const paragraph = [];
+  let inCodeBlock = false;
+  const lineList = lines || [];
+  for (let i = 0; i < lineList.length; i += 1) {
+    const trimmed = String(lineList[i] || '').trim();
+    if (/^```/.test(trimmed)) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock) continue;
+    if (!trimmed) {
+      if (paragraph.length) break;
+      continue;
+    }
+    if (/^#{2,6}\s+/.test(trimmed)) break;
+    if (/^\|/.test(trimmed)) {
+      if (paragraph.length) break;
+      continue;
+    }
+    if (/^[-*+]\s+/.test(trimmed)) {
+      if (paragraph.length) break;
+      continue;
+    }
+    if (/^\d+\.\s+/.test(trimmed)) {
+      if (paragraph.length) break;
+      continue;
+    }
+    if (/^>/.test(trimmed)) {
+      if (paragraph.length) break;
+      continue;
+    }
+    paragraph.push(trimmed);
+    if (paragraph.join(' ').length >= 260) break;
+  }
+  return normalizeAnswer(paragraph.join(' '));
+}
+
+function collectHowToStepText(lines) {
+  const primaryText = collectFirstParagraph(lines);
+  if (primaryText) return primaryText;
+  const lineList = lines || [];
+  let inCodeBlock = false;
+  for (let i = 0; i < lineList.length; i += 1) {
+    const trimmed = String(lineList[i] || '').trim();
+    if (/^```/.test(trimmed)) {
+      inCodeBlock = !inCodeBlock;
+      continue;
+    }
+    if (inCodeBlock || !trimmed) continue;
+    const headingMatch = trimmed.match(/^#{2,6}\s+(.+)$/);
+    if (headingMatch) return normalizeAnswer(headingMatch[1]);
+    const listMatch = trimmed.match(/^[-*+]\s+(.+)$/) || trimmed.match(/^\d+\.\s+(.+)$/);
+    if (listMatch) return normalizeAnswer(listMatch[1]);
+    if (!/^\|/.test(trimmed)) return normalizeAnswer(trimmed);
+  }
+  return '';
+}
+
+function dedupeFaqItems(items) {
+  const unique = [];
+  const seen = {};
+  (items || []).forEach((item) => {
+    const question = normalizeQuestion(item && item.question);
+    const answer = normalizeAnswer(item && item.answer);
+    if (!question || !answer) return;
+    const key = question.toLowerCase();
+    if (seen[key]) return;
+    seen[key] = true;
+    unique.push({question, answer});
+  });
+  return unique;
+}
+
+function splitFaqSections(rawText) {
+  const lines = String(rawText || '').replace(/\r\n/g, '\n').split('\n');
+  const sections = [];
+  for (let i = 0; i < lines.length; i += 1) {
+    const match = lines[i].match(/^(#{2,6})\s+.*(?:FAQ|常見問題|常見問答|疑難雜症).*/i);
+    if (!match) continue;
+    const level = match[1].length;
+    let end = lines.length;
+    for (let j = i + 1; j < lines.length; j += 1) {
+      const heading = lines[j].match(/^(#{2,6})\s+/);
+      if (heading && heading[1].length <= level) {
+        end = j;
+        break;
+      }
+    }
+    sections.push({
+      level,
+      lines: lines.slice(i + 1, end)
+    });
+  }
+  return sections;
+}
+
+function parseFaqFromQuestionHeadings(sectionLines, sectionLevel) {
+  const items = [];
+  let i = 0;
+  while (i < sectionLines.length) {
+    const line = sectionLines[i];
+    const match = String(line || '').match(/^#{3,6}\s*Q\d*[\.:：、]?\s*(.+)$/i);
+    if (!match) {
+      i += 1;
+      continue;
+    }
+    const question = normalizeQuestion(match[1]);
+    const answerLines = [];
+    i += 1;
+    while (i < sectionLines.length) {
+      const current = String(sectionLines[i] || '');
+      if (/^#{3,6}\s*Q\d*[\.:：、]?\s*/i.test(current)) break;
+      const heading = current.match(/^(#{2,6})\s+/);
+      if (heading && heading[1].length <= sectionLevel) break;
+      answerLines.push(current);
+      i += 1;
+    }
+    const answer = collectFirstParagraph(answerLines);
+    if (question && answer) {
+      items.push({question, answer});
+    }
+  }
+  return items;
+}
+
+function parseFaqFromBoldQuestions(sectionLines, sectionLevel) {
+  const items = [];
+  let i = 0;
+  while (i < sectionLines.length) {
+    const line = String(sectionLines[i] || '');
+    const match = line.match(/^\s*\*\*Q\d*[\.:：、]?\s*(.+?)\*\*\s*(.*)$/i);
+    if (!match) {
+      i += 1;
+      continue;
+    }
+    const question = normalizeQuestion(match[1]);
+    const answerLines = [];
+    if (match[2]) answerLines.push(match[2]);
+    i += 1;
+    while (i < sectionLines.length) {
+      const current = String(sectionLines[i] || '');
+      if (/^\s*\*\*Q\d*[\.:：、]?\s*.+\*\*/i.test(current)) break;
+      const heading = current.match(/^(#{2,6})\s+/);
+      if (heading && heading[1].length <= sectionLevel) break;
+      answerLines.push(current);
+      i += 1;
+    }
+    const answer = collectFirstParagraph(answerLines);
+    if (question && answer) {
+      items.push({question, answer});
+    }
+  }
+  return items;
+}
+
+function parseFaqFromArrowList(sectionLines) {
+  const items = [];
+  (sectionLines || []).forEach((line) => {
+    const match = String(line || '').match(/^\s*[-*+]\s*(.+?[？?])\s*(?:→|->|=>|：|:)\s*(.+)\s*$/);
+    if (!match) return;
+    const question = normalizeQuestion(match[1]);
+    const answer = normalizeAnswer(match[2]);
+    if (question && answer) {
+      items.push({question, answer});
+    }
+  });
+  return items;
+}
+
+function parseFaqFromTable(sectionLines) {
+  const items = [];
+  let inFaqTable = false;
+  (sectionLines || []).forEach((line) => {
+    const trimmed = String(line || '').trim();
+    if (!/^\|.*\|$/.test(trimmed)) {
+      inFaqTable = false;
+      return;
+    }
+    const cells = trimmed.split('|').slice(1, -1).map((cell) => normalizeAnswer(cell));
+    if (!inFaqTable) {
+      if (cells.length >= 2 && /問題|question/i.test(cells[0]) && /解答|答案|回答|answer/i.test(cells[1])) {
+        inFaqTable = true;
+      }
+      return;
+    }
+    if (cells.every((cell) => /^:?-{2,}:?$/.test(cell))) return;
+    if (cells.length < 2) return;
+    const question = normalizeQuestion(cells[0]);
+    const answer = normalizeAnswer(cells[1]);
+    if (question && answer) {
+      items.push({question, answer});
+    }
+  });
+  return items;
+}
+
+function extractFaqItemsFromRaw(rawText) {
+  if (!rawText) return [];
+  const sections = splitFaqSections(rawText);
+  if (!sections.length) return [];
+  const collected = [];
+  sections.forEach((section) => {
+    collected.push.apply(collected, parseFaqFromQuestionHeadings(section.lines, section.level));
+    collected.push.apply(collected, parseFaqFromBoldQuestions(section.lines, section.level));
+    collected.push.apply(collected, parseFaqFromArrowList(section.lines));
+    collected.push.apply(collected, parseFaqFromTable(section.lines));
+  });
+  const uniqueFaqItems = dedupeFaqItems(collected);
+  return uniqueFaqItems.length >= 2 ? uniqueFaqItems : [];
+}
+
+function extractMarkdownHeadings(rawText) {
+  const lines = String(rawText || '').replace(/\r\n/g, '\n').split('\n');
+  const headings = [];
+  lines.forEach((line, index) => {
+    const match = String(line || '').match(/^(#{2,6})\s+(.+)$/);
+    if (!match) return;
+    headings.push({
+      level: match[1].length,
+      text: sanitizeMarkdownText(match[2]),
+      index
+    });
+  });
+  return headings;
+}
+
+function isHowToStepHeading(text) {
+  return /(?:step\s*\d+|第[一二三四五六七八九十百0-9]+步|步驟\s*[一二三四五六七八九十百0-9])/i.test(String(text || ''));
+}
+
+function extractHowToStepsFromRaw(rawText) {
+  if (!rawText) return [];
+  const lines = String(rawText).replace(/\r\n/g, '\n').split('\n');
+  const allHeadings = extractMarkdownHeadings(rawText);
+  const stepHeadings = allHeadings.filter((heading) => isHowToStepHeading(heading.text));
+  if (stepHeadings.length < 3) return [];
+  const steps = stepHeadings.map((heading, index) => {
+    const nextStepHeading = index + 1 < stepHeadings.length ? stepHeadings[index + 1] : undefined;
+    const end = nextStepHeading ? nextStepHeading.index : lines.length;
+    const sectionLines = lines.slice(heading.index + 1, end);
+    const text = collectHowToStepText(sectionLines);
+    const name = normalizeAnswer(heading.text);
+    return name && text ? {
+      '@type': 'HowToStep',
+      name,
+      text
+    } : undefined;
+  }).filter(Boolean);
+  return steps.length >= 3 ? steps : [];
+}
+
+function buildFaqEntity(faqItems, id) {
   return {
+    '@id': id || pageFaqId(),
     '@type': 'FAQPage',
     mainEntity: (faqItems || []).map((item) => ({
       '@type': 'Question',
@@ -78,8 +424,24 @@ function buildFaqEntity(faqItems) {
   };
 }
 
+function buildHowToEntity(stepItems) {
+  return {
+    '@id': pageHowToId(),
+    '@type': 'HowTo',
+    name: page.title,
+    description: pageDescription(page),
+    inLanguage: config.language,
+    mainEntityOfPage: {
+      '@id': pageWebPageId()
+    },
+    image: buildImageObject(currentPageImagePath(), pagePrimaryImageId()),
+    step: stepItems
+  };
+}
+
 function buildBreadcrumbEntity(items) {
   return {
+    '@id': pageBreadcrumbId(),
     '@type': 'BreadcrumbList',
     itemListElement: items.map((item, index) => ({
       '@type': 'ListItem',
@@ -92,45 +454,40 @@ function buildBreadcrumbEntity(items) {
 
 function buildProfessionalServiceEntity() {
   const serviceCatalog = business.service_catalog || [];
+  const availableLanguages = toLanguageEntities(business.available_languages || [config.language]);
   return {
     '@id': professionalServiceId,
     '@type': [business.type || 'ProfessionalService', 'LocalBusiness'],
     name: business.name || config.title,
     url: business.url || config.url,
     description: business.description || config.description,
-    image: absoluteUrl(business.image || theme.og_image || config.og_image),
-    logo: business.logo ? {
-      '@type': 'ImageObject',
-      '@id': siteUrl + '/#logo',
-      url: absoluteUrl(business.logo)
-    } : undefined,
+    image: buildImageObject(business.image || theme.og_image || config.og_image, siteUrl + '/#service-image'),
+    logo: buildImageObject(business.logo, siteUrl + '/#logo'),
     email: business.email,
     sameAs: business.same_as || [],
     areaServed: {
       '@type': 'Country',
       name: 'Taiwan'
     },
-    availableLanguage: business.available_languages || [config.language],
+    availableLanguage: availableLanguages.length ? availableLanguages : undefined,
     knowsAbout: business.knows_about || business.service_types || [],
     serviceType: business.service_types || [],
-    founder: business.founder ? {
-      '@type': 'Person',
-      name: business.founder.name,
-      alternateName: business.founder.alternate_name,
-      jobTitle: business.founder.job_title,
-      description: business.founder.description
-    } : undefined,
+    founder: {
+      '@id': personId
+    },
+    parentOrganization: {
+      '@id': organizationId
+    },
     contactPoint: business.email ? [{
       '@type': 'ContactPoint',
       contactType: 'customer support',
       email: business.email,
       url: absoluteUrl(business.contact_url || '/contact/'),
-      availableLanguage: business.available_languages || [config.language],
+      availableLanguage: availableLanguages.length ? availableLanguages : undefined,
       areaServed: 'Taiwan'
     }] : undefined,
     address: business.address ? {
       '@type': 'PostalAddress',
-      streetAddress: business.address.street,
       addressLocality: business.address.locality,
       addressRegion: business.address.region,
       addressCountry: business.address.country || 'TW'
@@ -155,6 +512,38 @@ function buildProfessionalServiceEntity() {
   };
 }
 
+function buildPersonEntity() {
+  const founder = business.founder || {};
+  return {
+    '@id': personId,
+    '@type': 'Person',
+    name: founder.name || config.author || business.name || config.title,
+    alternateName: founder.alternate_name,
+    jobTitle: founder.job_title,
+    description: founder.description || business.description || config.description,
+    url: business.url || config.url,
+    sameAs: business.same_as || []
+  };
+}
+
+function buildOrganizationEntity() {
+  return {
+    '@id': organizationId,
+    '@type': 'Organization',
+    name: business.name || config.title,
+    url: business.url || config.url,
+    description: business.description || config.description,
+    logo: buildImageObject(business.logo, siteUrl + '/#organization-logo'),
+    image: buildImageObject(business.image || theme.og_image || config.og_image, siteUrl + '/#organization-image'),
+    email: business.email,
+    sameAs: business.same_as || [],
+    founder: {
+      '@id': personId
+    },
+    knowsAbout: business.knows_about || business.service_types || []
+  };
+}
+
 function buildWebsiteEntity() {
   return {
     '@id': websiteId,
@@ -164,16 +553,18 @@ function buildWebsiteEntity() {
     description: business.description || config.description,
     inLanguage: config.language,
     publisher: {
-      '@id': professionalServiceId
+      '@id': organizationId
     }
   };
 }
 
 function buildWebPageEntity(type, nameOverride, descriptionOverride) {
+  const pageUrl = currentPageUrl();
   return {
+    '@id': pageWebPageId(),
     '@type': type || 'WebPage',
     name: nameOverride || page.title || config.title,
-    url: currentPageUrl(),
+    url: pageUrl,
     description: descriptionOverride || pageDescription(page),
     inLanguage: config.language,
     isPartOf: {
@@ -182,7 +573,10 @@ function buildWebPageEntity(type, nameOverride, descriptionOverride) {
     about: {
       '@id': professionalServiceId
     },
-    primaryImageOfPage: absoluteUrl(page.og_image || page.cover || business.image || theme.og_image || config.og_image)
+    breadcrumb: {
+      '@id': pageBreadcrumbId()
+    },
+    primaryImageOfPage: buildImageObject(currentPageImagePath(), pagePrimaryImageId())
   };
 }
 
@@ -190,24 +584,26 @@ function buildBlogPostingEntity() {
   const tagNames = toNameList(page.tags);
   const categoryNames = toNameList(page.categories);
   return {
+    '@id': pageBlogPostingId(),
     '@type': 'BlogPosting',
     headline: page.title,
     name: page.title,
     description: pageDescription(page),
     url: currentPageUrl(),
-    mainEntityOfPage: currentPageUrl(),
+    mainEntityOfPage: {
+      '@id': pageWebPageId()
+    },
     inLanguage: config.language,
     datePublished: isoDate(page.date),
     dateModified: isoDate(page.updated || page.date),
-    image: absoluteUrl(page.og_image || page.cover || business.image || theme.og_image || config.og_image),
+    image: buildImageObject(currentPageImagePath(), pagePrimaryImageId()),
     articleSection: categoryNames[0],
     keywords: tagNames,
     author: {
-      '@type': 'Person',
-      name: page.author || (business.founder && business.founder.name) || config.author || business.name
+      '@id': personId
     },
     publisher: {
-      '@id': professionalServiceId
+      '@id': organizationId
     },
     about: tagNames.length || categoryNames.length ? categoryNames.concat(tagNames) : (business.knows_about || business.service_types || []),
     isPartOf: {
@@ -218,46 +614,73 @@ function buildBlogPostingEntity() {
 
 if (is_home()) {
   const homeFaq = pages.home && pages.home.faq ? pages.home.faq : [];
+  const homeGraph = [
+    buildWebsiteEntity(),
+    buildOrganizationEntity(),
+    buildPersonEntity(),
+    buildProfessionalServiceEntity(),
+    buildWebPageEntity('WebPage', '首頁', pageDescription(page)),
+    buildBreadcrumbEntity([
+      {name: '首頁', item: absoluteUrl('/')}
+    ])
+  ];
+  if (homeFaq.length) {
+    homeGraph.push(buildFaqEntity(homeFaq, pageFaqId()));
+  }
   const schemaGraph = {
     '@context': 'https://schema.org',
-    '@graph': [
-      buildWebsiteEntity(),
-      buildProfessionalServiceEntity(),
-      buildFaqEntity(homeFaq)
-    ]
+    '@graph': homeGraph
   };
 %>
 <script type="application/ld+json"><%- JSON.stringify(schemaGraph) %></script>
 <% } else if (page.layout === 'service') {
   const serviceFaq = pages.service && pages.service.faq ? pages.service.faq : [];
+  const serviceGraph = [
+    buildWebsiteEntity(),
+    buildOrganizationEntity(),
+    buildPersonEntity(),
+    buildProfessionalServiceEntity(),
+    buildWebPageEntity('CollectionPage'),
+    buildBreadcrumbEntity([
+      {name: '首頁', item: absoluteUrl('/')},
+      {name: page.title || '服務項目', item: currentPageUrl()}
+    ])
+  ];
+  if (serviceFaq.length) {
+    serviceGraph.push(buildFaqEntity(serviceFaq, pageFaqId()));
+  }
   const serviceSchema = {
     '@context': 'https://schema.org',
-    '@graph': [
-      buildWebsiteEntity(),
-      buildProfessionalServiceEntity(),
-      buildWebPageEntity('CollectionPage'),
-      buildBreadcrumbEntity([
-        {name: '首頁', item: absoluteUrl('/')},
-        {name: page.title || '服務項目', item: currentPageUrl()}
-      ]),
-      buildFaqEntity(serviceFaq)
-    ]
+    '@graph': serviceGraph
   };
 %>
 <script type="application/ld+json"><%- JSON.stringify(serviceSchema) %></script>
 <% } else if (is_post()) {
+  const rawContent = typeof page.raw === 'string' ? page.raw : '';
+  const postFaqItems = extractFaqItemsFromRaw(rawContent);
+  const howToSteps = extractHowToStepsFromRaw(rawContent);
+  const postGraph = [
+    buildWebsiteEntity(),
+    buildOrganizationEntity(),
+    buildPersonEntity(),
+    buildProfessionalServiceEntity(),
+    buildWebPageEntity('WebPage'),
+    buildBlogPostingEntity(),
+    buildBreadcrumbEntity([
+      {name: '首頁', item: absoluteUrl('/')},
+      {name: '部落格', item: absoluteUrl('/blog/')},
+      {name: page.title, item: currentPageUrl()}
+    ])
+  ];
+  if (postFaqItems.length) {
+    postGraph.push(buildFaqEntity(postFaqItems, pageFaqId()));
+  }
+  if (howToSteps.length) {
+    postGraph.push(buildHowToEntity(howToSteps));
+  }
   const postSchema = {
     '@context': 'https://schema.org',
-    '@graph': [
-      buildWebsiteEntity(),
-      buildProfessionalServiceEntity(),
-      buildBlogPostingEntity(),
-      buildBreadcrumbEntity([
-        {name: '首頁', item: absoluteUrl('/')},
-        {name: '部落格', item: absoluteUrl('/blog/')},
-        {name: page.title, item: currentPageUrl()}
-      ])
-    ]
+    '@graph': postGraph
   };
 %>
 <script type="application/ld+json"><%- JSON.stringify(postSchema) %></script>
@@ -275,6 +698,8 @@ if (is_home()) {
     '@context': 'https://schema.org',
     '@graph': [
       buildWebsiteEntity(),
+      buildOrganizationEntity(),
+      buildPersonEntity(),
       buildProfessionalServiceEntity(),
       {
         ...buildWebPageEntity(pageType, breadcrumbLabel),
