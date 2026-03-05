@@ -50,11 +50,9 @@ jobs:
         run: |
           set -e
 
-          rm -rf .deploy
-          mkdir .deploy
-          cp -R public/. .deploy/
-
-          echo "$CNAME_DOMAIN" > .deploy/CNAME
+          DEPLOY_DIR="$(mktemp -d)"
+          cp -R public/. "$DEPLOY_DIR"/
+          echo "$CNAME_DOMAIN" > "$DEPLOY_DIR/CNAME"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
@@ -68,7 +66,8 @@ jobs:
           fi
 
           git rm -rf . || true
-          cp -R .deploy/. .
+          cp -R "$DEPLOY_DIR"/. .
+          rm -rf "$DEPLOY_DIR"
           touch .nojekyll
 
           git add -A
