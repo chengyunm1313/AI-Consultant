@@ -40,6 +40,17 @@ npm run build
 npm run clean
 ```
 
+### 5) 檢查文章日期欄位（CI 同步檢查）
+
+```bash
+npm run verify:post-dates
+```
+
+說明：
+
+- `source/_posts` 下每篇文章的 front matter 必填 `date`
+- 若缺少 `date` 或為空值，指令會直接失敗，避免排序在不同環境漂移
+
 ## 部署策略（CI/CD 主流程）
 
 本專案已改為 GitHub Actions 自動部署：
@@ -52,6 +63,7 @@ npm run clean
   - 僅執行建置
   - 上傳 `public/` 為 artifact（不部署）
 - `push main` 行為：
+  - 先執行 `npm run verify:post-dates`（文章日期防呆）
   - 建置後將 `public/` 覆蓋部署到 `gh-pages`
   - 每次強制寫入 `CNAME=blog.es2idea.com`
   - 建立 `.nojekyll`
@@ -130,6 +142,11 @@ npm run verify:jsonld -- --paths=/,/service/,/posts/aeo-implementation-tools-opt
 
 - 先確認 Actions Job 是否成功
 - GitHub Pages/CDN 可能有短暫快取延遲，稍等幾分鐘後再重整
+
+### 5) 新文章排序異常（本機與線上順序不同）
+
+- 先執行 `npm run verify:post-dates`
+- 確認 `source/_posts` 內該篇文章 front matter 有填 `date`
 
 ## 參考文件
 

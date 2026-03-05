@@ -7,6 +7,7 @@
     "clean": "hexo clean",
     "deploy": "hexo clean && hexo generate && node toWebp && hexo deploy",
     "server": "hexo server",
+    "verify:post-dates": "node tools/validate-post-dates.js",
     "verify:jsonld": "node tools/validate-jsonld.js"
   },
   "hexo": {
