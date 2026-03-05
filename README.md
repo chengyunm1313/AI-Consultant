@@ -1,74 +1,137 @@
-<img alt="2024-camp" src="https://firebasestorage.googleapis.com/v0/b/hexschool-courses.appspot.com/o/hex-website%2Fblog%2F1710986781813-engineer-camp.png?alt=media&token=536bc802-b2b7-4778-8887-2017e88853d7">
+# AI-Consultant（Hexo）
 
-# hexschool - Hexo
-此為套用了主題 `hexschool` 的完整 Hexo 専案，開箱即用
+此專案為個人網站 `https://blog.es2idea.com` 的 Hexo 原始碼，主題為 `hexschool`。
 
-![Required Node version](https://img.shields.io/node/v/hexo)
-[![Discord Chat](https://img.shields.io/badge/chat-on%20discord-7289da.svg)](https://discord.gg/822N5Ycttt)
+## 專案簡介
 
+- Repo：`chengyunm1313/AI-Consultant`
+- 網站網域：`blog.es2idea.com`
+- 發佈分支：`gh-pages`
+- 主要分支：`main`
 
-## 快速開始
+## 環境需求
 
-**專案設置（Project setup）**
+- Node.js 20（建議與 GitHub Actions 一致）
+- npm 9+（或隨 Node 20 版本）
 
-將專案複製到本地端
-```sh
-$ git clone git@github.com:hexschool/2024-camp-hexo.git
+## 本機開發
+
+### 1) 安裝相依套件
+
+```bash
+npm install
 ```
 
-基礎套件安裝
-```sh
-$ cd 2024-camp-hexo
-$ npm install
+### 2) 啟動本機開發伺服器
+
+```bash
+npm run server
 ```
 
-**執行專案（Start the server）**
-```sh
-$ hexo server
+### 3) 建置靜態檔（含 WebP 後處理）
+
+```bash
+npm run build
 ```
 
-**新增文章（Create a new post）**，建議以 Kebab case 進行命名。例如：your-post
-```sh
-$ hexo new post <your-post-name>
+### 4) 清理快取與輸出目錄
+
+```bash
+npm run clean
 ```
 
-**生成靜態檔案（Generate static files）**
-```sh
-$ hexo generate
+## 部署策略（CI/CD 主流程）
+
+本專案已改為 GitHub Actions 自動部署：
+
+- 觸發條件：
+  - `push` 到 `main`
+  - `pull_request` 到 `main`
+  - 手動觸發 `workflow_dispatch`
+- `PR` 行為：
+  - 僅執行建置
+  - 上傳 `public/` 為 artifact（不部署）
+- `push main` 行為：
+  - 建置後將 `public/` 覆蓋部署到 `gh-pages`
+  - 每次強制寫入 `CNAME=blog.es2idea.com`
+  - 建立 `.nojekyll`
+  - 若無內容差異則跳過 deploy commit
+
+Workflow 檔案位置：
+
+- [deploy.yml](.github/workflows/deploy.yml)
+
+## GitHub Pages 一次性設定
+
+到 GitHub Repo 的 `Settings -> Pages`，設定：
+
+1. Source：`Deploy from a branch`
+2. Branch：`gh-pages`
+3. Folder：`/ (root)`
+
+完成後，網站會由 `gh-pages` 內容發佈，且保留自訂網域 `blog.es2idea.com`。
+
+## 備援手動部署（保留）
+
+雖然 CI/CD 為主，仍保留本機手動部署指令作為備援：
+
+```bash
+npm run deploy
 ```
 
-**清除靜態檔案（Clear static files）**
-```sh
-$ hexo clean
+對應內容（`package.json`）：
+
+- `hexo clean`
+- `hexo generate`
+- `node toWebp`
+- `hexo deploy`
+
+注意：一般情況建議以 `push main` 觸發自動部署，不要長期混用兩種流程。
+
+## JSON-LD 驗證指令
+
+### 本地驗證（建議）
+
+```bash
+npm run verify:jsonld -- --mode=local
 ```
 
-## 常見問題
+### 遠端驗證（部署後）
 
-### Q：如何在文章中加入圖片
+```bash
+npm run verify:jsonld
+```
 
-**Step 1: 將圖片存放至 `/source/images`**
+若要指定網域或路徑：
 
-**Step 2: 在文章中以 `![](/images/your-image.png)` 方式載入**
+```bash
+npm run verify:jsonld -- --base=https://blog.es2idea.com
+npm run verify:jsonld -- --paths=/,/service/,/posts/aeo-implementation-tools-optimization-guide/
+```
 
-### Q：如何新增 / 修改 CSS 樣式
+## 常見排錯
 
-在 `/themes/hexschool/source/scss/_custom.scss` 中新增
+### 1) Actions 無法部署到 `gh-pages`
 
-### Q：如何編譯 SCSS 檔案
+- 檢查 workflow 是否含 `permissions: contents: write`
+- 檢查 repo 是否允許 GitHub Actions 寫入內容
 
-**Step 1: 安裝 [Live Sass Compiler](https://marketplace.visualstudio.com/items?itemName=ritwickdey.live-sass)**（若已安裝可略過此步驟）
+### 2) `gh-pages` 分支不存在
 
-**Step 2: 點擊 VS Code 下方的 `Watch Sass` 按鈕**
-![](https://i.imgur.com/4z3IMP6.png)
+- workflow 已內建 `orphan` 建立邏輯
+- 首次 `push main` 後應自動建立 `gh-pages`
 
-**Step 3: 點擊 `/themes/hexschool/source/scss/all.scss` 並按下儲存快捷鍵**
+### 3) 自訂網域遺失或被重置
 
-MacOS 使用 cmd + s，Windows 使用 ctrl + s
+- workflow 每次部署都會寫入 `CNAME`
+- 請確認 `Settings -> Pages` 的 Custom domain 仍為 `blog.es2idea.com`
 
+### 4) 更新後網站沒立即生效
 
-**Note: 編譯完成的檔案會出現在 `/themes/hexschool/source/css/all.min.css`**
+- 先確認 Actions Job 是否成功
+- GitHub Pages/CDN 可能有短暫快取延遲，稍等幾分鐘後再重整
 
+## 參考文件
 
-## 更多資訊
-- [hexschool 主題相關設定與介紹](https://github.com/hexschool/2024-camp-hexo/blob/main/themes/hexschool/README.md)
-- [Hexo 相關指令](https://hexo.io/zh-tw/docs/commands)
+- [Hexo 官方文件](https://hexo.io/zh-tw/docs/)
+- [GitHub Actions Workflow](.github/workflows/deploy.yml)

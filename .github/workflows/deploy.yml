@@ -1,0 +1,79 @@
+name: Hexo Build & Deploy
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+    branches: ["main"]
+  workflow_dispatch:
+
+permissions:
+  contents: write
+
+concurrency:
+  group: hexo-deploy
+  cancel-in-progress: true
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Use Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: "20"
+          cache: "npm"
+
+      - name: Install
+        run: npm ci
+
+      - name: Build
+        run: npm run build
+
+      - name: Upload public artifact (PR only)
+        if: github.event_name == 'pull_request'
+        uses: actions/upload-artifact@v4
+        with:
+          name: public
+          path: public
+
+      - name: Deploy to gh-pages
+        if: github.event_name == 'push'
+        env:
+          CNAME_DOMAIN: blog.es2idea.com
+        run: |
+          set -e
+
+          rm -rf .deploy
+          mkdir .deploy
+          cp -R public/. .deploy/
+
+          echo "$CNAME_DOMAIN" > .deploy/CNAME
+
+          git config user.name "github-actions[bot]"
+          git config user.email "github-actions[bot]@users.noreply.github.com"
+
+          git fetch origin gh-pages || true
+          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
+            git checkout gh-pages
+          else
+            git checkout --orphan gh-pages
+            git rm -rf . || true
+          fi
+
+          git rm -rf . || true
+          cp -R .deploy/. .
+          touch .nojekyll
+
+          git add -A
+
+          if git diff --cached --quiet; then
+            echo "No changes to deploy."
+            exit 0
+          fi
+
+          git commit -m "chore: deploy $(date -u +'%Y-%m-%dT%H:%M:%SZ')"
+          git push origin gh-pages
