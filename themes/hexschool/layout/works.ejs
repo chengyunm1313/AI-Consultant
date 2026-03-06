@@ -1,0 +1,254 @@
+<%
+const worksAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.works || {} : {};
+const works = Array.isArray(site.data.works) ? site.data.works : [];
+const vibeWorks = works.filter((work) => work.category === 'vibe-coding' && work.featured !== false);
+const n8nWorks = works.filter((work) => work.category === 'n8n' && work.featured !== false);
+
+function categoryLabel(category) {
+  if (category === 'n8n') return 'n8n';
+  return 'Vibe Coding';
+}
+
+function localUrl(value) {
+  if (!value) return '';
+  return /^https?:\/\//.test(String(value)) ? value : url_for(value);
+}
+%>
+<main class="works-page">
+  <section class="works-page__hero py-7 py-md-9">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 text-center">
+          <p class="mb-3 text-uppercase tracking-wide text-primary-600 fw-semibold">Portfolio</p>
+          <h1 class="title-deco mb-4 py-4 py-md-6 text-primary-700 tracking-wide fw-semibold"><%= page.title %></h1>
+          <p class="mx-auto mb-3 fs-5 text-primary-700 works-page__intro">
+            <%= worksAeo.description || page.description %>
+          </p>
+          <p class="mx-auto mb-0 text-primary-600 works-page__intro works-page__intro--secondary">
+            這裡先收錄我目前公開的 Vibe Coding 成果，後續也會陸續補上 n8n 自動化案例。
+          </p>
+        </div>
+      </div>
+      <div class="row row-gap-3 justify-content-center mt-6">
+        <div class="col-12 col-md-5 col-lg-4">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#vibe-coding-works">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">精選作品</span>
+              <h2 class="h4 mb-1 text-primary-800">Vibe Coding 作品</h2>
+              <p class="mb-0 text-primary-600">網站原型、提案 Demo 與可展示的前台成果。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">arrow_forward</span>
+          </a>
+        </div>
+        <div class="col-12 col-md-5 col-lg-4">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#n8n-works">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">持續補充中</span>
+              <h2 class="h4 mb-1 text-primary-800">n8n 作品</h2>
+              <p class="mb-0 text-primary-600">自動化流程、串接應用與商業場景案例。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">south</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="vibe-coding-works" class="py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Vibe Coding</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">Vibe Coding 作品</h2>
+          <p class="mb-0 text-primary-600">
+            先把想法做成可點、可看的網站原型，讓需求討論與提案溝通都更具體。
+          </p>
+        </div>
+      </div>
+
+      <% if (vibeWorks.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0">
+          <% vibeWorks.forEach(function(work) { %>
+            <% const stack = Array.isArray(work.stack) ? work.stack : []; %>
+            <li class="col-12 col-md-6 d-flex">
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (work.cover) { %>
+                  <img
+                    src="<%= localUrl(work.cover) %>"
+                    class="works-card__media"
+                    alt="<%= work.title %>"
+                  >
+                <% } else { %>
+                  <div class="works-card__fallback d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Preview</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">AI-built landing page prototype</p>
+                  </div>
+                <% } %>
+
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__header">
+                      <span class="badge rounded-pill works-card__badge"><%= categoryLabel(work.category) %></span>
+                    </div>
+                    <div class="works-card__copy">
+                      <h3 class="card-title works-card__title text-primary-800"><%= work.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= work.summary %></p>
+                    </div>
+                  </div>
+                  <div class="works-card__result">
+                    <p class="works-card__section-label">作品亮點</p>
+                    <p class="mb-0 text-primary-700 works-card__result-text works-card__clamp works-card__clamp--2"><%= work.result %></p>
+                  </div>
+                  <% if (stack.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">使用技術</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% stack.forEach(function(item) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= item %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a
+                      class="btn btn-dark px-4 works-card__action-btn"
+                      href="<%= work.primary_url %>"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <%= work.primary_label %>
+                    </a>
+                    <% if (work.article_url) { %>
+                      <a class="btn btn-outline-dark px-4 works-card__action-btn" href="<%= localUrl(work.article_url) %>">
+                        <%= work.article_label || '相關文章' %>
+                      </a>
+                    <% } %>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <div class="works-page__empty text-center mx-auto">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">公開作品整理中</h3>
+          <p class="mb-0 text-primary-600">這個區塊會優先放上可直接體驗的網站與原型成果。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section id="n8n-works" class="py-7 py-md-9 bg-primary-100">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">n8n Automation</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">n8n 作品</h2>
+          <p class="mb-0 text-primary-600">
+            以流程自動化、內容生成與跨工具串接為主，後續會逐步補上可公開展示的案例。
+          </p>
+        </div>
+      </div>
+
+      <% if (n8nWorks.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0">
+          <% n8nWorks.forEach(function(work) { %>
+            <% const stack = Array.isArray(work.stack) ? work.stack : []; %>
+            <li class="col-12 col-md-6 d-flex">
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (work.cover) { %>
+                  <img
+                    src="<%= localUrl(work.cover) %>"
+                    class="works-card__media"
+                    alt="<%= work.title %>"
+                  >
+                <% } else { %>
+                  <div class="works-card__fallback works-card__fallback--n8n d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Automation</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">Workflow preview</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__header">
+                      <span class="badge rounded-pill works-card__badge"><%= categoryLabel(work.category) %></span>
+                    </div>
+                    <div class="works-card__copy">
+                      <h3 class="card-title works-card__title text-primary-800"><%= work.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= work.summary %></p>
+                    </div>
+                  </div>
+                  <div class="works-card__result">
+                    <p class="works-card__section-label">作品亮點</p>
+                    <p class="mb-0 text-primary-700 works-card__result-text works-card__clamp works-card__clamp--2"><%= work.result %></p>
+                  </div>
+                  <% if (stack.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">使用技術</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% stack.forEach(function(item) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= item %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a
+                      class="btn btn-dark px-4 works-card__action-btn"
+                      href="<%= work.primary_url %>"
+                      target="_blank"
+                      rel="noopener noreferrer"
+                    >
+                      <%= work.primary_label %>
+                    </a>
+                    <% if (work.article_url) { %>
+                      <a class="btn btn-outline-dark px-4 works-card__action-btn" href="<%= localUrl(work.article_url) %>">
+                        <%= work.article_label || '相關文章' %>
+                      </a>
+                    <% } %>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">公開案例整理中</p>
+          <h3 class="mb-3 text-primary-800">n8n 作品即將補上</h3>
+          <p class="mb-4 text-primary-600">
+            目前先以服務說明與合作洽詢為主，等可公開展示的流程案例整理完成後，會直接補在這個區塊。
+          </p>
+          <div class="d-flex flex-wrap justify-content-center gap-3">
+            <a class="btn btn-dark px-4" href="<%= url_for('/service/') %>">查看 n8n 服務</a>
+            <a class="btn btn-outline-dark px-4" href="<%= url_for('/contact/') %>">洽詢合作</a>
+          </div>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section class="works-page__cta py-7 py-md-9">
+    <div class="container">
+      <div class="works-page__cta-panel mx-auto">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9 text-center">
+            <p class="works-page__cta-kicker mb-3">Need a demo?</p>
+            <h2 class="works-page__cta-title mb-4">如果你想把網站或流程快速做成可展示成果，可以直接聯絡我</h2>
+            <p class="works-page__cta-text mb-5 fs-5">
+              無論是 Vibe Coding 的網站原型，或是後續要接上 n8n 自動化流程，我都可以先協助你把第一版做出來。
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a class="btn works-page__cta-btn works-page__cta-btn--primary" href="<%= url_for('/contact/') %>">預約洽詢</a>
+              <a class="btn works-page__cta-btn works-page__cta-btn--secondary" href="<%= url_for('/service/') %>">查看服務</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>

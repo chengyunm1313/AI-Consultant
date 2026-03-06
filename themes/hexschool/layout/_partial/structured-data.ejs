@@ -713,4 +713,33 @@ if (is_home()) {
   };
 %>
 <script type="application/ld+json"><%- JSON.stringify(pageSchema) %></script>
+<% } else if (page.layout === 'works') {
+  const worksPageData = pages.works || {};
+  const worksItems = Array.isArray(site.data.works) ? site.data.works.filter((item) => item && item.featured !== false).map((item) => ({
+    '@type': 'CreativeWork',
+    name: item.title,
+    description: item.summary || item.result,
+    url: absoluteUrl(item.primary_url),
+    keywords: Array.isArray(item.stack) ? item.stack.join(', ') : undefined,
+    image: item.cover ? absoluteUrl(item.cover) : undefined
+  })) : [];
+  const worksSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildWebsiteEntity(),
+      buildOrganizationEntity(),
+      buildPersonEntity(),
+      buildProfessionalServiceEntity(),
+      {
+        ...buildWebPageEntity('CollectionPage', page.title || '作品集', page.description || worksPageData.description),
+        hasPart: worksItems.length ? worksItems : undefined
+      },
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: page.title || '作品集', item: currentPageUrl()}
+      ])
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(worksSchema) %></script>
 <% } %>

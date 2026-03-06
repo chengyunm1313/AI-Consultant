@@ -90,5 +90,8 @@ pages:
   collection:
     description: 認識徐享（享哥）的背景、專長與顧問經驗，了解生成式 AI 應用規劃、行銷實戰與數位轉型服務定位。
 
+  works:
+    description: 展示我用 Vibe Coding 與 n8n 落地的網站與自動化成果，包含可直接點擊體驗的公開 Demo，協助你快速理解提案、原型與實作能力。
+
 llms:
   path: /llms.txt

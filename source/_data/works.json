@@ -1,0 +1,34 @@
+[
+  {
+    "id": "vibe-cms-demo",
+    "category": "vibe-coding",
+    "title": "內建 CMS 接案網站 Demo",
+    "summary": "先做出可操作的 Demo，幫業主快速理解網站需要準備哪些資料與頁面模組。",
+    "result": "整合產品型錄、文章、聯絡表單、內建 CMS 與可切換產業模板，讓提案與交付都更有效率。",
+    "stack": [
+      "AI Coding",
+      "Cloudflare",
+      "D1"
+    ],
+    "cover": "/images/cover74.png",
+    "primary_url": "https://product-catalog-a2z.pages.dev/",
+    "primary_label": "查看作品",
+    "article_url": "/posts/vibecoding-ai-cms-freelance-website/",
+    "article_label": "閱讀文章",
+    "featured": true
+  },
+  {
+    "id": "vibe-landing-page-demo",
+    "category": "vibe-coding",
+    "title": "Vibe Coding Landing Page Demo",
+    "summary": "用 AI 快速產出可展示的 landing page，先把頁面節奏、內容區塊與主視覺方向做成可討論的原型。",
+    "result": "聚焦提案驗證、視覺呈現與快速出樣，適合在需求還不完整時先把頁面做給客戶看。",
+    "stack": [
+      "AI Coding",
+      "Landing Page"
+    ],
+    "primary_url": "https://chengyunm1313.github.io/vibecoding-landing-page/",
+    "primary_label": "查看作品",
+    "featured": true
+  }
+]
