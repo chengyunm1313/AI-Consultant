@@ -20,13 +20,16 @@
   {
     "id": "vibe-landing-page-demo",
     "category": "vibe-coding",
-    "title": "Vibe Coding Landing Page Demo",
-    "summary": "用 AI 快速產出可展示的 landing page，先把頁面節奏、內容區塊與主視覺方向做成可討論的原型。",
-    "result": "聚焦提案驗證、視覺呈現與快速出樣，適合在需求還不完整時先把頁面做給客戶看。",
+    "title": "Landing Page + GAS + LINE",
+    "summary": "用 AI 快速產出可展示的 landing page，建立你對 AI 寫站流程、提示設計與需求拆解的基本框架，部署上線與版本管理，建立 LINE 自動銷售 CRM 系統。",
+    "result": "6 個步驟，把銷售頁、追蹤、部署與 LINE 自動銷售流程一次串起來。",
     "stack": [
       "AI Coding",
-      "Landing Page"
+      "Landing Page",
+      "GAS",
+      "LINE"
     ],
+    "cover": "/images/vibecoding1.png",
     "primary_url": "https://chengyunm1313.github.io/vibecoding-landing-page/",
     "primary_label": "查看作品",
     "featured": true
