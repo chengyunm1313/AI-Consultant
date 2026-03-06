@@ -1,5 +1,5 @@
 ---
-title: 2025 生成式AI應用規劃
+title: 2026 生成式AI應用規劃
 cover: /images/cover8.png
 toc: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: 2025 AI數位分身與影音行銷
+title: 2026 AI數位分身與影音行銷
 cover: /images/cover15.png
 toc: true
 categories:

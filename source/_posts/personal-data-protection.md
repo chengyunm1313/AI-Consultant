@@ -1,5 +1,5 @@
 ---
-title: 2025 個人資料保護與AI風險控管
+title: 2026 個人資料保護與AI風險控管
 cover: /images/cover13.png
 toc: true
 categories:
