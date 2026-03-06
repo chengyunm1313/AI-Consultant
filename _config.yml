@@ -122,6 +122,6 @@ deploy:
   repo: https://github.com/chengyunm1313/AI-Consultant
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
-  message: 'fix:AEO進一步優化'
+  message: 'fix:SCSS更新上線'
 
 
