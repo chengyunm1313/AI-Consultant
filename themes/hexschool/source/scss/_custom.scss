@@ -789,6 +789,12 @@ blockquote p {
   border-radius: 999px;
   font-weight: 700;
   letter-spacing: 0.01em;
+  transition:
+    transform 0.2s ease,
+    box-shadow 0.2s ease,
+    background-color 0.2s ease,
+    color 0.2s ease,
+    border-color 0.2s ease;
 }
 
 .works-card__actions .btn-dark {
@@ -798,6 +804,33 @@ blockquote p {
 .works-card__actions .btn-outline-dark {
   border-width: 1.5px;
   background-color: rgba(255, 255, 255, 0.9);
+  color: #1E293B;
+  border-color: #1F2937;
+  box-shadow: 0 10px 22px rgba(148, 163, 184, 0.12);
+}
+
+.works-card__actions .btn-outline-dark:hover,
+.works-card__actions .btn-outline-dark:focus,
+.works-card__actions .btn-outline-dark:active,
+.works-card__actions .btn-outline-dark.active,
+.works-card__actions .btn-outline-dark:first-child:active {
+  color: #0F172A;
+  background: linear-gradient(180deg, #FFFFFF 0%, #EAF2FF 100%);
+  border-color: #3B82F6;
+  box-shadow: 0 14px 28px rgba(59, 130, 246, 0.14);
+}
+
+.works-card__actions .btn-outline-dark:hover {
+  transform: translateY(-2px);
+}
+
+.works-card__actions .btn-outline-dark:focus-visible {
+  color: #0F172A;
+  background: linear-gradient(180deg, #FFFFFF 0%, #EAF2FF 100%);
+  border-color: #3B82F6;
+  box-shadow:
+    0 0 0 0.25rem rgba(59, 130, 246, 0.16),
+    0 14px 28px rgba(59, 130, 246, 0.14);
 }
 
 .works-card:hover .works-card__result {
