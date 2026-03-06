@@ -5,9 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - 網紅行銷
-  - 內容行銷
   - 影音行銷
+  - 內容行銷
 date: 2025-05-06 11:29:57
 subtitle: 從追劇變下單，微短劇行銷已不只是娛樂內容，而是電商銷售的秘密武器
 description:

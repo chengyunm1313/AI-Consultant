@@ -5,9 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - AI自動化
   - Gemini
-  - PDF轉檔
-  - Markdown
 date: 2025-12-11 23:47:35
 subtitle:
 description: PDF 難以整理利用？本文分享如何透過 Google Gemini 的 Gems 功能，建立自動化 Prompt 工作流，將 PDF 轉為結構乾淨的 Markdown，大幅提升資料在 NotebookLM 或簡報製作的利用率。

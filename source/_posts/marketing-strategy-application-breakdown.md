@@ -5,8 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - ChatGPT
   - 商業策略
+  - ChatGPT
 date: 2025-05-17 15:46:15
 subtitle: 
 description:

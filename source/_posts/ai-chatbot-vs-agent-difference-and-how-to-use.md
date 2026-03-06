@@ -5,7 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 自動化工具
+  - AI Agent
+  - AI自動化
 date: 2025-07-16 12:41:34
 subtitle:
 description: 常常聽到 AI Chatbot 和 AI Agent 卻分不清楚？本文用白話文、實戰案例與 n8n 教學，帶你從理論到實作，一次搞懂兩者在定義、應用與期待值上的根本差異，並學會如何打造自己的 AI Agent。

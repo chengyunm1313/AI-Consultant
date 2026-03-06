@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 自動化工具
+  - AI自動化
   - Vibe Coding
 date: 2025-09-19 21:59:42
 subtitle:

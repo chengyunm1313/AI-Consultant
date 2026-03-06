@@ -5,9 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Novamira
-  - MCP協定
-  - WordPress外掛
+  - Vibe Coding
+  - AI工具
 date: 2026-03-02 00:30:06
 subtitle:
 description: WordPress 開發迎來重大革新！全新開源外掛 Novamira 透過 MCP 協定，讓 Cursor、VS Code 等 AI 工具直接讀寫伺服器 PHP 程式碼。本文將實測這款能自動生成主題與外掛的神器，帶你體驗零隔閡的 AI 協作開發模式。

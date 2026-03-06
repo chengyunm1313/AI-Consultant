@@ -5,8 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Vibecoding
-  - CMS
+  - Vibe Coding
   - Cloudflare
 date: 2026-03-02 20:19:15
 subtitle:

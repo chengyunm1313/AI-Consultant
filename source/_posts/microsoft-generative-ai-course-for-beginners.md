@@ -8,8 +8,7 @@ description: 微軟推出的《Generative AI for Beginners》課程，共 18 堂
 categories: 
   - 生成式AI應用
 tags:
-  - 網路資源
-  - ChatGPT
+  - AI工具
 ---
 
 <div class="iframe-wrapper">
@@ -66,4 +65,3 @@ tags:
 無論你是想提升競爭力的開發者、跨足 AI 領域的產品經理，或是單純對這股技術浪潮感興趣的探索者，這 18 堂課都是你進入生成式 AI 世界的最佳起點。
 
 👉 [立即前往官方課程頁面開始學習](https://learn.microsoft.com/zh-tw/shows/generative-ai-for-beginners/)
-

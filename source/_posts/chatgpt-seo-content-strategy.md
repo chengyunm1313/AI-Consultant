@@ -5,7 +5,9 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - SEO 優化
+  - SEO
+  - 內容行銷
+  - ChatGPT
 date: 2025-07-17 22:50:39
 subtitle:
 description: 想讓你的知識成為 AI 模型的「大腦養分」嗎？本指南將提供一套完整的 AI 內容餵養 SOP，教你如何透過長期佈局與即時優化，讓文章被 ChatGPT、Copilot 等 AI 大量引用，極大化你的數位影響力。

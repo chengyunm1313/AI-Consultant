@@ -5,9 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 綠界金流
-  - vibecoding
-  - 第三方支付
+  - Vibe Coding
 date: 2026-03-06 02:30:48
 subtitle:
 description: 想在自己開發的網站中快速串接台灣第三方金流？享哥分享一款實用的 GitHub 金流 Skill，結合 AI 的高推理與規劃模式，無痛完成綠界支付測試！

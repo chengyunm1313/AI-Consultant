@@ -5,9 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - Portaly
-  - 影音行銷
   - 知識變現
+  - 影音行銷
 date: 2025-09-27 17:08:44
 subtitle:
 description: 專為獨立講師與創作者設計，本篇教學提供一套完整的線上課程銷售流程，結合 Portaly 的自動金流與 YouTube 的私人影片權限，讓你無痛開課、省去人工對帳，並可選擇性整合 Google Classroom 提升互動。

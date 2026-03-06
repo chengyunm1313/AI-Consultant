@@ -5,8 +5,9 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - 影音行銷
+  - AI自動化
   - Gemini
-  - 剪映 CapCut
 date: 2025-12-09 17:08:34
 subtitle:
 description: 解決字幕製作痛點！本教學分享如何利用 Gemini 3 Pro 進行精準聽寫與潤飾，並搭配剪映「文稿匹配」功能，實現高準確率、閱讀體驗優化且極速同步的 AI 字幕工作流。

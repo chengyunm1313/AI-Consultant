@@ -6,6 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - AI工具
+  - 影音行銷
 date: 2025-06-03 17:27:10
 subtitle:
 description: 微軟全新推出的 Bing Video Creator 正式登場！讓你用一句話輕鬆生成 AI 影片，這篇文章教你怎麼快速上手、如何下提示詞，還有新手常見問題一次搞懂。

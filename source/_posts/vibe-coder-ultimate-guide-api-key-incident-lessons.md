@@ -6,6 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - Vibe Coding
+  - AI風險控管
 date: 2025-09-27 14:19:17
 subtitle:
 description: 一篇寫給 Vibe Coder 的終極生存指南。本文從一個真實的 API Key 翻車故事講起，深入剖析社群討論、角色定位與技術根源，接著提供從基礎的金鑰衛生、費用控制，到進階的 Serverless 架構、防禦性寫作等一套完整的實踐方法，助你在創新的路上走得既快又穩。

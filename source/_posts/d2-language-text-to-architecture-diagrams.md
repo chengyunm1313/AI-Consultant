@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 圖表即程式碼
+  - AI工具
 date: 2025-08-19 19:32:06
 subtitle:
 description: 厭倦了手動拖拉 Visio 或 draw.io 嗎？本篇保姆級教學將帶您認識新一代神器 D2 語言，學習如何用純文字快速生成專業、精美的架構圖，徹底改變您的工作流程。

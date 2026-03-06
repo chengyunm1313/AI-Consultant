@@ -5,9 +5,9 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - 影音行銷
+  - AI自動化
   - Remotion
-  - AI短影音
-  - 自動化工作流
 date: 2026-03-02 22:58:26
 subtitle:
 description: 想要一鍵產出高品質的 9:16 科普短影音嗎？本文將實戰分享如何透過 Remotion 結合 AI 工具，建立從腳本撰寫、配音、繪圖到影片合成的標準化工作流，輕鬆打造如「喵喵經濟學人」般的爆款影片。

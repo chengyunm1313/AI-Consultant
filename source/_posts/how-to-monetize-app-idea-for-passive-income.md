@@ -5,6 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - 知識變現
+  - 商業策略
   - Vibe Coding
 date: 2025-08-30 23:10:43
 subtitle:

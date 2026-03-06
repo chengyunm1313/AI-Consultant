@@ -7,7 +7,7 @@ categories:
   - 生成式AI應用
 tags:
   - AI工具
-  - No-Code
+  - AI自動化
 subtitle:
 description:
 ---

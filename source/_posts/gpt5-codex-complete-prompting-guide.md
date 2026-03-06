@@ -5,6 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - Vibe Coding
   - Codex
 date: 2025-09-25 18:44:59
 subtitle:
@@ -183,4 +184,3 @@ def is_valid_email(email):
 4.  **多動手練習**，模型就是你的即時教練。
 
 > 👉 **建議**：每天花 10-15 分鐘，用 Codex 解決一個你在學習上遇到的小問題，無論是搞懂一個語法，還是寫一個小功能，持續累積會讓你進步飛快。
-

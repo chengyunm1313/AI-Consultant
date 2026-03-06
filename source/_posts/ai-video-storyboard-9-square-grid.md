@@ -5,9 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - AI影片生成
-  - 短影音製作
-  - 九宮格分鏡
+  - 影音行銷
+  - Gemini
 date: 2026-03-03 02:45:00
 subtitle:
 description: AI 影片時代來臨！本文教學如何透過 Gemini 與生成工具，利用九宮格分鏡技巧快速產出高畫質短影音，完美解決人物不一致的痛點，適合自媒體與電商行銷。

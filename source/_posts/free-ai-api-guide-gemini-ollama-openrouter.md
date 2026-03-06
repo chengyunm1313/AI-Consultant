@@ -6,6 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - Vibe Coding
+  - AI工具
 date: 2025-09-18 12:41:30
 subtitle:
 description: 想打造自己的 AI 應用卻被複雜的 API 定價勸退？本文為你揭曉 2025 年最新的免費 AI API 藏寶圖，帶你輕鬆上手 Google Gemini、OpenRouter 與 Ollama，找到最適合你的免費 AI 解決方案。

@@ -5,7 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - 電子報
+  - 內容行銷
+  - 知識變現
 date: 2025-09-21 04:00:49
 subtitle:
 description: 厭倦了演算法焦慮？本篇 Substack 全方位指南，將教你如何利用電子報，從零開始建立自己的讀者社群，奪回內容主導權，並實現零成本創作變現。

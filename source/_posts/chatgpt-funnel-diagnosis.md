@@ -5,8 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - ChatGPT
   - 商業策略
+  - ChatGPT
 date: 2025-05-17 09:55:58
 subtitle: 行銷人必備的 ChatGPT 精準診斷術
 description:

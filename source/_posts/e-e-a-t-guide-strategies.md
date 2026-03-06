@@ -5,7 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - SEO 優化
+  - SEO
 date: 2025-05-26 19:25:16
 subtitle:
 description:

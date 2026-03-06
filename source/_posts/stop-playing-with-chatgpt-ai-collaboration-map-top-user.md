@@ -5,8 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - AI協作
   - AI Agent
+  - ChatGPT
 date: 2025-10-06 03:37:18
 subtitle:
 description: 不確定自己的 AI 應用程度到哪了嗎？本文提出 AI 協作的五層進化地圖，從單次問答到生態化協作，幫助你清晰定位並規劃下一步，真正實現從「問AI」到「和AI共事」的轉變。

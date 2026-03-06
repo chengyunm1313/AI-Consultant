@@ -5,8 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - 會議記錄
-  - 逐字稿
+  - AI自動化
 date: 2025-12-05 22:11:27
 subtitle:
 description: 錄音檔太長導致 AI 處理卡關？本文解析 Google Gemini、NotebookLM 與 AI Studio 的檔案限制，並提供突破 100MB 限制的完整攻略，教你如何利用 Google AI Studio 輕鬆處理數小時的會議錄音與逐字稿。

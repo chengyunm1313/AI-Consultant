@@ -6,6 +6,8 @@ categories:
   - 生成式AI應用
 tags:
   - Vibe Coding
+  - Cloudflare
+  - AI風險控管
 date: 2025-09-27 02:27:03
 subtitle:
 description: 本文為 Vibe Coding 初學者指南，分享三大核心觀念：如何有效與 AI 協作、為何選擇 Cloudflare 進行低成本部署，以及保護 API Key 避免帳單爆炸的關鍵安全心法。

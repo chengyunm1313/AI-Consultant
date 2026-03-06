@@ -5,6 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
+  - AI繪圖
+  - 內容行銷
   - Claude
 date: 2025-06-10 11:18:49
 subtitle:

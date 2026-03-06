@@ -5,7 +5,8 @@ toc: true
 categories:
   - 網路行銷
 tags:
-  - SEO 優化
+  - AEO
+  - SEO
 date: 2025-06-21 23:45:23
 subtitle:
 description: 探索 Generative Engine Optimization (GEO) 的核心概念，了解其與傳統 SEO 的差異、品牌應對策略，以及如何優化內容以提升在 AI 搜尋中的能見度。

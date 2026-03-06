@@ -7,9 +7,7 @@ toc: true
 categories: 
   - 生成式AI應用
 tags:
-  - Suno AI
   - AI工具
-  - 著作權
 ---
 
 <div class="iframe-wrapper">
@@ -90,5 +88,4 @@ tags:
 🎵 有任何問題，或想交流 Suno 音樂公開播放的實務經驗，歡迎在留言區分享！一起在創作自由與合法合規之間，找到屬於自己的黃金平衡點！💬
 
 #Suno音樂 #AI音樂創作 #公開播放須知 #著作權意識 #安心播放三重門
-
 

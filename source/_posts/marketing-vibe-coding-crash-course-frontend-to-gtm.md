@@ -6,6 +6,7 @@ categories:
   - 生成式AI應用
 tags:
   - Vibe Coding
+  - 商業策略
 date: 2025-09-17 21:57:46
 subtitle:
 description: 總是跟工程師雞同鴨講？本篇是專為行銷人設計的 Vibe Coding 速成指南，用白話文解釋前端、後端、HTML、GTM 等核心概念，讓你掌握關鍵技術知識，提升溝通與追蹤設定效率。

@@ -5,9 +5,7 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - Canva
-  - 自動化工具
-  - 批量製作
+  - AI自動化
 date: 2025-12-18 19:56:59
 subtitle:
 description: 厭倦了手動複製貼上製作大量證書嗎？本文解析 Canva「大量建立」功能，搭配 Google Sheets 實現資料自動化串接。透過 6 個步驟，幾秒鐘內搞定數百張專業證書與聘書，大幅提升行政效率。

@@ -5,7 +5,7 @@ toc: true
 categories:
   - 個人資料保護
 tags:
-  - AI 風險控管
+  - AI風險控管
 date: 2025-05-08 00:28:36
 subtitle:
 description:

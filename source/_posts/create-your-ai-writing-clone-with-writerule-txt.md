@@ -5,7 +5,8 @@ toc: true
 categories:
   - 生成式AI應用
 tags:
-  - SEO 優化
+  - 內容行銷
+  - SEO
 date: 2025-08-10 15:23:02
 subtitle:
 description: 覺得 AI 寫作總是缺乏個人風格嗎？本文將教你如何創建一份簡單的《WriteRule.txt》檔案，將你的寫作風格、語氣和規則「封裝」起來，訓練 AI 成為你的專屬寫作分身，告別千篇一律的罐頭內容。
