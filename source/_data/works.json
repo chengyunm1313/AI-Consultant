@@ -20,7 +20,7 @@
   {
     "id": "vibe-landing-page-demo",
     "category": "vibe-coding",
-    "title": "Landing Page + GAS + LINE",
+    "title": "用 Vibe Coding 打造自動化銷售頁：3小時完成 LINE 報名與 Google Sheets 串接",
     "summary": "用 AI 快速產出可展示的 landing page，建立你對 AI 寫站流程、提示設計與需求拆解的基本框架，部署上線與版本管理，建立 LINE 自動銷售 CRM 系統。",
     "result": "6 個步驟，把銷售頁、追蹤、部署與 LINE 自動銷售流程一次串起來。",
     "stack": [
@@ -29,9 +29,11 @@
       "GAS",
       "LINE"
     ],
-    "cover": "/images/vibecoding1.png",
+    "cover": "/images/cover80.png",
     "primary_url": "https://chengyunm1313.github.io/vibecoding-landing-page/",
     "primary_label": "查看作品",
+    "article_url": "/posts/vibe-coding-ai-sales-page-line-registration/",
+    "article_label": "閱讀文章",
     "featured": true
   }
 ]
