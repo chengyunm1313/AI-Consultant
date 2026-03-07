@@ -38,7 +38,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：Vibe Coding、AI自動化、LINE
+  主題：AI自動化、Vibe Coding、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
