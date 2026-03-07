@@ -2,7 +2,7 @@
   {
     "id": "vibe-cms-demo",
     "category": "vibe-coding",
-    "title": "內建 CMS 接案網站 Demo",
+    "title": "用 AI 打造內建 CMS 的全功能接案主題模板網站",
     "summary": "先做出可操作的 Demo，幫業主快速理解網站需要準備哪些資料與頁面模組。",
     "result": "整合產品型錄、文章、聯絡表單、內建 CMS 與可切換產業模板，讓提案與交付都更有效率。",
     "stack": [
@@ -39,7 +39,7 @@
   {
     "id": "vibe-ecpay-cloth-shop",
     "category": "vibe-coding",
-    "title": "如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學",
+    "title": "用 AI 快速串接台灣金流：綠界科技 Skill 實戰教學",
     "summary": "用 AI 與台灣金流 Skill 快速完成一頁式服飾銷售網站，並實測綠界科技信用卡付款流程。",
     "result": "整合商品展示、購物車、結帳流程與綠界測試金流，快速驗證台灣在地支付串接可行性。",
     "stack": [
