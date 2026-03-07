@@ -35,5 +35,24 @@
     "article_url": "/posts/vibe-coding-ai-sales-page-line-registration/",
     "article_label": "閱讀文章",
     "featured": true
+  },
+  {
+    "id": "vibe-ecpay-cloth-shop",
+    "category": "vibe-coding",
+    "title": "如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學",
+    "summary": "用 AI 與台灣金流 Skill 快速完成一頁式服飾銷售網站，並實測綠界科技信用卡付款流程。",
+    "result": "整合商品展示、購物車、結帳流程與綠界測試金流，快速驗證台灣在地支付串接可行性。",
+    "stack": [
+      "AI Coding",
+      "Next.js",
+      "ECPay",
+      "Cloudflare Workers"
+    ],
+    "cover": "/images/cover79.png",
+    "primary_url": "https://vibecoding-ecpay-cloth-shop.skypassion5000.workers.dev/",
+    "primary_label": "查看作品",
+    "article_url": "/posts/ai-ecpay-payment-integration-guide/",
+    "article_label": "閱讀文章",
+    "featured": true
   }
 ]
