@@ -1,6 +1,6 @@
-# 徐享 | AI應用規劃師
+# 徐享 | AI 應用規劃師
 
-> 享哥，10年數位行銷與電商廣告經驗，專精AI應用規劃、n8n自動化工作流與中小企業數位轉型顧問。
+> 享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。
 
 ## 官方頁面
 - 網站首頁：https://blog.es2idea.com/
@@ -25,7 +25,7 @@
 
 ## 專長主題
 - AI 應用規劃
-- n8n 自動化工作流
+- n8n 自動化工作
 - 電商社群行銷
 - AI 轉型顧問諮詢
 - 生成式 AI 應用
@@ -38,7 +38,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：AI自動化、Vibe Coding、LINE
+  主題：Vibe Coding、AI自動化、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
