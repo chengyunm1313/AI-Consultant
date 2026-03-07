@@ -25,6 +25,8 @@ description: 想了解如何用 AI 快速建置自動化銷售流程嗎？本文
 
 這次的課程核心，是要帶你透過 AI，在短短 3 小時內，從零開始做出你的第一個「自動化銷售頁（Landing Page）」。你不僅能產出一個可以實際運作的 MVP（最小可行性產品），還能將後端的報名與追蹤流程完全自動化。
 
+[Demo 網站展示](https://chengyunm1313.github.io/vibecoding-landing-page/)
+
 ## 3 小時實作：用 AI 寫出你的第一個銷售頁
 
 這個課程設計為 6 個核心步驟，將銷售頁的建置、成效追蹤、網站部署，以及 LINE 自動銷售流程完整串接起來。透過 Vibe Coding 的核心概念，你將學會如何利用 AI 輔助開發，實作出高質感的網頁。
@@ -87,6 +89,8 @@ description: 想了解如何用 AI 快速建置自動化銷售流程嗎？本文
 *   Google 帳號
 *   LINE 個人帳號
 *   LINE 官方帳號 (Official Account)
+
+---
 
 ## 常見問答
 
