@@ -33,7 +33,7 @@
 		"id": 3,
 		"name": "一人小編也能搞定全場！Canva AI 社群入門班",
 		"description": "還在為社群貼文、限動、海報煩惱嗎？現在小編的秘密武器來了！💥用 Canva AI 快速搞定文案、設計、排版，從此不求人，效率翻倍！",
-		"tags": ["Canva教學", "AI設計工具", "社群行銷", "文案設計", "視覺行銷"],
+		"tags": ["Canva教學", "AI設計工具", "社群行銷", "文案設計"],
 		"outline": [
 			"Canva快速上手：帳號建立、介面認識與模板選擇技巧",
 			"AI小編超神助手：文字生成、圖片魔法、Brand Kit 快速排版",
@@ -48,7 +48,7 @@
 		"id": 4,
 		"name": "學習提速神器！NotebookLM 學霸高效心法",
 		"description": "還在一篇篇爬文找重點、抄筆記、做簡報？用對工具，學習也能火箭加速！🔥透過 NotebookLM + Perplexity + Gamma + 中文 Podcast，打造屬於你的 AI 學習工作流，從此吸收→反思→輸出一條龍完成！",
-		"tags": ["AI學習法", "NotebookLM", "知識簡報", "自學加速", "生成式AI"],
+		"tags": ["AI學習法", "NotebookLM", "知識簡報", "自學加速"],
 		"outline": [
 			"搞懂AI學習流程：學霸都在用的 AI 工具組合介紹",
 			"從Felo/Perplexity 高效率蒐集網路資料與學習素材",
@@ -64,7 +64,7 @@
 		"id": 5,
 		"name": "Make.com + AI：無程式碼打造企業自動化流程",
 		"description": "你還在手動複製貼上、切換不同平台處理重複任務嗎？用對工具，讓 AI 幫你自動搞定！這門課將帶你掌握 Make.com 搭配 ChatGPT、Whisper、Gemini 等 AI 工具的整合技術，打造屬於你的企業自動化工作流，輕鬆實現「無人值守」的數位轉型。",
-		"tags": ["AI自動化", "ARPA", "No-Code", "API", "企業效率工具"],
+		"tags": ["AI自動化", "ARPA", "No-Code", "API"],
 		"outline": [
 			"Make.com 與 AI 自動化概述：理解自動化平台與應用場景差異",
 			"從 0 開始建立流程：Make.com 註冊、模組設計、Webhook + API 運作邏輯",
@@ -83,7 +83,7 @@
 		"id": 6,
 		"name": "AI進出口貿易接單實戰班",
 		"description": "進出口貿易接單好難？讓 AI 幫你搞定市場分析、開發信撰寫到產品網頁製作！透過 Vibe Coding 零程式基礎也能打造專業一頁式銷售網頁，從市場開發到成交追蹤一條龍搞定！🚀",
-		"tags": ["AI國際貿易", "英文開發信", "Vibe Coding", "產品銷售網頁", "市場分析"],
+		"tags": ["AI國際貿易", "英文開發信", "Vibe Coding"],
 		"outline": [
 			"進出口貿易接單流程與 AI 應用全景圖",
 			"AI 國際市場開發與高轉換率英文開發信生成",
@@ -99,7 +99,7 @@
 		"id": 7,
 		"name": "AI海外客戶管理與客服自動化",
 		"description": "客服回不完、客戶資料一團亂？讓 AI 幫你搞定！運用 ChatGPT 建立多語系客服話術，搭配 CRM 智慧分類與 n8n 自動化流程，打造 24 小時跨時區的 AI 客服系統，提升海外客戶滿意度！🌍",
-		"tags": ["AI客服自動化", "CRM管理", "n8n自動化", "多語系客服", "海外客戶經營"],
+		"tags": ["AI客服自動化", "CRM管理", "n8n自動化", "多語系客服"],
 		"outline": [
 			"跨國客服流程分析 × AI 自動化設計",
 			"AI 生成多語系客服話術與 FAQ",
@@ -115,7 +115,7 @@
 		"id": 8,
 		"name": "行政事務自動化 × AI 實戰班",
 		"description": "行政報告做到天荒地老？讓 AI 幫你自動搞定！用 Gemini 秒產會議紀錄、ChatGPT 自動生成 SOP，搭配 Google Canvas 與 AI Studio 打造數據中台，全面提升行政效率！⚡",
-		"tags": ["AI行政自動化", "SOP生成", "數據中台", "NotebookLM", "Google AI Studio"],
+		"tags": ["AI行政自動化", "SOP 工作流", "數據中台", "Google AI Studio"],
 		"outline": [
 			"行政痛點解析 × AI 流程化概念",
 			"AI 製作 SOP 與視覺化流程圖",
@@ -131,7 +131,7 @@
 		"id": 9,
 		"name": "電商 × 微商 AI 效率提升班",
 		"description": "商品上架太慢、行銷素材做不完？讓 AI 幫你量產商品文案、情境圖與促銷素材！再用 Google AI Studio Build 打造一頁式銷售網站，搭配 GAS 自動收集名單，電商營運效率直接翻倍！🛒",
-		"tags": ["AI電商行銷", "商品文案量產", "一頁式銷售網站", "Google AI Studio", "名單自動化"],
+		"tags": ["AI電商行銷", "一頁式銷售網站", "Google AI Studio"],
 		"outline": [
 			"電商全流程痛點解析 × AI 應用概覽",
 			"AI 生成商品文案、SEO 描述與促銷策略",
