@@ -38,7 +38,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：Vibe Coding、AI自動化、LINE
+  主題：AI自動化、Vibe Coding、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
@@ -70,10 +70,10 @@
   摘要：想要一鍵產出高品質的 9:16 科普短影音嗎？本文將實戰分享如何透過 Remotion 結合 AI 工具，建立從腳本撰寫、配音、繪圖到影片合成的標準化工作流，輕鬆打造如「喵喵經濟學人」般的爆款影片。
   主題：AI自動化、影音行銷、Remotion
 
-- 我的 Vibecoding 作品大公開：用 AI 打造內建 CMS 的全功能接案網站
+- 我的 Vibe Coding 作品大公開：用 AI 打造內建 CMS 的全功能接案主題模板網站
   網址：https://blog.es2idea.com/posts/vibecoding-ai-cms-freelance-website/
   日期：2026-03-02
-  摘要：本篇分享我透過 Vibecoding 打造的內建 CMS 形象網站作品。專為解決接案痛點設計，具備產品展示、文章管理與聯絡表單功能，並可自由切換產業主題模板。結合 Cloudflare D1 資料庫，輕鬆完成全功能網站部署！
+  摘要：本篇分享我透過 Vibe Coding 打造的內建 CMS 形象網站作品。專為解決接案痛點設計，具備產品展示、文章管理與聯絡表單功能，並可自由切換產業主題模板。結合 Cloudflare D1 資料庫，輕鬆完成全功能網站部署！
   主題：Vibe Coding、Cloudflare
 
 - 顛覆 WordPress 開發模式！免費開源外掛 Novamira 讓 AI 直接修改網站程式碼
