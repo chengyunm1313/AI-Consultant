@@ -189,6 +189,8 @@ fetch("https://generativelanguage.googleapis.com/v1beta/models/gemini-pro:genera
 1.  **先用 Cloudflare**：讓你專注於享受 AI 帶來的創造力，快速打造產品。
 2.  **之後再進 GCP**：在有了基礎後，再深入學習更完整的生產環境部署與成本管理。
 
+---
+
 ## 常見問答 (FAQ)
 
 ### Q1: AI 回答的內容我可以直接相信並使用嗎？
