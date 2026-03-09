@@ -54,5 +54,24 @@
     "article_url": "/posts/ai-ecpay-payment-integration-guide/",
     "article_label": "閱讀文章",
     "featured": true
+  },
+  {
+    "id": "n8n-line-booking-system",
+    "category": "n8n",
+    "title": "n8n x LINE 自動化預約系統實作",
+    "summary": "透過 n8n 串接 LINE、PostgreSQL 與 Google Calendar，打造不依賴 AI 的自動化預約流程。",
+    "result": "支援預約建立、查詢、修改與取消，並同步控管 Google 日曆空檔，降低人工排程成本。",
+    "stack": [
+      "n8n",
+      "LINE",
+      "PostgreSQL",
+      "Google Calendar"
+    ],
+    "cover": "/images/cover81.png",
+    "primary_url": "https://lin.ee/wIKrF0k",
+    "primary_label": "立即體驗",
+    "article_url": "https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/",
+    "article_label": "閱讀文章",
+    "featured": true
   }
 ]
