@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- n8n x LINE 自動化預約系統實作：無 AI 高效工作流指南
+  網址：https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/
+  日期：2026-03-09
+  摘要：探索如何使用 n8n 打造全自動的 LINE 預約系統！不依賴 AI 即可實現低成本、高效能的預約流程，整合 PostgreSQL 與 Google Calendar，輕鬆完成預約、查詢、修改與取消功能。
+  主題：AI自動化、n8n
+
 - 用 Vibe Coding 打造自動化銷售頁：3小時完成 LINE 報名與 Google Sheets 串接
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
@@ -99,12 +105,6 @@
   日期：2025-12-18
   摘要：厭倦了手動複製貼上製作大量證書嗎？本文解析 Canva「大量建立」功能，搭配 Google Sheets 實現資料自動化串接。透過 6 個步驟，幾秒鐘內搞定數百張專業證書與聘書，大幅提升行政效率。
   主題：AI自動化
-
-- 從咒語到去背全自動：打造你的 LINE 貼圖自動化 AI 生產線
-  網址：https://blog.es2idea.com/posts/auto-generate-line-stickers-ai-background-removal/
-  日期：2025-12-13
-  摘要：想靠 LINE 貼圖創造被動收入，卻卡在繪畫速度？本文揭露一套完整的 AI 自動化生產線：利用 Google Gemini 生成咒語、Nano Banana 繪圖、以及專業去背工具，解決角色一致性與深色模式適配問題，讓你從手繪苦海中解放，實現貼圖量產。
-  主題：AI自動化、Gemini、AI繪圖
 
 ## 語言
 - zh-TW
