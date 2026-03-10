@@ -3,7 +3,7 @@ title: n8n x LINE 自動化預約系統實作：無 AI 高效工作流指南
 cover: /images/cover81.png
 toc: true
 categories:
-  - 自動化開發
+  - AI自動化
 tags:
   - AI自動化
   - n8n
