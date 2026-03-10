@@ -73,5 +73,24 @@
     "article_url": "https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/",
     "article_label": "閱讀文章",
     "featured": true
+  },
+  {
+    "id": "n8n-mcp-ai-workflow",
+    "category": "n8n",
+    "title": "n8n MCP 安裝與 AI 工作流自動化實作",
+    "summary": "透過 n8n MCP 串接 AI 工具與自建 n8n 環境，讓 AI 直接建立、修改與部署工作流。",
+    "result": "省去手動匯入 JSON 的往返流程，改用自然語言直接在 n8n 伺服器上生成自動化工作流。",
+    "stack": [
+      "n8n",
+      "MCP",
+      "AI Workflow",
+      "Self-hosted"
+    ],
+    "cover": "/images/cover82.png",
+    "primary_url": "https://github.com/czlonkowski/n8n-mcp",
+    "primary_label": "查看 GitHub",
+    "article_url": "https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/",
+    "article_label": "閱讀文章",
+    "featured": true
   }
 ]
