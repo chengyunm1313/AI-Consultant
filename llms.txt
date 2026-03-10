@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)
+  網址：https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/
+  日期：2026-03-11
+  摘要：想要讓 AI 直接幫你寫好 n8n 工作流嗎？本文將教你如何透過 npx 安裝與設定 n8n MCP 伺服器，擺脫手動匯入 JSON 的麻煩，輕鬆體驗 Vibe Coding 的強大自動化魅力。
+  主題：AI自動化、Vibe Coding
+
 - n8n x LINE 自動化預約系統實作：無 AI 高效工作流指南
   網址：https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/
   日期：2026-03-09
@@ -44,7 +50,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：Vibe Coding、AI自動化、LINE
+  主題：AI自動化、Vibe Coding、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
@@ -99,12 +105,6 @@
   日期：2026-01-10
   摘要：想將英文教學網站快速繁體中文化？本文詳解如何利用 AI Prompt Engineering 進行自動化翻譯，並結合 GitHub Pages 免費部署 Next.js 專案，打造個人專屬知識庫。
   主題：AI自動化、Cursor
-
-- Canva 自動化實戰：大量證書、聘書一鍵生成工作流
-  網址：https://blog.es2idea.com/posts/canva-bulk-create-certificates-workflow/
-  日期：2025-12-18
-  摘要：厭倦了手動複製貼上製作大量證書嗎？本文解析 Canva「大量建立」功能，搭配 Google Sheets 實現資料自動化串接。透過 6 個步驟，幾秒鐘內搞定數百張專業證書與聘書，大幅提升行政效率。
-  主題：AI自動化
 
 ## 語言
 - zh-TW
