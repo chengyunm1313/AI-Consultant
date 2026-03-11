@@ -56,6 +56,25 @@
     "featured": true
   },
   {
+    "id": "vibe-daily-stock-picks",
+    "category": "vibe-coding",
+    "title": "Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站",
+    "summary": "串接臺灣證券交易所 OpenAPI，建立每日盤後更新的自動選股網站。",
+    "result": "結合 Cloudflare 排程、分批資料回補與三種選股策略，產出可每日自動更新的台股候選清單。",
+    "stack": [
+      "AI Coding",
+      "Cloudflare",
+      "TWSE OpenAPI",
+      "Cron"
+    ],
+    "cover": "/images/cover83.png",
+    "primary_url": "https://daily-stock-picks.skypassion5000.workers.dev/",
+    "primary_label": "查看作品",
+    "article_url": "/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/",
+    "article_label": "閱讀文章",
+    "featured": true
+  },
+  {
     "id": "n8n-line-booking-system",
     "category": "n8n",
     "title": "n8n x LINE 自動化預約系統實作",
