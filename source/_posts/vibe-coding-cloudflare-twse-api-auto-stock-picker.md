@@ -23,7 +23,7 @@ description: 這篇文章將分享我如何透過 Vibe Coding 打造一個每日
 
 ## 前言：打造每日自動選股網站
 
-Hello，又見面啦！我是翔哥。今天要跟大家分享的是我的自動選股網站專案——[Daily Stock Picks](https://daily-stock-picks.skypassion5000.workers.dev/)。
+Hello，又見面啦！我是享哥。今天要跟大家分享的是我的自動選股網站專案——[Daily Stock Picks](https://daily-stock-picks.skypassion5000.workers.dev/)。
 
 最近發現只要是跟「錢」有關的內容，大家似乎都比較感興趣，所以我決定做一個選股網站來試試水溫。這個網站的核心概念非常明確：系統每天會定時去撈取 API 資料，並利用預設好的交易策略，自動篩選出符合條件的台股清單，方便投資人參考。
 
