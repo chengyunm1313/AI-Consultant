@@ -75,6 +75,25 @@
     "featured": true
   },
   {
+    "id": "vibe-online-quote-esignature",
+    "category": "vibe-coding",
+    "title": "Vibe Coding 實戰：打造專屬線上報價單系統與電子簽署功能",
+    "summary": "打造具備後台管理、公開報價頁、電子簽署與 PDF 匯出的線上報價單系統 MVP。",
+    "result": "整合客戶與產品建檔、範本套用、三種簽名方式與 Cloudflare PDF 匯出，完成可實際操作的報價流程。",
+    "stack": [
+      "AI Coding",
+      "Cloudflare",
+      "E-signature",
+      "PDF"
+    ],
+    "cover": "/images/cover84.png",
+    "primary_url": "https://vibecoding-quote.skypassion5000.workers.dev",
+    "primary_label": "查看作品",
+    "article_url": "/posts/vibe-coding-online-quote-system-esignature/",
+    "article_label": "閱讀文章",
+    "featured": true
+  },
+  {
     "id": "n8n-line-booking-system",
     "category": "n8n",
     "title": "n8n x LINE 自動化預約系統實作",
