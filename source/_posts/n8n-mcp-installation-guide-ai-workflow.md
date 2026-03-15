@@ -84,6 +84,118 @@ npm run build
 4. 點擊 **Create an API Key**。
 5. **重要提醒：** 建立後請務必立刻把這串 API Key 複製並保存起來，因為視窗關閉後就再也看不到了。
 
+## 測試 n8n API 端點
+
+在我們開始設定 MCP 之前，我建議大家先測試一下 n8n API 端點是否正常運作。這樣可以避免後續設定時遇到莫名其妙的問題。以下是我整理的簡單測試方法和錯誤代碼解釋：
+
+因為 401 代表「API 存在，但你沒有授權」，這其實正是我們測 API endpoint 時想看到的結果。
+
+換句話說：
+
+401 Unauthorized
+= 伺服器存在
+= API route 存在
+= 只是缺少 API Key
+
+所以代表 URL 是正確的，API 有開啟。
+
+### n8n API 正常流程
+
+例如你直接打：
+
+https://你的-n8n-網址/api/v1/workflows
+
+但沒有帶 API Key。
+
+伺服器會回：
+
+401 Unauthorized
+
+意思是：
+
+我知道 /api/v1/workflows
+但你沒有權限。
+
+這代表：
+	•	n8n server 正常
+	•	/api/v1 route 正常
+	•	reverse proxy 沒擋
+	•	API 功能有開
+
+### 如果 API 有問題會出現什麼
+
+❌ 404
+
+404 Not Found
+
+代表：
+	•	URL 錯
+	•	proxy 沒轉 /api
+	•	path 不存在
+
+例如：
+
+https://你的-n8n-網址/workflows
+
+（少了 /api/v1）
+
+❌ 502 / 503
+
+代表：
+	•	n8n server 沒啟動
+	•	reverse proxy 壞掉
+	•	docker container 掛了
+
+❌ 403
+
+403 Forbidden
+
+代表：
+	•	被 WAF / Cloudflare 擋
+	•	IP 被限制
+
+### 正常 API 呼叫會是什麼
+
+如果帶 API Key：
+
+```bash
+curl -H "X-N8N-API-KEY: your-api-key" \
+https://你的-n8n-網址/api/v1/workflows
+```
+
+回：
+
+```json
+{
+  "data": [
+    { "id": "1", "name": "workflow1" }
+  ]
+}
+```
+
+### 為什麼很多人用 401 當健康檢查
+
+因為這個測試可以一次確認：
+	•	server 存在
+	•	API route 存在
+	•	proxy 沒壞
+	•	API 功能開啟
+
+但 不需要 API key。
+
+所以很多 automation / agent setup 都用這招。
+
+### 快速判斷表
+
+| 回應 | 代表 |
+|------|------|
+| 401 | API 正常，只是沒登入 |
+| 404 | API path 錯 |
+| 502 | server 掛 |
+| 403 | 被防火牆擋 |
+
+在實作中，我發現很多人會忽略這個測試，但它真的很重要。測試通過後，我們就可以放心進入下一步驟了。
+
 ## 步驟三：設定 MCP Server 配置文件 (JSON)
 
 接下來要將 n8n MCP 加入到你的 AI 助手 (如 Claude Desktop, Cursor 等) 中。我們需要編輯 MCP 的 JSON 設定檔。
@@ -100,8 +212,7 @@ npm run build
         "MCP_MODE": "stdio",
         "LOG_LEVEL": "error",
         "DISABLE_CONSOLE_OUTPUT": "true",
-        "N8N_API_URL": "https://你的-n8n-網址/api/v1",
-        "N8N_BASE_URL": "https://你的-n8n-網址",
+        "N8N_API_URL": "https://你的-n8n-網址",
         "N8N_API_KEY": "你的_API_KEY"
       }
     }
@@ -110,7 +221,7 @@ npm run build
 ```
 
 **參數設定重點：**
-*   `N8N_BASE_URL` 與 `N8N_API_URL`: 請填入你正在使用的 n8n 網址。如果你是本地端測試，就填 `http://localhost:5678`。如果是自建的伺服器，就填寫你的獨立網域。
+*   `N8N_API_URL`: 請填入你正在使用的 n8n API 網址。如果你是本地端測試，就填 `http://localhost:5678`。如果是自建的伺服器，就填寫你的獨立網域。
 *   `N8N_API_KEY`: 貼上剛剛在步驟二取得的 API Key。
 
 ## 步驟四：在 AI 工具中啟用 MCP
@@ -153,27 +264,22 @@ npm run build
 先檢查三件事：
 
 1. JSON 設定格式是否正確，特別是逗號、括號與雙引號。
-2. `N8N_BASE_URL`、`N8N_API_URL`、`N8N_API_KEY` 是否真的有填對。
+2. `N8N_API_URL`、`N8N_API_KEY` 是否真的有填對。
 3. AI 工具是否已經重新整理 MCP Servers，或重新啟動應用程式。
 
 很多時候不是 n8n-mcp 壞掉，而是設定檔少一個字元，或 API Key 貼錯位置。
 
-### Q3：`N8N_BASE_URL` 和 `N8N_API_URL` 有什麼差別？
-
-`N8N_BASE_URL` 是你的 n8n 主站網址，例如 `https://你的網域.com`；`N8N_API_URL` 則是 API 端點，通常就是在後面補上 `/api/v1`，例如 `https://你的網域.com/api/v1`。這兩個值最好分開寫清楚，避免 MCP Server 找不到正確的 API 路徑。
-
-### Q4：我用的是本機自建 n8n，也能這樣設定嗎？
+### Q3：我用的是本機自建 n8n，也能這樣設定嗎？
 
 可以。如果你的 n8n 跑在本機，通常可設定成：
 
 ```json
-"N8N_BASE_URL": "http://localhost:5678",
-"N8N_API_URL": "http://localhost:5678/api/v1"
+"N8N_API_URL": "http://localhost:5678"
 ```
 
 但要注意一件事：你的 AI 工具必須能夠連到這個本機位址。如果 AI 工具本身是裝在同一台電腦上，通常沒問題；如果是遠端環境或沙盒環境，就要另外確認網路可達性。
 
-### Q5：把 `N8N_API_KEY` 放進 MCP 設定檔，會不會有安全風險？
+### Q4：把 `N8N_API_KEY` 放進 MCP 設定檔，會不會有安全風險？
 
 會，所以你要把它當成正式憑證管理。建議至少做到以下幾點：
 
@@ -182,6 +288,10 @@ npm run build
 3. 如果懷疑金鑰外洩，立刻回到 n8n 後台重新產生新的 API Key。
 
 只要拿到這把金鑰，理論上就可能透過 MCP 對你的 n8n 做操作，因此一定要小心保存。
+
+## 搭配 n8n-skills 讓操作更順暢
+
+為了讓 n8n-mcp 的操作更加順暢，建議搭配 [n8n-skills](https://github.com/haunchen/n8n-skills) 這個專案。它提供了額外的技能和工具，可以增強 AI 助手在處理 n8n 工作流時的能力。
 
 ## 結語
 
