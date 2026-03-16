@@ -1,5 +1,24 @@
 [
   {
+    "id": "vibe-commentflow",
+    "category": "vibe-coding",
+    "title": "自動化社群留言回覆：用 Vibe Coding 打造 Facebook 關鍵字自動回覆 SaaS",
+    "summary": "從 POC 到 SaaS，用 AI 開發 CommentFlow 系統，讓 Facebook 粉專留言自動依關鍵字回覆，省去高昂月租費。",
+    "result": "支援多粉專管理、關鍵字比對、公開留言回覆與執行紀錄查詢，可直接上線使用的完整自動化客服工具。",
+    "stack": [
+      "AI Coding",
+      "Cloudflare Workers",
+      "Facebook API",
+      "SaaS"
+    ],
+    "cover": "/images/cover86.png",
+    "primary_url": "https://comment-flow.skypassion5000.workers.dev/",
+    "primary_label": "查看作品",
+    "article_url": "/posts/automate-social-media-comments-commentflow-tutorial/",
+    "article_label": "閱讀文章",
+    "featured": true
+  },
+  {
     "id": "vibe-cms-demo",
     "category": "vibe-coding",
     "title": "用 AI 打造內建 CMS 的全功能接案主題模板網站",
