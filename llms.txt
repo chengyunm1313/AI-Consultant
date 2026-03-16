@@ -50,19 +50,19 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-online-quote-system-esignature/
   日期：2026-03-13
   摘要：這篇文章將分享我透過 Vibe Coding 打造的線上報價單系統 MVP。從後台管理、客戶建檔，到線上電子簽署與 Cloudflare PDF 匯出功能，完整展示開發實戰與上線踩坑經驗。
-  主題：Vibe Coding、AI自動化、Cloudflare
+  主題：AI自動化、Vibe Coding、Cloudflare
 
 - Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站
   網址：https://blog.es2idea.com/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/
   日期：2026-03-11
   摘要：這篇文章將分享我如何透過 Vibe Coding 打造一個每日自動化選股網站。從串接臺灣證券交易所 OpenAPI 獲取台股資料，到運用 Cloudflare Cron 執行每日定時排程，帶你一窺完整開發經驗。
-  主題：Vibe Coding、AI自動化、Cloudflare
+  主題：AI自動化、Vibe Coding、Cloudflare
 
 - n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)
   網址：https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/
   日期：2026-03-11
   摘要：想要讓 AI 直接幫你寫好 n8n 工作流嗎？本文將教你如何透過 npx 安裝與設定 n8n MCP 伺服器，擺脫手動匯入 JSON 的麻煩，輕鬆體驗 Vibe Coding 的強大自動化魅力。
-  主題：Vibe Coding、AI自動化
+  主題：AI自動化、Vibe Coding
 
 - n8n x LINE 自動化預約系統實作：無 AI 高效工作流指南
   網址：https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/
@@ -74,7 +74,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：Vibe Coding、AI自動化、LINE
+  主題：AI自動化、Vibe Coding、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
