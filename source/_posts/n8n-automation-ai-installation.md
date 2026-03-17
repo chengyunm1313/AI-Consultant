@@ -6,8 +6,8 @@ categories:
   - AI自動化
 tags:
   - AI自動化
-  - AI Agent
-  - Gemini
+  - Antigravity
+  - n8n
 date: 2026-03-17 20:50:38
 subtitle:
 description: 想要擺脫繁瑣的重複工作嗎？本文為新手詳細介紹開源自動化工具 n8n，不僅能串接各大 API 與 SaaS 服務，還教你如何透過 Google Antigravity 的 AI 代理，免寫程式輕鬆完成 n8n 本機安裝與設定，打造專屬工作流！
