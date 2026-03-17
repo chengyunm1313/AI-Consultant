@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學
+  網址：https://blog.es2idea.com/posts/n8n-automation-ai-installation/
+  日期：2026-03-17
+  摘要：想要擺脫繁瑣的重複工作嗎？本文為新手詳細介紹開源自動化工具 n8n，不僅能串接各大 API 與 SaaS 服務，還教你如何透過 Google Antigravity 的 AI 代理，免寫程式輕鬆完成 n8n 本機安裝與設定，打造專屬工作流！
+  主題：AI Agent、AI自動化、Gemini
+
 - 零人公司：不是沒人，而是沒有「當下做決策的人」
   網址：https://blog.es2idea.com/posts/zero-person-company-decision-maker/
   日期：2026-03-17
@@ -56,19 +62,19 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-online-quote-system-esignature/
   日期：2026-03-13
   摘要：這篇文章將分享我透過 Vibe Coding 打造的線上報價單系統 MVP。從後台管理、客戶建檔，到線上電子簽署與 Cloudflare PDF 匯出功能，完整展示開發實戰與上線踩坑經驗。
-  主題：AI自動化、Vibe Coding、Cloudflare
+  主題：Vibe Coding、AI自動化、Cloudflare
 
 - Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站
   網址：https://blog.es2idea.com/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/
   日期：2026-03-11
   摘要：這篇文章將分享我如何透過 Vibe Coding 打造一個每日自動化選股網站。從串接臺灣證券交易所 OpenAPI 獲取台股資料，到運用 Cloudflare Cron 執行每日定時排程，帶你一窺完整開發經驗。
-  主題：AI自動化、Vibe Coding、Cloudflare
+  主題：Vibe Coding、AI自動化、Cloudflare
 
 - n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)
   網址：https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/
   日期：2026-03-11
   摘要：想要讓 AI 直接幫你寫好 n8n 工作流嗎？本文將教你如何透過 npx 安裝與設定 n8n MCP 伺服器，擺脫手動匯入 JSON 的麻煩，輕鬆體驗 Vibe Coding 的強大自動化魅力。
-  主題：AI自動化、Vibe Coding
+  主題：Vibe Coding、AI自動化
 
 - n8n x LINE 自動化預約系統實作：無 AI 高效工作流指南
   網址：https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/
@@ -80,7 +86,7 @@
   網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
   日期：2026-03-07
   摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：AI自動化、Vibe Coding、LINE
+  主題：Vibe Coding、AI自動化、LINE
 
 - 如何用 AI 快速串接台灣金流？綠界科技 Skill 實戰教學
   網址：https://blog.es2idea.com/posts/ai-ecpay-payment-integration-guide/
@@ -99,12 +105,6 @@
   日期：2026-03-03
   摘要：用 Google Gemini 當剪輯策略大腦，靠 6 個提示詞快速完成剪輯計畫、風格匹配、敘事優化、輸出設定、素材審查、成片回饋，讓你一天產出 4 支短片更可行。
   主題：Gemini、影音行銷、內容行銷
-
-- 用 AI 快速生成短影音？九宮格分鏡技巧解決人物變形
-  網址：https://blog.es2idea.com/posts/ai-video-storyboard-9-square-grid/
-  日期：2026-03-03
-  摘要：AI 影片時代來臨！本文教學如何透過 Gemini 與生成工具，利用九宮格分鏡技巧快速產出高畫質短影音，完美解決人物不一致的痛點，適合自媒體與電商行銷。
-  主題：Gemini、影音行銷
 
 ## 語言
 - zh-TW
