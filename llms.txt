@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- n8n 自動化實戰：如何透過 HTTP Request API 從資料倉儲取得資料
+  網址：https://blog.es2idea.com/posts/how-to-fetch-data-warehouse-n8n-http-request-api/
+  日期：2026-03-19
+  摘要：真實商業場景為例，學習如何使用 n8n 打造自動化工作流。本文將帶你了解自動化報表的設計流程，並手把手教學如何設定 HTTP Request 節點，透過 API 串接舊有資料倉儲抓取銷售數據。
+  主題：AI自動化、n8n
+
 - 為什麼前端工程師應該開始往 FDE 邁進？AI 時代下，你的價值正在改變
   網址：https://blog.es2idea.com/posts/why-frontend-engineers-should-become-fde/
   日期：2026-03-18
@@ -99,12 +105,6 @@
   日期：2026-03-09
   摘要：探索如何使用 n8n 打造全自動的 LINE 預約系統！不依賴 AI 即可實現低成本、高效能的預約流程，整合 PostgreSQL 與 Google Calendar，輕鬆完成預約、查詢、修改與取消功能。
   主題：AI自動化、n8n
-
-- 用 Vibe Coding 打造自動化銷售頁：3小時完成 LINE 報名與 Google Sheets 串接
-  網址：https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/
-  日期：2026-03-07
-  摘要：想了解如何用 AI 快速建置自動化銷售流程嗎？本文將帶你了解如何透過 Vibe Coding，在 3 小時內完成 Next.js 銷售頁面建立、部署，並串接 LINE 官方帳號與 Google Sheets，打造近乎零成本的報名系統。
-  主題：AI自動化、Vibe Coding、LINE
 
 ## 語言
 - zh-TW
