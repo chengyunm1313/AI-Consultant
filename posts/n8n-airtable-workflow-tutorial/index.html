@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>如何使用 n8n 串接 Airtable？自動化資料匯入完整教學 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何使用 n8n 串接 Airtable？自動化資料匯入完整教學">
+<meta property="og:url" content="https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover93.webp">
+<meta property="article:published_time" content="2026-03-19T14:08:45.000Z">
+<meta property="article:modified_time" content="2026-03-19T06:16:07.747Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="n8n">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover93.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Tourney&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/es2idea-logo.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/hero-lg.webp","@id":"https://blog.es2idea.com/#organization-image","width":1154,"height":792},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/hero-lg.webp","@id":"https://blog.es2idea.com/#service-image","width":1154,"height":792},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/es2idea-logo.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#webpage","@type":"WebPage","name":"如何使用 n8n 串接 Airtable？自動化資料匯入完整教學","url":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/","description":"想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover93.webp","@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#blogposting","@type":"BlogPosting","headline":"如何使用 n8n 串接 Airtable？自動化資料匯入完整教學","name":"如何使用 n8n 串接 Airtable？自動化資料匯入完整教學","description":"想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！","url":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-03-19T14:08:45.000Z","dateModified":"2026-03-19T06:16:07.747Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover93.webp","@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#primaryimage","width":1200,"height":800},"articleSection":"AI自動化","keywords":["AI自動化","n8n"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI自動化","AI自動化","n8n"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"如何使用 n8n 串接 Airtable？自動化資料匯入完整教學","item":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/"}]},{"@id":"https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"為什麼執行 Airtable 節點時，顯示資料格式錯誤無法寫入？","acceptedAnswer":{"@type":"Answer","text":"A：這通常是因為「Airtable 欄位類型」與「API 傳入的資料型態」不匹配。例如 API 傳送的是純數字 (Number)，但 Airtable 欄位卻設為單行文字 (Single line text)；或反之亦然。請務必仔細檢查 orderID、orderPrice 等欄位是否已正確設定為 Number。"}},{"@type":"Question","name":"在 n8n 設定憑證時，為什麼一直跳出權限不足 (Unauthorized) 的錯誤？","acceptedAnswer":{"@type":"Answer","text":"A：請回到 Airtable 重新檢查你的 Personal Access Token (PAT) 設定。確保你勾選了必要的 Scopes 權限：data.records:read、data.records:write，以及非常重要的 schema.bases:read，並確認 Access 有授權給對應的工作區。"}},{"@type":"Question","name":"為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtable 建立的資料庫？","acceptedAnswer":{"@type":"Answer","text":"A：這通常是因為節點版本過舊導致 API 抓取失敗。建議將舊版的 Airtable 節點刪除，並從 n8n 官方文檔複製最新的節點貼上至畫布中；同時，也請確保你的 Token 具有 schema.bases:read 權限，系統才能讀取到你的 Base 清單。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header
+    class="py-md-4 border-bottom border-primary-200"
+    style="margin-bottom: 1px;"
+  >
+  <nav class="navbar navbar-expand-md py-md-1">
+    <div class="container">
+      <a class="navbar-brand py-0 me-3" style="min-width: 120px;" href="/">
+        <img src="/images/es2idea-logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+          
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/"
+              >
+                <span class="position-relative px-2 py-1">首頁</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/blog"
+              >
+                <span class="position-relative px-2 py-1">部落格</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/collection"
+              >
+                <span class="position-relative px-2 py-1">關於享哥</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/one-video-multiple-platforms-strategy/"
+              >
+                <span class="position-relative px-2 py-1">AI 自媒體</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/vibecoding-ai-cms-freelance-website/"
+              >
+                <span class="position-relative px-2 py-1">Vibe Coding</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/works"
+              >
+                <span class="position-relative px-2 py-1">作品集</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/service"
+              >
+                <span class="position-relative px-2 py-1">服務項目</span>
+              </a>
+            </li>
+          
+            <li class="nav-item ">
+              <a
+                class="nav-link "
+                href="/contact"
+              >
+                <span class="position-relative px-2 py-1">聯絡我</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%9C%A8-Airtable-%E5%BB%BA%E7%AB%8B%E5%B0%88%E5%B1%AC%E8%B3%87%E6%96%99%E8%A1%A8%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">如何在 Airtable 建立專屬資料表？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A8%BB%E5%86%8A%E5%B8%B3%E8%99%9F%E8%88%87%E5%BB%BA%E7%AB%8B-Base"><span class="toc-number">1.1.</span> <span class="toc-text">1. 註冊帳號與建立 Base</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%A8%AD%E5%AE%9A%E8%B3%87%E6%96%99%E8%A1%A8%E6%AC%84%E4%BD%8D%E8%88%87%E6%A0%BC%E5%BC%8F"><span class="toc-number">1.2.</span> <span class="toc-text">2. 設定資料表欄位與格式</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#n8n-%E7%AF%80%E9%BB%9E%E8%A8%AD%E5%AE%9A%EF%BC%9A%E5%A6%82%E4%BD%95%E5%AE%89%E5%85%A8%E9%80%A3%E6%8E%A5-Airtable%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">n8n 節點設定：如何安全連接 Airtable？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%B0%E5%A2%9E-Airtable-%E7%AF%80%E9%BB%9E%E8%88%87%E5%8B%95%E4%BD%9C"><span class="toc-number">2.1.</span> <span class="toc-text">1. 新增 Airtable 節點與動作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%BB%BA%E7%AB%8B%E5%AD%98%E5%8F%96%E6%86%91%E8%AD%89-Credential-Token"><span class="toc-number">2.2.</span> <span class="toc-text">2. 建立存取憑證 (Credential &amp; Token)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%89%B9%E6%AC%A1%E5%AF%AB%E5%85%A5%E8%B3%87%E6%96%99%EF%BC%9A%E5%AE%8C%E6%88%90%E6%AC%84%E4%BD%8D%E6%98%A0%E5%B0%84%E8%88%87%E8%87%AA%E5%8B%95%E5%8C%96%E6%B8%AC%E8%A9%A6"><span class="toc-number">3.</span> <span class="toc-text">批次寫入資料：完成欄位映射與自動化測試</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%A8%AD%E5%AE%9A%E7%9B%AE%E6%A8%99%E8%B3%87%E6%96%99%E5%BA%AB%E8%88%87%E6%98%A0%E5%B0%84"><span class="toc-number">3.1.</span> <span class="toc-text">1. 設定目標資料庫與映射</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%9F%B7%E8%A1%8C%E5%B7%A5%E4%BD%9C%E6%B5%81-Execute-Workflow"><span class="toc-number">3.2.</span> <span class="toc-text">2. 執行工作流 (Execute Workflow)</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">4.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E5%9F%B7%E8%A1%8C-Airtable-%E7%AF%80%E9%BB%9E%E6%99%82%EF%BC%8C%E9%A1%AF%E7%A4%BA%E8%B3%87%E6%96%99%E6%A0%BC%E5%BC%8F%E9%8C%AF%E8%AA%A4%E7%84%A1%E6%B3%95%E5%AF%AB%E5%85%A5%EF%BC%9F"><span class="toc-number">4.1.</span> <span class="toc-text">Q：為什麼執行 Airtable 節點時，顯示資料格式錯誤無法寫入？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E5%9C%A8-n8n-%E8%A8%AD%E5%AE%9A%E6%86%91%E8%AD%89%E6%99%82%EF%BC%8C%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%80%E7%9B%B4%E8%B7%B3%E5%87%BA%E6%AC%8A%E9%99%90%E4%B8%8D%E8%B6%B3-Unauthorized-%E7%9A%84%E9%8C%AF%E8%AA%A4%EF%BC%9F"><span class="toc-number">4.2.</span> <span class="toc-text">Q：在 n8n 設定憑證時，為什麼一直跳出權限不足 (Unauthorized) 的錯誤？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E6%88%91%E5%9C%A8-n8n-%E7%9A%84-Base-%E4%B8%8B%E6%8B%89%E9%81%B8%E5%96%AE%E4%B8%AD%EF%BC%8C%E5%AE%8C%E5%85%A8%E6%89%BE%E4%B8%8D%E5%88%B0%E6%88%91%E5%9C%A8-Airtable-%E5%BB%BA%E7%AB%8B%E7%9A%84%E8%B3%87%E6%96%99%E5%BA%AB%EF%BC%9F"><span class="toc-number">4.3.</span> <span class="toc-text">Q：為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtable 建立的資料庫？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (16)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (58)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (1)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (26)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (16)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">AI自動化</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/03/19 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">如何使用 n8n 串接 Airtable？自動化資料匯入完整教學</h1>
+        
+        <div class="iframe-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/iGEkKO0lvGU?si=rN7Ol5zbgVuBP_Ck" 
+    title="如何使用 n8n 串接 Airtable？自動化資料匯入完整教學" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+<p>在上一堂課中，我們已經成功透過 n8n 的 <code>HTTP Request</code> 節點取得了 API 資料。接下來的關鍵步驟，是將這些獲取到的資料（例如：30 筆訂單資訊）自動儲存到雲端資料庫中。</p>
+<p>雖然常見的選擇有 Google Sheets 或 Notion，但在本篇教學中，我們將使用強大的關聯式資料庫 <strong>Airtable</strong> 進行示範。透過 n8n 與 Airtable 的完美串接，你將能夠建立更高效的自動化資料處理流程。</p>
+<h2 id="如何在-Airtable-建立專屬資料表？"><a href="#如何在-Airtable-建立專屬資料表？" class="headerlink" title="如何在 Airtable 建立專屬資料表？"></a>如何在 Airtable 建立專屬資料表？</h2><p>要將資料順利寫入 Airtable，我們必須先建立一個接收資料的「容器」。請依照以下步驟完成基礎設定：</p>
+<h3 id="1-註冊帳號與建立-Base"><a href="#1-註冊帳號與建立-Base" class="headerlink" title="1. 註冊帳號與建立 Base"></a>1. 註冊帳號與建立 Base</h3><p>首先，前往 Airtable 註冊帳號，並在你的工作區 (Workspace) 中建立一個新的 Base（例如命名為「初學者課程」）。</p>
+<h3 id="2-設定資料表欄位與格式"><a href="#2-設定資料表欄位與格式" class="headerlink" title="2. 設定資料表欄位與格式"></a>2. 設定資料表欄位與格式</h3><p>進入 Base 後，系統會預設提供一個 Table。我們需要將原本的預設欄位刪除，並依照即將匯入的資料結構，精準建立以下五個欄位。</p>
+<blockquote>
+<p><strong>⚠️ 專家提醒：</strong> 欄位的「資料類型 (Field Type)」必須與你 API 獲取的資料格式完全吻合，否則寫入時會發生錯誤！</p>
+</blockquote>
+<p>請將資料表名稱更改為 <code>orders</code>，並設定以下欄位：</p>
+<table>
+<thead>
+<tr>
+<th align="left">欄位名稱 (Field Name)</th>
+<th align="left">欄位類型 (Field Type)</th>
+<th align="left">說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td align="left"><code>orderID</code></td>
+<td align="left">Number (編號)</td>
+<td align="left">訂單專屬 ID</td>
+</tr>
+<tr>
+<td align="left"><code>customerID</code></td>
+<td align="left">Number (編號)</td>
+<td align="left">客戶 ID</td>
+</tr>
+<tr>
+<td align="left"><code>employeeName</code></td>
+<td align="left">Single line text (單行文字)</td>
+<td align="left">處理員工姓名</td>
+</tr>
+<tr>
+<td align="left"><code>orderPrice</code></td>
+<td align="left">Number (編號)</td>
+<td align="left">訂單金額</td>
+</tr>
+<tr>
+<td align="left"><code>orderStatus</code></td>
+<td align="left">Single line text (單行文字)</td>
+<td align="left">訂單處理狀態</td>
+</tr>
+</tbody></table>
+<p><em>註：設定 <code>employeeName</code> 時，若遇到欄位名稱重複衝突，可加上數字區別（例如：<code>employeeName2</code>），設定完成後記得將多餘的預設欄位刪除，保持表格整潔。</em></p>
+<h2 id="n8n-節點設定：如何安全連接-Airtable？"><a href="#n8n-節點設定：如何安全連接-Airtable？" class="headerlink" title="n8n 節點設定：如何安全連接 Airtable？"></a>n8n 節點設定：如何安全連接 Airtable？</h2><p>回到 n8n 編輯器介面，我們要在原本的 <code>HTTP Request</code> 節點後方，新增一個 Airtable 節點來接收資料。</p>
+<h3 id="1-新增-Airtable-節點與動作"><a href="#1-新增-Airtable-節點與動作" class="headerlink" title="1. 新增 Airtable 節點與動作"></a>1. 新增 Airtable 節點與動作</h3><p>在畫布上點擊新增節點，搜尋 <code>Airtable</code>。因為我們的目標是「新增資料」，請在動作清單中選擇 <strong>Create a record</strong>。</p>
+<h3 id="2-建立存取憑證-Credential-Token"><a href="#2-建立存取憑證-Credential-Token" class="headerlink" title="2. 建立存取憑證 (Credential &amp; Token)"></a>2. 建立存取憑證 (Credential &amp; Token)</h3><p>為了讓 n8n 擁有修改 Airtable 的權限，我們需要建立一組 Personal Access Token (PAT)：</p>
+<ol>
+<li>在 n8n 的 Credential 設定中選擇 <strong>Create new credential</strong>。</li>
+<li>前往 Airtable 的 Developer Hub 頁面，點擊 <strong>Create Token</strong>。</li>
+<li>為你的 Token 命名（例如：<code>n8n-try</code>）。</li>
+<li><strong>開放權限 (Scopes) 必須包含以下三項</strong>：<ul>
+<li><code>data.records:read</code> (讀取記錄)</li>
+<li><code>data.records:write</code> (寫入記錄)</li>
+<li><code>schema.bases:read</code> (讀取資料庫架構)</li>
+</ul>
+</li>
+<li>**開放工作區 (Access)**：選擇 <code>All workspaces</code>（為方便測試，可選擇全部工作區）。</li>
+<li>點擊建立後，<strong>務必立刻複製該組 Token</strong>（它只會顯示一次），並將其貼回 n8n 的 Access Token 欄位中進行儲存。看到 <code>Connection tested successfully</code> 即代表連線成功！</li>
+</ol>
+<h2 id="批次寫入資料：完成欄位映射與自動化測試"><a href="#批次寫入資料：完成欄位映射與自動化測試" class="headerlink" title="批次寫入資料：完成欄位映射與自動化測試"></a>批次寫入資料：完成欄位映射與自動化測試</h2><p>連線成功後，最後一步就是告訴 n8n 要將資料丟到哪張表，以及如何對應欄位。</p>
+<h3 id="1-設定目標資料庫與映射"><a href="#1-設定目標資料庫與映射" class="headerlink" title="1. 設定目標資料庫與映射"></a>1. 設定目標資料庫與映射</h3><p>在 n8n 的 Airtable 節點設定中，依照以下參數進行配置：</p>
+<ul>
+<li><strong>Resource:</strong> <code>Record</code></li>
+<li><strong>Operation:</strong> <code>Create</code></li>
+<li><strong>Base:</strong> 從下拉選單選擇你剛剛建立的 Base（例如 <code>n8n_level_one</code>）。</li>
+<li><strong>Table:</strong> 選擇剛剛設定好欄位的表格 <code>orders</code>。</li>
+<li><strong>Mapping Column Mode:</strong> 選擇 <code>Map Automatically</code>（自動映射）。</li>
+</ul>
+<blockquote>
+<p><strong>💡 節點版本除錯技巧：</strong><br>如果你在下拉選單中找不到你的 Base，可能是 n8n 節點版本的問題（例如 n8n 已更新至 2.0+ 系統，但節點仍為舊版）。解決方式是直接從 n8n 官方教學文件中，複製最新的 Airtable 節點，並在你的畫布上按下 <code>Ctrl+V / Cmd+V</code> 貼上替換即可。</p>
+</blockquote>
+<h3 id="2-執行工作流-Execute-Workflow"><a href="#2-執行工作流-Execute-Workflow" class="headerlink" title="2. 執行工作流 (Execute Workflow)"></a>2. 執行工作流 (Execute Workflow)</h3><p>一切就緒後，點擊 <strong>Execute Step</strong>。此時 n8n 會將 <code>HTTP Request</code> 抓取到的 30 筆 JSON 資料，批次送往 Airtable。</p>
+<p>回到 Airtable 介面，你會看到 30 筆訂單資料（包含金額、姓名、處理狀態等）已經自動、整齊地匯入至表格中了！完成這項串接後，未來所有的資料拋轉都能依賴這個工作流全自動化處理。</p>
+<hr>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q：為什麼執行-Airtable-節點時，顯示資料格式錯誤無法寫入？"><a href="#Q：為什麼執行-Airtable-節點時，顯示資料格式錯誤無法寫入？" class="headerlink" title="Q：為什麼執行 Airtable 節點時，顯示資料格式錯誤無法寫入？"></a>Q：為什麼執行 Airtable 節點時，顯示資料格式錯誤無法寫入？</h3><p>A：這通常是因為「Airtable 欄位類型」與「API 傳入的資料型態」不匹配。例如 API 傳送的是純數字 (Number)，但 Airtable 欄位卻設為單行文字 (Single line text)；或反之亦然。請務必仔細檢查 <code>orderID</code>、<code>orderPrice</code> 等欄位是否已正確設定為 <code>Number</code>。</p>
+<h3 id="Q：在-n8n-設定憑證時，為什麼一直跳出權限不足-Unauthorized-的錯誤？"><a href="#Q：在-n8n-設定憑證時，為什麼一直跳出權限不足-Unauthorized-的錯誤？" class="headerlink" title="Q：在 n8n 設定憑證時，為什麼一直跳出權限不足 (Unauthorized) 的錯誤？"></a>Q：在 n8n 設定憑證時，為什麼一直跳出權限不足 (Unauthorized) 的錯誤？</h3><p>A：請回到 Airtable 重新檢查你的 Personal Access Token (PAT) 設定。確保你勾選了必要的 Scopes 權限：<code>data.records:read</code>、<code>data.records:write</code>，以及非常重要的 <code>schema.bases:read</code>，並確認 Access 有授權給對應的工作區。</p>
+<h3 id="Q：為什麼我在-n8n-的-Base-下拉選單中，完全找不到我在-Airtable-建立的資料庫？"><a href="#Q：為什麼我在-n8n-的-Base-下拉選單中，完全找不到我在-Airtable-建立的資料庫？" class="headerlink" title="Q：為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtable 建立的資料庫？"></a>Q：為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtable 建立的資料庫？</h3><p>A：這通常是因為節點版本過舊導致 API 抓取失敗。建議將舊版的 Airtable 節點刪除，並從 n8n 官方文檔複製最新的節點貼上至畫布中；同時，也請確保你的 Token 具有 <code>schema.bases:read</code> 權限，系統才能讀取到你的 Base 清單。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover92.webp" class="img-fluid card-img-top rounded-3" alt="n8n 自動化實戰：如何透過 HTTP Request API 從資料倉儲取得資料">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n 自動化實戰：如何透過 HTTP Request API 從資料倉儲取得資料</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/how-to-fetch-data-warehouse-n8n-http-request-api/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover91.webp" class="img-fluid card-img-top rounded-3" alt="為什麼前端工程師應該開始往 FDE 邁進？AI 時代下，你的價值正在改變">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">為什麼前端工程師應該開始往 FDE 邁進？AI 時代下，你的價值正在改變</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/why-frontend-engineers-should-become-fde/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover90.webp" class="img-fluid card-img-top rounded-3" alt="n8n 教學：從零開始的 Level 1 官方課程與基礎工作流實戰">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n 教學：從零開始的 Level 1 官方課程與基礎工作流實戰</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-tutorial-level-1-basic-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover89.webp" class="img-fluid card-img-top rounded-3" alt="n8n 部署完整教學：2026 Zeabur 伺服器選擇與實戰指南">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n 部署完整教學：2026 Zeabur 伺服器選擇與實戰指南</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Zeabur</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/17</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/how-to-deploy-n8n-on-zeabur/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover88.webp" class="img-fluid card-img-top rounded-3" alt="什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Antigravity</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/17</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-automation-ai-installation/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover87.webp" class="img-fluid card-img-top rounded-3" alt="零人公司：不是沒人，而是沒有「當下做決策的人」">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">零人公司：不是沒人，而是沒有「當下做決策的人」</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/17</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/zero-person-company-decision-maker/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover84.webp" class="img-fluid card-img-top rounded-3" alt="Vibe Coding 實戰：打造專屬線上報價單系統與電子簽署功能">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Vibe Coding 實戰：打造專屬線上報價單系統與電子簽署功能</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Cloudflare</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/13</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/vibe-coding-online-quote-system-esignature/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover83.webp" class="img-fluid card-img-top rounded-3" alt="Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Cloudflare</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover82.webp" class="img-fluid card-img-top rounded-3" alt="n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/03/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-mcp-installation-guide-ai-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+  
+<footer
+    class="py-7"
+    style="background-image: url('/images/footer-bg-lg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;"
+  >
+  <div class="container">
+    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          class="mb-4"
+          style="width: 120px;"
+          src="/images/es2idea-logo.svg" alt="logo"
+        >
+        <p class="mb-4 fs-5 text-primary-700">歡迎邀約合作，或直接與我聯絡！</p>
+        <address class="mb-0 fs-5 lh-lg text-primary-700">
+          <strong>徐享 | AI 應用規劃師</strong><br>
+          Email：<a class="link-primary-500 text-decoration-none" href="mailto:seanhsu1313@gmail.com">seanhsu1313@gmail.com</a><br>
+          地址：新北市中和捷運站步行五分鐘
+        </address>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <!-- <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="mailto:seanhsu1313@gmail.com">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          填寫表單
+        </a> -->
+        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" target="_blank" rel="noopener" href="https://lin.ee/epeTR8o">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          LINE邀約合作
+        </a>
+        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
+          AI享哥哥
+        </a>
+        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.facebook.com/HsiangPMKT?locale=zh_TW">
+          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
+          享哥玩行銷
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+</body>
+</html>
