@@ -34,6 +34,30 @@
 
 ## 最新文章
 
+- n8n 自動化新手教學：如何設定 Schedule 排程與時區校正
+  網址：https://blog.es2idea.com/posts/n8n-automation-schedule-tutorial/
+  日期：2026-03-19
+  摘要：學習如何在 n8n 中設定 Schedule Trigger 排程工作流，包含每週定時觸發設定、時區 (Timezone) 校正，以及 Publish 與便利貼註解的實用技巧，輕鬆完成自動化部署。
+  主題：AI自動化、n8n
+
+- n8n 自動化教學：如何使用 Code 節點實作 JavaScript 訂單加總
+  網址：https://blog.es2idea.com/posts/n8n-code-node-javascript-tutorial/
+  日期：2026-03-19
+  摘要：學習在 n8n 自動化工作流中使用 Code 節點！本教學帶你了解 n8n 獨特的物件陣列結構，並運用 JavaScript (或 AI 輔助) 輕鬆完成訂單總和計算，實現高效資料處理。
+  主題：AI自動化、n8n
+
+- n8n 自動化教學：如何使用 Set 節點精確篩選與處理訂單資料
+  網址：https://blog.es2idea.com/posts/n8n-set-node-tutorial/
+  日期：2026-03-19
+  摘要：本教學將帶領你掌握 n8n 中的 Set 節點（Edit Fields），學習如何從繁雜的原始訂單中精確篩選出所需欄位，並自動同步至 Airtable，大幅提升資料處理效率。
+  主題：AI自動化、n8n、資料處理
+
+- 如何使用 If 節點條件過濾 API 資料並寫入 Airtable？
+  網址：https://blog.es2idea.com/posts/n8n-if-node-filter-airtable/
+  日期：2026-03-19
+  摘要：在 n8n 自動化流程中，不想將所有 API 資料全塞進資料庫？本篇教學教你如何使用 If 節點設定條件邏輯，精準篩選特定狀態的訂單資料寫入 Airtable，大幅提升系統運作效率。
+  主題：AI自動化、n8n
+
 - 如何使用 n8n 串接 Airtable？自動化資料匯入完整教學
   網址：https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/
   日期：2026-03-19
@@ -62,7 +86,7 @@
   網址：https://blog.es2idea.com/posts/how-to-deploy-n8n-on-zeabur/
   日期：2026-03-17
   摘要：Zeabur 於 2026 年全面取消共享叢集免費方案，部署 n8n 必須自行租用伺服器。本文將為您實戰解析如何挑選高 CP 值的雲端主機（如 Hetzner、Linode），並一步步帶您在 Zeabur 完成 n8n 部署與社群版免費授權開通。
-  主題：AI自動化、Zeabur、n8n
+  主題：AI自動化、n8n、Zeabur
 
 - 什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學
   網址：https://blog.es2idea.com/posts/n8n-automation-ai-installation/
@@ -81,30 +105,6 @@
   日期：2026-03-16
   摘要：探索如何透過 CommentFlow 自動化您的 Facebook 粉絲專頁留言回覆，節省客服時間並提升互動率。本教學將帶您從綁定粉專到設定「懶人包」關鍵字自動回覆，並分享從概念到規模化的開發者思維。
   主題：Vibe Coding、社群自動化、Facebook機器人
-
-- 建立電子書 AI 知識庫的完整實務：VLM + Hierarchical RAG 架構
-  網址：https://blog.es2idea.com/posts/build-ebook-ai-knowledge-base-vlm-hierarchical-rag/
-  日期：2026-03-16
-  摘要：想要將電子書、PDF 轉為高精準度的 AI 知識庫嗎？本文深入解析 VLM 與 Hierarchical RAG 架構，透過章節結構抽取、Metadata 語意補強與 Hybrid Search 技術，解決傳統文字向量搜尋遺失上下文的痛點，大幅提升 AI...
-  主題：RAG、VLM、向量資料庫
-
-- Vibe Coding 實戰：打造專屬線上報價單系統與電子簽署功能
-  網址：https://blog.es2idea.com/posts/vibe-coding-online-quote-system-esignature/
-  日期：2026-03-13
-  摘要：這篇文章將分享我透過 Vibe Coding 打造的線上報價單系統 MVP。從後台管理、客戶建檔，到線上電子簽署與 Cloudflare PDF 匯出功能，完整展示開發實戰與上線踩坑經驗。
-  主題：AI自動化、Vibe Coding、Cloudflare
-
-- Vibe Coding 實戰：整合 Cloudflare 與 TWSE API 打造每日自動選股網站
-  網址：https://blog.es2idea.com/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/
-  日期：2026-03-11
-  摘要：這篇文章將分享我如何透過 Vibe Coding 打造一個每日自動化選股網站。從串接臺灣證券交易所 OpenAPI 獲取台股資料，到運用 Cloudflare Cron 執行每日定時排程，帶你一窺完整開發經驗。
-  主題：AI自動化、Vibe Coding、Cloudflare
-
-- n8n MCP 完整安裝教學：讓 AI 幫你自動生成 n8n 工作流 (Vibe n8n)
-  網址：https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/
-  日期：2026-03-11
-  摘要：想要讓 AI 直接幫你寫好 n8n 工作流嗎？本文將教你如何透過 npx 安裝與設定 n8n MCP 伺服器，擺脫手動匯入 JSON 的麻煩，輕鬆體驗 Vibe Coding 的強大自動化魅力。
-  主題：AI自動化、Vibe Coding
 
 ## 語言
 - zh-TW
