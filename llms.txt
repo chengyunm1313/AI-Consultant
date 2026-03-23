@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- n8n 串接 LINE 官方帳號教學：Webhook 與 API 設定全攻略
+  網址：https://blog.es2idea.com/posts/n8n-line-bot-webhook-guide/
+  日期：2026-03-23
+  摘要：想要用 n8n 打造自動化 LINE Bot 嗎？本文完整教學如何透過 Webhook 接收訊息、HTTP Request 呼叫 LINE API，並解析簽章驗證與常見踩坑指南，讓你輕鬆完成高效串接！
+  主題：AI自動化、n8n、API串接
+
 - SaaS 的下一站？深度解析 Agent-as-a-Service (AaaS) 如何重新定義企業軟體
   網址：https://blog.es2idea.com/posts/agent-as-a-service-vs-saas/
   日期：2026-03-20
@@ -99,12 +105,6 @@
   日期：2026-03-18
   摘要：想學習 n8n 自動化工作流嗎？跟著享哥一起進入 n8n Level 1 官方入門課程！本篇教學將帶你認識編輯器介面，並實戰建立第一個擷取 Hacker News 文章的自動化工作流。
   主題：AI自動化、AI工具、n8n
-
-- n8n 部署完整教學：2026 Zeabur 伺服器選擇與實戰指南
-  網址：https://blog.es2idea.com/posts/how-to-deploy-n8n-on-zeabur/
-  日期：2026-03-17
-  摘要：Zeabur 於 2026 年全面取消共享叢集免費方案，部署 n8n 必須自行租用伺服器。本文將為您實戰解析如何挑選高 CP 值的雲端主機（如 Hetzner、Linode），並一步步帶您在 Zeabur 完成 n8n 部署與社群版免費授權開通。
-  主題：AI自動化、Zeabur、n8n
 
 ## 語言
 - zh-TW
