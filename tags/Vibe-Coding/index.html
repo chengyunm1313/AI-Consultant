@@ -209,7 +209,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (17)
+            AI自動化 (18)
           </a>
         </li>
       
@@ -263,11 +263,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-          AI自動化 (34)
+          AI自動化 (35)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (13)
+          AI工具 (14)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
@@ -275,7 +275,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
-          Vibe Coding (21)
+          Vibe Coding (22)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
@@ -389,6 +389,115 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+<li
+  id="post-google-stitch-mcp-tutorial"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover102.png"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        alt="article-Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/3/24
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI自動化
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              Vibe Coding
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI
+        </h5>
+        <div class="cutoff-text mb-0 text-primary-700">
+          
+  
+  
+
+
+Google 近期推出的 Stitch 在開發者社群中引起了廣大迴響，其強大的 UI 生成能力令人驚豔。透過結合 MCP (Model Context Protocol) 協定，我們可以讓 AI Agent 自動化處理繁瑣的前端切版工作。
+本文將以一個「美甲美容預約系統」的 Next.js 網站為例，帶你一步步拆解如何從零開始，利用 Google Stitch MCP 快速產出具備高質感的網頁 UI。
+先收藏 3 個官方入口如果你想快速上手，建議先把下面 3 個官方資源打開，後續安裝與操作時會用得到：
+
+Stitch 官網：先了解 Stitch 的整體能力，包含從提示詞生成 UI、調整版型與匯出成果的核心流程。
+Stitch MCP 官方安裝文件：用來設定 MCP Server、完成 API Key 綁定，這是讓 AI Agent 真正能呼叫 Stitch 的關鍵步驟。
+stitch-skills GitHub 倉庫：Google Labs 提供的 Agent Skills 集合，能讓 Cursor、Claude Code、Gemini CLI 等工具更有效率地配合 Stitch 工作。
+
+如何快速完成 Stitch MCP 環境部署？要讓 AI 能夠直接呼叫 Stitch 的生成能力，我們需要先完成 MCP 伺服器的安裝與 API 金鑰設定。
+
+安裝 Stitch MCP 伺服器在您的 AI 代理開發環境（例如 Cursor、Antigravity 等支援 MCP 的工具）中，開啟 MCP Servers 管理介面，搜尋 stitch 並點擊安裝 (Install)。這一步將會自動化載入所需的環境設定。若想對照完整流程，可以直接參考 Stitch MCP 官方安裝文件。
+獲取 API 金鑰 (API Key)安裝過程中，系統會引導您前往 Stitch 的官方網頁設定。請在設定頁面中點擊「建立金鑰」，生成專屬的 API 金鑰，並將其貼回您的 MCP 設定中妥善儲存以完成身分驗證。
+
+擴充 AI 開發火力：安裝 Stitch Skills光有基礎 MCP 還不夠，為了讓 AI 具備更專業的前端工程師思維，我們需要導入 stitch-skills。
+這是一個專為 Stitch MCP 伺服器設計的 Agent 技能函式庫，相容於 Gemini CLI、Claude Code 與 Cursor。透過安裝 GitHub 上的 stitch-skills 擴充套件，AI 就能夠遵循更嚴謹的開發標準進行作業，大幅減少生成過程中的邏輯錯誤。
+根據該 GitHub 倉庫說明，stitch-skills 內建多種實用能力，例如：
+
+stitch-design：負責 Stitch 設計工作流的統一入口。
+stitch-loop：可從單一提示詞延伸成完整多頁網站流程。
+design-md：協助整理設計系統與 DESIGN.md 文件。
+react:components：將 Stitch 畫面轉成 React 元件系統，並維持設計 Token 一致性。
+
+如果你平常就是用 AI 編輯器協作開發，這一層 skills 幾乎就是把 Stitch 從「會生成畫面」升級成「更懂前端交付流程」。
+實戰演練：從需求規劃到自動生成 Next.js 網站環境建置完畢後，我們就可以開始向 AI 下達開發指令 (Prompt)。以下為本次美甲預約網站的標準化生成流程：
+1. 啟動 SDD (軟體設計文件) 開發流程不要讓 AI 直接寫程式碼，而是要求它先執行 SDD (Software Design Document) 流程。AI 會依序產出結構化的規格文件（Spec）、開發計畫（Plan）與任務清單（Task）。這能確保 AI 清楚理解版面規劃，包含：導覽列 (Navbar)、Hero 區塊、服務項目、作品集與顧客評價等區塊。
+1我想做一個美容美甲的預約系統，使用next.j做，先做首頁就好 ，執行 SDD 開發流程，依序產出結構化的 spec、plan 與 task 等規劃文件
+
+2. 制定設計規範 (Design Tokens)在產出程式碼前，AI 會依據主題（如：柔和女性化、優雅高質感）自動建立設計系統。例如設定主色為「玫瑰粉 (#D4A5A5)」、背景色為「奶油米」，並指定字型（Playfair Display 與 Inter）。這些 Tokens 將成為後續 UI 生成的核心基準。
+3. 呼叫 create_project 執行 UI 生成當規劃完成後，AI 會調用 Stitch MCP 的 create_project 方法。系統會自動下載所需套件（如 Tailwind CSS）、處理字型與圖標，並開始生成首頁的設計稿與原始碼。
+完美還原設計稿：如何解決排版誤差？在初步生成後，您可能會發現瀏覽器渲染的畫面（localhost:3000）與 Stitch 原始設計稿有些微出入。這時不需要手動調整 CSS，只需遵循以下步驟：
+
+反饋錯誤訊息： 將終端機或畫面上的報錯資訊直接貼給 AI 進行初步修復。
+要求零誤差校正： 明確指示 AI：「網頁呈現與 Stitch 原始設計稿不太一樣，請幫我確認並修正」。
+自動重構： AI 會重新比對 Tailwind tailwind.config.ts 中的顏色設定、全域 CSS 屬性與各個 Component（如 Navbar、Hero Section）的 HTML 結構，確保最終輸出的 Next.js 程式碼與設計稿達到 100% 零誤差轉換。
+
+
+開發者反思： 當 AI 已經能包辦 UI 介面設計與繁瑣的切版工作時，未來的軟體工程師應將重心轉移至「架構設計」、「需求分析」與「商業邏輯整合」，這才是人類開發者無可取代的價值。
+
+
+常見問答 (FAQ)Q：Google Stitch 的使用額度限制是什麼？A：目前系統每日提供 400 個額度 (Credits)。根據實測，透過 AI 完整生成一個包含豐富區塊（Hero、作品集、評價等）的高質感首頁，大約就會消耗掉 4 個額度。
+Q：Stitch MCP 支援哪些 AI 開發工具？A：只要是支援 MCP (Model Context Protocol) 協定的開發工具皆可使用，主流工具包含 Cursor、Gemini CLI、Claude Code 以及 Antigravity 等。
+Q：AI 生成的網頁設計如果不滿意可以修改嗎？A：可以的。您可以透過對話框下達新的提示詞 (Prompt)，例如「請將按鈕顏色改為深色」或「調整作品集區塊的排版」，AI 會自動調用相關程式碼進行局部更新。
+
+相關連結
+Stitch 官網
+Stitch MCP 官方安裝文件
+stitch-skills GitHub 倉庫
+
+
+        </p>
+        <a class="stretched-link" href="/posts/google-stitch-mcp-tutorial/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -1439,122 +1548,6 @@ AI 首先讀取了我提供的需求文件。
 
         </p>
         <a class="stretched-link" href="/posts/novamira-wordpress-ai-code-editor/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-<li
-  id="post-vibe-coder-ultimate-guide-api-key-incident-lessons"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover61.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        alt="article-給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整教訓"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2025/9/27
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Vibe Coding
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI風險控管
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整教訓
-        </h5>
-        <div class="cutoff-text mb-0 text-primary-700">
-          
-  
-  
-
-
-一個燒掉萬元的真實故事有一個故事在社群裡傳得很兇。一位老師，用 Google AI Studio Build 做了一個有趣的小應用。他很用心，甚至做了「輸入 Gemini API Key」的介面，讓粉絲覺得自己在操作自己的額度。
-結果，悲劇發生了。用戶的金鑰其實沒生效，程式最後還是默默使用了老師自己放在 Cloud Run 裡的金鑰。短短幾天，帳單就燒掉超過一萬元。這就是典型的 「我做 App、別人玩、錢我付」。
-1. 喧囂與反思事件引爆的討論故事一出，群眾立刻分成幾派。有人說是 AI 工具害的，太不可靠。有人則批評老師不專業，不該犯這麼低級的錯誤。
-還有人提出另一個角度：vibe coding 的課程，本來就不是訓練工程師去做部署與維運。大多數時候，它只是帶人做 demo、做功能展示、快速做 MVP。在這樣的情境裡，要求老師同時具備深厚的 SRE 或資安能力，會不會太嚴苛？
-我的觀點：這不是誰對誰錯，而是角色定位問題我自己覺得，這不是 AI 的錯，也不是老師單方面的問題。真正的關鍵在於 角色定位與風險邊界。
-vibe coder 的價值是「快」。可以快速讓想法跑起來，看到成果，測試概念。這個角色本來就不是要一手扛起部署與維運的責任。
-但一旦你決定要「發佈給別人用」，你就自動進入另一個遊戲規則。那時候，你必須要為成本與安全負責。而這件事，不管你想不想當工程師，都是逃不掉的。
-為什麼會燒到作者？剖析「所有權錯覺」其實技術原因一點都不複雜。介面雖然收了用戶的 Key，但在呼叫模型的程式裡，最後使用的仍然是作者的金鑰。
-可能是因為程式碼裡設了 fallback，可能是因為環境變數優先，甚至有可能是根本沒有把用戶輸入的金鑰傳進去。
-不管原因是什麼，結果只有一個：表面上你輸入了自己的卡號，實際上後台刷的卻是別人的卡。這就是典型的 「所有權錯覺」。
-2. 建立不死的基本功承認吧，部署不是 vibe coder 的強項。我們的長處是快速開發、驗證與展示。所以，與其強迫自己成為部署專家，不如先建立一套最小可行的「安全習慣」。
-習慣一：費用感知 (Cost Awareness)AI 的費用公式常常是「乘法」：輸出長度 × 批次大小 × 併發數 × 重試次數。任何一項放大，帳單就可能直接爆。所以，在發佈之前，請務必把這些參數寫死，設一個合理上限。在發佈之後，每天花兩分鐘檢查用量，並且開好告警與費用上限。
-習慣二：金鑰衛生 (Key Hygiene)金鑰一定要放在 .env，不要寫死在程式碼裡。AI 也不能直接讀 .env，因為它有可能把內容印出來。最聰明的做法，是再做一個 .env.sample，內容是假的，但能讓 AI 知道有哪些變數存在。
-為什麼要這樣？因為 AI 很好奇，如果你完全不給，它就可能幫你寫程式去偷看環境變數，這樣反而更危險。記住：一旦金鑰被看到了，就要馬上重置。
-習慣三：最小可行的發佈流程在你按下「部署」之前，請一定要對 AI 說一句：
-123請幫我做 code review
-
-這不是形式。不同的 LLM 互相檢查，真的能抓到你看不到的錯誤。要它檢查三件事：
-
-API Key 流向是否正確
-有沒有炸帳單的風險
-有沒有無限重試或缺少超時設定
-
-我就親身遇過：自動生成的管理後台程式碼，直接把帳號密碼硬寫進去，最後是靠另一個 AI 的 code review 才被揪出來。
-3. 從避坑到卓越的進階技巧當你掌握了基本功，不再擔心生存問題後，就可以開始追求卓越，讓你的作品更穩健、更專業。
-技巧一：選擇對的遊樂場 (Serverless 優先)一個更聰明的選擇是 「Serverless 優先」。它就像一個美食街攤位，只有客人點餐時（觸發事件），你的攤位才需要開火（執行程式），並只為這一次的烹飪付費。
-
-平台建議： Vercel、Netlify 非常適合前端應用；Google Cloud Functions 或 AWS Lambda 則適合處理獨立的後端邏輯。
-核心優勢： Serverless 強迫你將功能模組化，大幅降低了因單一 Bug 導致整個服務崩潰與帳單失控的風險。
-
-技巧二：用一句咒語升級你的 AI Code Review「幫我 code review」太模糊了。下次試試這句咒語：
-123請你扮演一位資深、paranoid (偏執多疑) 的 SRE (網站可靠性工程師)，並且用最嚴格的標準來審查以下程式碼。你的首要目標是找出所有可能導致「帳單爆炸」、「金鑰外洩」或「服務中斷」的風險。請條列出你發現的問題、風險等級，以及具體的修復建議。
-這句咒語透過賦予 AI 一個專家角色和明確目標，能讓審查結果的品質提升數個檔次。
-技巧三：養成「防禦性寫作」的思維防禦性寫作的核心思想是：「永遠不要相信任何外來的東西，並假設程式隨時可能在最糟的地方失敗。」
-
-加上「超時」與「重試限制」： 在呼叫任何外部 API 時，務必設定超時時間與最大重試次數。
-驗證使用者輸入： 任何來自使用者的資料，在使用前都要進行嚴格的驗證與清理。
-學習 IAM 角色 (進階)： 當你更熟悉雲端平台後，嘗試用 IAM 角色來取代靜態的 API Key，安全性遠高於寫死的金鑰。
-
-4. 將原則化為日常「我不是工程師」與「我得負責」並不衝突有人會說：課程是小白教小小白，真的要要求這麼多嗎？我覺得這不是苛求，而是尊重。當你把作品發佈出去，別人的體驗裡，應該包含「不會意外花到你的錢」。安全、費用上限、告警，這些不是進階工程技巧，而是產品設計的一部分。
-一個你可以建立的「安全開關」習慣我想像一個最小的日常習慣：
-
-先把 Usage 和 Billing 頁面加到書籤。
-打開用量告警、費用上限、超額停用。
-回到專案，對 AI 說出那句 code review 的咒語。
-部署後，每天早餐時間花兩分鐘檢查用量。
-有異常？馬上降參數、降併發，或停掉自動重試。這樣就夠了。
-
-最終心法：發佈前的三個靈魂拷問在發佈之前，先問自己：
-
-這個請求，現在刷的是誰的卡？
-它最多能花多少？
-出問題時，會自動停嗎？
-
-能答出來，你就準備好了。答不出來，就先別急著上線。
-結語vibe coding 讓我們快，但發佈，讓我們必須負責。
-負責，不是要你立刻變成專業工程師，而是學會關掉風險。
-把平台當護城河，把 code review 當儀式，把金鑰當保險箱，把每日兩分鐘檢查當刷牙。
-這樣，你做的東西才能真的被放心使用，而不是下一個 「我做 App、別人玩、錢我付」 的故事。
-
-        </p>
-        <a class="stretched-link" href="/posts/vibe-coder-ultimate-guide-api-key-incident-lessons/"></a>
       </div>
     </div>
   </article>

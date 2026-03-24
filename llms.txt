@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI
+  網址：https://blog.es2idea.com/posts/google-stitch-mcp-tutorial/
+  日期：2026-03-24
+  摘要：探索 Google 最新 UI 生成神器 Stitch！本篇教學完整示範如何透過 MCP 協定與 Stitch Skills 擴充，讓 AI 自動規劃 SDD 流程並完美產出零誤差的 Next.js 網站介面。
+  主題：AI自動化、AI工具、Vibe Coding
+
 - n8n 串接 LINE 官方帳號教學：Webhook 與 API 設定全攻略
   網址：https://blog.es2idea.com/posts/n8n-line-bot-webhook-guide/
   日期：2026-03-23
@@ -99,12 +105,6 @@
   日期：2026-03-18
   摘要：隨著 AI 讓寫功能與切版變得不再稀缺，前端工程師的競爭優勢正從「做出功能」轉向「讓系統穩定運作」。深入探討 FDE (Front-End Deployment Engineer) 的核心價值，以及在 AI 浪潮下如何掌握系統運作層的關鍵能力。
   主題：商業策略、AI自動化、Vibe Coding
-
-- n8n 教學：從零開始的 Level 1 官方課程與基礎工作流實戰
-  網址：https://blog.es2idea.com/posts/n8n-tutorial-level-1-basic-workflow/
-  日期：2026-03-18
-  摘要：想學習 n8n 自動化工作流嗎？跟著享哥一起進入 n8n Level 1 官方入門課程！本篇教學將帶你認識編輯器介面，並實戰建立第一個擷取 Hacker News 文章的自動化工作流。
-  主題：AI自動化、AI工具、n8n
 
 ## 語言
 - zh-TW
