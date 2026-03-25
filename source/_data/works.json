@@ -1,5 +1,25 @@
 [
   {
+    "id": "vibe-tender-radar",
+    "category": "vibe-coding",
+    "title": "Vibe Coding 實戰：打造政府標案監控平台 Tender Radar",
+    "summary": "透過 AI 與公開標案 API，建立可自訂條件、每日追蹤與自動通知的政府標案監控平台。",
+    "result": "整合標案搜尋、AI 評分門檻、LINE 與 Email 推播，以及後台追蹤報表，完成可實際使用的標案監控 MVP。",
+    "stack": [
+      "AI Coding",
+      "Cloudflare",
+      "Government API",
+      "LINE",
+      "Email"
+    ],
+    "cover": "/images/cover103.png",
+    "primary_url": "https://tender-radar.pages.dev/",
+    "primary_label": "查看作品",
+    "article_url": "/posts/government-tender-monitoring-platform/",
+    "article_label": "閱讀文章",
+    "featured": true
+  },
+  {
     "id": "vibe-commentflow",
     "category": "vibe-coding",
     "title": "自動化社群留言回覆：用 Vibe Coding 打造 Facebook 關鍵字自動回覆 SaaS",
