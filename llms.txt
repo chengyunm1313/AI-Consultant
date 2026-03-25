@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 【Vibe Coding 實戰】如何打造政府標案監控平台？AI 自動化追蹤，省下萬元訂閱費！
+  網址：https://blog.es2idea.com/posts/government-tender-monitoring-platform/
+  日期：2026-03-25
+  摘要：覺得政府電子採購網介面難用、容易漏接商機嗎？本文實戰分享如何透過 Vibe Coding 開發專屬的「政府標案監控平台」，結合 AI 智能篩選與 LINE/Email 自動推播，讓你精準掌握標案，還能省下萬元訂閱費！
+  主題：AI自動化、AI工具、Vibe Coding
+
 - Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI
   網址：https://blog.es2idea.com/posts/google-stitch-mcp-tutorial/
   日期：2026-03-24
@@ -99,12 +105,6 @@
   日期：2026-03-19
   摘要：真實商業場景為例，學習如何使用 n8n 打造自動化工作流。本文將帶你了解自動化報表的設計流程，並手把手教學如何設定 HTTP Request 節點，透過 API 串接舊有資料倉儲抓取銷售數據。
   主題：AI自動化、n8n
-
-- 為什麼前端工程師應該開始往 FDE 邁進？AI 時代下，你的價值正在改變
-  網址：https://blog.es2idea.com/posts/why-frontend-engineers-should-become-fde/
-  日期：2026-03-18
-  摘要：隨著 AI 讓寫功能與切版變得不再稀缺，前端工程師的競爭優勢正從「做出功能」轉向「讓系統穩定運作」。深入探討 FDE (Front-End Deployment Engineer) 的核心價值，以及在 AI 浪潮下如何掌握系統運作層的關鍵能力。
-  主題：商業策略、AI自動化、Vibe Coding
 
 ## 語言
 - zh-TW
