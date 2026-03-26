@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- n8n 串接 ChatGPT API 完全指南：零程式碼打造 AI 自動化工作流
+  網址：https://blog.es2idea.com/posts/n8n-chatgpt-api-integration/
+  日期：2026-03-26
+  摘要：想知道如何讓 n8n 與 ChatGPT 完美結合嗎？本篇教學詳細拆解 OpenAI API 申請、n8n 節點設定與 Prompt 撰寫技巧，並附上最新官方文件連結，手把手帶你完成 AI 自動化工作流！
+  主題：AI自動化、AI工具、ChatGPT
+
 - n8n 自動化實戰指南：何時該用 LLM？何時該派 AI Agent 上場？
   網址：https://blog.es2idea.com/posts/n8n-llm-vs-ai-agent/
   日期：2026-03-26
@@ -98,12 +104,6 @@
   網址：https://blog.es2idea.com/posts/n8n-if-node-filter-airtable/
   日期：2026-03-19
   摘要：在 n8n 自動化流程中，不想將所有 API 資料全塞進資料庫？本篇教學教你如何使用 If 節點設定條件邏輯，精準篩選特定狀態的訂單資料寫入 Airtable，大幅提升系統運作效率。
-  主題：AI自動化、n8n
-
-- 如何使用 n8n 串接 Airtable？自動化資料匯入完整教學
-  網址：https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/
-  日期：2026-03-19
-  摘要：想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！
   主題：AI自動化、n8n
 
 ## 語言
