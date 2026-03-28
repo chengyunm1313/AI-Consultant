@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 如何使用 n8n 串接 Gmail？Google OAuth2 授權設定全攻略
+  網址：https://blog.es2idea.com/posts/google-cloud-oauth2-n8n-guide/
+  日期：2026-03-28
+  摘要：想要讓 n8n 自動發送 Gmail 郵件卻卡在授權？本文帶你一步步完成 Google Cloud 的 OAuth2 驗證設定，從開啟 API 到取得密鑰，輕鬆完成自動化工作流串接！
+  主題：AI自動化、n8n、Google
+
 - n8n AI Agent 完整教學：結合 JSON Schema 打造會思考的自動化工作流
   網址：https://blog.es2idea.com/posts/n8n-openai-agent-workflow/
   日期：2026-03-27
@@ -99,12 +105,6 @@
   日期：2026-03-19
   摘要：學習在 n8n 自動化工作流中使用 Code 節點！本教學帶你了解 n8n 獨特的物件陣列結構，並運用 JavaScript (或 AI 輔助) 輕鬆完成訂單總和計算，實現高效資料處理。
   主題：AI自動化、n8n
-
-- n8n 自動化教學：如何使用 Set 節點精確篩選與處理訂單資料
-  網址：https://blog.es2idea.com/posts/n8n-set-node-tutorial/
-  日期：2026-03-19
-  摘要：本教學將帶領你掌握 n8n 中的 Set 節點（Edit Fields），學習如何從繁雜的原始訂單中精確篩選出所需欄位，並自動同步至 Airtable，大幅提升資料處理效率。
-  主題：AI自動化、n8n、資料處理
 
 ## 語言
 - zh-TW
