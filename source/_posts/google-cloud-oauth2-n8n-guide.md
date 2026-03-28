@@ -29,6 +29,10 @@ Google 已經不建議用帳號密碼直接讓第三方服務寄信，因此在 
 
 這個設定一旦完成，未來你不只可以用在 Gmail，也能延伸到 Google Calendar、Google Drive、Google Sheets 等常見 Google 服務。更重要的是，當你做 AI 自動化工作流時，這組憑證就是能不能穩定落地的關鍵一步。
 
+> **實用資源連結：**
+> * [Google Cloud Platform](https://cloud.google.com/)
+> * [Google Cloud Console](https://console.cloud.google.com/)
+
 ---
 
 ## 這篇文章會完成什麼？
