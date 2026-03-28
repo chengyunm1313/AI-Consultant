@@ -308,16 +308,16 @@
           內容行銷 (13)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
-          AI繪圖 (8)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -451,6 +451,13 @@
 為什麼這篇設定很重要？在 n8n 的自動化流程中，Gmail 常常不是單獨存在，而是扮演「最後通知出口」的角色。你可能會先從 LINE、表單、Webhook 或資料庫拿到資料，再交給 AI 做整理，最後自動寄出摘要通知。這也是很多人卡關的地方：流程節點都接好了，結果 Gmail 節點始終無法授權。
 Google 已經不建議用帳號密碼直接讓第三方服務寄信，因此在 n8n 中要使用 Gmail，標準做法就是透過 Google Cloud Console 建立 OAuth2 授權，再把 Client ID 與 Client Secret 填回 n8n。
 這個設定一旦完成，未來你不只可以用在 Gmail，也能延伸到 Google Calendar、Google Drive、Google Sheets 等常見 Google 服務。更重要的是，當你做 AI 自動化工作流時，這組憑證就是能不能穩定落地的關鍵一步。
+
+實用資源連結：
+
+Google Cloud Platform
+Google Cloud Console
+
+
 
 這篇文章會完成什麼？本文會帶你完成兩件事：
 
