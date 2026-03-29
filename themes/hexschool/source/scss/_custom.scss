@@ -453,12 +453,17 @@ table code {
   }
 }
 
-.highlight pre {
+.highlight td.code pre {
   width: 100%;
   white-space: pre-wrap;
   word-break: break-word;
   overflow-x: auto;
   padding-right: 3rem; // 預留 copy button 空間
+}
+
+.highlight td.gutter pre {
+  white-space: pre;
+  word-break: normal;
 }
 
 /* --- End 表格與程式碼區塊互動樣式優化 --- */
