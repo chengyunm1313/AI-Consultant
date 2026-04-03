@@ -1,5 +1,5 @@
 ---
-title: n8n 部署完整教學：2026 Zeabur 伺服器選擇與實戰指南
+title: n8n 雲端部署：2026 Zeabur 伺服器選擇與實戰指南 | (EP.2) n8n 自動化新手教學
 cover: /images/cover89.png
 toc: true
 categories:

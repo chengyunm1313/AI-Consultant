@@ -1,5 +1,5 @@
 ---
-title: n8n 自動化實戰指南：何時該用 LLM？何時該派 AI Agent 上場？
+title: 何時該用 LLM？何時該派 AI Agent 上場？ | (EP.2) n8n 自動化 API 串接教學
 cover: /images/cover104.png
 toc: true
 categories:

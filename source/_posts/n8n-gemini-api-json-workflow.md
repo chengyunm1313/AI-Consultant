@@ -1,5 +1,5 @@
 ---
-title: n8n 串接 Gemini API 完整教學：從基礎節點到 AI Agent 結構化輸出
+title: n8n 串接 Gemini API：從基礎節點到 AI Agent 結構化輸出 | (EP.6) n8n 自動化 API 串接教學
 cover: /images/cover108.png
 toc: true
 categories:

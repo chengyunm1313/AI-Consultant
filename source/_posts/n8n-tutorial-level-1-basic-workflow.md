@@ -1,5 +1,5 @@
 ---
-title: n8n 教學：從零開始的 Level 1 官方課程與基礎工作流實戰
+title: 從零開始的 Level 1 官方課程與基礎工作流實戰 | (EP.3) n8n 自動化新手教學
 cover: /images/cover90.png
 toc: true
 categories:

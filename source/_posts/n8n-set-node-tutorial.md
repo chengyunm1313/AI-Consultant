@@ -1,5 +1,5 @@
 ---
-title: n8n 自動化教學：如何使用 Set 節點精確篩選與處理訂單資料
+title: 如何使用 Set 節點精確篩選與處理訂單資料 | (EP.7) n8n 自動化新手教學
 cover: /images/cover95.png
 toc: true
 categories:

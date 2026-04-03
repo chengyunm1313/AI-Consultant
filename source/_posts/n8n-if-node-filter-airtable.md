@@ -1,5 +1,5 @@
 ---
-title: 如何使用 If 節點條件過濾 API 資料並寫入 Airtable？
+title: 如何使用 If 節點條件過濾 API 資料並寫入 Airtable？ | (EP.6) n8n 自動化新手教學
 cover: /images/cover94.png
 toc: true
 categories:

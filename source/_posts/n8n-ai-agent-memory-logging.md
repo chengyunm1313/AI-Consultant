@@ -1,5 +1,5 @@
 ---
-title: 新手必看！如何用 n8n 打造 AI Agent 專屬記憶庫？Logging 實戰完整教學
+title: 如何用 n8n 打造 AI Agent 專屬記憶庫？Logging 實戰 | (EP.7) n8n 自動化 API 串接教學
 cover: /images/cover109.png
 toc: true
 categories:

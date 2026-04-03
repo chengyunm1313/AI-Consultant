@@ -1,5 +1,5 @@
 ---
-title: n8n 自動化新手教學：如何設定 Schedule 排程與時區校正
+title: 如何設定 Schedule 排程與時區校正 | (EP.9) n8n 自動化新手教學
 cover: /images/cover97.png
 toc: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: 什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學
+title: 什麼是 n8n？新手必看的自動化工具介紹與 AI 輔助安裝教學 | (EP.1) n8n 自動化新手教學
 cover: /images/cover88.png
 toc: true
 categories:

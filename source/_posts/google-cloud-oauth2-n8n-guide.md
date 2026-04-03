@@ -1,5 +1,5 @@
 ---
-title: 如何使用 n8n 串接 Gmail？Google OAuth2 授權設定全攻略
+title: 如何使用 n8n 串接 Gmail？Google OAuth2 授權設定全攻略 | (EP.5) n8n 自動化 API 串接教學
 cover: /images/cover107.png
 toc: true
 categories:

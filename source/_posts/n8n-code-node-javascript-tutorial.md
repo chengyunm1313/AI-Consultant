@@ -1,5 +1,5 @@
 ---
-title: n8n 自動化教學：如何使用 Code 節點實作 JavaScript 訂單加總
+title: 如何使用 Code 節點實作 JavaScript 訂單加總 | (EP.8) n8n 自動化新手教學
 cover: /images/cover96.png
 toc: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: n8n 串接 LINE 官方帳號教學：Webhook 與 API 設定全攻略
+title: n8n 串接 LINE 官方帳號：Webhook 與 API 設定全攻略 | (EP.1) n8n 自動化 API 串接教學
 cover: /images/cover101.png
 toc: true
 categories:

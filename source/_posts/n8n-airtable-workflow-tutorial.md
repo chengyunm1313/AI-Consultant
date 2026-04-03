@@ -1,5 +1,5 @@
 ---
-title: 如何使用 n8n 串接 Airtable？自動化資料匯入完整教學
+title: 如何使用 n8n 串接 Airtable？自動化資料匯入 | (EP.5) n8n 自動化新手教學
 cover: /images/cover93.png
 toc: true
 categories:

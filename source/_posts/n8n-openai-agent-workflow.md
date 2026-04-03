@@ -1,5 +1,5 @@
 ---
-title: n8n AI Agent 完整教學：結合 JSON Schema 打造會思考的自動化工作流
+title: n8n AI Agent 結合 chatgpt model 與 JSON Schema 打造會思考的自動化工作流 | (EP.4) n8n 自動化 API 串接教學
 cover: /images/cover106.png
 toc: true
 categories:

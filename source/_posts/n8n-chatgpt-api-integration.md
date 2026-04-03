@@ -1,5 +1,5 @@
 ---
-title: n8n 串接 ChatGPT API 完全指南：零程式碼打造 AI 自動化工作流
+title: n8n 串接 ChatGPT API 完全指南 | (EP.3) n8n 自動化 API 串接教學
 cover: /images/cover105.png
 toc: true
 categories:

@@ -1,5 +1,5 @@
 ---
-title: n8n 自動化實戰：如何透過 HTTP Request API 從資料倉儲取得資料
+title: 如何透過 HTTP Request API 從資料倉儲取得資料 | (EP.4) n8n 自動化新手教學
 cover: /images/cover92.png
 toc: true
 categories:
