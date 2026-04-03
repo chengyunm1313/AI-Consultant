@@ -40,7 +40,7 @@
   摘要：想用 n8n 串接 Facebook Graph API 自動發布多圖貼文？本文整理多檔上傳、POST /photos、attached_media 組裝與 FAQ，帶你把單圖流程改成穩定可用的多圖發文工作流。
   主題：AI自動化、n8n、社群行銷
 
-- n8n 串接 Facebook 自動發文教學：Meta API、Page ID、長期 Token 完整指南 | (EP.9)
+- n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學
   網址：https://blog.es2idea.com/posts/how-to-automate-facebook-posts-with-n8n/
   日期：2026-04-03
   摘要：想用 n8n 串接 Facebook 自動發文？本篇完整教學帶你完成 Meta API 串接、建立開發者應用程式、查找 Facebook Page ID、取得長期 Page Access Token，並整理 n8n 常見報錯與 FAQ。
