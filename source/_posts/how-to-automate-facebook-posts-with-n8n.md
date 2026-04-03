@@ -168,6 +168,20 @@ https://graph.facebook.com/v25.0/{{ $json.facebook_id }}/feed
 
 ---
 
+## 如果你接下來要改成 Facebook 多圖貼文
+
+這篇文章處理的是「先把 Facebook 自動發文打通」，也就是 Page ID、長期 Token、基本發文與常見權限問題。如果你已經能穩定發單圖或純文字，下一步通常就是改成多圖貼文。
+
+但這一步不是只把欄位多複製幾份而已。Facebook 多圖貼文的正確做法，會需要：
+1. 表單支援多檔上傳
+2. 每張圖各自呼叫 `POST /photos`
+3. 收集所有 `photo id`
+4. 最後用 `attached_media` 一次組回 `POST /feed`
+
+完整做法我另外拆成一篇：[使用 Facebook Graph API 自動發布多圖貼文](/posts/auto-post-multiple-images-facebook/)。如果你現在已經跑通這篇的單圖流程，建議直接接著看下一篇。
+
+---
+
 ## n8n 串接 Facebook 自動發文 FAQ
 
 以下這一段我特別整理成「真的會遇到的卡點」，如果你不是要理解原理，而是要把流程跑起來，這些問題通常最值得先看。
