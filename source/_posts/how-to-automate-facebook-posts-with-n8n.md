@@ -1,5 +1,5 @@
 ---
-title: n8n 串接 Facebook 自動發文教學：Meta API、Page ID、長期 Token 完整指南 | (EP.9)
+title: n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學
 cover: /images/cover112.png
 toc: true
 categories:
