@@ -103,6 +103,10 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: hexschool
 
+# sitemap
+sitemap:
+  path: sitemap.xml
+
 # hexo toc
 toc:
   max_depth: 5   # 生成到第幾層標題（#、##、###）
@@ -123,5 +127,4 @@ deploy:
   # example, https://github.com/hexojs/hexojs.github.io
   branch: gh-pages
   message: 'fix:SCSS更新上線'
-
 

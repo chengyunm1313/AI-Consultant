@@ -1,5 +1,10 @@
 <!DOCTYPE html>
-<html>
+<%
+const htmlLang = Array.isArray(config.language)
+  ? (config.language[0] || 'zh-TW')
+  : (config.language || 'zh-TW');
+%>
+<html lang="<%= htmlLang %>">
 <%- partial('_partial/head') %>
 <body>
   <%- partial('_partial/header') %>
