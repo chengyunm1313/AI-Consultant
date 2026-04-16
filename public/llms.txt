@@ -1,0 +1,114 @@
+# 徐享 | AI 應用規劃師
+
+> 享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。
+
+## 官方頁面
+- 網站首頁：https://blog.es2idea.com/
+- 服務頁：https://blog.es2idea.com/service/
+- 關於享哥：https://blog.es2idea.com/collection/
+- 聯絡頁：https://blog.es2idea.com/contact/
+
+## 主要服務
+- AI 應用規劃：協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。
+- n8n 自動化工作：透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。
+- 電商社群行銷：結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。
+- AI 轉型顧問諮詢：提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。
+
+## 適合對象
+- 想導入 AI 內容產製與流程自動化的中小企業
+- 想提升電商轉換、品牌行銷與內容效率的團隊
+- 需要企業內訓、顧問診斷或專案陪跑的品牌與教育單位
+
+## 聯絡方式
+- Email：seanhsu1313@gmail.com
+- LINE：https://lin.ee/epeTR8o
+
+## 專長主題
+- AI 應用規劃
+- n8n 自動化工作
+- 電商社群行銷
+- AI 轉型顧問諮詢
+- 生成式 AI 應用
+- AI 自媒體與影音策略
+- 中小企業數位轉型
+
+## 最新文章
+
+- AI 工具名詞全解析：一次搞懂 MCP、Skill 與 CLI 的差異與應用場景
+  網址：https://blog.es2idea.com/posts/ai-agent-tools-mcp-skill-cli/
+  日期：2026-04-13
+  摘要：為什麼現在一堆 MCP、Skill 和 CLI？本篇為你深度解析 AI 時代的工具分工，釐清 CLI 操作入口、AI Skill 能力封裝與 MCP 整合標準的差異，讓你不再傻傻分不清！
+  主題：AI工具、AI自動化、AI Agent
+
+- 如何使用 Spokenly 提升 4 倍寫作速度？Mac 必備 AI 語音轉文字工具教學
+  網址：https://blog.es2idea.com/posts/spokenly-mac-voice-to-text-ai/
+  日期：2026-04-12
+  摘要：想要開口就能寫作？本文完整開箱 Mac 專屬 AI 語音轉文字工具 Spokenly。教你如何搭配本地免費模型與 Google Gemini API，精準辨識語音並自動優化排版，輕鬆提升 4 倍工作效率！
+  主題：AI工具、AI自動化
+
+- AEO Fixer：如何優化網站以提升 ChatGPT 與 AI 搜尋排名
+  網址：https://blog.es2idea.com/posts/aeo-fixer-website-optimization-tool/
+  日期：2026-04-09
+  摘要：想讓你的網站在 ChatGPT 和 Perplexity 等 AI 搜尋引擎中脫穎而出嗎？本文介紹專屬檢測工具 AEO Fixer，教你如何一鍵掃描網站體質、取得 AI 修復代碼，快速完成 AEO 優化！
+  主題：AEO、AI工具、Cursor
+
+- 使用 Facebook Graph API 自動發布多圖貼文 | (EP10) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/auto-post-multiple-images-facebook/
+  日期：2026-04-04
+  摘要：想用 n8n 串接 Facebook Graph API 自動發布多圖貼文？本文整理多檔上傳、POST /photos、attached_media 組裝與 FAQ，帶你把單圖流程改成穩定可用的多圖發文工作流。
+  主題：AI自動化、n8n、社群行銷
+
+- n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/how-to-automate-facebook-posts-with-n8n/
+  日期：2026-04-03
+  摘要：想用 n8n 串接 Facebook 自動發文？本篇完整教學帶你完成 Meta API 串接、建立開發者應用程式、查找 Facebook Page ID、取得長期 Page Access Token，並整理 n8n 常見報錯與 FAQ。
+  主題：AI自動化、n8n、社群行銷
+
+- 如何使用 Claude Cowork 自動生成專業AI PPT 簡報
+  網址：https://blog.es2idea.com/posts/claude-ai-ppt-generator/
+  日期：2026-04-02
+  摘要：不想再花數小時排版簡報？本文由強哥親自示範，教你如何利用 Claude AI 結合專屬模板，只要上傳大綱，15分鐘內自動生成符合品牌風格的高質感 PPT 簡報，大幅提升工作效率！
+  主題：AI工具、AI自動化、Claude
+
+- 社群發布自動化指南：使用 n8n 與 Notion 打造零失誤半自動工作流 | (EP.8) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/social-media-automation-n8n-notion/
+  日期：2026-04-01
+  摘要：擔心 AI 自動發文引發公關危機？本篇教學帶你利用 n8n 與 Notion 建立「AI 產文 ➔ 人工審核 ➔ 一鍵發布」的半自動社群營運工作流，降低失誤、提升效率，讓內容團隊更穩定地管理多平台發佈。
+  主題：AI工具、AI自動化、內容行銷
+
+- 如何用 n8n 打造 AI Agent 專屬記憶庫？Logging 實戰 | (EP.7) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/n8n-ai-agent-memory-logging/
+  日期：2026-03-31
+  摘要：AI Agent 總是像金魚腦一樣忘記上下文？本篇教學深入解析 Logging 的重要性，帶你避開 Tool Calling 災難，並透過 n8n 與 Google Sheets 一步步建立 AI 的長期記憶庫！
+  主題：AI工具、AI自動化、n8n
+
+- n8n 串接 Gemini API：從基礎節點到 AI Agent 結構化輸出 | (EP.6) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/n8n-gemini-api-json-workflow/
+  日期：2026-03-30
+  摘要：想在 n8n 中使用強大且高 CP 值的 AI 模型？本文詳細教學如何申請 Google Gemini API 密鑰，並透過基礎節點與 AI Agent 兩種方式完美實現 JSON 結構化輸出，打造高效自動化工作流！
+  主題：AI工具、AI自動化、Gemini
+
+- 如何使用 n8n 串接 Gmail？Google OAuth2 授權設定全攻略 | (EP.5) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/google-cloud-oauth2-n8n-guide/
+  日期：2026-03-28
+  摘要：想要讓 n8n 自動發送 Gmail 郵件卻卡在授權？本文帶你一步步完成 Google Cloud 的 OAuth2 驗證設定，從開啟 API 到取得密鑰，輕鬆完成自動化工作流串接！
+  主題：AI自動化、n8n、Google
+
+- n8n AI Agent 結合 chatgpt model 與 JSON Schema 打造會思考的自動化工作流 | (EP.4) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/n8n-openai-agent-workflow/
+  日期：2026-03-27
+  摘要：想在 n8n 中導入更聰明的 AI 助理嗎？本篇教學帶你將基礎對話模型升級為強大的 AI Agent，結合 OpenAI 與 JSON Schema 結構化輸出，打造具備邏輯思考與工具調用能力的高階自動化工作流！
+  主題：AI自動化、ChatGPT、n8n
+
+- n8n 串接 ChatGPT API 完全指南 | (EP.3) n8n 自動化 API 串接教學
+  網址：https://blog.es2idea.com/posts/n8n-chatgpt-api-integration/
+  日期：2026-03-26
+  摘要：想知道如何讓 n8n 與 ChatGPT 完美結合嗎？本篇教學詳細拆解 OpenAI API 申請、n8n 節點設定與 Prompt 撰寫技巧，並附上最新官方文件連結，手把手帶你完成 AI 自動化工作流！
+  主題：AI工具、AI自動化、ChatGPT
+
+## 語言
+- zh-TW
+
+## AI 可讀說明
+- 本站聚焦 AI 應用規劃、n8n 自動化工作流、電商品牌行銷、AI 自媒體與數位轉型顧問。
+- 若要理解本站服務內容，請優先閱讀服務頁與上方最新文章。
