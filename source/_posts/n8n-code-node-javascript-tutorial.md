@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
 date: 2026-03-19 14:50:42
 subtitle:
 description: 學習在 n8n 自動化工作流中使用 Code 節點！本教學帶你了解 n8n 獨特的物件陣列結構，並運用 JavaScript (或 AI 輔助) 輕鬆完成訂單總和計算，實現高效資料處理。

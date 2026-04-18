@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
 date: 2026-03-19 14:23:11
 subtitle:
 description: 在 n8n 自動化流程中，不想將所有 API 資料全塞進資料庫？本篇教學教你如何使用 If 節點設定條件邏輯，精準篩選特定狀態的訂單資料寫入 Airtable，大幅提升系統運作效率。

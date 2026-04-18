@@ -7,7 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
-  - AI工具
+  - API串接
 description: AI Agent 總是像金魚腦一樣忘記上下文？本篇教學深入解析 Logging 的重要性，帶你避開 Tool Calling 災難，並透過 n8n 與 Google Sheets 一步步建立 AI 的長期記憶庫！
 date: 2026-03-31 02:04:51
 subtitle:

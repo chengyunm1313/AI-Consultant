@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - API串接
   - Google
 description: 想要讓 n8n 自動發送 Gmail 郵件卻卡在授權？本文帶你一步步完成 Google Cloud 的 OAuth2 驗證設定，從開啟 API 到取得密鑰，輕鬆完成自動化工作流串接！
 date: 2026-03-28 14:54:33

@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
 date: 2026-03-19 16:53:42
 subtitle:
 description: 學習如何在 n8n 中設定 Schedule Trigger 排程工作流，包含每週定時觸發設定、時區 (Timezone) 校正，以及 Publish 與便利貼註解的實用技巧，輕鬆完成自動化部署。

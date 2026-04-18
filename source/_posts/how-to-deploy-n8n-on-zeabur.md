@@ -6,8 +6,9 @@ categories:
   - AI自動化
 tags:
   - AI自動化
-  - Zeabur
   - n8n
+  - n8n新手教學
+  - Zeabur
 date: 2026-03-17 22:37:20
 subtitle:
 description: Zeabur 於 2026 年全面取消共享叢集免費方案，部署 n8n 必須自行租用伺服器。本文將為您實戰解析如何挑選高 CP 值的雲端主機（如 Hetzner、Linode），並一步步帶您在 Zeabur 完成 n8n 部署與社群版免費授權開通。

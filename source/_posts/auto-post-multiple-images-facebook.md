@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - API串接
   - 社群行銷
 description: 想用 n8n 串接 Facebook Graph API 自動發布多圖貼文？本文整理多檔上傳、POST /photos、attached_media 組裝與 FAQ，帶你把單圖流程改成穩定可用的多圖發文工作流。
 date: 2026-04-04 00:27:30

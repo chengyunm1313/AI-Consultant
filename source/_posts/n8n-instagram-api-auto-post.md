@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - API串接
   - 社群行銷
 description: 學習如何使用 n8n 串接 Instagram Graph API 與 Cloudinary，打造從圖片上傳到 IG 自動發文的完整自動化流程。詳細圖文步驟解析，解決 API 權限與憑證設定痛點！
 date: 2026-04-18 06:10:31

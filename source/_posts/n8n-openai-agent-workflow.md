@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - API串接
   - ChatGPT
 description: 想在 n8n 中導入更聰明的 AI 助理嗎？本篇教學帶你將基礎對話模型升級為強大的 AI Agent，結合 OpenAI 與 JSON Schema 結構化輸出，打造具備邏輯思考與工具調用能力的高階自動化工作流！
 date: 2026-03-27 14:53:24

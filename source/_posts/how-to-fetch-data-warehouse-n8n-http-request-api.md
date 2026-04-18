@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
 date: 2026-03-19 02:27:49
 subtitle:
 description: 真實商業場景為例，學習如何使用 n8n 打造自動化工作流。本文將帶你了解自動化報表的設計流程，並手把手教學如何設定 HTTP Request 節點，透過 API 串接舊有資料倉儲抓取銷售數據。

@@ -1,5 +1,6 @@
 ---
 title: n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學
+
 cover: /images/cover112.png
 toc: true
 categories:
@@ -7,6 +8,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - API串接
   - 社群行銷
 description: 想用 n8n 串接 Facebook 自動發文？本篇完整教學帶你完成 Meta API 串接、建立開發者應用程式、查找 Facebook Page ID、取得長期 Page Access Token，並整理 n8n 常見報錯與 FAQ。
 date: 2026-04-03 22:18:59

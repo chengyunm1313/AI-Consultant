@@ -6,8 +6,8 @@ categories:
   - AI自動化
 tags:
   - AI自動化
-  - AI工具
   - n8n
+  - n8n新手教學
 date: 2026-03-18 00:42:55
 subtitle:
 description: 想學習 n8n 自動化工作流嗎？跟著享哥一起進入 n8n Level 1 官方入門課程！本篇教學將帶你認識編輯器介面，並實戰建立第一個擷取 Hacker News 文章的自動化工作流。

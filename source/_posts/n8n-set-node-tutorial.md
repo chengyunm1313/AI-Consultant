@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
   - 資料處理
 date: 2026-03-19 14:42:45
 subtitle:

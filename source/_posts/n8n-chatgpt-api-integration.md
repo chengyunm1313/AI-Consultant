@@ -6,8 +6,9 @@ categories:
   - AI自動化
 tags:
   - AI自動化
+  - n8n
+  - API串接
   - ChatGPT
-  - AI工具
 description: 想知道如何讓 n8n 與 ChatGPT 完美結合嗎？本篇教學詳細拆解 OpenAI API 申請、n8n 節點設定與 Prompt 撰寫技巧，並附上最新官方文件連結，手把手帶你完成 AI 自動化工作流！
 date: 2026-03-26 16:57:57
 subtitle:

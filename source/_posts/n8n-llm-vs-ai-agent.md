@@ -6,8 +6,8 @@ categories:
   - AI自動化
 tags:
   - AI自動化
-  - AI工具
   - n8n
+  - API串接
 description: 在 n8n 自動化流程中，到底該用單純的 LLM 還是會使用工具的 AI Agent？本文深度解析兩者的核心差異、優缺點與適用場景，並教你打造「黃金混合生產線」，避開 Token 爆表的陷阱！
 date: 2026-03-26 00:54:50
 subtitle:

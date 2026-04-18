@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - n8n
+  - n8n新手教學
 date: 2026-03-19 14:08:45
 subtitle:
 description: 想要將 API 獲取的數據自動存入資料庫嗎？本篇教學帶你一步步使用 n8n 工作流串接 Airtable，從建立資料表、設定 API Token 到批次匯入資料，輕鬆實現無程式碼自動化資料處理！
