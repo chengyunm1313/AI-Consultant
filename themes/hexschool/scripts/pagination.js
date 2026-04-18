@@ -88,10 +88,12 @@ const paginationPartShow = (tags, options, ctx) => {
     }
 };
 function paginationHelper(options = {}) {
+    const pageBase = this.page.base || '';
+    const pageFormat = this.page.format || 'page/%d/';
     options = Object.assign({
-        base: this.page.base || '',
+        base: pageBase,
         current: this.page.current || 0,
-        format: `blog/%d/`,
+        format: `${pageBase}${pageFormat}`,
         total: this.page.total || 1,
         end_size: 1,
         mid_size: 2,
