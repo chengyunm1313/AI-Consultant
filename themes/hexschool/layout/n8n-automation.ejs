@@ -1,0 +1,272 @@
+<%
+const beginnerTagName = 'n8n新手教學';
+const apiTagName = 'API串接';
+const beginnerTag = site.tags.findOne({ name: beginnerTagName });
+const apiTag = site.tags.findOne({ name: apiTagName });
+const beginnerPosts = beginnerTag ? beginnerTag.posts.sort('date', 1).toArray() : [];
+const apiPosts = apiTag ? apiTag.posts.sort('date', 1).toArray() : [];
+const initialVisibleCount = 6;
+const loadMoreCount = 3;
+
+function formatDate(dateValue) {
+  return new Date(dateValue).toLocaleDateString('zh-TW');
+}
+
+function extractSummary(post) {
+  if (post.description) return post.description;
+  if (post.excerpt) {
+    return String(post.excerpt).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  if (post.content) {
+    return String(post.content).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140) + '...';
+  }
+  return '';
+}
+%>
+<main class="works-page">
+  <section class="works-page__hero py-7 py-md-9">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 text-center">
+          <p class="mb-3 text-uppercase tracking-wide text-primary-600 fw-semibold">n8n Automation</p>
+          <h1 class="title-deco mb-4 py-4 py-md-6 text-primary-700 tracking-wide fw-semibold"><%= page.title %></h1>
+          <p class="mx-auto mb-3 fs-5 text-primary-700 works-page__intro">
+            <%= page.description %>
+          </p>
+          <p class="mx-auto mb-0 text-primary-600 works-page__intro works-page__intro--secondary">
+            這個頁面會依文章標籤自動整理內容，未來只要補上對應 tag，就會同步出現在相應的教學區塊。
+          </p>
+        </div>
+      </div>
+      <div class="row row-gap-3 justify-content-center mt-6">
+        <div class="col-12 col-md-5 col-lg-4">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#n8n-beginner">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">入門路線</span>
+              <h2 class="h4 mb-1 text-primary-800">n8n 自動化新手教學</h2>
+              <p class="mb-0 text-primary-600">從節點觀念、資料流到基礎工作流，適合剛開始接觸 n8n 的讀者。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">arrow_forward</span>
+          </a>
+        </div>
+        <div class="col-12 col-md-5 col-lg-4">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#n8n-api">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">進階串接</span>
+              <h2 class="h4 mb-1 text-primary-800">n8n 自動化 API 串接教學</h2>
+              <p class="mb-0 text-primary-600">聚焦在實際 API 整合、第三方服務串接與商業場景落地。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">south</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="n8n-beginner" class="py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Beginner Track</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">n8n 自動化新手教學</h2>
+          <p class="mb-0 text-primary-600">
+            自動整理所有帶有 <code><%= beginnerTagName %></code> 標籤的文章，幫你從基礎概念一路建立 n8n 工作流思維。
+          </p>
+        </div>
+      </div>
+
+      <% if (beginnerPosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0" data-load-more-list data-initial-count="<%= initialVisibleCount %>" data-load-count="<%= loadMoreCount %>">
+          <% beginnerPosts.forEach(function(post, index) { %>
+            <% const summary = extractSummary(post); %>
+            <li class="col-12 col-md-6 col-xl-4 d-flex<%= index >= initialVisibleCount ? ' d-none' : '' %>" data-load-more-item>
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= post.cover %>" class="works-card__media" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback works-card__fallback--n8n d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Beginner</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">n8n automation tutorial</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= summary %></p>
+                    </div>
+                  </div>
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% post.tags.each(function(tag) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">閱讀文章</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (beginnerPosts.length > initialVisibleCount) { %>
+          <div class="text-center mt-6">
+            <button
+              class="btn btn-outline-dark px-4 works-card__action-btn"
+              type="button"
+              data-load-more-trigger
+              data-load-more-label="看更多新手教學"
+              data-load-more-complete-label="已顯示全部文章"
+            >
+              看更多新手教學
+            </button>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-journal-code"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">新手教學整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= beginnerTagName %></code>，之後就會自動出現在這個區塊。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section id="n8n-api" class="py-7 py-md-9 bg-primary-100">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">API Integration</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">n8n 自動化 API 串接教學</h2>
+          <p class="mb-0 text-primary-600">
+            自動整理所有帶有 <code><%= apiTagName %></code> 標籤的文章，集中查看第三方服務、Webhook 與 API 串接實戰。
+          </p>
+        </div>
+      </div>
+
+      <% if (apiPosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0" data-load-more-list data-initial-count="<%= initialVisibleCount %>" data-load-count="<%= loadMoreCount %>">
+          <% apiPosts.forEach(function(post, index) { %>
+            <% const summary = extractSummary(post); %>
+            <li class="col-12 col-md-6 col-xl-4 d-flex<%= index >= initialVisibleCount ? ' d-none' : '' %>" data-load-more-item>
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= post.cover %>" class="works-card__media" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback works-card__fallback--n8n d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">API</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">n8n integration guide</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= summary %></p>
+                    </div>
+                  </div>
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% post.tags.each(function(tag) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">閱讀文章</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (apiPosts.length > initialVisibleCount) { %>
+          <div class="text-center mt-6">
+            <button
+              class="btn btn-outline-dark px-4 works-card__action-btn"
+              type="button"
+              data-load-more-trigger
+              data-load-more-label="看更多 API 串接教學"
+              data-load-more-complete-label="已顯示全部文章"
+            >
+              看更多 API 串接教學
+            </button>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-diagram-3"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">API 串接教學整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= apiTagName %></code>，之後就會自動出現在這個區塊。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section class="works-page__cta py-7 py-md-9">
+    <div class="container">
+      <div class="works-page__cta-panel mx-auto">
+        <div class="row justify-content-center">
+          <div class="col-12 col-lg-9 text-center">
+            <p class="works-page__cta-kicker mb-3">Need n8n support?</p>
+            <h2 class="works-page__cta-title mb-4">如果你想把 n8n 工作流真正導入業務流程，可以直接找我討論</h2>
+            <p class="works-page__cta-text mb-5 fs-5">
+              無論你要做 API 串接、自動化導入，或是規劃一套適合團隊落地的 n8n 流程，我都可以協助你把第一版系統整理出來。
+            </p>
+            <div class="d-flex flex-wrap justify-content-center gap-3">
+              <a class="btn works-page__cta-btn works-page__cta-btn--primary" href="<%= url_for('/contact/') %>">聯絡我</a>
+              <a class="btn works-page__cta-btn works-page__cta-btn--secondary" href="<%= url_for('/service/') %>">查看服務</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-load-more-list]').forEach(function (list) {
+      const items = Array.from(list.querySelectorAll('[data-load-more-item]'));
+      const trigger = list.parentElement.querySelector('[data-load-more-trigger]');
+      const loadCount = Number(list.dataset.loadCount || 3);
+
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function () {
+        const hiddenItems = items.filter(function (item) {
+          return item.classList.contains('d-none');
+        });
+
+        hiddenItems.slice(0, loadCount).forEach(function (item) {
+          item.classList.remove('d-none');
+        });
+
+        const hasMoreItems = items.some(function (item) {
+          return item.classList.contains('d-none');
+        });
+
+        if (!hasMoreItems) {
+          trigger.textContent = trigger.dataset.loadMoreCompleteLabel || '已顯示全部文章';
+          trigger.disabled = true;
+        }
+      });
+    });
+  });
+</script>
