@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- SEO 轉型攻略：AEO 與 GEO 時代的 AI 內容優化實戰指南
+  網址：https://blog.es2idea.com/posts/ai-search-seo-geo-strategy/
+  日期：2026-04-19
+  摘要：AI 搜尋時代來臨，你的網站能被 ChatGPT 引用嗎？本文帶你搞懂 SEO、AEO 與 GEO 的核心差異，並提供實戰改寫範例、AI 提示詞與檢測工具，讓你的內容成為 AI 的權威資料來源。
+  主題：AEO、SEO、GEO
+
 - Instagram Graph API 打造 IG 自動發文系統 (結合 Cloudinary) | (EP11) n8n 自動化 API 串接教學
   網址：https://blog.es2idea.com/posts/n8n-instagram-api-auto-post/
   日期：2026-04-18
@@ -99,12 +105,6 @@
   日期：2026-03-28
   摘要：想要讓 n8n 自動發送 Gmail 郵件卻卡在授權？本文帶你一步步完成 Google Cloud 的 OAuth2 驗證設定，從開啟 API 到取得密鑰，輕鬆完成自動化工作流串接！
   主題：AI自動化、n8n、API串接、Google
-
-- n8n AI Agent 結合 chatgpt model 與 JSON Schema 打造會思考的自動化工作流 | (EP.4) n8n 自動化 API 串接教學
-  網址：https://blog.es2idea.com/posts/n8n-openai-agent-workflow/
-  日期：2026-03-27
-  摘要：想在 n8n 中導入更聰明的 AI 助理嗎？本篇教學帶你將基礎對話模型升級為強大的 AI Agent，結合 OpenAI 與 JSON Schema 結構化輸出，打造具備邏輯思考與工具調用能力的高階自動化工作流！
-  主題：AI自動化、ChatGPT、n8n、API串接
 
 ## 語言
 - zh-TW
