@@ -461,9 +461,13 @@ table code {
   padding-right: 3rem; // 預留 copy button 空間
 }
 
+.highlight td.gutter {
+  min-width: 2.5em;
+}
+
 .highlight td.gutter pre {
-  white-space: pre;
-  word-break: normal;
+  white-space: pre !important;
+  word-break: normal !important;
 }
 
 /* --- End 表格與程式碼區塊互動樣式優化 --- */
