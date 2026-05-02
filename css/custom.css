@@ -1,12 +1,12 @@
-/* Fix highlight.js line numbers wrapping for 2+ digit line numbers */
-.hljs-ln-numbers {
+/* Fix Hexo highlight.js line numbers wrapping for 2+ digit numbers */
+.highlight .gutter {
   white-space: nowrap;
-  min-width: 2em;
+  min-width: 2.5em;
   text-align: right;
-  padding-right: 0.75em;
   user-select: none;
 }
 
-.hljs-ln-n {
+.highlight .gutter pre,
+.highlight .gutter .line {
   white-space: nowrap;
 }
