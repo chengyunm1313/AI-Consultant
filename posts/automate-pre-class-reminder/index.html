@@ -1,0 +1,950 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/automate-pre-class-reminder/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！">
+<meta property="og:type" content="article">
+<meta property="og:title" content="如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學">
+<meta property="og:url" content="https://blog.es2idea.com/posts/automate-pre-class-reminder/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover121.webp">
+<meta property="article:published_time" content="2026-05-03T00:25:12.000Z">
+<meta property="article:modified_time" content="2026-05-02T16:38:43.142Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="n8n">
+<meta property="article:tag" content="自動化講師應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover121.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/logo.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Noto+Sans:wght@400;700&family=Tourney&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/es2idea-logo.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/hero-lg.webp","@id":"https://blog.es2idea.com/#organization-image","width":1154,"height":792},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/hero-lg.webp","@id":"https://blog.es2idea.com/#service-image","width":1154,"height":792},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/es2idea-logo.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#webpage","@type":"WebPage","name":"如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學","url":"https://blog.es2idea.com/posts/automate-pre-class-reminder/","description":"每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover121.webp","@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#blogposting","@type":"BlogPosting","headline":"如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學","name":"如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學","description":"每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！","url":"https://blog.es2idea.com/posts/automate-pre-class-reminder/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-05-03T00:25:12.000Z","dateModified":"2026-05-02T16:38:43.142Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover121.webp","@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#primaryimage","width":1200,"height":800},"articleSection":"AI自動化","keywords":["AI自動化","n8n","自動化講師應用"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI自動化","AI自動化","n8n","自動化講師應用"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學","item":"https://blog.es2idea.com/posts/automate-pre-class-reminder/"}]},{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Google Sheets 欄位名稱和教學不一樣，程式碼需要完整改寫嗎？","acceptedAnswer":{"@type":"Answer","text":"A：不需要。只需在 Code 節點中修改對應的欄位名稱即可。例如，若你的日期欄位叫做「課程日期」而非「上課日期」，只需將程式碼中的 row[\"上課日期\"] 替換為 row[\"課程日期\"]，其餘篩選邏輯完全不變。Google Sheets 回寫節點的 Matching Column 也需要同步修改。建議先在試算表統一欄位命名，後續維護會更輕鬆。"}},{"@type":"Question","name":"如果想改成「開課前三天」寄送提醒，如何調整？","acceptedAnswer":{"@type":"Answer","text":"A：在 Code 節點中，將日期計算的 +1 改為 +3 即可："}},{"@type":"Question","name":"測試時不小心寄出太多信怎麼辦？","acceptedAnswer":{"@type":"Answer","text":"A：在開發與測試階段，請採取以下保護措施："}},{"@type":"Question","name":"為什麼系統會重複寄信給同一位學員？","acceptedAnswer":{"@type":"Answer","text":"A：這是最常見的錯誤，通常由以下原因造成："}},{"@type":"Question","name":"我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？","acceptedAnswer":{"@type":"Answer","text":"A：完全支援，工作流的設計本身就是逐筆比對每位學員的 ClassDate，因此同一門課的不同梯次只要在 Google Sheets 中各自有一列記錄，系統就能精準對應每位學員的實際上課日期，不會混淆。若你的報名表裡有多門課程，同樣適用，篩選邏輯只關心「日期」和「狀態」，與課程名稱無關。"}},{"@type":"Question","name":"工作流使用的是 Gmail 節點，還是一般的 Email 節點？有什麼差別？","acceptedAnswer":{"@type":"Answer","text":"A：本工作流使用的是 Gmail 節點（搭配 Gmail OAuth2 授權），不是通用的 Email (SMTP) 節點。兩者的差異如下："}},{"@type":"Question","name":"如果某位學員的 Email 信箱填寫錯誤，工作流會報錯嗎？","acceptedAnswer":{"@type":"Answer","text":"A：當 Email 節點遇到無效信箱（如格式錯誤或不存在的地址），工作流預設會中斷並報錯，導致後續學員的信件也無法寄出，狀態也不會被回寫。"}},{"@type":"Question","name":"n8n 自架版（Self-hosted）和 n8n Cloud 的設定方式有差異嗎？","acceptedAnswer":{"@type":"Answer","text":"A：工作流的節點邏輯和設定方式完全相同，差異主要在環境維護層面："}}]},{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#howto","@type":"HowTo","name":"如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學","description":"每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover121.webp","@id":"https://blog.es2idea.com/posts/automate-pre-class-reminder/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"步驟一：設定排程觸發器 (Schedule Trigger)","text":"工作流的第一步是設定啟動時間。加入 Schedule Trigger 節點，建議設定為每天早上 8 點自動執行，確保學員在上課前一天有充裕時間收到提醒。"},{"@type":"HowToStep","name":"步驟二：讀取 Google Sheets 名單","text":"加入 Google Sheets 節點，選擇「Get Many Rows」操作，一次讀取「正式名單」工作表的所有資料。"},{"@type":"HowToStep","name":"步驟三：篩選需要提醒的學員 (Code 節點)","text":"這是整個工作流的核心邏輯。加入 Code 節點（節點名稱：「篩出明天有課」），貼入以下篩選程式碼："},{"@type":"HowToStep","name":"步驟四：自動發送客製化 Email 提醒信","text":"確認篩選名單後，加入 Gmail 節點（使用 Gmail OAuth2 授權）。因為前面的 Code 節點已將欄位重新命名為英文，這裡可以直接使用簡潔的變數名稱："},{"@type":"HowToStep","name":"步驟五：回寫狀態，杜絕重複發送","text":"這是整個工作流中最不能遺漏的一環。信件成功寄出後，必須回到 Google Sheets 將學員的提醒信狀態更新為 Yes。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body>
+  <header
+    class="py-md-4 border-bottom border-primary-200"
+    style="margin-bottom: 1px;"
+  >
+  <nav class="navbar navbar-expand-md py-md-1">
+    <div class="container">
+      <a class="navbar-brand py-0 me-3" style="min-width: 120px;" href="/">
+        <img src="/images/es2idea-logo.svg" alt="logo">
+      </a>
+      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
+      </button>
+      <div class="collapse navbar-collapse" id="navbarToggler">
+        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
+          
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/"
+              >
+                <span class="position-relative px-2 py-1">首頁</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/blog"
+              >
+                <span class="position-relative px-2 py-1">部落格</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/collection"
+              >
+                <span class="position-relative px-2 py-1">關於享哥</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/posts/one-video-multiple-platforms-strategy/"
+              >
+                <span class="position-relative px-2 py-1">AI 自媒體</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/n8n-automation"
+              >
+                <span class="position-relative px-2 py-1">n8n 自動化</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/works"
+              >
+                <span class="position-relative px-2 py-1">作品集</span>
+              </a>
+            </li>
+          
+            <li class="nav-item mb-4 mb-md-0 me-md-3 me-lg-3">
+              <a
+                class="nav-link "
+                href="/service"
+              >
+                <span class="position-relative px-2 py-1">服務項目</span>
+              </a>
+            </li>
+          
+            <li class="nav-item ">
+              <a
+                class="nav-link "
+                href="/contact"
+              >
+                <span class="position-relative px-2 py-1">聯絡我</span>
+              </a>
+            </li>
+          
+        </ul>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main>
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E4%BD%A0%E9%9C%80%E8%A6%81%E8%87%AA%E5%8B%95%E5%8C%96%E3%80%8C%E8%AA%B2%E5%89%8D%E6%8F%90%E9%86%92%E3%80%8D%E6%B5%81%E7%A8%8B%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">為什麼你需要自動化「課前提醒」流程？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9E%B6%E6%A7%8B%E7%B8%BD%E8%A6%BD"><span class="toc-number">2.</span> <span class="toc-text">工作流架構總覽</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Sheets-%E6%AC%84%E4%BD%8D%E8%A8%AD%E5%AE%9A%E5%BB%BA%E8%AD%B0"><span class="toc-number">3.</span> <span class="toc-text">Google Sheets 欄位設定建議</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%BF%AB%E9%80%9F%E5%AE%8C%E6%88%90%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%92%B0%E5%A2%83%E9%83%A8%E7%BD%B2%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">如何快速完成工作流環境部署？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%80%EF%BC%9A%E8%A8%AD%E5%AE%9A%E6%8E%92%E7%A8%8B%E8%A7%B8%E7%99%BC%E5%99%A8-Schedule-Trigger"><span class="toc-number">4.1.</span> <span class="toc-text">步驟一：設定排程觸發器 (Schedule Trigger)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%8C%EF%BC%9A%E8%AE%80%E5%8F%96-Google-Sheets-%E5%90%8D%E5%96%AE"><span class="toc-number">4.2.</span> <span class="toc-text">步驟二：讀取 Google Sheets 名單</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%B8%89%EF%BC%9A%E7%AF%A9%E9%81%B8%E9%9C%80%E8%A6%81%E6%8F%90%E9%86%92%E7%9A%84%E5%AD%B8%E5%93%A1-Code-%E7%AF%80%E9%BB%9E"><span class="toc-number">4.3.</span> <span class="toc-text">步驟三：篩選需要提醒的學員 (Code 節點)</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E5%9B%9B%EF%BC%9A%E8%87%AA%E5%8B%95%E7%99%BC%E9%80%81%E5%AE%A2%E8%A3%BD%E5%8C%96-Email-%E6%8F%90%E9%86%92%E4%BF%A1"><span class="toc-number">4.4.</span> <span class="toc-text">步驟四：自動發送客製化 Email 提醒信</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AD%A5%E9%A9%9F%E4%BA%94%EF%BC%9A%E5%9B%9E%E5%AF%AB%E7%8B%80%E6%85%8B%EF%BC%8C%E6%9D%9C%E7%B5%95%E9%87%8D%E8%A4%87%E7%99%BC%E9%80%81"><span class="toc-number">4.5.</span> <span class="toc-text">步驟五：回寫狀態，杜絕重複發送</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8B%E4%B8%80%E6%AD%A5%EF%BC%9A%E8%AE%93%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9B%B4%E9%80%B2%E9%9A%8E"><span class="toc-number">5.</span> <span class="toc-text">下一步：讓工作流更進階</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">6.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9AGoogle-Sheets-%E6%AC%84%E4%BD%8D%E5%90%8D%E7%A8%B1%E5%92%8C%E6%95%99%E5%AD%B8%E4%B8%8D%E4%B8%80%E6%A8%A3%EF%BC%8C%E7%A8%8B%E5%BC%8F%E7%A2%BC%E9%9C%80%E8%A6%81%E5%AE%8C%E6%95%B4%E6%94%B9%E5%AF%AB%E5%97%8E%EF%BC%9F"><span class="toc-number">6.1.</span> <span class="toc-text">Q：Google Sheets 欄位名稱和教學不一樣，程式碼需要完整改寫嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%83%B3%E6%94%B9%E6%88%90%E3%80%8C%E9%96%8B%E8%AA%B2%E5%89%8D%E4%B8%89%E5%A4%A9%E3%80%8D%E5%AF%84%E9%80%81%E6%8F%90%E9%86%92%EF%BC%8C%E5%A6%82%E4%BD%95%E8%AA%BF%E6%95%B4%EF%BC%9F"><span class="toc-number">6.2.</span> <span class="toc-text">Q：如果想改成「開課前三天」寄送提醒，如何調整？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E6%B8%AC%E8%A9%A6%E6%99%82%E4%B8%8D%E5%B0%8F%E5%BF%83%E5%AF%84%E5%87%BA%E5%A4%AA%E5%A4%9A%E4%BF%A1%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="toc-number">6.3.</span> <span class="toc-text">Q：測試時不小心寄出太多信怎麼辦？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E7%B3%BB%E7%B5%B1%E6%9C%83%E9%87%8D%E8%A4%87%E5%AF%84%E4%BF%A1%E7%B5%A6%E5%90%8C%E4%B8%80%E4%BD%8D%E5%AD%B8%E5%93%A1%EF%BC%9F"><span class="toc-number">6.4.</span> <span class="toc-text">Q：為什麼系統會重複寄信給同一位學員？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E6%88%91%E7%9A%84%E8%AA%B2%E7%A8%8B%E5%90%8C%E6%99%82%E6%9C%89%E5%A4%9A%E5%80%8B%E6%A2%AF%E6%AC%A1%EF%BC%8C%E5%90%8C%E4%B8%80%E9%96%80%E8%AA%B2%E6%9C%89%E4%B8%8D%E5%90%8C%E4%B8%8A%E8%AA%B2%E6%97%A5%E6%9C%9F%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%94%AF%E6%8F%B4%E5%97%8E%EF%BC%9F"><span class="toc-number">6.5.</span> <span class="toc-text">Q：我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E5%B7%A5%E4%BD%9C%E6%B5%81%E4%BD%BF%E7%94%A8%E7%9A%84%E6%98%AF-Gmail-%E7%AF%80%E9%BB%9E%EF%BC%8C%E9%82%84%E6%98%AF%E4%B8%80%E8%88%AC%E7%9A%84-Email-%E7%AF%80%E9%BB%9E%EF%BC%9F%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5%EF%BC%9F"><span class="toc-number">6.6.</span> <span class="toc-text">Q：工作流使用的是 Gmail 節點，還是一般的 Email 節點？有什麼差別？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9A%E5%A6%82%E6%9E%9C%E6%9F%90%E4%BD%8D%E5%AD%B8%E5%93%A1%E7%9A%84-Email-%E4%BF%A1%E7%AE%B1%E5%A1%AB%E5%AF%AB%E9%8C%AF%E8%AA%A4%EF%BC%8C%E5%B7%A5%E4%BD%9C%E6%B5%81%E6%9C%83%E5%A0%B1%E9%8C%AF%E5%97%8E%EF%BC%9F"><span class="toc-number">6.7.</span> <span class="toc-text">Q：如果某位學員的 Email 信箱填寫錯誤，工作流會報錯嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q%EF%BC%9An8n-%E8%87%AA%E6%9E%B6%E7%89%88%EF%BC%88Self-hosted%EF%BC%89%E5%92%8C-n8n-Cloud-%E7%9A%84%E8%A8%AD%E5%AE%9A%E6%96%B9%E5%BC%8F%E6%9C%89%E5%B7%AE%E7%95%B0%E5%97%8E%EF%BC%9F"><span class="toc-number">6.8.</span> <span class="toc-text">Q：n8n 自架版（Self-hosted）和 n8n Cloud 的設定方式有差異嗎？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (16)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (58)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (33)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (15)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (18)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (52)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (23)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (16)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (24)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/" rel="tag">AI自動化</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/05/03 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學</h1>
+        
+        <div class="iframe-wrapper">
+  <iframe 
+    src="https://www.youtube.com/embed/R_iv9Arslpw?si=YHABEkiH31D1GCrs" 
+    title="如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學" 
+    allow="fullscreen">
+  </iframe>
+</div>
+
+<h2 id="為什麼你需要自動化「課前提醒」流程？"><a href="#為什麼你需要自動化「課前提醒」流程？" class="headerlink" title="為什麼你需要自動化「課前提醒」流程？"></a>為什麼你需要自動化「課前提醒」流程？</h2><p>開課前一天，你還在逐一比對報名名單、複製貼上學員 Email、手動確認哪些人已寄、哪些人還沒寄嗎？</p>
+<p>這樣的手動流程不只耗費時間，更容易因疏失而遺漏學員，導致出席率下降。對於同時管理多門課程的講師來說，這更是沉重的行政負擔。</p>
+<p>透過 n8n 建立自動化工作流，系統會每天自動執行以下動作：</p>
+<ul>
+<li>讀取你的 Google Sheets 報名名單</li>
+<li>篩選出「明天上課」且「尚未收到提醒信」的學員</li>
+<li>自動寄出客製化提醒信件</li>
+<li>將發送狀態回寫至試算表，確保不重複發送</li>
+</ul>
+<p>從此，課前提醒變成零人工介入的全自動流程。</p>
+<hr>
+<h2 id="工作流架構總覽"><a href="#工作流架構總覽" class="headerlink" title="工作流架構總覽"></a>工作流架構總覽</h2><p>在開始設定前，先了解整體流程的設計邏輯，有助於你在遇到問題時快速定位：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">排程觸發 → 讀取 Google Sheets → Code 節點篩選 → 發送 Email → 回寫狀態</span><br></pre></td></tr></table></figure>
+
+<table>
+<thead>
+<tr>
+<th>節點</th>
+<th>功能</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Schedule Trigger</td>
+<td>定時啟動</td>
+<td>每天指定時間自動執行</td>
+</tr>
+<tr>
+<td>Google Sheets</td>
+<td>讀取名單</td>
+<td>取得所有報名學員資料</td>
+</tr>
+<tr>
+<td>Code</td>
+<td>條件篩選</td>
+<td>過濾出需要提醒的對象</td>
+</tr>
+<tr>
+<td>Email</td>
+<td>發送信件</td>
+<td>寄出客製化提醒信</td>
+</tr>
+<tr>
+<td>Google Sheets</td>
+<td>回寫狀態</td>
+<td>標記「已寄送」避免重複</td>
+</tr>
+</tbody></table>
+<hr>
+<h2 id="Google-Sheets-欄位設定建議"><a href="#Google-Sheets-欄位設定建議" class="headerlink" title="Google Sheets 欄位設定建議"></a>Google Sheets 欄位設定建議</h2><p>在開始建立工作流之前，請確認你的 Google Sheets「正式名單」工作表包含以下欄位：</p>
+<table>
+<thead>
+<tr>
+<th>欄位名稱</th>
+<th>說明</th>
+<th>範例值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>姓名</code></td>
+<td>學員姓名</td>
+<td>王小明</td>
+</tr>
+<tr>
+<td><code>學號</code></td>
+<td>學員學號（作為唯一識別碼）</td>
+<td>A001</td>
+</tr>
+<tr>
+<td><code>信箱</code></td>
+<td>學員 Email</td>
+<td><code>student@example.com</code></td>
+</tr>
+<tr>
+<td><code>課程名稱</code></td>
+<td>課程名稱</td>
+<td>AI自動化入門班</td>
+</tr>
+<tr>
+<td><code>上課日期</code></td>
+<td>上課日期</td>
+<td>2026&#x2F;05&#x2F;10</td>
+</tr>
+<tr>
+<td><code>上課方式</code></td>
+<td>實體 &#x2F; 線上 &#x2F; 混合等</td>
+<td>線上</td>
+</tr>
+<tr>
+<td><code>已寄確認信（Yes/No）</code></td>
+<td>是否已寄出報名確認信</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td><code>已寄提醒信（Yes/No）</code></td>
+<td>是否已寄出課前提醒信</td>
+<td>No</td>
+</tr>
+</tbody></table>
+<blockquote>
+<p><strong>重要：</strong> <code>上課日期</code> 欄位請使用 <code>YYYY/MM/DD</code> 格式（斜線分隔），Code 節點的篩選邏輯是以此格式進行比對。</p>
+</blockquote>
+<hr>
+<h2 id="如何快速完成工作流環境部署？"><a href="#如何快速完成工作流環境部署？" class="headerlink" title="如何快速完成工作流環境部署？"></a>如何快速完成工作流環境部署？</h2><p>這套自動化流程的設計邏輯非常清晰：<strong>定時觸發 ➔ 讀取名單 ➔ 條件篩選 ➔ 發送信件 ➔ 更新狀態</strong>。以下是具體的節點設定步驟：</p>
+<h3 id="步驟一：設定排程觸發器-Schedule-Trigger"><a href="#步驟一：設定排程觸發器-Schedule-Trigger" class="headerlink" title="步驟一：設定排程觸發器 (Schedule Trigger)"></a>步驟一：設定排程觸發器 (Schedule Trigger)</h3><p>工作流的第一步是設定啟動時間。加入 <strong>Schedule Trigger</strong> 節點，建議設定為<strong>每天早上 8 點</strong>自動執行，確保學員在上課前一天有充裕時間收到提醒。</p>
+<p>實際工作流中同時保留了 <strong>Manual Trigger</strong>，方便你在測試時用手動方式隨時觸發，無需等待排程時間。</p>
+<p><strong>開發測試建議：</strong></p>
+<ul>
+<li>先使用 <strong>Manual Trigger</strong>（點擊「Execute workflow」）手動測試整條流程</li>
+<li>或將 Schedule Trigger 的頻率暫時改為「每分鐘」，方便即時驗證</li>
+<li>確認整體流程無誤後，再改回每天一次的排程</li>
+</ul>
+<h3 id="步驟二：讀取-Google-Sheets-名單"><a href="#步驟二：讀取-Google-Sheets-名單" class="headerlink" title="步驟二：讀取 Google Sheets 名單"></a>步驟二：讀取 Google Sheets 名單</h3><p>加入 <strong>Google Sheets</strong> 節點，選擇「Get Many Rows」操作，一次讀取「正式名單」工作表的所有資料。</p>
+<p>設定要點：</p>
+<ul>
+<li><strong>Spreadsheet</strong>：選擇你的報名表試算表</li>
+<li><strong>Sheet</strong>：選擇「正式名單」工作表</li>
+<li>資料全部抓回後，交給後面的 Code 節點篩選——這樣最穩，不容易因試算表結構變動而出錯</li>
+</ul>
+<h3 id="步驟三：篩選需要提醒的學員-Code-節點"><a href="#步驟三：篩選需要提醒的學員-Code-節點" class="headerlink" title="步驟三：篩選需要提醒的學員 (Code 節點)"></a>步驟三：篩選需要提醒的學員 (Code 節點)</h3><p>這是整個工作流的核心邏輯。加入 <strong>Code</strong> 節點（節點名稱：「篩出明天有課」），貼入以下篩選程式碼：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br><span class="line">34</span><br><span class="line">35</span><br><span class="line">36</span><br><span class="line">37</span><br><span class="line">38</span><br><span class="line">39</span><br><span class="line">40</span><br><span class="line">41</span><br><span class="line">42</span><br><span class="line">43</span><br><span class="line">44</span><br><span class="line">45</span><br><span class="line">46</span><br><span class="line">47</span><br><span class="line">48</span><br></pre></td><td class="code"><pre><span class="line"><span class="keyword">const</span> result = [];</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tomorrow = <span class="keyword">new</span> <span class="title class_">Date</span>();</span><br><span class="line">tomorrow.<span class="title function_">setDate</span>(tomorrow.<span class="title function_">getDate</span>() + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="keyword">const</span> tYear = tomorrow.<span class="title function_">getFullYear</span>();</span><br><span class="line"><span class="keyword">const</span> tMonth = tomorrow.<span class="title function_">getMonth</span>() + <span class="number">1</span>;</span><br><span class="line"><span class="keyword">const</span> tDay = tomorrow.<span class="title function_">getDate</span>();</span><br><span class="line"></span><br><span class="line"><span class="keyword">for</span> (<span class="keyword">const</span> item <span class="keyword">of</span> items) &#123;</span><br><span class="line">  <span class="keyword">const</span> row = item.<span class="property">json</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> date = row[<span class="string">&quot;上課日期&quot;</span>];</span><br><span class="line">  <span class="keyword">const</span> confirm = row[<span class="string">&quot;已寄確認信（Yes/No）&quot;</span>];</span><br><span class="line">  <span class="keyword">const</span> reminder = row[<span class="string">&quot;已寄提醒信（Yes/No）&quot;</span>];</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (!date) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> parts = <span class="title class_">String</span>(date).<span class="title function_">trim</span>().<span class="title function_">split</span>(<span class="string">&#x27;/&#x27;</span>);</span><br><span class="line">  <span class="keyword">if</span> (parts.<span class="property">length</span> !== <span class="number">3</span>) <span class="keyword">continue</span>;</span><br><span class="line"></span><br><span class="line">  <span class="keyword">const</span> y = <span class="built_in">parseInt</span>(parts[<span class="number">0</span>], <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">const</span> m = <span class="built_in">parseInt</span>(parts[<span class="number">1</span>], <span class="number">10</span>);</span><br><span class="line">  <span class="keyword">const</span> d = <span class="built_in">parseInt</span>(parts[<span class="number">2</span>], <span class="number">10</span>);</span><br><span class="line"></span><br><span class="line">  <span class="keyword">if</span> (</span><br><span class="line">    y === tYear &amp;&amp;</span><br><span class="line">    m === tMonth &amp;&amp;</span><br><span class="line">    d === tDay &amp;&amp;</span><br><span class="line">    confirm === <span class="string">&quot;Yes&quot;</span> &amp;&amp;</span><br><span class="line">    reminder !== <span class="string">&quot;Yes&quot;</span></span><br><span class="line">  ) &#123;</span><br><span class="line">    result.<span class="title function_">push</span>(&#123;</span><br><span class="line">      <span class="attr">json</span>: &#123;</span><br><span class="line">        <span class="attr">row_number</span>: row[<span class="string">&quot;row_number&quot;</span>],</span><br><span class="line">        <span class="attr">name</span>: row[<span class="string">&quot;姓名&quot;</span>],</span><br><span class="line">        <span class="attr">student_id</span>: row[<span class="string">&quot;學號&quot;</span>],</span><br><span class="line">        <span class="attr">email</span>: row[<span class="string">&quot;信箱&quot;</span>],</span><br><span class="line">        <span class="attr">course</span>: row[<span class="string">&quot;課程名稱&quot;</span>],</span><br><span class="line">        <span class="attr">date</span>: row[<span class="string">&quot;上課日期&quot;</span>],</span><br><span class="line">        <span class="attr">type</span>: row[<span class="string">&quot;上課方式&quot;</span>],</span><br><span class="line">        <span class="attr">register_time</span>: row[<span class="string">&quot;報名時間&quot;</span>]</span><br><span class="line">      &#125;</span><br><span class="line">    &#125;);</span><br><span class="line">  &#125;</span><br><span class="line">&#125;</span><br><span class="line"></span><br><span class="line"><span class="keyword">return</span> result;</span><br></pre></td></tr></table></figure>
+
+<p><strong>程式碼說明：</strong></p>
+<ul>
+<li>明天日期拆解為年、月、日三個數字，再與試算表的 <code>YYYY/MM/DD</code> 格式逐項比對，避免字串比較因格式差異失敗</li>
+<li><strong>三重條件過濾</strong>：日期符合 <strong>且</strong> 已寄確認信 &#x3D; <code>Yes</code> <strong>且</strong> 尚未寄提醒信<ul>
+<li>「已寄確認信」的前提很重要——代表學員已完成報名流程，才需要發提醒</li>
+</ul>
+</li>
+<li>Code 節點同時將中文欄位名稱<strong>重新命名為英文</strong>（<code>name</code>、<code>email</code>、<code>student_id</code>…），讓後續的 Gmail 節點可以用更簡潔的變數名稱取值</li>
+</ul>
+<h3 id="步驟四：自動發送客製化-Email-提醒信"><a href="#步驟四：自動發送客製化-Email-提醒信" class="headerlink" title="步驟四：自動發送客製化 Email 提醒信"></a>步驟四：自動發送客製化 Email 提醒信</h3><p>確認篩選名單後，加入 <strong>Gmail</strong> 節點（使用 Gmail OAuth2 授權）。因為前面的 Code 節點已將欄位重新命名為英文，這裡可以直接使用簡潔的變數名稱：</p>
+<ul>
+<li><strong>收件人</strong>：<code>&#123;&#123; $json.email &#125;&#125;</code></li>
+<li><strong>主旨</strong>：<code>課前提醒｜&#123;&#123; $json.course &#125;&#125;</code></li>
+<li><strong>信件內文範例</strong>：</li>
+</ul>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br></pre></td><td class="code"><pre><span class="line">Hi &#123;&#123; $json.name &#125;&#125;（&#123;&#123; $json.student_id &#125;&#125;），您好：</span><br><span class="line"></span><br><span class="line">提醒您，您報名的課程即將開始。</span><br><span class="line"></span><br><span class="line">📘 課程名稱：&#123;&#123; $json.course &#125;&#125;</span><br><span class="line">📅 上課日期：&#123;&#123; $json.date &#125;&#125;</span><br><span class="line">📍 上課方式：&#123;&#123; $json.type &#125;&#125;</span><br><span class="line"></span><br><span class="line">請提前確認上課安排，謝謝！</span><br></pre></td></tr></table></figure>
+
+<blockquote>
+<p><strong>注意</strong>：Gmail 節點的「Append Attribution」建議關閉（<code>appendAttribution: false</code>），避免信件底部出現 n8n 的廣告署名，影響專業形象。</p>
+</blockquote>
+<h3 id="步驟五：回寫狀態，杜絕重複發送"><a href="#步驟五：回寫狀態，杜絕重複發送" class="headerlink" title="步驟五：回寫狀態，杜絕重複發送"></a>步驟五：回寫狀態，杜絕重複發送</h3><p>這是整個工作流中<strong>最不能遺漏的一環</strong>。信件成功寄出後，必須回到 Google Sheets 將學員的提醒信狀態更新為 <code>Yes</code>。</p>
+<p>加入第二個 <strong>Google Sheets</strong> 節點，操作選擇「Append or Update Row」：</p>
+<ul>
+<li><strong>Matching Column（比對欄位）</strong>：<code>學號</code>——以學號作為唯一識別，確保更新到正確的列</li>
+<li><strong>更新欄位</strong>：<code>已寄提醒信（Yes/No）</code> 設定為 <code>Yes</code></li>
+<li>來源資料從 Code 節點取得：<code>&#123;&#123; $('篩出明天有課').item.json.student_id &#125;&#125;</code></li>
+</ul>
+<p>使用「學號」而非「列號」做比對有一個重要優點：即使試算表的排序或列數改變，更新也不會寫入錯誤的列。</p>
+<blockquote>
+<p>若沒有這個步驟，下次排程執行時，系統會對同一批學員<strong>再次寄信</strong>，造成學員困擾與信任損失。</p>
+</blockquote>
+<hr>
+<h2 id="下一步：讓工作流更進階"><a href="#下一步：讓工作流更進階" class="headerlink" title="下一步：讓工作流更進階"></a>下一步：讓工作流更進階</h2><p>完成這套課前提醒後，你已省下每次開課前大量的手動作業時間。在下一堂進階課程中，我們將教你如何：</p>
+<ul>
+<li>在信件中動態帶入<strong>專屬課程連結</strong>與 <strong>Google Meet 視訊網址</strong></li>
+<li>加入<strong>課前注意事項附件</strong>，打造更專業的學員體驗</li>
+<li>建立多課程並行管理的工作流架構，適用於同時開設多門課的講師</li>
+</ul>
+<hr>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q：Google-Sheets-欄位名稱和教學不一樣，程式碼需要完整改寫嗎？"><a href="#Q：Google-Sheets-欄位名稱和教學不一樣，程式碼需要完整改寫嗎？" class="headerlink" title="Q：Google Sheets 欄位名稱和教學不一樣，程式碼需要完整改寫嗎？"></a>Q：Google Sheets 欄位名稱和教學不一樣，程式碼需要完整改寫嗎？</h3><p>A：不需要。只需在 Code 節點中修改對應的欄位名稱即可。例如，若你的日期欄位叫做「課程日期」而非「上課日期」，只需將程式碼中的 <code>row[&quot;上課日期&quot;]</code> 替換為 <code>row[&quot;課程日期&quot;]</code>，其餘篩選邏輯完全不變。Google Sheets 回寫節點的 Matching Column 也需要同步修改。建議先在試算表統一欄位命名，後續維護會更輕鬆。</p>
+<hr>
+<h3 id="Q：如果想改成「開課前三天」寄送提醒，如何調整？"><a href="#Q：如果想改成「開課前三天」寄送提醒，如何調整？" class="headerlink" title="Q：如果想改成「開課前三天」寄送提醒，如何調整？"></a>Q：如果想改成「開課前三天」寄送提醒，如何調整？</h3><p>A：在 Code 節點中，將日期計算的 <code>+1</code> 改為 <code>+3</code> 即可：</p>
+<figure class="highlight javascript"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="comment">// 修改前（明天）</span></span><br><span class="line">tomorrow.<span class="title function_">setDate</span>(tomorrow.<span class="title function_">getDate</span>() + <span class="number">1</span>);</span><br><span class="line"></span><br><span class="line"><span class="comment">// 修改後（三天後）</span></span><br><span class="line">tomorrow.<span class="title function_">setDate</span>(tomorrow.<span class="title function_">getDate</span>() + <span class="number">3</span>);</span><br></pre></td></tr></table></figure>
+
+<p>其餘的 Gmail 節點與回寫邏輯完全不需要變動。若你想同時在「三天前」和「一天前」各發一次提醒，建議分別建立兩條獨立的工作流，各自有各自的回寫欄位（如「已寄三日提醒信」和「已寄前日提醒信」），這樣狀態管理最清晰，不容易互相干擾。</p>
+<hr>
+<h3 id="Q：測試時不小心寄出太多信怎麼辦？"><a href="#Q：測試時不小心寄出太多信怎麼辦？" class="headerlink" title="Q：測試時不小心寄出太多信怎麼辦？"></a>Q：測試時不小心寄出太多信怎麼辦？</h3><p>A：在開發與測試階段，請採取以下保護措施：</p>
+<ol>
+<li><strong>修改收件人</strong>：在 Email 節點暫時將收件人從 <code>&#123;&#123; $json.Email &#125;&#125;</code> 改為你自己的測試信箱</li>
+<li><strong>停用 Email 節點</strong>：在工作流中右鍵點擊 Email 節點，選擇「Disable」，僅觀察資料流輸出的 JSON 內容</li>
+<li><strong>限制資料筆數</strong>：在 Google Sheets 節點設定「Limit」，一次只讀取 1~2 筆資料進行測試</li>
+</ol>
+<p>確認篩選條件與回寫狀態（Yes&#x2F;No）都正確後，再關閉所有限制、改回真實收件人。</p>
+<hr>
+<h3 id="Q：為什麼系統會重複寄信給同一位學員？"><a href="#Q：為什麼系統會重複寄信給同一位學員？" class="headerlink" title="Q：為什麼系統會重複寄信給同一位學員？"></a>Q：為什麼系統會重複寄信給同一位學員？</h3><p>A：這是最常見的錯誤，通常由以下原因造成：</p>
+<ol>
+<li><strong>步驟五的回寫節點未正確執行</strong>：請確認工作流最後有成功更新「已寄提醒信（Yes&#x2F;No）」欄位。執行後手動打開試算表，確認欄位值是否已改為 <code>Yes</code>。</li>
+<li><strong>欄位名稱不完全一致</strong>：Code 節點中的 <code>row[&quot;已寄提醒信（Yes/No）&quot;]</code> 必須與 Google Sheets 的欄位標題<strong>逐字相同</strong>，包含括號與標點符號，差一個字就會讀到 <code>undefined</code>，導致條件永遠成立。</li>
+<li><strong>Matching Column 設定錯誤</strong>：回寫節點若 Matching Column 設定不正確，更新可能寫入到錯誤的列，讓原始列的狀態維持 <code>No</code>。</li>
+</ol>
+<p><strong>除錯建議</strong>：在 Code 節點篩選結果中，暫時加入 <code>console.log(JSON.stringify(row))</code> 印出每筆資料的完整欄位名稱，就能快速確認試算表傳回的欄位名稱是否與程式碼一致。</p>
+<hr>
+<h3 id="Q：我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？"><a href="#Q：我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？" class="headerlink" title="Q：我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？"></a>Q：我的課程同時有多個梯次，同一門課有不同上課日期，工作流支援嗎？</h3><p>A：完全支援，工作流的設計本身就是逐筆比對每位學員的 <code>ClassDate</code>，因此同一門課的不同梯次只要在 Google Sheets 中各自有一列記錄，系統就能精準對應每位學員的實際上課日期，不會混淆。若你的報名表裡有多門課程，同樣適用，篩選邏輯只關心「日期」和「狀態」，與課程名稱無關。</p>
+<hr>
+<h3 id="Q：工作流使用的是-Gmail-節點，還是一般的-Email-節點？有什麼差別？"><a href="#Q：工作流使用的是-Gmail-節點，還是一般的-Email-節點？有什麼差別？" class="headerlink" title="Q：工作流使用的是 Gmail 節點，還是一般的 Email 節點？有什麼差別？"></a>Q：工作流使用的是 Gmail 節點，還是一般的 Email 節點？有什麼差別？</h3><p>A：本工作流使用的是 <strong>Gmail 節點</strong>（搭配 Gmail OAuth2 授權），不是通用的 Email (SMTP) 節點。兩者的差異如下：</p>
+<table>
+<thead>
+<tr>
+<th>節點</th>
+<th>授權方式</th>
+<th>適合情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><strong>Gmail</strong></td>
+<td>Google OAuth 授權</td>
+<td>使用 Gmail 帳號發信，設定簡單、顯示名稱友善</td>
+</tr>
+<tr>
+<td><strong>Email (SMTP)</strong></td>
+<td>填入 SMTP 伺服器設定</td>
+<td>使用自訂網域信箱（如 <code>info@yourschool.com</code>）</td>
+</tr>
+</tbody></table>
+<p>若你已有 Google Workspace 帳號，<strong>Gmail 節點</strong>是最快速的選擇——完成 OAuth 授權後即可使用，無需額外的 SMTP 設定。若你希望以機構網域信箱發信，則改用 SMTP 節點，品牌形象更專業，但需要向你的郵件服務商取得 SMTP 憑證。</p>
+<hr>
+<h3 id="Q：如果某位學員的-Email-信箱填寫錯誤，工作流會報錯嗎？"><a href="#Q：如果某位學員的-Email-信箱填寫錯誤，工作流會報錯嗎？" class="headerlink" title="Q：如果某位學員的 Email 信箱填寫錯誤，工作流會報錯嗎？"></a>Q：如果某位學員的 Email 信箱填寫錯誤，工作流會報錯嗎？</h3><p>A：當 Email 節點遇到無效信箱（如格式錯誤或不存在的地址），工作流預設會<strong>中斷並報錯</strong>，導致後續學員的信件也無法寄出，狀態也不會被回寫。</p>
+<p><strong>建議解法</strong>：在 Email 節點的「Settings」中開啟「Continue On Fail」選項，讓工作流在遇到單一錯誤時跳過該筆資料，繼續處理下一位學員。同時，可以在後方加入一個通知節點（如 Line Notify 或 Slack），在寄信失敗時主動告警，讓你能即時追蹤並手動補寄。</p>
+<hr>
+<h3 id="Q：n8n-自架版（Self-hosted）和-n8n-Cloud-的設定方式有差異嗎？"><a href="#Q：n8n-自架版（Self-hosted）和-n8n-Cloud-的設定方式有差異嗎？" class="headerlink" title="Q：n8n 自架版（Self-hosted）和 n8n Cloud 的設定方式有差異嗎？"></a>Q：n8n 自架版（Self-hosted）和 n8n Cloud 的設定方式有差異嗎？</h3><p>A：工作流的節點邏輯和設定方式<strong>完全相同</strong>，差異主要在環境維護層面：</p>
+<ul>
+<li><strong>n8n Cloud</strong>：免維護、開箱即用，適合個人講師或小型工作室，但有使用量限制與月費</li>
+<li><strong>Self-hosted</strong>：需自行部署伺服器（如 Railway、Render 或 VPS），免費且可無限使用，但需負責更新與備份</li>
+</ul>
+<p>若你是第一次建立自動化工作流，建議先從 <strong>n8n Cloud 的免費方案</strong>開始體驗，熟悉流程後再考慮自架。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover120.webp" class="img-fluid card-img-top rounded-3" alt="打造 Google 表單與 Gmail 自動回信報名系統 | (EP.1) n8n 自動化講師應用教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">打造 Google 表單與 Gmail 自動回信報名系統 | (EP.1) n8n 自動化講師應用教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">自動化講師應用</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/05/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-event-registration-automation/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover119.webp" class="img-fluid card-img-top rounded-3" alt="n8n 專案前端架構指南：需要用 PWA 嗎？何時該選擇 Next.js 或 Vite？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n 專案前端架構指南：需要用 PWA 嗎？何時該選擇 Next.js 或 Vite？</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">前端架構</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">PWA</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-frontend-pwa-nextjs-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover117.webp" class="img-fluid card-img-top rounded-3" alt="Instagram Graph API 打造 IG 自動發文系統 (結合 Cloudinary) | (EP11) n8n 自動化 API 串接教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Instagram Graph API 打造 IG 自動發文系統 (結合 Cloudinary) | (EP11) n8n 自動化 API 串接教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">API串接</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">社群行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/n8n-instagram-api-auto-post/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover116.webp" class="img-fluid card-img-top rounded-3" alt="AI 工具名詞全解析：一次搞懂 MCP、Skill 與 CLI 的差異與應用場景">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 工具名詞全解析：一次搞懂 MCP、Skill 與 CLI 的差異與應用場景</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/13</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-agent-tools-mcp-skill-cli/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover115.webp" class="img-fluid card-img-top rounded-3" alt="如何使用 Spokenly 提升 4 倍寫作速度？Mac 必備 AI 語音轉文字工具教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">如何使用 Spokenly 提升 4 倍寫作速度？Mac 必備 AI 語音轉文字工具教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/12</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/spokenly-mac-voice-to-text-ai/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover113.webp" class="img-fluid card-img-top rounded-3" alt="使用 Facebook Graph API 自動發布多圖貼文 | (EP10) n8n 自動化 API 串接教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">使用 Facebook Graph API 自動發布多圖貼文 | (EP10) n8n 自動化 API 串接教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">API串接</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">社群行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/04</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/auto-post-multiple-images-facebook/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover112.webp" class="img-fluid card-img-top rounded-3" alt="n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">n8n 串接 Facebook 自動發文：從 Meta API 到取得長期 Token 完全指南 | (EP.9) n8n 自動化 API 串接教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">API串接</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">社群行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/03</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/how-to-automate-facebook-posts-with-n8n/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover111.webp" class="img-fluid card-img-top rounded-3" alt="如何使用 Claude Cowork 自動生成專業AI PPT 簡報">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">如何使用 Claude Cowork 自動生成專業AI PPT 簡報</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Claude</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/claude-ai-ppt-generator/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover110.webp" class="img-fluid card-img-top rounded-3" alt="社群發布自動化指南：使用 n8n 與 Notion 打造零失誤半自動工作流 | (EP.8) n8n 自動化 API 串接教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">社群發布自動化指南：使用 n8n 與 Notion 打造零失誤半自動工作流 | (EP.8) n8n 自動化 API 串接教學</h5>
+                <div class="d-flex justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">API串接</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">社群行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/04/01</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/social-media-automation-n8n-notion/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+  
+<footer
+    class="py-7"
+    style="background-image: url('/images/footer-bg-lg.webp');
+      background-repeat: no-repeat;
+      background-size: cover;"
+  >
+  <div class="container">
+    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
+      <div class="col-12 col-md-4 col-lg-3">
+        <img
+          class="mb-4"
+          style="width: 120px;"
+          src="/images/es2idea-logo.svg" alt="logo"
+        >
+        <p class="mb-4 fs-5 text-primary-700">歡迎邀約合作，或直接與我聯絡！</p>
+        <address class="mb-0 fs-5 lh-lg text-primary-700">
+          <strong>徐享 | AI 應用規劃師</strong><br>
+          Email：<a class="link-primary-500 text-decoration-none" href="mailto:seanhsu1313@gmail.com">seanhsu1313@gmail.com</a><br>
+          地址：新北市中和捷運站步行五分鐘
+        </address>
+      </div>
+      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
+        <!-- <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="mailto:seanhsu1313@gmail.com">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          填寫表單
+        </a> -->
+        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" target="_blank" rel="noopener" href="https://lin.ee/epeTR8o">
+          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
+            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
+          </svg>
+          LINE邀約合作
+        </a>
+        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
+          AI享哥哥
+        </a>
+        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" target="_blank" rel="noopener" href="https://www.facebook.com/HsiangPMKT?locale=zh_TW">
+          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
+          享哥玩行銷
+        </a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+</body>
+</html>
