@@ -1,10 +1,13 @@
 <%
 const beginnerTagName = 'n8n新手教學';
 const apiTagName = 'API串接';
+const instructorTagName = '自動化講師應用';
 const beginnerTag = site.tags.findOne({ name: beginnerTagName });
 const apiTag = site.tags.findOne({ name: apiTagName });
+const instructorTag = site.tags.findOne({ name: instructorTagName });
 const beginnerPosts = beginnerTag ? beginnerTag.posts.sort('date', 1).toArray() : [];
 const apiPosts = apiTag ? apiTag.posts.sort('date', 1).toArray() : [];
+const instructorPosts = instructorTag ? instructorTag.posts.sort('date', 1).toArray() : [];
 const initialVisibleCount = 6;
 const loadMoreCount = 3;
 
@@ -55,6 +58,16 @@ function extractSummary(post) {
               <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">進階串接</span>
               <h2 class="h4 mb-1 text-primary-800">n8n 自動化 API 串接教學</h2>
               <p class="mb-0 text-primary-600">聚焦在實際 API 整合、第三方服務串接與商業場景落地。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">south</span>
+          </a>
+        </div>
+        <div class="col-12 col-md-5 col-lg-4">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#n8n-instructor">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">講師應用</span>
+              <h2 class="h4 mb-1 text-primary-800">自動化講師應用教學</h2>
+              <p class="mb-0 text-primary-600">針對課程主辦、報名管理與講師行政場景打造的自動化實戰案例。</p>
             </div>
             <span class="material-symbols-outlined text-primary-700">south</span>
           </a>
@@ -214,6 +227,84 @@ function extractSummary(post) {
           <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
           <h3 class="mb-3 text-primary-800">API 串接教學整理中</h3>
           <p class="mb-0 text-primary-600">只要文章加上 <code><%= apiTagName %></code>，之後就會自動出現在這個區塊。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section id="n8n-instructor" class="py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Instructor Applications</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">n8n 自動化講師應用教學</h2>
+          <p class="mb-0 text-primary-600">
+            自動整理所有帶有 <code><%= instructorTagName %></code> 標籤的文章，涵蓋報名回信、名單管理與課前通知等講師常見場景。
+          </p>
+        </div>
+      </div>
+
+      <% if (instructorPosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0" data-load-more-list data-initial-count="<%= initialVisibleCount %>" data-load-count="<%= loadMoreCount %>">
+          <% instructorPosts.forEach(function(post, index) { %>
+            <% const summary = extractSummary(post); %>
+            <li class="col-12 col-md-6 col-xl-4 d-flex<%= index >= initialVisibleCount ? ' d-none' : '' %>" data-load-more-item>
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= post.cover %>" class="works-card__media" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback works-card__fallback--n8n d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Instructor</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">n8n instructor automation</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= summary %></p>
+                    </div>
+                  </div>
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% post.tags.each(function(tag) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">閱讀文章</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (instructorPosts.length > initialVisibleCount) { %>
+          <div class="text-center mt-6">
+            <button
+              class="btn btn-outline-dark px-4 works-card__action-btn"
+              type="button"
+              data-load-more-trigger
+              data-load-more-label="看更多講師應用教學"
+              data-load-more-complete-label="已顯示全部文章"
+            >
+              看更多講師應用教學
+            </button>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-person-video3"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">講師應用教學整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= instructorTagName %></code>，之後就會自動出現在這個區塊。</p>
         </div>
       <% } %>
     </div>
