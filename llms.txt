@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 如何建立自動化課程提醒系統？串接 Google Sheets 與自動寄信流程教學 | (EP.3) n8n 自動化講師應用教學
+  網址：https://blog.es2idea.com/posts/automated-course-reminder-workflow/
+  日期：2026-05-03
+  摘要：想升級你的課程提醒系統嗎？本教學帶你了解如何透過 n8n 串接 Google Sheets 與 Gmail，實現跨工作表資料合併、自動篩選提醒對象、動態帶入教材連結與 Google Meet，並寫回狀態防止重複寄信，大幅提升行政效率！
+  主題：AI自動化、n8n、自動化講師應用
+
 - 如何打造全自動「課前提醒」工作流？告別手動寄信的自動化教學 | (EP.2) n8n 自動化講師應用教學
   網址：https://blog.es2idea.com/posts/automate-pre-class-reminder/
   日期：2026-05-03
@@ -99,12 +105,6 @@
   日期：2026-04-02
   摘要：不想再花數小時排版簡報？本文由強哥親自示範，教你如何利用 Claude AI 結合專屬模板，只要上傳大綱，15分鐘內自動生成符合品牌風格的高質感 PPT 簡報，大幅提升工作效率！
   主題：AI工具、AI自動化、Claude
-
-- 社群發布自動化指南：使用 n8n 與 Notion 打造零失誤半自動工作流 | (EP.8) n8n 自動化 API 串接教學
-  網址：https://blog.es2idea.com/posts/social-media-automation-n8n-notion/
-  日期：2026-04-01
-  摘要：擔心 AI 自動發文引發公關危機？本篇教學帶你利用 n8n 與 Notion 建立「AI 產文 ➔ 人工審核 ➔ 一鍵發布」的半自動社群營運工作流，降低失誤、提升效率，讓內容團隊更穩定地管理多平台發佈。
-  主題：AI自動化、n8n、API串接、社群行銷
 
 ## 語言
 - zh-TW
