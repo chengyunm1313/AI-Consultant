@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 打造 Google 表單與 Gmail 自動回信報名系統 | (EP.1) n8n 自動化講師應用教學
+  網址：https://blog.es2idea.com/posts/n8n-event-registration-automation/
+  日期：2026-05-02
+  摘要：舉辦活動總是被繁瑣的報名與整理流程困擾嗎？本文實戰示範如何使用 n8n 結合 Google 表單、試算表與 Gmail，打造零人工介入的自動化報名回信系統，大幅提升工作效率！
+  主題：AI自動化、n8n、自動化講師應用
+
 - n8n 專案前端架構指南：需要用 PWA 嗎？何時該選擇 Next.js 或 Vite？
   網址：https://blog.es2idea.com/posts/n8n-frontend-pwa-nextjs-guide/
   日期：2026-04-30
@@ -99,12 +105,6 @@
   日期：2026-03-31
   摘要：AI Agent 總是像金魚腦一樣忘記上下文？本篇教學深入解析 Logging 的重要性，帶你避開 Tool Calling 災難，並透過 n8n 與 Google Sheets 一步步建立 AI 的長期記憶庫！
   主題：AI自動化、n8n、API串接
-
-- n8n 串接 Gemini API：從基礎節點到 AI Agent 結構化輸出 | (EP.6) n8n 自動化 API 串接教學
-  網址：https://blog.es2idea.com/posts/n8n-gemini-api-json-workflow/
-  日期：2026-03-30
-  摘要：想在 n8n 中使用強大且高 CP 值的 AI 模型？本文詳細教學如何申請 Google Gemini API 密鑰，並透過基礎節點與 AI Agent 兩種方式完美實現 JSON 結構化輸出，打造高效自動化工作流！
-  主題：AI自動化、Gemini、n8n、API串接
 
 ## 語言
 - zh-TW
