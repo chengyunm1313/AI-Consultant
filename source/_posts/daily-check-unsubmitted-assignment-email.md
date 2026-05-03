@@ -1,5 +1,5 @@
 ---
-title: 如何建立自動化工作流：每日定時檢查未交作業並發送提醒信 | (EP.5) n8n 自動化講師應用教學
+title: 每日定時檢查未交作業並發送提醒信 | (EP.5) n8n 自動化講師應用教學
 cover: /images/cover124.png
 toc: true
 categories:
