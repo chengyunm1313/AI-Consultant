@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 如何打造 Google 表單作業繳交與自動寄信催繳系統？ | (EP.4) n8n 自動化講師應用教學
+  網址：https://blog.es2idea.com/posts/n8n-track-late-assignments/
+  日期：2026-05-04
+  摘要：每天都在手動核對名單？學習如何運用 n8n 結合 Google 表單與試算表，打造全自動化的作業繳交追蹤系統，從精準判定遲交時間到自動寄信催繳，大幅解放你的行政生產力！
+  主題：AI自動化、n8n、自動化講師應用
+
 - 如何建立自動化課程提醒系統？串接 Google Sheets 與自動寄信流程教學 | (EP.3) n8n 自動化講師應用教學
   網址：https://blog.es2idea.com/posts/automated-course-reminder-workflow/
   日期：2026-05-03
@@ -99,12 +105,6 @@
   日期：2026-04-03
   摘要：想用 n8n 串接 Facebook 自動發文？本篇完整教學帶你完成 Meta API 串接、建立開發者應用程式、查找 Facebook Page ID、取得長期 Page Access Token，並整理 n8n 常見報錯與 FAQ。
   主題：AI自動化、n8n、API串接、社群行銷
-
-- 如何使用 Claude Cowork 自動生成專業AI PPT 簡報
-  網址：https://blog.es2idea.com/posts/claude-ai-ppt-generator/
-  日期：2026-04-02
-  摘要：不想再花數小時排版簡報？本文由強哥親自示範，教你如何利用 Claude AI 結合專屬模板，只要上傳大綱，15分鐘內自動生成符合品牌風格的高質感 PPT 簡報，大幅提升工作效率！
-  主題：AI工具、AI自動化、Claude
 
 ## 語言
 - zh-TW
