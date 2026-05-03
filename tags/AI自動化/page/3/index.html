@@ -219,7 +219,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (35)
+            AI自動化 (36)
           </a>
         </li>
       
@@ -293,7 +293,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-          AI自動化 (54)
+          AI自動化 (55)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
@@ -349,7 +349,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (4)
+          自動化講師應用 (5)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
@@ -374,6 +374,10 @@
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
           Claude (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
@@ -424,12 +428,12 @@
           職場溝通 (2)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
-          LINE (1)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
           Cloudflare (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
         </a>
       
     </div>
@@ -439,6 +443,115 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+<li
+  id="post-google-stitch-mcp-tutorial"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover102.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        alt="article-Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/3/24
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI自動化
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              Vibe Coding
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI
+        </h5>
+        <div class="cutoff-text mb-0 text-primary-700">
+          
+  
+  
+
+
+Google 近期推出的 Stitch 在開發者社群中引起了廣大迴響，其強大的 UI 生成能力令人驚豔。透過結合 MCP (Model Context Protocol) 協定，我們可以讓 AI Agent 自動化處理繁瑣的前端切版工作。
+本文將以一個「美甲美容預約系統」的 Next.js 網站為例，帶你一步步拆解如何從零開始，利用 Google Stitch MCP 快速產出具備高質感的網頁 UI。
+先收藏 3 個官方入口如果你想快速上手，建議先把下面 3 個官方資源打開，後續安裝與操作時會用得到：
+
+Stitch 官網：先了解 Stitch 的整體能力，包含從提示詞生成 UI、調整版型與匯出成果的核心流程。
+Stitch MCP 官方安裝文件：用來設定 MCP Server、完成 API Key 綁定，這是讓 AI Agent 真正能呼叫 Stitch 的關鍵步驟。
+stitch-skills GitHub 倉庫：Google Labs 提供的 Agent Skills 集合，能讓 Cursor、Claude Code、Gemini CLI 等工具更有效率地配合 Stitch 工作。
+
+如何快速完成 Stitch MCP 環境部署？要讓 AI 能夠直接呼叫 Stitch 的生成能力，我們需要先完成 MCP 伺服器的安裝與 API 金鑰設定。
+
+安裝 Stitch MCP 伺服器在您的 AI 代理開發環境（例如 Cursor、Antigravity 等支援 MCP 的工具）中，開啟 MCP Servers 管理介面，搜尋 stitch 並點擊安裝 (Install)。這一步將會自動化載入所需的環境設定。若想對照完整流程，可以直接參考 Stitch MCP 官方安裝文件。
+獲取 API 金鑰 (API Key)安裝過程中，系統會引導您前往 Stitch 的官方網頁設定。請在設定頁面中點擊「建立金鑰」，生成專屬的 API 金鑰，並將其貼回您的 MCP 設定中妥善儲存以完成身分驗證。
+
+擴充 AI 開發火力：安裝 Stitch Skills光有基礎 MCP 還不夠，為了讓 AI 具備更專業的前端工程師思維，我們需要導入 stitch-skills。
+這是一個專為 Stitch MCP 伺服器設計的 Agent 技能函式庫，相容於 Gemini CLI、Claude Code 與 Cursor。透過安裝 GitHub 上的 stitch-skills 擴充套件，AI 就能夠遵循更嚴謹的開發標準進行作業，大幅減少生成過程中的邏輯錯誤。
+根據該 GitHub 倉庫說明，stitch-skills 內建多種實用能力，例如：
+
+stitch-design：負責 Stitch 設計工作流的統一入口。
+stitch-loop：可從單一提示詞延伸成完整多頁網站流程。
+design-md：協助整理設計系統與 DESIGN.md 文件。
+react:components：將 Stitch 畫面轉成 React 元件系統，並維持設計 Token 一致性。
+
+如果你平常就是用 AI 編輯器協作開發，這一層 skills 幾乎就是把 Stitch 從「會生成畫面」升級成「更懂前端交付流程」。
+實戰演練：從需求規劃到自動生成 Next.js 網站環境建置完畢後，我們就可以開始向 AI 下達開發指令 (Prompt)。以下為本次美甲預約網站的標準化生成流程：
+1. 啟動 SDD (軟體設計文件) 開發流程不要讓 AI 直接寫程式碼，而是要求它先執行 SDD (Software Design Document) 流程。AI 會依序產出結構化的規格文件（Spec）、開發計畫（Plan）與任務清單（Task）。這能確保 AI 清楚理解版面規劃，包含：導覽列 (Navbar)、Hero 區塊、服務項目、作品集與顧客評價等區塊。
+1我想做一個美容美甲的預約系統，使用next.j做，先做首頁就好 ，執行 SDD 開發流程，依序產出結構化的 spec、plan 與 task 等規劃文件
+
+2. 制定設計規範 (Design Tokens)在產出程式碼前，AI 會依據主題（如：柔和女性化、優雅高質感）自動建立設計系統。例如設定主色為「玫瑰粉 (#D4A5A5)」、背景色為「奶油米」，並指定字型（Playfair Display 與 Inter）。這些 Tokens 將成為後續 UI 生成的核心基準。
+3. 呼叫 create_project 執行 UI 生成當規劃完成後，AI 會調用 Stitch MCP 的 create_project 方法。系統會自動下載所需套件（如 Tailwind CSS）、處理字型與圖標，並開始生成首頁的設計稿與原始碼。
+完美還原設計稿：如何解決排版誤差？在初步生成後，您可能會發現瀏覽器渲染的畫面（localhost:3000）與 Stitch 原始設計稿有些微出入。這時不需要手動調整 CSS，只需遵循以下步驟：
+
+反饋錯誤訊息： 將終端機或畫面上的報錯資訊直接貼給 AI 進行初步修復。
+要求零誤差校正： 明確指示 AI：「網頁呈現與 Stitch 原始設計稿不太一樣，請幫我確認並修正」。
+自動重構： AI 會重新比對 Tailwind tailwind.config.ts 中的顏色設定、全域 CSS 屬性與各個 Component（如 Navbar、Hero Section）的 HTML 結構，確保最終輸出的 Next.js 程式碼與設計稿達到 100% 零誤差轉換。
+
+
+開發者反思： 當 AI 已經能包辦 UI 介面設計與繁瑣的切版工作時，未來的軟體工程師應將重心轉移至「架構設計」、「需求分析」與「商業邏輯整合」，這才是人類開發者無可取代的價值。
+
+
+常見問答 (FAQ)Q：Google Stitch 的使用額度限制是什麼？A：目前系統每日提供 400 個額度 (Credits)。根據實測，透過 AI 完整生成一個包含豐富區塊（Hero、作品集、評價等）的高質感首頁，大約就會消耗掉 4 個額度。
+Q：Stitch MCP 支援哪些 AI 開發工具？A：只要是支援 MCP (Model Context Protocol) 協定的開發工具皆可使用，主流工具包含 Cursor、Gemini CLI、Claude Code 以及 Antigravity 等。
+Q：AI 生成的網頁設計如果不滿意可以修改嗎？A：可以的。您可以透過對話框下達新的提示詞 (Prompt)，例如「請將按鈕顏色改為深色」或「調整作品集區塊的排版」，AI 會自動調用相關程式碼進行局部更新。
+
+相關連結
+Stitch 官網
+Stitch MCP 官方安裝文件
+stitch-skills GitHub 倉庫
+
+
+        </p>
+        <a class="stretched-link" href="/posts/google-stitch-mcp-tutorial/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -1463,169 +1576,6 @@ Q：為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtabl
 
         </p>
         <a class="stretched-link" href="/posts/n8n-airtable-workflow-tutorial/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-<li
-  id="post-how-to-fetch-data-warehouse-n8n-http-request-api"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover92.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        alt="article-如何透過 HTTP Request API 從資料倉儲取得資料 | (EP.4) n8n 自動化新手教學"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/3/19
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              n8n
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              n8n新手教學
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          如何透過 HTTP Request API 從資料倉儲取得資料 | (EP.4) n8n 自動化新手教學
-        </h5>
-        <div class="cutoff-text mb-0 text-primary-700">
-          
-  
-  
-
-
-真實世界場景：Nathan 的報表自動化挑戰在日常工作中，許多重複且令人麻木的任務往往佔據了我們大量的時間。讓我們透過一個真實的商業場景，來了解如何運用自動化工具解決這些痛點。
-認識一下 Nathan，他是 ABCorp 的擔任分析經理。他的主要工作是協助團隊進行報告和分析，同時也需要處理多項專案計畫。然而，Nathan 面臨著一個每週最令他頭痛的問題：每週銷售報告。
-過去，他必須手動執行以下繁瑣步驟：
-
-從公司舊有的資料倉儲中收集銷售資料。
-整理主要的業務流程資料（如銷售或生產狀態，分為「處理中」或「已預訂」）。
-計算所有「已預訂」訂單的總額。
-每週一在公司的 Discord 群組上公佈數據。
-建立一份所有正在處理中銷售的 Airtable 試算表，讓銷售經理可以檢視並確認是否需要跟進客戶。
-
-這種手動工作不僅耗時，且需要高度專注於細節，一旦打錯數字或漏掉訂單，就會導致報表失準。幸運的是，雖然舊有的資料倉儲無法直接匯出 CSV，但近期新增了 API 端點 (API Endpoints) 來暴露這些資料。這意味著我們可以使用 n8n 來建立自動化工作流程，徹底解放他的雙手。
-
-設計自動化工作流程 (Designing the Workflow)在開始動手實作前，我們需要先拆解這項自動化任務，釐清需要執行哪些步驟來實現目標。Nathan 的工作流程可以拆分為以下八個核心步驟：
-
-從資料倉儲取得資料：透過 API 撈取訂單 ID、狀態、價值與員工姓名等資訊。
-將資料插入 Airtable：建立追蹤表單。
-過濾訂單順序：區分處理中或已預訂狀態。
-設定訂單處理的值。
-計算已預訂訂單總價值。
-通知團隊：將資訊發送至 Discord。
-工作流程排程：設定每週一早上執行。
-發佈與檢視工作流程。
-
-在本篇教學中，我們將專注於最基礎也最重要的一步：如何透過 HTTP Request 節點取得資料。
-
-步驟一：從資料倉儲取得資料並非所有的應用程式都有專屬的 n8n 節點。當我們遇到內部系統或較舊的資料庫時，只要對方提供 API，我們就能使用通用的 HTTP Request 節點來呼叫資料。
-1. 建立新的工作流程首先，進入 n8n 介面，建立一個新的工作流程：
-
-點擊左側選單進入工作流程，選擇新增。
-將這個新工作流程命名為 Nathan&amp;#39;s workflow（為了方便辨識，您可以依照自己的進度命名，例如加上序號 02）。
-
-2. 新增 HTTP Request 節點接下來，我們要在畫布上加入節點來啟動流程：
-
-點擊畫面上的 + 新增節點，先加入一個 Schedule Trigger 或 Manual Trigger（手動觸發）作為起點。
-接著新增第二個節點，在搜尋框輸入 HTTP，選擇 HTTP Request 節點。
-
-3. 設定 HTTP Request 參數開啟 HTTP Request 節點的設定面板，我們需要依照 API 文件的要求填入對應的參數：
-
-**Method (方法)**：選擇 GET，因為我們要從伺服器讀取資料。
-**URL (網址)**：填入資料提供方給予的 Dataset URL。1http://learn.app.n8n.cloud/webhook/custom-erp
-**Send Headers (發送標頭)**：將此選項切換為 true。
-在 Specify Headers 設定中，Name 輸入 unique_id。
-Value 輸入您專屬的 ID 數值。
-
-
-**Authentication (授權認證)**：由於資料具有機密性，我們需要設定 API 憑證。
-選擇 Generic Credential Type。
-Generic Auth Type 選擇 Header Auth。
-在 Credential for Header Auth 下拉選單中，點選 Create new credential。
-
-
-
-建立新的 API 憑證 (Credentials)：
-
-將此憑證命名為易於辨識的名稱，例如 api_key 或 Level one auth。
-Name 欄位填入：api_key。
-Value 欄位填入：您取得的專屬 API Key 數值。
-點擊 Save 儲存憑證。
-
-4. 取得並驗證資料 (Get the Data)所有參數設定完成後，就可以測試 API 呼叫是否成功。
-點擊節點右上角的 **Execute step (執行步驟)**。如果設定正確，右側的 Output 面板將會回傳 JSON 格式的數據。您可以檢查是否成功撈取到了 Nathan 所需要的五個關鍵欄位：
-
-orderId: 訂單的唯一編號。
-customerId: 客戶的唯一編號。
-employeeName: 負責該訂單的員工姓名 (如 Nathan 的同事)。
-orderPrice: 訂單總價。
-orderStatus: 訂單目前的狀態 (Processing 處理中 或 Booked 已預訂)。
-
-成功看到這些資料，就代表您已經成功利用 HTTP Request 節點完成自動化流程的第一關！接下來，我們就能將這些資料往後傳遞，進行後續的過濾、計算與跨平台傳送。
-
-常見問答 (FAQ)Q1：如果 API 回傳錯誤或沒有資料，應該怎麼排查？
-A：首先確認以下幾個常見原因：
-
-URL 是否正確：複製貼上時注意有無多餘的空格或換行。
-Headers 是否設定正確：unique_id 的名稱和數值必須與 API 文件一致。
-API Key 是否有效：憑證建立後，確認 api_key 的 Value 欄位填入的是正確的金鑰，無多餘空白。
-網路連線：確認 n8n 伺服器可以對外連線，若是自架版本請檢查防火牆設定。
-
-
-Q2：Generic Credential Type 和其他授權方式有什麼差別？
-A：n8n 提供多種授權方式：
-
-Generic Credential Type（通用）：適合大多數自訂 API，可選擇 Header Auth、Query Auth、Bearer Token 等。
-OAuth2：適合 Google、GitHub 等支援 OAuth 的服務。
-Basic Auth：以帳號密碼方式認證，較舊的系統常用。
-
-本場景中資料倉儲使用 API Key 放在 Header 中，因此選擇 Header Auth 是最適合的做法。
-
-Q3：這個工作流程可以支援多少筆資料？
-A：n8n 的 HTTP Request 節點本身沒有資料筆數限制，但實際取得的資料量取決於 API 端點的設計。若 API 有分頁（Pagination）機制，你可以在 HTTP Request 節點的進階設定中啟用 Pagination 功能，讓 n8n 自動循環請求直到取完所有資料。
-
-Q4：我沒有現成的 API，只有資料庫，可以用 n8n 直接連嗎？
-A：可以！n8n 提供多種資料庫節點，例如：
-
-PostgreSQL、MySQL、MariaDB
-MongoDB
-SQLite
-
-若你有直接存取資料庫的權限，可以使用對應節點替代 HTTP Request，不需要額外建立 API 端點。
-
-Q5：Credentials（憑證）儲存在哪裡？安全嗎？
-A：n8n 將憑證加密後儲存在資料庫中（預設使用 AES-256 加密），不會以明文方式保存。若是使用 n8n Cloud 版本，憑證由 n8n 官方的安全環境托管；若是自架版本，加密金鑰由你自行管理，請務必妥善保存 N8N_ENCRYPTION_KEY 環境變數，避免洩漏。
-
-        </p>
-        <a class="stretched-link" href="/posts/how-to-fetch-data-warehouse-n8n-http-request-api/"></a>
       </div>
     </div>
   </article>
