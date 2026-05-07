@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 應該選哪個？Power Automate 與 n8n 自動化工具終極比較指南
+  網址：https://blog.es2idea.com/posts/power-automate-vs-n8n-comparison/
+  日期：2026-05-07
+  摘要：企業流程自動化該選 Microsoft Power Automate 還是 n8n？本文深入比較兩大工具的生態系、RPA、工程開發彈性、AI Agent 整合、實際成本試算與混合架構策略，搭配真實場景案例，幫你快速找到最適合團隊的解決方案！
+  主題：AI工具、AI自動化、Power Automate
+
 - 如何串接 Threads API 實現全自動發文？ | (EP12) n8n 自動化 API 串接教學
   網址：https://blog.es2idea.com/posts/n8n-threads-api-automation/
   日期：2026-05-04
@@ -99,12 +105,6 @@
   日期：2026-04-12
   摘要：想要開口就能寫作？本文完整開箱 Mac 專屬 AI 語音轉文字工具 Spokenly。教你如何搭配本地免費模型與 Google Gemini API，精準辨識語音並自動優化排版，輕鬆提升 4 倍工作效率！
   主題：AI工具、AI自動化
-
-- AEO Fixer：如何優化網站以提升 ChatGPT 與 AI 搜尋排名
-  網址：https://blog.es2idea.com/posts/aeo-fixer-website-optimization-tool/
-  日期：2026-04-09
-  摘要：想讓你的網站在 ChatGPT 和 Perplexity 等 AI 搜尋引擎中脫穎而出嗎？本文介紹專屬檢測工具 AEO Fixer，教你如何一鍵掃描網站體質、取得 AI 修復代碼，快速完成 AEO 優化！
-  主題：AEO、AI工具、Cursor
 
 ## 語言
 - zh-TW
