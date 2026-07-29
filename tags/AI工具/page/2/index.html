@@ -206,8 +206,8 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
-            生成式AI應用 (58)
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (41)
           </a>
         </li>
       
@@ -218,8 +218,8 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (40)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (58)
           </a>
         </li>
       
@@ -279,27 +279,27 @@
     <div class="d-flex flex-wrap gap-2">
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
-          商業策略 (17)
+          商業策略 (18)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (60)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (23)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
           AEO (5)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
-          SEO (11)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (22)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
           Cursor (2)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-          AI自動化 (59)
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (11)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
@@ -471,6 +471,115 @@
 
 
 <li
+  id="post-google-stitch-mcp-tutorial"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover102.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        alt="article-Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/3/24
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI自動化
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              Vibe Coding
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          Google Stitch MCP 教學：如何結合 AI 自動化快速生成 Next.js 網站 UI
+        </h5>
+        <div class="cutoff-text mb-0 text-primary-700">
+          
+  
+  
+
+
+Google 近期推出的 Stitch 在開發者社群中引起了廣大迴響，其強大的 UI 生成能力令人驚豔。透過結合 MCP (Model Context Protocol) 協定，我們可以讓 AI Agent 自動化處理繁瑣的前端切版工作。
+本文將以一個「美甲美容預約系統」的 Next.js 網站為例，帶你一步步拆解如何從零開始，利用 Google Stitch MCP 快速產出具備高質感的網頁 UI。
+先收藏 3 個官方入口如果你想快速上手，建議先把下面 3 個官方資源打開，後續安裝與操作時會用得到：
+
+Stitch 官網：先了解 Stitch 的整體能力，包含從提示詞生成 UI、調整版型與匯出成果的核心流程。
+Stitch MCP 官方安裝文件：用來設定 MCP Server、完成 API Key 綁定，這是讓 AI Agent 真正能呼叫 Stitch 的關鍵步驟。
+stitch-skills GitHub 倉庫：Google Labs 提供的 Agent Skills 集合，能讓 Cursor、Claude Code、Gemini CLI 等工具更有效率地配合 Stitch 工作。
+
+如何快速完成 Stitch MCP 環境部署？要讓 AI 能夠直接呼叫 Stitch 的生成能力，我們需要先完成 MCP 伺服器的安裝與 API 金鑰設定。
+
+安裝 Stitch MCP 伺服器在您的 AI 代理開發環境（例如 Cursor、Antigravity 等支援 MCP 的工具）中，開啟 MCP Servers 管理介面，搜尋 stitch 並點擊安裝 (Install)。這一步將會自動化載入所需的環境設定。若想對照完整流程，可以直接參考 Stitch MCP 官方安裝文件。
+獲取 API 金鑰 (API Key)安裝過程中，系統會引導您前往 Stitch 的官方網頁設定。請在設定頁面中點擊「建立金鑰」，生成專屬的 API 金鑰，並將其貼回您的 MCP 設定中妥善儲存以完成身分驗證。
+
+擴充 AI 開發火力：安裝 Stitch Skills光有基礎 MCP 還不夠，為了讓 AI 具備更專業的前端工程師思維，我們需要導入 stitch-skills。
+這是一個專為 Stitch MCP 伺服器設計的 Agent 技能函式庫，相容於 Gemini CLI、Claude Code 與 Cursor。透過安裝 GitHub 上的 stitch-skills 擴充套件，AI 就能夠遵循更嚴謹的開發標準進行作業，大幅減少生成過程中的邏輯錯誤。
+根據該 GitHub 倉庫說明，stitch-skills 內建多種實用能力，例如：
+
+stitch-design：負責 Stitch 設計工作流的統一入口。
+stitch-loop：可從單一提示詞延伸成完整多頁網站流程。
+design-md：協助整理設計系統與 DESIGN.md 文件。
+react:components：將 Stitch 畫面轉成 React 元件系統，並維持設計 Token 一致性。
+
+如果你平常就是用 AI 編輯器協作開發，這一層 skills 幾乎就是把 Stitch 從「會生成畫面」升級成「更懂前端交付流程」。
+實戰演練：從需求規劃到自動生成 Next.js 網站環境建置完畢後，我們就可以開始向 AI 下達開發指令 (Prompt)。以下為本次美甲預約網站的標準化生成流程：
+1. 啟動 SDD (軟體設計文件) 開發流程不要讓 AI 直接寫程式碼，而是要求它先執行 SDD (Software Design Document) 流程。AI 會依序產出結構化的規格文件（Spec）、開發計畫（Plan）與任務清單（Task）。這能確保 AI 清楚理解版面規劃，包含：導覽列 (Navbar)、Hero 區塊、服務項目、作品集與顧客評價等區塊。
+1我想做一個美容美甲的預約系統，使用next.j做，先做首頁就好 ，執行 SDD 開發流程，依序產出結構化的 spec、plan 與 task 等規劃文件
+
+2. 制定設計規範 (Design Tokens)在產出程式碼前，AI 會依據主題（如：柔和女性化、優雅高質感）自動建立設計系統。例如設定主色為「玫瑰粉 (#D4A5A5)」、背景色為「奶油米」，並指定字型（Playfair Display 與 Inter）。這些 Tokens 將成為後續 UI 生成的核心基準。
+3. 呼叫 create_project 執行 UI 生成當規劃完成後，AI 會調用 Stitch MCP 的 create_project 方法。系統會自動下載所需套件（如 Tailwind CSS）、處理字型與圖標，並開始生成首頁的設計稿與原始碼。
+完美還原設計稿：如何解決排版誤差？在初步生成後，您可能會發現瀏覽器渲染的畫面（localhost:3000）與 Stitch 原始設計稿有些微出入。這時不需要手動調整 CSS，只需遵循以下步驟：
+
+反饋錯誤訊息： 將終端機或畫面上的報錯資訊直接貼給 AI 進行初步修復。
+要求零誤差校正： 明確指示 AI：「網頁呈現與 Stitch 原始設計稿不太一樣，請幫我確認並修正」。
+自動重構： AI 會重新比對 Tailwind tailwind.config.ts 中的顏色設定、全域 CSS 屬性與各個 Component（如 Navbar、Hero Section）的 HTML 結構，確保最終輸出的 Next.js 程式碼與設計稿達到 100% 零誤差轉換。
+
+
+開發者反思： 當 AI 已經能包辦 UI 介面設計與繁瑣的切版工作時，未來的軟體工程師應將重心轉移至「架構設計」、「需求分析」與「商業邏輯整合」，這才是人類開發者無可取代的價值。
+
+
+常見問答 (FAQ)Q：Google Stitch 的使用額度限制是什麼？A：目前系統每日提供 400 個額度 (Credits)。根據實測，透過 AI 完整生成一個包含豐富區塊（Hero、作品集、評價等）的高質感首頁，大約就會消耗掉 4 個額度。
+Q：Stitch MCP 支援哪些 AI 開發工具？A：只要是支援 MCP (Model Context Protocol) 協定的開發工具皆可使用，主流工具包含 Cursor、Gemini CLI、Claude Code 以及 Antigravity 等。
+Q：AI 生成的網頁設計如果不滿意可以修改嗎？A：可以的。您可以透過對話框下達新的提示詞 (Prompt)，例如「請將按鈕顏色改為深色」或「調整作品集區塊的排版」，AI 會自動調用相關程式碼進行局部更新。
+
+相關連結
+Stitch 官網
+Stitch MCP 官方安裝文件
+stitch-skills GitHub 倉庫
+
+
+        </p>
+        <a class="stretched-link" href="/posts/google-stitch-mcp-tutorial/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
+        
+          
+   <!-- prevent image appear -->
+
+
+<li
   id="post-agent-as-a-service-vs-saas"
   class="card border-0"
   itemprop="blogPost"
@@ -500,11 +609,11 @@
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
+              AI自動化
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
+              AI工具
             </span>
           
 
@@ -634,11 +743,11 @@ Q：Agent-as-a-Service 會如何改變現有軟體的計價模式？A：它將�
 
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
+              AI自動化
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
+              AI工具
             </span>
           
 
@@ -768,11 +877,11 @@ Q：將工作流拆分成多個 Skill 模組，會不會反而增加開發與執
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
+              AI自動化
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
+              AI工具
             </span>
           
 
@@ -1645,11 +1754,11 @@ Q5：影片生成後可以下載嗎？可以，支援 MP4 格式下載。
 
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
+              AI自動化
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
+              AI工具
             </span>
           
 
@@ -1743,96 +1852,6 @@ API 整合與部署
 
         </p>
         <a class="stretched-link" href="/posts/teach-your-browser-to-understand-you-in-5-minutes/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-<li
-  id="post-microsoft-generative-ai-course-for-beginners"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover5.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        alt="article-探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2025/5/1
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          探索微軟《Generative AI for Beginners》：18堂官方課程，全面掌握生成式AI核心技術與應用實作
-        </h5>
-        <div class="cutoff-text mb-0 text-primary-700">
-          
-  
-  
-
-
-在生成式 AI 正迅速重塑數位世界的今日，如何從零起步，扎實地學會這門技術，成為每位工程師與產品開發者的共同課題。針對此一趨勢，Microsoft Learn 推出了一套系統化的學習資源 ——《Generative AI for Beginners》系列課程。此系列共 18 堂精心設計的入門課，從基本觀念到實務應用，帶領學習者逐步建構完整的生成式 AI 能力圖譜。
-這套課程特別針對 零基礎學習者 設計，無論你是開發新手、產品經理，或是對生成式 AI 有興趣的技術愛好者，都能藉由這一系列循序漸進的教學內容，有效掌握從開發環境設置、Prompt 工程、模型應用，到 RAG、AI 代理人與 LLM 微調等進階技術。
-每一堂課不僅提供 理論講解，更搭配 實作程式碼、互動教學、實例參考 與 官方指南，幫助學員真正將所學應用於真實場景，快速進入生成式 AI 的開發實戰。
-課程架構與主題亮點🔧 開發環境與基礎概念
-00｜Course Setup：教你如何建立開發環境，包括必要工具安裝與帳號設定。
-01｜Introduction to Generative AI and LLMs：理解什麼是生成式 AI 與大型語言模型（LLM），探索其原理與實際應用場景。
-02｜Exploring and Comparing Different LLMs：介紹各大 LLM 模型（如 GPT、Claude、Mistral 等）的差異與選擇建議。
-
-🤖 建構模型應用與倫理考量
-03｜Using Generative AI Responsibly：探討生成式 AI 的責任與倫理，包括偏誤偵測、隱私與合規議題。
-04｜Understanding Prompt Engineering Fundamentals：Prompt 撰寫基礎，學會讓 AI 準確理解並生成內容。
-05｜Creating Advanced Prompts：進階技巧如 Chain-of-Thought 推理與 Few-shot Prompt，提升 AI 回應品質與精準度。
-
-✍️ 各類型應用開發實作
-06｜Building Text Generation Applications：以 OpenAI API&amp;#x2F;Azure OpenAI 實作文字生成應用。
-07｜Building Chat Applications：設計對話式應用，探討狀態管理與多輪互動邏輯。
-08｜Building Search Applications：結合向量資料庫與語意嵌入技術，打造 RAG 式搜尋應用。
-09｜Building Image Generation Applications：整合 DALL·E 等影像模型，創建視覺生成應用。
-10｜Building Low Code AI Applications：以 Power Apps 等工具進行低程式碼開發。
-
-🔄 系統整合與體驗優化
-11｜Integrating External Applications with Function Calling：實作 Function Calling，連結外部 API。
-12｜Designing UX for AI Applications：強化使用者體驗，關注互動與可解釋性設計。
-13｜Securing Your Generative AI Applications：導入資安策略，避免模型濫用與資料外洩。
-
-📈 維運流程與模型延伸
-14｜The Generative AI Application Lifecycle：介紹 LLMOps 流程，監控與維護模型效能。
-15｜Retrieval-Augmented Generation (RAG) and Vector Databases：結合語意搜尋與文件生成的完整流程。
-16｜Open Source Models and Hugging Face：探索開源模型與 Hugging Face 生態系整合方式。
-
-🧠 進階智能與模型優化
-17｜AI Agents：構建自主任務型 AI 代理人，多代理協作與決策實作。
-18｜Fine-Tuning LLMs：學習模型微調，提升特定任務表現。
-
-結語：從新手到實戰開發者的成長之路《Generative AI for Beginners》不只是入門課，更是一條實務導向的技術養成路徑。它不僅讓學員理解「如何操作 AI」，更深入思考「如何設計有用、可靠且負責任的 AI 系統」。
-無論你是想提升競爭力的開發者、跨足 AI 領域的產品經理，或是單純對這股技術浪潮感興趣的探索者，這 18 堂課都是你進入生成式 AI 世界的最佳起點。
-👉 立即前往官方課程頁面開始學習
-
-        </p>
-        <a class="stretched-link" href="/posts/microsoft-generative-ai-course-for-beginners/"></a>
       </div>
     </div>
   </article>
