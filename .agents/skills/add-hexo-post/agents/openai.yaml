@@ -1,0 +1,4 @@
+interface:
+  display_name: "新增 Hexo 文章"
+  short_description: "整理初稿、生成 AI 封面並完成 Hexo 發文驗收"
+  default_prompt: "使用 $add-hexo-post 將初稿整理成文章、生成封面並完成部署驗收。"
