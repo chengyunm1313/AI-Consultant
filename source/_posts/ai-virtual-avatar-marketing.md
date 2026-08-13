@@ -9,7 +9,7 @@ tags:
   - 內容行銷
 date: 2025-05-09 16:49:26
 subtitle:
-description:
+description: 本文整理 AI 數位分身與影音行銷的學習準備，拆解生成式 AI 在社群內容、虛擬角色與個人化溝通的應用，並提醒人工審稿與品牌控管的重要性。
 ---
 
 <div class="iframe-wrapper">
@@ -365,5 +365,4 @@ AI 所產內容風格可能不穩定，須由人員進行審稿與風格控管�
 
 - [PixVerse 教學：免費文字轉影片與圖片轉影片工具](https://www.youtube.com/watch?v=JxETaJpogN0)
 - [PixVerse V4 教學：初學者的終極指南](https://www.youtube.com/watch?v=Gozi5vsJdBs)
-
 

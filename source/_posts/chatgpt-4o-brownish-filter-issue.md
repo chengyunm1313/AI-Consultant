@@ -4,6 +4,7 @@ cover: /images/cover3.png
 toc: true
 date: 2025-05-01 15:06:51
 subtitle:
+description: ChatGPT 4o 生成圖片總帶著黃灰土色？本文分享一組色彩重置提示詞與 AB 測試方法，改善人物、場景圖的色溫、飽和度與真實感。
 categories:
   - 生成式AI應用
 tags:

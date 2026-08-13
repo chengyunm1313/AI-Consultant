@@ -8,7 +8,7 @@ tags:
   - 商業策略
 date: 2025-05-13 08:28:52
 subtitle:
-description:
+description: 面對朋友邀請幫忙賣產品，本文從行銷預算、人脈成本、分潤制度與品牌經營分析合作風險，整理零售批發創業不可省略的五項準備。
 ---
 
 <div class="iframe-wrapper">

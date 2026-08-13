@@ -11,8 +11,10 @@
 
 ## 環境需求
 
-- Node.js 20（建議與 GitHub Actions 一致）
-- npm 9+（或隨 Node 20 版本）
+- Node.js 24（與 GitHub Actions 一致）
+- npm 10+
+
+專案以 npm 與 `package-lock.json` 作為 CI 的相依套件來源；`pnpm-lock.yaml` 僅供需要 pnpm 的本機情境參考，不應與 CI 混用。
 
 ## 本機開發
 
@@ -51,6 +53,37 @@ npm run verify:post-dates
 - `source/_posts` 下每篇文章的 front matter 必填 `date`
 - 若缺少 `date` 或為空值，指令會直接失敗，避免排序在不同環境漂移
 
+### 6) 檢查文章 metadata（CI 同步檢查）
+
+```bash
+npm run verify:post-metadata
+```
+
+說明：
+
+- `source/_posts` 下每篇文章的 front matter 必填 `title`、`date`、`cover`、`description`
+- 若欄位缺少或為空值，指令會直接失敗，避免搜尋摘要、社群分享與結構化資料缺少必要內容
+
+### 7) 檢查建置輸出（CI 同步檢查）
+
+```bash
+npm run verify:build-output
+```
+
+說明：
+
+- 確認首頁、服務頁、作品頁、聯絡頁、n8n 專區、`robots.txt`、`sitemap.xml`、`llms.txt` 都有產出
+- 確認 JSON-LD、Content-Signal 與 AEO 輸出仍存在
+- 確認 HTML/CSS 引用的本地圖片存在，且 JPG、JPEG、PNG 已轉為 WebP
+
+### 8) 檢查 workflow Actions 版本固定
+
+```bash
+npm run verify:workflow-actions
+```
+
+確認所有 GitHub Actions 使用完整 commit SHA，避免 tag 漂移。
+
 ## 部署策略（CI/CD 主流程）
 
 本專案已改為 GitHub Actions 自動部署：
@@ -63,7 +96,7 @@ npm run verify:post-dates
   - 僅執行建置
   - 上傳 `public/` 為 artifact（不部署）
 - `push main` 行為：
-  - 先執行 `npm run verify:post-dates`（文章日期防呆）
+  - 先執行文章日期、metadata、JSON-LD 與格式檢查
   - 建置後將 `public/` 覆蓋部署到 `gh-pages`
   - 每次強制寫入 `CNAME=blog.es2idea.com`
   - 建立 `.nojekyll`
@@ -72,6 +105,12 @@ npm run verify:post-dates
 Workflow 檔案位置：
 
 - [deploy.yml](.github/workflows/deploy.yml)
+- [remote-smoke.yml](.github/workflows/remote-smoke.yml)
+- [網站維護與回復手冊](docs/site-maintenance-runbook.md)
+
+Workflow 採建置／部署分離：PR 與一般建置只有 `contents: read`，只有 `push main` 的部署工作能寫入 `gh-pages`。
+
+`remote-smoke.yml` 每週唯讀檢查正式站的 JSON-LD、`robots.txt`、`llms.txt` 與 sitemap，也可從 Actions 手動觸發；它沒有部署權限。
 
 ## GitHub Pages 一次性設定
 
@@ -105,7 +144,7 @@ npm run deploy
 ### 本地驗證（建議）
 
 ```bash
-npm run verify:jsonld -- --mode=local
+npm run verify:jsonld:local
 ```
 
 ### 遠端驗證（部署後）

@@ -1,0 +1,83 @@
+name: Remote Site Smoke Check
+
+on:
+  schedule:
+    - cron: "17 2 * * 1"
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: remote-site-smoke
+  cancel-in-progress: true
+
+jobs:
+  smoke:
+    name: Verify production endpoints
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+
+      - name: Use Node.js
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
+        with:
+          node-version: "24"
+
+      - name: Verify workflow action pins
+        run: npm run verify:workflow-actions
+
+      - name: Verify remote JSON-LD
+        run: npm run verify:jsonld -- --base=https://blog.es2idea.com --timeout-ms=15000
+
+      - name: Verify remote AEO resources
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          CHECK_DIR="$(mktemp -d)"
+          trap 'rm -rf "$CHECK_DIR"' EXIT
+
+          curl --fail --silent --show-error --location --max-time 20 \
+            https://blog.es2idea.com/robots.txt > "$CHECK_DIR/robots.txt"
+          curl --fail --silent --show-error --location --max-time 20 \
+            https://blog.es2idea.com/llms.txt > "$CHECK_DIR/llms.txt"
+          curl --fail --silent --show-error --location --max-time 20 \
+            https://blog.es2idea.com/sitemap.xml > "$CHECK_DIR/sitemap.xml"
+
+          grep -Eqi '^Content-Signal:[[:space:]]*ai-train=no' "$CHECK_DIR/robots.txt"
+          grep -Eqi 'AI|llms|服務|文章' "$CHECK_DIR/llms.txt"
+          grep -Eqi '<urlset[[:space:]>]' "$CHECK_DIR/sitemap.xml"
+
+          echo "Remote AEO resources passed."
+
+      - name: Report Cloudflare edge AEO status
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          CHECK_DIR="$(mktemp -d)"
+          trap 'rm -rf "$CHECK_DIR"' EXIT
+
+          curl --fail --silent --show-error --location --max-time 20 \
+            --dump-header "$CHECK_DIR/home.headers" --output /dev/null \
+            https://blog.es2idea.com/
+          curl --fail --silent --show-error --location --max-time 20 \
+            --header 'Accept: text/markdown' \
+            --dump-header "$CHECK_DIR/markdown.headers" \
+            --output "$CHECK_DIR/markdown.body" \
+            https://blog.es2idea.com/
+
+          if grep -Eiq '^link:[[:space:]]*.*</llms\.txt>.*rel="describedby"' "$CHECK_DIR/home.headers"; then
+            echo "Cloudflare Link header passed."
+          else
+            echo "::warning::Cloudflare Link header was not observed on the homepage."
+          fi
+
+          if grep -Eiq '^content-type:[[:space:]]*text/markdown([;[:space:]]|$)' "$CHECK_DIR/markdown.headers"; then
+            echo "Cloudflare Markdown for Agents passed."
+          else
+            echo "::warning::Cloudflare Markdown for Agents is not active: Accept: text/markdown still did not return text/markdown."
+          fi

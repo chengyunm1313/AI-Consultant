@@ -8,7 +8,7 @@ tags:
   - Vibe Coding
 date: 2025-05-05 02:48:15
 subtitle:
-description:
+description: 本文從 GitHub CEO 由柏林圍牆到 GitHub 的故事出發，整理 Prompt、快速原型與碎片整合等方法，說明 AI 如何放大開發者的創造力。
 ---
 
 <div class="iframe-wrapper">

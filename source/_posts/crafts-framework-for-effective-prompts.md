@@ -8,7 +8,7 @@ tags:
   - ChatGPT
 date: 2025-05-06 18:27:01
 subtitle: 再也不用瞎猜怎麼問 ChatGPT，學會這套提示詞心法，效率 x10 倍
-description:
+description: CRAFTS 六步法把提示詞拆成脈絡、角色、任務、格式、語氣與多輪迭代，本文提供範例與速查表，幫助你寫出更精準、可重複的 AI 指令。
 ---
 
 <div class="iframe-wrapper">
@@ -138,4 +138,3 @@ AI 本來就不是會讀心的神，而是會回應**清楚任務設計**的工�
 學會這套提示詞心法，你就能真正成為用 AI 的高手。
 
 #CRAFTS提示詞 #ChatGPT寫作術 #AI提示工程 #提示詞優化
-

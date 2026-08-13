@@ -9,7 +9,7 @@ tags:
   - ChatGPT
 date: 2025-05-17 09:55:58
 subtitle: 行銷人必備的 ChatGPT 精準診斷術
-description:
+description: 廣告有流量卻沒有轉換，問題可能出在行銷漏斗。本文用 ChatGPT 建立調查模板，逐層診斷知曉、考慮、轉換、忠誠與推薦階段的痛點。
 ---
 
 <div class="iframe-wrapper">

@@ -9,7 +9,7 @@ tags:
   - AI工具
   - AI自動化
 subtitle:
-description:
+description: 不用寫程式，透過 Teachable Machine 就能在瀏覽器訓練影像模型。本文示範 5 分鐘建立資料、訓練模型與觸發互動，帶初學者理解 AI 的基本流程。
 ---
 
 <div class="iframe-wrapper">

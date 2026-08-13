@@ -8,63 +8,113 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: hexo-deploy
-  cancel-in-progress: true
+  group: hexo-${{ github.workflow }}-${{ github.event_name }}-${{ github.ref }}
+  cancel-in-progress: ${{ github.event_name == 'pull_request' }}
 
 env:
   FORCE_JAVASCRIPT_ACTIONS_TO_NODE24: true
 
 jobs:
   build:
+    name: Build and verify
     runs-on: ubuntu-latest
+    timeout-minutes: 15
+    permissions:
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
           node-version: "24"
           cache: "npm"
 
+      - name: Verify workflow action pins
+        run: npm run verify:workflow-actions
+
       - name: Install
         run: npm ci
+
+      - name: Check patch formatting
+        run: git diff --check
 
       - name: Verify post dates
         run: npm run verify:post-dates
 
+      - name: Verify post metadata
+        run: npm run verify:post-metadata
+
       - name: Build
         run: npm run build
 
-      - name: Upload public artifact (PR only)
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
+      - name: Verify build output
+        run: npm run verify:build-output
+
+      - name: Verify local JSON-LD
+        run: npm run verify:jsonld:local
+
+      - name: Upload public artifact
+        if: github.event_name == 'push' || github.event_name == 'pull_request'
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
+        with:
+          name: public
+          path: public
+
+  deploy:
+    name: Deploy to gh-pages
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    timeout-minutes: 10
+    permissions:
+      actions: read
+      contents: write
+    concurrency:
+      group: hexo-gh-pages-deploy
+      cancel-in-progress: false
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11d5960a326750d5838078e36cf38b85af677262 # v4.4.0
+        with:
+          fetch-depth: 0
+
+      - name: Download public artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
         with:
           name: public
           path: public
 
       - name: Deploy to gh-pages
-        if: github.event_name == 'push'
         env:
           CNAME_DOMAIN: blog.es2idea.com
         run: |
-          set -e
+          set -euo pipefail
+
+          test -s public/index.html
+          test -s public/robots.txt
+          test -s public/sitemap.xml
+          test -s public/llms.txt
 
           DEPLOY_DIR="$(mktemp -d)"
+          trap 'rm -rf "$DEPLOY_DIR"' EXIT
           cp -R public/. "$DEPLOY_DIR"/
+          rm -rf public
           echo "$CNAME_DOMAIN" > "$DEPLOY_DIR/CNAME"
 
           git config user.name "github-actions[bot]"
           git config user.email "github-actions[bot]@users.noreply.github.com"
 
-          git fetch origin gh-pages || true
-          if git show-ref --verify --quiet refs/remotes/origin/gh-pages; then
-            git checkout gh-pages
+          REMOTE_GH_PAGES="$(git ls-remote origin refs/heads/gh-pages)"
+          if [ -n "$REMOTE_GH_PAGES" ]; then
+            git fetch origin gh-pages
+            git switch --create gh-pages --track origin/gh-pages
           else
-            git checkout --orphan gh-pages
+            git switch --orphan gh-pages
             git rm -rf . || true
           fi
 
@@ -74,6 +124,7 @@ jobs:
           touch .nojekyll
 
           git add -A
+          git diff --cached --check
 
           if git diff --cached --quiet; then
             echo "No changes to deploy."

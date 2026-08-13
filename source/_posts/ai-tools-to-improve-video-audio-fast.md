@@ -9,7 +9,7 @@ tags:
   - ChatGPT
 date: 2025-05-07 16:28:45
 subtitle:
-description:
+description: 不必再靠耳朵反覆猜 EQ。本文示範用 AI 分析頻譜與人聲問題，建立 5 分鐘音訊調整流程，改善影片的人聲清晰度與專業感。
 ---
 
 <div class="iframe-wrapper">

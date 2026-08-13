@@ -4,6 +4,7 @@ cover: /images/cover2.png
 toc: true
 date: 2025-04-30 11:28:14
 subtitle:
+description: 企業導入 AI 時，如何在雲端便利與個資安全之間做選擇？本文比較雲端、地端與混合部署，整理資料分類、權限控管與風險管理原則。
 categories:
   - 個人資料保護
 tags:

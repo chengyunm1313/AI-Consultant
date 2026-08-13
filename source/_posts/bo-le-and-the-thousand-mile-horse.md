@@ -8,7 +8,7 @@ tags:
   - 商業策略
 date: 2025-05-13 08:52:41
 subtitle: 不只是找人才，更是考驗你是否願意給出信任與舞台
-description:
+description: 從伯樂與千里馬的故事出發，本文拆解找人才、授權、組織分工與分潤設計，說明領導者如何放手讓團隊做大事。
 ---
 
 <div class="iframe-wrapper">

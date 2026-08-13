@@ -9,7 +9,7 @@ tags:
   - AI自動化
 date: 2025-05-11 23:33:27
 subtitle: 教你打造一致風格、高可讀性的 AI 自動生成 SRT 字幕流程
-description:
+description: 本文提供以 Google AI Studio 或 Grok 產製高品質 SRT 字幕的提示詞模板與校對流程，涵蓋專有名詞、排版、斷句與語氣一致性。
 ---
 
 <div class="iframe-wrapper">

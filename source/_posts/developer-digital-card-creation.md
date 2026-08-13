@@ -9,7 +9,7 @@ tags:
   - 內容行銷
 date: 2025-05-08 15:27:11
 subtitle: 結合 JSON 結構與 VS Code 視覺，讓你的專業形象瞬間出圈 
-description:
+description: 本文示範結合 ChatGPT-4o、自拍照與 Prompt 工程，製作像 VS Code JSON 檔案的程式碼風電子名片，讓個人資訊、工程師身份與視覺風格一次呈現。
 ---
 
 <div class="iframe-wrapper">

@@ -8,7 +8,7 @@ tags:
   - SEO
 date: 2025-05-26 19:25:16
 subtitle:
-description:
+description: 本文解析 E-E-A-T 的經驗、專業、權威與可信度，整理生成式 AI 時代的內容策略，協助創作者建立可驗證、具差異化且值得信任的文章。
 ---
 
 <div class="iframe-wrapper">

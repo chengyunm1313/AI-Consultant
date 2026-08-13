@@ -2,13 +2,21 @@
   "name": "hexo-site",
   "version": "0.0.0",
   "private": true,
+  "engines": {
+    "node": "24.x",
+    "npm": ">=10"
+  },
   "scripts": {
     "build": "hexo generate && node toWebp",
     "clean": "hexo clean",
     "deploy": "hexo clean && hexo generate && node toWebp && hexo deploy",
     "server": "hexo server",
     "verify:post-dates": "node tools/validate-post-dates.js",
-    "verify:jsonld": "node tools/validate-jsonld.js"
+    "verify:post-metadata": "node tools/validate-post-metadata.js",
+    "verify:build-output": "node tools/validate-build-output.js",
+    "verify:workflow-actions": "node tools/validate-workflow-actions.js",
+    "verify:jsonld": "node tools/validate-jsonld.js",
+    "verify:jsonld:local": "node tools/validate-jsonld.js --mode=local"
   },
   "hexo": {
     "version": "7.3.0"

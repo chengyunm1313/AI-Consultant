@@ -8,7 +8,7 @@ tags:
   - 影音行銷
 date: 2025-05-11 10:32:40
 subtitle:
-description:
+description: 本文以七步法帶影片行銷新手從工具安裝、頻道定位、內容藍圖到製作與發布，整合 SEO、剪輯、AI 與設計工具，建立可執行的影片流程。
 ---
 
 <div class="iframe-wrapper">

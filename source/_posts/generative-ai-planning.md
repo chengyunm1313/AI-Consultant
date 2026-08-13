@@ -10,7 +10,7 @@ tags:
   - 影音行銷
 date: 2025-05-05 03:47:08
 subtitle:
-description:
+description: 整理生成式 AI 應用的學習路線，從工具準備、基礎理論與提示工程，到圖像、影音與自動化實作，適合想建立 AI 應用能力的初學者。
 ---
 
 <!-- <div class="iframe-wrapper">

@@ -8,7 +8,7 @@ tags:
   - 商業策略
 date: 2025-05-17 10:41:22
 subtitle: 從流量派到飛輪派，掌握五種廣告投手心法，幫你打出爆單佳績！
-description:
+description: 本文解析五大廣告投手類型，從流量、轉換漏斗、素材創意到品牌飛輪，帶你用 AI 自我診斷行銷打法，也評估合作對象是否適合。
 ---
 
 <div class="iframe-wrapper">

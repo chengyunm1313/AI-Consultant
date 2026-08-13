@@ -8,7 +8,7 @@ tags:
   - AI風險控管
 date: 2025-05-08 00:28:36
 subtitle:
-description:
+description: 本文以歐盟 AI Act 的風險分級與台灣 AI 指引的三守原則為對照，整理資料治理、問責與透明揭露，建立可執行的 AI 合規思維。
 ---
 
 <div class="iframe-wrapper">

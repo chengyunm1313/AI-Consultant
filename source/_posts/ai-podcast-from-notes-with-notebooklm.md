@@ -4,6 +4,7 @@ cover: /images/cover6.png
 toc: true
 date: 2025-05-01 14:25:38
 subtitle:
+description: Google NotebookLM 的語音摘要能把筆記與文件轉成雙人 AI Podcast。本文介紹功能特色、使用流程與適合學生、講師、創作者的應用情境。
 categories:
   - 生成式AI應用
 tags:
