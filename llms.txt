@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？
+  網址：https://blog.es2idea.com/posts/minimax-h3-gpu-rental/
+  日期：2026-08-14
+  摘要：想玩 MiniMax H3 與 ComfyUI，卻不想先花十幾萬買 RTX 5090？本文比較地端設備、LiblibAI 與雲端 GPU 租用，拆解成本、控制權與 Codex 自動化工作流，找出更彈性的 AI 影片製作第三條路。
+  主題：AI自動化、AI工具、影音行銷
+
 - 企業工作自動化不只有 ChatGPT！6 大 AI 自動化能力解析與導入指南
   網址：https://blog.es2idea.com/posts/6-types-of-enterprise-ai-automation/
   日期：2026-07-29
@@ -98,12 +104,6 @@
   網址：https://blog.es2idea.com/posts/automate-pre-class-reminder/
   日期：2026-05-03
   摘要：每次開課前都要手動寄發提醒信嗎？本篇教學將帶你建立全自動的「課前提醒工作流」，結合排程觸發、Google Sheets 狀態檢查與 Email 自動發送，大幅節省行政時間，讓你的開課流程更順暢！
-  主題：AI自動化、n8n、自動化講師應用
-
-- 打造 Google 表單與 Gmail 自動回信報名系統 | (EP.1) n8n 自動化講師應用教學
-  網址：https://blog.es2idea.com/posts/n8n-event-registration-automation/
-  日期：2026-05-02
-  摘要：舉辦活動總是被繁瑣的報名與整理流程困擾嗎？本文實戰示範如何使用 n8n 結合 Google 表單、試算表與 Gmail，打造零人工介入的自動化報名回信系統，大幅提升工作效率！
   主題：AI自動化、n8n、自動化講師應用
 
 ## 語言
