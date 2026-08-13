@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- 用 Codex 打造 AI 影片工廠：串接六大 AI 能力的完整工作流
+  網址：https://blog.es2idea.com/posts/codex-ai-video-factory/
+  日期：2026-08-14
+  摘要：想用 Codex 做出可持續生產的 AI 影片？本文拆解從內容企劃、視覺與影片生成，到 HyperFrames 組裝、Whisper／FFmpeg 剪輯與 Remotion 批量輸出的六段工作流，教你把工具串成可替換、可擴充的 AI 影片工廠。
+  主題：AI自動化、AI工具、影音行銷
+
 - Learning OS 是什麼？AI 如何打造專屬自己的個人化學習系統
   網址：https://blog.es2idea.com/posts/learning-os-ai-personalized-education/
   日期：2026-08-14
@@ -98,12 +104,6 @@
   網址：https://blog.es2idea.com/posts/n8n-track-late-assignments/
   日期：2026-05-04
   摘要：每天都在手動核對名單？學習如何運用 n8n 結合 Google 表單與試算表，打造全自動化的作業繳交追蹤系統，從精準判定遲交時間到自動寄信催繳，大幅解放你的行政生產力！
-  主題：AI自動化、n8n、自動化講師應用
-
-- 如何建立自動化課程提醒系統？串接 Google Sheets 與自動寄信流程教學 | (EP.3) n8n 自動化講師應用教學
-  網址：https://blog.es2idea.com/posts/automated-course-reminder-workflow/
-  日期：2026-05-03
-  摘要：想升級你的課程提醒系統嗎？本教學帶你了解如何透過 n8n 串接 Google Sheets 與 Gmail，實現跨工作表資料合併、自動篩選提醒對象、動態帶入教材連結與 Google Meet，並寫回狀態防止重複寄信，大幅提升行政效率！
   主題：AI自動化、n8n、自動化講師應用
 
 ## 語言
