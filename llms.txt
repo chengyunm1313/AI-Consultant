@@ -44,37 +44,37 @@
   網址：https://blog.es2idea.com/posts/codex-ai-video-factory/
   日期：2026-08-14
   摘要：想用 Codex 做出可持續生產的 AI 影片？本文拆解從內容企劃、視覺與影片生成，到 HyperFrames 組裝、Whisper／FFmpeg 剪輯與 Remotion 批量輸出的六段工作流，教你把工具串成可替換、可擴充的 AI 影片工廠。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - Learning OS 是什麼？AI 如何打造專屬自己的個人化學習系統
   網址：https://blog.es2idea.com/posts/learning-os-ai-personalized-education/
   日期：2026-08-14
   摘要：未來我們買的可能不只是線上課程，而是一套專屬自己的 Learning OS。本文從 AI 個人化學習、學習地圖與 AI Agent 出發，拆解它如何整理零散知識、安排任務、追蹤成果，並持續調整學習路徑。
-  主題：AI工具、AI自動化、ChatGPT
+  主題：AI自動化、AI工具、ChatGPT
 
 - MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？
   網址：https://blog.es2idea.com/posts/minimax-h3-gpu-rental/
   日期：2026-08-14
   摘要：想玩 MiniMax H3 與 ComfyUI，卻不想先花十幾萬買 RTX 5090？本文比較地端設備、LiblibAI 與雲端 GPU 租用，拆解成本、控制權與 Codex 自動化工作流，找出更彈性的 AI 影片製作第三條路。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - 企業工作自動化不只有 ChatGPT！6 大 AI 自動化能力解析與導入指南
   網址：https://blog.es2idea.com/posts/6-types-of-enterprise-ai-automation/
   日期：2026-07-29
   摘要：企業導入 AI 只靠 ChatGPT 聊天？本文完整解析企業必備的 6 大 AI 自動化能力，從個人助理、工作流整合到 RPA 與 Vibe Coding，教你打造自動運轉的高效企業工作流。
-  主題：商業策略、AI工具、AI自動化
+  主題：商業策略、AI自動化、AI工具
 
 - 為什麼 Odoo 廣告狂打？AI 時代的 ERP 導入策略與自動化工作流指南
   網址：https://blog.es2idea.com/posts/odoo-ai-automation-strategy/
   日期：2026-07-10
   摘要：Odoo 廣告狂打的背後，其實是 AI 時代企業系統的重新洗牌。本文解析 Odoo 的優勢，並教你如何結合 CRM、ERP 與 n8n，打造專屬的 AI Native 商業自動化工作流！
-  主題：商業策略、AI工具、AI自動化
+  主題：商業策略、AI自動化、AI工具
 
 - AI 時代不用從零開始！20 個必看的 GitHub 開源 AI Business OS 專案
   網址：https://blog.es2idea.com/posts/open-source-ai-native-tools/
   日期：2026-07-10
   摘要：想要導入 AI 卻不知從何下手？不要再從零開發系統了！本文為你精選 GitHub 最熱門的 AI Business OS 開源專案，涵蓋 AI CRM、客服、知識庫與 n8n 工作流，教你輕鬆打造企業專屬的 AI 基礎建設。
-  主題：AI工具、AI自動化、Vibe Coding
+  主題：AI自動化、AI工具、Vibe Coding
 
 - Tauri 與 Electron 怎麼選？2026 桌面 App 打包框架完整技術選型指南
   網址：https://blog.es2idea.com/posts/electron-vs-tauri-comparison/
@@ -92,13 +92,13 @@
   網址：https://blog.es2idea.com/posts/power-automate-vs-n8n-comparison/
   日期：2026-05-07
   摘要：企業流程自動化該選 Microsoft Power Automate 還是 n8n？本文深入比較兩大工具的生態系、RPA、工程開發彈性、AI Agent 整合、實際成本試算與混合架構策略，搭配真實場景案例，幫你快速找到最適合團隊的解決方案！
-  主題：AI工具、AI自動化、Power Automate
+  主題：AI自動化、AI工具、Power Automate
 
 - 如何串接 Threads API 實現全自動發文？ | (EP12) n8n 自動化 API 串接教學
   網址：https://blog.es2idea.com/posts/n8n-threads-api-automation/
   日期：2026-05-04
   摘要：想要實現 Threads 自動發文？本篇完整教學帶你使用 n8n 串接 Meta Threads API，從建立應用程式、取得測試人員權限，到成功展延 60 天長期 Token，一步步打造你的 AI 自動化發文系統！
-  主題：AI工具、AI自動化、API串接
+  主題：AI自動化、AI工具、API串接
 
 - 每日定時檢查未交作業並發送提醒信 | (EP.5) n8n 自動化講師應用教學
   網址：https://blog.es2idea.com/posts/daily-check-unsubmitted-assignment-email/
