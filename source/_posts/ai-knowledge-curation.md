@@ -1,6 +1,6 @@
 ---
 title: AI 時代的知識策展：把資訊整理成可學習的知識系統
-cover: /images/cover135.png
+cover: /images/cover135-1.png
 toc: true
 categories:
   - 商業策略
