@@ -1,6 +1,6 @@
 ---
 title: Learning OS 是什麼？AI 如何打造專屬自己的個人化學習系統
-cover: /images/cover133.png
+cover: /images/cover133-1.png
 toc: true
 categories:
   - 生成式AI應用
