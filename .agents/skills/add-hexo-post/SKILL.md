@@ -25,6 +25,8 @@ description: 將使用者提供的文章初稿依專案內 prompt/hexo-post.md �
 1. **Slug 確認**：分析初稿後列出 3–5 個全小寫英文 slug，標示精確型、行動型或簡潔型與選擇理由。使用者選定前，不要執行 `hexo new`、生成圖片或修改文章檔案。
 2. **Push 確認**：本機驗收完成後，列出文章路徑、正式網址、cover 檔案、原始建立時間、目前分支、預計部署分支、驗證結果與預計 commit message。只有使用者回覆「沒問題，push 到 main」或同等明確授權後，才可 commit 與 push。
 
+封面重做、封面版本切換或文章 front matter 改指向新 cover，都視為新的 deliverable；先前對舊封面或舊 commit 的 push 授權不自動延伸。完成新版本本機驗收後，重新列出摘要並取得當次 push 確認。
+
 分支目的地是不可省略的確認資訊：
 
 - 如果目前已在 `main`，摘要可說明「目前在 main，回覆『沒問題，push』即可」；但仍須先取得明確 push 授權。
@@ -153,57 +155,86 @@ FAQ 標題必須包含 `FAQ`、`常見問答`、`常見問題` 或 `疑難雜症
 
 ## 封面圖流程
 
-### 1. 選擇下一個編號
+### 1. 選擇下一個編號或版本尾碼
 
-先檢查目前封面並以數字排序，不能只依檔案列出順序判斷。使用輔助腳本取得最大編號之後的第一個可用檔名：
+先檢查目前封面並以數字排序，不能只依檔案列出順序判斷。下文的 `<cover-file>` 代表完整 PNG 檔名，例如 `cover132.png` 或 `cover132-2.png`；`<cover-webp>` 則是同一檔名將副檔名換成 `.webp`。
+
+一般新增文章時，使用輔助腳本取得最大編號之後的第一個可用檔名：
 
 ```bash
 node .agents/skills/add-hexo-post/scripts/cover-guard.js next themes/hexschool/source/images
 ```
 
-若輸出為 `cover132.png`，就使用該檔名；若該檔案在流程中途出現，重新執行檢查並改用下一個可用編號。預設絕不覆寫既有 cover，只有下方「未追蹤當次 cover 的明確重做」例外流程可替換。
+若輸出為 `cover132.png`，就使用該檔名；若該檔案在流程中途出現，重新執行檢查並改用下一個可用編號。預設絕不覆寫既有 cover。
+
+若是既有文章重做封面，或使用者明確要求沿用同一基底做版本控制（例如 `cover132-1.png`、`cover132-2.png`），不要用 `next` 的結果改成無關的最大編號（例如 `cover136.png`）。保留原檔，從目前文章的 cover 基底遞增版本尾碼，並逐一確認目標不存在：
+
+```bash
+test ! -e themes/hexschool/source/images/cover132-1.png
+```
+
+選定版本後，文章 front matter、normalize、verify、build output 與 Git stage 都要使用同一個 `<cover-file>`；不要因為目錄中已有較舊的未追蹤版本，就用 `git add .` 一併加入。
 
 `cover-guard normalize` 會刻意拒絕把輸出直接寫到已存在的檔名。若只是本次流程剛產生、尚未被 Git 追蹤的 cover，且使用者在 push 前明確要求重做封面，可以採安全替換流程：先把原檔複製到 `mktemp -d` 建立的暫存備份，將新圖 normalize 到另一個暫存檔並完成 `view_image`／尺寸檢查，最後才以新檔替換當次未提交 cover，再重新 verify。若 cover 已被 Git 追蹤或已發布，不能覆寫，必須重新取得下一個可用編號並同步更新文章 front matter。
+
+若採用版本尾碼，仍要遵守同一條不可覆寫規則：目標 `<cover-file>` 必須不存在；已追蹤或已發布的舊 cover 只保留，不直接改寫。
 
 重做既有未提交 cover 時，先用 `view_image` 看原圖，再以 `referenced_image_paths` 讓 imagegen 參考它；prompt 要寫明哪些區域是不可變的。輸出後要對照原圖檢查右側主視覺、比例、色彩與重要符號仍在；若模型把整張圖不必要地重新構圖，視為新版本重新審查，不要只因文字變漂亮就直接替換。
 
 ### 2. 生成符合現有風格的圖片
 
-生成前先用 `view_image` 檢查至少一張最新 cover，延續目前高對比、科技感、適合文章列表縮圖的視覺方向；若使用者提供圖片，也要先檢查該圖片，再決定直接使用或作為參考。使用內建 `image_gen` 工具；遵循 `imagegen` skill 的保存與檢查規則，最後一定要把專案使用的檔案放進 `themes/hexschool/source/images/`。
+生成前先用 `view_image` 檢查至少一張最新 cover，延續高對比、科技感或清爽專業、適合文章列表縮圖的視覺方向；若使用者提供圖片，也要先檢查該圖片，再決定直接使用或作為參考。使用內建 `image_gen` 工具；遵循 `imagegen` skill 的保存與檢查規則，最後一定要把專案使用的檔案放進 `themes/hexschool/source/images/`。
 
 內建 imagegen 通常會把檔案放在 workspace 之外的 generated-images 目錄；若工具回傳 `output_hint`，使用其中的本機檔案路徑作為 normalize 輸入，先用 `view_image` 檢查，再複製／正規化到專案。不要把巨大 base64 回應當成檔案內容，也不要只把 cover 留在 generated-images 目錄。
 
 呼叫 imagegen 後只擷取工具結果中的 `output_hint` 或本機路徑，不要把完整工具回應／base64 印回對話或當成檔案內容；有些結果只在文字訊息中回傳路徑、沒有結構化 `output_hint`，此時只取可確認的第一個本機圖片路徑，再用 `view_image` 確認。
 
+imagegen 輸出可能是 1536×1024 等其他比例，即使 prompt 指定 1200×800 也不可跳過 normalize；先視覺驗收原圖與縮圖，再用 `cover-guard normalize` 產生專案中的 1200×800 PNG。呼叫工具時不要直接把整個結果物件交給輸出函式，避免將巨大 base64 回應灌入 log。
+
 #### 封面參考圖與文案鎖定
 
+- skill 內的 `.agents/skills/add-hexo-post/assets/01-人物基準圖－ 4K.jpg` 是「享哥 AI 應用講師」的可選人物品牌基準圖。生成含人物的封面前先用 `view_image` 檢查，再以 `referenced_image_paths` 傳給 imagegen；資產不可讀時不要自行捏造或用其他人物替代，可改採不含人物的版型並回報未使用人物基準圖。
+- 將上述相對路徑解析成絕對路徑後再傳給 `referenced_image_paths`，不要把資產留在 generated-images 目錄或只以文字描述代替人物參考。
+- skill 內的 `assets/02-YT封面範例01.png` 是主標字級、粗體字形、描邊／陰影、色彩層次與人物／文字分區的版型參考。使用前先用 `view_image` 檢查；只借鑑「主標要大、粗、第一眼可讀」的設計原則，不得複製圖中的 Astro、Next.js、程式碼、分數、年份、圖示、品牌 logo 或原始文案。
+- 只有文章涉及講師觀點、教學、AI 應用示範、工作流程、職場實作、個人品牌或需要建立信任時才加入人物；技術導讀、工具比較或流程圖型文章可以省略人物，不要為了填版面強行放入。
+- 若使用人物基準圖，保留可辨識的品牌特徵：短黑髮、矩形眼鏡、親切專業的成年男性講師氣質、淺米色西裝、白襯衫與淡紫色條紋領帶。不得改成與基準圖不一致的身份或外觀，不要複製原始背景與直式版面，也不要把人物處理成無法辨識的黑影或誇張卡通臉。
+- 橫式封面含人物時，優先把人物放在右側或三分之一區，保留左側或上方的文案空間；人物臉部、眼鏡、肩線與服裝不可被文字或 icon 遮住。深色主題使用輪廓光維持人物辨識度，淺色主題則維持乾淨、親和、專業的品牌氣質。
 - 若使用者提供的是直式人物海報、資訊圖或含大量小字的圖片，預設把它當作視覺／人物參考，不要直接裁切成橫式 cover；以 `referenced_image_paths` 讓 imagegen 重新構圖。只有使用者明確要求原圖直接作封面時，才採用直接正規化流程。
 - 若要保留人物、品牌主視覺或重要符號，先在 prompt 明確寫出不可變區域（人物身份、服裝、主色、位置、比例與重要符號），並要求不要複製原始海報的小字與版面；輸出後要對照參考圖檢查主視覺是否仍在。
-- 呼叫 imagegen 前先建立「文案鎖定」：逐字列出 kicker／小標、主標、hook；最多三層，主標最大、hook 次之、小標最小，禁止模型自行增加工具名稱、網址、FAQ、按鈕或其他小字。中文文案越短越好，優先使用 1 句痛點／轉變 hook，避免把完整文章標題塞進圖片。
-- 若主題沒有必要的人物或產品，不要為了填版面加入人物、品牌 logo 或無關圖示；視覺符號應服務文章能力與流程，例如文件、圖片、影片、波形、剪刀、圖層、程式碼括號與 workflow 節點。
+- 呼叫 imagegen 前先根據文章主標、內文重點、讀者痛點與希望帶走的轉變建立「文案鎖定」：逐字列出 kicker／小標、主標、hook；最多三層，主標最大、hook 次之、小標最小。可視版面需要使用固定品牌小標 `享哥｜AI 應用講師`，但不得讓它搶過文章主標；中文文案越短越好，優先使用 1 句痛點／轉變 hook，避免把完整文章標題塞進圖片。
+- 文案要吸睛但不可 clickbait；不得捏造數字、成果、客戶、排名或工具能力。禁止模型自行增加工具名稱、網址、FAQ、按鈕、免責聲明或其他小字；圖片只呈現文案鎖定中列出的文字。
+- 主標必須是整張封面的第一視覺焦點：從文章主標與內文抽出最短的核心訊息，採粗體、超大字、1–2 行呈現；字級與視覺重量要明顯大於 kicker、hook、工具 icon 與其他輔助文字。可依色系使用高對比色、描邊、陰影、漸層、發光或色塊，但不要為了塞入完整標題而縮小主標；長標題應拆成短主標與 hook。
+- 若文章確實提到或使用 AI 工具，可加入 2–4 個相關工具 icon 作為次要裝飾，並將 icon 放在不干擾人物與文案的位置。優先使用可驗證的本機 icon 資產；若沒有可靠的品牌 icon，改用中性的 AI 工具符號（聊天泡泡、文件、圖片、影片、程式碼括號、workflow 節點或 automation spark），不要生成變形 logo、假品牌標誌或與文章無關的工具。若主題沒有必要的人物、產品或工具 icon，不要為了填版面硬塞。
 
 根據文章主題寫具體 prompt，至少包含：
 
 - 1200 × 800、3:2 橫式文章封面構圖。
-- 深色科技背景，搭配藍、紫、青、橘或黃色高對比光效；不要照抄單一既有 cover。
-- 2–5 個與文章主題有關的 AI 視覺符號，例如 AI 大腦、聊天泡泡、workflow 節點、程式碼括號、資料流、automation spark；不要無關地塞入品牌 logo。
+- 先依文章主標與內容選擇 `light`、`dark` 或 `hybrid` 視覺方向，不把深色系當成預設：入門教學、效率、辦公、職場實務與個人品牌優先考慮米白、淺灰、霧藍、淡紫等明亮底色；程式碼、automation、資料、安全或進階技術主題可採深藍、炭黑與藍／紫／青／橘光效；同時包含教學與技術時可用淺色底搭配深色資訊面板，或以深色底保留溫暖明亮的人物區。無論深淺，都要確保文字與人物有足夠對比、縮圖可讀且不要照抄單一既有 cover。
+- 若文章需要人物，明確指定使用「享哥 AI 應用講師」人物基準圖與不可變的外觀特徵；若文章不需要人物，改以文章能力與流程的視覺符號服務構圖。
+- 2–4 個與文章主題確實相關的 AI 工具 icon 或中性 AI 視覺符號，例如聊天泡泡、文件、圖片、影片、workflow 節點、程式碼括號、資料流或 automation spark；icon 只作裝飾，不可冒充文章未提及的工具或合作品牌。
+- 主標使用粗體、超大字與清楚的視覺層次，確保縮小成文章列表縮圖後仍是第一個被讀到的元素；可參考 `assets/02-YT封面範例01.png` 的高對比描邊、陰影與分層效果，但需依文章的 `light`／`dark`／`hybrid` 方向重新設計。
 - 一句根據文章內容產生的短 hook 文案，放在左側或上方的大字區；文案要有點擊動機但不能誇大或捏造成果。若主題需要更強的縮圖訊息或使用者要求更吸引人，可改成最多三層文字：小標／kicker、主標、hook；每層都要提供精確逐字文案，主標最大、hook 次之，小標最小，不要塞入完整標題或 FAQ。
 - 人物、產品畫面或工具 logo 只有在文章確實涉及時才加入。
 - 不要水印、不要額外小字、不要無法辨識的假按鈕、不要與文章無關的品牌標誌。
+- 品牌 logo 必須來自可驗證的既有資產，不能要求 imagegen 憑空生成精確 logo；若沒有可靠資產，使用中性的 AI 工具符號即可。
 
 對 imagegen 產出的結果做三層視覺驗收：先以 `view_image` 檢查原尺寸的構圖與人物／主視覺，再以縮小預覽檢查左側文字層級、對比與列表縮圖可讀性，最後才做尺寸／格式驗證。逐字核對 kicker、主標與 hook 是否與文案鎖定完全一致；若有錯字、變形、裁切、文字過小、對比不足、主視覺消失或只剩泛泛口號，針對文案與版面重新生成。若兩次以上仍不穩定，先向使用者回報，不要把明顯錯字或不可辨識的封面提交上線。
+
+若含人物，驗收時逐項對照人物基準圖確認臉部、眼鏡、髮型、服裝色彩與人物位置；同時檢查深淺色方向是否符合文章內容、文案層級是否清楚、AI 工具 icon 是否相關且未變形。若出現錯字、人物失真、icon 變形、文字過小、對比不足、裁切不當、主視覺消失或只剩泛泛口號，針對文案、人物與版面重新生成。若兩次以上仍不穩定，先向使用者回報，不要把明顯錯字或不可辨識的封面提交上線。
+
+縮小預覽時，主標必須先於人物、hook、icon 與背景特效被辨識；若主標不夠粗、不夠大、對比不足或被其他元素搶走視線，應優先調整主標版面後重新生成。
 
 將結果正規化為 PNG、1200 × 800；保持比例，必要時以中央裁切，不要直接拉伸變形：
 
 ```bash
-node .agents/skills/add-hexo-post/scripts/cover-guard.js normalize <imagegen-output> themes/hexschool/source/images/cover<N>.png
-node .agents/skills/add-hexo-post/scripts/cover-guard.js verify themes/hexschool/source/images/cover<N>.png
+node .agents/skills/add-hexo-post/scripts/cover-guard.js normalize <imagegen-output> themes/hexschool/source/images/<cover-file>
+node .agents/skills/add-hexo-post/scripts/cover-guard.js verify themes/hexschool/source/images/<cover-file>
 ```
 
 確認輸出檔名不存在後，將文章 front matter 的 `cover` 改為：
 
 ```yaml
-cover: /images/cover<N>.png
+cover: /images/<cover-file>
 ```
 
 ### 3. Cover prompt 的內容原則
@@ -224,19 +255,19 @@ git diff --check
 先以 `npm run` 確認 script 是否存在。`verify:post-metadata`、`verify:build-output`、`verify:jsonld:local` 若不存在，不要自行修改 `package.json` 來補別名；改做以下等價檢查並在交付摘要標明「等價驗證」：
 
 - **metadata**：讀取 `source/_posts/<slug>.md` front matter，確認 `title`、`cover`、`toc: true`、恰好一個 category、1–3 個 tags、非空 `date`、70–150 字元 `description`、FAQ 區塊與至少 3 組有效問答。
-- **build output**：確認 `public/posts/<slug>/index.html`、`public/images/cover<N>.webp` 與 source 的 `cover<N>.png` 存在；production HTML 包含文章標題、`cover<N>.webp`、`FAQPage` 與至少 3 個 `Question`。
+- **build output**：確認 `public/posts/<slug>/index.html`、`public/images/<cover-webp>` 與 source 的 `<cover-file>` 存在；production HTML 包含文章標題、`<cover-webp>`、`FAQPage` 與至少 3 個 `Question`。檢查 `Question` 時容忍 JSON-LD 格式化空白，例如用 JSON 解析或比對 `"@type"\s*:\s*"Question"`，不要只搜尋無空白的固定字串。
 - **JSON-LD local**：本專案的 `tools/validate-jsonld.js` 以 `--mode=local` 參數切換本地檢查，正確呼叫是 `node tools/validate-jsonld.js --mode=local --paths=/posts/<slug>/ --public-dir=public`，不要假設有 `verify:jsonld:local` npm alias。
 
 另行確認：
 
 - `public/posts/<slug>/index.html` 存在。
-- 文章頁 HTML 含文章標題、`cover<N>.webp` 引用與 FAQPage JSON-LD；FAQ 至少有 3 組 `Question`。
+- 文章頁 HTML 含文章標題、`<cover-webp>` 引用與 FAQPage JSON-LD；FAQ 至少有 3 組 `Question`。標題與引用以「至少存在一次」判定，不要用整頁出現次數判斷內容是否重複。
 - `public/posts/<slug>/index.html` 沒有引用不存在的圖片。
-- `cover<N>.png` 仍是 source 目錄中的 1200 × 800 原始資產；`public/` 只是產物，不要加入 Git。
+- `<cover-file>` 仍是 source 目錄中的 1200 × 800 原始資產；`public/` 只是產物，不要加入 Git。
 
 驗證新文章本身時，避免把整個 repo 的既有警告誤判為本次失敗；報告檢查範圍與結果，並只修正本次文章或 cover 造成的問題。
 
-檢查圖片引用時要區分建置階段：`npm run build` 會由 `toWebp` 產生並改寫 production HTML 的 `cover<N>.webp`；Hexo 開發伺服器直接讀 source 時，頁面可能仍引用 `cover<N>.png`。因此 production 檢查 `public/` 的 WebP，local server 則確認 source PNG 能以 HTTP 200 讀取，不要因副檔名不同誤判。
+檢查圖片引用時要區分建置階段：`npm run build` 會由 `toWebp` 產生並改寫 production HTML 的 `<cover-webp>`；Hexo 開發伺服器直接讀 source 時，頁面可能仍引用 `<cover-file>` 的 PNG。因此 production 檢查 `public/` 的 WebP，local server 則確認 source PNG 能以 HTTP 200 讀取，不要因副檔名不同誤判。
 
 若需要自行檢查 HTML 的本地 `href`／`src`，先對 URL path 執行 `decodeURIComponent` 再映射檔案路徑；中文分類與 tags 常以 `%E...` 編碼，未解碼的檢查器會把實際存在的頁面誤報為 missing。優先使用專案既有 validator，不要用未處理 URL encoding 的簡易 regex 取代它。
 
@@ -267,7 +298,7 @@ npm run server -- --port 4000
 Slug：<slug>
 文章檔案：source/_posts/<slug>.md
 Hexo 原始建立時間：<date>
-封面：themes/hexschool/source/images/cover<N>.png（1200 × 800）
+封面：themes/hexschool/source/images/<cover-file>（1200 × 800）
 正式網址：https://blog.es2idea.com/posts/<slug>/
 驗收：列出每個通過的檢查
 ```
@@ -277,13 +308,20 @@ Hexo 原始建立時間：<date>
 ```bash
 git branch --show-current
 git status --short --branch
-git add -- source/_posts/<slug>.md themes/hexschool/source/images/cover<N>.png
+git add -- source/_posts/<slug>.md themes/hexschool/source/images/<cover-file>
 git diff --cached --check
 git diff --cached --stat
 git diff --cached --name-status
 ```
 
-只有在目前分支已明確確認為部署目的地，且 staged name-status 只包含本次文章與 cover 時才可繼續。若工作區原本已有 staged 變更，不要替使用者取消 stage 或混入本次 commit；先停下來區分 index 狀態。
+若本次交付物是復盤後的 skill 更新，而不是文章／封面發布，只 stage 明確指定的 `.agents/skills/add-hexo-post/SKILL.md`、必要的 script 或 agent metadata；不要順手加入文章、cover、`public/`、`assets/` 或其他工作樹變更。skill 修改完成後先執行結構 gate：
+
+```bash
+python3 /Users/hsuhsiang/.codex/skills/.system/skill-creator/scripts/quick_validate.py .agents/skills/add-hexo-post
+git diff --check -- .agents/skills/add-hexo-post/SKILL.md
+```
+
+文章／封面發布只有在目前分支已明確確認為部署目的地，且 staged name-status 只包含本次文章與 cover 時才可繼續；skill 更新則只允許明確的 skill 相關檔案。若工作區原本已有 staged 變更，不要替使用者取消 stage 或混入本次 commit；先停下來區分 index 狀態。
 
 確認 staged diff 沒有不相關檔案後，使用詳細繁體中文 commit message，包含文章、原始建立時間、FAQ、cover 尺寸與部署驗收意圖，例如：
 
@@ -292,7 +330,7 @@ git diff --cached --name-status
 
 - 依 Hexo new 保留原始建立時間：<date>
 - 整理 SEO metadata、FAQ 與文章結構
-- 新增 1200x800 AI 封面：cover<N>.png
+- 新增或更新 1200x800 AI 封面：<cover-file>
 - 由 main push 觸發 GitHub Actions 部署
 ```
 
@@ -315,19 +353,29 @@ gh run watch <run-id> --exit-status
 優先使用已登入的 `gh run list`／`gh run watch` 或 GitHub 介面，並以 `headSha` 等於本次 commit SHA 為篩選條件。不要預設 workflow 一定有名為 `Build and verify` 與 `Deploy to gh-pages` 的兩個 job；有些版本是單一 `build` job 裡依序執行 `Build` 與 `Deploy to gh-pages` steps。以實際 `gh run watch` 顯示的 job／step 名稱回報，確認 build 與 deploy 實際成功即可。Actions 的成功結論與 Node.js deprecation 等 warning 要分開回報；warning 不等於部署失敗，但不能省略。
 
 ```bash
-curl --fail --silent --show-error --location --retry 5 --retry-delay 5 \
-  https://blog.es2idea.com/posts/<slug>/
+page_body_path=/tmp/<slug>-production.html
+page_http_code=$(curl -sS -L -o "$page_body_path" -w '%{http_code}' \
+  https://blog.es2idea.com/posts/<slug>/)
+cover_http_code=$(curl -sS -L -o /dev/null -w '%{http_code}' \
+  https://blog.es2idea.com/images/<cover-webp>)
 ```
 
-正式站至少確認 HTTP 2xx、文章標題、`cover<N>.webp`、FAQPage JSON-LD 與文章內容存在，並另外請求 cover URL 確認圖片 HTTP 200。第一次探測 canonical 或 cover 時不要使用會吞掉 404 的 `curl --fail` helper；先保存 response 與 HTTP code，再決定是否重試。zsh 的 `status` 是唯讀特殊變數，HTTP 檢查請使用 `page_http_code`、`cover_http_code` 等名稱；若用 Node 解析保存的 HTML，不要直接引用未 export 的 shell 區域變數，讓 shell 負責判斷 HTTP code、Node 只負責讀檔案內容。
+正式站至少確認 HTTP 2xx、文章標題、`<cover-webp>`、FAQPage JSON-LD 與文章內容存在，並另外請求 cover URL 確認圖片 HTTP 200。第一次探測 canonical 或 cover 時不要使用會吞掉 404 的 `curl --fail` helper；先保存 response 與 HTTP code，再決定是否重試。zsh 的 `status` 是唯讀特殊變數，HTTP 檢查請使用 `page_http_code`、`cover_http_code` 等名稱；若用 Node 解析保存的 HTML，不要直接引用未 export 的 shell 區域變數，讓 shell 負責判斷 HTTP code、Node 只負責讀檔案內容。
 
 若 canonical URL 初次回傳 404，不要先讓「只接受 2xx 的 retry helper」重試到丟出例外而跳過後續判斷；要保留 404 response，立即區分部署內容與邊緣快取：
 
-1. 用 `gh api repos/<owner>/<repo>/contents/posts/<slug>/index.html?ref=gh-pages` 確認 `gh-pages` 是否已有該檔案。
+1. 用 `gh api 'repos/<owner>/<repo>/contents/posts/<slug>/index.html?ref=gh-pages'` 確認 `gh-pages` 是否已有該檔案；`?ref=gh-pages` 要加引號，避免 zsh 將 `?` 當成 glob。
 2. 必要時讀取該檔案的 `raw` URL，確認部署產物不是空缺。
 3. 對正式 URL 加上 commit SHA 的 query string，並使用 `Cache-Control: no-cache` 重試；例如 `https://blog.es2idea.com/posts/<slug>/?v=<commit-sha>`。若同一 query key 仍命中舊 404，但 `gh-pages` raw 已 200，改用新的唯一 suffix（例如 `?v=<commit-sha>-verify-1`）再測，不要把單一 query key 的快取結果當成部署結果。
-4. 封面也要用實際 production URL（通常是 `cover<N>.webp`）做 cache-busting HTTP 檢查，不要只檢查文章 HTML。
+4. 封面也要用實際 production URL（通常是 `<cover-webp>`）做 cache-busting HTTP 檢查，不要只檢查文章 HTML。
 5. 若 `gh-pages` 已有檔案、cache-busting URL 與封面已 200，但無 query 的 canonical URL 暫時仍 404，狀態應回報為「部署成功、等待快取更新」，持續重試但不要把暫時 404 宣稱為永久失敗。
+
+補充判讀規則：
+
+- `gh-pages` 的 raw／GitHub API 檔案存在，只證明部署產物已寫入分支；自訂網域的 HTML 與圖片仍可能被 Pages/CDN 快取住。必要時用 `gh api 'repos/<owner>/<repo>/contents/images/<cover-webp>?ref=gh-pages'` 與 raw URL 交叉確認。
+- 若無 query 的文章頁 HTTP 200 但仍引用舊 cover，或無 query 的新 cover 暫時 404，不要只看狀態碼就宣稱完成；用新的唯一 query suffix（例如 `?v=<commit-sha>-verify-2`）重新抓取 HTML 與 cover，並檢查 cache-busted HTML 是否已引用 `<cover-webp>`。
+- 若 `gh-pages` raw、cache-busted 文章頁與 cache-busted cover 都是 200，部署可判定為成功；無 query URL 仍是舊內容或 404 時，回報「部署成功、等待 CDN 快取更新」，不要為了繞過快取重複提交相同內容。
+- `npm run verify:jsonld -- --base=https://blog.es2idea.com --paths=/posts/<slug>/` 的通過只代表遠端 JSON-LD 結構通過；仍要獨立回報 cover HTTP、HTML 新版引用與 CDN 快取狀態。
 
 若 Actions 尚未完成，回報「已 push、等待部署」；若 Actions 成功但上述正式站驗收尚未通過，回報「部署成功、等待快取更新／正式站驗收未完成」，不要宣稱已完成。
 
@@ -339,6 +387,7 @@ Push 後最後再執行 `git status --short --branch`。若仍有使用者原本
 - 不安裝第三方 plugin、skill 或外部 CLI；缺少必要工具時先回報並等待指示。
 - 不覆寫既有文章或 cover；slug、日期與圖片編號都要先驗證。
 - `cover-guard normalize` 拒絕覆寫是預期的安全行為；只有本次尚未追蹤且使用者明確要求重做的 cover，才可依「暫存備份→暫存 normalize→視覺檢查→替換→verify」例外流程處理。
+- `cover-guard next` 只負責一般 `cover<N>.png` 編號，不會替 `cover132-1.png` 這類同基底版本尾碼做決策；版本尾碼必須先檢查目標不存在，再以完整 `<cover-file>` 貫穿 front matter、建置、驗證與 stage。
 - 不因 `npm run` 缺少 skill 文件中舊有的 alias 就自行改 package 或宣稱驗證失敗；改用專案現有 validator 與等價唯讀檢查，清楚記錄缺少項目。
 - 不因 build 成功就跳過實際文章頁、圖片、FAQ JSON-LD 與正式網址檢查。
 - 不把「本機 build 通過」、「push 成功」、「Actions 成功」、「正式網址可讀」混為同一個狀態。
