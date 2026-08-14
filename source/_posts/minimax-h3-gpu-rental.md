@@ -1,6 +1,6 @@
 ---
 title: MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？
-cover: /images/cover132.png
+cover: /images/cover132-2.png
 toc: true
 categories:
   - 生成式AI應用
