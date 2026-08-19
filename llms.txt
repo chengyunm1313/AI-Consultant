@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- AI 讓程式碼越來越便宜，但「知道什麼值得做」正在變得越來越貴
+  網址：https://blog.es2idea.com/posts/ai-micro-saas-opportunities/
+  日期：2026-08-19
+  摘要：AI 讓程式碼、Agent 與 Skill 變便宜，真正稀缺的卻是產業洞察與選題能力。本文拆解如何從工作流程找痛點，把 AI 解法產品化，找到一人公司也能服務的窄市場。
+  主題：商業策略、AI工具、Vibe Coding
+
 - AI 時代的知識策展：把資訊整理成可學習的知識系統
   網址：https://blog.es2idea.com/posts/ai-knowledge-curation/
   日期：2026-08-14
@@ -99,12 +105,6 @@
   日期：2026-05-04
   摘要：想要實現 Threads 自動發文？本篇完整教學帶你使用 n8n 串接 Meta Threads API，從建立應用程式、取得測試人員權限，到成功展延 60 天長期 Token，一步步打造你的 AI 自動化發文系統！
   主題：AI自動化、AI工具、API串接
-
-- 每日定時檢查未交作業並發送提醒信 | (EP.5) n8n 自動化講師應用教學
-  網址：https://blog.es2idea.com/posts/daily-check-unsubmitted-assignment-email/
-  日期：2026-05-04
-  摘要：想要節省追蹤作業進度的時間嗎？本文詳細拆解如何建立自動化工作流，每天早上 9 點自動比對未交作業名單，並精準寄發提醒 Email，同時完整記錄發送日誌避免重複打擾。
-  主題：AI自動化、自動化講師應用、工作流
 
 ## 語言
 - zh-TW
