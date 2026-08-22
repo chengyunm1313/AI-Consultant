@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- public-apis：超過 40 萬顆星的 API 寶庫，Vibe Coding 很值得收藏
+  網址：https://blog.es2idea.com/posts/public-apis-api-directory/
+  日期：2026-08-23
+  摘要：想做天氣、匯率、電影或其他資料型 Side Project，卻不知道 API 到哪裡找？本文介紹 public-apis 如何整理大量公開 API，以及如何搭配 Coding Agent 更快完成選型與串接。
+  主題：AI工具、Vibe Coding、API串接
+
 - Claude Academy 學習路徑完整指南：22 門免費課程與 289 項資源怎麼選？
   網址：https://blog.es2idea.com/posts/claude-academy-learning-paths/
   日期：2026-08-22
@@ -99,12 +105,6 @@
   日期：2026-07-10
   摘要：Odoo 廣告狂打的背後，其實是 AI 時代企業系統的重新洗牌。本文解析 Odoo 的優勢，並教你如何結合 CRM、ERP 與 n8n，打造專屬的 AI Native 商業自動化工作流！
   主題：商業策略、AI自動化、AI工具
-
-- AI 時代不用從零開始！20 個必看的 GitHub 開源 AI Business OS 專案
-  網址：https://blog.es2idea.com/posts/open-source-ai-native-tools/
-  日期：2026-07-10
-  摘要：想要導入 AI 卻不知從何下手？不要再從零開發系統了！本文為你精選 GitHub 最熱門的 AI Business OS 開源專案，涵蓋 AI CRM、客服、知識庫與 n8n 工作流，教你輕鬆打造企業專屬的 AI 基礎建設。
-  主題：AI自動化、AI工具、Vibe Coding
 
 ## 語言
 - zh-TW
