@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- cangjie-skill：把書籍與長影音蒸餾成 AI Agent 可用的 Skills
+  網址：https://blog.es2idea.com/posts/cangjie-skill-book-to-agent-skills/
+  日期：2026-08-22
+  摘要：cangjie-skill 不只整理書籍、長影音與 Podcast 的摘要，而是把方法論、框架與決策原則拆成可呼叫、可組合、可測試的 AI Agent Skills，讓看過的內容真正轉化為可執行能力。
+  主題：AI自動化、AI工具、內容行銷
+
 - Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness
   網址：https://blog.es2idea.com/posts/skill-to-agent-harness/
   日期：2026-08-22
@@ -99,12 +105,6 @@
   日期：2026-05-08
   摘要：Astro 和 Next.js 到底差在哪？本文用 SEO、AEO、網站效能、後台系統與商業場景解析兩大前端框架的選型差異，幫你判斷企業官網、內容站、SaaS 平台與 AI 應用該用哪一套技術。
   主題：商業策略、SEO、內容行銷
-
-- 應該選哪個？Power Automate 與 n8n 自動化工具終極比較指南
-  網址：https://blog.es2idea.com/posts/power-automate-vs-n8n-comparison/
-  日期：2026-05-07
-  摘要：企業流程自動化該選 Microsoft Power Automate 還是 n8n？本文深入比較兩大工具的生態系、RPA、工程開發彈性、AI Agent 整合、實際成本試算與混合架構策略，搭配真實場景案例，幫你快速找到最適合團隊的解決方案！
-  主題：AI自動化、AI工具、Power Automate
 
 ## 語言
 - zh-TW
