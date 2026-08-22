@@ -34,6 +34,12 @@
 
 ## 最新文章
 
+- Claude Academy 學習路徑完整指南：22 門免費課程與 289 項資源怎麼選？
+  網址：https://blog.es2idea.com/posts/claude-academy-learning-paths/
+  日期：2026-08-22
+  摘要：Anthropic 官方 Claude Academy 整理 22 門課程與 289 項資源，本文拆解繁中支援、課程時數、四種身分學習路徑與完成徽章，幫你從 Claude 101 開始學到 AI Agent 工作流。
+  主題：AI自動化、AI工具、AI Agent
+
 - Google Antigravity 2.0 繁體中文介面套件：降低 AI Coding 入門門檻
   網址：https://blog.es2idea.com/posts/antigravity-traditional-chinese/
   日期：2026-08-22
@@ -99,12 +105,6 @@
   日期：2026-07-10
   摘要：想要導入 AI 卻不知從何下手？不要再從零開發系統了！本文為你精選 GitHub 最熱門的 AI Business OS 開源專案，涵蓋 AI CRM、客服、知識庫與 n8n 工作流，教你輕鬆打造企業專屬的 AI 基礎建設。
   主題：AI自動化、AI工具、Vibe Coding
-
-- Tauri 與 Electron 怎麼選？2026 桌面 App 打包框架完整技術選型指南
-  網址：https://blog.es2idea.com/posts/electron-vs-tauri-comparison/
-  日期：2026-07-03
-  摘要：想將 Web App 打包成 Windows 或 Mac 桌面軟體？本文從底層架構、效能占用、跨平台整合到實務開發成本，為你完整比較 Electron 與 Tauri，助你精準做出技術選型！
-  主題：技術選型、Electron、Tauri
 
 ## 語言
 - zh-TW
