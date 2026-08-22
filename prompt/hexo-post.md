@@ -37,6 +37,8 @@
 - `categories`: 僅限一個精確分類（受控字典範圍）。
 - `tags`: 1-3 個標籤，嚴格執行「主題整併規則」（見附件）。
 - `cover`: 預設 `/images/default-cover.png`。
+- 封面視覺不固定使用深色科技風：入門、工具導讀、效率與職場文章優先考慮明亮 editorial、bright 3D、紙雕拼貼或淺色 hybrid；`dark-tech` 必須有文章語意上的理由。
+- 若加入 AI icon，控制在 2–4 個相關且風格一致的中性符號；裝飾 badge／短詞必須先列入文字白名單，不得讓模型自行產生假 logo、網址或背景小字。詳細生成、增量迭代與縮圖驗收遵循 repo-local `.agents/skills/add-hexo-post/SKILL.md`。
 
 ### 4. 常見問答 (FAQ) 規則
 在內文結束後，建立 `## 常見問答 (FAQ)` 區塊：
