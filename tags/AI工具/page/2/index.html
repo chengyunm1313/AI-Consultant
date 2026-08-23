@@ -219,7 +219,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
-            生成式AI應用 (64)
+            生成式AI應用 (65)
           </a>
         </li>
       
@@ -283,11 +283,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-          AI自動化 (65)
+          AI自動化 (66)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (33)
+          AI工具 (34)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
@@ -303,7 +303,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
-          AI Agent (8)
+          AI Agent (9)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
@@ -465,6 +465,259 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+<li
+  id="post-minimax-h3-gpu-rental"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover132-2.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        alt="article-MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/8/14
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI自動化
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              影音行銷
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？
+        </h5>
+        <div class="cutoff-text mb-0 text-primary-700">
+          最近我一直在糾結一個問題：
+如果接下來要認真玩 AI 生成影片，我到底要不要買一台地端設備？
+原因很簡單。
+最近開始研究 MiniMax H3、ComfyUI 這類開源影片生成模型，越研究越覺得有趣。尤其模型開放之後，除了生成影片，也可以自己控制 ComfyUI Workflow、安裝節點、替換模型、調整參數，甚至進一步交給 Codex 這種 AI Coding Agent 自動操作。
+問題也跟著來了：硬體怎麼辦？
+以我參考的 H3 實測來看，單張 RTX 5090 就能跑起來。聽起來很好，直到查了一下 RTX 5090 的價格……
+嗯。
+冷靜。
+我只是想生成影片，不是準備開礦場。
+後來我才發現，這不一定是「買硬體」和「買平台點數」的二選一。中間還有一條路：租一台需要時才開機的 GPU 電腦。
+為什麼想玩 MiniMax H3，卻先卡在硬體？開源影片模型最吸引人的地方，是自由度突然變高：
+
+可以修改 ComfyUI Workflow。
+可以選擇不同模型、量化版本與節點。
+可以讀取完整 Log，自己找出錯誤原因。
+可以把生成流程串進腳本、API 或 Agent 工作流。
+
+但自由度通常也代表環境管理成本。CUDA、PyTorch、顯示卡記憶體、模型檔案、Custom Nodes，每一項都可能成為新的排錯題目。
+所以真正要比較的，不只是「哪裡生成一支影片最便宜」，而是：
+
+我需要的是一個幫我生成影片的服務，還是一台可以由我自己控制的 AI 工作站？
+
+第一條路：自己買 RTX 5090，換取完整控制權自己買一台足夠強的電腦，安裝 RTX 5090，再架起 ComfyUI，當然是最自由的方案。
+模型放在自己的機器裡，Workflow 自己改，Custom Nodes 想裝多少就裝多少，也不用擔心平台哪一天把某個模型或節點移除。若未來想做：
+1Codex → ComfyUI → MiniMax H3 → 自動生成影片
+
+地端設備的控制權確實最高。
+買設備真正貴的，不只有顯示卡一張 RTX 5090 還需要足以餵飽它的 CPU、主機板、電源、散熱、記憶體與儲存空間。整套設備的前期成本，很快就不是「買張顯卡玩玩看」的等級。
+而且還有一個容易被忽略的問題：你花十幾萬買設備，不代表每天都在生成影片。
+可能今天研究 H3 三小時，明天忙著上課，接下來三天根本沒碰。GPU 就坐在那裡發呆，但設備的折舊、電力、維護與佔用空間仍然存在。
+如果生成需求已經穩定、每天都會使用，這些固定成本可以被大量工作攤平；如果還在探索階段，買設備就未必是最合理的第一步。
+第二條路：使用 LiblibAI，省下環境管理成本我前陣子一直在看 LiblibAI（有些人也會叫它 LibTV）。這種平台最大的優點只有一句話：真的很方便。
+不用處理 CUDA，不用自己安裝 PyTorch，不用管理顯示卡記憶體，也不用先下載幾十 GB 的模型。通常只要購買點數、選擇模型、上傳圖片、輸入 Prompt，就可以開始生成。
+對一般使用者來說，我仍然很推薦這條路。平台把底層 GPU、模型部署與大部分環境問題包起來，學習成本低很多；如果目標只是「幫我生成一支 H3 影片」，這樣的抽象化非常舒服。
+但平台服務和自己的工作站是兩件事LiblibAI 的取捨也很明確：
+
+平台提供什麼模型，基本上就從什麼模型裡選。
+Workflow、Custom Nodes 與參數能改到什麼程度，取決於平台開放的範圍。
+Log、依賴套件與底層錯誤不一定能完整取得。
+如果想讓 Codex 自己安裝節點、修改 Workflow、讀 Log、修錯誤再重跑，會受到平台介面與 API 能力限制。
+
+因此，LiblibAI 比較像是租用一個「AI 影片服務」；你得到的是快速產出，而不是一台完整可控的 GPU 電腦。
+第三條路：租用雲端 GPU，保留 ComfyUI 的自由度我看到一篇 MiniMax H3 的實測文章後，才意識到原來還有第三種做法：不買 RTX 5090，而是直接租一張。
+作者使用 RunPod 開啟 RTX 5090 GPU 主機，掛上 ComfyUI Template，自己下載 MiniMax H3、安裝節點、查看 Log；用完後直接 Terminate。文章記錄的整個上午帳單是 US$2.07。
+RunPod 公開頁面在本文整理時顯示的 RTX 5090 價格約為 US$0.99／小時、32GB VRAM。價格、庫存、區域與方案都可能變動，實際使用時仍應以當下頁面為準。
+這種模式的核心概念是：
+1234今天要研究 H3 → 開一台 GPU研究三小時 → 依實際使用時間付費Workflow 跑完 → 關機或 Terminate明天沒工作 → 不啟動，就不支付 GPU 運算時間
+
+你仍然要自己處理 ComfyUI、模型、節點與 Workflow，但也因此保留了足夠的控制權。對想把 Codex 接進流程的人來說，這更接近「租一台遠端工作站」，而不是使用一個封裝好的生成按鈕。
+買硬體、買點數、租 GPU：差異在哪裡？
+
+
+比較項目
+買 RTX 5090
+LiblibAI
+RunPod／Vast.ai
+
+
+
+前期成本
+高
+低
+低
+
+
+你取得的東西
+自己的完整工作站
+AI 生成服務
+可自行管理的 GPU 主機
+
+
+ComfyUI 控制
+完整
+依平台提供
+高，依主機與方案而定
+
+
+自裝節點、替換模型
+可以
+受平台限制
+可以，仍需自己部署
+
+
+Log 與錯誤排查
+完整
+受平台限制
+通常較完整
+
+
+Codex 自動控制
+很適合
+取決於平台 API
+很適合
+
+
+硬體維護
+自己處理
+不用處理
+由供應商處理主機，環境仍由自己管理
+
+
+不使用時成本
+設備仍然持有
+依方案與點數規則
+GPU 可不用就不開，但儲存等費用需另外確認
+
+
+新手難度
+高
+最低
+中高
+
+
+這張表最重要的差異，不是誰的單價最低，而是「你租到什麼」。
+LiblibAI 是租 AI 影片服務。
+RunPod 或 Vast.ai 是租 GPU 電腦。
+RunPod、Vast.ai、SaladCloud，應該怎麼看？RunPod：先把環境與 Workflow 玩熟如果是第一次從平台生成服務轉向自建 ComfyUI，我會先選 RunPod。原因不是它一定最便宜，而是比較符合「開一台機器，自己安裝、自己觀察、自己排錯」的學習方式。
+適合先完成這幾件事：
+
+確認 MiniMax H3 在目標 GPU 上能否穩定執行。
+把模型、Custom Nodes 與 ComfyUI Workflow 記錄下來。
+了解模型載入、生成、輸出與下載各階段的耗時。
+讓 Codex 能透過腳本或遠端指令執行固定流程。
+
+Vast.ai：更像 GPU 版的 AirbnbVast.ai 的特色是 GPU Marketplace，價格會受到供需、主機狀態、地區與租用方式影響。RTX 5090、4090、A100、H100 等不同規格，都可能在市場上找到可租用的主機。
+它的彈性與價格可能很吸引人，但選擇主機時需要更仔細檢查 VRAM、磁碟、網路、映像檔、持久化方式與實際可用性。
+SaladCloud：價格低，但更適合標準化的容器工作負載原文整理的公開資訊中，SaladCloud 的 Batch RTX 5090 價格約為 US$0.25～0.294／小時，比 RunPod 公開價格低很多。
+不過，價格不能單獨拿來比較。SaladCloud 比較偏向 Container 化的工作負載，不一定適合第一次研究 ComfyUI 時，想登入一台機器慢慢安裝節點、看 Log、修改環境的情境。
+我的順序會是：
+12345先用 RunPod 熟悉環境        ↓再用 Vast.ai 比較不同 GPU 市場        ↓Workflow 與部署容器化後，再研究 SaladCloud
+
+Codex、ComfyUI 與 H3，可以組成什麼工作流？這件事情真正讓我興奮的，不只是省下幾美元，而是 GPU 運算可以和 Agent 工作流接在一起。
+例如一支 60 秒影片，可以先由 Codex 協助拆解：
+1234567891011121360 秒影片  ↓拆成 4 個 15 秒 Segment  ↓每個 Segment 包含 3 個 Shot  ↓MiniMax H3 生成 4 段影片  ↓FFmpeg 自動合併  ↓字幕／配音／BGM  ↓完成
+
+在這個流程裡，Codex 可以負責規劃與執行腳本，ComfyUI 負責節點式生成，雲端 GPU 負責短時間的大量運算，最後再把影片抓回本機完成後製。
+本機的 Mac 不需要一直負責暴力運算，只要負責指揮與驗收即可。
+多鏡頭 Prompt：減少人力審片，不代表可以省略驗收原文實測提到，作者原本以為 H3 的 15 秒長影片很容易自己亂切鏡，但在 Prompt 裡加入明確的時間與鏡頭標記後，模型曾按照指定時間切換鏡頭：
+12345678[Shot A] At 00:00.000桌腳低角度，空鏡[Shot B] At 00:05.000切到整個房間的大遠景[Shot C] At 00:10.000切回桌腳特寫
+
+這個結果很值得研究，因為它代表一支 15 秒影片不一定只能服務一個鏡頭。理論上，原本的：
+15 秒 × 12 次生成
+
+可能改成：
+115 秒 × 4 次生成，每次包含 3 顆鏡頭
+
+GPU 運算量不一定比較少，甚至可能更多；但人只需要先審 4 個 Segment，而不是 12 個短片段。
+這裡仍要保留一個重要前提：時間標記是值得測試的 Prompt 策略，不代表每次生成都能完全照做。正式交付前，還是要檢查鏡頭切換、角色連貫性、動作與音畫同步。
+用運算時間粗估 AI 影片的邊際成本假設一支 15 秒影片的生成時間約 5 分鐘，RunPod GPU 價格以 US$0.99／小時粗估：
+1235 分鐘 ÷ 60 × US$0.99≈ US$0.0825≈ US$0.08
+
+也就是說，在「GPU 持續運算、只計算 GPU 時間」的理論模型裡，一小時大約可以跑 12 支 15 秒影片，一支影片的 GPU 運算成本約為 US$0.08。
+若用原文整理的 SaladCloud Batch 價格區間估算：
+125 分鐘 ÷ 60 × US$0.25～0.294≈ US$0.021～0.0245
+
+但這些都不是完整製作成本，至少還要納入：
+
+啟動主機與載入模型的時間。
+Prompt 測試與失敗重跑。
+模型下載、磁碟與持久化儲存。
+上傳、下載與網路流量。
+GPU 閒置但仍在計費的時間。
+人工審片、剪輯、字幕、配音與配樂。
+
+這個粗估的價值，不是宣稱每支影片只要幾美分，而是讓人看見：當 Workflow 固定下來後，真正需要優化的可能是「讓 GPU 不要等待」以及「讓人不要陪著 GPU 等待」。
+三種方案，分別適合什麼人？完全不想碰技術：選 LiblibAI如果只想快速生成內容，不想處理 CUDA、模型、節點和環境依賴，LiblibAI 這類平台會是最省時間的選擇。你付費購買的是便利性與整合好的生成服務。
+每天大量生成，而且需求已經穩定：計算是否值得買地端如果每天都要生成、Workflow 長期固定，而且設備會持續使用，地端 RTX 5090 才有機會透過高使用率攤平前期成本。這時候還要把電力、維護、升級與設備折舊納入計算。
+想玩最新開源模型，又想讓 Codex 控制流程：先租 GPU如果和我一樣，想自己改 ComfyUI、安裝節點、替換模型、讀 Log，也不想一開始就投入十幾萬買設備，RunPod 會是一個合理的起點。
+等 Workflow、Prompt、模型版本與部署方式都穩定後，再比較 Vast.ai 或 SaladCloud，甚至重新計算是否值得購買地端設備。
+我的結論：先租 GPU，再決定要不要買設備我現在對這三條路的理解很簡單：
+
+LiblibAI：租用 AI 影片服務，最省環境管理時間。
+RunPod／Vast.ai：租用 GPU 電腦，保留 ComfyUI 與 Workflow 的控制權。
+地端 RTX 5090：購買長期使用的 AI 工作站，固定成本高但自由度最高。
+
+所以，如果只是偶爾研究模型，我不會急著買 RTX 5090。我會先租 GPU，把完整工作流跑通，並記錄實際的 GPU 使用時間、模型載入時間、失敗重跑比例、儲存費與人工審片時間。
+半年後如果真的每天大量生成，再用這些真實數據回頭計算買設備是否划算；如果新模型需要更大的 VRAM，也可以直接更換租用的 GPU，不需要賣二手顯卡、升級電源、換主機板或處理散熱。
+我最喜歡這個模式的地方是：把昂貴的 GPU，變成需要時才叫來上班的臨時 AI 員工。
+當 ComfyUI Workflow、Prompt、模型與 Codex 自動化都整理好之後，AI 影片製作就不再只是「使用一個 AI 工具」，而可能變成一條可以由 Agent 自動執行的生產線。
+真正值得期待的，也許不只是生成一支影片便宜多少，而是 GPU 可以自己跑，人不用陪它跑。
+延伸閱讀
+Qwen-Image-Edit 入門教學：不用安裝也能輕鬆玩轉 AI 圖像編輯：先從線上工具理解模型與 ComfyUI 的差異。
+AI 工具名詞全解析：一次搞懂 MCP、Skill 與 CLI 的差異與應用場景：理解 AI Agent 如何透過不同工具執行工作。
+
+參考資料與價格提醒
+MiniMax H3 第三條路｜原文實測
+RunPod｜RTX 5090 GPU
+LiblibAI｜AI 生成／ComfyUI 平台
+Vast.ai｜GPU Marketplace
+SaladCloud｜Container／GPU 運算
+
+本文中的價格、GPU 規格、生成時間與成本試算，都是根據提供的原文實測與公開頁面資訊整理。雲端 GPU 價格、庫存、方案、儲存與流量費用會隨時間和使用條件變動，實際使用前請以各平台當下公告為準。
+常見問答 (FAQ)Q1：想玩 MiniMax H3，一定要先買 RTX 5090 嗎？不一定。如果目前仍在研究模型、測試 Workflow，或每週只使用幾個小時，可以先租用雲端 GPU；只有在生成量穩定、長期高使用率時，才值得進一步計算購買地端設備的回本時間。
+Q2：LiblibAI 和 RunPod 的本質差異是什麼？LiblibAI 比較像租用整合好的 AI 影片服務；RunPod 則比較像租用一台 GPU 電腦。前者省去環境管理，後者保留 ComfyUI、模型、節點與 Log 的較高控制權。
+Q3：租用雲端 GPU 後，就完全不需要處理技術設定了嗎？不是。租用 GPU 可以省下購買與維護實體硬體，但你通常仍要處理 ComfyUI、模型下載、Custom Nodes、Workflow、依賴套件、儲存空間與錯誤排查。它的難度低於自行購買整台工作站，但高於直接使用點數平台。
+Q4：一支 15 秒影片約 US$0.08，是否就是完整製作成本？不是。US$0.08 只是以 5 分鐘生成時間和 US$0.99／小時 GPU 價格計算的純運算時間粗估，尚未包含模型載入、失敗重跑、儲存、網路流量、GPU 閒置與人工後製成本。
+Q5：為什麼把 60 秒影片拆成 4 段 15 秒，而不是生成 12 段 5 秒？在某些能理解時間與鏡頭標記的模型中，15 秒片段可以嘗試包含多個 Shot，讓人先審 4 個 Segment，而不是 12 個短片段。這可能降低人工審片數量，但不保證運算量更少，也仍需要檢查鏡頭切換與內容連貫性。
+
+        </p>
+        <a class="stretched-link" href="/posts/minimax-h3-gpu-rental/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -1613,7 +1866,7 @@ Spokenly Pro 訂閱制： 若不想自己處理複雜的 API 設定，也可以�
 實測 Apple 內建語音分析器經過實際測試，在一般環境下，Apple 的模型已經具備極高的準確度。然而，在背景噪音較大或是中英夾雜的情況下，仍可能出現以下小瑕疵：
 
 同音字誤判： 例如將人工智慧的「AI」聽成中文的「哀」。
-特殊符號與格式遺失： 像是唸出電子郵件地址「&amp;#x74;&amp;#x65;&amp;#115;&amp;#116;&amp;#49;&amp;#50;&amp;#51;&amp;#x40;&amp;#x65;&amp;#x78;&amp;#97;&amp;#109;&amp;#112;&amp;#x6c;&amp;#101;&amp;#x2e;&amp;#99;&amp;#111;&amp;#109;」時，可能會被辨識成零碎的英文字母與單字拼湊（如 test123 小老鼠 example dot com）。
+特殊符號與格式遺失： 像是唸出電子郵件地址「&amp;#x74;&amp;#x65;&amp;#115;&amp;#116;&amp;#x31;&amp;#50;&amp;#51;&amp;#x40;&amp;#x65;&amp;#120;&amp;#97;&amp;#109;&amp;#x70;&amp;#x6c;&amp;#x65;&amp;#x2e;&amp;#x63;&amp;#x6f;&amp;#x6d;」時，可能會被辨識成零碎的英文字母與單字拼湊（如 test123 小老鼠 example dot com）。
 
 若遇到純英文的模型（如部分 NVIDIA 模型），則無法處理中文語音。綜合評估下來，對於 Mac 使用者，Apple 內建的語音分析器是目前兼顧速度與準確度的最佳本地選擇。
 1今天下午三點半，我在台北 101 附近開會，順便測試一個新的語音辨識模型。這個 model 的準確率大概是 92.5%，但在背景有點吵的情況下，還是會把「AI」聽成「哀」。另外，我剛剛說的 email 是 test123@example.com，記得幫我記下來。最後一件事，下週一（4 月 15 號）上午 10 點，再提醒我確認專案進度，OK 嗎？
@@ -1862,97 +2115,6 @@ Q：這種做法最適合哪些人導入？A：最適合的是有固定產出簡
 
         </p>
         <a class="stretched-link" href="/posts/claude-ai-ppt-generator/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-<li
-  id="post-government-tender-monitoring-platform"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover103.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        alt="article-【Vibe Coding 實戰】如何打造政府標案監控平台？AI 自動化追蹤，省下萬元訂閱費！"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/3/25
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI自動化
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Vibe Coding
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          【Vibe Coding 實戰】如何打造政府標案監控平台？AI 自動化追蹤，省下萬元訂閱費！
-        </h5>
-        <div class="cutoff-text mb-0 text-primary-700">
-          
-  
-  
-
-
-為什麼你需要專屬的政府標案監控系統？大家好，我是想哥，致力於用 AI 改變世界。對於經常參與政府標案的企業或個人來說，每天到「政府電子採購網」搜尋案子是例行公事。然而，傳統的搜尋介面往往不夠直覺，手動查找不僅耗時，還極易錯失黃金商機。
-為了解決這個痛點，坊間推出了許多標案監控的付費平台。這些平台確實好用，但通常需要支付一筆不小的年費（例如每年高達 8,800 元）。這促使我思考：既然我們已經處於 AI 時代，何不透過 Vibe Coding 自己打造一套專屬的監控系統？
-這不僅是一個能幫你「精準賺錢」的工具，若你自己動手開發，更是一個能立即「省錢」的解決方案。今天，就帶大家來開箱我透過 Vibe Coding 完成的 MVP 作品——**Tender Radar (政府標案監控平台)**。
-如果你想先看看實際成果，也可以直接前往體驗網站：Tender Radar。
-每年省下近萬元！Tender Radar 核心功能解析透過 Tender Radar 系統，你可以完全掌握標案資訊。以下是系統的三大核心應用場景：
-1. 串接公開 API，打造直覺的高效搜尋介面系統底層串接了 g0v 與政府公開的 API 數據，目前已成功匯入超過兩千多筆的標案資料。我們將傳統複雜的介面，轉化為簡潔的資料看板（Dashboard）。你可以透過關鍵字快速檢索，並直接點擊連結跳轉回政府電子採購網查看原始公告，大幅縮短前置作業時間。
-2. 建立個人化追蹤條件與 AI 智能評分門檻這是本系統最具價值的地方。你可以建立「個人追蹤條件」，精準定義你想要的商機：
-
-關鍵字設定： 包含字（如：工程、設備、系統、維護）與排除字。
-精細篩選： 設定履約地區、預算上下限、截止天數等。
-智能評分系統： 系統內建了「分數門檻」與「通知門檻」。透過 AI 輔助設計的評分權重機制，當標案高度符合你的條件時會獲得高分。你可以設定只有達到特定分數（例如命中多個關鍵字）才觸發通知，徹底避免垃圾資訊干擾。
-
-3. LINE 與 Email 自動化精準推播再也不用每天主動刷網頁了！系統會在每天早上 8 點執行排程掃描（也可手動一鍵觸發）。當偵測到符合你高分門檻的新標案時，系統會自動透過以下管道推播給你：
-
-LINE 推播： 傳送摘要卡片，包含標案名稱、預算、截止日與直達連結。
-Email 通知： 將詳細的標案清單整理成列表，寄送至你的信箱。所有通知紀錄、成功與失敗狀態，甚至熱門機關與類別的數據分析，都能在後台的視覺化報表中一覽無遺。
-
-如何擁有這套自動化標案系統？這個 Tender Radar 系統目前已經具備了完整的 MVP（最小可行性產品）架構。未來，我計畫將其發展成兩種模式：
-
-SaaS 訂閱服務： 提供給不想寫程式，但需要高效工具的企業使用。
-實戰教學課程： 將這套系統的開發過程包裝成課程，教導大家如何利用 Vibe Coding 與 AI 工具，一步步建構出屬於自己的自動化系統。
-
-如果你對這套系統的部署、SaaS 服務，或是未來的教學課程有興趣，歡迎隨時與我聯絡！
-常見問答 (FAQ)Q：這套標案監控平台的資料更新頻率與準確度如何？A：系統底層直接串接政府電子採購網與 g0v 的公開 API，資料與官方同步。配合每日早上的自動化排程掃描，能確保你在第一時間獲取最新、最準確的標案公告，不會有漏接的問題。
-Q：設定中的「分數門檻」與「通知門檻」具體是如何運作的？A：這是一種防干擾的智能過濾機制。當標案符合你的「包含關鍵字」或「特定地區」時會累加分數。你可以設定「分數門檻」（例如 12 分才算及格被收錄）以及更高的「通知門檻」（例如 20 分才主動發 LINE 通知）。這套計分邏輯也可以請 AI 幫忙撰寫與優化，確保推播給你的都是精準的高價值商機。
-Q：我完全沒有程式基礎，也能學會用 Vibe Coding 做出這個系統嗎？A：絕對可以！Vibe Coding 的核心精神就是讓 AI 成為你的工程師。只要你能清楚定義商業邏輯與需求（如：需要什麼欄位、用什麼方式通知），配合適當的 AI 工具引導，即使是零基礎也能一步步建置出這套自動化系統。
-
-相關連結
-Tender Radar 體驗網站
-
-
-        </p>
-        <a class="stretched-link" href="/posts/government-tender-monitoring-platform/"></a>
       </div>
     </div>
   </article>
