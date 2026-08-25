@@ -14,7 +14,7 @@ function blogGenerator(locals) {
     return pagination(path, posts, {
         perPage: config.blog_generator.per_page || 10,
         layout: ['blog'],
-        format: '%d/',  // output path
+        format: 'page/%d/',  // 輸出路徑
         data: {}
     });
 }
