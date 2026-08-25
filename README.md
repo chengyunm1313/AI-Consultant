@@ -11,8 +11,8 @@
 
 ## 環境需求
 
-- Node.js 20（建議與 GitHub Actions 一致）
-- npm 9+（或隨 Node 20 版本）
+- Node.js 24（與 GitHub Actions 的 `setup-node` 設定一致）
+- npm（使用與 Node.js 24 相容的版本）
 
 ## 本機開發
 
@@ -72,6 +72,7 @@ npm run verify:post-dates
 Workflow 檔案位置：
 
 - [deploy.yml](.github/workflows/deploy.yml)
+- [Hexo 發布與正式站驗收 Runbook](docs/site-maintenance-runbook.md)
 
 ## GitHub Pages 一次性設定
 
@@ -83,9 +84,9 @@ Workflow 檔案位置：
 
 完成後，網站會由 `gh-pages` 內容發佈，且保留自訂網域 `blog.es2idea.com`。
 
-## 備援手動部署（保留）
+## 手動部署備援（非一般發布路徑）
 
-雖然 CI/CD 為主，仍保留本機手動部署指令作為備援：
+一般發布只應由 `main` 的 push 觸發 GitHub Actions。`npm run deploy` 會直接呼叫 `hexo deploy` 寫入 `gh-pages`，會繞過本 repo 的 main commit、Actions run 與部署證據鏈；只有在已明確授權的緊急復原情境才使用：
 
 ```bash
 npm run deploy
@@ -96,9 +97,9 @@ npm run deploy
 - `hexo clean`
 - `hexo generate`
 - `node toWebp`
-- `hexo deploy`
+- `hexo deploy`（直接寫入 `gh-pages`）
 
-注意：一般情況建議以 `push main` 觸發自動部署，不要長期混用兩種流程。
+注意：不要把 `npm run deploy` 與 `push main` 混用，也不要用它取代正常發布流程。完整的提交範圍、Actions、`gh-pages`、canonical 頁面與封面快取驗收，請依 [Runbook](docs/site-maintenance-runbook.md) 執行。
 
 ## JSON-LD 驗證指令
 
@@ -140,8 +141,11 @@ npm run verify:jsonld -- --paths=/,/service/,/posts/aeo-implementation-tools-opt
 
 ### 4) 更新後網站沒立即生效
 
-- 先確認 Actions Job 是否成功
-- GitHub Pages/CDN 可能有短暫快取延遲，稍等幾分鐘後再重整
+- 先以本次 commit 的 `headSha` 篩選 Actions run，不要只看 main 最新一筆
+- Actions 成功後，再用 GitHub API／raw 檢查 `gh-pages` 是否真的有文章 HTML 與封面 WebP
+- 文章頁與封面 URL 必須分開請求；文章 200 不代表封面已更新
+- `?v=<commit-sha>-verify-1` 之類的 query 只是假設診斷，不是 canonical 新鮮度證明；若 query 200、裸網址仍是 `cf-cache-status: HIT` 舊內容或 404，標記為 CDN pending，不要重複提交相同內容
+- 完整判讀方式請看 [Hexo 發布與正式站驗收 Runbook](docs/site-maintenance-runbook.md)
 
 ### 5) 新文章排序異常（本機與線上順序不同）
 
