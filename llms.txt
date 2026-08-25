@@ -44,7 +44,7 @@
   網址：https://blog.es2idea.com/posts/add-google-preferred-source/
   日期：2026-08-24
   摘要：Google Preferred Sources 讓讀者把你的網站設為偏好來源，內容有機會出現在 Top Stories、AI Overviews 與 AI Mode；本文整理官方按鈕、Deeplink 與 CTA 實作。
-  主題：SEO、AEO、內容行銷
+  主題：AEO、SEO、內容行銷
 
 - 4D Framework：比 Prompt Engineering 更完整的 AI Fluency 框架
   網址：https://blog.es2idea.com/posts/ai-fluency-4d-framework/
