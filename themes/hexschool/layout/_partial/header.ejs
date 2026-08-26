@@ -1,29 +1,79 @@
-<header
-    class="py-md-4 border-bottom border-primary-200"
-    style="margin-bottom: 1px;"
-  >
-  <nav class="navbar navbar-expand-md py-md-1">
+<%
+const menu = theme.menu || {};
+function menuPath(labels, fallback) {
+  for (let index = 0; index < labels.length; index += 1) {
+    if (menu[labels[index]]) return menu[labels[index]];
+  }
+  return fallback;
+}
+const navGroups = [
+  {
+    label: '服務',
+    links: [
+      { label: '完整服務', path: menuPath(['完整服務', '服務項目'], '/service/') },
+      { label: '合作洽詢', path: menuPath(['合作洽詢', '聯絡我'], '/contact/'), cta: true }
+    ]
+  },
+  {
+    label: '案例',
+    links: [
+      { label: '作品集', path: menuPath(['作品集'], '/works/') },
+      { label: 'AI Agent', path: menuPath(['AI Agent'], '/ai-agent/') },
+      { label: 'n8n 自動化', path: menuPath(['n8n 自動化'], '/n8n-automation/') }
+    ]
+  },
+  {
+    label: '知識',
+    links: [
+      { label: '部落格', path: menuPath(['部落格'], '/blog/') }
+    ]
+  },
+  {
+    label: '關於',
+    links: [
+      { label: '關於享哥', path: menuPath(['關於享哥'], '/collection/') }
+    ]
+  }
+];
+%>
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
     <div class="container">
-      <a class="navbar-brand py-0 me-3" style="min-width: 120px;" href="<%- url_for() %>">
-        <img src="<%= url_for('/images/es2idea-logo.svg') %>" alt="logo">
-      </a>
-      <button class="navbar-toggler border-0 shadow-none" type="button" data-bs-toggle="collapse" data-bs-target="#navbarToggler" aria-controls="navbarToggler" aria-expanded="false" aria-label="Toggle navigation">
-        <span class="material-symbols-outlined fs-1 text-primary-900">menu</span>
-      </button>
-      <div class="collapse navbar-collapse" id="navbarToggler">
-        <ul class="navbar-nav mx-auto mb-2 mb-md-0 text-center">
-          <% const menuKeys = Object.keys(theme.menu) %>
-          <% for (var i in theme.menu){ %>
-            <li class="nav-item <%- (i === menuKeys[menuKeys.length - 1]) ? '' : 'mb-4 mb-md-0 me-md-3 me-lg-3' %>">
-              <a
-                class="nav-link <%- (is_current(theme.menu[i])) ? 'active' : '' %>"
-                href="<%- url_for(theme.menu[i]) %>"
-              >
-                <span class="position-relative px-2 py-1"><%= i %></span>
-              </a>
-            </li>
-          <% } %>
-        </ul>
+      <div class="site-nav__bar">
+        <a class="site-brand" href="<%- url_for('/') %>" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__mark" src="<%= url_for('/images/site-v1/brand-mark-v1.svg') %>" width="48" height="48" alt="享哥流程工作台標誌">
+          <span class="site-brand__lockup">
+            <strong>徐享</strong>
+            <small>AI WORKFLOW STUDIO</small>
+          </span>
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          <% navGroups.forEach(function(group) { %>
+            <div class="site-nav__group">
+              <span class="site-nav__group-label"><%= group.label %></span>
+              <div class="site-nav__group-links">
+                <% group.links.forEach(function(item) { %>
+                  <a
+                    class="site-nav__link<%= item.cta ? ' site-nav__link--cta' : '' %><%= is_current(item.path) ? ' is-active' : '' %>"
+                    href="<%- url_for(item.path) %>"
+                    <% if (is_current(item.path)) { %>aria-current="page"<% } %>
+                    <% if (item.cta) { %>data-track-event="contact_page_click" data-track-placement="navigation"<% } %>
+                  >
+                    <span><%= item.label %></span>
+                    <% if (item.cta) { %><span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span><% } %>
+                  </a>
+                <% }) %>
+              </div>
+            </div>
+          <% }) %>
+        </div>
       </div>
     </div>
   </nav>

@@ -6,11 +6,11 @@ menu:
   AI Agent: /ai-agent
   n8n 自動化: /n8n-automation
   作品集: /works
-  服務項目: /service
-  聯絡我: /contact
+  完整服務: /service
+  合作洽詢: /contact
 
 # social 標籤 - 加入社群分享 meta
-og_image: /images/hero-lg.png
+og_image: /images/site-v1/assets/workbench-hero.png
 
 # Blog
 blog_title: 部落格
@@ -26,7 +26,7 @@ blog_generator:
   order_by: -date
 
 # Miscellaneous
-favicon: /images/logo.svg
+favicon: /images/site-v1/brand-mark-v1.svg
 
 # Google analytics
 google_analytics: G-KD5W9RGBR5

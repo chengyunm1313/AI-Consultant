@@ -4,7 +4,7 @@ business:
   url: https://blog.es2idea.com/
   description: 享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。
   email: seanhsu1313@gmail.com
-  image: /images/hero-lg.png
+  image: /images/site-v1/assets/workbench-hero.png
   logo: /images/es2idea-logo.svg
   contact_url: /contact/
   address:
@@ -70,7 +70,7 @@ pages:
         answer: 可透過 Email 或 LINE 說明需求與現況，先安排初步診斷，再依目標提供合作提案、時程與報價。
 
   service:
-    description: 提供 AI 應用規劃、n8n 自動化工作、電商社群行銷與 AI 轉型顧問服務，協助中小企業把 AI 導入實際營運。
+    description: 從 AI 應用規劃、n8n 自動化、電商社群行銷到 AI 轉型顧問，了解完整服務方向、合作流程與預算參考。
     faq:
       - question: 徐享（享哥）提供哪些主要服務？
         answer: 提供 AI 應用規劃、n8n 自動化工作設計、電商社群行銷策略與 AI 轉型顧問諮詢，協助企業把 AI 與行銷能力整合到可落地的營運流程中。
@@ -86,7 +86,7 @@ pages:
         answer: 先蒐集需求與現況，進行初步診斷後提供建議方案、執行時程與報價；單次顧問、企業內訓與自動化專案可依需求客製。
 
   contact:
-    description: 歡迎洽詢 AI 應用規劃、企業內訓、n8n 自動化與數位轉型顧問服務，可透過 Email 或 LINE 聯絡徐享（享哥）。
+    description: 想把 AI 導入工作流程，卻不知道從哪開始？歡迎透過 LINE 或 Email 說明目前卡住的流程、行銷或團隊需求。
 
   collection:
     description: 認識徐享（享哥）的背景、專長與顧問經驗，了解 AI Agent 與 Codex 工作流、生成式 AI 應用規劃、行銷實戰與數位轉型服務定位。

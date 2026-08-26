@@ -6,7 +6,8 @@ const htmlLang = Array.isArray(config.language)
 %>
 <html lang="<%= htmlLang %>">
 <%- partial('_partial/head') %>
-<body>
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
   <%- partial('_partial/header') %>
 
   <%- body %>
@@ -16,6 +17,8 @@ const htmlLang = Array.isArray(config.language)
   <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   <%- js('js/swiper.js') %>
+  <%- js('js/site-v1.js') %>
+  <%- js('js/conversion-tracking.js') %>
   <script
     src="<%= config.root %>avatar/embed.js"
     data-widget="<%= config.root %>avatar/widget.html"

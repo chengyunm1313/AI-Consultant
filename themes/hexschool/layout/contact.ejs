@@ -1,19 +1,237 @@
 <%
 const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business : {};
 const socialLinks = businessAeo.same_as || [];
-const businessAddress = businessAeo.address || {};
+const businessEmail = businessAeo.email || 'seanhsu1313@gmail.com';
+const lineUrl = socialLinks[3] || 'https://lin.ee/epeTR8o';
+const serviceCatalog = Array.isArray(businessAeo.service_catalog) && businessAeo.service_catalog.length
+  ? businessAeo.service_catalog.slice(0, 4)
+  : [
+      { name: 'AI 應用規劃', description: '盤點目標、流程與資源，整理可落地的 AI 導入方向。' },
+      { name: 'n8n 自動化工作', description: '串接表單、LINE、Email、CRM 與內容排程，降低重複作業。' },
+      { name: '電商社群行銷', description: '結合內容策略、廣告優化與轉換設計，提升營運效益。' },
+      { name: 'AI 轉型顧問諮詢', description: '透過顧問診斷、內訓與專案陪跑，協助團隊真正用起 AI。' }
+    ];
+const serviceIcons = [
+  '/images/service-item-front-end.svg',
+  '/images/service-item-ui.svg',
+  '/images/service-item-html&css.svg',
+  '/images/service-item-visual.svg'
+];
+const servicePrompts = [
+  '想找出最值得導入的 AI 場景',
+  '想把重複工作交給流程處理',
+  '想讓內容與行銷更有效率',
+  '想讓團隊真正把 AI 用起來'
+];
+const problemItems = [
+  {
+    number: '01',
+    title: '想導入 AI，卻不知道先從哪個流程開始',
+    description: '先盤點目標與現況，再決定適合的工具與做法。'
+  },
+  {
+    number: '02',
+    title: '每天花很多時間整理資料、回覆訊息',
+    description: '把可重複的工作整理成流程，讓團隊把時間留給更重要的事。'
+  },
+  {
+    number: '03',
+    title: '內容、電商與社群行銷一直做不完',
+    description: '從內容規劃、素材製作到名單與轉換，找出可以改善的環節。'
+  },
+  {
+    number: '04',
+    title: '想安排企業內訓或客製工作坊',
+    description: '依照產業、部門角色與實際目標設計課程與練習。'
+  }
+];
+const contactSteps = [
+  {
+    number: '01',
+    title: '先聊目前的問題',
+    description: '透過 LINE 或 Email 說明產業、現況與想改善的地方。'
+  },
+  {
+    number: '02',
+    title: '一起判斷合作方式',
+    description: '釐清目標與範圍，再安排顧問、內訓或專案合作。'
+  },
+  {
+    number: '03',
+    title: '確認方案後開始執行',
+    description: '提供時程與報價，確認合作後進入實作與後續追蹤。'
+  }
+];
 %>
-<main>
-  <section class="pt-md-7 pb-7 pb-md-9">
+<main id="main-content" class="contact-page">
+  <!-- 合作洽詢 Hero 區塊 -->
+  <section class="contact-page__hero py-7 py-md-9">
     <div class="container">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold"><%- page.title %></h2>
-      <div class="text-center mb-4">
-        <img src="/images/hsu-hsiang.jpg" alt="享哥形象照" class="img-fluid rounded" style="max-width: 240px;">
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-7">
+          <p class="contact-page__eyebrow mb-3">合作洽詢 / START HERE</p>
+          <h1 class="contact-page__hero-title mb-4 text-primary-800">想把 AI 導入工作流程，卻不知道從哪開始？</h1>
+          <p class="contact-page__hero-copy mb-4 fs-5 text-primary-600">
+            把目前卡住的流程、行銷或團隊需求告訴我，先一起判斷適合的合作方式。
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-4">
+            <a class="btn contact-page__primary-cta px-4 py-3" href="<%= lineUrl %>" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="contact_hero">
+              LINE 先聊聊
+              <span class="material-symbols-outlined align-middle ms-2">arrow_forward</span>
+            </a>
+            <a class="btn contact-page__secondary-cta px-4 py-3" href="mailto:<%= businessEmail %>" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="contact_hero">
+              寄 Email
+            </a>
+          </div>
+          <p class="contact-page__hint mb-0 text-primary-500">
+            可先簡述：產業／目前問題／希望改善的結果；還不確定也沒關係。
+          </p>
+        </div>
+        <div class="col-12 col-lg-5">
+          <div class="contact-page__portrait-card">
+            <div class="contact-page__portrait-label">
+              <span class="d-block fs-5 fw-bold text-primary-800">徐享</span>
+              <span class="text-primary-600">AI 應用規劃師</span>
+            </div>
+            <img src="<%= url_for('/images/hsu-hsiang.jpg') %>" alt="徐享（享哥）形象照">
+          </div>
+          <div class="contact-page__workbench-art mt-4">
+            <img
+              src="<%= url_for('/images/site-v1/assets/workbench-contact.png') %>"
+              srcset="<%= url_for('/images/site-v1/assets/workbench-contact-720.png') %> 720w, <%= url_for('/images/site-v1/assets/workbench-contact.png') %> 1122w"
+              sizes="(max-width: 767px) 100vw, 34vw"
+              width="1122"
+              height="1402"
+              loading="lazy"
+              alt="手將黃綠標記放到整理完成的流程卡上"
+            >
+          </div>
+        </div>
       </div>
-      <h3 class="text-center text-primary-700">數位轉型，邀你同行</h3>
-      <p class="text-center">如有企業輔導、講課邀約需求，歡迎與我洽談。</p>
-      <p class="text-center">請透過 Email 或 LINE 簡述需求內容與合作方向，我會盡快與您聯繫。</p>
-      <p class="text-center">Email：<a href="mailto:<%= businessAeo.email || 'seanhsu1313@gmail.com' %>"><%= businessAeo.email || 'seanhsu1313@gmail.com' %></a></p>
-      <p class="text-center"><a href="<%= socialLinks[3] || 'https://lin.ee/epeTR8o' %>" target="_blank" rel="noopener"><img decoding="async" class="aligncenter" src="https://scdn.line-apps.com/n/line_add_friends/btn/zh-Hant.png" alt="加入好友" width="116" height="36" border="0"></a></p>
     </div>
   </section>
+
+  <!-- 服務摘要 區塊 -->
+  <section id="service-summary" class="contact-page__section py-7 py-md-9">
+    <div class="container">
+      <div class="contact-page__section-intro mb-6 mb-md-7">
+        <p class="contact-page__eyebrow mb-2">WHAT I CAN HELP WITH</p>
+        <h2 class="mb-3 text-primary-700">先從你目前卡住的地方開始</h2>
+        <p class="mb-0 fs-5 text-primary-600">
+          不需要先選好服務名稱，從問題與目標出發，我會協助你整理適合的方向。
+        </p>
+      </div>
+      <ul class="row row-gap-4 list-unstyled mb-5">
+        <% serviceCatalog.forEach(function(item, index) { %>
+          <li class="col-12 col-md-6">
+            <article class="contact-page__service-card h-100">
+              <div class="contact-page__service-icon flex-shrink-0">
+                <img src="<%= url_for(serviceIcons[index]) %>" alt="<%= item.name %>">
+              </div>
+              <div>
+                <p class="contact-page__card-kicker mb-2"><%= servicePrompts[index] %></p>
+                <h3 class="mb-2 text-primary-700"><%= item.name %></h3>
+                <p class="mb-0 text-primary-600"><%= item.description %></p>
+              </div>
+            </article>
+          </li>
+        <% }) %>
+      </ul>
+      <div class="text-center">
+        <a class="btn contact-page__outline-link px-4 py-3" href="<%= url_for('/service/') %>" data-track-event="service_detail_click" data-track-placement="contact_service_summary">
+          查看完整服務內容
+          <span class="material-symbols-outlined align-middle ms-2">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 問題型入口 區塊 -->
+  <section class="contact-page__problem-section py-7 py-md-9">
+    <div class="container">
+      <div class="contact-page__section-intro contact-page__section-intro--dark mb-6 mb-md-7">
+        <p class="contact-page__eyebrow contact-page__eyebrow--light mb-2">START WITH THE PROBLEM</p>
+        <h2 class="mb-3 text-white">可能正是這些問題</h2>
+        <p class="mb-0 fs-5 text-primary-300">
+          如果你有其中一種情況，歡迎直接說明現況，不用先整理成完整需求書。
+        </p>
+      </div>
+      <ul class="row row-gap-4 list-unstyled mb-0">
+        <% problemItems.forEach(function(item) { %>
+          <li class="col-12 col-md-6">
+            <article class="contact-page__problem-card h-100">
+              <span class="contact-page__problem-number"><%= item.number %></span>
+              <h3 class="mb-2 text-white"><%= item.title %></h3>
+              <p class="mb-0 text-primary-300"><%= item.description %></p>
+            </article>
+          </li>
+        <% }) %>
+      </ul>
+    </div>
+  </section>
+
+  <!-- 簡化合作流程 區塊 -->
+  <section id="contact-process" class="contact-page__section py-7 py-md-9 bg-primary-100">
+    <div class="container">
+      <div class="contact-page__section-intro mb-6 mb-md-7">
+        <p class="contact-page__eyebrow mb-2">HOW IT STARTS</p>
+        <h2 class="mb-3 text-primary-700">合作不用一開始就想得很複雜</h2>
+        <p class="mb-0 fs-5 text-primary-600">先完成前面三步，後續再依需求安排顧問、內訓或專案執行。</p>
+      </div>
+      <ol class="row row-gap-4 list-unstyled mb-0">
+        <% contactSteps.forEach(function(item) { %>
+          <li class="col-12 col-md-4">
+            <article class="contact-page__step-card h-100">
+              <span class="contact-page__step-number"><%= item.number %></span>
+              <h3 class="mb-2 text-primary-700"><%= item.title %></h3>
+              <p class="mb-0 text-primary-600"><%= item.description %></p>
+            </article>
+          </li>
+        <% }) %>
+      </ol>
+      <div class="text-center mt-5">
+        <a class="contact-page__text-link" href="<%= url_for('/service/#service-process') %>" data-track-event="service_process_click" data-track-placement="contact_process">
+          查看完整合作流程
+          <span class="material-symbols-outlined align-middle ms-1">arrow_forward</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- 作品信任 區塊 -->
+  <section class="contact-page__proof py-7 py-md-9">
+    <div class="container">
+      <div class="contact-page__proof-panel">
+        <div>
+          <p class="contact-page__eyebrow mb-2">SEE THE WORK</p>
+          <h2 class="mb-3 text-primary-700">想先看看實際成果？</h2>
+          <p class="mb-0 text-primary-600">
+            可以先從作品集與 n8n 自動化專頁了解我如何把想法整理成可展示、可討論的成果。
+          </p>
+        </div>
+        <div class="d-flex flex-wrap gap-3">
+          <a class="btn contact-page__outline-link px-4 py-3" href="<%= url_for('/works/') %>">查看作品集</a>
+          <a class="btn contact-page__outline-link px-4 py-3" href="<%= url_for('/n8n-automation/') %>">查看 n8n 專頁</a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- 最終洽詢 CTA 區塊 -->
+  <section class="contact-page__final-cta py-7 py-md-9">
+    <div class="container text-center">
+      <p class="contact-page__eyebrow contact-page__eyebrow--light mb-2">LET'S TALK</p>
+      <h2 class="mb-3 text-white">不確定該從哪一項開始？先聊聊你的問題</h2>
+      <p class="mx-auto mb-4 text-primary-300" style="max-width: 640px;">
+        不用先準備完整提案，先把目前的狀況與想改善的方向告訴我即可。
+      </p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a class="btn contact-page__primary-cta contact-page__primary-cta--light px-4 py-3" href="<%= lineUrl %>" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="contact_final_cta">
+          LINE 先聊聊
+          <span class="material-symbols-outlined align-middle ms-2">arrow_forward</span>
+        </a>
+        <a class="btn contact-page__dark-outline-cta px-4 py-3" href="mailto:<%= businessEmail %>" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="contact_final_cta">寄 Email</a>
+      </div>
+    </div>
+  </section>
+</main>

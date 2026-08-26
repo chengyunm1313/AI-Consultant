@@ -1,121 +1,160 @@
 <%
+const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business : {};
 const serviceAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.service : null;
 const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
+const lineUrl = businessAeo.same_as && businessAeo.same_as[3]
+  ? businessAeo.same_as[3]
+  : 'https://lin.ee/epeTR8o';
+const serviceIcons = [
+  '/images/service-item-front-end.svg',
+  '/images/service-item-ui.svg',
+  '/images/service-item-html&css.svg',
+  '/images/service-item-visual.svg'
+];
+const fallbackDirections = [
+  { name: 'AI 應用規劃', description: '盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。' },
+  { name: 'n8n 自動化工作', description: '串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。' },
+  { name: '電商社群行銷', description: '結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。' },
+  { name: 'AI 轉型顧問諮詢', description: '提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。' }
+];
+const catalogDirections = Array.isArray(businessAeo.service_catalog)
+  ? businessAeo.service_catalog
+  : [];
+const serviceDirections = (catalogDirections.length ? catalogDirections : fallbackDirections)
+  .slice(0, 4)
+  .map(function(item, index) {
+    return {
+      name: item.name || fallbackDirections[index].name,
+      description: item.description || fallbackDirections[index].description,
+      icon: serviceIcons[index]
+    };
+  });
 %>
-<main>
-  <!-- 服務項目 區塊 -->
-  <section class="pt-md-7 pb-7 pb-md-9">
+<main id="main-content" class="service-page">
+  <!-- 完整服務 Hero 區塊 -->
+  <section class="service-page__hero py-7 py-md-9">
     <div class="container">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">服務項目</h2>
-      <div class="row row-gap-4 mb-7 mb-md-9">
-        <div class="col-11 col-md-6 col-lg-3 mx-auto">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-front-end.svg') %>" alt="visual design">
-              <h3 class="text-primary-50">AI 應用規劃</h3>
-            </div>
-          </div>
+      <div class="row align-items-center g-5">
+        <div class="col-12 col-lg-7">
+          <p class="service-page__eyebrow mb-3">SERVICE GUIDE / 服務說明</p>
+          <h1 class="service-page__hero-title mb-4 text-primary-800"><%- page.title || '完整服務內容' %></h1>
+          <p class="service-page__hero-copy mb-4 fs-5 text-primary-600">
+            從問題盤點、工具選擇到流程落地，依照你的目標與現況，整理適合的 AI 與數位轉型合作方式。
+          </p>
+          <a class="btn service-page__primary-cta px-4 py-3" href="<%= url_for('/contact/') %>" data-track-event="contact_page_click" data-track-placement="service_hero">
+            開始合作洽詢
+            <span class="material-symbols-outlined align-middle ms-2">arrow_forward</span>
+          </a>
         </div>
-        <div class="col-11 col-md-6 col-lg-3 mx-auto">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-ui.svg') %>" alt="ui design">
-              <h3 class="text-primary-50">n8n 自動化工作</h3>
+        <div class="col-12 col-lg-5">
+          <aside class="service-page__hero-panel" aria-label="服務方向摘要">
+            <div class="service-page__hero-art mb-4">
+              <img
+                src="<%= url_for('/images/site-v1/assets/workbench-services.png') %>"
+                srcset="<%= url_for('/images/site-v1/assets/workbench-services-720.png') %> 720w, <%= url_for('/images/site-v1/assets/workbench-services.png') %> 1448w"
+                sizes="(max-width: 767px) 100vw, 40vw"
+                width="1448"
+                height="1086"
+                loading="lazy"
+                alt="四張流程卡與連接線組成的服務工作台"
+              >
             </div>
-          </div>
-        </div>
-        <div class="col-11 col-md-6 col-lg-3 mx-auto">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-html&css.svg') %>" alt="html and css">
-              <h3 class="text-primary-50">電商社群行銷</h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-11 col-md-6 col-lg-3 mx-auto">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-visual.svg') %>" alt="visual design">
-              <h3 class="text-primary-50">AI 轉型顧問諮詢</h3>
-            </div>
-          </div>
+            <p class="service-page__panel-label mb-3">合作方向</p>
+            <ul class="service-page__panel-list list-unstyled mb-4">
+              <% serviceDirections.forEach(function(item) { %>
+                <li>
+                  <span class="material-symbols-outlined">arrow_forward</span>
+                  <span><%= item.name %></span>
+                </li>
+              <% }) %>
+            </ul>
+            <p class="mb-0 text-primary-300">不確定要找哪一項也沒關係，先從目前卡住的問題開始。</p>
+          </aside>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- 服務流程 區塊 -->
-  <section class="bg-service px-2 py-7 pb-md-9">
+  <!-- 企業合作方向 區塊 -->
+  <section id="service-directions" class="service-page__directions py-7 py-md-9">
     <div class="container">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-50 tracking-wide fw-semibold">服務流程</h2>
-      <div class="d-flex flex-column row-gap-3 mx-auto" style="max-width: 655px;">
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">1</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">需求諮詢</h3>
-            <p class="mb-0 fs-5 text-primary-300">客戶透過 LINE、表單或信件聯繫，簡述需求與現況</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">2</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">初步診斷</h3>
-            <p class="mb-0 fs-5 text-primary-300">安排會議診斷現況，釐清企業問題並提供初步建議</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">3</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">合作提案與報價</h3>
-            <p class="mb-0 fs-5 text-primary-300">根據分析結果提供建議方案、服務時程與報價</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">4</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">簽約與訂金</h3>
-            <p class="mb-0 fs-5 text-primary-300">簽署合約並支付訂金，保留合作時段與資源</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">5</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">專案啟動與執行</h3>
-            <p class="mb-0 fs-5 text-primary-300">進行企業輔導、顧問諮詢或行銷規劃等實作內容</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">6</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">回饋調整與追蹤</h3>
-            <p class="mb-0 fs-5 text-primary-300">根據成效追蹤與回饋進行優化與調整</p>
-          </div>
-        </div>
-        <span class="material-symbols-outlined fs-2 text-center text-primary-600">arrow_downward</span>
-        <div class="d-flex flex-column flex-md-row align-items-center px-4 px-md-6 py-4 mb-7 mb-md-9 bg-primary-700 border border-1 border-primary-500 rounded-1">
-          <div class="font-tourney display-2 text-primary-500">7</div>
-          <div class="ms-0 ms-md-6">
-            <h3 class="text-center text-md-start text-primary-50">結案與成果交付</h3>
-            <p class="mb-0 fs-5 text-primary-300">交付成果並結案，安排尾款與後續協作建議</p>
-          </div>
-        </div>
+      <div class="service-page__section-intro mb-6 mb-md-7">
+        <p class="service-page__eyebrow mb-2">ENTERPRISE COLLABORATION</p>
+        <h2 class="mb-3 text-primary-700">四個合作方向</h2>
+        <p class="mb-0 fs-5 text-primary-600">先理解要改善的問題，再一起決定最適合的服務組合與執行範圍。</p>
       </div>
+      <ul class="row row-gap-4 list-unstyled mb-0">
+        <% serviceDirections.forEach(function(item, index) { %>
+          <li class="col-12 col-md-6">
+            <article class="service-page__direction-card h-100">
+              <div class="service-page__direction-icon">
+                <img src="<%= url_for(item.icon) %>" alt="<%= item.name %>">
+              </div>
+              <div>
+                <p class="service-page__card-index mb-2">0<%= index + 1 %></p>
+                <h3 class="mb-2 text-primary-700"><%= item.name %></h3>
+                <p class="mb-0 text-primary-600"><%= item.description %></p>
+              </div>
+            </article>
+          </li>
+        <% }) %>
+      </ul>
     </div>
   </section>
 
-  <!-- 價格表 區塊 -->
-  <section class="py-7 pb-md-9">
+  <!-- 完整服務流程 區塊 -->
+  <section id="service-process" class="service-page__process px-2 py-7 pb-md-9">
+    <div class="container">
+      <div class="service-page__section-intro service-page__section-intro--dark mb-6 mb-md-7">
+        <p class="service-page__eyebrow service-page__eyebrow--light mb-2">FULL COLLABORATION FLOW</p>
+        <h2 class="mb-3 text-primary-50">完整合作流程</h2>
+        <p class="mb-0 fs-5 text-primary-300">第一次洽詢只要先完成前面幾步，後續會依照合作內容安排。</p>
+      </div>
+      <ol class="sv1-workflow-list" data-workflow>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">01</span>
+          <div><h3>需求諮詢</h3><p>透過 LINE 或 Email 簡述需求與現況，先把問題說清楚。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">02</span>
+          <div><h3>初步診斷</h3><p>安排會議診斷現況，釐清企業問題並提供初步建議。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">03</span>
+          <div><h3>合作提案與報價</h3><p>根據分析結果提供建議方案、服務時程與報價。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">04</span>
+          <div><h3>簽約與訂金</h3><p>簽署合約並支付訂金，保留合作時段與資源。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">05</span>
+          <div><h3>專案啟動與執行</h3><p>進行企業輔導、顧問諮詢或行銷規劃等實作內容。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">06</span>
+          <div><h3>回饋調整與追蹤</h3><p>根據成效追蹤與回饋進行優化與調整。</p></div>
+        </li>
+        <li class="sv1-workflow-step" data-workflow-step data-reveal>
+          <span class="sv1-number">07</span>
+          <div><h3>結案與成果交付</h3><p>交付成果並結案，安排尾款與後續協作建議。</p></div>
+        </li>
+      </ol>
+    </div>
+  </section>
+
+  <!-- 預算參考 區塊 -->
+  <section id="service-budget" class="service-page__budget py-7 pb-md-9">
     <div class="container px-4">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">價格表</h2>
+      <div class="service-page__section-intro mb-6 mb-md-7">
+        <p class="service-page__eyebrow mb-2">BUDGET REFERENCE</p>
+        <h2 class="mb-3 text-primary-700">預算參考</h2>
+        <p class="mb-0 fs-5 text-primary-600">以下為常見起始參考，實際費用會依需求範圍、執行內容與合作方式評估。</p>
+      </div>
       <div class="row row-gap-4 gx-8 gx-md-4">
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="平面設計">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="企業轉型輔導">
             <h3 class="mb-0 text-primary-600 fw-semibold">企業轉型輔導</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -125,8 +164,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
           </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="平面設計">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-visual.svg') %>" alt="企業內訓工作坊">
             <h3 class="mb-0 text-primary-600 fw-semibold">企業內訓工作坊</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -136,8 +175,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
           </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="UI 設計">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="n8n 自動化工作流">
             <h3 class="mb-0 text-primary-600 fw-semibold">n8n自動化工作流</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -147,8 +186,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
           </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="UI 設計">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-ui.svg') %>" alt="品牌整合行銷">
             <h3 class="mb-0 text-primary-600 fw-semibold">品牌整合行銷</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -158,8 +197,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
           </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 mb-7 mb-md-9 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="前端開發">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="品牌電商官網">
             <h3 class="mb-0 text-primary-600 fw-semibold">品牌電商官網</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -169,8 +208,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
           </div>
         </div>
         <div class="col-12 col-lg-6 col-xxl-4">
-          <div class="price-list__item--shadow d-flex align-items-center p-6 mb-7 mb-md-9 bg-primary-100 rounded-2">
-            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="前端開發">
+          <div class="price-list__item--shadow d-flex align-items-center p-6 bg-primary-100 rounded-2 h-100">
+            <img class="me-2" src="<%= url_for('/images/price-item-front-end.svg') %>" alt="廣告媒體曝光">
             <h3 class="mb-0 text-primary-600 fw-semibold">廣告媒體曝光</h3>
             <hr class="flex-grow-1 mx-3 border-primary-400 opacity-100">
             <div class="fs-2 text-primary-800 fw-bold">
@@ -183,10 +222,14 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
     </div>
   </section>
 
-  <!-- 公開課程 區塊 -->
-  <section class="py-7 bg-primary-100">
+  <!-- 授課邀約與公開課程 區塊 -->
+  <section id="teaching" class="service-page__teaching py-7 bg-primary-100">
     <div class="container">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">公開課程</h2>
+      <div class="service-page__section-intro mb-6 mb-md-7">
+        <p class="service-page__eyebrow mb-2">TEACHING &amp; WORKSHOPS</p>
+        <h2 class="mb-3 text-primary-700">授課邀約與公開課程</h2>
+        <p class="mb-0 fs-5 text-primary-600">如果你是來找企業內訓、公開課或講座，可以從這裡了解目前的課程方向。</p>
+      </div>
       <ul class="row row-gap-7 mb-6 mb-md-7 list-unstyled">
         <% for (const collectionKey in site.data.collections) { %>
           <% const collection = site.data.collections[collectionKey] %>
@@ -202,7 +245,7 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
                 <img
                   src="<%= url_for('/images/work-image' + collection.id + '.png') %>"
                   class="card-img-top rounded-4"
-                  alt="work-<%=collection.id %>"
+                  alt="<%= collection.name %>"
                 >
               </button>
               <div class="card-body pb-0">
@@ -212,7 +255,7 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
                 <p class="card-text mb-3 mb-md-4 text-primary-500">
                   <%= collection.description %>
                 </p>
-                <div class="d-flex gap-3">
+                <div class="d-flex gap-3 flex-wrap">
                   <% for (const tagKey in collection.tags) { %>
                     <% const tag = collection.tags[tagKey] %>
                     <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
@@ -227,16 +270,13 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
               <div class="modal-dialog modal-dialog-centered" style="--bs-modal-width: 1076px;">
                 <div class="modal-content rounded-4">
                   <div class="modal-header pt-6 pb-0 px-6 px-md-7 mb-4 mb-md-7 border-0">
-                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+                    <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="關閉"></button>
                   </div>
                   <div class="px-6 px-md-9">
-                    
                     <h3 class="modal-title mb-2 text-primary-700 text-center"><%= collection.name %></h3>
                     <p class="mb-4 mb-md-7 text-primary-500 text-center"><%= collection.description %></p>
                     <div class="row row-gap-4 justify-content-center justify-content-md-between align-items-center mb-4 mb-md-7">
                       <div class="col-12 col-md-5 col-lg-7 text-primary-800">
-                        <!-- <p class="mb-0">這是關於「<%= collection.name %>」的更多細節介紹。</p> -->
-                        <!-- <p class="mb-0">您可以根據需要填入更多說明文字或課程重點。</p> -->
                         <% if (collection.outline && collection.outline.length > 0) { %>
                           <h4 class="text-primary-600 mt-5 mb-3">課程大綱</h4>
                           <ul class="list-unstyled text-primary-700">
@@ -257,9 +297,8 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
                     </div>
                   </div>
                   <div class="modal-body py-7 text-center bg-primary-100">
-                    <img class="img-fluid mt-0 mt-md-7 mb-3 mb-md-4 rounded-4" src="<%= url_for('/images/work-image' + collection.id + '.png') %>" alt="modal-image<%= collection.id %>">
+                    <img class="img-fluid mt-0 mt-md-7 mb-3 mb-md-4 rounded-4" src="<%= url_for('/images/work-image' + collection.id + '.png') %>" alt="<%= collection.name %> 課程主圖">
                     <h4 class="mb-2 mb-md-3 fs-5 text-primary-800">課程主圖</h4>
-                    <!-- <p class="mb-9 text-primary-600">這張圖可替換為課程海報或展示重點內容。</p> -->
                   </div>
                 </div>
               </div>
@@ -271,14 +310,18 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
   </section>
 
   <!-- 常見問題 區塊 -->
-  <section class="py-7 pb-md-9">
+  <section id="service-faq" class="service-page__faq py-7 pb-md-9">
     <div class="container px-4 mb-7 mb-md-9">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">常見問題</h2>
+      <div class="service-page__section-intro mb-6 mb-md-7">
+        <p class="service-page__eyebrow mb-2">FAQ</p>
+        <h2 class="mb-3 text-primary-700">合作前常見問題</h2>
+        <p class="mb-0 fs-5 text-primary-600">先看看常見合作方式；如果找不到完全相同的情況，也歡迎直接詢問。</p>
+      </div>
       <div class="row row-gap-4 gx-7 gx-md-4 justify-content-xl-center">
         <% serviceFaq.forEach(function(item) { %>
           <div class="col-12 col-md-6 col-xl-5">
             <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-              <h4 class="mb-3 text-primary-700"><%= item.question %></h4>
+              <h3 class="mb-3 fs-4 text-primary-700"><%= item.question %></h3>
               <p class="mb-0 text-primary-600"><%= item.answer %></p>
             </div>
           </div>
@@ -287,14 +330,19 @@ const serviceFaq = serviceAeo && serviceAeo.faq ? serviceAeo.faq : [];
     </div>
   </section>
 
-  <!-- 邀約授課 CTA 區塊 -->
-  <div class="bg-primary-700 text-white py-7">
+  <!-- 服務頁 CTA 區塊 -->
+  <section class="service-page__final-cta py-7 py-md-9">
     <div class="container text-center">
-      <h5 class="mb-3">想邀請享哥授課或合作嗎？</h5>
-      <p class="mb-4">無論是企業內訓、公開課、講座分享，歡迎透過下方管道聯繫！</p>
-      <a href="https://lin.ee/epeTR8o" target="_blank" class="btn btn-light text-primary-700 fw-bold px-4 py-2">
-        立即聯絡我（LINE）
-      </a>
+      <p class="service-page__eyebrow service-page__eyebrow--light mb-2">START WITH THE PROBLEM</p>
+      <h2 class="mb-3 text-white">還不確定該從哪一項開始？</h2>
+      <p class="mx-auto mb-4 text-primary-300" style="max-width: 640px;">先說明目前的狀況與想改善的方向，我會協助你判斷適合的合作方式。</p>
+      <div class="d-flex flex-wrap justify-content-center gap-3">
+        <a class="btn service-page__primary-cta service-page__primary-cta--light px-4 py-3" href="<%= url_for('/contact/') %>" data-track-event="contact_page_click" data-track-placement="service_final_cta">
+          前往合作洽詢
+          <span class="material-symbols-outlined align-middle ms-2">arrow_forward</span>
+        </a>
+        <a class="btn service-page__dark-outline-cta px-4 py-3" href="<%= lineUrl %>" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="service_final_cta">直接加 LINE</a>
+      </div>
     </div>
-  </div>
+  </section>
 </main>

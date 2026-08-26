@@ -1,50 +1,42 @@
 <%
 const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business : {};
 const socialLinks = businessAeo.same_as || [];
+const businessEmail = businessAeo.email || 'seanhsu1313@gmail.com';
+const lineUrl = socialLinks[3] || 'https://lin.ee/epeTR8o';
 const businessAddress = businessAeo.address || {};
 %>
-<footer
-    class="py-7"
-    style="background-image: url('<%= url_for('/images/footer-bg-lg.png') %>');
-      background-repeat: no-repeat;
-      background-size: cover;"
-  >
+<footer class="site-footer">
   <div class="container">
-    <div class="row row-gap-7 justify-content-between align-items-center my-md-7">
-      <div class="col-12 col-md-4 col-lg-3">
-        <img
-          class="mb-4"
-          style="width: 120px;"
-          src="<%= url_for('/images/es2idea-logo.svg') %>" alt="logo"
-        >
-        <p class="mb-4 fs-5 text-primary-700">歡迎邀約合作，或直接與我聯絡！</p>
-        <address class="mb-0 fs-5 lh-lg text-primary-700">
-          <strong><%= businessAeo.name || '徐享 | AI應用規劃師' %></strong><br>
-          Email：<a class="link-primary-500 text-decoration-none" href="mailto:<%= businessAeo.email || 'seanhsu1313@gmail.com' %>"><%= businessAeo.email || 'seanhsu1313@gmail.com' %></a><br>
-          地址：<%= businessAddress.street || '新北市中和捷運站步行五分鐘' %>
-        </address>
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="<%- url_for('/') %>" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__mark" src="<%= url_for('/images/site-v1/brand-mark-v1-inverse.svg') %>" width="48" height="48" alt="享哥流程工作台標誌">
+          <span class="site-brand__lockup">
+            <strong>徐享</strong>
+            <small>AI WORKFLOW STUDIO</small>
+          </span>
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
       </div>
-      <div class="col-12 col-md-6 col-lg-4 col-xxl-3">
-        <!-- <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="mailto:seanhsu1313@gmail.com">
-          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
-          </svg>
-          填寫表單
-        </a> -->
-        <a class="btn btn-lg icon-link link-primary-500 w-100 px-4 mb-4 lh-base text-start fw-bold text-primary-50 bg-primary-900" href="<%= socialLinks[3] || 'https://lin.ee/epeTR8o' %>">
-          <svg class="bi display-4" width="56" height="56" viewBox="0 0 56 56" fill="currentcolor" xmlns="http://www.w3.org/2000/svg">
-            <path fill-rule="evenodd" clip-rule="evenodd" d="M16 13H39V43H16L16 13ZM13 13C13 11.3431 14.3431 10 16 10H39C40.6569 10 42 11.3431 42 13V43C42 44.6569 40.6569 46 39 46H16C14.3431 46 13 44.6569 13 43V13ZM22 20C22 20.8284 21.3284 21.5 20.5 21.5C19.6716 21.5 19 20.8284 19 20C19 19.1716 19.6716 18.5 20.5 18.5C21.3284 18.5 22 19.1716 22 20ZM22 27C22 27.8284 21.3284 28.5 20.5 28.5C19.6716 28.5 19 27.8284 19 27C19 26.1716 19.6716 25.5 20.5 25.5C21.3284 25.5 22 26.1716 22 27ZM20.5 35.5C21.3284 35.5 22 34.8284 22 34C22 33.1716 21.3284 32.5 20.5 32.5C19.6716 32.5 19 33.1716 19 34C19 34.8284 19.6716 35.5 20.5 35.5ZM24 20C24 19.1716 24.6716 18.5 25.5 18.5H33.5C34.3284 18.5 35 19.1716 35 20C35 20.8284 34.3284 21.5 33.5 21.5H25.5C24.6716 21.5 24 20.8284 24 20ZM25.5 25.5C24.6716 25.5 24 26.1716 24 27C24 27.8284 24.6716 28.5 25.5 28.5H33.5C34.3284 28.5 35 27.8284 35 27C35 26.1716 34.3284 25.5 33.5 25.5H25.5ZM24 34C24 33.1716 24.6716 32.5 25.5 32.5H33.5C34.3284 32.5 35 33.1716 35 34C35 34.8284 34.3284 35.5 33.5 35.5H25.5C24.6716 35.5 24 34.8284 24 34Z" fill="currentcolor"/>
-          </svg>
-          LINE邀約合作
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="<%= lineUrl %>" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
         </a>
-        <a class="btn btn-lg w-100 px-4 mb-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" href="<%= socialLinks[0] || 'https://www.instagram.com/skypassion2013/' %>">
-          <i class="bi bi-instagram align-middle px-2 fs-1"></i>
-          AI享哥哥
-        </a>
-        <a class="btn btn-lg w-100 px-4 lh-base text-start link-primary-500 text-primary-700 bg-primary-50" href="<%= socialLinks[1] || 'https://www.facebook.com/HsiangPMKT?locale=zh_TW' %>">
-          <i class="bi bi-facebook align-middle px-2 fs-1"></i>
-          享哥玩行銷
-        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong><%= businessAeo.name || '徐享｜AI 應用規劃師' %></strong>
+        <span>Email：<a href="mailto:<%= businessEmail %>" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer"><%= businessEmail %></a></span>
+        <span><%= businessAddress.street || '新北市中和捷運站步行五分鐘' %></span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="<%= socialLinks[0] || 'https://www.instagram.com/skypassion2013/' %>" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="<%= socialLinks[1] || 'https://www.facebook.com/HsiangPMKT?locale=zh_TW' %>" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="<%= socialLinks[2] || 'https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ' %>" target="_blank" rel="noopener noreferrer">YouTube</a>
       </div>
     </div>
   </div>

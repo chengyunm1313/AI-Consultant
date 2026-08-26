@@ -1,5 +1,5 @@
 ---
-title: 聯絡我
+title: 合作洽詢
+description: 想把 AI 導入工作流程，卻不知道從哪開始？歡迎透過 LINE 或 Email 說明目前卡住的流程、行銷或團隊需求。
 layout: contact
-description: 歡迎洽詢 AI 應用規劃、企業內訓、n8n 自動化與數位轉型顧問服務，可透過 Email 或 LINE 聯絡徐享（享哥）。
 ---

@@ -1,376 +1,274 @@
 <%
-const homeAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.home : null;
-const homeServiceCards = homeAeo && homeAeo.service_cards ? homeAeo.service_cards : [];
-const homeFaq = homeAeo && homeAeo.faq ? homeAeo.faq : [];
-const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business : null;
-const socialLinks = businessAeo && businessAeo.same_as ? businessAeo.same_as : [];
+const homeAeo = site.data.aeo && site.data.aeo.pages ? site.data.aeo.pages.home || {} : {};
+const businessAeo = site.data.aeo && site.data.aeo.business ? site.data.aeo.business || {} : {};
+const homeFaq = Array.isArray(homeAeo.faq) ? homeAeo.faq : [];
+const socialLinks = Array.isArray(businessAeo.same_as) ? businessAeo.same_as : [];
+const serviceCatalog = Array.isArray(businessAeo.service_catalog) ? businessAeo.service_catalog : [];
+const serviceNames = Array.isArray(homeAeo.service_cards) && homeAeo.service_cards.length
+  ? homeAeo.service_cards
+  : ['AI 應用規劃', 'n8n 自動化工作', '電商社群行銷', 'AI 轉型顧問諮詢'];
+const serviceItems = serviceNames.map(function(name, index) {
+  const catalog = serviceCatalog[index] || {};
+  return {
+    number: String(index + 1).padStart(2, '0'),
+    name: name,
+    description: catalog.description || '從目標與現況出發，整理一套能真正落地的做法。'
+  };
+});
+const works = Array.isArray(site.data.works) ? site.data.works : [];
+const featuredWorks = works.filter(function(work) { return work.featured !== false; }).slice(0, 3);
+const workflowSteps = [
+  { number: '01', title: '把問題說清楚', description: '先把產業、目標與目前卡住的工作整理出來。' },
+  { number: '02', title: '找到值得改善的環節', description: '分辨哪些工作適合 AI、哪些流程值得自動化。' },
+  { number: '03', title: '做出可討論的方案', description: '把工具、流程與執行範圍變成看得見的藍圖。' },
+  { number: '04', title: '交付可以使用的成果', description: '用實作、追蹤與調整，讓團隊真的用得起來。' }
+];
+const problemItems = [
+  { number: '01', title: '想導入 AI，卻不知道先從哪個流程開始' },
+  { number: '02', title: '每天花很多時間整理資料與回覆訊息' },
+  { number: '03', title: '內容、電商與社群行銷一直做不完' },
+  { number: '04', title: '想安排企業內訓或客製工作坊' }
+];
+
+function localUrl(value) {
+  if (!value) return '';
+  return /^https?:\/\//.test(String(value)) ? value : url_for(value);
+}
 %>
-<main>
-  <!-- hero 區塊 -->
-  <div class="container-fluid px-0">
-    <div class="row flex-md-row-reverse mb-7 mb-md-9">
-      <div class="col-12 col-md-7 px-0 overflow-hidden">
-        <picture>
-          <source media="(min-width: 768px)" srcset="<%= url_for('/images/hero-lg.png') %>">
-          <img class="w-100 d-block" src="<%= url_for('/images/hero-sm.png') %>" alt="hero banner">
-        </picture>
-      </div>
-      <div class="col-10 col-md-4 mx-auto mx-md-0">
-        <div class="d-flex flex-column justify-content-center align-items-center align-items-md-start h-100">
-          <h1 class="mb-4 text-primary-700 fw-semibold">Hi！我是 徐享（享哥）</h1>
-          <p class="text-center text-md-start text-primary-600 fs-5 mb-0">具有 10 年經驗在<mark class="mark text-primary-600">數位行銷</mark>與<mark class="mark text-primary-600">電商廣告</mark>領域</p>
-          <p class="text-center text-md-start text-primary-600 fs-5"><%= homeAeo ? homeAeo.hero_intro : '專精 AI 應用規劃、n8n 自動化工作與中小企業數位轉型顧問。' %></p>
-          <p class="text-center text-md-start text-primary-400 mb-9"><%= homeAeo ? homeAeo.service_line : 'AI 應用規劃 / n8n 自動化工作流 / 電商社群行銷 / AI 轉型顧問諮詢 / 中小企業數位轉型服務' %></p>
-          <div class="d-flex gap-3">
-            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[0] || 'https://www.instagram.com/skypassion2013/' %>">
-              <i class="bi bi-instagram"></i>
+<main id="main-content" class="site-home">
+  <section class="sv1-hero">
+    <div class="container">
+      <div class="sv1-hero__grid">
+        <div class="sv1-hero__copy" data-reveal>
+          <p class="sv1-kicker mb-4">AI WORKFLOW STUDIO <span>／ 享哥</span></p>
+          <h1 class="sv1-hero__title mb-4">把混亂的 AI 需求<br><span>整理成可執行流程。</span></h1>
+          <p class="sv1-hero__lead mb-4">
+            <%= homeAeo.hero_intro || '專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。' %>
+          </p>
+          <div class="d-flex flex-wrap gap-3 mb-5">
+            <a class="site-button site-button--dark" href="<%= url_for('/contact/') %>" data-track-event="contact_page_click" data-track-placement="home_hero">
+              先聊聊目前的問題
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
             </a>
-            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[1] || 'https://www.facebook.com/HsiangPMKT?locale=zh_TW' %>">
-              <i class="bi bi-facebook"></i>
-            </a>
-            <a class="icon-link link-primary-600 px-2 fs-1" href="<%= socialLinks[2] || 'https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ' %>">
-              <i class="bi bi-youtube"></i>
+            <a class="site-button site-button--outline" href="<%= url_for('/works/') %>">
+              看實作案例
+              <span class="material-symbols-outlined" aria-hidden="true">arrow_forward</span>
             </a>
           </div>
-        </div>
-      </div>
-    </div>
-  </div>
-  
-  <!-- 熱門主題1 區塊 -->
-  <!-- <section class="container py-7 py-md-9">
-    <h2 class="title-deco text-center text-primary-700 tracking-wide fw-semibold mb-7">熱門主題</h2>
-    <div class="row row-gap-5">
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="生成式AI賦能電商行銷">
-          <div class="card-body px-3 py-4">
-            <h5 class="card-title mb-2 text-primary-700">2026 生成式AI應用規劃</h5>
-            <p class="card-subtitle mb-2 text-primary-500 small">AI自動化打造電商行銷即戰力</p>
-            <p class="card-text text-primary-600 fs-6">學會用生成式AI優化文案與流程，提升轉換率、降低行銷成本，打造能成長的智慧商模。</p>
-            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
+          <div class="sv1-proof-line" aria-label="徐享專業摘要">
+            <div><strong>10+</strong><span>年數位行銷與電商實戰</span></div>
+            <div><strong>AI</strong><span>規劃、Agent、n8n 與內容流程</span></div>
           </div>
         </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="個資保護與AI應用實務">
-          <div class="card-body px-3 py-4">
-            <h5 class="card-title mb-2 text-primary-700">2026 個人資料保護與AI風險控管</h5>
-            <p class="card-subtitle mb-2 text-primary-500 small">AI世代必備的安維辦法</p>
-            <p class="card-text text-primary-600 fs-6">掌握AI應用下的資安與風控重點，打造值得信任的數位服務，強化品牌防禦力與信譽。</p>
-            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="col-12 col-md-6 col-lg-4">
-        <div class="card h-100 border-0 shadow-sm rounded-4 overflow-hidden">
-          <img src="<%= url_for('/images/homepage-work1.png') %>" class="card-img-top" alt="社群行銷與內容策略">
-          <div class="card-body px-3 py-4">
-            <h5 class="card-title mb-2 text-primary-700">2026 AI數位分身與影音行銷</h5>
-            <p class="card-subtitle mb-2 text-primary-500 small">打造你專屬的虛擬影響力角色</p>
-            <p class="card-text text-primary-600 fs-6">用AI生成數位分身 + KOL行銷策略，創造個人品牌內容矩陣，搶佔短影音與影響力紅利。</p>
-            <a href="#" class="stretched-link text-decoration-none text-primary-500 fw-bold link-hover-arrow">了解更多 ➤</a>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section> -->
-
-  <!-- 熱門主題2 區塊 -->
-  <section>
-    <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">熱門主題</h2>
-    <!-- 2026 生成式AI應用規劃 -->
-    <div
-      class="pt-9"
-      style="background-image: url('<%= url_for('/images/homepage-work1-bg.png') %>');background-repeat: no-repeat;background-position: center;background-size: cover;"
-    >
-      <div class="container">
-        <div class="row">
-          <div class="col-12 col-md-6 col-xl-7">
-            <img class="img-fluid" src="<%= url_for('/images/homepage-work1.png') %>" alt="work1">
-          </div>
-          <div class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center">
-            <div class="px-7 py-9 bg-white-overlay rounded-5">
-              <h3 class="mb-2 text-primary-50">2026 生成式 AI 應用規劃</h3>
-              <p class="mb-4 fs-6 text-primary-50">AI 自動化打造電商行銷即戰力</p>
-              <div class="pb-7 mb-7 border-bottom border-white">
-                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">生成式 AI</span>
-                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">行銷自動化</span>
-                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">電商轉換率優化</span>
-              </div>
-              <div class="d-flex justify-content-center">
-                <a
-                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
-                  href="<%= url_for('/posts/generative-ai-planning/') %>"
-                >
-                  完整介紹
-                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="d-md-none pt-4 pb-8 text-center">
-      <h3 class="mb-2">2026 生成式 AI 應用規劃</h3>
-      <p class="mb-3 fs-6 text-primary-600">AI 自動化打造電商行銷即戰力</p>
-      <div class="mb-4">
-        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">生成式 AI</span>
-        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">行銷自動化</span>
-        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">電商轉換率優化</span>
-      </div>
-      <a
-        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
-        href="<%= url_for('/posts/generative-ai-planning/') %>"
-      >
-        完整介紹
-        <span class="material-symbols-outlined align-top">arrow_forward</span>
-      </a>
-    </div>
-    <!-- 2026 AI Agent 與 Codex 工作流 -->
-    <div
-      class="position-relative py-9"
-      style="background-image: url('<%= url_for('/images/homepage-work2-bg.png') %>');background-repeat: no-repeat;background-position: center;
-      background-size: cover;"
-    >
-      <div class="container">
-        <div class="row">
-          <div
-            class="d-none d-md-block col-md-6 position-absolute top-0 start-0 h-100"
-            style="background-color: #0A101380;"
+        <div class="sv1-hero__visual" data-reveal data-delay="1">
+          <div class="sv1-hero__grid-lines" aria-hidden="true"></div>
+          <img
+            src="<%= url_for('/images/site-v1/assets/workbench-hero.png') %>"
+            srcset="<%= url_for('/images/site-v1/assets/workbench-hero-960.png') %> 960w, <%= url_for('/images/site-v1/assets/workbench-hero.png') %> 1672w"
+            sizes="(max-width: 767px) 100vw, 58vw"
+            width="1672"
+            height="941"
+            alt="以紙卡、流程線與黃綠標記整理企業需求的工作台"
+            fetchpriority="high"
           >
-          </div>
-          <div
-            class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center"
-            
-          >
-            <div class="px-7 py-9 bg-white-overlay rounded-5">
-              <h3 class="mb-2 text-primary-50">2026 AI Agent 與 Codex 工作流</h3>
-              <p class="mb-4 fs-6 text-primary-50">從工具呼叫、Skill 到可執行的工作流程</p>
-              <div class="pb-7 mb-7 border-bottom border-white">
-                <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
-                <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
-                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
-              </div>
-              <div class="d-flex justify-content-center">
-                <a
-                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
-                  href="<%= url_for('/ai-agent/') %>"
-                >
-                  完整介紹
-                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-          </div>
-          <div class="col-12 col-md-6 invisible">
-            <img class="img-fluid" src="<%= url_for('/images/homepage-work1.png') %>" alt="work1">
-          </div>
+          <span class="sv1-hero__stamp">FROM PROBLEM<br>TO PROCESS</span>
+          <span class="sv1-hero__caption">診斷工作台 / 01</span>
         </div>
-      </div>
-    </div>
-    <div class="d-md-none pt-4 pb-8 text-center">
-      <h3 class="mb-2">2026 AI Agent 與 Codex 工作流</h3>
-      <p class="mb-3 fs-6 text-primary-600">從工具呼叫、Skill 到可執行的工作流程</p>
-      <div class="mb-4">
-        <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
-        <span class="badge me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
-        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
-      </div>
-      <a
-        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
-        href="<%= url_for('/ai-agent/') %>"
-      >
-        完整介紹
-        <span class="material-symbols-outlined align-top">arrow_forward</span>
-      </a>
-    </div>
-    <!-- 2026 AI數位分身與影音行銷 -->
-    <div
-      class="position-relative py-9"
-      style="background-image: url('<%= url_for('/images/homepage-work3-bg.png') %>');background-repeat: no-repeat;background-position: center;background-size: cover;"
-    >
-      <div class="container">
-        <div class="row">
-          <div
-            class="col-12 position-absolute top-0 start-0 bottom-0 end-0 h-100"
-            style="background-color: #0D0C0780;"
-          ></div>
-          <div class="col-12 col-md-6 col-xl-7 z-1">
-            <img class="img-fluid" src="<%= url_for('/images/homepage-work3.png') %>" alt="work1">
-          </div>
-          <div class="col-12 col-md-6 col-xl-5 d-none d-md-flex flex-md-column justify-content-center">
-            <div class="px-7 py-9 bg-white-overlay rounded-5">
-              <h3 class="mb-2 text-primary-50">2026 AI 數位分身與影音行銷</h3>
-              <p class="mb-4 fs-6 text-primary-50">打造你專屬的虛擬影響力角色</p>
-              <div class="pb-7 mb-7 border-bottom border-white">
-                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI 數位分身</span>
-                <span class="badge mb-2 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷策略</span>
-                <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個人品牌經營</span>
-              </div>
-              <div class="d-flex justify-content-center">
-                <a
-                  class="btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
-                  href="<%= url_for('/posts/ai-virtual-avatar-marketing/') %>"
-                >
-                  完整介紹
-                  <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
-                </a>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-    <div class="d-md-none pt-4 pb-8 text-center">
-      <h3 class="mb-2">2026 AI 數位分身與自媒體影音行銷</h3>
-      <p class="mb-3 fs-6 text-primary-600">打造你專屬的虛擬影響力角色</p>
-      <div class="mb-4">
-        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI 數位分身</span>
-        <span class="badge mb-3 me-2 fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷策略</span>
-        <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">個人品牌經營</span>
-      </div>
-      <a
-        class="btn btn-sm px-3 py-2 fs-6 fw-bold text-primary-50 bg-primary-900"
-        href="<%= url_for('/posts/ai-virtual-avatar-marketing/') %>"
-      >
-        完整介紹
-        <span class="material-symbols-outlined align-top">arrow_forward</span>
-      </a>
-    </div>
-  </section>
-
-  <!-- 服務項目 區塊 -->
-  <section
-    class="pt-7 pb-7 pb-md-9"
-    style="background-image: url('<%= url_for('/images/homepage-services-bg.png') %>');
-    background-repeat: no-repeat;
-    background-size: cover;"
-  >
-    <div class="container px-6 px-md-4">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">服務項目</h2>
-      <div class="row row-gap-4 mb-7 mb-md-9">
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-front-end.svg') %>" alt="visual design">
-              <h3 class="text-primary-50"><%= homeServiceCards[0] || 'AI 應用規劃' %></h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-ui.svg') %>" alt="ui design">
-              <h3 class="text-primary-50"><%= homeServiceCards[1] || 'n8n 自動化工作' %></h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-html&css.svg') %>" alt="html and css">
-              <h3 class="text-primary-50"><%= homeServiceCards[2] || '電商社群行銷' %></h3>
-            </div>
-          </div>
-        </div>
-        <div class="col-12 col-md-6 col-lg-3">
-          <div class="bg-service d-flex flex-column justify-content-center align-items-center rounded-4">
-            <div class="position-absolute start-0 end-0 top-0 bottom-0 d-flex flex-column justify-content-center align-items-center">
-              <img class="mb-4" src="<%= url_for('/images/service-item-visual.svg') %>" alt="visual design">
-              <h3 class="text-primary-50"><%= homeServiceCards[3] || 'AI 轉型顧問諮詢' %></h3>
-            </div>
-          </div>
-        </div>
-      </div>
-      <p class="mb-4 mb-md-7 fs-3 fw-semibold text-center text-primary-700">想要合作或瞭解更多？</p>
-      <div class="d-flex justify-content-center pb-7 pb-md-9">
-        <a
-          class="d-none d-md-block btn btn-lg px-6 py-3 fs-5 fw-bold text-primary-50 bg-primary-900 icon-link icon-link-hover link-primary-500"
-          href="<%= url_for('/service') %>"
-        >
-          詳細內容與合作流程
-          <span class="bi material-symbols-outlined align-text-bottom">arrow_forward</span>
-        </a>
-        <a
-          class="d-md-none btn px-3 py-2 fw-bold text-primary-50 bg-primary-900"
-          href="<%= url_for('/service') %>"
-        >
-          詳細內容與合作流程
-          <span class="material-symbols-outlined align-text-bottom">arrow_forward</span>
-        </a>
       </div>
     </div>
   </section>
 
-  <!-- 常見問題 區塊 -->
-  <section class="py-7 pb-md-9">
-    <div class="container px-4">
-      <h2 class="title-deco py-7 py-md-9 text-center text-primary-700 tracking-wide fw-semibold">常見問題</h2>
-      <div class="row row-gap-4 gx-7 gx-md-4 justify-content-xl-center">
-        <% homeFaq.forEach(function(item) { %>
-          <div class="col-12 col-md-6 col-xl-5">
-            <div class="p-4 h-100 border border-1 border-primary-300 rounded-2">
-              <h3 class="mb-3 fs-4 text-primary-700"><%= item.question %></h3>
-              <p class="mb-0 text-primary-600"><%= item.answer %></p>
-            </div>
-          </div>
+  <section class="sv1-section sv1-section--problems">
+    <div class="container">
+      <div class="sv1-section-head" data-reveal>
+        <div>
+          <p class="sv1-kicker">START WITH THE REAL PROBLEM</p>
+          <h2>不用先講懂工具，<br><span>先說你卡在哪裡。</span></h2>
+        </div>
+        <p>好的 AI 導入不是把工具全部買回來，而是先找到最值得被整理的那一段工作。</p>
+      </div>
+      <div class="sv1-problem-grid">
+        <% problemItems.forEach(function(item, index) { %>
+          <article class="sv1-problem" data-reveal data-delay="<%= index %>">
+            <span class="sv1-number"><%= item.number %></span>
+            <h3><%= item.title %></h3>
+          </article>
         <% }) %>
       </div>
     </div>
   </section>
 
-  <!-- 精選文章 區塊 -->
-  <section class="container pb-7 pb-md-9">
-    <h2 class="title-deco py-7 py-md-9 mt-7 mt-md-9 text-center text-primary-700 tracking-wide fw-semibold">精選文章</h2>
+  <section id="workflow" class="sv1-section sv1-section--ink sv1-workflow">
+    <div class="container">
+      <div class="sv1-section-head sv1-section-head--light" data-reveal>
+        <div>
+          <p class="sv1-kicker sv1-kicker--light">THE WORKFLOW</p>
+          <h2>從一團亂，<br><span>走到下一步。</span></h2>
+        </div>
+        <p>把問題拆成可判斷的節點，再用適合的工具和執行方式，做出可以被團隊接住的成果。</p>
+      </div>
+      <div class="sv1-workflow__layout">
+        <div class="sv1-workflow__visual" data-reveal>
+          <img
+            src="<%= url_for('/images/site-v1/assets/workbench-services.png') %>"
+            srcset="<%= url_for('/images/site-v1/assets/workbench-services-720.png') %> 720w, <%= url_for('/images/site-v1/assets/workbench-services.png') %> 1448w"
+            sizes="(max-width: 767px) 100vw, 42vw"
+            width="1448"
+            height="1086"
+            loading="lazy"
+            alt="四張流程卡與連接線組成的工作流程示意"
+          >
+          <span class="sv1-workflow__label">WORKBENCH / 04 STEPS</span>
+        </div>
+        <ol class="sv1-workflow__list" data-workflow>
+          <% workflowSteps.forEach(function(step, index) { %>
+            <li class="sv1-workflow__step" data-workflow-step data-reveal data-delay="<%= index %>">
+              <span class="sv1-number"><%= step.number %></span>
+              <div>
+                <h3><%= step.title %></h3>
+                <p><%= step.description %></p>
+              </div>
+            </li>
+          <% }) %>
+        </ol>
+      </div>
+    </div>
+  </section>
 
-      <div class="row row-gap-5 mb-7">
-        <div class="swiper">
-          <div class="swiper-wrapper mb-9">
-          <% const limit = 5 %>
-          <% page.posts.slice(0, limit).each((post) => { %>
-            <div class="swiper-slide col-12 col-md-6 col-lg-4">
-              <div class="card border-0">
-                <img src="<%= url_for(post.cover) %>" class="card-img-top rounded-3" alt="article-1">
-                <div class="card-body">
-                  <h5 class="card-title mb-3 text-primary-700"><%= post.title %></h5>
-                  <div class="d-flex justify-content-between align-items-center">
-                    <%- list_tags(post.tags, {
-                      show_count: false,
-                      amount: 2,
-                      style: 'list',
-                      separator: '',
-                      class: {
-                        ul: 'd-flex gap-2 mb-0 overflow-x-hidden list-unstyled',
-                        a: 'badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none '
-                      }
-                    }) %>
-                    
-                    <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary"><%= date(post.date, 'YYYY/MM/DD') %></small></p>
-                  </div>
-                  <a class="stretched-link" href="<%= post.path %>"></a>
-                </div>
+  <section id="featured-work" class="sv1-section sv1-section--cases">
+    <div class="container">
+      <div class="sv1-section-head" data-reveal>
+        <div>
+          <p class="sv1-kicker">SELECTED CASES</p>
+          <h2>先看成果，<br><span>再談方法。</span></h2>
+        </div>
+        <a class="sv1-text-link" href="<%= url_for('/works/') %>">瀏覽全部案例 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="sv1-case-grid">
+        <% featuredWorks.forEach(function(work, index) { %>
+          <article class="sv1-case-card<%= index === 0 ? ' sv1-case-card--featured' : '' %>" data-reveal data-delay="<%= index %>">
+            <a class="sv1-case-card__media" href="<%= localUrl(work.article_url || work.primary_url) %>">
+              <img
+                src="<%= localUrl(work.cover || '/images/site-v1/assets/workbench-case.png') %>"
+                alt="<%= work.title %>"
+                loading="lazy"
+              >
+              <span class="sv1-case-card__arrow" aria-hidden="true">↗</span>
+            </a>
+            <div class="sv1-case-card__body">
+              <div class="sv1-case-card__meta"><span>0<%= index + 1 %></span><span><%= work.category === 'n8n' ? 'n8n AUTOMATION' : 'VIBE CODING' %></span></div>
+              <h3><a href="<%= localUrl(work.article_url || work.primary_url) %>"><%= work.title %></a></h3>
+              <p><%= work.summary %></p>
+              <div class="sv1-chip-row">
+                <% (work.stack || []).slice(0, 3).forEach(function(item) { %>
+                  <span class="sv1-chip"><%= item %></span>
+                <% }) %>
               </div>
             </div>
-          <% }) %>
-
-          </div>
-          <div class="swiper-pagination d-none d-md-block"></div>
-        </div>
+          </article>
+        <% }) %>
       </div>
+    </div>
+  </section>
 
-    <div class="d-flex d-md-none justify-content-center mb-7">
-      <a
-        class="btn btn-lg fs-6 fw-bold text-primary-50 bg-primary-900"
-        href="/blog"
-      >
-        更多文章
-        <span class="material-symbols-outlined align-text-bottom">arrow_forward</span>
-      </a>
+  <section class="sv1-section sv1-section--services">
+    <div class="container">
+      <div class="sv1-services__layout">
+        <div class="sv1-services__intro" data-reveal>
+          <p class="sv1-kicker">WHAT I CAN HELP WITH</p>
+          <h2>把工具放回<br><span>工作的脈絡裡。</span></h2>
+          <p>不從工具清單出發，而是從你的目標、資源與團隊習慣出發，找到適合的切入點。</p>
+          <a class="sv1-text-link" href="<%= url_for('/service/') %>">查看完整服務 <span aria-hidden="true">↗</span></a>
+        </div>
+        <div class="sv1-services__visual" data-reveal data-delay="1">
+          <img
+            src="<%= url_for('/images/site-v1/assets/workbench-case.png') %>"
+            srcset="<%= url_for('/images/site-v1/assets/workbench-case-720.png') %> 720w, <%= url_for('/images/site-v1/assets/workbench-case.png') %> 1536w"
+            sizes="(max-width: 767px) 100vw, 38vw"
+            width="1536"
+            height="1024"
+            loading="lazy"
+            alt="案例證據卡、透明紙張與黃綠流程標記"
+          >
+        </div>
+        <ol class="sv1-service-list">
+          <% serviceItems.forEach(function(item, index) { %>
+            <li data-reveal data-delay="<%= index %>">
+              <span class="sv1-number"><%= item.number %></span>
+              <div><h3><%= item.name %></h3><p><%= item.description %></p></div>
+              <a href="<%= url_for('/service/') %>" aria-label="了解<%= item.name %>">↗</a>
+            </li>
+          <% }) %>
+        </ol>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv1-section sv1-section--faq">
+    <div class="container sv1-faq__layout">
+      <div data-reveal>
+        <p class="sv1-kicker">QUESTIONS BEFORE ACTION</p>
+        <h2>先把疑問<br><span>整理清楚。</span></h2>
+      </div>
+      <div class="sv1-faq-list">
+        <% homeFaq.forEach(function(item, index) { %>
+          <details class="sv1-faq-item"<%= index === 0 ? ' open' : '' %> data-reveal data-delay="<%= index %>">
+            <summary><span><%= item.question %></span><b aria-hidden="true">+</b></summary>
+            <p><%= item.answer %></p>
+          </details>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv1-section sv1-section--articles">
+    <div class="container">
+      <div class="sv1-section-head" data-reveal>
+        <div>
+          <p class="sv1-kicker">FIELD NOTES</p>
+          <h2>把實作過程<br><span>寫給你看。</span></h2>
+        </div>
+        <a class="sv1-text-link" href="<%= url_for('/blog/') %>">前往部落格 <span aria-hidden="true">↗</span></a>
+      </div>
+      <div class="sv1-article-grid">
+        <% page.posts.slice(0, 3).each(function(post, index) { %>
+          <article class="sv1-article-card" data-reveal data-delay="<%= index %>">
+            <a class="sv1-article-card__media" href="<%= url_for(post.path) %>">
+              <img src="<%= url_for(post.cover || '/images/default-cover.png') %>" alt="<%= post.title %>" loading="lazy">
+            </a>
+            <div class="sv1-article-card__body">
+              <p class="sv1-article-card__date"><%= date(post.date, 'YYYY.MM.DD') %></p>
+              <h3><a href="<%= url_for(post.path) %>"><%= post.title %></a></h3>
+              <a class="sv1-text-link" href="<%= url_for(post.path) %>">閱讀文章 <span aria-hidden="true">↗</span></a>
+            </div>
+          </article>
+        <% }) %>
+      </div>
+    </div>
+  </section>
+
+  <section class="sv1-final-cta">
+    <div class="container sv1-final-cta__grid">
+      <div data-reveal>
+        <p class="sv1-kicker sv1-kicker--light">READY TO SORT IT OUT?</p>
+        <h2>把目前卡住的流程帶來，<br><span>我們從第一張卡開始。</span></h2>
+        <p>不用先準備完整提案，先說明產業、現況與想改善的結果即可。</p>
+        <a class="site-button site-button--signal" href="<%= url_for('/contact/') %>" data-track-event="contact_page_click" data-track-placement="home_final_cta">
+          前往合作洽詢
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+      <div class="sv1-final-cta__visual" data-reveal data-delay="1">
+        <img
+          src="<%= url_for('/images/site-v1/assets/workbench-contact.png') %>"
+          srcset="<%= url_for('/images/site-v1/assets/workbench-contact-720.png') %> 720w, <%= url_for('/images/site-v1/assets/workbench-contact.png') %> 1122w"
+          sizes="(max-width: 767px) 100vw, 34vw"
+          width="1122"
+          height="1402"
+          loading="lazy"
+          alt="手將黃綠標記放到整理完成的流程卡上"
+        >
+      </div>
     </div>
   </section>
 </main>
