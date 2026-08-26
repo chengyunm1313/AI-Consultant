@@ -88,7 +88,7 @@
   網址：https://blog.es2idea.com/posts/cangjie-skill-book-to-agent-skills/
   日期：2026-08-22
   摘要：cangjie-skill 不只整理書籍、長影音與 Podcast 的摘要，而是把方法論、框架與決策原則拆成可呼叫、可組合、可測試的 AI Agent Skills，讓看過的內容真正轉化為可執行能力。
-  主題：AI自動化、AI工具、AI Agent、內容行銷
+  主題：內容行銷、AI自動化、AI工具、AI Agent
 
 - Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness
   網址：https://blog.es2idea.com/posts/skill-to-agent-harness/
@@ -106,7 +106,7 @@
   網址：https://blog.es2idea.com/posts/ai-knowledge-curation/
   日期：2026-08-14
   摘要：AI 讓內容生成變得更容易，真正稀缺的卻是知識策展。本文從免費瑜伽課程案例出發，拆解如何篩選、驗證、排序與更新資訊，建立可學習、可實踐的知識系統。
-  主題：商業策略、AI工具、內容行銷
+  主題：商業策略、內容行銷、AI工具
 
 ## 語言
 - zh-TW
