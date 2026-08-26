@@ -3,7 +3,7 @@ title: 用 AI 暴力中文化 Cursor 教學網站，並用 GitHub Pages 免費�
 cover: /images/cover71.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - AI自動化
   - Cursor

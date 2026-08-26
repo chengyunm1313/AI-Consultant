@@ -3,7 +3,7 @@ title: 在生成式 AI 時代，打造不可取代的內容影響力：E-E-A-T �
 cover: /images/cover23.png
 toc: true
 categories:
-  - 生成式AI應用
+  - SEO
 tags:
   - SEO
 date: 2025-05-26 19:25:16

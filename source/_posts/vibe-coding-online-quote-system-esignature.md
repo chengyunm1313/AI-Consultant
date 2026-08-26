@@ -3,7 +3,7 @@ title: Vibe Coding 實戰：打造專屬線上報價單系統與電子簽署功�
 cover: /images/cover84.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI自動化

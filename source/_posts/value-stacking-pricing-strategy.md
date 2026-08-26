@@ -3,7 +3,7 @@ title: 從零開始學會價值堆疊：讓你的產品不再被說太貴！
 cover: /images/cover29.png
 toc: true
 categories:
-  - 網路行銷
+  - 商業策略
 tags:
   - 商業策略
 date: 2025-06-06 11:38:53

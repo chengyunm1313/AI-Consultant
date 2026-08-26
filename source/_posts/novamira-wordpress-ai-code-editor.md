@@ -3,7 +3,7 @@ title: 顛覆 WordPress 開發模式！免費開源外掛 Novamira 讓 AI 直接
 cover: /images/cover73.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI工具

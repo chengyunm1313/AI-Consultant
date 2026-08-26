@@ -3,7 +3,7 @@ title: AI 內容餵養手冊：如何讓你的文章被 ChatGPT 引用與訓練�
 cover: /images/cover44.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AEO
 tags:
   - SEO
   - 內容行銷

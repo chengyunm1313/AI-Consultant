@@ -3,7 +3,7 @@ title: 如何快速製作高品質字幕檔：通用提示詞模板＋操作流�
 cover: /images/cover17.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 影音行銷
   - AI自動化

@@ -3,7 +3,7 @@ title: 如何使用 Remotion 與 AI 自動化生成科普短影音：喵喵經�
 cover: /images/cover75.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - 影音行銷
   - AI自動化

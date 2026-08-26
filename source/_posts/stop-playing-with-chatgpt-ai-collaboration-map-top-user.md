@@ -3,7 +3,7 @@ title: 別再把 ChatGPT 當玩具！這份 AI 協作地圖，讓你晉升頂尖
 cover: /images/cover64.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI Agent
   - ChatGPT

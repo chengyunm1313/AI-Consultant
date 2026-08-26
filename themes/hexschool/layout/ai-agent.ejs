@@ -1,0 +1,261 @@
+<%
+const agentTagName = 'AI Agent';
+const codexTagName = 'Codex';
+const agentTag = site.tags.findOne({ name: agentTagName });
+const codexTag = site.tags.findOne({ name: codexTagName });
+const agentPosts = agentTag ? agentTag.posts.sort('date', -1).toArray() : [];
+const codexPosts = codexTag ? codexTag.posts.sort('date', -1).toArray() : [];
+const initialVisibleCount = 6;
+const loadMoreCount = 3;
+
+function formatDate(dateValue) {
+  return new Date(dateValue).toLocaleDateString('zh-TW');
+}
+
+function extractSummary(post) {
+  if (post.description) return post.description;
+  if (post.excerpt) {
+    return String(post.excerpt).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  }
+  if (post.content) {
+    return String(post.content).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim().slice(0, 140) + '...';
+  }
+  return '';
+}
+%>
+<main class="works-page">
+  <section class="works-page__hero py-7 py-md-9">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 text-center">
+          <p class="mb-3 text-uppercase tracking-wide text-primary-600 fw-semibold">AI Agent Workflow</p>
+          <h1 class="title-deco mb-4 py-4 py-md-6 text-primary-700 tracking-wide fw-semibold"><%= page.title %></h1>
+          <p class="mx-auto mb-3 fs-5 text-primary-700 works-page__intro"><%= page.description %></p>
+          <p class="mx-auto mb-0 text-primary-600 works-page__intro works-page__intro--secondary">
+            從 Agent 的共通能力，到 ChatGPT 桌面版 Codex 的實際工作方式，持續整理能真正落地的 AI 協作方法。
+          </p>
+        </div>
+      </div>
+      <div class="row row-gap-3 justify-content-center mt-6">
+        <div class="col-12 col-md-6 col-lg-5">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#agent-common">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">共通能力</span>
+              <h2 class="h4 mb-1 text-primary-800">Agent 共通內容</h2>
+              <p class="mb-0 text-primary-600">整理 MCP、Skill、Harness、記憶、人機協作與可跨工具使用的 Agent 方法。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">arrow_forward</span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#agent-codex">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">桌面版工作流</span>
+              <h2 class="h4 mb-1 text-primary-800">ChatGPT 桌面版（Codex）</h2>
+              <p class="mb-0 text-primary-600">聚焦 Codex 的提示、Skills、Agent Harness 與實際開發及自動化案例。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">arrow_forward</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="agent-common" class="py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Agent Foundations</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">Agent 共通內容</h2>
+          <p class="mb-0 text-primary-600">
+            自動整理所有帶有 <code><%= agentTagName %></code> 標籤的文章，從觀念、能力拆解到少量跨工具實作，建立可遷移的 Agent 工作方法。
+          </p>
+        </div>
+      </div>
+
+      <% if (agentPosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0" data-load-more-list data-initial-count="<%= initialVisibleCount %>" data-load-count="<%= loadMoreCount %>">
+          <% agentPosts.forEach(function(post, index) { %>
+            <% const summary = extractSummary(post); %>
+            <li class="col-12 col-md-6 col-xl-4 d-flex<%= index >= initialVisibleCount ? ' d-none' : '' %>" data-load-more-item>
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= url_for(post.cover) %>" class="works-card__media" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Agent</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">AI Agent workflow</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= summary %></p>
+                    </div>
+                  </div>
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% post.tags.each(function(tag) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">閱讀文章</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (agentPosts.length > initialVisibleCount) { %>
+          <div class="text-center mt-6">
+            <button
+              class="btn btn-outline-dark px-4 works-card__action-btn"
+              type="button"
+              data-load-more-trigger
+              data-load-more-label="看更多 Agent 文章"
+              data-load-more-complete-label="已顯示全部 Agent 文章"
+            >
+              看更多 Agent 文章
+            </button>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-robot"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">Agent 共通內容整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= agentTagName %></code>，之後就會自動出現在這個區塊。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section id="agent-codex" class="py-7 py-md-9 bg-primary-100">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">ChatGPT Desktop / Codex</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">ChatGPT 桌面版（Codex）</h2>
+          <p class="mb-0 text-primary-600">
+            自動整理所有帶有 <code><%= codexTagName %></code> 標籤的文章，聚焦提示設計、Skills、Agent Harness 與 Codex 實際工作流。
+          </p>
+        </div>
+      </div>
+
+      <% if (codexPosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0" data-load-more-list data-initial-count="<%= initialVisibleCount %>" data-load-count="<%= loadMoreCount %>">
+          <% codexPosts.forEach(function(post, index) { %>
+            <% const summary = extractSummary(post); %>
+            <li class="col-12 col-md-6 col-xl-4 d-flex<%= index >= initialVisibleCount ? ' d-none' : '' %>" data-load-more-item>
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= url_for(post.cover) %>" class="works-card__media" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Codex</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">ChatGPT desktop workflow</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary works-card__clamp works-card__clamp--2"><%= summary %></p>
+                    </div>
+                  </div>
+                  <% if (post.tags && post.tags.length) { %>
+                    <div class="works-card__meta">
+                      <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                      <div class="works-card__stack d-flex flex-wrap gap-2">
+                        <% post.tags.each(function(tag) { %>
+                          <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                        <% }) %>
+                      </div>
+                    </div>
+                  <% } %>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">閱讀文章</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+        <% if (codexPosts.length > initialVisibleCount) { %>
+          <div class="text-center mt-6">
+            <button
+              class="btn btn-outline-dark px-4 works-card__action-btn"
+              type="button"
+              data-load-more-trigger
+              data-load-more-label="看更多 Codex 文章"
+              data-load-more-complete-label="已顯示全部 Codex 文章"
+            >
+              看更多 Codex 文章
+            </button>
+          </div>
+        <% } %>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-code-square"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">Codex 文章整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= codexTagName %></code>，之後就會自動出現在這個區塊。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section class="works-page__cta py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="works-page__cta-panel mx-auto text-center">
+        <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Keep Building</p>
+        <h2 class="h3 mb-3 text-primary-800">AI Agent 的工作方式，會持續更新</h2>
+        <p class="mb-4 text-primary-600">未來只要替文章加上對應標籤，就能自動加入這個專題頁。</p>
+        <a class="btn btn-dark px-4" href="<%= url_for('/blog/') %>">回到部落格</a>
+      </div>
+    </div>
+  </section>
+</main>
+
+<script>
+  document.addEventListener('DOMContentLoaded', function () {
+    document.querySelectorAll('[data-load-more-list]').forEach(function (list) {
+      const items = Array.from(list.querySelectorAll('[data-load-more-item]'));
+      const trigger = list.parentElement.querySelector('[data-load-more-trigger]');
+      const loadCount = Number(list.dataset.loadCount || 3);
+
+      if (!trigger) return;
+
+      trigger.addEventListener('click', function () {
+        const hiddenItems = items.filter(function (item) {
+          return item.classList.contains('d-none');
+        });
+
+        hiddenItems.slice(0, loadCount).forEach(function (item) {
+          item.classList.remove('d-none');
+        });
+
+        const hasMoreItems = items.some(function (item) {
+          return item.classList.contains('d-none');
+        });
+
+        if (!hasMoreItems) {
+          trigger.textContent = trigger.dataset.loadMoreCompleteLabel || '已顯示全部文章';
+          trigger.disabled = true;
+        }
+      });
+    });
+  });
+</script>

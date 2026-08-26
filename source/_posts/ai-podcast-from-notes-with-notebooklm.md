@@ -5,7 +5,7 @@ toc: true
 date: 2025-05-01 14:25:38
 subtitle:
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
   - NotebookLM

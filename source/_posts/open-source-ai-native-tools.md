@@ -8,6 +8,7 @@ tags:
   - AI自動化
   - AI工具
   - Vibe Coding
+  - Codex
 description: 想要導入 AI 卻不知從何下手？不要再從零開發系統了！本文為你精選 GitHub 最熱門的 AI Business OS 開源專案，涵蓋 AI CRM、客服、知識庫與 n8n 工作流，教你輕鬆打造企業專屬的 AI 基礎建設。
 date: 2026-07-10 21:50:21
 subtitle:

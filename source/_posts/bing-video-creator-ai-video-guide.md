@@ -3,7 +3,7 @@ title: Bing Video Creator 教學：AI 影片新手指南＋提示詞範例與常
 cover: /images/cover28.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
   - 影音行銷

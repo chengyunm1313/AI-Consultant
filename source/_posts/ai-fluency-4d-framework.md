@@ -3,7 +3,7 @@ title: 4D Framework：比 Prompt Engineering 更完整的 AI Fluency 框架
 cover: /images/cover142.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI工具
   - AI自動化

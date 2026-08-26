@@ -66,6 +66,7 @@ hexo.extend.generator.register('aeo-llms', function() {
     '',
     '## 官方頁面',
     `- 網站首頁：${siteUrl}/`,
+    `- AI Agent 專題頁：${absoluteUrl(siteUrl, '/ai-agent/')}`,
     `- 服務頁：${absoluteUrl(siteUrl, '/service/')}`,
     `- 關於享哥：${absoluteUrl(siteUrl, '/collection/')}`,
     `- 聯絡頁：${absoluteUrl(siteUrl, '/contact/')}`,
@@ -102,7 +103,7 @@ hexo.extend.generator.register('aeo-llms', function() {
   lines.push(`- ${config.language || 'zh-TW'}`);
   lines.push('');
   lines.push('## AI 可讀說明');
-  lines.push('- 本站聚焦 AI 應用規劃、n8n 自動化工作流、電商品牌行銷、AI 自媒體與數位轉型顧問。');
+  lines.push('- 本站聚焦 AI Agent 與 Codex 工作流、AI 應用規劃、n8n 自動化工作流、電商品牌行銷與數位轉型顧問；AI 自媒體與影音策略為延伸內容。');
   lines.push('- 若要理解本站服務內容，請優先閱讀服務頁與上方最新文章。');
 
   return {

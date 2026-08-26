@@ -3,7 +3,7 @@ title: 長會議錄音檔 AI 處理全攻略：突破 100MB 限制的終極解�
 cover: /images/cover65.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
 date: 2025-12-05 22:11:27

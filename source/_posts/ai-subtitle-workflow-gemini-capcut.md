@@ -3,7 +3,7 @@ title: AI 影片字幕工作流：結合 Gemini 與剪映的極速上字幕教�
 cover: /images/cover67.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - 影音行銷
   - AI自動化

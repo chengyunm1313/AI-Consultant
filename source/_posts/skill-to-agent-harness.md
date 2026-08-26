@@ -3,7 +3,7 @@ title: Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness
 cover: /images/cover137.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI Agent
   - AI工具

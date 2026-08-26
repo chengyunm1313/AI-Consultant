@@ -655,6 +655,88 @@ if (is_home()) {
   };
 %>
 <script type="application/ld+json"><%- JSON.stringify(serviceSchema) %></script>
+<% } else if (page.layout === 'ai-agent') {
+  const aiAgentTagNames = ['AI Agent', 'Codex'];
+  const aiAgentPostsByPath = {};
+  aiAgentTagNames.forEach((tagName) => {
+    const tag = site.tags.findOne({name: tagName});
+    if (!tag) return;
+    toPostArray(tag.posts).forEach((post) => {
+      aiAgentPostsByPath[post.path] = post;
+    });
+  });
+  const aiAgentPosts = Object.keys(aiAgentPostsByPath)
+    .map((postPath) => aiAgentPostsByPath[postPath])
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const aiAgentItems = aiAgentPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    url: absoluteUrl(post.path),
+    description: pageDescription(post),
+    datePublished: isoDate(post.date),
+    keywords: toNameList(post.tags)
+  }));
+  const aiAgentSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildWebsiteEntity(),
+      buildOrganizationEntity(),
+      buildPersonEntity(),
+      buildProfessionalServiceEntity(),
+      {
+        ...buildWebPageEntity('CollectionPage'),
+        keywords: aiAgentTagNames.join(', '),
+        hasPart: aiAgentItems.length ? aiAgentItems : undefined
+      },
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: page.title || 'AI Agent', item: currentPageUrl()}
+      ])
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(aiAgentSchema) %></script>
+<% } else if (page.layout === 'n8n-automation') {
+  const n8nTagNames = ['n8n新手教學', 'API串接', '自動化講師應用'];
+  const n8nPostsByPath = {};
+  n8nTagNames.forEach((tagName) => {
+    const tag = site.tags.findOne({name: tagName});
+    if (!tag) return;
+    toPostArray(tag.posts).forEach((post) => {
+      n8nPostsByPath[post.path] = post;
+    });
+  });
+  const n8nPosts = Object.keys(n8nPostsByPath)
+    .map((postPath) => n8nPostsByPath[postPath])
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
+  const n8nItems = n8nPosts.map((post) => ({
+    '@type': 'BlogPosting',
+    headline: post.title,
+    url: absoluteUrl(post.path),
+    description: pageDescription(post),
+    datePublished: isoDate(post.date),
+    keywords: toNameList(post.tags)
+  }));
+  const n8nSchema = {
+    '@context': 'https://schema.org',
+    '@graph': [
+      buildWebsiteEntity(),
+      buildOrganizationEntity(),
+      buildPersonEntity(),
+      buildProfessionalServiceEntity(),
+      {
+        ...buildWebPageEntity('CollectionPage'),
+        keywords: n8nTagNames.join(', '),
+        hasPart: n8nItems.length ? n8nItems : undefined
+      },
+      buildBreadcrumbEntity([
+        {name: '首頁', item: absoluteUrl('/')},
+        {name: page.title || 'n8n 自動化', item: currentPageUrl()}
+      ])
+    ]
+  };
+%>
+<script type="application/ld+json"><%- JSON.stringify(n8nSchema) %></script>
 <% } else if (is_post()) {
   const rawContent = typeof page.raw === 'string' ? page.raw : '';
   const postFaqItems = extractFaqItemsFromRaw(rawContent);

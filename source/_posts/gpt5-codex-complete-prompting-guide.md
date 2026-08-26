@@ -3,7 +3,7 @@ title: GPT-5-Codex Prompting 完全指南：從新手入門到情境實戰
 cover: /images/cover59.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - Codex

@@ -3,7 +3,7 @@ title: 2025 最新免費 AI API 指南：Gemini, Ollama, OpenRouter 尋寶圖
 cover: /images/cover55.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - Vibe Coding
   - AI工具

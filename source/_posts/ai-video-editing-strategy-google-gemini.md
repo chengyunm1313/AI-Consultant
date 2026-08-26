@@ -3,7 +3,7 @@ title: 用 Google Gemini 當剪輯助手：6 個提示詞，讓剪輯從苦力�
 cover: /images/cover77.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 影音行銷
   - 內容行銷
@@ -188,5 +188,4 @@ https://x.com/i/status/2027958008026972389
 
 當 AI 幫你把策略、結構、節奏先打底，你就能把力氣用在「更像作品」的地方：
 更準的鏡頭、更漂亮的節奏、更好的品味、更一致的整體感。
-
 

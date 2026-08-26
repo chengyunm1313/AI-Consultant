@@ -3,7 +3,7 @@ title: 搞懂 AI 偏好的 Schema 格式！新手也能秒懂秒上手
 cover: /images/cover34.png
 toc: true
 categories:
-  - 網路行銷
+  - AEO
 tags:
   - AEO
   - SEO

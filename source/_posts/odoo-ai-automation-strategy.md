@@ -3,7 +3,7 @@ title: 為什麼 Odoo 廣告狂打？AI 時代的 ERP 導入策略與自動化�
 cover: /images/cover130.png
 toc: true
 categories:
-  - AI自動化
+  - 商業策略
 tags:
   - AI自動化
   - 商業策略

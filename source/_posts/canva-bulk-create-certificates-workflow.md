@@ -3,7 +3,7 @@ title: Canva 自動化實戰：大量證書、聘書一鍵生成工作流
 cover: /images/cover70.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
 date: 2025-12-18 19:56:59

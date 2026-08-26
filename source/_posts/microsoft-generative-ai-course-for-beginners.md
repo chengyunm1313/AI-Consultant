@@ -5,8 +5,8 @@ toc: true
 date: 2025-05-01 16:36:54
 subtitle:
 description: 微軟推出的《Generative AI for Beginners》課程，共 18 堂完整入門課程，從 LLM 原理、Prompt 工程到 AI 代理人與微調實作，零基礎也能全面掌握生成式 AI 技術。
-categories: 
-  - 生成式AI應用
+categories:
+  - AI工具
 tags:
   - AI工具
 ---

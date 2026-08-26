@@ -3,7 +3,7 @@ title: 從咒語到去背全自動：打造你的 LINE 貼圖自動化 AI 生產
 cover: /images/cover69.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI繪圖
   - AI自動化

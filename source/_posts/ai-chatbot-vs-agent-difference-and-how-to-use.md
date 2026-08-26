@@ -3,7 +3,7 @@ title: AI Chatbot 跟 AI Agent 到底差在哪？一篇文講到你懂，還教�
 cover: /images/cover43.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI Agent
   - AI自動化

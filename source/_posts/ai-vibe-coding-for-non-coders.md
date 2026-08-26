@@ -3,7 +3,7 @@ title: 氛圍編碼時代來了！從零開始用 AI 寫程式，一步步成為
 cover: /images/cover40.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
 date: 2025-07-11 15:59:45

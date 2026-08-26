@@ -3,7 +3,7 @@ title: 用 AI 做桌布：從 Gemini 到 Veo3，打造你的專屬動態桌布�
 cover: /images/cover38.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI繪圖
   - Gemini
@@ -174,5 +174,4 @@ AI 影片生成很快，但角色與場景經常「斷線」，不寫很長的 p
 AI 影片不用硬湊長片，也不用苦思情節編排。
 
 有時候，**做一個讓你心情愉快的桌布，就是最實用的創作了。**
-
 

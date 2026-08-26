@@ -3,7 +3,7 @@ title: SEO 轉型攻略：AEO 與 GEO 時代的 AI 內容優化實戰指南
 cover: /images/cover118.png
 toc: true
 categories:
-  - SEO
+  - AEO
 tags:
   - SEO
   - AEO

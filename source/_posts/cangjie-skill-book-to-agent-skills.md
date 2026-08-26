@@ -8,6 +8,7 @@ tags:
   - AI工具
   - AI自動化
   - 內容行銷
+  - AI Agent
 date: 2026-08-22 18:47:23
 subtitle:
 description: cangjie-skill 不只整理書籍、長影音與 Podcast 的摘要，而是把方法論、框架與決策原則拆成可呼叫、可組合、可測試的 AI Agent Skills，讓看過的內容真正轉化為可執行能力。

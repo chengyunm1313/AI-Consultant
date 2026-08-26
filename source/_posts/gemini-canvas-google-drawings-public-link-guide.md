@@ -3,7 +3,7 @@ title: 解決 Gemini Canvas 圖片上傳失敗的終極指南：善用 Google �
 cover: /images/cover53.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - Gemini
 date: 2025-09-13 11:34:07

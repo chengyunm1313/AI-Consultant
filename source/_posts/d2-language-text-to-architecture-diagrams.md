@@ -3,7 +3,7 @@ title: 告別手拉圖表地獄！新一代神器 D2 語言，讓純文字自動
 cover: /images/cover47.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
 date: 2025-08-19 19:32:06

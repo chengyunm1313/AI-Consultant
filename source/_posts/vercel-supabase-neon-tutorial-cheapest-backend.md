@@ -3,7 +3,7 @@ title: Vercel + Supabase/Neon 新手教學：從 Firebase 的故事看懂現代�
 cover: /images/cover50.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
 date: 2025-08-30 00:40:50

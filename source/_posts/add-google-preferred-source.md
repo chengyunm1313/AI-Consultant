@@ -3,7 +3,7 @@ title: Google 偏好來源怎麼用？網站主新增 Preferred Sources 按鈕�
 cover: /images/cover143.png
 toc: true
 categories:
-  - 網路行銷
+  - AEO
 tags:
   - SEO
   - AEO

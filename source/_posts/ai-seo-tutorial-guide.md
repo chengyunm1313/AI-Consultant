@@ -3,7 +3,7 @@ title: 2025 AI SEO 教學：精通關鍵字研究、內容策略與網站排名�
 cover: /images/cover26.png
 toc: true
 categories:
-  - 網路行銷
+  - SEO
 tags:
   - SEO
 date: 2025-06-01 22:00:48

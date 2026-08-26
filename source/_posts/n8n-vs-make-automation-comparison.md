@@ -3,7 +3,7 @@ title: n8n vs Make 自動化工具完整比較：價格、應用場景
 cover: /images/cover37.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
 date: 2025-07-07 15:15:07

@@ -3,7 +3,7 @@ title: public-apis：超過 40 萬顆星的 API 寶庫，Vibe Coding 很值得�
 cover: /images/cover141.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - Vibe Coding
   - AI工具

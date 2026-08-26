@@ -3,11 +3,12 @@ title: MiniMax H3 第三條路：先租 GPU，還是該買 RTX 5090？
 cover: /images/cover132-2.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - 影音行銷
   - AI工具
   - AI自動化
+  - Codex
 date: 2026-08-14 01:06:06
 subtitle: 買設備、買點數之外，先租一台用完就下班的 GPU 電腦
 description: 想玩 MiniMax H3 與 ComfyUI，卻不想先花十幾萬買 RTX 5090？本文比較地端設備、LiblibAI 與雲端 GPU 租用，拆解成本、控制權與 Codex 自動化工作流，找出更彈性的 AI 影片製作第三條路。

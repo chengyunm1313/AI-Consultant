@@ -9,6 +9,7 @@ tags:
   - n8n
   - API串接
   - Gemini
+  - AI Agent
 description: 想在 n8n 中使用強大且高 CP 值的 AI 模型？本文詳細教學如何申請 Google Gemini API 密鑰，並透過基礎節點與 AI Agent 兩種方式完美實現 JSON 結構化輸出，打造高效自動化工作流！
 date: 2026-03-30 00:00:31
 subtitle:

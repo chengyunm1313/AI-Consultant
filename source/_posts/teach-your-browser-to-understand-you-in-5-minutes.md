@@ -4,7 +4,7 @@ date: 2025-05-02 12:15:25
 cover: /images/cover1.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
   - AI自動化

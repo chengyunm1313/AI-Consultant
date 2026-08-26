@@ -3,7 +3,7 @@ title: 將程式點子變現：一份可執行的被動收入作戰手冊
 cover: /images/cover51.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 商業策略
 tags:
   - 知識變現
   - 商業策略

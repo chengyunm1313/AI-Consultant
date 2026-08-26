@@ -3,7 +3,7 @@ title: 建立電子書 AI 知識庫的完整實務：VLM + Hierarchical RAG 架�
 cover: /images/cover85.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - RAG
   - VLM

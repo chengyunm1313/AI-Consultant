@@ -3,7 +3,7 @@ title: Make.com 教學：零成本打造 AI YouTube 影片摘要自動化系統
 cover: /images/cover52.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
   - Gemini

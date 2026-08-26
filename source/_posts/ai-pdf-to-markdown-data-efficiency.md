@@ -3,7 +3,7 @@ title: 別存垃圾格式！用 AI 把 PDF 洗成 Markdown，資料利用率翻�
 cover: /images/cover68.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
   - Gemini

@@ -3,7 +3,7 @@ title: 網站如何被 AI 看見？免費 AEO 實作工具與微調全攻略
 cover: /images/cover78.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AEO
 tags:
   - AEO
   - SEO

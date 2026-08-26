@@ -3,7 +3,7 @@ title: 打造你的 AI 寫作分身：一份 WriteRule.txt 教你如何訓練 AI
 cover: /images/cover46.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 內容行銷
   - SEO

@@ -3,7 +3,7 @@ title: 解鎖 n8n 網路爬蟲超能力：4 大神級平台與四周實戰攻略
 cover: /images/cover57.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI自動化
   - Vibe Coding

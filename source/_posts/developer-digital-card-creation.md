@@ -3,7 +3,7 @@ title: 用 ChatGPT-4o + 一張自拍，打造專屬你的程式碼風電子名�
 cover: /images/cover14.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - AI繪圖
   - 內容行銷

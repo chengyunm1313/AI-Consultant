@@ -3,7 +3,7 @@ title: GEO 實戰操作手冊：AI 時代的搜尋引擎優化新攻略
 cover: /images/cover33.png
 toc: true
 categories:
-  - 網路行銷
+  - AEO
 tags:
   - AEO
   - SEO

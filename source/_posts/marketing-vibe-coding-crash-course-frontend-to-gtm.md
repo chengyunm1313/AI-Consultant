@@ -3,7 +3,7 @@ title: 行銷人 Vibe Coding 速成指南：從前端到 GTM，一次搞懂工�
 cover: /images/cover54.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - 商業策略

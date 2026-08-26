@@ -3,11 +3,12 @@ title: 用 Codex 打造 AI 影片工廠：串接六大 AI 能力的完整工作�
 cover: /images/cover134.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - 影音行銷
   - AI自動化
   - AI工具
+  - Codex
 date: 2026-08-14 02:18:20
 subtitle: 從腳本企劃、視覺生成到批量輸出，建立能力導向的 AI 影片生產線。
 description: 想用 Codex 做出可持續生產的 AI 影片？本文拆解從內容企劃、視覺與影片生成，到 HyperFrames 組裝、Whisper／FFmpeg 剪輯與 Remotion 批量輸出的六段工作流，教你把工具串成可替換、可擴充的 AI 影片工廠。

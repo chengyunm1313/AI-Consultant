@@ -3,7 +3,7 @@ title: Vibe Coding Basics：AI 超級員工、Cloudflare 部署與 API Key 安�
 cover: /images/cover60.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - Cloudflare

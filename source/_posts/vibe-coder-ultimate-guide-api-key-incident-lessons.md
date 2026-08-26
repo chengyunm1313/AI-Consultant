@@ -3,7 +3,7 @@ title: 給 Vibe Coder 的終極指南：從 API Key 翻車事件學到的完整�
 cover: /images/cover61.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI風險控管

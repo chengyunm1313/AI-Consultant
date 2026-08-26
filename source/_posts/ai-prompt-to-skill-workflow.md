@@ -7,6 +7,7 @@ categories:
 tags:
   - AI自動化
   - AI工具
+  - AI Agent
 description: 寫長篇提示詞總是不夠穩定？本文帶你從 Prompt 走向 Skill 模組化，透過 5 個實務做法拆解 AI 自動化工作流，提升靈活度與維護效率。
 date: 2026-03-20 22:05:47
 subtitle:

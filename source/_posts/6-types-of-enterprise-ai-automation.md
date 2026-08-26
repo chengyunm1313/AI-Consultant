@@ -8,6 +8,7 @@ tags:
   - AI自動化
   - AI工具
   - 商業策略
+  - AI Agent
 description: 企業導入 AI 只靠 ChatGPT 聊天？本文完整解析企業必備的 6 大 AI 自動化能力，從個人助理、工作流整合到 RPA 與 Vibe Coding，教你打造自動運轉的高效企業工作流。
 date: 2026-07-29 14:19:20
 subtitle:

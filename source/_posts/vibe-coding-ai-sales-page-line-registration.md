@@ -3,7 +3,7 @@ title: 用 Vibe Coding 打造自動化銷售頁：3小時完成 LINE 報名與 G
 cover: /images/cover80.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI自動化

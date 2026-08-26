@@ -3,7 +3,7 @@ title: Remotion × AI Agent：用 React 與 AI 程式化製作影片的完整實
 cover: /images/cover72.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - 影音行銷
   - AI Agent

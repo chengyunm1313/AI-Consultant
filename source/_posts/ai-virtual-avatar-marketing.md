@@ -3,7 +3,7 @@ title: 2026 AI數位分身與影音行銷
 cover: /images/cover15.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 影音行銷
   - 內容行銷
@@ -365,5 +365,4 @@ AI 所產內容風格可能不穩定，須由人員進行審稿與風格控管�
 
 - [PixVerse 教學：免費文字轉影片與圖片轉影片工具](https://www.youtube.com/watch?v=JxETaJpogN0)
 - [PixVerse V4 教學：初學者的終極指南](https://www.youtube.com/watch?v=Gozi5vsJdBs)
-
 

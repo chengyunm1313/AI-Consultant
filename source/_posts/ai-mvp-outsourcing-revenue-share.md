@@ -3,7 +3,7 @@ title: AI 快速打造 MVP 代工模式全解析：一次性專案＋分潤，�
 cover: /images/cover45.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 商業策略
 tags:
   - 商業策略
   - Vibe Coding

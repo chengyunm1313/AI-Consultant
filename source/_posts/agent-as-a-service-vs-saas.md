@@ -8,6 +8,7 @@ tags:
   - AI自動化
   - 商業策略
   - AI工具
+  - AI Agent
 description: AI Agent 正在改變企業軟體生態！從 SaaS 的「工具介面」到 Agent-as-a-Service 的「工作成果」交付，本文深度解析多代理協作架構、落地挑戰與未來商業模式的轉變。
 date: 2026-03-20 22:21:11
 subtitle:
@@ -157,4 +158,3 @@ A：最大的挑戰並非 AI 模型的聰明程度，而是「治理與安全」
 
 ### Q：Agent-as-a-Service 會如何改變現有軟體的計價模式？
 A：它將顛覆傳統 SaaS 按人頭計費（Seat-based）的模式。未來的計價將更傾向「按工作成果（Outcome-based）」或「按任務執行次數（Task-based）」收費，企業實質上是在為 AI 代理交付的商業價值與自動化率買單。
-

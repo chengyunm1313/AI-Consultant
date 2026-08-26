@@ -3,7 +3,7 @@ title: 我的 Vibe Coding 作品大公開：用 AI 打造內建 CMS 的全功能
 cover: /images/cover74.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - Cloudflare

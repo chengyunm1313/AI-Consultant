@@ -3,11 +3,12 @@ title: Learning OS 是什麼？AI 如何打造專屬自己的個人化學習系�
 cover: /images/cover133-1.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI自動化
 tags:
   - AI工具
   - AI自動化
   - ChatGPT
+  - AI Agent
 date: 2026-08-14 01:49:36
 subtitle: 從搜尋線上課程到建立個人化學習系統，理解 AI Agent 如何陪你持續成長
 description: 未來我們買的可能不只是線上課程，而是一套專屬自己的 Learning OS。本文從 AI 個人化學習、學習地圖與 AI Agent 出發，拆解它如何整理零散知識、安排任務、追蹤成果，並持續調整學習路徑。

@@ -3,7 +3,7 @@ title: 為什麼前端工程師應該開始往 FDE 邁進？AI 時代下，你�
 cover: /images/cover91.png
 toc: true
 categories:
-  - AI自動化
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI自動化

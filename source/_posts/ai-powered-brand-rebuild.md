@@ -3,7 +3,7 @@ title: 官網被駭後，我乾脆用 AI 一週重做一個品牌｜鮮生小姐
 cover: /images/cover146.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 商業策略
 tags:
   - Vibe Coding
   - AI工具

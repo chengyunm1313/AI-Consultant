@@ -3,7 +3,7 @@ title: BMAD 方法論深度解析：告別 Vibe Coding，擁抱 AI 驅動的敏�
 cover: /images/cover49.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Vibe Coding
   - AI Agent

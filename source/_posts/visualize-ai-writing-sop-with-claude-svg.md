@@ -3,7 +3,7 @@ title: 用 Claude 產生 SVG 圖表，實作你的 AI 寫文 SOP 視覺化！
 cover: /images/cover32.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - AI繪圖
   - 內容行銷

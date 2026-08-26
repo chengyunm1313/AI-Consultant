@@ -3,7 +3,7 @@ title: Qwen-Image-Edit 入門教學：不用安裝也能輕鬆玩轉 AI 圖像�
 cover: /images/cover48.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI繪圖
 date: 2025-08-20 21:36:49

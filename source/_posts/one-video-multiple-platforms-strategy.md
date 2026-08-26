@@ -3,7 +3,7 @@ title: 自媒體極速工作流：一支影片如何通吃 FB、YT 與部落格�
 cover: /images/cover66.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 內容行銷
   - 影音行銷

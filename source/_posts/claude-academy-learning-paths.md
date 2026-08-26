@@ -3,7 +3,7 @@ title: Claude Academy 學習路徑完整指南：22 門免費課程與 289 項�
 cover: /images/cover140-1.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
   - AI Agent

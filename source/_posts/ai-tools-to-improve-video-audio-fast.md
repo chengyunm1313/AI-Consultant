@@ -3,7 +3,7 @@ title: 別再瞎調EQ了！我用AI幫影片音訊調出專業聲音，只花5�
 cover: /images/cover11.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 網路行銷
 tags:
   - 影音行銷
   - ChatGPT

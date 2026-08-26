@@ -3,7 +3,7 @@ title: Google Gems 完全解析：打造可分享的專屬 AI 助理，引爆團
 cover: /images/cover56.png
 toc: true
 categories:
-  - 生成式AI應用
+  - AI工具
 tags:
   - AI工具
   - Gemini

@@ -3,7 +3,7 @@ title: 新手也能看懂！工程師都在說的 Git 是什麼？
 cover: /images/cover41.png
 toc: true
 categories:
-  - 生成式AI應用
+  - 軟體開發
 tags:
   - Git
 date: 2025-07-13 23:51:27
