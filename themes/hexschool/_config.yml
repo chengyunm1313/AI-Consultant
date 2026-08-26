@@ -26,7 +26,7 @@ blog_generator:
   order_by: -date
 
 # Miscellaneous
-favicon: /images/site-v1/brand-mark-v1.svg
+favicon: /images/site-v1/brand-mark-v2-inverse.svg
 
 # Google analytics
 google_analytics: G-KD5W9RGBR5
