@@ -98,35 +98,15 @@ body.site-v1 img {
 .site-brand {
   display: inline-flex;
   align-items: center;
-  gap: 0.75rem;
   color: var(--sv1-ink);
   text-decoration: none;
 }
 
-.site-brand__mark {
+.site-brand__logo {
   display: block;
-  width: 3rem;
-  height: 3rem;
-}
-
-.site-brand__lockup {
-  display: flex;
-  flex-direction: column;
-  gap: 0.1rem;
-  line-height: 1;
-}
-
-.site-brand__lockup strong {
-  font-size: 1.15rem;
-  letter-spacing: -0.04em;
-}
-
-.site-brand__lockup small {
-  color: var(--sv1-muted);
-  font-family: var(--sv1-mono);
-  font-size: 0.56rem;
-  font-weight: 600;
-  letter-spacing: 0.08em;
+  width: 16.25rem;
+  max-width: 100%;
+  height: auto;
 }
 
 .site-nav__toggle {
@@ -907,10 +887,6 @@ body.site-v1 img {
   color: var(--sv1-paper);
 }
 
-.site-brand--inverse .site-brand__lockup small {
-  color: rgba(243, 244, 238, 0.56);
-}
-
 .site-footer__grid {
   display: grid;
   grid-template-columns: minmax(0, 0.7fr) minmax(0, 1fr);
@@ -1446,11 +1422,15 @@ body.site-v1 img {
 }
 
 .site-v1 .works-card__actions .btn-outline-dark:hover,
-.site-v1 .works-card__actions .btn-outline-dark:focus-visible {
-  color: var(--sv1-paper) !important;
-  background-color: var(--sv1-ink) !important;
+.site-v1 .works-card__actions .btn-outline-dark:focus,
+.site-v1 .works-card__actions .btn-outline-dark:focus-visible,
+.site-v1 .works-card__actions .btn-outline-dark:active,
+.site-v1 .works-card__actions .btn-outline-dark.active {
+  color: var(--sv1-ink) !important;
+  background: var(--sv1-signal) !important;
   border-color: var(--sv1-ink) !important;
   transform: translateY(-2px);
+  box-shadow: 0 0.8rem 1.8rem rgba(216, 242, 63, 0.24);
 }
 
 @media (max-width: 767.98px) {
@@ -1766,6 +1746,36 @@ body.site-v1 img {
   border-color: var(--sv1-signal);
 }
 
+/* 首頁桌面版標題保留段落節奏，避免窄欄出現孤字。 */
+@media (min-width: 992px) {
+  .site-home .sv1-hero__title {
+    font-size: clamp(2.6rem, 3.6vw, 4rem);
+    text-wrap: balance;
+  }
+
+  .site-home .sv1-section-head h2,
+  .site-home .sv1-faq__layout h2 {
+    font-size: clamp(2.2rem, 3.2vw, 3.25rem);
+    text-wrap: balance;
+  }
+
+  .site-home .sv1-services__layout {
+    grid-template-columns: minmax(0, 0.85fr) minmax(0, 0.75fr) minmax(0, 1fr);
+  }
+
+  .site-home .sv1-services__intro h2 {
+    max-width: 100%;
+    font-size: clamp(2rem, 3.4vw, 2.75rem);
+    text-wrap: balance;
+  }
+
+  .site-home .sv1-final-cta h2 {
+    max-width: 38rem;
+    font-size: clamp(2.2rem, 3.2vw, 3rem);
+    text-wrap: balance;
+  }
+}
+
 @media (min-width: 992px) {
   .site-nav > .container {
     display: flex;
@@ -1808,7 +1818,17 @@ body.site-v1 img {
   }
 }
 
+@media (min-width: 992px) and (max-width: 1199.98px) {
+  .site-brand__logo {
+    width: 14.75rem;
+  }
+}
+
 @media (max-width: 991.98px) {
+  .site-brand__logo {
+    width: min(13.75rem, calc(100vw - 8rem));
+  }
+
   .site-nav__toggle {
     display: inline-flex;
   }
@@ -2114,15 +2134,6 @@ body.site-v1 img {
 }
 
 @media (max-width: 420px) {
-  .site-brand__lockup small {
-    font-size: 0.5rem;
-  }
-
-  .site-brand__mark {
-    width: 2.65rem;
-    height: 2.65rem;
-  }
-
   .sv1-hero__title {
     font-size: 2.65rem;
   }
