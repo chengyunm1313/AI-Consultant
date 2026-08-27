@@ -1526,6 +1526,120 @@ body.site-v1 img {
   transform: translateY(-3px);
 }
 
+.site-v1 .collection-page__facebook {
+  position: relative;
+  overflow: hidden;
+  padding: clamp(4.75rem, 9vw, 8rem) 0;
+  color: var(--sv1-paper);
+  background:
+    radial-gradient(circle at 86% 14%, rgba(216, 242, 63, 0.14), transparent 24%),
+    linear-gradient(135deg, var(--sv1-ink) 0%, #222a23 100%);
+  border-top: 4px solid var(--sv1-signal);
+}
+
+.collection-page__facebook-grid {
+  display: grid;
+  grid-template-columns: minmax(0, 0.8fr) minmax(22rem, 1.2fr);
+  gap: clamp(2.5rem, 7vw, 6rem);
+  align-items: center;
+}
+
+.collection-page__facebook-copy {
+  max-width: 31rem;
+}
+
+.collection-page__facebook-kicker {
+  margin: 0 0 1rem;
+  color: var(--sv1-signal);
+  font-family: var(--sv1-mono);
+  font-size: 0.72rem;
+  font-weight: 600;
+  letter-spacing: 0.12em;
+  line-height: 1.4;
+}
+
+.collection-page__facebook-title {
+  margin: 0 0 1.5rem;
+  color: var(--sv1-paper) !important;
+  font-size: clamp(2.15rem, 4vw, 4rem);
+  letter-spacing: -0.07em;
+  line-height: 1.12;
+}
+
+.collection-page__facebook-title span {
+  position: relative;
+  z-index: 0;
+  display: inline;
+}
+
+.collection-page__facebook-title span::after {
+  position: absolute;
+  z-index: -1;
+  right: -0.08em;
+  bottom: 0.02em;
+  left: -0.08em;
+  height: 0.24em;
+  background: var(--sv1-signal);
+  content: "";
+  transform: rotate(-1deg);
+}
+
+.site-v1 .collection-page__facebook-copy > p:not(.collection-page__facebook-kicker):not(.collection-page__facebook-note) {
+  color: rgba(243, 244, 238, 0.74);
+  font-size: 1.02rem;
+}
+
+.collection-page__facebook-copy .site-button {
+  margin-top: 0.75rem;
+}
+
+.collection-page__facebook-note {
+  max-width: 27rem;
+  margin-top: 1.5rem;
+  color: rgba(243, 244, 238, 0.5);
+  font-family: var(--sv1-mono);
+  font-size: 0.7rem;
+  line-height: 1.7;
+}
+
+.collection-page__facebook-embed {
+  width: min(100%, 33rem);
+  margin: 0 auto;
+}
+
+.collection-page__facebook-frame {
+  overflow: hidden;
+  padding: 0.7rem;
+  background: var(--sv1-paper);
+  border: 1px solid rgba(243, 244, 238, 0.35);
+  box-shadow: 0.9rem 0.9rem 0 var(--sv1-signal);
+}
+
+.collection-page__facebook-frame iframe {
+  display: block;
+  width: 100%;
+  max-width: 500px;
+  height: 720px;
+  margin: 0 auto;
+  background: var(--sv1-white);
+}
+
+.collection-page__facebook-fallback {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.45rem;
+  margin-top: 1.5rem;
+  color: var(--sv1-paper);
+  font-size: 0.9rem;
+  font-weight: 700;
+  text-decoration: none;
+}
+
+.collection-page__facebook-fallback:hover,
+.collection-page__facebook-fallback:focus-visible {
+  color: var(--sv1-signal);
+}
+
 .site-v1 .collection-page__teaching-cta {
   position: relative;
   overflow: hidden;
@@ -2129,6 +2243,23 @@ body.site-v1 img {
   }
 
   .site-v1 .collection-page .carousel-inner {
+    box-shadow: 0.55rem 0.55rem 0 var(--sv1-signal);
+  }
+
+  .collection-page__facebook-grid {
+    grid-template-columns: 1fr;
+    gap: 3.5rem;
+  }
+
+  .collection-page__facebook-copy {
+    max-width: 40rem;
+  }
+
+  .collection-page__facebook-embed {
+    width: min(100%, 33rem);
+  }
+
+  .collection-page__facebook-frame {
     box-shadow: 0.55rem 0.55rem 0 var(--sv1-signal);
   }
 }
