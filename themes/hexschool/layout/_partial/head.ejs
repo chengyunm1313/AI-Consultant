@@ -4,6 +4,8 @@
   <%
   const aeo = site.data && site.data.aeo ? site.data.aeo : {};
   const aeoBusiness = aeo.business || {};
+  // CSS 版本號變更時同步更新，避免正式站沿用 CDN 的舊樣式。
+  const siteV1CssVersion = '20260827-cta-contrast';
   var title = page.title;
 
   switch(page.base) {
@@ -82,7 +84,7 @@
   />
   <%- css('css/all.min.css') %>
   <%- css('css/custom.css') %>
-  <%- css('css/site-v1.css') %>
+  <link rel="stylesheet" href="<%= url_for('/css/site-v1.css') %>?v=<%= siteV1CssVersion %>">
   
   <script src="<%= config.root %>js/copy-code.js"></script>
   <%- partial('structured-data') %>
