@@ -1480,6 +1480,21 @@ body.site-v1 img {
   border-color: var(--sv1-paper);
 }
 
+/* 白底專題頁 CTA：常態保持足夠對比，hover 延續深色按鈕回饋 */
+.site-v1 .works-page__cta.bg-white .works-page__cta-btn--secondary,
+.site-v1 .works-page__cta.bg-white .works-page__cta-btn--secondary:visited {
+  color: var(--sv1-ink);
+  background: transparent;
+  border-color: var(--sv1-ink);
+}
+
+.site-v1 .works-page__cta.bg-white .works-page__cta-btn--secondary:hover,
+.site-v1 .works-page__cta.bg-white .works-page__cta-btn--secondary:focus-visible {
+  color: var(--sv1-paper);
+  background: var(--sv1-ink);
+  border-color: var(--sv1-ink);
+}
+
 .site-v1 .collection-page > div {
   border-bottom: 1px solid var(--sv1-rule);
 }
