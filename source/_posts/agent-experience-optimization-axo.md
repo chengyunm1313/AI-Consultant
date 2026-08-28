@@ -1,6 +1,6 @@
 ---
 title: SEO、AEO 之後的 AXO：讓 AI Agent 真正完成網站任務
-cover: /images/cover148.png
+cover: /images/cover148-1.png
 toc: true
 categories:
   - AEO
