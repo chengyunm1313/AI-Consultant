@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- SEO、AEO 之後的 AXO：讓 AI Agent 真正完成網站任務
+  網址：https://blog.es2idea.com/posts/agent-experience-optimization-axo/
+  日期：2026-08-29
+  摘要：SEO 讓網站被搜尋，AEO 讓 AI 理解並引用，AXO 更進一步，讓 AI Agent 能搜尋、判斷、操作網站並完成預約、購物或企業流程。本文從 WebMCP 與 Agent Commerce 出發，整理下一代網站的設計重點。
+  主題：AI Agent、SEO、AEO
+
 - 20 萬 Stars 的 DeepSeek Harness：Vibe Coding 下一場戰爭可能換戰場了
   網址：https://blog.es2idea.com/posts/deepseek-harness-multi-agent/
   日期：2026-08-29
@@ -70,7 +76,7 @@
   網址：https://blog.es2idea.com/posts/ai-fluency-4d-framework/
   日期：2026-08-23
   摘要：只會寫 Prompt，不代表真的懂 AI。本文用白話拆解 Dakan／Feller 發展、Anthropic 課程化的 4D Framework，理解如何分工、描述、判斷與負責，建立跨模型、跨工具的 AI Fluency。
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - public-apis：超過 40 萬顆星的 API 寶庫，Vibe Coding 很值得收藏
   網址：https://blog.es2idea.com/posts/public-apis-api-directory/
@@ -82,7 +88,7 @@
   網址：https://blog.es2idea.com/posts/claude-academy-learning-paths/
   日期：2026-08-22
   摘要：Anthropic 官方 Claude Academy 整理 22 門課程與 289 項資源，本文拆解繁中支援、課程時數、四種身分學習路徑與完成徽章，幫你從 Claude 101 開始學到 AI Agent 工作流。
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - Google Antigravity 2.0 繁體中文介面套件：降低 AI Coding 入門門檻
   網址：https://blog.es2idea.com/posts/antigravity-traditional-chinese/
@@ -94,19 +100,13 @@
   網址：https://blog.es2idea.com/posts/cangjie-skill-book-to-agent-skills/
   日期：2026-08-22
   摘要：cangjie-skill 不只整理書籍、長影音與 Podcast 的摘要，而是把方法論、框架與決策原則拆成可呼叫、可組合、可測試的 AI Agent Skills，讓看過的內容真正轉化為可執行能力。
-  主題：內容行銷、AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent、內容行銷
 
 - Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness
   網址：https://blog.es2idea.com/posts/skill-to-agent-harness/
   日期：2026-08-22
   摘要：Skill 把 SOP 交給 AI，Agent Harness 則負責讓 Agent 讀懂專案、使用工具、執行指令、處理錯誤並持續完成任務。本文用 Codex 拆解 Model、Context、Tools、Skills 與權限機制，建立 AI 開發的新架構觀。
   主題：AI工具、AI Agent、Codex
-
-- AI 讓程式碼越來越便宜，但「知道什麼值得做」正在變得越來越貴
-  網址：https://blog.es2idea.com/posts/ai-micro-saas-opportunities/
-  日期：2026-08-19
-  摘要：AI 讓程式碼、Agent 與 Skill 變便宜，真正稀缺的卻是產業洞察與選題能力。本文拆解如何從工作流程找痛點，把 AI 解法產品化，找到一人公司也能服務的窄市場。
-  主題：商業策略、AI工具、Vibe Coding
 
 ## 語言
 - zh-TW
