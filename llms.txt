@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 讓做 MV 變簡單了，但我反而花更多時間
+  網址：https://blog.es2idea.com/posts/ai-creative-decision-cost/
+  日期：2026-09-01
+  摘要：AI 讓音樂 MV 的製作門檻大幅下降，卻讓重跑、比較與取捨變得更花時間。本文從實作 AI MV 的經驗，整理時間、金錢、控制權與決策成本的配置方法。
+  主題：AI工具、影音行銷
+
 - Vibe Coding 下一階段：把專業知識變成軟體，產業專家就是下一代產品經理
   網址：https://blog.es2idea.com/posts/turn-domain-expertise-into-software/
   日期：2026-08-31
@@ -52,7 +58,7 @@
   網址：https://blog.es2idea.com/posts/agent-experience-optimization-axo/
   日期：2026-08-29
   摘要：SEO 讓網站被搜尋，AEO 讓 AI 理解並引用，AXO 更進一步，讓 AI Agent 能搜尋、判斷、操作網站並完成預約、購物或企業流程。本文從 WebMCP 與 Agent Commerce 出發，整理下一代網站的設計重點。
-  主題：AI Agent、AEO、SEO
+  主題：AI Agent、SEO、AEO
 
 - 20 萬 Stars 的 DeepSeek Harness：Vibe Coding 下一場戰爭可能換戰場了
   網址：https://blog.es2idea.com/posts/deepseek-harness-multi-agent/
@@ -82,7 +88,7 @@
   網址：https://blog.es2idea.com/posts/add-google-preferred-source/
   日期：2026-08-24
   摘要：Google Preferred Sources 讓讀者把你的網站設為偏好來源，內容有機會出現在 Top Stories、AI Overviews 與 AI Mode；本文整理官方按鈕、Deeplink 與 CTA 實作。
-  主題：AEO、SEO、內容行銷
+  主題：SEO、AEO、內容行銷
 
 - 4D Framework：比 Prompt Engineering 更完整的 AI Fluency 框架
   網址：https://blog.es2idea.com/posts/ai-fluency-4d-framework/
@@ -101,12 +107,6 @@
   日期：2026-08-22
   摘要：Anthropic 官方 Claude Academy 整理 22 門課程與 289 項資源，本文拆解繁中支援、課程時數、四種身分學習路徑與完成徽章，幫你從 Claude 101 開始學到 AI Agent 工作流。
   主題：AI自動化、AI工具、AI Agent
-
-- Google Antigravity 2.0 繁體中文介面套件：降低 AI Coding 入門門檻
-  網址：https://blog.es2idea.com/posts/antigravity-traditional-chinese/
-  日期：2026-08-22
-  摘要：Google Antigravity 2.0 繁體中文介面套件，涵蓋 Workspace、Agent、MCP、Knowledge 與設定頁，同時保留程式碼與 Terminal 原文，適合想降低 AI Coding 入門門檻的使用者。
-  主題：AI工具、AI Agent、Vibe Coding
 
 ## 語言
 - zh-TW

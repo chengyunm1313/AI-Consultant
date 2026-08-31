@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>AI 讓做 MV 變簡單了，但我反而花更多時間 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-creative-decision-cost/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="AI 讓音樂 MV 的製作門檻大幅下降，卻讓重跑、比較與取捨變得更花時間。本文從實作 AI MV 的經驗，整理時間、金錢、控制權與決策成本的配置方法。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 讓做 MV 變簡單了，但我反而花更多時間">
+<meta property="og:url" content="https://blog.es2idea.com/posts/ai-creative-decision-cost/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="AI 讓音樂 MV 的製作門檻大幅下降，卻讓重跑、比較與取捨變得更花時間。本文從實作 AI MV 的經驗，整理時間、金錢、控制權與決策成本的配置方法。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover151.webp">
+<meta property="article:published_time" content="2026-09-01T00:50:57.000Z">
+<meta property="article:modified_time" content="2026-08-31T18:13:20.410Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover151.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260827-cta-contrast">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#webpage","@type":"WebPage","name":"AI 讓做 MV 變簡單了，但我反而花更多時間","url":"https://blog.es2idea.com/posts/ai-creative-decision-cost/","description":"AI 讓音樂 MV 的製作門檻大幅下降，卻讓重跑、比較與取捨變得更花時間。本文從實作 AI MV 的經驗，整理時間、金錢、控制權與決策成本的配置方法。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover151.webp","@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#blogposting","@type":"BlogPosting","headline":"AI 讓做 MV 變簡單了，但我反而花更多時間","name":"AI 讓做 MV 變簡單了，但我反而花更多時間","description":"AI 讓音樂 MV 的製作門檻大幅下降，卻讓重跑、比較與取捨變得更花時間。本文從實作 AI MV 的經驗，整理時間、金錢、控制權與決策成本的配置方法。","url":"https://blog.es2idea.com/posts/ai-creative-decision-cost/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-09-01T00:50:57.000Z","dateModified":"2026-08-31T18:13:20.410Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover151.webp","@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#primaryimage","width":1200,"height":800},"articleSection":"網路行銷","keywords":["AI工具","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["網路行銷","AI工具","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"AI 讓做 MV 變簡單了，但我反而花更多時間","item":"https://blog.es2idea.com/posts/ai-creative-decision-cost/"}]},{"@id":"https://blog.es2idea.com/posts/ai-creative-decision-cost/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI 音樂 MV 通常會經過哪些製作流程？","acceptedAnswer":{"@type":"Answer","text":"一支 AI 音樂 MV 可以從歌曲開始，依序進行歌詞拆解、故事構思、分鏡設計、生圖、圖轉影片與最後剪接；也可以把歌曲交給整合型 AI MV 工具快速產出初版。"}},{"@type":"Question","name":"AI 做 MV 最能降低的是哪一種成本？","acceptedAnswer":{"@type":"Answer","text":"AI 最明顯降低的是「第一次完成」的成本，讓沒有攝影、動畫或特效專業的人也能快速做出完整版本；但最後的品質修整與取捨不一定因此變快。"}},{"@type":"Question","name":"做 AI MV 時，應該怎麼選擇工具或模型？","acceptedAnswer":{"@type":"Answer","text":"先依影片值得投入的程度配置時間、金錢與控制權：想省錢就用免費額度慢慢做，想要更好的畫面就提高預算，想保有最高控制權就自行拆分鏡、生圖、圖轉影片與剪接。"}},{"@type":"Question","name":"為什麼建議用「先做爛，再做好」的方法？","acceptedAnswer":{"@type":"Answer","text":"因為先完成完整初版，才能先檢查故事、節奏、情緒與畫面方向是否正確；方向確認後再投入人物一致性、運鏡和細節，能避免把大量時間花在不該存在的鏡頭上。"}},{"@type":"Question","name":"AI 創作時，怎麼判斷什麼時候該停止修改？","acceptedAnswer":{"@type":"Answer","text":"先看成果要完成的任務，再設定品質門檻：重要作品可以做到更高品質，一般測試或需要快速交付的內容做到足以完成任務即可，不必因為還能再生成一次就無限重跑。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E%E4%B8%80%E9%A6%96%E6%AD%8C%E5%88%B0%E5%AE%8C%E6%95%B4-MV%EF%BC%8C%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AE%8C%E6%88%90%E5%B7%B2%E7%B6%93%E4%B8%8D%E5%86%8D%E6%98%AF%E6%9C%80%E5%A4%A7%E9%96%80%E6%AA%BB"><span class="toc-number">1.</span> <span class="toc-text">從一首歌到完整 MV，第一次完成已經不再是最大門檻</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E3%80%8C%E5%81%9A%E5%88%B0%E3%80%8D%E8%AE%8A%E7%B0%A1%E5%96%AE%E4%BA%86%EF%BC%8C%E3%80%8C%E5%81%9A%E5%A5%BD%E3%80%8D%E5%8D%BB%E6%B2%92%E6%9C%89"><span class="toc-number">2.</span> <span class="toc-text">「做到」變簡單了，「做好」卻沒有</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%95%B6%E7%94%9F%E6%88%90%E8%AE%8A%E4%BE%BF%E5%AE%9C%EF%BC%8C%E6%9C%80%E6%98%82%E8%B2%B4%E7%9A%84%E5%8F%8D%E8%80%8C%E6%98%AF%E9%81%B8%E6%93%87"><span class="toc-number">3.</span> <span class="toc-text">當生成變便宜，最昂貴的反而是選擇</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E6%AD%A3%E5%9C%A8%E6%8A%8A%E6%88%91%E5%80%91%E5%BE%9E%E3%80%8C%E8%A3%BD%E4%BD%9C%E8%80%85%E3%80%8D%E8%AE%8A%E6%88%90%E3%80%8C%E6%B1%BA%E7%AD%96%E8%80%85%E3%80%8D"><span class="toc-number">4.</span> <span class="toc-text">AI 正在把我們從「製作者」變成「決策者」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%81%9A-AI-MV%EF%BC%8C%E5%85%B6%E5%AF%A6%E6%98%AF%E5%9C%A8%E9%85%8D%E7%BD%AE%E6%99%82%E9%96%93%E3%80%81%E9%87%91%E9%8C%A2%E8%88%87%E6%8E%A7%E5%88%B6%E6%AC%8A"><span class="toc-number">5.</span> <span class="toc-text">做 AI MV，其實是在配置時間、金錢與控制權</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%81%9A%E7%88%9B%EF%BC%8C%E5%86%8D%E5%81%9A%E5%A5%BD%EF%BC%9A%E6%88%91%E7%8F%BE%E5%9C%A8%E7%9A%84%E4%B8%89%E8%BC%AA%E5%B7%A5%E4%BD%9C%E6%B3%95"><span class="toc-number">6.</span> <span class="toc-text">先做爛，再做好：我現在的三輪工作法</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E8%BC%AA%EF%BC%9A%E5%85%88%E5%95%8F%E3%80%8C%E6%9C%89%E6%B2%92%E6%9C%89%EF%BC%9F%E3%80%8D"><span class="toc-number">6.1.</span> <span class="toc-text">第一輪：先問「有沒有？」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E8%BC%AA%EF%BC%9A%E5%86%8D%E5%95%8F%E3%80%8C%E5%B0%8D%E4%B8%8D%E5%B0%8D%EF%BC%9F%E3%80%8D"><span class="toc-number">6.2.</span> <span class="toc-text">第二輪：再問「對不對？」</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E8%BC%AA%EF%BC%9A%E6%9C%80%E5%BE%8C%E5%95%8F%E3%80%8C%E5%A5%BD%E4%B8%8D%E5%A5%BD%EF%BC%9F%E3%80%8D"><span class="toc-number">6.3.</span> <span class="toc-text">第三輪：最後問「好不好？」</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-%E6%99%82%E4%BB%A3%EF%BC%8C%E5%81%9C%E6%AD%A2%E4%B9%9F%E6%98%AF%E4%B8%80%E7%A8%AE%E5%89%B5%E4%BD%9C%E8%83%BD%E5%8A%9B"><span class="toc-number">7.</span> <span class="toc-text">AI 時代，停止也是一種創作能力</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%88%91%E7%8F%BE%E5%9C%A8%E7%B5%A6%E8%87%AA%E5%B7%B1%E7%9A%84-AI-%E5%89%B5%E4%BD%9C%E5%8E%9F%E5%89%87"><span class="toc-number">8.</span> <span class="toc-text">我現在給自己的 AI 創作原則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">9.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9AAI-%E9%9F%B3%E6%A8%82-MV-%E9%80%9A%E5%B8%B8%E6%9C%83%E7%B6%93%E9%81%8E%E5%93%AA%E4%BA%9B%E8%A3%BD%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9F"><span class="toc-number">9.1.</span> <span class="toc-text">Q1：AI 音樂 MV 通常會經過哪些製作流程？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9AAI-%E5%81%9A-MV-%E6%9C%80%E8%83%BD%E9%99%8D%E4%BD%8E%E7%9A%84%E6%98%AF%E5%93%AA%E4%B8%80%E7%A8%AE%E6%88%90%E6%9C%AC%EF%BC%9F"><span class="toc-number">9.2.</span> <span class="toc-text">Q2：AI 做 MV 最能降低的是哪一種成本？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E5%81%9A-AI-MV-%E6%99%82%EF%BC%8C%E6%87%89%E8%A9%B2%E6%80%8E%E9%BA%BC%E9%81%B8%E6%93%87%E5%B7%A5%E5%85%B7%E6%88%96%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">9.3.</span> <span class="toc-text">Q3：做 AI MV 時，應該怎麼選擇工具或模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E5%BB%BA%E8%AD%B0%E7%94%A8%E3%80%8C%E5%85%88%E5%81%9A%E7%88%9B%EF%BC%8C%E5%86%8D%E5%81%9A%E5%A5%BD%E3%80%8D%E7%9A%84%E6%96%B9%E6%B3%95%EF%BC%9F"><span class="toc-number">9.4.</span> <span class="toc-text">Q4：為什麼建議用「先做爛，再做好」的方法？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q5%EF%BC%9AAI-%E5%89%B5%E4%BD%9C%E6%99%82%EF%BC%8C%E6%80%8E%E9%BA%BC%E5%88%A4%E6%96%B7%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E8%A9%B2%E5%81%9C%E6%AD%A2%E4%BF%AE%E6%94%B9%EF%BC%9F"><span class="toc-number">9.5.</span> <span class="toc-text">Q5：AI 創作時，怎麼判斷什麼時候該停止修改？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (60)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (18)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (16)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (6)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (22)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (69)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (38)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (7)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (20)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (30)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/09/01 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">AI 讓做 MV 變簡單了，但我反而花更多時間</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 從做得到，到決定做到什麼程度 -</h4>
+        
+        <p>最近認真玩了一輪「AI 做音樂 MV」。</p>
+<p>從歌曲、拆歌詞、想故事、做分鏡、生圖、圖轉影片，一路做到最後剪接。</p>
+<p>做完之後，我最大的感覺不是：</p>
+<p>「AI 現在好厲害，連 MV 都會做了。」</p>
+<p>而是——</p>
+<p><strong>現在真的不是「做不做得到」的問題，而是「你想花多少時間，把它做到多好」。</strong></p>
+<p>而且我後來發現，這件事情其實不只適用 AI 影片，也正在改變我們使用 AI 做任何事情的方式。</p>
+<h2 id="從一首歌到完整-MV，第一次完成已經不再是最大門檻"><a href="#從一首歌到完整-MV，第一次完成已經不再是最大門檻" class="headerlink" title="從一首歌到完整 MV，第一次完成已經不再是最大門檻"></a>從一首歌到完整 MV，第一次完成已經不再是最大門檻</h2><p>以前如果我要自己做一支 MV，我不會攝影、不會動畫、不會特效，也沒有演員、場地或製作團隊。</p>
+<p>很多想法不是不好，是真的做不到。😂</p>
+<p>但現在完全不一樣。</p>
+<p>不會寫歌，AI 可以幫你寫。</p>
+<p>不會做分鏡，AI 可以幫你拆。</p>
+<p>不會畫畫，AI 可以幫你生圖。</p>
+<p>不會拍影片，AI 可以幫你生成。</p>
+<p>甚至連分鏡、生圖、動畫、剪接都不想一個一個處理，現在也開始有工具可以直接從一首歌產生完整 MV。</p>
+<p>如果你想先理解 AI 影片創作中「看懂、判斷與指揮」的重要性，也可以延伸閱讀：<a href="/posts/ai-video-literacy/">學 AI 影片，你最不該做的，可能是先去學怎麼當導演</a>。</p>
+<p>所以我覺得，AI 真正厲害的地方不只是：</p>
+<p><strong>讓專業的人做得更快。</strong></p>
+<p>而是：</p>
+<p><strong>讓以前根本沒有生產能力的人，也拿到了入場券。</strong></p>
+<p>以前「想到」跟「做到」中間，隔著大量的專業技能。</p>
+<p>AI 正在把這個距離快速縮短。</p>
+<h2 id="「做到」變簡單了，「做好」卻沒有"><a href="#「做到」變簡單了，「做好」卻沒有" class="headerlink" title="「做到」變簡單了，「做好」卻沒有"></a>「做到」變簡單了，「做好」卻沒有</h2><p>這是我實際做完之後，覺得最有趣的地方。</p>
+<p>以前你的能力可能只能做到 30 分，做到 30 分，你就停了，因為第 31 分你根本不知道怎麼做。</p>
+<p>現在 AI 五分鐘可能就把你送到 70 分。</p>
+<p>然後麻煩來了。</p>
+<p>人物好像可以再一致一點？</p>
+<p>重跑。</p>
+<p>這個運鏡有點怪？</p>
+<p>重跑。</p>
+<p>副歌都進來了，畫面是不是應該再炸一點？</p>
+<p>再跑。</p>
+<p>這幕換成特寫好像更有感覺？</p>
+<p>再來一次。</p>
+<p>結果做到 80 分之後，你又突然看得到 90 分。</p>
+<p>所以我發現一個很有趣的現象：</p>
+<p><strong>AI 降低的是「第一次完成」的成本，卻沒有同步降低「最後 10 分」的成本。</strong></p>
+<p>甚至有時候反而讓你花更多時間。</p>
+<p>因為以前是：</p>
+<p>「做不到。」</p>
+<p>現在變成：</p>
+<p><strong>「好像還可以再好一點。」😂</strong></p>
+<h2 id="當生成變便宜，最昂貴的反而是選擇"><a href="#當生成變便宜，最昂貴的反而是選擇" class="headerlink" title="當生成變便宜，最昂貴的反而是選擇"></a>當生成變便宜，最昂貴的反而是選擇</h2><p>以前做一張圖很貴，所以不會隨便做 20 張。</p>
+<p>現在不好看，再生四張；還是不喜歡，再四張。</p>
+<p>影片也是，音樂也是，文案也是。</p>
+<p>AI 解決了「沒有選擇」的問題，卻製造出另一個問題：</p>
+<p><strong>選擇太多。</strong></p>
+<p>所以當生成成本下降之後，我覺得另一種成本反而正在快速上升：</p>
+<p><strong>決策成本。</strong></p>
+<p>AI 可以幫你產生 100 個答案，但它沒有自動解決一個更重要的問題：</p>
+<p><strong>這 100 個裡面，哪一個值得留下？</strong></p>
+<p>所以未來真正厲害的人，可能不一定是 Prompt 寫最長、AI 工具會最多的人。</p>
+<p>而是能從一堆「都還不錯」的東西裡，快速判斷：</p>
+<p><strong>哪一個真的比較好。</strong></p>
+<h2 id="AI-正在把我們從「製作者」變成「決策者」"><a href="#AI-正在把我們從「製作者」變成「決策者」" class="headerlink" title="AI 正在把我們從「製作者」變成「決策者」"></a>AI 正在把我們從「製作者」變成「決策者」</h2><p>以前我們學的是：</p>
+<ul>
+<li>我會 Photoshop。</li>
+<li>我會 Premiere。</li>
+<li>我會攝影。</li>
+<li>我會動畫。</li>
+</ul>
+<p>我們的價值很大一部分來自：</p>
+<p><strong>「我會做。」</strong></p>
+<p>但當 AI 越來越會「做」之後，人的工作其實開始往上一層移。</p>
+<p>從：</p>
+<p><strong>「這個怎麼做？」</strong></p>
+<p>慢慢變成：</p>
+<p><strong>「為什麼要這樣做？」</strong></p>
+<p>這個鏡頭為什麼需要特寫？</p>
+<p>這段副歌為什麼應該換場景？</p>
+<p>這個角色為什麼不能笑？</p>
+<p>這支 MV 到底想讓觀眾感受到什麼？</p>
+<p>所以我一直不太認同「有了 AI，人人都是導演」。</p>
+<p>比較準確的說法應該是：</p>
+<p><strong>AI 讓每個人突然擁有了一支以前養不起的製作團隊。</strong></p>
+<p>但有了一百個很會做事的員工，不代表你突然變成一個很會做決策的老闆。</p>
+<p>這是兩件完全不同的事情。</p>
+<h2 id="做-AI-MV，其實是在配置時間、金錢與控制權"><a href="#做-AI-MV，其實是在配置時間、金錢與控制權" class="headerlink" title="做 AI MV，其實是在配置時間、金錢與控制權"></a>做 AI MV，其實是在配置時間、金錢與控制權</h2><p>我現在做 AI MV，反而不會先問：</p>
+<p>「哪個模型最強？」</p>
+<p>而是先問：</p>
+<p><strong>「這支影片值得我花多少時間？」</strong></p>
+<p>不同做法，其實是在交換三樣東西：<strong>時間、金錢、控制權。</strong></p>
+<table>
+<thead>
+<tr>
+<th>你更在意的事情</th>
+<th>可以採取的方式</th>
+<th>交換出去的資源</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>想省錢</td>
+<td>使用免費額度，自己慢慢做</td>
+<td>時間</td>
+</tr>
+<tr>
+<td>想要更好的畫面</td>
+<td>花錢換更高階的影片模型</td>
+<td>金錢</td>
+</tr>
+<tr>
+<td>想要最高控制權</td>
+<td>自己拆分鏡、生圖、圖轉影片、剪接</td>
+<td>時間與操作複雜度</td>
+</tr>
+<tr>
+<td>想要快速完成</td>
+<td>直接把歌曲交給 AI MV 工具</td>
+<td>控制權</td>
+</tr>
+</tbody></table>
+<p>它們沒有哪一種比較高級，其實只是在交換不同資源。</p>
+<p>真正重要的是：</p>
+<p><strong>你知不知道這一次該把資源押在哪裡。</strong></p>
+<h2 id="先做爛，再做好：我現在的三輪工作法"><a href="#先做爛，再做好：我現在的三輪工作法" class="headerlink" title="先做爛，再做好：我現在的三輪工作法"></a>先做爛，再做好：我現在的三輪工作法</h2><p>這是這次實測之後，我自己很想留下來的方法。</p>
+<h3 id="第一輪：先問「有沒有？」"><a href="#第一輪：先問「有沒有？」" class="headerlink" title="第一輪：先問「有沒有？」"></a>第一輪：先問「有沒有？」</h3><p>先把完整的東西跑出來，不要先問漂不漂亮。</p>
+<p>歌曲有沒有對上？</p>
+<p>故事有沒有開始和結束？</p>
+<p>分鏡有沒有跑完？</p>
+<p>畫面有沒有剪成一支完整的 MV？</p>
+<h3 id="第二輪：再問「對不對？」"><a href="#第二輪：再問「對不對？」" class="headerlink" title="第二輪：再問「對不對？」"></a>第二輪：再問「對不對？」</h3><p>故事對不對？</p>
+<p>節奏對不對？</p>
+<p>情緒對不對？</p>
+<p>畫面方向對不對？</p>
+<p>這一輪是在確認：這支影片到底是不是你想做的那支影片。</p>
+<h3 id="第三輪：最後問「好不好？」"><a href="#第三輪：最後問「好不好？」" class="headerlink" title="第三輪：最後問「好不好？」"></a>第三輪：最後問「好不好？」</h3><p>確認方向之後，才開始處理人物一致性、畫面品質、運鏡與細節。</p>
+<p>順序真的差很多。</p>
+<p>不然你很容易花兩個小時——</p>
+<p><strong>把一個根本不該存在的鏡頭，做得非常漂亮。🤣</strong></p>
+<h2 id="AI-時代，停止也是一種創作能力"><a href="#AI-時代，停止也是一種創作能力" class="headerlink" title="AI 時代，停止也是一種創作能力"></a>AI 時代，停止也是一種創作能力</h2><p>這可能是我這次最大的體悟。</p>
+<p>圖片可以無限重生。</p>
+<p>影片可以無限重跑。</p>
+<p>文案可以無限重寫。</p>
+<p>音樂可以無限改版。</p>
+<p>以前最大的問題是：</p>
+<p>「我做不到。」</p>
+<p>未來最大的問題可能變成：</p>
+<p><strong>「我永遠覺得還可以再改一下。」</strong></p>
+<p>當生成成本越來越低，「再試一次」的誘惑反而會越來越大。</p>
+<p>所以真正有效率的人，未必是生成最快的人，而是知道：</p>
+<p><strong>什麼值得做到 95 分。</strong></p>
+<p><strong>什麼做到 80 分就該交出去。</strong></p>
+<p><strong>什麼做到 60 分，其實已經完成它的任務。</strong></p>
+<p>這不是降低標準，而是先判斷這個成果要完成什麼任務，再決定品質要到哪裡。</p>
+<h2 id="我現在給自己的-AI-創作原則"><a href="#我現在給自己的-AI-創作原則" class="headerlink" title="我現在給自己的 AI 創作原則"></a>我現在給自己的 AI 創作原則</h2><p>很簡單：</p>
+<p><strong>先用 AI 買速度，再決定哪裡值得買品質。</strong></p>
+<p>先快速看到結果，再決定值不值得繼續投入時間。</p>
+<p>因為 AI 真正替我們省下來的，不應該只是「做事的時間」，而是讓我們可以把時間重新分配到：</p>
+<p><strong>判斷、故事、品味、策略，以及真正重要的細節。</strong></p>
+<p>所以這次做 AI 音樂 MV，我最後學到最有價值的，反而不是怎麼做 MV，而是三個問題：</p>
+<p><strong>什麼值得做？</strong></p>
+<p><strong>值得做到什麼程度？</strong></p>
+<p><strong>什麼時候該停？</strong></p>
+<p>當「做得到」越來越便宜，<strong>「知道什麼值得做」反而會越來越貴。</strong></p>
+<p>這可能才是接下來真正值得學的 AI 能力。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：AI-音樂-MV-通常會經過哪些製作流程？"><a href="#Q1：AI-音樂-MV-通常會經過哪些製作流程？" class="headerlink" title="Q1：AI 音樂 MV 通常會經過哪些製作流程？"></a>Q1：AI 音樂 MV 通常會經過哪些製作流程？</h3><p>一支 AI 音樂 MV 可以從歌曲開始，依序進行歌詞拆解、故事構思、分鏡設計、生圖、圖轉影片與最後剪接；也可以把歌曲交給整合型 AI MV 工具快速產出初版。</p>
+<h3 id="Q2：AI-做-MV-最能降低的是哪一種成本？"><a href="#Q2：AI-做-MV-最能降低的是哪一種成本？" class="headerlink" title="Q2：AI 做 MV 最能降低的是哪一種成本？"></a>Q2：AI 做 MV 最能降低的是哪一種成本？</h3><p>AI 最明顯降低的是「第一次完成」的成本，讓沒有攝影、動畫或特效專業的人也能快速做出完整版本；但最後的品質修整與取捨不一定因此變快。</p>
+<h3 id="Q3：做-AI-MV-時，應該怎麼選擇工具或模型？"><a href="#Q3：做-AI-MV-時，應該怎麼選擇工具或模型？" class="headerlink" title="Q3：做 AI MV 時，應該怎麼選擇工具或模型？"></a>Q3：做 AI MV 時，應該怎麼選擇工具或模型？</h3><p>先依影片值得投入的程度配置時間、金錢與控制權：想省錢就用免費額度慢慢做，想要更好的畫面就提高預算，想保有最高控制權就自行拆分鏡、生圖、圖轉影片與剪接。</p>
+<h3 id="Q4：為什麼建議用「先做爛，再做好」的方法？"><a href="#Q4：為什麼建議用「先做爛，再做好」的方法？" class="headerlink" title="Q4：為什麼建議用「先做爛，再做好」的方法？"></a>Q4：為什麼建議用「先做爛，再做好」的方法？</h3><p>因為先完成完整初版，才能先檢查故事、節奏、情緒與畫面方向是否正確；方向確認後再投入人物一致性、運鏡和細節，能避免把大量時間花在不該存在的鏡頭上。</p>
+<h3 id="Q5：AI-創作時，怎麼判斷什麼時候該停止修改？"><a href="#Q5：AI-創作時，怎麼判斷什麼時候該停止修改？" class="headerlink" title="Q5：AI 創作時，怎麼判斷什麼時候該停止修改？"></a>Q5：AI 創作時，怎麼判斷什麼時候該停止修改？</h3><p>先看成果要完成的任務，再設定品質門檻：重要作品可以做到更高品質，一般測試或需要快速交付的內容做到足以完成任務即可，不必因為還能再生成一次就無限重跑。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover149.webp" class="img-fluid card-img-top rounded-3" alt="學 AI 影片，你最不該做的，可能是先去學怎麼當導演">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">學 AI 影片，你最不該做的，可能是先去學怎麼當導演</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-literacy/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover147.webp" class="img-fluid card-img-top rounded-3" alt="20 萬 Stars 的 DeepSeek Harness：Vibe Coding 下一場戰爭可能換戰場了">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">20 萬 Stars 的 DeepSeek Harness：Vibe Coding 下一場戰爭可能換戰場了</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/29</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/deepseek-harness-multi-agent/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover146.webp" class="img-fluid card-img-top rounded-3" alt="官網被駭後，我乾脆用 AI 一週重做一個品牌｜鮮生小姐官網重建實錄">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">官網被駭後，我乾脆用 AI 一週重做一個品牌｜鮮生小姐官網重建實錄</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/26</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-powered-brand-rebuild/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover142.webp" class="img-fluid card-img-top rounded-3" alt="4D Framework：比 Prompt Engineering 更完整的 AI Fluency 框架">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">4D Framework：比 Prompt Engineering 更完整的 AI Fluency 框架</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/23</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-fluency-4d-framework/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover141.webp" class="img-fluid card-img-top rounded-3" alt="public-apis：超過 40 萬顆星的 API 寶庫，Vibe Coding 很值得收藏">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">public-apis：超過 40 萬顆星的 API 寶庫，Vibe Coding 很值得收藏</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">API串接</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/23</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/public-apis-api-directory/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover140-1.webp" class="img-fluid card-img-top rounded-3" alt="Claude Academy 學習路徑完整指南：22 門免費課程與 289 項資源怎麼選？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Claude Academy 學習路徑完整指南：22 門免費課程與 289 項資源怎麼選？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/22</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/claude-academy-learning-paths/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover139-2.webp" class="img-fluid card-img-top rounded-3" alt="Google Antigravity 2.0 繁體中文介面套件：降低 AI Coding 入門門檻">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Google Antigravity 2.0 繁體中文介面套件：降低 AI Coding 入門門檻</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/22</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/antigravity-traditional-chinese/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover138.webp" class="img-fluid card-img-top rounded-3" alt="cangjie-skill：把書籍與長影音蒸餾成 AI Agent 可用的 Skills">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">cangjie-skill：把書籍與長影音蒸餾成 AI Agent 可用的 Skills</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/22</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/cangjie-skill-book-to-agent-skills/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover137.webp" class="img-fluid card-img-top rounded-3" alt="Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Skill 之後，下一個 AI 開發者一定要懂的詞：Agent Harness</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/08/22</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/skill-to-agent-harness/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
