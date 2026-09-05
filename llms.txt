@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 時代，你真正該累積的不是內容，而是「專業證據」
+  網址：https://blog.es2idea.com/posts/ai-personal-brand-evidence/
+  日期：2026-09-06
+  摘要：當客戶先問 ChatGPT、Gemini 或 Claude，個人品牌的競爭就不只在流量，而在網路上是否有足夠的案例、判斷與方法，證明你真的懂。本文整理專業證據如何走向知識、Skill 與 AI Agent。
+  主題：AI Agent、AEO、內容行銷
+
 - Vibe Coding 真正要殺死的，可能不是 SaaS，而是「不值得被做成軟體」這句話
   網址：https://blog.es2idea.com/posts/vibe-coding-software-economics/
   日期：2026-09-02
@@ -101,12 +107,6 @@
   日期：2026-08-26
   摘要：n8n 官方 One-line setup 用一行指令建立 Docker Compose、SQLite、AI Assistant 支援服務與 Sandbox；本文整理安裝前提、常用指令、資料風險與 Production 架構選擇。
   主題：AI自動化、n8n、n8n新手教學
-
-- Google 偏好來源怎麼用？網站主新增 Preferred Sources 按鈕搶 AI 搜尋流量
-  網址：https://blog.es2idea.com/posts/add-google-preferred-source/
-  日期：2026-08-24
-  摘要：Google Preferred Sources 讓讀者把你的網站設為偏好來源，內容有機會出現在 Top Stories、AI Overviews 與 AI Mode；本文整理官方按鈕、Deeplink 與 CTA 實作。
-  主題：SEO、AEO、內容行銷
 
 ## 語言
 - zh-TW
