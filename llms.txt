@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 越來越會做，我反而開始在意：你看見了什麼？
+  網址：https://blog.es2idea.com/posts/ai-question-engineering/
+  日期：2026-09-07
+  摘要：當 AI 讓每個人都能快速生成影片、音樂與故事，真正拉開差距的就不再只是執行速度，而是你能否看見值得追問的問題、辨識被忽略的細節，並把好奇心做成能被看見的作品。
+  主題：商業策略、AI工具、內容行銷
+
 - AI 時代，40 歲後最值錢的不是經驗，而是把經驗「編譯」成 AI 能執行的能力
   網址：https://blog.es2idea.com/posts/experience-to-ai-skill/
   日期：2026-09-06
@@ -88,7 +94,7 @@
   網址：https://blog.es2idea.com/posts/agent-experience-optimization-axo/
   日期：2026-08-29
   摘要：SEO 讓網站被搜尋，AEO 讓 AI 理解並引用，AXO 更進一步，讓 AI Agent 能搜尋、判斷、操作網站並完成預約、購物或企業流程。本文從 WebMCP 與 Agent Commerce 出發，整理下一代網站的設計重點。
-  主題：AI Agent、AEO、SEO
+  主題：AI Agent、SEO、AEO
 
 - 20 萬 Stars 的 DeepSeek Harness：Vibe Coding 下一場戰爭可能換戰場了
   網址：https://blog.es2idea.com/posts/deepseek-harness-multi-agent/
@@ -101,12 +107,6 @@
   日期：2026-08-26
   摘要：官網被駭後，與其修補舊 WordPress，我決定用 AI 一週重做鮮生小姐的品牌官網，從 AI 代言人 Cherry、LINE 導購到 AI 商品圖，重新設計品牌與成交流程。
   主題：商業策略、AI工具、Vibe Coding
-
-- n8n 自架版 AI Assistant：One-line setup、Sandbox 與 Zeabur 架構
-  網址：https://blog.es2idea.com/posts/n8n-self-hosted-ai-assistant/
-  日期：2026-08-26
-  摘要：n8n 2.35 之後，Self-hosted AI Assistant 的安裝更簡單。本文整理 One-line setup、n8n-sandbox、Daytona、Web Search，以及 Zeabur + PostgreSQL + task-ru...
-  主題：AI自動化、n8n、n8n新手教學
 
 ## 語言
 - zh-TW
