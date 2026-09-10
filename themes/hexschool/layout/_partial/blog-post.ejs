@@ -2,6 +2,7 @@
 <% const content = post.content.replace(imgRegex, ''); %>   <!-- prevent image appear -->
 <% const title = post.title || post.slug; %>
 <% const date = new Date(post.date).toLocaleDateString('zh-tw'); %>
+<% const coverPosition = post.cover_position || 'center'; %>
 <li
   id="<%= post.layout %>-<%= post.slug %>"
   class="card border-0"
@@ -14,6 +15,7 @@
       <img
         src="<%= url_for(post.cover) %>"
         class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: <%= coverPosition %>;"
         alt="article-<%= title %>"
       >
     </div>
