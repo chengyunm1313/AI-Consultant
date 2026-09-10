@@ -237,7 +237,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (61)
+            AI自動化 (62)
           </a>
         </li>
       
@@ -313,11 +313,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-          AI自動化 (75)
+          AI自動化 (76)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (43)
+          AI工具 (44)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
@@ -344,12 +344,12 @@
           Vibe Coding (34)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
-          影音行銷 (22)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
           Codex (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (23)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
@@ -488,12 +488,12 @@
           職場溝通 (2)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
-          LINE (1)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
           Cloudflare (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
         </a>
       
     </div>
@@ -503,6 +503,308 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-voice-cloning-api"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover166.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: center;"
+        alt="article-AI 自動剪片做到最後，我才發現真正缺的是自己的聲音 API"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/9/11
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI自動化
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              影音行銷
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          AI 自動剪片做到最後，我才發現真正缺的是自己的聲音 API
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近我一直在調整自己的 AI 自動剪影片流程。
+文章可以自動改成短影音腳本。
+知識圖卡可以自動生成。
+字幕可以自動上。
+B-roll 可以自動配。
+重點遮罩、動畫、轉場，甚至剪輯節奏，也都可以慢慢交給 AI。
+但做到最後，我突然發現一件事。
+真正還沒有被自動化的，反而是：
+我的聲音。
+如果每一支影片最後還是要自己重新錄旁白，那前面再怎麼自動，其實都還差最後一哩。
+所以我最近開始重新研究「克隆音」。
+但這次我不是想找一個：
+
+可以把我的聲音複製得很像的 AI 工具。
+
+我想的是另一件事：
+
+能不能把我的聲音，直接變成 AI 自動剪片系統裡的一個 API？
+
+AI 自動剪片為什麼會卡在最後一哩？一條完整的影片工作流，現在已經可以拆成很多個可被自動化的能力：
+
+文章自動改成短影音腳本
+知識圖卡自動生成
+字幕自動上稿
+B-roll 自動配對
+重點遮罩、動畫與轉場自動完成
+剪輯節奏交給 AI 協助判斷
+
+這些環節都完成後，旁白卻可能還是要由本人重新錄製。對個人創作者來說，這不只是多花一點時間，也會讓整套「內容工廠」在最後一步停住。
+這也是我開始重新研究 Voice Clone 的原因。不過，我真正想找的不是另一個獨立工具，而是一個能被工作流穩定呼叫的聲音元件。
+這個方向，也可以接到我之前整理的用 Codex 打造 AI 影片工廠：串接六大 AI 能力的完整工作流。影片工廠不只要能產生畫面，也要能把聲音當成可替換、可擴充的能力。
+克隆音已經從模型訓練，走向可呼叫的工作流元件以前講 Voice Clone，很容易想到一個完整的模型訓練專案：
+
+錄很多音訊。
+整理資料。
+訓練模型。
+等待幾個小時。
+得到一個自己的聲音模型。
+
+但現在很多 Zero-shot TTS，已經可以只用一小段參考音訊，直接模仿聲音的音色。像是我目前正在看的：
+
+IndexTTS-2.5
+Qwen3-TTS
+Chatterbox V3
+GPT-SoVITS
+CosyVoice 3
+Fish Speech
+
+這些模型與版本是我目前的研究方向與工作流示例，不代表固定排名；支援的語言、情緒控制、硬體需求與授權方式，都可能隨版本和方案變動，實際使用前仍要回到各專案的官方文件確認。
+有些情境甚至不需要 Fine-tune。你只要給它：
+
+一段你的聲音
+一段新的文字
+
+它就可以直接嘗試用你的音色把文字說出來。
+這讓克隆音慢慢從「模型訓練專案」，變成「可以被工作流直接呼叫的元件」。
+對我來說，理想的介面不是讓剪輯系統知道底下使用哪一套模型，而是把底層差異藏起來：
+12345請用我的聲音念這段文字            ↓        Voice Engine API            ↓       回傳 WAV 或音訊檔
+
+為什麼我現在最想研究地端克隆音？如果要把克隆音塞進自動剪影片流程裡，地端有很多優勢。重點不只是省 API 費用，更重要的是控制權。
+我可以自己決定：
+
+腳本怎麼切句
+一次生成多少字
+情緒怎麼控制
+專有名詞怎麼唸
+要不要快取
+生成失敗怎麼重試
+哪些段落要重新生成
+如何把引擎包成 REST API
+
+最後，剪輯系統根本不用知道底下是哪一套模型。它只要送出文字與必要參數，拿回一段可以繼續進入剪輯流程的音訊。
+這種抽象層很重要。今天底層是 IndexTTS，明天換成 Qwen3-TTS，甚至某一批任務改走雲端 API，上層的影片工作流都不必整套重寫。
+MacBook 也能先把 Prototype 跑起來這是我最近覺得很有意思的地方。
+以我目前看到的 IndexTTS-2.5 使用情境來說，它已經能在 Apple Silicon 的 MPS 環境進行推論。也就是說，M1、M2、M3、M4 這些 Mac，都有機會直接拿自己的 GPU 做實驗。
+我自己的 MacBook Pro M2 Pro、16GB Unified Memory，也可以先拿來做 Prototype。
+當然，16GB 記憶體不算多。如果一次生成很長的旁白，或同時開著許多應用程式，記憶體仍然會吃緊。這裡的重點不是宣稱 Mac 可以取代所有 GPU Server，而是：
+
+30 秒短影音
+1 分鐘旁白
+課程分段音訊
+
+這些任務已經足以讓個人開發者研究整條流程，先驗證切句、快取、重試與剪輯串接，再決定是否需要更大的硬體。
+換句話說，不一定要先買 RTX 4090，也不一定要一開始就租 GPU Server。一台手邊的 Mac，就可以先把 Voice Engine 的 Prototype 跑起來。實際效能仍會受到模型版本、量化方式、音訊長度、背景程序與安裝環境影響。
+評估克隆音，真正的重點不只是「像不像」以前評估克隆音，我們可能只問：
+
+像本人嗎？
+
+但真正要放進內容工廠，至少還要再問：
+
+台灣國語自然嗎？
+情緒夠不夠自然？
+長文會不會開始飄？
+停頓是不是像真人？
+專有名詞會不會亂唸？
+同一個 Voice 能不能跨語言使用？
+生成速度夠不夠快？
+
+「85% 像本人」可能還不夠。如果它每次都把 Claude 唸錯、Gemini 唸得怪怪的、ComfyUI 亂念，或把 n8n 的讀法弄得不一致，影片仍然會出戲。
+所以我甚至開始想做一份自己的專有名詞發音字典。腳本進入 TTS 之前，先自動做文字前處理：
+
+
+
+名詞
+預期處理
+
+
+
+Claude
+固定適合旁白的讀法
+
+
+Gemini
+固定適合旁白的讀法
+
+
+Anthropic
+固定適合旁白的讀法
+
+
+n8n
+固定適合旁白的讀法
+
+
+這些讀法不一定要交給模型臨場猜，而是先在 TTS 前統一替換或標記。久了以後，這套 Voice Engine 不只會越來越像我的音色，也會越來越接近我的內容風格。
+如果你也在處理影片聲音，可以先參考短影音音效怎麼選？從剪映內建到 AI 生成，一次搞懂 SFX 工作流。克隆旁白解決的是「誰在說」，SFX 與混音則決定觀眾「聽起來感覺如何」，兩者應該放在同一條聲音工作流裡設計。
+把「我是誰」和「我要怎麼說」拆開這件事對自動剪影片非常重要。
+一支短影音不可能從頭到尾都使用同一種情緒：
+
+開頭 Hook 可能要比較興奮
+中段解釋要穩定清楚
+提醒風險時要嚴肅
+講到反差時可能要驚訝
+最後 CTA 又要比較親切
+
+因此，Voice Engine 可以拆成兩層：
+
+我是誰： 聲音的音色、辨識度與個人品牌特徵。
+我要怎麼說： 情緒、語速、停頓、重音與表達方式。
+
+理想的流程會是：
+1234567891011腳本  ↓AI 理解內容  ↓判斷每一段情緒  ↓選擇語速與表達方式  ↓克隆音生成  ↓送進剪輯流程
+
+這時候 AI 就不只是單純「念稿」，而是開始理解：這句話應該怎麼說。
+不想自己維護模型，雲端 TTS 也已經很成熟地端是我目前很想研究的方向，但如果不想自己維護模型，雲端方案其實已經很方便。以我目前的觀察，值得放進測試清單的包括：
+
+ElevenLabs
+MiniMax
+Fish Audio
+Qwen／CosyVoice Cloud
+Cartesia
+PlayHT
+Resemble AI
+Google Chirp 3
+Azure Custom Voice
+HeyGen
+Synthesia
+
+每一家定位不一樣，這份清單是研究與選型的起點，不是永久排名。若要找一個成熟基準，我會先看 ElevenLabs；如果主要做中文短影音，我會想測 MiniMax；如果在意情緒、角色感、Podcast 或漫劇，Fish Audio 會是值得研究的方向；如果以後要做即時 Voice Agent，則可以研究 Cartesia。
+雲端最大的好處是不用自己處理：
+
+CUDA
+MPS
+記憶體配置
+模型環境損壞
+硬體升級
+
+API Key 拿到就可以接。對大量生產來說，這確實很省事；但費用、資料處理政策、延遲、速率限制與語音授權，仍然要依各家最新方案確認。
+地端和雲端不是二選一，而是混合式 Voice Engine所以我現在反而不覺得這是一場「地端 vs 雲端」的戰爭。更合理的做法，可能是建立一層混合式 Voice Engine：
+
+
+
+任務情境
+可以優先測試的方向
+
+
+
+平常的短影音與開發測試
+地端 IndexTTS、Qwen3-TTS 或 Chatterbox
+
+
+突然出現大量任務
+切換 MiniMax API
+
+
+英文或多語言內容
+切換 ElevenLabs
+
+
+情緒較重的內容
+測試 Fish Audio
+
+
+即時 AI Agent 對話
+研究 Cartesia
+
+
+這個概念其實跟現在使用 LLM 很像。我們已經不太會只問：「全世界最好的 AI 模型是哪一個？」而是開始問：「這個任務，現在應該用哪一個模型？」
+未來 TTS 很可能也會一樣。真正重要的不是押中唯一答案，而是把模型做成可以替換的底層能力，讓上層工作流按照任務、成本、延遲、語言與情緒需求選擇引擎。
+Voice Conversion：先把話說好，再換成我的聲音這次研究時，我看到 Seed-VC 這類 Voice Conversion 技術，反而讓我產生另一個想法。
+也許不一定要要求同一套 TTS 同時做到：
+
+聲音像我
+情緒自然
+節奏漂亮
+表達生動
+
+全部一次完成。
+可以拆開處理：先找一個最會「說話」的 AI，讓它負責情緒、節奏、停頓與表達，再用 Voice Conversion 把聲音換成我的音色。
+1234567最佳 TTS  ↓先把話說好  ↓Voice Conversion  ↓換成我的聲音
+
+這個思路很有意思，因為它把「講得好」和「像我」拆成兩個不同問題。有時候，拆開反而更容易做到，也更容易針對每一段找出可以改善的地方。
+我真正想做的，是自己的 Voice Layer所以我現在真正想做的，其實不是找最好用的克隆音。
+我想做的是自己的Voice Layer。
+未來不管是：
+
+短影音
+線上課程
+Podcast
+AI 新聞
+數位分身
+AI Agent
+互動式課程
+
+全部都可以呼叫同一層聲音服務。
+輸入文字以後，它自己決定：
+
+該用哪個 Voice Engine
+該用什麼情緒
+語速多少
+專有名詞怎麼念
+是否需要快取或重新生成
+
+最後回傳一段聽起來像我的聲音。
+到了這一步，克隆音就不再只是一個 AI 工具，而會變成個人品牌的一層基礎設施。
+我現在越來越覺得，AI 自動剪片真正的最後一哩，不是剪輯，而是：
+
+讓整套系統，真正開始用你的聲音說話。
+
+常見問答 (FAQ)Q1：什麼是個人的 Voice Layer？Voice Layer 是放在內容工作流和底層 TTS／Voice Conversion 模型之間的一層聲音服務。它可以統一處理音色、情緒、語速、專有名詞、快取、錯誤重試與模型切換，讓影片、課程、Podcast 或 AI Agent 都用同一個介面呼叫聲音能力。
+Q2：做地端克隆音一定要先買 RTX 4090 嗎？不一定。以文章中的 Prototype 情境來說，Apple Silicon Mac 的 MPS 可以先用於短影音、短旁白或課程分段音訊測試；但長音訊、批次任務和多工執行仍可能受到 16GB Unified Memory 等硬體限制，實際速度要依模型版本與設定測試。
+Q3：地端 Voice Clone 和雲端 TTS 應該怎麼選？如果在意資料控制、成本可預測、切句與重試邏輯，地端比較適合做日常與 Prototype；如果需要大量生產、快速接 API 或多語言服務，雲端比較省維護成本。更彈性的做法是建立混合式 Voice Engine，依任務切換不同引擎。
+Q4：克隆音怎麼避免把 Claude、Gemini 或 n8n 唸錯？可以在文字送進 TTS 前建立專有名詞發音字典，先把 Claude、Gemini、Anthropic、n8n 等詞轉成固定讀法或標記，再進行語音生成。這比每次都讓模型自行猜讀音，更容易維持影片之間的一致性。
+Q5：Voice Conversion 和 TTS 有什麼差別？TTS 主要負責把文字說成語音，通常也會處理語速、情緒、停頓與表達；Voice Conversion 則是在已有語音表現的基礎上轉換音色。兩者可以拆開使用：先用擅長表達的 TTS 把話說好，再用 Voice Conversion 換成個人音色。
+
+        </p>
+        <a class="stretched-link" href="/posts/voice-cloning-api/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -1706,11 +2008,11 @@ Q5：什麼是 AI 製片人？AI 製片人是以商業目標、受眾、情緒�
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              影音行銷
+              Codex
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Codex
+              影音行銷
             </span>
           
 
@@ -1926,11 +2228,11 @@ Q5：這套工作流可以批量產生不同平台的影片嗎？可以。只要
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              影音行銷
+              Codex
             </span>
           
             <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Codex
+              影音行銷
             </span>
           
 
@@ -2433,98 +2735,6 @@ Remotion 影片最終合成
 
         </p>
         <a class="stretched-link" href="/posts/meow-economics-remotion-ai-automation/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-remotion-ai-agent-react-video-tutorial"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover72.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-Remotion × AI Agent：用 React 與 AI 程式化製作影片的完整實戰教學"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/1/23
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI Agent
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              影音行銷
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Remotion
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          Remotion × AI Agent：用 React 與 AI 程式化製作影片的完整實戰教學
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          
-  
-  
-
-
-做影片很累，傳統剪輯軟體又貴又花時間。你可能以為想做出好影片，非得精通 Premiere 或 Final Cut 不可。其實不用，現在的趨勢是「用程式碼做影片」。
-Remotion 這個工具，讓你可以用寫 React 的方式「編譯」出 MP4。加上最新的 AI Agent 技術，甚至連程式碼都不用自己寫。只要一句話，系統自動幫你把影片「算」出來。
-用程式寫影片的底層邏輯Remotion 的核心理念叫做「Make videos programmatically」。這聽起來很硬核，但邏輯其實很性感。它把影片的每一幀，都變成了可控的程式碼參數。
-以前你需要用滑鼠在時間軸上拉來拉去，還要對齊到崩潰。現在透過 API，你可以精準控制像素的運動。這不僅是工具的轉換，更是生產力的槓桿。
-關鍵在於它最近推出的 Agent Skills 功能。這讓 Claude 或 GPT-4 這樣的 AI 模型，能夠讀懂 Remotion 的操作手冊。AI 不再只是瞎猜，而是拿著說明書在幫你蓋房子。
-環境建置的關鍵細節開始之前，先在桌面建個資料夾，打開終端機。輸入以下指令初始化專案：
-12npx create-video@latest
-
-這一步很簡單，但接下來的選項決定成敗。系統會問你一連串設定：
-
-Template: 選 Blank
-TailwindCSS: 建議選 Yes
-Add Agent Skills: **請務必、絕對要選 Yes**
-
-這不是選配，這是讓 AI 能夠自動寫作的靈魂。選了它，專案裡才會下載給 AI 看的文檔與技能樹。沒選這個，AI 寫出來的程式碼大概率跑不動。
-讓 AI 接手繁瑣工作安裝完依賴套件並啟動開發伺服器後，你會看到瀏覽器跳出預覽畫面。這時，請打開支援 AI 的編輯器（如 Antigravity 或 Cursor）。我們準備開始下指令。
-直接在對話框輸入你的需求，模型建議選擇邏輯較強的 Claude 4.5 Sonnet：
-
-「幫我做一支 10 秒介紹 n8n 的短影片，內容要酷炫。」
-
-AI 會先讀取專案裡的 SKILL.md，理解它能做什麼。接著它會規劃場景、設計動畫，然後直接修改 Root.tsx。它會自己寫 Component，自己加 Fade in&amp;#x2F;out 效果，甚至自己除錯。
-反直覺的效率優勢你可能覺得寫程式做影片很反直覺。但當你想要微調字體大小，或是想統一所有轉場的速度時，改一行程式碼，比在傳統軟體軌道上一個個點開調整快太多了。
-這就是「可程式化」的降維打擊。範例中，AI 自動生成了包含 Logo 動畫與卡片介紹的 9 秒影片。如果不滿意，只要動動嘴（Prompt）或動動手指（Code）微調即可。
-確認無誤後，輸入渲染指令：
-12npx remotion render
-
-AI 通常連這行指令都會幫你準備好。按下 Enter，一個真實的 MP4 檔案就會出現在輸出資料夾。
-60&amp;#x2F;40 的人機協作法則別指望 AI 一次給你 100% 的完美成品，那是不切實際的幻想。聰明的做法是讓 AI 搞定 60% 的苦工。讓它完成架構搭建、基礎動畫邏輯與素材佔位。
-剩下的 **40%**，靠你的人類美感去微調程式碼。這種工作流比從零開始剪輯快，又比全靠 AI 抽卡精準。這才是 Remotion 結合 Agent 的真正威力。
-
-        </p>
-        <a class="stretched-link" href="/posts/remotion-ai-agent-react-video-tutorial/"></a>
       </div>
     </div>
   </article>
