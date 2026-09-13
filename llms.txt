@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 【AI 短劇的下一站，可能不是抖音，而是 Steam】
+  網址：https://blog.es2idea.com/posts/ai-short-drama-steam-games/
+  日期：2026-09-14
+  摘要：DataEye 統計 2026 上半年抖音端 AI 劇漫劇新劇達 22.19 萬部；Steam《幸存者笔记》則結合 AI 素材與互動分支。AI 短劇的下一站，可能是讓觀眾親自走進故事。
+  主題：AI工具、內容行銷、影音行銷
+
 - 【AI 會寫 API 還不夠：Vibe Coding 下一個機會，是把台灣產業經驗做成 Skill】
   網址：https://blog.es2idea.com/posts/taiwan-domain-skills-vibe-coding/
   日期：2026-09-14
@@ -88,25 +94,19 @@
   網址：https://blog.es2idea.com/posts/ai-monetization-five-stages/
   日期：2026-09-08
   摘要：學 AI 不只是學會更多工具，而是把市場願意付錢的專業，逐步轉成可複製的知識、可執行的能力、可交付的結果，最後累積成品牌、產品、資料與通路等商業資產。
-  主題：AI自動化、商業策略、AI Agent
+  主題：商業策略、AI自動化、AI Agent
 
 - AI 時代真正會被淘汰的，可能不是員工，而是「組織圖」
   網址：https://blog.es2idea.com/posts/ai-native-organization/
   日期：2026-09-08
   摘要：AI 真正可能淘汰的不是員工，而是沿用數十年的組織圖與 SOP。本文拆解 AI 工具化、職位化、流程化到 AI 原生組織，重新思考企業導入 AI 的 ROI。
-  主題：AI自動化、商業策略、AI Agent
+  主題：商業策略、AI自動化、AI Agent
 
 - 【AI 幫你做網站還不夠：下一代網站，應該讓 AI Agent 能直接操作】
   網址：https://blog.es2idea.com/posts/agent-native-website/
   日期：2026-09-07
   摘要：AI 幫你做網站，不代表 AI 能操作網站。本文拆解 MCP、Service Layer、Agent-native Website 與 Self-Optimizing Website 的演進，並整理權限、人工核准與 Audit Log 的實作思路。
   主題：AI自動化、AI Agent、Vibe Coding
-
-- AI 越來越會做，我反而開始在意：你看見了什麼？
-  網址：https://blog.es2idea.com/posts/ai-question-engineering/
-  日期：2026-09-07
-  摘要：當 AI 讓每個人都能快速生成影片、音樂與故事，真正拉開差距的就不再只是執行速度，而是你能否看見值得追問的問題、辨識被忽略的細節，並把好奇心做成能被看見的作品。
-  主題：AI工具、商業策略、內容行銷
 
 ## 語言
 - zh-TW
