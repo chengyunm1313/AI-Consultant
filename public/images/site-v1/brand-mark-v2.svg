@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 96 96" role="img" aria-labelledby="title desc">
+  <title id="title">享哥 AI 工作流標誌</title>
+  <desc id="desc">以開放工作台框架與單一路徑代表把問題整理成流程</desc>
+  <rect x="4" y="4" width="88" height="88" rx="22" fill="#111512"/>
+  <path d="M72 25H32c-5 0-8 3-8 8v9M24 55v8c0 5 3 8 8 8h40c5 0 8-3 8-8v-9" fill="none" stroke="#F3F4EE" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <path d="M17 48h16c7 0 11-4 11-11v-1c0-6 4-11 11-11h17" fill="none" stroke="#D8F23F" stroke-width="7.5" stroke-linecap="round" stroke-linejoin="round"/>
+  <circle cx="17" cy="48" r="5.5" fill="#D8F23F"/>
+  <circle cx="72" cy="25" r="5.5" fill="#D8F23F"/>
+</svg>
