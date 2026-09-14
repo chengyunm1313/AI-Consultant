@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 我把 ChatGPT 接上自己的開發台 MCP，AI Coding 開始變成一條「軟體開發流水線」
+  網址：https://blog.es2idea.com/posts/chatgpt-codex-ticket-workflow/
+  日期：2026-09-14
+  摘要：把 ChatGPT 接上開發台 MCP 後，可以由它負責討論、規劃與 Review，再開 Ticket 交給 Codex 實作。本文拆解 ChatGPT、MCP、Codex 與 Agent Harness 如何分工，以及如何用結構化 Ticket 和驗收...
+  主題：AI Agent、Codex、ChatGPT
+
 - 【GPT-6 Astra 正在把 Vibe Coding，推向 Vibe World Building】
   網址：https://blog.es2idea.com/posts/vibe-coding-to-world-building/
   日期：2026-09-14
@@ -100,13 +106,7 @@
   網址：https://blog.es2idea.com/posts/ai-monetization-five-stages/
   日期：2026-09-08
   摘要：學 AI 不只是學會更多工具，而是把市場願意付錢的專業，逐步轉成可複製的知識、可執行的能力、可交付的結果，最後累積成品牌、產品、資料與通路等商業資產。
-  主題：AI自動化、商業策略、AI Agent
-
-- AI 時代真正會被淘汰的，可能不是員工，而是「組織圖」
-  網址：https://blog.es2idea.com/posts/ai-native-organization/
-  日期：2026-09-08
-  摘要：AI 真正可能淘汰的不是員工，而是沿用數十年的組織圖與 SOP。本文拆解 AI 工具化、職位化、流程化到 AI 原生組織，重新思考企業導入 AI 的 ROI。
-  主題：AI自動化、商業策略、AI Agent
+  主題：商業策略、AI自動化、AI Agent
 
 ## 語言
 - zh-TW
