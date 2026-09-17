@@ -13,7 +13,7 @@ subtitle: "把 Modal 的 Compute 額度變成 Codex 可以呼叫、又有預算�
 description: "Modal Starter 每月 US$30 免費 Compute，能不能變成 Codex 裡的 Kimi K3 第二大腦？本文整理 Codex、MCP、Modal 與 Budget Guard 的整合構想，並說明如何在預算內進行多模型協作。"
 ---
 
-最近看到 Modal 的方案，有一件事讓我很有興趣。
+最近看到 [Modal](https://modal.com/) 的方案，有一件事讓我很有興趣。
 
 它的 Starter 免費方案，不是只有註冊時送一次試用金，而是每個月都有 US$30 的免費 Compute 額度。方案名稱、額度與計費條件可能會調整，所以下面先把這個數字當成我目前想驗證的實驗前提；真正使用前，還是要以當下的官方方案與帳務規則為準。
 
