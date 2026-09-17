@@ -36,10 +36,10 @@
 
 ## 最新文章
 
-- 每月免費 30 美金，我打算把 Kimi K3 接進 Codex 當第二大腦
+- 我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金
   網址：https://blog.es2idea.com/posts/kimi-k3-codex-mcp/
   日期：2026-09-17
-  摘要：Modal Starter 每月 US$30 免費 Compute，能不能變成 Codex 裡的 Kimi K3 第二大腦？本文整理 Codex、MCP、Modal 與 Budget Guard 的整合構想，並說明如何在預算內進行多模型協作。
+  摘要：我原本想用 Modal Starter 的 US$30 免費 Compute 把 Kimi K3 接進 Codex，實測 Dedicated Endpoint 卻因 8×B300 與長時間載入產生 US$34.16 成本；本文整理 Shared Endp...
   主題：AI工具、AI Agent、Codex
 
 - 我覺得 VoiceStudio 最值得注意的地方，根本不是免費
