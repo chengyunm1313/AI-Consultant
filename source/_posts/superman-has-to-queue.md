@@ -1,6 +1,6 @@
 ---
 title: '享哥宇宙 EP001｜請不要救我'
-cover: /images/cover181.png
+cover: /images/cover181-1.png
 cover_position: '68% center'
 toc: true
 categories:
