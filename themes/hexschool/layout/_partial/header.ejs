@@ -31,7 +31,7 @@ const navGroups = [
   {
     label: '創作',
     links: [
-      { label: '享哥宇宙', path: menuPath(['享哥宇宙'], '/sean-verse/') }
+      { label: '享哥宇宙', path: menuPath(['享哥宇宙'], '/sean-verse/'), section: 'sean-verse' }
     ]
   },
   {
@@ -41,6 +41,16 @@ const navGroups = [
     ]
   }
 ];
+const pageTags = page.tags && typeof page.tags.toArray === 'function'
+  ? page.tags.toArray().map(function(tag) { return tag.name; })
+  : [];
+function isNavActive(item) {
+  if (is_current(item.path)) return true;
+  if (item.section === 'sean-verse') {
+    return String(page.path || '').indexOf('sean-verse/') === 0 || pageTags.indexOf('享哥宇宙') !== -1;
+  }
+  return false;
+}
 %>
 <header class="site-header" data-site-header>
   <nav class="site-nav" aria-label="主要導覽">
@@ -63,9 +73,9 @@ const navGroups = [
               <div class="site-nav__group-links">
                 <% group.links.forEach(function(item) { %>
                   <a
-                    class="site-nav__link<%= item.cta ? ' site-nav__link--cta' : '' %><%= is_current(item.path) ? ' is-active' : '' %>"
+                    class="site-nav__link<%= item.cta ? ' site-nav__link--cta' : '' %><%= isNavActive(item) ? ' is-active' : '' %>"
                     href="<%- url_for(item.path) %>"
-                    <% if (is_current(item.path)) { %>aria-current="page"<% } %>
+                    <% if (isNavActive(item)) { %>aria-current="page"<% } %>
                     <% if (item.cta) { %>data-track-event="contact_page_click" data-track-placement="navigation"<% } %>
                   >
                     <span><%= item.label %></span>
