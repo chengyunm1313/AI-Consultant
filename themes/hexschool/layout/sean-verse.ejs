@@ -1,0 +1,150 @@
+<%
+const seanVerseTagName = '享哥宇宙';
+const seanVerseTag = site.tags.findOne({ name: seanVerseTagName });
+const seanVersePosts = seanVerseTag ? seanVerseTag.posts.sort('date', -1).toArray() : [];
+
+function formatDate(dateValue) {
+  return new Date(dateValue).toLocaleDateString('zh-TW');
+}
+
+function extractSummary(post) {
+  if (post.description) return post.description;
+  if (post.excerpt) return String(post.excerpt).replace(/<[^>]*>/g, ' ').replace(/\s+/g, ' ').trim();
+  return '';
+}
+%>
+<main id="main-content" class="works-page sean-verse-page">
+  <section class="works-page__hero py-7 py-md-9">
+    <div class="container">
+      <div class="row justify-content-center">
+        <div class="col-12 col-lg-10 text-center">
+          <p class="mb-3 text-uppercase tracking-wide text-primary-600 fw-semibold">Original Fiction / Sean Verse</p>
+          <h1 class="title-deco mb-4 py-4 py-md-6 text-primary-700 tracking-wide fw-semibold"><%= page.title %></h1>
+          <p class="mx-auto mb-3 fs-5 text-primary-700 works-page__intro"><%= page.description %></p>
+          <p class="mx-auto mb-0 text-primary-600 works-page__intro works-page__intro--secondary">
+            這裡是小說、角色與後續世界入口的集中頁面；目前先從 EP001 開始，之後再逐步補上新的故事。
+          </p>
+        </div>
+      </div>
+      <div class="row row-gap-3 justify-content-center mt-6">
+        <div class="col-12 col-md-6 col-lg-5">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#sean-verse-reading">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">EP001</span>
+              <h2 class="h4 mb-1 text-primary-800">超人也要排隊</h2>
+              <p class="mb-0 text-primary-600">從一張號碼牌開始，讀懂享哥宇宙的第一個任務。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">arrow_forward</span>
+          </a>
+        </div>
+        <div class="col-12 col-md-6 col-lg-5">
+          <a class="works-page__anchor d-flex justify-content-between align-items-center h-100 text-decoration-none" href="#sean-verse-about">
+            <div>
+              <span class="badge rounded-pill text-bg-light text-primary-700 mb-2">閱讀提示</span>
+              <h2 class="h4 mb-1 text-primary-800">先從日常進入世界</h2>
+              <p class="mb-0 text-primary-600">不用先背設定，跟著普通人的麻煩一起往前走。</p>
+            </div>
+            <span class="material-symbols-outlined text-primary-700">south</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section id="sean-verse-reading" class="py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="row justify-content-center mb-6">
+        <div class="col-12 col-lg-8 text-center">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Current Episode</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">目前公開作品</h2>
+          <p class="mb-0 text-primary-600">把小說集中在這裡，讀者不用在部落格文章裡翻找，也能直接接著看下一集。</p>
+        </div>
+      </div>
+
+      <% if (seanVersePosts.length) { %>
+        <ul class="row row-gap-5 list-unstyled mb-0">
+          <% seanVersePosts.forEach(function(post) { %>
+            <li class="col-12 col-md-8 col-lg-6 mx-auto d-flex">
+              <article class="card works-card border-0 rounded-4 w-100 overflow-hidden">
+                <% if (post.cover) { %>
+                  <img src="<%= url_for(post.cover) %>" class="works-card__media" style="object-position: <%= post.cover_position || 'center' %>;" alt="<%= post.title %>">
+                <% } else { %>
+                  <div class="works-card__fallback d-flex flex-column justify-content-end">
+                    <span class="works-card__fallback-kicker">Sean Verse</span>
+                    <p class="works-card__fallback-meta mb-0 text-white">Original fiction</p>
+                  </div>
+                <% } %>
+                <div class="card-body works-card__body d-flex flex-column">
+                  <div class="works-card__content">
+                    <div class="works-card__copy">
+                      <p class="mb-0 text-primary-600 fs-6"><%= formatDate(post.date) %></p>
+                      <h3 class="card-title works-card__title text-primary-800"><%= post.title %></h3>
+                      <p class="text-primary-600 works-card__summary"><%= extractSummary(post) %></p>
+                    </div>
+                  </div>
+                  <div class="works-card__meta">
+                    <p class="works-card__section-label works-card__section-label--muted">文章標籤</p>
+                    <div class="works-card__stack d-flex flex-wrap gap-2">
+                      <% (post.tags || []).each(function(tag) { %>
+                        <span class="badge rounded-pill works-card__chip"><%= tag.name %></span>
+                      <% }) %>
+                    </div>
+                  </div>
+                  <div class="works-card__actions d-flex flex-wrap gap-3 mt-auto">
+                    <a class="btn btn-dark px-4 works-card__action-btn" href="<%= url_for(post.path) %>">開始閱讀</a>
+                  </div>
+                </div>
+              </article>
+            </li>
+          <% }) %>
+        </ul>
+      <% } else { %>
+        <div class="works-page__empty mx-auto text-center">
+          <div class="d-inline-flex justify-content-center align-items-center works-page__empty-icon mb-4">
+            <i class="bi bi-book"></i>
+          </div>
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Coming Soon</p>
+          <h3 class="mb-3 text-primary-800">第一集整理中</h3>
+          <p class="mb-0 text-primary-600">只要文章加上 <code><%= seanVerseTagName %></code>，就會自動出現在這裡。</p>
+        </div>
+      <% } %>
+    </div>
+  </section>
+
+  <section id="sean-verse-about" class="py-7 py-md-9 bg-primary-100">
+    <div class="container">
+      <div class="row row-gap-5 align-items-start">
+        <div class="col-12 col-lg-5">
+          <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Enter The World</p>
+          <h2 class="title-deco py-4 py-md-6 text-primary-700 tracking-wide fw-semibold">這個宇宙在寫什麼？</h2>
+          <p class="mb-0 text-primary-600">享哥宇宙把 AI、城市日常與一點超能力放在同一張生活帳單上：每個人都有想完成的事，也都得面對時間、金錢、信用與別人的選擇。</p>
+        </div>
+        <div class="col-12 col-lg-6 offset-lg-1">
+          <div class="works-page__cta-panel h-100">
+            <ul class="mb-0 ps-4 text-primary-700">
+              <li class="mb-3">超能力不等於可以跳過流程。</li>
+              <li class="mb-3">AI 會幫忙，也可能把一句玩笑當成正式任務。</li>
+              <li class="mb-3">現金、Token、關係信用與服務點數，各自有不同的價值。</li>
+              <li>真正的英雄時刻，常常是讓別人把話講完。</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <section class="works-page__cta py-7 py-md-9 bg-white">
+    <div class="container">
+      <div class="works-page__cta-panel mx-auto text-center">
+        <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Keep Reading</p>
+        <h2 class="h3 mb-3 text-primary-800">準備好拿號碼牌了嗎？</h2>
+        <p class="mb-4 text-primary-600">先從第一集開始，後續故事會在這個入口持續整理。</p>
+        <% if (seanVersePosts.length) { %>
+          <a class="btn btn-dark px-4" href="<%= url_for(seanVersePosts[0].path) %>">閱讀 EP001</a>
+        <% } else { %>
+          <a class="btn btn-dark px-4" href="<%= url_for('/blog/') %>">回到部落格</a>
+        <% } %>
+      </div>
+    </div>
+  </section>
+</main>
