@@ -39,7 +39,7 @@
 - 享哥宇宙 EP002｜女鬼也要本人簽收
   網址：https://blog.es2idea.com/posts/ghost-girl-personal-receipt/
   日期：2026-09-22
-  摘要：享哥宇宙 EP002《女鬼也要本人簽收》：享哥摔進雨夜宮廟，為了回家捲入蘇紅的未送達原話；當安穩版本、孟婆遺忘與死亡流程輪番逼近，他只能學會斷路，不斷人。
+  摘要：享哥宇宙 EP002《女鬼也要本人簽收》：享哥摔進雨夜宮廟，為了回家捲入蘇紅的未送達原話；輝哥的試用包、孟婆的遺忘捷徑與死亡流程輪番逼近，他只能學會斷路，不斷人。
   主題：享哥宇宙、奇幻喜劇、台灣民間信仰
 
 - 享哥宇宙 EP001｜請不要救我
@@ -52,7 +52,7 @@
   網址：https://blog.es2idea.com/posts/ai-video-storytelling/
   日期：2026-09-18
   摘要：AI 影片新手不該先把時間花在電影感、8K 與複雜運鏡，而要先學會 Hook、衝突、角色與反轉。本文重新排列 AI 影片能力樹，說明為什麼故事與獨特想像比高級畫面更值得投資。
-  主題：AI工具、內容行銷、影音行銷
+  主題：內容行銷、AI工具、影音行銷
 
 - 我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金
   網址：https://blog.es2idea.com/posts/kimi-k3-codex-mcp/
@@ -64,7 +64,7 @@
   網址：https://blog.es2idea.com/posts/voicestudio-ai-workflow/
   日期：2026-09-15
   摘要：VoiceStudio 最值得注意的地方不只是免費，而是本地語音能力如何透過 API 或 MCP 接進 AI 內容工廠，讓配音從手動操作變成可重複呼叫的工作流節點。
-  主題：AI自動化、AI工具、影音行銷
+  主題：AI工具、AI自動化、影音行銷
 
 - 【30 秒 AI 影片，模型只花 513 元，為什麼報價可以是一萬元？】
   網址：https://blog.es2idea.com/posts/ai-video-cost-pricing/
@@ -106,7 +106,7 @@
   網址：https://blog.es2idea.com/posts/ai-short-drama-steam-games/
   日期：2026-09-14
   摘要：DataEye 統計 2026 上半年抖音端 AI 劇漫劇新劇達 22.19 萬部；Steam《幸存者笔记》則結合 AI 素材與互動分支。AI 短劇的下一站，可能是讓觀眾親自走進故事。
-  主題：AI工具、內容行銷、影音行銷
+  主題：內容行銷、AI工具、影音行銷
 
 ## 語言
 - zh-TW
