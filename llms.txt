@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 華為「天才少年」把 AI Agent 寫成一本開源教科書，這幾章最值得先啃
+  網址：https://blog.es2idea.com/posts/ai-agent-book-engineering-guide/
+  日期：2026-09-22
+  摘要：《深入理解 AI Agent：設計原理與工程實踐》把 Context、Tools、Coding Agent、Computer Use、Evaluation 與 Multi-Agent 串成完整工程地圖。本文整理進階使用者最值得優先閱讀與實作的章節。
+  主題：AI Agent、Codex、MCP
+
 - 享哥宇宙 EP002｜女鬼也要本人簽收
   網址：https://blog.es2idea.com/posts/ghost-girl-personal-receipt/
   日期：2026-09-22
@@ -101,12 +107,6 @@
   日期：2026-09-14
   摘要：GPT-6 Astra 的 Unreal Engine、Blender 與 Three.js 案例，讓 Vibe Coding 走向 Vibe World Building。本文拆解世界、角色與產品三個尺度，說明 Agent 越會操作專業工具，Domai...
   主題：AI工具、AI Agent、Vibe Coding
-
-- 【AI 短劇的下一站，可能不是抖音，而是 Steam】
-  網址：https://blog.es2idea.com/posts/ai-short-drama-steam-games/
-  日期：2026-09-14
-  摘要：DataEye 統計 2026 上半年抖音端 AI 劇漫劇新劇達 22.19 萬部；Steam《幸存者笔记》則結合 AI 素材與互動分支。AI 短劇的下一站，可能是讓觀眾親自走進故事。
-  主題：AI工具、內容行銷、影音行銷
 
 ## 語言
 - zh-TW
