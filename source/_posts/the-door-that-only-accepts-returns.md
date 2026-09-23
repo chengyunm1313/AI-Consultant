@@ -1,6 +1,7 @@
 ---
 title: '享哥宇宙 EP003｜只收退件的門'
-cover: /images/default-cover.png
+cover: /images/cover185.png
+cover_position: '60% center'
 toc: true
 categories:
   - 小說
