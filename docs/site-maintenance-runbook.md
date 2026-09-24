@@ -35,6 +35,37 @@
 
 任何一項出現以下狀況即退回重排：主標需跨出安全區、描邊填死中文筆畫、兩色沒有語意主次、箭頭 hook 沒有轉變功能、縮圖先看到人物／icon／hook，或原圖正確但實際列表卡片裁掉關鍵字。詳細生成與視覺評分規則見 [`add-hexo-post` skill](../.agents/skills/add-hexo-post/SKILL.md)。
 
+### 1.2 既有文章重做封面的版本與續發復盤（2026-08-29）
+
+本次 AXO 文章先以 `cover148.png` 發布，之後使用者不接受第一版風格，要求重新設計封面並指定檔名應為 `cover148-1.png`。過程中暴露出幾個容易把「新文章」與「既有文章的新版本」混在一起的陷阱：
+
+| 失敗訊號 | 實際原因 | 固定處理方式 |
+| --- | --- | --- |
+| `cover-guard next` 回報 `cover149.png`，但需求是 `cover148-1.png` | 全域下一號與既有文章的版本身份不是同一件事 | 新文章才使用 `next`；既有文章重做時以原 cover 基底與使用者指定尾碼為準，先確認目標不存在，不要擅自改成 `cover149.png` |
+| 既有 `cover148.png` 已在 `main`／`gh-pages` | 已發布資產不能靠重做流程覆寫，否則會失去可追溯的舊版本 | 保留舊檔，新增 `cover148-1.png`，並讓文章 front matter、source PNG、production WebP 與 staged 檔名一致 |
+| 第一版封面風格被使用者否決 | 只換色彩或增加光效，沒有改變設計語法與文章的視覺命題 | 重新看文章核心轉變與近期 3–5 張 cover，至少改變媒材／構圖／文字處理中的兩個軸；用文章機制建立主視覺，不以泛用 AI icon 補空間 |
+| imagegen 輸出是 1536×1024 | 生成工具不保證遵守 prompt 中的 1200×800 | 先 `view_image`，再 `cover-guard normalize` 成 1200×800 PNG；production 另驗同檔名 WebP，兩者不是同一個 gate |
+| `sharp` 套字時出現 same-file input/output 錯誤 | 同一路徑同時作為輸入與輸出，並非設計或圖片內容失敗 | 使用記憶體 buffer、不同的暫存路徑或 `mktemp -d` 備份後再輸出；完成視覺檢查後才替換未提交的新版本 |
+| 舊的「push 到 main」授權被沿用到封面重做 | 封面重做與 front matter 切換是新的 deliverable | 新版本重新完成 local QA 後，再列摘要並取得一次明確 push 確認；不能沿用舊版本授權 |
+
+本次放行前的必要證據也要保留在流程中：原圖、480px 縮圖、桌面與 390×844 手機卡片都能讀到主標；Hexo build 產生新版 WebP；本機瀏覽器與正式站實際載入的 `currentSrc` 指向新版封面。正式發布後，剛 push 立即查 `gh run list` 可能暫時沒有資料，應等待並以同一 SHA 重查，不要重複 push；`Hexo Build & Deploy` 成功後，還要等待獨立的 `pages-build-deployment` run。
+
+本次最後確認了四層結果：`main` commit 成功、同 SHA 的 Hexo workflow 成功、`gh-pages` 有文章 HTML／新版 WebP、canonical 文章與封面裸網址皆為 200，且正式部落格列表的瀏覽器畫面已顯示新版封面。若只完成前兩層，回報「已推送／部署產物已更新」；不能直接稱為正式站已完成。
+
+### 1.3 單篇文章發布時間復盤（2026-09-25）
+
+前一篇文章從開始到完成約 58 分 59 秒。這是端到端經過時間，不能全算成寫作或 QA 工時；可辨認的主要耗時如下：
+
+| 觀察 | 實測紀錄 | 流程調整 |
+| --- | --- | --- |
+| 瀏覽器 session 中斷 | Playwright 回報 `browser is not open` 後，下一個成功操作前有約 28 分 39 秒沒有事件 | 內建瀏覽器可用時優先使用；Playwright 遇到失效只重開一次，第二次失敗就標記受限並停止，不反覆等待／重試 |
+| 封面裁切太晚確認 | 封面修改前後各跑一次約 50 秒的 full build | 改用 Hexo source server 直接驗 PNG，先定稿裁切，再做一次 production build；build 後只有 source 再變才重跑 |
+| 圖片輸出與找回 | 有 4 次 ImageGen 結果，包含路徑回收問題與兩次桌面裁切修正 | 先檢查工具回傳的 `savedPath`／`output_hint`，一次生成後最多做一次針對根因的重生；用 CSS 幾何先估桌面／手機 crop，候選圖不逐張開瀏覽器 |
+| 明確確認等待 | slug 與 push 兩次使用者回覆合計約 68 秒 | 批次時一次列出全部 slug 候選，push 前用單一 manifest 確認整批；兩個必要授權關卡仍保留 |
+| 部署與 CDN 傳播 | Hexo Actions、Pages 與 Cloudflare cache 各有獨立等待 | 同 SHA 查 workflow 與 `gh-pages`；Cloudflare 負向快取最多短間隔重查一次，標記 `cover_cdn_pending` 後可繼續下一批 |
+
+上述 28 分 39 秒空窗在事件紀錄中沒有原因標記，不能斷言它是授權確認造成。個別截圖操作並非主要耗時；可直接改善的是 build 順序、重複 imagegen／路徑查找，以及瀏覽器失效後的恢復策略。Codex 內建瀏覽器可減少 Playwright CLI shell 子程序與逐條命令核准的機會，但仍受平台瀏覽器控制權限約束，不能承諾零確認。
+
 ## 2. 發布前：確認邊界與提交範圍
 
 在專案根目錄執行：
@@ -69,15 +100,33 @@ git add -- README.md docs/site-maintenance-runbook.md .agents/skills/add-hexo-po
 
 ## 3. 本機驗收：用實際專案 scripts，再做等價檢查
 
-先看 scripts，不要猜不存在的 alias：
+先看 scripts，不要猜不存在的 alias。批次文章先一次檢查日期、metadata、FAQ、cover-guard 與 Markdown 空白；JSON-LD 的 `--paths` 一次列出所有 slug。
+
+驗收順序固定為「source 靜態檢查 → 一次本機瀏覽器 QA → 一次 production build／JSON-LD」：Hexo 開發伺服器直接讀 source PNG，因此封面桌機／手機裁切應在 full build 前定稿。若裁切要修，沿用同一個 server 與 browser session，只重拍受影響畫面，不先 build 再重 build。
+
+先做一次 source 靜態檢查：
 
 ```bash
 npm run
 npm run verify:post-dates
+git diff --check
+```
+
+接著只啟動一個本機 server；server 持續執行時，在同一 browser session 完成文章頁與 `/blog/` 的 source PNG 桌機／手機 QA。通過後停止自己啟動的 server，不為 production build 再開第二個 server：
+
+```bash
+npm run server -- --port <free-port>
+```
+
+source 與封面確認不再變動後，再做一次 production build、批次 JSON-LD 與 build-output 檢查：
+
+```bash
 npm run build
 node tools/validate-jsonld.js --mode=local --paths=/posts/<slug>/ --public-dir=public
 git diff --check
 ```
+
+批次時將所有 slug 放入同一次 JSON-LD 驗證，例如 `--paths=/posts/<slug-a>/,/posts/<slug-b>/`；若 build 後改過 source，才重跑 build 與受影響驗證。
 
 若專案沒有 metadata／build-output 專用 script，等價檢查至少包含：
 
@@ -88,13 +137,7 @@ git diff --check
 
 注意 front matter 使用的是 `categories` 複數欄位與 YAML 清單；驗證器應解析欄位語意，不要假設是 `category` 單數或 inline array。若自行寫檢查器失敗，先確認是文章錯誤還是檢查器的格式假設錯誤。
 
-再用本機伺服器驗證實際頁面與 source PNG：
-
-```bash
-npm run server -- --port 4000
-```
-
-確認 `http://localhost:4000/posts/<slug>/` 回 200，含標題、封面、FAQ、標題階層與程式碼區塊；完成後只停止自己啟動的 server。
+上方同一 server／browser session 即為唯一頁面驗收；確認 `http://localhost:<free-port>/posts/<slug>/` 回 200，含標題、封面、FAQ、標題階層與程式碼區塊。不可在 build 後重開第二個 server。
 
 ## 4. Commit、push 與 Actions
 
@@ -171,7 +214,7 @@ npm run verify:jsonld -- --base=https://blog.es2idea.com --paths=/posts/<slug>/
 | `cover_cdn_pending` | 裸封面 404／舊 HIT，但唯一 query 封面 200 | 部署成功、等待封面 CDN | 完整正式站驗收完成 |
 | `release_complete` | 文章與封面裸網址皆 2xx，內容／JSON-LD 正確 | 正式站驗收完成 | — |
 
-文章頁 200、HTML 已引用新版 WebP，但裸封面仍 404 時，維持 `cover_cdn_pending`；不要為了繞過快取重複提交同一內容。若沒有可用的授權 purge，等待 TTL 後再做裸網址驗收。
+文章頁 200、HTML 已引用新版 WebP，但裸封面仍 404 時，維持 `cover_cdn_pending`；不要為了繞過快取重複提交同一內容。讀取 `cf-cache-status`／`age`／`cache-control`，最多等 30–60 秒重試一次；若確認是 Cloudflare 負向快取命中，就停止輪詢，待 TTL 後再做裸網址驗收。CDN 等待不阻塞下一批文章。
 
 ## 7. 安全邊界
 
