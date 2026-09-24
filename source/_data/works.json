@@ -1,5 +1,24 @@
 [
   {
+    "id": "vibe-shengsheng-brand-rebuild",
+    "category": "vibe-coding",
+    "title": "用 Vibe Coding 一週重建鮮生小姐品牌官網",
+    "summary": "從遭駭的 WordPress 官網出發，重新梳理品牌形象、商品展示與 LINE 導購，並以 Codex 協作打造新版品牌網站。",
+    "result": "加入 AI 品牌代言人 Cherry、風格一致的 AI 商品圖與 LINE 詢問成交流程，建立可持續迭代的官網第一版。",
+    "stack": [
+      "Vibe Coding",
+      "Codex",
+      "AI 商品圖",
+      "LINE 導購"
+    ],
+    "cover": "/images/cover146.png",
+    "primary_url": "https://shop.xn--jxs15c634bdi9a.tw/",
+    "primary_label": "體驗品牌官網",
+    "article_url": "/posts/ai-powered-brand-rebuild/",
+    "article_label": "閱讀重建實錄",
+    "featured": true
+  },
+  {
     "id": "vibe-aeo-fixer",
     "category": "vibe-coding",
     "title": "Vibe Coding 實戰：打造 AEO Fixer 網站 AI 搜尋優化檢測工具",
