@@ -1,0 +1,970 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與版本不同步。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest">
+<meta property="og:url" content="https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與版本不同步。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover189.webp">
+<meta property="article:published_time" content="2026-09-26T01:15:33.000Z">
+<meta property="article:modified_time" content="2026-09-25T17:47:35.956Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="自動化講師應用">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover189.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#webpage","@type":"WebPage","name":"AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest","url":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/","description":"AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與版本不同步。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover189.webp","@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#blogposting","@type":"BlogPosting","headline":"AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest","name":"AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest","description":"AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與版本不同步。","url":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-09-26T01:15:33.000Z","dateModified":"2026-09-25T17:47:35.956Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover189.webp","@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI自動化","AI工具","自動化講師應用"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI自動化","AI工具","自動化講師應用"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest","item":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/"}]},{"@id":"https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Slide Manifest 和課程大綱有什麼不同？","acceptedAnswer":{"@type":"Answer","text":"Course Outline 列出課程主題與內容範圍；Slide Manifest 會進一步把內容拆成逐頁規格，記錄每張投影片的 ID、目標、重點、呈現方式，以及是否要放入講義或 Prompt Card。"}},{"@type":"Question","name":"Slide Manifest 一定要用 YAML 嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。Markdown 表格、CSV、Google Sheet 或 Notion 資料庫都可以。重點是每張投影片有穩定且唯一的 ID，欄位也足以說明它的目的與教材需求。"}},{"@type":"Question","name":"建立 Manifest 後，還能修改簡報內容嗎？","acceptedAnswer":{"@type":"Answer","text":"可以。先更新 Manifest 的相關項目、版本或變更紀錄，再重新產生受影響的簡報、講義或 Prompt Card。這樣各份教材才能繼續對應同一份已確認的規格。"}},{"@type":"Question","name":"小型課程也需要 Slide Manifest 嗎？","acceptedAnswer":{"@type":"Answer","text":"如果內容很少、只需製作一次簡報，簡單大綱可能就足夠；若同一課程會產生投影片、講義、Prompt Card 或多次更新，逐頁規格能更容易檢查遺漏與同步狀況。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Slide-Manifest-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Slide Manifest 是什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E5%A4%A7%E7%B6%B1%E3%80%81%E7%B0%A1%E5%A0%B1%E5%92%8C%E8%AC%9B%E7%BE%A9%E5%AE%B9%E6%98%93%E4%B8%8D%E5%90%8C%E6%AD%A5%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">為什麼大綱、簡報和講義容易不同步？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%AF%8F%E5%BC%B5%E6%8A%95%E5%BD%B1%E7%89%87%E7%9A%84%E8%A6%8F%E6%A0%BC%E8%A6%81%E5%8C%85%E5%90%AB%E5%93%AA%E4%BA%9B%E6%AC%84%E4%BD%8D%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">每張投影片的規格要包含哪些欄位？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%82%BA%E6%95%99%E5%AD%B8%E7%B0%A1%E5%A0%B1%E8%A3%9C%E4%B8%8A%E5%AF%A6%E4%BD%9C%E8%88%87%E8%AC%9B%E5%B8%AB%E8%B3%87%E8%A8%8A"><span class="toc-number">3.1.</span> <span class="toc-text">為教學簡報補上實作與講師資訊</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%94%A8-type-%E6%8C%87%E5%AE%9A%E6%AF%8F%E9%A0%81%E7%9A%84%E5%8A%9F%E8%83%BD"><span class="toc-number">3.2.</span> <span class="toc-text">用 type 指定每頁的功能</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-Slide-Manifest-%E7%9A%84%E5%BB%BA%E8%AD%B0%E6%B5%81%E7%A8%8B"><span class="toc-number">4.</span> <span class="toc-text">建立 Slide Manifest 的建議流程</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E5%85%88%E6%95%B4%E7%90%86-Course-Brief"><span class="toc-number">4.1.</span> <span class="toc-text">1. 先整理 Course Brief</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E7%B7%A8%E5%AF%AB-Course-Outline"><span class="toc-number">4.2.</span> <span class="toc-text">2. 編寫 Course Outline</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%B0%87%E5%A4%A7%E7%B6%B1%E6%8B%86%E6%88%90%E9%80%90%E9%A0%81-Manifest"><span class="toc-number">4.3.</span> <span class="toc-text">3. 將大綱拆成逐頁 Manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E5%85%88%E5%81%9A-Manifest-QA%EF%BC%8C%E5%86%8D%E5%81%9A-PPT"><span class="toc-number">4.4.</span> <span class="toc-text">4. 先做 Manifest QA，再做 PPT</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E8%AE%93-PPT%E3%80%81%E8%AC%9B%E7%BE%A9%E8%88%87-Prompt-Card-%E5%85%B1%E7%94%A8-Manifest"><span class="toc-number">4.5.</span> <span class="toc-text">5. 讓 PPT、講義與 Prompt Card 共用 Manifest</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#6-Manifest-%E5%AE%9A%E7%A8%BF%E5%BE%8C%E5%81%9A%E7%89%88%E6%9C%AC%E7%AE%A1%E7%90%86"><span class="toc-number">4.6.</span> <span class="toc-text">6. Manifest 定稿後做版本管理</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Manifest-%E4%B8%8D%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8-YAML"><span class="toc-number">5.</span> <span class="toc-text">Manifest 不一定要用 YAML</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8-Codex-%E6%95%B4%E7%90%86%E8%AA%B2%E7%A8%8B%E5%B0%88%E6%A1%88"><span class="toc-number">6.</span> <span class="toc-text">用 Codex 整理課程專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Slide-Manifest-%E8%88%87-Design-System-%E5%90%84%E8%87%AA%E7%AE%A1%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">Slide Manifest 與 Design System 各自管什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%94%A8%E4%B8%80%E4%BB%BD%E9%80%90%E9%A0%81%E8%A6%8F%E6%A0%BC%EF%BC%8C%E6%B8%9B%E5%B0%91%E6%95%99%E6%9D%90%E4%B8%8D%E5%90%8C%E6%AD%A5"><span class="toc-number">8.</span> <span class="toc-text">用一份逐頁規格，減少教材不同步</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">9.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9ASlide-Manifest-%E5%92%8C%E8%AA%B2%E7%A8%8B%E5%A4%A7%E7%B6%B1%E6%9C%89%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">9.1.</span> <span class="toc-text">Q1：Slide Manifest 和課程大綱有什麼不同？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9ASlide-Manifest-%E4%B8%80%E5%AE%9A%E8%A6%81%E7%94%A8-YAML-%E5%97%8E%EF%BC%9F"><span class="toc-number">9.2.</span> <span class="toc-text">Q2：Slide Manifest 一定要用 YAML 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E5%BB%BA%E7%AB%8B-Manifest-%E5%BE%8C%EF%BC%8C%E9%82%84%E8%83%BD%E4%BF%AE%E6%94%B9%E7%B0%A1%E5%A0%B1%E5%85%A7%E5%AE%B9%E5%97%8E%EF%BC%9F"><span class="toc-number">9.3.</span> <span class="toc-text">Q3：建立 Manifest 後，還能修改簡報內容嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E5%B0%8F%E5%9E%8B%E8%AA%B2%E7%A8%8B%E4%B9%9F%E9%9C%80%E8%A6%81-Slide-Manifest-%E5%97%8E%EF%BC%9F"><span class="toc-number">9.4.</span> <span class="toc-text">Q4：小型課程也需要 Slide Manifest 嗎？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (66)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (19)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (21)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (15)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (17)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (30)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (79)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (57)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (37)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (26)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (39)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (32)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (14)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/09/26 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 讓每張投影片都有明確任務，再讓簡報、講義與 Prompt Card 共用同一份規格。 -</h4>
+        
+        <p>最近用 AI 製作課程簡報時，我常遇到一個麻煩：一開始明明規劃好課程大綱，最後的投影片和講義卻對不起來。</p>
+<ul>
+<li>大綱列了 30 個重點，PPT 少了幾個。</li>
+<li>大綱中的第 12 頁，到了簡報變成別的內容。</li>
+<li>簡報放了完整 Prompt，講義卻沒有收錄。</li>
+<li>講義的實作順序和投影片不同。</li>
+<li>修改簡報後，講義沒有跟著更新。</li>
+<li>AI 覺得兩頁內容相似，就自行合併成一頁。</li>
+</ul>
+<p>這些狀況不一定是 AI 不會做簡報，而是課程大綱、PPT、講義和 Prompt Card 各自被重新理解了一次。每多一次重新解讀，內容就多一個走樣的機會。</p>
+<p>我會在課程大綱和各種教材之間加上一層規格：<strong>Slide Manifest</strong>。先把每張投影片要完成的任務寫清楚，再從同一份 Manifest 產生簡報、講義、Prompt Card 和講師備註。</p>
+<h2 id="Slide-Manifest-是什麼？"><a href="#Slide-Manifest-是什麼？" class="headerlink" title="Slide Manifest 是什麼？"></a>Slide Manifest 是什麼？</h2><p>可以把 Slide Manifest 想成整份課程簡報的施工藍圖，也是逐頁的規格表。課程大綱通常說明要教哪些主題；Manifest 則進一步說明每張投影片的目的、重點、呈現方式，以及是否要進入講義。</p>
+<p>一般大綱可能只寫：</p>
+<figure class="highlight markdown"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line"><span class="section">## AI 提示詞實作</span></span><br><span class="line"></span><br><span class="line"><span class="bullet">-</span> 提示詞基本架構</span><br><span class="line"><span class="bullet">-</span> Role / Task / Context</span><br><span class="line"><span class="bullet">-</span> 實作 Facebook 貼文</span><br></pre></td></tr></table></figure>
+
+<p>人看得懂這些主題，但還需要決定要拆成幾頁、哪些元素放在一起、是否提供完整 Prompt，以及哪些內容要放進講義。Slide Manifest 把這些決定先記錄下來：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">id:</span> <span class="string">slide_011</span></span><br><span class="line">  <span class="attr">section:</span> <span class="string">&quot;03&quot;</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">concept</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">提示詞不是咒語，而是一份工作說明書</span></span><br><span class="line">  <span class="attr">learning_objective:</span> <span class="string">讓學員理解提示詞的基本概念</span></span><br><span class="line">  <span class="attr">key_points:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">AI</span> <span class="string">需要明確任務</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">提供角色與背景</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">指定輸出格式</span></span><br><span class="line">  <span class="attr">visual:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">diagram</span></span><br><span class="line">    <span class="attr">concept:</span> <span class="string">使用者</span> <span class="string">→</span> <span class="string">Prompt</span> <span class="string">→</span> <span class="string">AI</span> <span class="string">→</span> <span class="string">Output</span></span><br><span class="line">  <span class="attr">handout:</span></span><br><span class="line">    <span class="attr">include:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>下一頁可以獨立記錄提示詞的組成：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">id:</span> <span class="string">slide_012</span></span><br><span class="line">  <span class="attr">section:</span> <span class="string">&quot;03&quot;</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">framework</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">Prompt</span> <span class="string">四大元素</span></span><br><span class="line">  <span class="attr">learning_objective:</span> <span class="string">讓學員辨識</span> <span class="string">Prompt</span> <span class="string">的基本結構</span></span><br><span class="line">  <span class="attr">key_points:</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Role</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Task</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Context</span></span><br><span class="line">    <span class="bullet">-</span> <span class="string">Output</span></span><br><span class="line">  <span class="attr">visual:</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">four_block</span></span><br><span class="line">  <span class="attr">handout:</span></span><br><span class="line">    <span class="attr">include:</span> <span class="literal">true</span></span><br></pre></td></tr></table></figure>
+
+<p>實作頁則應把完整提示詞和交付物寫進規格，而不是只留下一個主題名稱：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line"><span class="bullet">-</span> <span class="attr">id:</span> <span class="string">slide_013</span></span><br><span class="line">  <span class="attr">section:</span> <span class="string">&quot;03&quot;</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">practice</span></span><br><span class="line">  <span class="attr">title:</span> <span class="string">實作：產生</span> <span class="string">Facebook</span> <span class="string">貼文</span></span><br><span class="line">  <span class="attr">learning_objective:</span> <span class="string">完成第一個行銷文案</span> <span class="string">Prompt</span></span><br><span class="line">  <span class="attr">prompt:</span></span><br><span class="line">    <span class="attr">text:</span> <span class="string">|</span></span><br><span class="line"><span class="string">      你是一位社群行銷顧問。</span></span><br><span class="line"><span class="string"></span></span><br><span class="line">      <span class="string">請根據以下資料撰寫</span> <span class="string">Facebook</span> <span class="string">貼文：</span></span><br><span class="line"></span><br><span class="line">      <span class="string">商品：</span></span><br><span class="line">      <span class="string">目標客群：</span></span><br><span class="line">      <span class="string">主要特色：</span></span><br><span class="line"></span><br><span class="line">      <span class="string">請輸出：</span></span><br><span class="line">      <span class="number">1</span><span class="string">.</span> <span class="string">標題</span></span><br><span class="line">      <span class="number">2</span><span class="string">.</span> <span class="string">貼文正文</span></span><br><span class="line">      <span class="number">3</span><span class="string">.</span> <span class="string">CTA</span></span><br><span class="line">  <span class="attr">handout:</span></span><br><span class="line">    <span class="attr">include:</span> <span class="literal">true</span></span><br><span class="line">    <span class="attr">type:</span> <span class="string">prompt_card</span></span><br></pre></td></tr></table></figure>
+
+<p>這樣每張投影片都有自己的 ID 與規格，後續產物便能對回原始頁面，而不必靠標題猜它們是否相同。</p>
+<h2 id="為什麼大綱、簡報和講義容易不同步？"><a href="#為什麼大綱、簡報和講義容易不同步？" class="headerlink" title="為什麼大綱、簡報和講義容易不同步？"></a>為什麼大綱、簡報和講義容易不同步？</h2><p>如果工作流程是「大綱 → AI 做 PPT → AI 做講義 → AI 做 Prompt Card」，每個產物都可能重新從大綱推導一次內容。即使每次理解只差一點，差異最後還是會累積：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">課程大綱 → 第一次解讀 → PPT</span><br><span class="line">課程大綱 → 第二次解讀 → 講義</span><br><span class="line">課程大綱 → 第三次解讀 → Prompt Card</span><br></pre></td></tr></table></figure>
+
+<p>加入 Manifest 後，流程改成先確認逐頁規格，再由同一份資料分別產生需要的教材：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">Course Brief → Course Outline → Slide Manifest → QA</span><br><span class="line">                                   ├─ PPT 與講師備註</span><br><span class="line">                                   ├─ 學員講義</span><br><span class="line">                                   └─ Prompt Card 與實作</span><br></pre></td></tr></table></figure>
+
+<p>這不表示課程內容永遠不能修改。它表示在產生不同教材時，先共用同一份已確認的逐頁規格；課程方向改變時，也要同步更新 Manifest，再產生受影響的產物。</p>
+<h2 id="每張投影片的規格要包含哪些欄位？"><a href="#每張投影片的規格要包含哪些欄位？" class="headerlink" title="每張投影片的規格要包含哪些欄位？"></a>每張投影片的規格要包含哪些欄位？</h2><p>剛開始不必設計成複雜的資料庫。先記錄足以界定每張投影片工作的欄位：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">id:</span> <span class="string">slide_021</span></span><br><span class="line"><span class="attr">section:</span> <span class="string">&quot;04&quot;</span></span><br><span class="line"><span class="attr">type:</span> <span class="string">practice</span></span><br><span class="line"><span class="attr">title:</span> <span class="string">實作：建立你的第一個</span> <span class="string">AI</span> <span class="string">工作流程</span></span><br><span class="line"><span class="attr">learning_objective:</span> <span class="string">學員可以完成一個從輸入到輸出的</span> <span class="string">AI</span> <span class="string">工作流程</span></span><br><span class="line"><span class="attr">key_message:</span> <span class="string">先定義資料如何進來、處理，再確認結果如何交付</span></span><br><span class="line"><span class="attr">key_points:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">定義輸入</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">定義處理方式</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">定義輸出</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">測試結果</span></span><br><span class="line"><span class="attr">visual:</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">workflow</span></span><br><span class="line">  <span class="attr">content:</span> <span class="string">使用者輸入</span> <span class="string">→</span> <span class="string">AI</span> <span class="string">分析</span> <span class="string">→</span> <span class="string">產生結果</span></span><br><span class="line"><span class="attr">speaker_notes:</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">先展示完成品</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">再拆解流程</span></span><br><span class="line">  <span class="bullet">-</span> <span class="string">最後讓學員實作</span></span><br><span class="line"><span class="attr">handout:</span></span><br><span class="line">  <span class="attr">include:</span> <span class="literal">true</span></span><br><span class="line">  <span class="attr">type:</span> <span class="string">lab</span></span><br><span class="line"><span class="attr">duration:</span> <span class="number">10</span></span><br><span class="line"><span class="attr">source:</span></span><br><span class="line">  <span class="attr">outline_section:</span> <span class="number">4.2</span></span><br></pre></td></tr></table></figure>
+
+<p>最基本的欄位可包括 <code>id</code>、<code>section</code>、<code>type</code>、<code>title</code>、<code>learning_objective</code>、<code>key_points</code>、<code>visual</code>、<code>speaker_notes</code>、<code>handout</code> 和 <code>source</code>。如果課程會產生示範或實作，再補上 <code>demo</code>、<code>practice</code>、<code>prompt</code>、<code>duration</code> 等資訊。</p>
+<h3 id="為教學簡報補上實作與講師資訊"><a href="#為教學簡報補上實作與講師資訊" class="headerlink" title="為教學簡報補上實作與講師資訊"></a>為教學簡報補上實作與講師資訊</h3><p>教學課程通常還需要 <code>key_message</code>、<code>demo</code>、<code>practice</code>、<code>prompt</code> 和 <code>duration</code>。這些欄位可以說明本頁要讓學員帶走什麼、老師要示範什麼、學員要完成什麼，以及這一段預計花多少時間。</p>
+<p>欄位名稱不是重點，定義清楚才是重點。例如 <code>practice</code> 不能只寫「做一個流程」，還要列出學員要操作的步驟和完成條件；<code>prompt</code> 若要進入講義，就應放入完整可使用的文字，而不是只留一個 Prompt 標題。</p>
+<h3 id="用-type-指定每頁的功能"><a href="#用-type-指定每頁的功能" class="headerlink" title="用 type 指定每頁的功能"></a>用 <code>type</code> 指定每頁的功能</h3><p>替每張投影片指定 <code>type</code>，能讓製作流程知道這頁要負責什麼工作。常見類型可以是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br></pre></td><td class="code"><pre><span class="line">cover</span><br><span class="line">section</span><br><span class="line">concept</span><br><span class="line">framework</span><br><span class="line">comparison</span><br><span class="line">workflow</span><br><span class="line">case_study</span><br><span class="line">demo</span><br><span class="line">practice</span><br><span class="line">prompt</span><br><span class="line">summary</span><br><span class="line">qna</span><br></pre></td></tr></table></figure>
+
+<p><code>type: comparison</code> 表示要呈現比較關係；<code>type: prompt</code> 則代表需要適合閱讀與複製提示詞的版型。Manifest 因此不只管理內容，也能連接簡報的 Design System。</p>
+<h2 id="建立-Slide-Manifest-的建議流程"><a href="#建立-Slide-Manifest-的建議流程" class="headerlink" title="建立 Slide Manifest 的建議流程"></a>建立 Slide Manifest 的建議流程</h2><h3 id="1-先整理-Course-Brief"><a href="#1-先整理-Course-Brief" class="headerlink" title="1. 先整理 Course Brief"></a>1. 先整理 Course Brief</h3><p>在排頁面前，先寫清楚上課對象、課程時間、學員程度、學習目標、實作數量、是否需要 Prompt 或 Demo，以及是否需要學員講義。需求若還不明確，後面的逐頁規格也很難一次到位。</p>
+<h3 id="2-編寫-Course-Outline"><a href="#2-編寫-Course-Outline" class="headerlink" title="2. 編寫 Course Outline"></a>2. 編寫 Course Outline</h3><p>接著整理課程章節與要教的概念。例如「AI 工作流程概念」底下列出 Agent 是什麼、與 Chatbot 有何不同，以及有哪些工作流程案例。這階段先定義課程涵蓋範圍，不急著決定每個主題要做幾張投影片。</p>
+<h3 id="3-將大綱拆成逐頁-Manifest"><a href="#3-將大綱拆成逐頁-Manifest" class="headerlink" title="3. 將大綱拆成逐頁 Manifest"></a>3. 將大綱拆成逐頁 Manifest</h3><p>逐頁決定 ID、章節、類型、標題、學習目標、重點、視覺方式、示範、實作、Prompt、講師備註、講義設定與大綱來源。每一頁都應能回答：「這張投影片在課程中負責什麼？」</p>
+<p>可以用以下提示詞建立初稿：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">請根據以下課程大綱建立 Slide Manifest。</span><br><span class="line">此階段只規劃完整的逐頁架構，不要設計簡報或產生 PPT。</span><br><span class="line"></span><br><span class="line">每張投影片都要有唯一 ID，並記錄 section、type、title、</span><br><span class="line">learning_objective、key_message、key_points、visual、demo、</span><br><span class="line">practice、prompt、speaker_notes、handout 與 source。</span><br><span class="line"></span><br><span class="line">一個 Manifest 項目對應一張投影片。請勿自行合併、刪除或新增頁面。</span><br></pre></td></tr></table></figure>
+
+<h3 id="4-先做-Manifest-QA，再做-PPT"><a href="#4-先做-Manifest-QA，再做-PPT" class="headerlink" title="4. 先做 Manifest QA，再做 PPT"></a>4. 先做 Manifest QA，再做 PPT</h3><p>先審逐頁架構，確認它涵蓋課程大綱、頁面順序合理、ID 不重複、頁數符合預期，而且沒有實作或 Prompt 遺漏。再逐項檢查：</p>
+<ul>
+<li>每個大綱主題是否都有對應的投影片？</li>
+<li>ID 是否唯一、連續，且沒有重複頁面？</li>
+<li>每個學習目標是否具體？</li>
+<li>每張實作頁是否包含步驟和完成條件？</li>
+<li>每張 Prompt 頁是否附上完整提示詞？</li>
+<li>每個 Demo 是否寫出展示目標？</li>
+<li>標記要放進講義的頁面是否都有足夠材料？</li>
+<li>投影片、實作、Prompt 和案例的數量是否符合課程規劃？</li>
+</ul>
+<p>越早發現缺頁，越不需要在整份簡報完成後重排內容。</p>
+<h3 id="5-讓-PPT、講義與-Prompt-Card-共用-Manifest"><a href="#5-讓-PPT、講義與-Prompt-Card-共用-Manifest" class="headerlink" title="5. 讓 PPT、講義與 Prompt Card 共用 Manifest"></a>5. 讓 PPT、講義與 Prompt Card 共用 Manifest</h3><p>確認規格後，再要求 AI 依 Manifest 產生簡報。一個 Manifest 項目對應一張投影片，保留 ID、標題、Prompt 和實作的原意；可以調整視覺呈現，但不應在製作時自行新增、刪除或合併內容。</p>
+<p>產生講義時，只處理 <code>handout.include: true</code> 的項目；<code>handout.type</code> 可以指定它要成為 Prompt Card、練習單或 Lab。<code>speaker_notes</code> 則可整理成簡報的講師備註。完成後再回頭比對每頁 ID 與 Manifest，確認簡報和講義沒有少頁、漏 Prompt 或順序錯置。</p>
+<h3 id="6-Manifest-定稿後做版本管理"><a href="#6-Manifest-定稿後做版本管理" class="headerlink" title="6. Manifest 定稿後做版本管理"></a>6. Manifest 定稿後做版本管理</h3><p>Manifest 確認後，可以記錄版本、狀態與頁數，例如：</p>
+<figure class="highlight yaml"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line"><span class="attr">manifest_version:</span> <span class="number">1.0</span></span><br><span class="line"><span class="attr">status:</span> <span class="string">approved</span></span><br><span class="line"><span class="attr">slide_count:</span> <span class="number">58</span></span><br></pre></td></tr></table></figure>
+
+<p>當 <code>status</code> 是 <code>approved</code>，製作簡報時就不要靜默改動架構。若要修改第 27 頁，更新該頁規格、版本與變更紀錄，並重新產生受影響的簡報或講義。這個做法能保留修改脈絡，也方便確認哪些產物需要更新。</p>
+<h2 id="Manifest-不一定要用-YAML"><a href="#Manifest-不一定要用-YAML" class="headerlink" title="Manifest 不一定要用 YAML"></a>Manifest 不一定要用 YAML</h2><p>YAML 適合放在可版本管理的課程專案裡，但剛開始也可以用 Markdown 表格、CSV、Google Sheet 或 Notion 資料庫。只要每張投影片有穩定 ID，且欄位能清楚描述規格，就能當作 Manifest 使用。</p>
+<table>
+<thead>
+<tr>
+<th>ID</th>
+<th>Type</th>
+<th>Title</th>
+<th>Learning Objective</th>
+<th>Key Points</th>
+<th>Visual</th>
+<th>Handout</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>S01</td>
+<td>Cover</td>
+<td>AI 辦公自動化</td>
+<td>建立課程期待</td>
+<td>課程名稱</td>
+<td>Hero</td>
+<td>No</td>
+</tr>
+<tr>
+<td>S02</td>
+<td>Concept</td>
+<td>什麼是 AI Agent</td>
+<td>理解 Agent 概念</td>
+<td>自主、多步驟</td>
+<td>Diagram</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>S03</td>
+<td>Comparison</td>
+<td>Chatbot vs Agent</td>
+<td>理解兩者差異</td>
+<td>對話與執行</td>
+<td>Comparison</td>
+<td>Yes</td>
+</tr>
+<tr>
+<td>S04</td>
+<td>Practice</td>
+<td>找出可自動化工作</td>
+<td>完成流程盤點</td>
+<td>輸入、流程、輸出</td>
+<td>Worksheet</td>
+<td>Yes</td>
+</tr>
+</tbody></table>
+<p>使用熟悉的格式開始，通常比一開始花很多時間設計完美 schema 更實際。之後若要自動生成教材，再逐步把欄位整理成 YAML 或 JSON。</p>
+<h2 id="用-Codex-整理課程專案"><a href="#用-Codex-整理課程專案" class="headerlink" title="用 Codex 整理課程專案"></a>用 Codex 整理課程專案</h2><p>如果你用 Codex 製作課程，可以把規格、素材和產物分開放，降低檔案混在一起的機會：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">/course-project</span><br><span class="line">  README.md</span><br><span class="line">  /course</span><br><span class="line">    course-brief.md</span><br><span class="line">    course-outline.md</span><br><span class="line">  /manifest</span><br><span class="line">    slide-manifest.yaml</span><br><span class="line">  /content</span><br><span class="line">    prompts.md</span><br><span class="line">    labs.md</span><br><span class="line">    cases.md</span><br><span class="line">  /assets</span><br><span class="line">    /images</span><br><span class="line">    /icons</span><br><span class="line">    /screenshots</span><br><span class="line">  /output</span><br><span class="line">    course.pptx</span><br><span class="line">    handout.md</span><br><span class="line">    prompt-cards.md</span><br></pre></td></tr></table></figure>
+
+<p>工作流程就是 <code>course-outline.md</code> → <code>slide-manifest.yaml</code> → QA → PPT、講義、Prompt Card。之後要改課程時，先更新規格，再重新產生相關交付物。</p>
+<h2 id="Slide-Manifest-與-Design-System-各自管什麼？"><a href="#Slide-Manifest-與-Design-System-各自管什麼？" class="headerlink" title="Slide Manifest 與 Design System 各自管什麼？"></a>Slide Manifest 與 Design System 各自管什麼？</h2><p>Slide Manifest 定義每頁要講什麼、要完成什麼；Design System 定義頁面要如何呈現。前者可以記錄 <code>type: prompt</code> 與 <code>layout: prompt_card</code>，後者則規範字體、色彩、區塊與版型。兩者分工清楚後，內容架構和視覺設計就能各自維護，也能一起產出簡報。</p>
+<h2 id="用一份逐頁規格，減少教材不同步"><a href="#用一份逐頁規格，減少教材不同步" class="headerlink" title="用一份逐頁規格，減少教材不同步"></a>用一份逐頁規格，減少教材不同步</h2><p>Course Outline 說明課程要教什麼；Slide Manifest 說明每一張投影片負責什麼；Presentation 則決定內容最後長什麼樣子。</p>
+<p>如果簡報、講義、Prompt Card 和講師備註都各自從大綱重新推導，很容易出現漏頁、順序不一致或修改不同步。先建立並審查 Slide Manifest，再讓各種教材依同一份規格產生，能讓每份產物都對回同一張投影片。對需要長期維護、反覆開課或大量製作課程的團隊，這是值得先建立的一層內容規格。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：Slide-Manifest-和課程大綱有什麼不同？"><a href="#Q1：Slide-Manifest-和課程大綱有什麼不同？" class="headerlink" title="Q1：Slide Manifest 和課程大綱有什麼不同？"></a>Q1：Slide Manifest 和課程大綱有什麼不同？</h3><p>Course Outline 列出課程主題與內容範圍；Slide Manifest 會進一步把內容拆成逐頁規格，記錄每張投影片的 ID、目標、重點、呈現方式，以及是否要放入講義或 Prompt Card。</p>
+<h3 id="Q2：Slide-Manifest-一定要用-YAML-嗎？"><a href="#Q2：Slide-Manifest-一定要用-YAML-嗎？" class="headerlink" title="Q2：Slide Manifest 一定要用 YAML 嗎？"></a>Q2：Slide Manifest 一定要用 YAML 嗎？</h3><p>不一定。Markdown 表格、CSV、Google Sheet 或 Notion 資料庫都可以。重點是每張投影片有穩定且唯一的 ID，欄位也足以說明它的目的與教材需求。</p>
+<h3 id="Q3：建立-Manifest-後，還能修改簡報內容嗎？"><a href="#Q3：建立-Manifest-後，還能修改簡報內容嗎？" class="headerlink" title="Q3：建立 Manifest 後，還能修改簡報內容嗎？"></a>Q3：建立 Manifest 後，還能修改簡報內容嗎？</h3><p>可以。先更新 Manifest 的相關項目、版本或變更紀錄，再重新產生受影響的簡報、講義或 Prompt Card。這樣各份教材才能繼續對應同一份已確認的規格。</p>
+<h3 id="Q4：小型課程也需要-Slide-Manifest-嗎？"><a href="#Q4：小型課程也需要-Slide-Manifest-嗎？" class="headerlink" title="Q4：小型課程也需要 Slide Manifest 嗎？"></a>Q4：小型課程也需要 Slide Manifest 嗎？</h3><p>如果內容很少、只需製作一次簡報，簡單大綱可能就足夠；若同一課程會產生投影片、講義、Prompt Card 或多次更新，逐頁規格能更容易檢查遺漏與同步狀況。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover188.webp" class="img-fluid card-img-top rounded-3" alt="AI Coding 技術債：寫程式快 10 倍，Temporary Fix 也可能快 10 倍">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI Coding 技術債：寫程式快 10 倍，Temporary Fix 也可能快 10 倍</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-coding-technical-debt/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover187.webp" class="img-fluid card-img-top rounded-3" alt="【AI Agent 也需要漂亮的協作介面：我開始把「看懂」當成 Vibe Coding 的一部分】">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【AI Agent 也需要漂亮的協作介面：我開始把「看懂」當成 Vibe Coding 的一部分】</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/html-visualizer-ai-agent-collaboration/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover186.webp" class="img-fluid card-img-top rounded-3" alt="Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Google Vids</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/google-vids-ai-video-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover184.webp" class="img-fluid card-img-top rounded-3" alt="2026 年了，現在做 AI 還有沒有搞頭？從 AI 工具到工作流程重設計">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">2026 年了，現在做 AI 還有沒有搞頭？從 AI 工具到工作流程重設計</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/23</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-business-opportunities/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover180.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片新手最容易學錯的：把「高級感」當成影片能力">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片新手最容易學錯的：把「高級感」當成影片能力</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-storytelling/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover179.webp" class="img-fluid card-img-top rounded-3" alt="我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/17</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/kimi-k3-codex-mcp/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover178.webp" class="img-fluid card-img-top rounded-3" alt="我覺得 VoiceStudio 最值得注意的地方，根本不是免費">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">我覺得 VoiceStudio 最值得注意的地方，根本不是免費</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/15</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/voicestudio-ai-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover173-1.webp" class="img-fluid card-img-top rounded-3" alt="【Google Flow 的 /orbit 到底是什麼？從 Veo 到 Omni Flash，一次搞懂 AI 影片的運鏡指令】">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【Google Flow 的 /orbit 到底是什麼？從 Veo 到 Omni Flash，一次搞懂 AI 影片的運鏡指令】</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Gemini</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/14</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-cinematography-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover176.webp" class="img-fluid card-img-top rounded-3" alt="AI 長片真正的突破，不是模型變強，而是終於有人把「抽卡」變成製片流程">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 長片真正的突破，不是模型變強，而是終於有人把「抽卡」變成製片流程</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Higgsfield</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/14</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-film-production-pipeline/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
