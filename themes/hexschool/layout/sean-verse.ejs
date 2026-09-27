@@ -1,7 +1,14 @@
 <%
 const seanVerseTagName = '享哥宇宙';
 const seanVerseTag = site.tags.findOne({ name: seanVerseTagName });
-const seanVersePosts = seanVerseTag ? seanVerseTag.posts.sort('date', -1).toArray() : [];
+function episodeNumber(post) {
+  const match = (post.title || '').match(/EP(\d+)/);
+  return match ? Number(match[1]) : 0;
+}
+const seanVersePosts = seanVerseTag ? seanVerseTag.posts.toArray().sort(function(a, b) {
+  const dateOrder = new Date(b.date) - new Date(a.date);
+  return dateOrder || episodeNumber(b) - episodeNumber(a);
+}) : [];
 
 function formatDate(dateValue) {
   return new Date(dateValue).toLocaleDateString('zh-TW');
@@ -22,7 +29,7 @@ function extractSummary(post) {
           <h1 class="title-deco mb-4 py-4 py-md-6 text-primary-700 tracking-wide fw-semibold"><%= page.title %></h1>
           <p class="mx-auto mb-3 fs-5 text-primary-700 works-page__intro"><%= page.description %></p>
           <p class="mx-auto mb-0 text-primary-600 works-page__intro works-page__intro--secondary">
-            這裡是小說、角色與後續世界入口的集中頁面；目前先從 EP001 開始，之後再逐步補上新的故事。
+            這裡整理已公開的小說篇章與世界入口；可以從 EP001 開始，也能直接接著閱讀已收錄的最新故事。
           </p>
         </div>
       </div>
@@ -138,9 +145,9 @@ function extractSummary(post) {
       <div class="works-page__cta-panel mx-auto text-center">
         <p class="mb-2 text-uppercase tracking-wide text-primary-600 fw-semibold">Keep Reading</p>
         <h2 class="h3 mb-3 text-primary-800">準備好拿號碼牌了嗎？</h2>
-        <p class="mb-4 text-primary-600">先從第一集開始，後續故事會在這個入口持續整理。</p>
+        <p class="mb-4 text-primary-600">可以從第一集進入，也可以接著閱讀目前已收錄的最新篇章。</p>
         <% if (seanVersePosts.length) { %>
-          <a class="btn btn-dark px-4" href="<%= url_for(seanVersePosts[0].path) %>">閱讀 EP001</a>
+          <a class="btn btn-dark px-4" href="<%= url_for(seanVersePosts[0].path) %>">閱讀最新篇章</a>
         <% } else { %>
           <a class="btn btn-dark px-4" href="<%= url_for('/blog/') %>">回到部落格</a>
         <% } %>
