@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP010｜回家的那一聲"
-cover: /images/cover197.png
+cover: /images/sean-verse-ep010-cover.png
 toc: true
 categories:
   - 小說

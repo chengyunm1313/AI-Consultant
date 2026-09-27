@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP007｜夜市神明排班表被換了"
-cover: /images/cover194.png
+cover: /images/sean-verse-ep007-cover.png
 toc: true
 categories:
   - 小說

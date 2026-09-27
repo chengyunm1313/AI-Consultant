@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP008｜陰路全線暫停"
-cover: /images/cover195.png
+cover: /images/sean-verse-ep008-cover.png
 toc: true
 categories:
   - 小說
