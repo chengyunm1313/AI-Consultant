@@ -1,0 +1,941 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/codex-skills-vs-plugins/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="Codex Skill 與 Plugin 差在哪？本文從工作流程、MCP 工具與套件散布拆解兩者分工，補上 2026 年 OpenAI Skills repository deprecated、skill-only plugin 與 plugin.json 格式，說明個人使用到團隊交付該如何選擇。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付">
+<meta property="og:url" content="https://blog.es2idea.com/posts/codex-skills-vs-plugins/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="Codex Skill 與 Plugin 差在哪？本文從工作流程、MCP 工具與套件散布拆解兩者分工，補上 2026 年 OpenAI Skills repository deprecated、skill-only plugin 與 plugin.json 格式，說明個人使用到團隊交付該如何選擇。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover192.webp">
+<meta property="article:published_time" content="2026-09-27T13:57:36.000Z">
+<meta property="article:modified_time" content="2026-09-27T06:15:07.722Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="Codex">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover192.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#webpage","@type":"WebPage","name":"Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付","url":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/","description":"Codex Skill 與 Plugin 差在哪？本文從工作流程、MCP 工具與套件散布拆解兩者分工，補上 2026 年 OpenAI Skills repository deprecated、skill-only plugin 與 plugin.json 格式，說明個人使用到團隊交付該如何選擇。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover192.webp","@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#blogposting","@type":"BlogPosting","headline":"Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付","name":"Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付","description":"Codex Skill 與 Plugin 差在哪？本文從工作流程、MCP 工具與套件散布拆解兩者分工，補上 2026 年 OpenAI Skills repository deprecated、skill-only plugin 與 plugin.json 格式，說明個人使用到團隊交付該如何選擇。","url":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-09-27T13:57:36.000Z","dateModified":"2026-09-27T06:15:07.722Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover192.webp","@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#primaryimage","width":1200,"height":800},"articleSection":"AI自動化","keywords":["AI工具","AI Agent","Codex"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI自動化","AI工具","AI Agent","Codex"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付","item":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/"}]},{"@id":"https://blog.es2idea.com/posts/codex-skills-vs-plugins/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"Codex Skill 和 Plugin 最大的差異是什麼？","acceptedAnswer":{"@type":"Answer","text":"Skill 描述 Agent 如何完成一類工作，通常包含指示、判斷步驟與支援資源；Plugin 是安裝與交付套件，可以包含一個或多個 Skills，並可選擇加入 MCP Server、資產等元件。"}},{"@type":"Question","name":"Skill-only Plugin 需要 MCP Server 嗎？","acceptedAnswer":{"@type":"Answer","text":"不需要。OpenAI 官方 Plugin 架構支援只包含 Skills 的 Plugin。當工作流程仰賴外部服務資料或動作時，才需要再評估 MCP Server 或其他可用的工具連線。"}},{"@type":"Question","name":"要分享 Skill，就一定得包成 Plugin 嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。個人使用或簡單分享可以先維持 Skill 的形式；若需要標準化安裝、一起管理版本，或與相關 Skills 和工具配置成套交付，就可以改用 Plugin。選擇應配合使用者與維護方式。"}},{"@type":"Question","name":"安裝 Plugin 後，Agent 就能操作我的 Google Drive 或 CRM 嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。Plugin 需要包含或連接相應工具，服務端也要有適當的登入、授權與資料權限。Skill 說明工作流程，本身不會授予外部帳號的存取權。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E7%94%A8%E5%9B%9B%E5%80%8B%E6%A6%82%E5%BF%B5%E6%8B%86%E9%96%8B%E4%BE%86%E7%9C%8B"><span class="toc-number">1.</span> <span class="toc-text">先用四個概念拆開來看</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Skill-%E6%98%AF-Agent-%E8%83%BD%E9%87%8D%E8%A4%87%E9%81%B5%E5%BE%AA%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%96%B9%E6%B3%95"><span class="toc-number">2.</span> <span class="toc-text">Skill 是 Agent 能重複遵循的工作方法</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Plugin-%E6%98%AF%E7%B5%84%E5%90%88%E8%88%87%E4%BA%A4%E4%BB%98%E8%83%BD%E5%8A%9B%E7%9A%84%E5%A5%97%E4%BB%B6"><span class="toc-number">3.</span> <span class="toc-text">Plugin 是組合與交付能力的套件</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#2026-%E5%B9%B4-9-%E6%9C%88%E7%9A%84%E9%87%8D%E8%A6%81%E6%9B%B4%E6%96%B0%EF%BC%9A%E5%AE%98%E6%96%B9%E6%98%8E%E7%A2%BA%E6%94%AF%E6%8F%B4-Skill-only-Plugin"><span class="toc-number">4.</span> <span class="toc-text">2026 年 9 月的重要更新：官方明確支援 Skill-only Plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#MCP-%E8%88%87-Skill-%E7%9A%84%E5%88%86%E5%B7%A5%EF%BC%9A%E4%B8%80%E5%80%8B%E6%95%99%E6%B5%81%E7%A8%8B%EF%BC%8C%E4%B8%80%E5%80%8B%E6%8F%90%E4%BE%9B%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">MCP 與 Skill 的分工：一個教流程，一個提供工具</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E7%94%A8-Skill%EF%BC%8C%E4%BB%80%E9%BA%BC%E6%99%82%E5%80%99%E5%8C%85%E6%88%90-Plugin%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">什麼時候用 Skill，什麼時候包成 Plugin？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E%E5%80%8B%E4%BA%BA-Know-how-%E8%B5%B0%E5%88%B0%E5%9C%98%E9%9A%8A%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">7.</span> <span class="toc-text">從個人 Know-how 走到團隊工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%9F%A5%E8%AD%98%E7%94%A2%E5%93%81%E4%B9%9F%E5%8F%AF%E8%83%BD%E5%BE%9E%E3%80%8C%E6%95%99%E4%BD%A0%E5%81%9A%E3%80%8D%E8%AE%8A%E6%88%90%E3%80%8C%E4%BE%9D%E6%96%B9%E6%B3%95%E5%B9%AB%E4%BD%A0%E5%81%9A%E3%80%8D"><span class="toc-number">8.</span> <span class="toc-text">知識產品也可能從「教你做」變成「依方法幫你做」</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%85%88%E8%A8%AD%E8%A8%88-Skill%EF%BC%8C%E5%86%8D%E4%BE%9D%E4%BA%A4%E4%BB%98%E9%9C%80%E6%B1%82%E6%B1%BA%E5%AE%9A-Plugin"><span class="toc-number">9.</span> <span class="toc-text">結語：先設計 Skill，再依交付需求決定 Plugin</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">10.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9ACodex-Skill-%E5%92%8C-Plugin-%E6%9C%80%E5%A4%A7%E7%9A%84%E5%B7%AE%E7%95%B0%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">10.1.</span> <span class="toc-text">Q1：Codex Skill 和 Plugin 最大的差異是什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9ASkill-only-Plugin-%E9%9C%80%E8%A6%81-MCP-Server-%E5%97%8E%EF%BC%9F"><span class="toc-number">10.2.</span> <span class="toc-text">Q2：Skill-only Plugin 需要 MCP Server 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E8%A6%81%E5%88%86%E4%BA%AB-Skill%EF%BC%8C%E5%B0%B1%E4%B8%80%E5%AE%9A%E5%BE%97%E5%8C%85%E6%88%90-Plugin-%E5%97%8E%EF%BC%9F"><span class="toc-number">10.3.</span> <span class="toc-text">Q3：要分享 Skill，就一定得包成 Plugin 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E5%AE%89%E8%A3%9D-Plugin-%E5%BE%8C%EF%BC%8CAgent-%E5%B0%B1%E8%83%BD%E6%93%8D%E4%BD%9C%E6%88%91%E7%9A%84-Google-Drive-%E6%88%96-CRM-%E5%97%8E%EF%BC%9F"><span class="toc-number">10.4.</span> <span class="toc-text">Q4：安裝 Plugin 後，Agent 就能操作我的 Google Drive 或 CRM 嗎？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">11.</span> <span class="toc-text">官方參考資料</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (67)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (19)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (21)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (15)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (17)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (30)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (79)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (58)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (38)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (26)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (39)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (32)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (14)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI-Agent/" rel="tag">AI Agent</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/09/27 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- Skill 教 Agent 怎麼做，Plugin 把一組能力整理成可安裝的套件。 -</h4>
+        
+        <p>最近我在研究 Codex Skill，發現 Agent 的擴充方式正逐漸變得清楚。以前看到好用的 Skill，我會想：下載、放進 Codex，自己開始用。但如果做出一套能重複使用的工作流，想交給十位學員、五十位同事，甚至其他公司安裝，接下來就不只是「怎麼寫好一份 <code>SKILL.md</code>」了。</p>
+<p>像是 MiniMax H3 影片提示詞整理、Slide Manifest 簡報流程、社群文章產生、課程企劃、AI 影片 Shot Manifest，或企業內部 SOP，都可能先從個人方法開始，最後變成團隊希望共用的能力。理解 Skill、Plugin 與 MCP 各自負責什麼，能幫我們用合適的結構保存這些方法。</p>
+<h2 id="先用四個概念拆開來看"><a href="#先用四個概念拆開來看" class="headerlink" title="先用四個概念拆開來看"></a>先用四個概念拆開來看</h2><table>
+<thead>
+<tr>
+<th>元件</th>
+<th>負責什麼</th>
+<th>可以怎麼理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Prompt</td>
+<td>告訴 AI 這一次要做什麼</td>
+<td>單次任務說明</td>
+</tr>
+<tr>
+<td>Skill</td>
+<td>描述一類工作怎麼完成，包含步驟、判斷、範例與資源</td>
+<td>可重複使用的工作流程或 SOP</td>
+</tr>
+<tr>
+<td>MCP Server</td>
+<td>提供 Agent 可呼叫的工具、即時資料或動作</td>
+<td>能操作的工具入口</td>
+</tr>
+<tr>
+<td>Plugin</td>
+<td>把一個或多個 Skill，以及可選的 MCP、資源等組成套件</td>
+<td>能安裝與管理的能力包</td>
+</tr>
+</tbody></table>
+<p>因此，我平常會把 Skill 記成「工作方法」，把 Plugin 記成「套件包裝」。<code>Skill = Function</code>、<code>Plugin = Package</code> 可以當作方便記憶的比喻，但它不是嚴格的技術等式：Plugin 裡可以只有一個 Skill，也可以加入 MCP Server 等元件。</p>
+<h2 id="Skill-是-Agent-能重複遵循的工作方法"><a href="#Skill-是-Agent-能重複遵循的工作方法" class="headerlink" title="Skill 是 Agent 能重複遵循的工作方法"></a>Skill 是 Agent 能重複遵循的工作方法</h2><p>Skill 通常是一個資料夾，核心是 <code>SKILL.md</code>，必要時再放入參考資料、範本、資產或腳本。它會交代什麼情況適用、要收集哪些輸入、如何做判斷、按什麼順序執行，以及怎樣算完成。</p>
+<p>例如 <code>minimax-h3-prompt-standardizer</code> 這類工作流，可以教 Codex 如何分析影片需求、拆分生成單元、處理人物與場景一致性、規劃鏡頭，再整理成適合模型使用的提示詞。Skill 教的是如何做這件事；影片仍由相應的模型或工具生成。</p>
+<p>Skill 的價值在於把個人的 Know-how 寫成可以複用、檢查和持續修正的流程。模型可以更換，成熟的工作步驟、範本與品質標準仍能留下來。若你正在整理 Skill 與 Agent 執行環境的關係，也可以參考我之前寫的<a href="/posts/skill-to-agent-harness/">從 Skill 到 Agent Harness</a>。</p>
+<h2 id="Plugin-是組合與交付能力的套件"><a href="#Plugin-是組合與交付能力的套件" class="headerlink" title="Plugin 是組合與交付能力的套件"></a>Plugin 是組合與交付能力的套件</h2><p>Plugin 的任務是把可重複使用的能力整理成一個有名稱、版本與結構的套件。官方架構允許 Plugin 包含一個 Skill，也可以放入多個相關 Skills；需要連接外部服務時，還能搭配 MCP Server。依套件需求，也可包含資產、生命週期 hooks 或選用介面。</p>
+<p>可以想像一個「AI Video Production Plugin」包含故事規劃、Shot Manifest、H3 Prompt、影片檢查等 Skills，再視需求連接素材庫或其他工具。使用者安裝的是一套有關聯的能力，維護者則能一起整理套件版本與分發方式。</p>
+<p>Plugin 不等於「把所有能力塞在一起」。官方建議從符合使用情境的最小結構開始；工作流程只需要說明和既有工具時，Skill-only Plugin 已經足夠。</p>
+<h2 id="2026-年-9-月的重要更新：官方明確支援-Skill-only-Plugin"><a href="#2026-年-9-月的重要更新：官方明確支援-Skill-only-Plugin" class="headerlink" title="2026 年 9 月的重要更新：官方明確支援 Skill-only Plugin"></a>2026 年 9 月的重要更新：官方明確支援 Skill-only Plugin</h2><p>截至 2026 年 9 月，我特別留意到 OpenAI 舊的 <a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/main/README.md?utm_source=chatgpt.com"><code>openai/skills</code> repository</a> 已標示 deprecated，並把目前的 Codex Skill 與 Plugin 範例導向新的 <a target="_blank" rel="noopener" href="https://github.com/openai/plugins?utm_source=chatgpt.com"><code>openai/plugins</code> repository</a> 與 Plugins 文件。官方文件也明確寫出，Plugin 可以只包含 Skills，不需要 MCP Server。</p>
+<p>這不代表 Skill 失去獨立價值。Skill 仍是工作流程本身；改變的是，當我們需要依照新的 Plugin 格式整理、安裝或交付 Skills 時，可以直接用 skill-only plugin 作為套件結構。概念從 Skill 開始思考，交付時再判斷是否包成 Plugin，會是實用的路徑。</p>
+<p>新版文件中的 portable Plugin 以根目錄 <code>plugin.json</code> 作為 manifest，Skills 放在 <code>skills/</code>，需要時再加入 <code>mcp.json</code> 與資產等內容。<code>.codex-plugin/plugin.json</code> 仍是相容格式；OpenAI 的 Plugin Creator 也能產生相容布局。開始建立套件前，請依目前目標平台與官方文件選擇格式，不要把舊範例路徑當成唯一結構。</p>
+<p>一個最小的 Skill-only Plugin 可以概念化為：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">my-first-plugin/</span><br><span class="line">├── plugin.json</span><br><span class="line">└── skills/</span><br><span class="line">    └── hello/</span><br><span class="line">        └── SKILL.md</span><br></pre></td></tr></table></figure>
+
+<p>這份套件可以只有說明、範本和其他工作資源，沒有 MCP、API、資料庫或 Connected App。它仍然是一個 Plugin，因為 Plugin 的核心價值是以可辨識的結構組合與交付能力，而不是一定要連外部服務。</p>
+<h2 id="MCP-與-Skill-的分工：一個教流程，一個提供工具"><a href="#MCP-與-Skill-的分工：一個教流程，一個提供工具" class="headerlink" title="MCP 與 Skill 的分工：一個教流程，一個提供工具"></a>MCP 與 Skill 的分工：一個教流程，一個提供工具</h2><p>如果希望 Agent 讀取 Google Drive、查詢 CRM、建立文件或更新 Notion，Skill 可以說明何時呼叫工具、如何判讀結果，以及怎樣完成後續步驟；MCP Server 則提供 Agent 實際可呼叫的工具與資料連線。</p>
+<p>簡單來說：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">Skill = 說明怎麼完成工作</span><br><span class="line">MCP   = 提供可呼叫的工具與即時資料</span><br><span class="line">Plugin = 將 Skill 與需要的工具配置等包在一起</span><br></pre></td></tr></table></figure>
+
+<p>技能文件不會自動帶來外部帳號權限，也不會讓沒有連接的服務突然可用。實際能做什麼，仍取決於已安裝的工具、使用者授權、服務端權限，以及執行環境。</p>
+<h2 id="什麼時候用-Skill，什麼時候包成-Plugin？"><a href="#什麼時候用-Skill，什麼時候包成-Plugin？" class="headerlink" title="什麼時候用 Skill，什麼時候包成 Plugin？"></a>什麼時候用 Skill，什麼時候包成 Plugin？</h2><table>
+<thead>
+<tr>
+<th>使用情境</th>
+<th>建議起點</th>
+<th>判斷方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>個人想固定文章、研究或簡報流程</td>
+<td>Skill</td>
+<td>流程清楚，現有工具已足夠</td>
+</tr>
+<tr>
+<td>想讓一套成熟流程方便安裝與更新</td>
+<td>Skill-only Plugin</td>
+<td>交付與版本管理比額外工具更重要</td>
+</tr>
+<tr>
+<td>多個緊密相關的 Skills 要一起使用</td>
+<td>Plugin</td>
+<td>使用者需要安裝一組有共同目的的工作流</td>
+</tr>
+<tr>
+<td>流程還要讀寫外部服務</td>
+<td>Plugin 加 MCP Server</td>
+<td>Skill 描述判斷步驟，MCP 提供受控工具</td>
+</tr>
+</tbody></table>
+<p>不需要等到 Skill 累積到某個固定數量才開始考慮 Plugin。只要一個成熟的 Skill 已經需要被標準化交付，skill-only plugin 就可能有用；反過來說，很多互不相關的 Skills 也未必適合硬包成一個 Plugin。關鍵是安裝、更新與使用情境是否一致。</p>
+<h2 id="從個人-Know-how-走到團隊工作流"><a href="#從個人-Know-how-走到團隊工作流" class="headerlink" title="從個人 Know-how 走到團隊工作流"></a>從個人 Know-how 走到團隊工作流</h2><p>以公司 Sales Plugin 為例，可以先整理會議準備、客戶研究、會議摘要與 Follow-up Email 等工作方法，再確認哪些步驟需要 Gmail、Calendar、CRM 或 Drive 工具支援。Skill 寫清楚流程與判斷，MCP 讓 Agent 呼叫服務，Plugin 則把相關能力整理成團隊可管理的套件。</p>
+<p>實際導入時，還要分別處理登入、資料範圍、使用者授權與企業政策。安裝套件不等同於取得 CRM 或公司雲端資料的存取權；這些存取能力必須由服務整合與管理設定明確提供。</p>
+<p>這也提供一條較自然的發展路徑：先自己完成一項工作，記錄穩定的 SOP，整理成 Skill 並反覆使用；當流程需要工具時再連接 MCP 或 App；當能力需要成套維護與交付時，再包裝成 Plugin。先把真實工作做好，之後再依重複模式模組化，能避免一開始就替尚未驗證的需求建造太大的架構。</p>
+<h2 id="知識產品也可能從「教你做」變成「依方法幫你做」"><a href="#知識產品也可能從「教你做」變成「依方法幫你做」" class="headerlink" title="知識產品也可能從「教你做」變成「依方法幫你做」"></a>知識產品也可能從「教你做」變成「依方法幫你做」</h2><p>書、課程、影片、PDF 和範本通常傳遞的是知識，使用者還需要自己把它轉成行動。Skill 能把部分 Know-how 寫成 Agent 可遵循的工作流程；Plugin 則能進一步把相關流程、工具配置與資源組成一套交付物。</p>
+<p>這讓課程設計也有新的方向：除了教 Prompt、圖像或影片工具，還可以教學員分析工作、建立 Skill、判斷何時需要 MCP，再把成熟且有共同目的的 Skills 包成 Plugin。交付的內容不只是「知道怎麼做」，也可以是讓 Agent 依照方法完成工作的起點。</p>
+<h2 id="結語：先設計-Skill，再依交付需求決定-Plugin"><a href="#結語：先設計-Skill，再依交付需求決定-Plugin" class="headerlink" title="結語：先設計 Skill，再依交付需求決定 Plugin"></a>結語：先設計 Skill，再依交付需求決定 Plugin</h2><p>我目前會這樣記：Prompt 交代這一次的需求；Skill 保存一類工作的 Know-how；MCP 或 App 提供 Agent 可使用的能力；Plugin 將一個或多個 Skills，以及需要的工具與資源整理成套件。</p>
+<p>所以，個人工作流可以先從 Skill 開始。當它需要版本化、團隊共用、搭配多個相關工作流或連接工具時，再考慮用 Plugin 交付。OpenAI 在 2026 年 9 月明確提供 skill-only plugin 路徑，也讓「先設計 Skill，交付時採 Plugin 結構」成為值得採用的預設思路。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：Codex-Skill-和-Plugin-最大的差異是什麼？"><a href="#Q1：Codex-Skill-和-Plugin-最大的差異是什麼？" class="headerlink" title="Q1：Codex Skill 和 Plugin 最大的差異是什麼？"></a>Q1：Codex Skill 和 Plugin 最大的差異是什麼？</h3><p>Skill 描述 Agent 如何完成一類工作，通常包含指示、判斷步驟與支援資源；Plugin 是安裝與交付套件，可以包含一個或多個 Skills，並可選擇加入 MCP Server、資產等元件。</p>
+<h3 id="Q2：Skill-only-Plugin-需要-MCP-Server-嗎？"><a href="#Q2：Skill-only-Plugin-需要-MCP-Server-嗎？" class="headerlink" title="Q2：Skill-only Plugin 需要 MCP Server 嗎？"></a>Q2：Skill-only Plugin 需要 MCP Server 嗎？</h3><p>不需要。OpenAI 官方 Plugin 架構支援只包含 Skills 的 Plugin。當工作流程仰賴外部服務資料或動作時，才需要再評估 MCP Server 或其他可用的工具連線。</p>
+<h3 id="Q3：要分享-Skill，就一定得包成-Plugin-嗎？"><a href="#Q3：要分享-Skill，就一定得包成-Plugin-嗎？" class="headerlink" title="Q3：要分享 Skill，就一定得包成 Plugin 嗎？"></a>Q3：要分享 Skill，就一定得包成 Plugin 嗎？</h3><p>不一定。個人使用或簡單分享可以先維持 Skill 的形式；若需要標準化安裝、一起管理版本，或與相關 Skills 和工具配置成套交付，就可以改用 Plugin。選擇應配合使用者與維護方式。</p>
+<h3 id="Q4：安裝-Plugin-後，Agent-就能操作我的-Google-Drive-或-CRM-嗎？"><a href="#Q4：安裝-Plugin-後，Agent-就能操作我的-Google-Drive-或-CRM-嗎？" class="headerlink" title="Q4：安裝 Plugin 後，Agent 就能操作我的 Google Drive 或 CRM 嗎？"></a>Q4：安裝 Plugin 後，Agent 就能操作我的 Google Drive 或 CRM 嗎？</h3><p>不一定。Plugin 需要包含或連接相應工具，服務端也要有適當的登入、授權與資料權限。Skill 說明工作流程，本身不會授予外部帳號的存取權。</p>
+<h2 id="官方參考資料"><a href="#官方參考資料" class="headerlink" title="官方參考資料"></a>官方參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/plugins?utm_source=chatgpt.com">OpenAI Plugins 官方文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/plugins?utm_source=chatgpt.com">OpenAI Plugins GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/plugins/concepts/skills?utm_source=chatgpt.com">OpenAI Skills 說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/openai/skills/blob/main/README.md?utm_source=chatgpt.com">舊版 OpenAI Skills repository deprecated 公告</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/plugins/concepts/plugins">Plugin 架構</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/plugins/build/plugins">Plugin 封裝格式</a></li>
+</ul>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover189.webp" class="img-fluid card-img-top rounded-3" alt="AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">自動化講師應用</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/26</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/slide-manifest-ai-course-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover188.webp" class="img-fluid card-img-top rounded-3" alt="AI Coding 技術債：寫程式快 10 倍，Temporary Fix 也可能快 10 倍">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI Coding 技術債：寫程式快 10 倍，Temporary Fix 也可能快 10 倍</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-coding-technical-debt/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover187.webp" class="img-fluid card-img-top rounded-3" alt="【AI Agent 也需要漂亮的協作介面：我開始把「看懂」當成 Vibe Coding 的一部分】">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【AI Agent 也需要漂亮的協作介面：我開始把「看懂」當成 Vibe Coding 的一部分】</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/html-visualizer-ai-agent-collaboration/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover186.webp" class="img-fluid card-img-top rounded-3" alt="Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Google Vids</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/25</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/google-vids-ai-video-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover184.webp" class="img-fluid card-img-top rounded-3" alt="2026 年了，現在做 AI 還有沒有搞頭？從 AI 工具到工作流程重設計">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">2026 年了，現在做 AI 還有沒有搞頭？從 AI 工具到工作流程重設計</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/23</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-business-opportunities/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover183.webp" class="img-fluid card-img-top rounded-3" alt="華為「天才少年」把 AI Agent 寫成一本開源教科書，這幾章最值得先啃">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">華為「天才少年」把 AI Agent 寫成一本開源教科書，這幾章最值得先啃</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/22</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-agent-book-engineering-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover180.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片新手最容易學錯的：把「高級感」當成影片能力">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片新手最容易學錯的：把「高級感」當成影片能力</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-storytelling/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover179.webp" class="img-fluid card-img-top rounded-3" alt="我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">我以為 Modal 每月免費 30 美金，可以養一個 Kimi K3；結果一句話都還沒問，就先燒了 34 美金</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/17</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/kimi-k3-codex-mcp/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover178.webp" class="img-fluid card-img-top rounded-3" alt="我覺得 VoiceStudio 最值得注意的地方，根本不是免費">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">我覺得 VoiceStudio 最值得注意的地方，根本不是免費</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/15</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/voicestudio-ai-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
