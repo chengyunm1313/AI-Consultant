@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP005｜第零桌不賣保證"
-cover: /images/sean-verse-ep005-cover.png
+cover: /images/sean-verse-ep005-cover-v2.png
 toc: true
 categories:
   - 小說

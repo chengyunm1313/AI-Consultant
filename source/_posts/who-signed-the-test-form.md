@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP009｜輝哥忘了誰簽過名"
-cover: /images/sean-verse-ep009-cover.png
+cover: /images/sean-verse-ep009-cover-v2.png
 toc: true
 categories:
   - 小說

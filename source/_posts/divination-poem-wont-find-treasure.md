@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP004｜籤詩不會替你找寶"
-cover: /images/sean-verse-ep004-cover.png
+cover: /images/sean-verse-ep004-cover-v2.png
 toc: true
 categories:
   - 小說

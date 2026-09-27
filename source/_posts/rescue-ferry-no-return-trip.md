@@ -1,6 +1,6 @@
 ---
 title: "享哥宇宙 EP006｜救命渡班不載回頭客"
-cover: /images/sean-verse-ep006-cover.png
+cover: /images/sean-verse-ep006-cover-v2.png
 toc: true
 categories:
   - 小說
