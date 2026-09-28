@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Claude Opus 5.5 做影片到底有多強？一次看懂能力、Token 消耗與 AI 影片工作流
+  網址：https://blog.es2idea.com/posts/claude-opus-video-workflow/
+  日期：2026-09-28
+  摘要：Claude Opus 5.5 不會直接替你輸出影片，但能協助規劃分鏡、撰寫動畫程式並串接 Renderer。本文拆解程式化影片的適用場景、Token 計費與 AI 影片工作流。
+  主題：AI工具、AI自動化、影音行銷
+
 - Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付
   網址：https://blog.es2idea.com/posts/codex-skills-vs-plugins/
   日期：2026-09-27
@@ -94,19 +100,13 @@
   網址：https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/
   日期：2026-09-26
   摘要：AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與...
-  主題：AI自動化、AI工具、自動化講師應用
+  主題：AI工具、AI自動化、自動化講師應用
 
 - AI Coding 技術債：寫程式快 10 倍，Temporary Fix 也可能快 10 倍
   網址：https://blog.es2idea.com/posts/ai-coding-technical-debt/
   日期：2026-09-25
   摘要：AI Coding 讓 Prototype 更快上線，卻不會自動降低維護成本。本文從 Temporary Fix 與技術債談起，整理如何用規格、Issue、測試、Code Review 和專案文件，讓下一位工程師或 Agent 還敢修改系統。
   主題：AI工具、Vibe Coding
-
-- 【AI Agent 也需要漂亮的協作介面：我開始把「看懂」當成 Vibe Coding 的一部分】
-  網址：https://blog.es2idea.com/posts/html-visualizer-ai-agent-collaboration/
-  日期：2026-09-25
-  摘要：AI Agent 能完成更多 Coding 任務，卻也帶來更長的分析與決策內容。本文介紹 html-visualizer 如何把架構、流程、方案比較與原型整理成互動式 HTML，讓人更容易看懂、留下意見，並在正式 Coding 前完成 Review。
-  主題：AI工具、AI Agent、Vibe Coding
 
 ## 語言
 - zh-TW
