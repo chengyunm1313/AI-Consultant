@@ -254,7 +254,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (69)
+            AI自動化 (70)
           </a>
         </li>
       
@@ -346,11 +346,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (61)
+          AI工具 (62)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
-          AI Agent (39)
+          AI Agent (40)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
@@ -410,7 +410,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
-          ChatGPT (14)
+          ChatGPT (15)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
@@ -497,12 +497,12 @@
           台灣民間信仰 (2)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
-          Git (1)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
           知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
@@ -564,6 +564,124 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-chatgpt-pi-agent-harness"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover195.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: center;"
+        alt="article-當 ChatGPT 可以接上 Pi：AI Agent 正在走向「模型與 Harness 分離」"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/9/30
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI Agent
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              ChatGPT
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          當 ChatGPT 可以接上 Pi：AI Agent 正在走向「模型與 Harness 分離」
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近看到 OpenAI 推出 Sign in with ChatGPT，並開始讓符合資格的開源工具串接 ChatGPT 方案用量。官方目前列出的開源工具範例包含 Pi by Earendil。
+一開始我也以為，這只是「Pi 現在可以更方便使用 GPT」。但把 OpenAI 的整合說明和 Pi 的登入方式放在一起看，我更在意的其實是另一件事：我們過去常綁在一起看的模型與 Agent Harness，正在變成可以分開選擇的兩層。
+這可能改變我們挑選 AI Agent 工具的方式。
+為什麼我開始把模型與 Agent 分開看？這兩年挑 AI Coding 或 Agent 工具時，我們很容易先從模型開始想：想用 Claude，就想到 Claude Code；想用 OpenAI，就想到 Codex；想用 Gemini，就去找 Google 生態系裡的工具。
+久了容易覺得模型就是 Agent。其實模型比較像負責理解、推理、規劃與生成的大腦。要讓它讀檔、改程式、執行 Shell、呼叫 MCP、操作瀏覽器、載入 Skill，還需要一套把模型接到電腦、工具和工作流程上的系統。
+這一層通常稱為 Agent Harness。
+Harness 負責把模型接到工作現場假設我們請 Agent 檢查專案、找出 Bug、修改程式碼、執行測試，再整理報告。真正完成任務時，除了模型本身，背後還有許多部分一起運作：
+
+上下文管理與檔案系統
+Shell、Terminal 與工具呼叫
+MCP、Skills、Browser 或 Computer Use
+權限控制、錯誤處理與 Agent Loop
+工作狀態保存、模型切換與記憶機制
+
+這些能力如何串接，會影響模型能看見什麼、可以採取哪些行動，以及出錯後能不能修正並繼續。Harness 不只是聊天介面，而是模型的執行環境和工作規則。
+同一個 GPT，換一套 Harness 也會有不同體驗假設兩套 Agent 使用能力相近的 GPT 模型。A Harness 可能會先搜尋專案、整理計畫、修改程式碼、自動執行測試，發現錯誤後再回頭修正與驗證；B Harness 可能只讀幾個檔案、修改一次就回報完成。
+最後使用者感受到的「AI 好不好用」，不一定全是模型能力的差異，也可能是 Harness 怎麼安排模型工作的結果。
+Pi × ChatGPT 值得注意的是什麼？OpenAI 的 Sign in with ChatGPT 把兩種權限分開處理：使用者可以用 ChatGPT 身分登入，也可以另外選擇是否讓符合資格的應用程式使用方案內的 AI 用量。使用 ChatGPT 方案用量需要獨立授權；目前官方說明限定 Plus 與 Pro 等符合資格的方案，而且這不會把 ChatGPT 對話或 API Key 交給應用程式。OpenAI 使用說明 也列出 Pi by Earendil 作為開源工具範例。
+這不只是第三方工具自己接上一個模型 API。OpenAI 已提供讓開源工具使用者以 ChatGPT 帳號登入，並在同意後使用方案用量的整合方式；開發者文件也說明，登入身分與使用方案用量是不同能力，後者是可選權限。
+不過「列在支援範例」不等於每種登入方式對所有使用者都已順利可用。Pi 既有的文件也列出 ChatGPT Plus／Pro（Codex）訂閱登入；此外，Pi 專案在 2026 年 9 月 29 日有使用者回報，新版 Sign in with ChatGPT 的 Pi 登入出現 invalid_client，而舊的 Codex 訂閱登入仍可用。這是一則使用者回報，不能推論成所有帳號都遇到相同問題；但它提醒我們，整合方式和實際可用狀態可能還在演進。Pi 登入文件 · Pi issue #10184
+模型與 Harness 可以分開組合過去模型、帳號、額度和 Agent 工具常被包成一套產品。現在可以想像不同的組合：ChatGPT 方案連上 Pi，Pi 再接 Skills、MCP、CLI 或 Browser，最後串成自己的 Workflow。
+我也可能在某些工作使用 Claude Code，在另一些工作使用 Codex；需要自訂流程時，再選 Pi、OpenClaw 或 Hermes 等其他 Harness。這些工具的能力和整合方式會隨版本變動，但「模型與執行環境可以分開思考」是更值得留下的觀念。
+因此，選 AI Agent 時只問「要用哪一個 AI？」可能不夠。還可以接著問：
+
+你使用什麼 Model？
+你使用什麼 Harness？
+你裝了哪些 Skills、接了哪些 Tools？
+這些元件最後如何組成 Workflow？
+
+Harness 也是一條重要的信任邊界Agent 不只回答問題。依照授權，它可能讀寫檔案、執行指令、連接服務、操作瀏覽器、使用憑證或呼叫 MCP。因此除了問「這顆 LLM 安不安全？」，也要了解「這套 Harness 在我的電腦上能做什麼？」
+Harness 決定模型可用的工具和權限，也要負責把操作結果與錯誤交回模型。選擇工具時，可以檢查它會讀取哪些資料、哪些地方會執行 Shell、網路請求送往哪裡、憑證如何保存，以及 MCP 或擴充套件擁有哪些權限。
+開源代表多了一個檢查入口，不代表自動安全Pi、OpenClaw、Hermes 這類開源 Harness 有一個優點：原始碼可以檢查。開源不等於安全，專案仍可能有漏洞，第三方 Skill、Plugin 或 MCP 也可能帶來風險。
+但我們可以把「完全不知道它在做什麼」往前推一步，改成檢查它的資料流、Token 儲存、Shell 執行點、網路請求、遙測、相依套件與敏感檔案存取。也能請 Codex 或 Claude Code 協助做安全檢視，再由人確認重要結果。這不能保證百分之百安全，卻增加了理解和審查的機會。
+Skill Library 比 Prompt 收藏更容易累積工作方法我最近整理 Agent Skill 時，越來越不想只收藏「一百個超強 Prompt」。Prompt 容易散落各處；比較有價值的，是把自己的工作方法整理成可重複使用的能力。
+例如簡報、文章、社群內容、研究、影片分鏡、資料整理、Vibe Coding 或課程設計 Skill，都可以說明 Agent 遇到這類工作時，先做什麼、要遵守哪些規則、參考哪些資料、輸出成什麼格式，以及如何驗收成果。
+每個 Skill 不只是放一句提示詞，而是逐步累積判斷方式與 SOP。這也延伸了我在整理自己的 AI 工作能力庫時的想法：把工作方法留下來，才能在模型更新時繼續使用。
+用五層架構理解 AI Agent剛開始研究 Agent 時，可以先用五層架構來看：
+
+Model：GPT、Claude、Gemini 等模型，負責理解與推理。
+Harness：Pi、Codex、Claude Code、OpenClaw、Hermes 等工具，負責讓模型在環境中工作。
+Skills：把專業知識、規則與 SOP 包成可重複使用的能力。
+Tools：MCP、CLI、Browser、Computer Use、API 等，讓 Agent 接觸外部工具和資料。
+Workflow：把前面各層組合起來，完成一項真正的工作。
+
+最後產生價值的，通常不是單獨某一顆 LLM，而是 Model、Harness、Skills、Tools 與 Workflow 的組合。
+哪些人值得研究 Pi 這類開源 Harness？如果平常只是偶爾問 ChatGPT 問題，不需要因為一則整合消息就立刻更換工具。但如果已經開始做 AI Coding、MCP、Skills、自動化、長時間任務或多工具工作流，Pi 這類開源 Harness 值得研究。
+重點不是把所有工作搬到同一個工具，而是理解模型、執行環境與工作方法可以分開評估，再依任務組合。
+Agent 下一戰也許是工作系統GPT、Claude、Gemini 都會持續更新，模型排行榜也會一直變。我現在更在意的是：工作流程有沒有留下來？Skill 能不能重複使用？工具能不能替換模型？資料能不能掌握？Harness 能不能檢查？Agent 能不能真正完成工作？
+以前我會想「選一個最強的 AI，把工作交給它」。現在更傾向先建立自己的 AI 工作系統，再選合適的模型進來工作。
+模型會換，Harness 也會進化；更值得自己留下來的，是 Skills、Tools、Workflow，以及累積下來的工作方法。也許以後大家討論 AI Agent，不只問「你用 GPT 還是 Claude？」，還會問「你現在用哪個 Harness？你的 Skill Library 裡有什麼？」
+參考資料
+OpenAI：Using your ChatGPT plan in other apps and sites
+OpenAI：Integrating Sign in with ChatGPT in your Open Source App
+Pi：Provider Authentication
+Pi issue #10184：Sign in with ChatGPT 登入回報
+
+常見問答 (FAQ)Q1：Agent Harness 是什麼？Agent Harness 是讓模型在電腦與工具環境中執行任務的系統，通常包含上下文管理、檔案與 Shell 工具、權限控制、Agent Loop、錯誤處理及工作狀態等部分。
+Q2：使用 Pi 連接 ChatGPT 方案一定要準備 API Key 嗎？Sign in with ChatGPT 的開源整合可讓符合資格的使用者登入，並在另外授權後使用方案內的 AI 用量，不需要自行建立或提供 OpenAI API Key。是否能使用仍取決於方案資格、工具整合與當下登入狀態。
+Q3：Sign in with ChatGPT 會把我的 ChatGPT 對話交給 Pi 嗎？不會因登入或使用方案用量就取得 ChatGPT 對話或 API Key。登入身分與方案用量授權是不同權限；使用者仍應逐項檢查應用程式要求的權限及其資料處理方式。
+Q4：開源 Agent Harness 就代表安全嗎？不代表。開源讓人有機會檢查原始碼，但不能保證沒有漏洞，也不能替第三方 Skills、Plugins 或 MCP 背書。使用前仍要檢查程式行為、資料流、工具權限與相依套件。
+
+        </p>
+        <a class="stretched-link" href="/posts/chatgpt-pi-agent-harness/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -3029,140 +3147,6 @@ Q5：想開始用 Agent 建立 3D 或遊戲專案，最先要準備什麼？先�
 
         </p>
         <a class="stretched-link" href="/posts/vibe-coding-to-world-building/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-taiwan-domain-skills-vibe-coding"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover169.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-【AI 會寫 API 還不夠：Vibe Coding 下一個機會，是把台灣產業經驗做成 Skill】"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/9/14
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              商業策略
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI Agent
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Vibe Coding
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          【AI 會寫 API 還不夠：Vibe Coding 下一個機會，是把台灣產業經驗做成 Skill】
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          最近看到一個很有意思的開源專案：ecommerce-cia。
-它不是另一套電商系統，也不是幫你做購物車，而是一套專門給 AI Coding Agent 使用的「台灣電商 Skill」。
-看到這個專案，我第一個想到的是：Vibe Coding 發展到現在，真正的瓶頸可能已經慢慢從「AI 會不會寫程式」，轉移到「AI 懂不懂這個產業」。
-因為現在要 AI 幫你寫一個購物車，其實已經不難。商品頁、購物車、會員、訂單後台，甚至串 API，AI 都可以很快幫你生出來。
-真正痛苦的是後面。
-「我要接綠界。」「我要用藍新。」「LINE Pay 怎麼串？」「7-11 取貨付款怎麼做？」「ATM 付款超過三天沒付，訂單怎麼辦？」
-然後你會發現一個很有趣的狀況：Coding Review 沒有 Error，API 文件也看了，每一段程式碼單獨看，好像都沒有問題。
-但真的把整間商店跑起來，就是不順。😂
-最麻煩的 Bug，可能發生在兩個正確的 Function 之間一般我們叫 AI Review 金流，很容易只檢查幾個局部問題：
-
-API 呼叫對不對？
-簽章對不對？
-Callback Route 有沒有建立？
-資料庫有沒有寫入？
-庫存 Function 有沒有執行？
-
-每一個地方都可能是對的，但問題可能發生在兩個「正確的 Function」中間。
-以一筆交易為例，流程可能像這樣：
-
-客人建立訂單。
-系統保留庫存。
-客人前往金流服務付款。
-金流通知商店付款結果。
-系統驗證通知並更新訂單狀態。
-庫存、顧客通知與出貨流程依照訂單狀態接續處理。
-
-如果 Callback 重送兩次呢？客人付款成功，但瀏覽器沒有跳回網站呢？ATM 建立虛擬帳號後幾天都沒有付款，庫存要什麼時候釋出？如果付款成功但庫存更新失敗，或訂單取消時付款通知剛好進來，系統又該怎麼辦？
-這些才是真正把電商系統跑起來後，會遇到的問題。
-所以 Review 金流不該只逐個看 Function，而要沿著「錢」和「貨」走過完整流程：下單、訂單、庫存、金流、Callback 驗證、狀態更新、出貨，到交易完成，逐段找可能的斷點。
-ecommerce-cia 示範了另一種 AI 稽核方式ecommerce-cia 不是另一套購物車或電商平台，而是給 AI Coding Agent 使用的台灣電商 Skill。它有意思的地方，在於把注意力放到金流、庫存、訂單等環節如何互相影響。
-依照專案 README 的說明，它有檢查既有交易流程的 Audit Mode，也有引導新手準備與串接金流的 Setup Mode；文件提到藍新、綠界、PAYUNi、TapPay 與 LINE Pay 等台灣常見情境。這些內容呈現了一個值得參考的方向：除了問 AI「這段程式碼有沒有寫錯」，也可以要求它沿著整條交易生命週期檢查系統行為。
-這已經不只是一般的 Coding Skill，而是把產業流程和判斷方式整理成可重複使用的 Domain Engineering Skill。
-AI 會看 API 文件，稀缺的是踩過坑的經驗這件事讓我想到我之前一直在談的「把專業知識軟體化」。
-假設一個台灣電商工程師做了十年。他真正值錢的可能不是「我知道怎麼呼叫綠界 API」，因為這件事情 AI 看文件就能協助。
-真正值錢的，是這些踩過坑才知道的事：
-
-綠界或藍新的 Callback 曾經出過什麼狀況。
-ATM 訂單逾期後，何時釋放庫存才符合商業規則。
-超商取貨付款訂單的狀態該怎麼轉換。
-使用者付款成功但沒有跳回網站，不能因此就判定付款失敗。
-Webhook 重送不能重複扣庫存或重複通知。
-退款、取消與付款通知同時發生時，訂單狀態要如何處理。
-
-這些東西通常不會完整寫在 API 文件裡。它們存在工程師的腦袋裡，來自踩坑、Debug、客訴、事故，以及凌晨三點修 Production 的經驗。😂
-API 文件能說明端點、欄位和簽章方式；把這些技術細節放進真實商業情境後，流程上的例外與判斷往往還要靠產業經驗補足。
-專業知識除了軟體化，也可以 Skill 化以前我們會想：我做了十年房仲，可不可以把我的判斷方法做成一套房仲 SaaS？我做了十年行銷，可不可以把我的 SOP 做成一套行銷系統？
-我之前也寫過把專業知識變成軟體，讓產業專家成為下一代產品經理。現在可能又多了一條路：不一定要先做 SaaS，也可以先把專業知識整理成 Skill。
-
-從產業經驗到 AI 可執行 Skill 的概念示意。
-一個資深電商工程師的經驗，如果要整理成 AI 能使用的 Skill，可以從常見情境開始，逐步寫清楚：
-
-什麼情況下要啟動檢查。
-要沿著哪些訂單、金流和庫存流程追蹤。
-哪些例外狀況需要特別確認。
-要用什麼證據判斷流程真的完成，而不是只看單一測試顯示綠燈。
-
-如此一來，AI 就不只是「會寫程式」，還能重複參照一套做過許多台灣電商專案的人累積的判斷方式。
-下一波 Vibe Coding 機會，可能是台灣產業 Domain Skills未來 Skill 最有價值的地方，不一定是 React Skill、Next.js Skill 或 Python Skill。這些通用技術知識，模型本身會越來越強。
-更可能形成差異化的，是懂得台灣產業實際怎麼運作的 Domain Skills，例如：
-
-台灣電商金流與物流。
-台灣電子發票、統編與發票規則。
-LINE 官方帳號與會員流程。
-政府 Open Data 與台灣個資保護情境。
-房仲成交流程、補教招生、餐飲訂位、美容預約與傳統產業報價。
-
-這些領域的共同點是：模型可能知道技術，但不一定知道台灣的商業流程、例外情境與在地作法。而真正掌握這些 Know-how 的人，往往是已經在產業裡工作十年、二十年的實務工作者。
-Skill 不只是提示詞，而是可以交給 Agent 使用的 SOP我現在看 Skill，已經不只把它當成「提示詞」，而是可以被 AI Agent 使用的產業 SOP。
-以前經驗存在腦袋裡，後來我們把它寫成 SOP，再把 SOP 做成軟體。現在又多了一種形式：把 SOP 整理成 AI Agent 能參照與執行的 Skill。
-Vibe Coding 的競爭，可能不只是誰比較會下 Prompt、誰比較會用 Claude Code 或 Codex，而是誰能把自己十年、二十年的產業經驗，整理成 AI 可以重複使用的能力。
-模型會越來越強，寫程式會越來越便宜，API 串接也會越來越簡單。但有一件事情不會因此自動出現：你踩過的那些坑。
-而那些坑，可能才是 AI 時代真正值得被「程式化」的專業知識。
-這也是我看到 ecommerce-cia 之後，覺得最值得研究的地方。它表面上是在處理台灣電商金流、物流與流程稽核，背後示範的也許是一個更大的方向：下一波 Vibe Coding，不只是讓 AI 幫我們寫軟體，而是開始把一個產業真正的 Know-how，寫進 AI 裡。
-常見問答 (FAQ)Q1：什麼是台灣產業 Domain Skill？台灣產業 Domain Skill 是把在地產業常見的情境、判斷方式、執行流程與例外處理整理成 AI Agent 可重複參照的規範。它能補足通用技術知識與實際商業流程之間的落差。
-Q2：Domain Skill 和一般 Code Review 有什麼不同？一般 Code Review 多半檢查程式碼或單一 Function 的正確性；Domain Skill 可以引導 AI 沿著跨系統流程檢查狀態如何傳遞，例如金流通知、訂單更新、庫存處理與出貨。兩者處理的問題不同，實務上可以搭配使用。
-Q3：如何把產業經驗整理成 AI Agent Skill？先整理常見情境與踩坑案例，再把觸發條件、判斷方式、處理步驟、例外狀況與驗證證據寫清楚，最後交由熟悉該產業的人用真實案例檢查。這樣的 Skill 才能承載可重複使用的專業判斷，而不只是一段泛用提示詞。
-
-        </p>
-        <a class="stretched-link" href="/posts/taiwan-domain-skills-vibe-coding/"></a>
       </div>
     </div>
   </article>

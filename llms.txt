@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 當 ChatGPT 可以接上 Pi：AI Agent 正在走向「模型與 Harness 分離」
+  網址：https://blog.es2idea.com/posts/chatgpt-pi-agent-harness/
+  日期：2026-09-30
+  摘要：ChatGPT、Pi 與 Agent Harness 的整合，讓模型和執行環境可以分開選。本文拆解 Model、Harness、Skills、Tools、Workflow 五層架構，並說明 ChatGPT 方案授權與開源 Harness 的檢查邊界。
+  主題：AI工具、AI Agent、ChatGPT
+
 - 從 Prompt 到 Skill Library：我從吳奇老師的 Agent Skill 講座學到什麼？以及如何打造自己的 AI 工作能力庫
   網址：https://blog.es2idea.com/posts/from-prompt-to-skill-library/
   日期：2026-09-30
@@ -101,12 +107,6 @@
   日期：2026-09-27
   摘要：享哥把籤詩、夜市巷口的廣播與只響一次的回聲貼放在一起查證，逐步分辨現場訊號和儲存播放。他找到的不是寶物，而是有人留下的舊訊息與一個受監督的人工檢查窗口。
   主題：享哥宇宙、科幻喜劇、AI故事
-
-- AI 做簡報總是大綱、PPT、講義對不起來？先建立 Slide Manifest
-  網址：https://blog.es2idea.com/posts/slide-manifest-ai-course-workflow/
-  日期：2026-09-26
-  摘要：AI 產生的課程簡報常和大綱、講義、Prompt Card 對不起來？本文用 Slide Manifest 定義每張投影片的目標、重點、提示詞與講師備註，帶你從 Course Outline、Manifest QA 到簡報與教材共同生成，減少遺漏、錯頁與...
-  主題：AI自動化、AI工具、自動化講師應用
 
 ## 語言
 - zh-TW
