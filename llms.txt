@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Public APIs 開始收錄 MCP Server：48 萬 Star 的工具清單怎麼用？
+  網址：https://blog.es2idea.com/posts/public-apis-mcp-servers/
+  日期：2026-10-01
+  摘要：Public APIs 除了整理免費 API，也新增 MCP Server 清單。本文整理 MCP Registry、Glama、Smithery 的搜尋方式，並用 MCP Scout 流程評估工具、安全權限與 API、MCP、Skill 的選擇。
+  主題：AI工具、AI Agent、MCP
+
 - Claude 程式碼動畫怎麼做？從 Prompt 拆出 Motion Design Skill
   網址：https://blog.es2idea.com/posts/claude-code-animation-prompts/
   日期：2026-10-01
@@ -100,12 +106,6 @@
   網址：https://blog.es2idea.com/posts/rescue-ferry-no-return-trip/
   日期：2026-09-27
   摘要：夜渡站的船被纜線困住，乘客和技師都被迫留在危險水域。享哥先切斷電源、協助完成救援，再取得一個只能發送一次短脈衝的中繼線圈；他們只做安全檢查，沒有消耗訊號，也沒有保證另一端有人收到。
-  主題：享哥宇宙、科幻喜劇、AI故事
-
-- 享哥宇宙 EP005｜第零桌不賣保證
-  網址：https://blog.es2idea.com/posts/zero-table-no-guarantees/
-  日期：2026-09-27
-  摘要：享哥走進藏在酒樓側廊的第零桌，用錢換取南三線與「03」的歷史中繼紀錄。資料能指出下一個調查地址，卻不會替設備、路線或回程背書；收據上的答案，仍要到河岸現場驗證。
   主題：享哥宇宙、科幻喜劇、AI故事
 
 ## 語言
