@@ -254,7 +254,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
-            AI自動化 (70)
+            AI自動化 (71)
           </a>
         </li>
       
@@ -346,11 +346,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (64)
+          AI工具 (65)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
-          AI Agent (42)
+          AI Agent (43)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
@@ -410,7 +410,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
-          ChatGPT (16)
+          ChatGPT (17)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
@@ -564,6 +564,163 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-custom-gpt-plugin-skill-guide"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover199.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: 75% center;"
+        alt="article-Custom GPT 要退場了，真正值得學的不只是 Plugin：開始打造自己的 Skill Library"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/10/2
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI Agent
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              ChatGPT
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          Custom GPT 要退場了，真正值得學的不只是 Plugin：開始打造自己的 Skill Library
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近看到《數位時代》談到 Custom GPT 遷移 Plugin，我第一個想到的不是「Custom GPT 要消失了」，而是 OpenAI 正在把工作流程、工具和可重複使用的指引放進同一套架構。
+如果你也在研究 AI Agent、Codex、Claude Code、Skill 或 MCP，這次轉變值得關注。不過我認為最值得學的不是趕快做一個 Plugin，而是把平常怎麼工作的經驗整理出來，讓 AI 能在類似任務中重複使用。
+以前我們常想：「我要做一隻幫我寫文章的 GPT。」現在可以多問一題：「我寫文章時有哪些步驟、判斷和檢查，值得整理成一套工作方法？」
+Custom GPT 何時退場？先看適用帳號與公告依 OpenAI 目前的Custom GPT 退場與遷移說明，Custom GPT 預計在 2026 年 12 月 11 日退場；符合條件並取得核准延期的 Enterprise 工作區，時程可延至 2027 年 2 月 11 日。官方也提醒，遷移和功能開放時間可能依帳號或工作區而不同，應以自己的產品通知為準。
+另一個容易混淆的日期是 2026 年 10 月 26 日。依目前 FAQ，這是受影響 Enterprise 工作區預計停止建立新 GPT 的日期；這項建立限制不等於所有方案都在同一天停止建立。官方公告可能調整，準備遷移前最好再看一次自己帳號收到的通知。
+已遷移的 GPT 在適用的退場日前仍可使用，但會變成唯讀。也就是說，遷移不是按下按鈕後就能永遠保留原本的編輯方式；先確認重要指示已更新，再遷移和測試會比較穩妥。
+遷移會搬什麼？哪些要另外處理？依官方規劃的遷移流程，原本的 GPT 指示會變成 Plugin 裡的 Skill，Knowledge 檔案會複製為參考檔案，已連接的 App 則會加入 Plugin。這讓原本集中在一隻 GPT 裡的內容，開始拆成工作流程指引與外部工具兩個部分。
+但遷移不會完整保留所有東西：
+
+
+
+Custom GPT 原有內容
+遷移後的安排
+需要留意的地方
+
+
+
+Instructions
+變成 Skill
+檢查指示、範例與輸出要求是否正確
+
+
+Knowledge Files
+複製到 Plugin 的參考檔案
+確認檔案內容與引用方式都符合原本用途
+
+
+已連接的 App
+加入 Plugin 的 App
+仍要確認帳號授權、工作區權限與可用功能
+
+
+指定模型
+不會隨遷移保留
+重新檢查替代工作流程使用的模型
+
+
+Custom Actions
+不會自動遷移
+評估現有 App，或另行重建 MCP 整合並測試
+
+
+對話紀錄與分享設定
+不會搬到新 Plugin
+確認哪些人需要存取新版本，並重新安排分享
+
+
+所以，不要把遷移想成「GPT 按一下就變成 Plugin，而且每個地方都一樣」。比較實際的做法是把 GPT 當作一份流程草稿：盤點內容、確認缺漏，再驗證新的 Skill 和工具能不能完成原本的工作。
+Plugin、Skill、App 和 MCP 怎麼分工？可以先用這幾句話理解：
+
+Skill 說明工作應該怎麼做，例如先蒐集哪些資訊、如何判斷例外、最後用什麼格式交付。
+App 讓 ChatGPT 或 Codex 連接外部服務與資料，例如雲端文件或工作平台；連線仍受帳號授權和工作區權限限制。
+MCP 是提供模型工具、即時資料與受控動作的一種介面。MCP 服務提供「可呼叫什麼」，Skill 則可以描述「何時呼叫、依什麼順序、結果不完整時如何處理」。
+Plugin 可以把一個或多個 Skill、連接的 App，以及相關設定組合成可安裝與重用的工作流程套件。有些 Plugin 只有 Skill，不一定要連 App。
+Agent 根據任務與可用能力判斷怎麼進行，再呼叫需要的 Skill 和工具。
+
+這些概念有關聯，但不該直接畫上等號。OpenAI 的Plugin 說明指出，Plugin 可以包含 Skills、連接的 Apps 和其他設定；Skills 開發文件則說明，Skill 能為 MCP 工具提供可重複使用的流程指引。Skill 也可以在不連接 MCP 的情況下工作。
+在支援 Skills 的 ChatGPT 帳號中，已安裝的 Skill 可能在適合時由 ChatGPT 自動使用；功能開放仍依產品、方案與工作區設定而異，也不代表每次對話都會呼叫同一個 Skill。官方 Skills 說明有列出目前的開放條件與使用方式。
+舉例來說，一個客戶預約 Skill 可以寫下：先判讀需求、查看客戶紀錄、列出可選時段、等使用者確認後才建立預約。查詢行事曆或寫入 CRM 則需要相應的 App 或工具；流程指引本身不會憑空取得服務權限。
+Skill 不只是把 Prompt 存成檔案Prompt 通常是在描述「這一次要做什麼」。SOP 把反覆工作的步驟和檢查條件整理下來。Skill 則可以把流程、判斷方式、範例和參考資源包成一份，讓 AI 在遇到相似任務時能重複使用。
+以部落格寫作為例，單次 Prompt 可能只說「幫我寫一篇文章」。成熟的工作方法還會包含：
+
+文章要給誰看，解決什麼問題？
+如何確認事實、保留來源與區分推論？
+標題、段落和 FAQ 要符合什麼格式？
+哪些語氣或說法要避免？
+交稿前要檢查哪些欄位與連結？
+
+這些規則如果每次都要重新貼上，就還是一次性的指令。把它們整理為可呼叫、可維護的流程後，才開始接近 Skill。
+我會把這段演進理解成：
+1Prompt → SOP → Skill → Skill Library → Plugin
+
+需要操作外部服務時，再接上 App 或 MCP。這不是每個人都必須照著走的產品安裝順序，而是把個人經驗整理成可重用能力的一種方法。我先前也寫過如何從 Prompt 整理出自己的 Skill Library，這篇則聚焦在 Custom GPT 遷移後，這些工作方法要如何拆開與驗證。
+為什麼我開始整理自己的 Skill Library？我前陣子算了一下自己的環境，Skill 加 Plugin 指令已經裝超過一百個。工具多了，不代表 AI 就更懂我；如果沒有自己的流程與判斷準則，裝再多別人的 Skill，也只是多了一堆尚未融入工作的選項。
+真正值得留下來的，常常是每天會用到的方法：我怎麼研究工具、準備課程、規劃簡報、整理客戶需求、寫文章，還有哪些容易出錯的地方。這些經驗可以逐步整理成一個自己的 Skill Library，例如：
+123456789101112131415161718享哥 Skill Library├── Writing│   ├── blog-writing│   ├── facebook-post│   └── course-copywriting├── Teaching│   ├── course-outline│   ├── slide-manifest│   └── hands-on-lab├── Research│   ├── fact-check│   └── tool-research├── Video│   ├── short-video-script│   └── storyboard└── Coding    ├── vibe-coding    └── deployment-check
+
+這是一份可以逐步發展的示意清單，不必一開始就把所有工作分類完成。先找出一件高頻、步驟穩定、自己常要重新解釋的工作，寫清楚輸入、判斷、例外與輸出，再用實際任務修正。
+將來真正有價值的，可能不是一份幾千字的 Prompt，而是把多年工作經驗整理成 AI 可以理解、重複使用，也能檢查結果的工作流程。房仲可以整理房源分析與客戶跟進；會計師可以整理財報閱讀與文件檢查；講師可以整理課程規劃與實作設計。這些例子都要從自己的實際流程開始，不能只套用別人的模板。
+Custom GPT 遷移前，先做這五件事1. 盤點自己建立或依賴的 GPT列出 GPT 的用途、使用頻率、維護者和需要使用它的人。幾乎沒在用的，可以先不遷移；只是一段簡單 Prompt 的，可以先保存指示；每天工作都會用到、含有穩定流程的，才值得花時間測試替代方案。
+2. 拆出流程、資料與工具把 Instructions 中的步驟、判斷、例外和輸出規格整理出來，再分別核對 Knowledge 檔案、App 連線與 Custom Actions。尤其有 Custom Actions 時，要先確認新的 App 或 MCP 整合是否具備需要的功能，不要假設舊 API 串接會自動保留。
+3. 在遷移前完成必要編輯官方說明指出，遷移會使用 GPT 最新的已發布版本；未發布的草稿修改不會直接搬過去。需要保留的規則和檔案，先整理並確認版本，再開始遷移。
+4. 用熟悉任務和困難案例測試先用平常最常做的任務檢查替代 Plugin 是否選對 Skill、引用到預期的參考檔案、產出正確格式，再拿一個較難的案例測試例外處理。若有連接 App，也要另外檢查授權、可讀寫範圍和動作確認設定。
+5. 重新確認分享與權限遷移不會自動把原本 GPT 的分享設定帶到 Plugin。個人 Plugin 預設為私人，讓同事或客戶使用前，要確認他們能安裝、連線並取得需要的權限。
+新手不用一次學完 Plugin、MCP 和 Agent如果這些名詞讓人覺得太多，我會建議按照自己的工作慢慢累積：先把需求寫清楚，再把常做的工作整理成 SOP；SOP 穩定之後，挑一段做成 Skill。當工作需要讀寫外部資料時，再評估 App 或 MCP；需要把多項流程組合、分享或提供安裝時，才考慮 Plugin。
+至於 Agent，則是協調模型、Skills 與工具完成任務的執行方式。可以先從一個可重複驗證的小流程開始，不必為了跟上名詞而把每一層都裝齊。
+真正值得累積的是可執行的經驗Custom GPT 的遷移提醒我們：一個好用的 AI 助手，不只有幾句 Instructions。它可能還包含參考資料、工具連線、權限設定，以及人們多年累積的判斷方式。
+Plugin 是把工作能力組合與分享的容器；Skill 承載可重複使用的流程；App 和 MCP 提供連接資料與操作工具的能力。對我來說，最值得先做的仍是把「自己怎麼工作」整理清楚。Prompt 可以告訴 AI 這一次做什麼，而一套經過檢查、持續修正的 Skill，才能把經驗帶到下一次相似的工作裡。
+常見問答 (FAQ)Q1：Custom GPT 什麼時候會停止使用？OpenAI 目前規劃 Custom GPT 於 2026 年 12 月 11 日退場；符合資格並取得核准延期的 Enterprise 工作區，規劃日期為 2027 年 2 月 11 日。時程可能依帳號與工作區公告調整，請以自己的產品通知為準。
+Q2：遷移到 Plugin 後，原本的 GPT 內容會全部保留嗎？不會。依目前遷移說明，Instructions 會成為 Skill、Knowledge Files 會成為參考檔案、已連接的 Apps 會加入 Plugin；指定模型不會保留，Custom Actions、對話紀錄與分享設定也不會完整遷移。
+Q3：遷移後的 Plugin 會和原本 GPT 完全一樣嗎？不能假設兩者完全相同。官方建議使用熟悉的任務和較困難的案例測試 Skill 選擇、參考資料、輸出格式與工具整合，確認行為符合需求後再依賴新版本。
+Q4：Skill 一定要連接 App 或 MCP 才能使用嗎？不一定。Skill 可以只提供流程指引、範例和參考資源；只有需要查詢外部資料或執行服務動作時，才需要適當的 App、MCP Server 或其他工具，而且仍受帳號與工作區權限限制。
+Q5：如果我的 GPT 使用 Custom Actions，遷移前要做什麼？先列出每個 Action 使用的服務、輸入資料與必要動作，再確認是否有合適的 App；若需重建 MCP 整合，要分開設計並測試。Custom Actions 不會自動遷移，因此在替代方案完成驗證前，不要假設原本的 API 流程已經可用。
+延伸閱讀
+OpenAI：Custom GPT 退場與遷移 FAQ
+OpenAI：ChatGPT 中的 Skills
+OpenAI：ChatGPT 中的 Plugins
+從 Prompt 到 Skill Library：如何打造自己的 AI 工作能力庫
+
+
+        </p>
+        <a class="stretched-link" href="/posts/custom-gpt-plugin-skill-guide/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -3101,104 +3258,6 @@ Modal Budgets 文件
 
         </p>
         <a class="stretched-link" href="/posts/kimi-k3-codex-mcp/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-ai-video-production-workflow"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover174.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-AI 影片真正的分水嶺：從 Prompt 到專家 Skill 的製片工作流"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/9/14
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI Agent
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              影音行銷
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          AI 影片真正的分水嶺：從 Prompt 到專家 Skill 的製片工作流
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          AI 影視最近兩個案例，指向同一件事AI 影片最近有兩件事，我覺得值得放在一起看。
-第一件，是 Higgsfield 公開了 95 分鐘 AI 長片《HELL GRIND》的製作專案，讓外界能查看影片背後的提示詞與製作素材。Higgsfield 官方專案頁
-第二件，是我看到一位漫劇創作者在抖音談劇本創作與進階 Skill；他也公開了一套把編劇、角色與場景資產、分鏡、提示詞和品質檢查串起來的工作流程。抖音影片｜公開的漫劇製作 Skill
-乍看之下，這是兩種不同的 AI 影片案例。但放在一起，我看到的是同一個轉變：AI 影視真正的分水嶺，可能已不只是模型，而是「工作流」。
-我把這種變化濃縮成一句有點殘酷的話：「學得慢的，直接不用學了。」不是專業不重要，而是有些人不必再從空白頁開始，把流程每一步都重新摸索一次；他們可以先安裝一套專家整理好的 Skill，再把時間用在判斷和修正上。
-以前學 AI 影片，我們常常是在學怎麼抽卡人物不像？改 Prompt。場景跑掉？再補幾句。角色換個角度就變了樣？重抽。運鏡不對？繼續試。
-所以過去一段時間，大家忙著學提示詞、運鏡術語和模型參數。但模型、介面與生成能力一直在變，今天摸熟的技巧，下一次更新後可能就被新的功能或工作方式取代。
-反覆試生成並沒有消失，只是單靠「再改幾個字、再抽一次」很難穩定地做完一支片。更值得整理的，是故事如何拆解、角色和場景如何管理、鏡頭如何判斷，以及什麼結果可以留下。
-專家的方法，開始被封裝成 Skill以小說改編成短劇為例，完整工作不只有「寫一段好 Prompt」。它可能包括故事分析、劇本結構、節奏與 Hook、角色設定、場景和道具資產、分鏡規劃、生成提示，以及逐步檢查成品。
-這些步驟可以整理成一套 Skill：明確說明何時使用、要收哪些輸入、依什麼規則執行、要輸出什麼，以及在哪些地方停下來檢查。AI Agent 便能按照這套流程做事，而不是每次都靠使用者在聊天視窗重講一遍。
-公開的漫劇 Skill 範例，就把製作拆成劇本、台詞診斷、資產鎖定、分鏡、提示詞渲染和獨立質檢等階段。這不是保證任何人安裝後都能做出熱門作品；它展示的是，原本藏在熟手腦中的步驟，開始能以結構化方法傳給 AI 執行。
-一條可理解的製作管線大致會是：
-1234567891011小說／故事  ↓編劇 Skill  ↓角色與場景 Asset  ↓Storyboard Skill  ↓大量生成與品質檢查  ↓剪輯與輸出
-
-這和我先前寫過的從提示詞到 Skill：打造高效率 AI 工作流有相同的底層觀念：把反覆重講的規則、固定格式、機械式步驟和修正經驗拆開，整理成可以重複使用的模組。
-為什麼 Asset 會比一段角色 Prompt 更可靠？Higgsfield 公開《HELL GRIND》的專案素材，讓大家看到長片製作不只是每一鏡各寫一段描述。角色、場景、服裝、道具與不同狀態，都可以先整理成可重複引用的 Asset。
-角色不是只有一張「長相描述」。製作時可能需要正常、淋濕、受傷或換裝等不同狀態；場景也不只是一段文字，還可能需要固定的空間關係、光線和可用角度。先把這些資料整理起來，之後做新鏡頭就不必每次從頭解釋整個世界。
-這不代表模型從此不會漂移。Asset 的價值是提供更穩定的參照、減少重複整理，讓團隊更容易定位問題和重新生成；最後仍然需要有人檢查角色、場景和鏡頭是否接得起來。
-《HELL GRIND》提醒我們：沒有告別抽卡，只是把抽卡工程化《HELL GRIND》的製作數字，讓我更確定這點。Screen Daily 報導引述製作方資料指出，前 25 分鐘用了 16,181 次影片生成，最後選出 253 個鏡頭，約是每個入選鏡頭對應數十次生成的量級。Screen Daily 報導
-這是單一製作案例的數字，不是每部 AI 影片都適用的固定比例。但它清楚提醒我們：AI 影片不是按一次生成，就會自動得到可用成片。生成失敗並不可怕；更重要的是流程能不能記錄素材、比較版本、辨認問題，並只重跑需要修正的鏡頭。
-於是製作方式從：
-1人 → Prompt → 抽卡 → 不滿意 → 重抽
-
-逐漸往這種工作流靠近：
-1234567891011Story Bible  ↓Character Bible 與場景 Asset  ↓Storyboard 與 Shot 規格  ↓多輪生成  ↓人工／AI 輔助 QC  ↓挑選、重跑與剪輯
-
-抽卡仍然存在，只是它不再只是隨手試運氣，而是被納入一套可追蹤、可重跑、可檢查的製作管線。
-未來稀缺的，可能是把專業整理成系統的人未來真正厲害的人，不一定是 Prompt 寫得最長的人，而是最會把專業拆成可執行步驟的人。
-導演知道鏡頭怎麼服務情緒；編劇知道衝突和節奏如何推進；攝影師知道光線、構圖和視角如何影響觀感；剪輯師知道什麼時候該留下、什麼時候觀眾會離開。這些專業判斷，才是建立 Skill 時最有價值的內容。
-一套可用的 Skill，也不只是把 Prompt 改個名字。它通常還需要清楚的輸入與輸出、可重用的素材、檢查標準、失敗時的處理方式，以及必要的人工作業關卡。少了這些，Agent 只會更快速地重複同一種錯誤。
-如果想把 AI 影片流程往更完整的製作系統延伸，也可以參考我整理的用 Codex 打造 AI 影片工廠。而在生成能力普及、產量快速增加之後，為什麼「會生成影片」本身可能不再稀缺，也可延伸閱讀生成影片普及後，真正稀缺的是什麼。
-學 AI，不如開始把自己會的東西教給 AIPrompt 的寫法會變，模型也會更新；但故事怎麼拆、角色怎麼管理、畫面怎麼判斷、什麼內容值得留下，仍然是專業的一部分。
-所以現在學 AI，我不會只叫大家背更多提示詞。我更想問：哪些判斷你每天都在重複？哪些規則每次都要重新交代？哪些錯誤其實可以用檢查表提早抓到？
-把這些經驗整理起來，先讓 AI 照流程執行，再由你把關品質。以前我們學會使用 AI；下一個階段，或許是把自己會的事情整理成 Skill，教會 AI 如何一起完成工作。
-當越來越多人的專業被封裝成 Skill，真正的競爭才正要開始。
-常見問答 (FAQ)Q1：AI 影片製作中的 Skill 是什麼？Skill 是一套可由 AI Agent 依循的任務規則與流程，通常會定義使用時機、輸入資料、執行步驟、輸出格式和檢查標準。它能減少每次重講流程，但不保證生成結果一定正確或符合品質要求。
-Q2：有了 Skill，就不用學 Prompt 或專業知識了嗎？不是。Skill 可以把重複的操作規則整理起來，但使用者仍要提供目標與背景，並運用故事、影像、節奏和品質判斷來驗收結果。減少的是每次從零描述流程，不是專業判斷本身。
-Q3：為什麼角色與場景要先整理成 Asset？把角色、場景、服裝、道具和狀態整理成可重複引用的 Asset，有助於維持不同鏡頭的參照一致，也讓團隊更容易找出需要修正的素材。模型仍可能產生偏差，因此 Asset 不能取代逐鏡檢查。
-Q4：《HELL GRIND》的生成次數代表每個 AI 鏡頭都要生成 64 次嗎？不代表。製作方提供給媒體的數字是《HELL GRIND》前 25 分鐘用了 16,181 次影片生成，選出 253 個鏡頭，約為 64 次生成對應一個入選鏡頭的整體比值；這是該片的製作案例，不是普遍標準。
-Q5：要怎麼開始把自己的專業整理成 Skill？先挑一個反覆執行、容易出錯的工作，記錄必要輸入、每一步的判斷規則、預期輸出和驗收條件；再把可重用的角色／場景／素材與檢查表整理好，讓 AI 先依流程執行，並在關鍵步驟保留人工審核。
-
-        </p>
-        <a class="stretched-link" href="/posts/ai-video-production-workflow/"></a>
       </div>
     </div>
   </article>

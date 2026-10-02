@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Custom GPT 要退場了，真正值得學的不只是 Plugin：開始打造自己的 Skill Library
+  網址：https://blog.es2idea.com/posts/custom-gpt-plugin-skill-guide/
+  日期：2026-10-02
+  摘要：Custom GPT 預計轉向 Plugin，但遷移不會保留所有設定。本文整理 Instructions、Knowledge、Apps 與 Actions 的轉換差異，並說明如何把自己的 SOP 整理成可重用的 Skill Library。
+  主題：AI工具、AI Agent、ChatGPT
+
 - ChatGPT Plugin 這波，我想先丟 5 個產品上去測水溫
   網址：https://blog.es2idea.com/posts/chatgpt-plugin-market-test/
   日期：2026-10-02
@@ -100,12 +106,6 @@
   網址：https://blog.es2idea.com/posts/underworld-route-closed/
   日期：2026-09-27
   摘要：轉運站公告陰路全線暫停，南側入口積水又掩住唯一看似可走的路。享哥把舊路線圖、藍色紙標與夜市簽到資料拼在一起，在欠路羅盤的指引下找到願意開工具間的維修員；修好的羅盤不替他判定道路安全。
-  主題：享哥宇宙、科幻喜劇、AI故事
-
-- 享哥宇宙 EP007｜夜市神明排班表被換了
-  網址：https://blog.es2idea.com/posts/night-market-gods-shift-swap/
-  日期：2026-09-27
-  摘要：夜市臨時排班表把志工、送香車和攤商補貨擠進同一時段，電子系統卻把簽過名的人判成無人值守。享哥比對紙本回條、現場簽到與維修班紀錄，爭取到一個限時人工窗口；有排程仍不等於另一端有人。
   主題：享哥宇宙、科幻喜劇、AI故事
 
 ## 語言
