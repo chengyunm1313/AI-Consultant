@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Claude Skill 可以用在 Codex 嗎？Claude → Codex Agent Skills 遷移指南
+  網址：https://blog.es2idea.com/posts/claude-skills-to-codex/
+  日期：2026-10-02
+  摘要：看到 Claude Code 的設計 Skill 很喜歡，想搬到 Codex？本文用卡斯柏設計風格圖鑑為例，拆解可共用的 SKILL.md、必須改寫的平台設定，並整理檢查、遷移與實際驗證流程。
+  主題：Vibe Coding、Codex、Claude
+
 - GSAP AI Skills 教學：我把官方 Skills 裝進 Codex，讓 Vibe Coding 網站動起來
   網址：https://blog.es2idea.com/posts/gsap-skills-vibe-coding/
   日期：2026-10-02
@@ -100,12 +106,6 @@
   網址：https://blog.es2idea.com/posts/the-sound-that-called-home/
   日期：2026-09-27
   摘要：路線即將併入主線，享哥得在人工窗口關閉前決定要不要發出僅有的一次短脈衝。他們用獨立接收設備核對訊號，終於取得阿策的即時回應；這條人工支線只能限期試行，回程有冷卻與時限，不能任意往返。
-  主題：享哥宇宙、科幻喜劇、AI故事
-
-- 享哥宇宙 EP009｜輝哥忘了誰簽過名
-  網址：https://blog.es2idea.com/posts/who-signed-the-test-form/
-  日期：2026-09-27
-  摘要：小頻在公開評測室比較廣播、警報與兩種聲音重疊的片段，沒有交出任何人的通話錄音。當接收設備播出三天前存入的阿策語音，享哥核對時間戳，確認它不是即時回覆；下一次測試只有一個受監督窗口，並不保證接通。
   主題：享哥宇宙、科幻喜劇、AI故事
 
 ## 語言
