@@ -1,0 +1,936 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>AI Coding 成本最佳化：多模型分工取代單一高價方案 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-coding-cost-optimization/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="不必讓單一高價模型包辦規劃、實作與測試。本文拆解 AI Coding 多模型分工，說明如何把需求、獨立審查、實作與驗收交給合適角色，並用固定月費加 API 用量預算評估真實成本。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI Coding 成本最佳化：多模型分工取代單一高價方案">
+<meta property="og:url" content="https://blog.es2idea.com/posts/ai-coding-cost-optimization/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="不必讓單一高價模型包辦規劃、實作與測試。本文拆解 AI Coding 多模型分工，說明如何把需求、獨立審查、實作與驗收交給合適角色，並用固定月費加 API 用量預算評估真實成本。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover204.webp">
+<meta property="article:published_time" content="2026-10-03T22:24:44.000Z">
+<meta property="article:modified_time" content="2026-10-03T14:52:45.304Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="AI Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover204.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#webpage","@type":"WebPage","name":"AI Coding 成本最佳化：多模型分工取代單一高價方案","url":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/","description":"不必讓單一高價模型包辦規劃、實作與測試。本文拆解 AI Coding 多模型分工，說明如何把需求、獨立審查、實作與驗收交給合適角色，並用固定月費加 API 用量預算評估真實成本。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover204.webp","@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#blogposting","@type":"BlogPosting","headline":"AI Coding 成本最佳化：多模型分工取代單一高價方案","name":"AI Coding 成本最佳化：多模型分工取代單一高價方案","description":"不必讓單一高價模型包辦規劃、實作與測試。本文拆解 AI Coding 多模型分工，說明如何把需求、獨立審查、實作與驗收交給合適角色，並用固定月費加 API 用量預算評估真實成本。","url":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-10-03T22:24:44.000Z","dateModified":"2026-10-03T14:52:45.304Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover204.webp","@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","AI Agent","AI Coding"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","AI Agent","AI Coding"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"AI Coding 成本最佳化：多模型分工取代單一高價方案","item":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/"}]},{"@id":"https://blog.es2idea.com/posts/ai-coding-cost-optimization/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"多模型分工一定比單一 AI Coding 方案便宜嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。多模型可能降低高價模型處理重複工作的支出，也會增加 API 用量、切換上下文和人工整合成本。應以通過驗收的成果、API 帳單與人工時間一起比較。"}},{"@type":"Question","name":"每月 60 美元就能取代 200 美元的高階方案嗎？","acceptedAnswer":{"@type":"Answer","text":"這是 20 + 20 + 20 的情境算術，第三筆若是 API 預算，實際帳單會按用量變動。模型額度、任務複雜度和返工時間也會影響結果，因此不能把 60 美元當成固定套餐或品質保證。"}},{"@type":"Question","name":"為什麼要讓另一個模型審查規格或程式碼？","acceptedAnswer":{"@type":"Answer","text":"不同模型可能採用不同假設，獨立審查有機會發現規劃階段漏掉的邊界條件、風險或測試缺口。但審查也可能誤報，必須提供依據並以程式碼、測試和人工判斷確認。"}},{"@type":"Question","name":"怎麼判斷哪些任務可以交給較便宜的模型？","acceptedAnswer":{"@type":"Answer","text":"先從範圍小、驗收明確、出錯容易回復的任務開始。觀察它能否在可接受的修正次數內完成，並確認測試、權限和資料要求都符合專案標準。"}},{"@type":"Question","name":"ChatGPT Plus 月費是否包含 OpenAI API 使用？","acceptedAnswer":{"@type":"Answer","text":"不包含。OpenAI 說明 Plus 訂閱與 API 計費分開；Codex 功能和額度則依方案、帳戶及當下可用性而異。採用 API 工作流前，應分開估算訂閱費和 API 帳單。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-Coding-%E6%9C%80%E8%8A%B1%E9%8C%A2%E7%9A%84%EF%BC%8C%E4%B8%8D%E4%B8%80%E5%AE%9A%E6%98%AF%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AF%AB%E7%A8%8B%E5%BC%8F"><span class="toc-number">1.</span> <span class="toc-text">AI Coding 最花錢的，不一定是第一次寫程式</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%88%E5%88%86%E9%85%8D%E5%B7%A5%E4%BD%9C%EF%BC%8C%E5%86%8D%E6%8C%91%E9%81%B8%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.</span> <span class="toc-text">先分配工作，再挑選模型</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AE%93%E5%BC%B7%E6%A8%A1%E5%9E%8B%E6%8A%8A%E6%96%B9%E5%90%91%E6%83%B3%E6%B8%85%E6%A5%9A"><span class="toc-number">2.1.</span> <span class="toc-text">讓強模型把方向想清楚</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%AB%8B%E5%8F%A6%E4%B8%80%E5%80%8B%E6%A8%A1%E5%9E%8B%E7%8D%A8%E7%AB%8B%E6%89%BE%E5%95%8F%E9%A1%8C"><span class="toc-number">2.2.</span> <span class="toc-text">請另一個模型獨立找問題</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8A%8A%E6%98%8E%E7%A2%BA%E7%9A%84%E5%AF%A6%E4%BD%9C%E5%B7%A5%E4%BD%9C%E4%BA%A4%E7%B5%A6%E5%90%88%E9%81%A9%E6%88%90%E6%9C%AC%E7%9A%84%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">把明確的實作工作交給合適成本的模型</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E5%A5%97%E5%8F%AF%E8%A9%A6%E8%B7%91%E7%9A%84%E5%A4%9A%E6%A8%A1%E5%9E%8B%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">3.</span> <span class="toc-text">一套可試跑的多模型工作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#20%E3%80%81-60-%E8%88%87-200-%E8%A6%81%E6%80%8E%E9%BA%BC%E6%AF%94%E8%BC%83%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">$20、$60 與 $200 要怎麼比較？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%80%8E%E9%BA%BC%E9%96%8B%E5%A7%8B%E8%A9%A6%EF%BC%8C%E8%80%8C%E4%B8%8D%E8%AE%93%E5%A4%9A%E6%A8%A1%E5%9E%8B%E5%A2%9E%E5%8A%A0%E6%B7%B7%E4%BA%82%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">怎麼開始試，而不讓多模型增加混亂？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%8D%E9%9C%80%E8%A6%81%E6%8A%8A-200-%E7%BE%8E%E5%85%83%E6%96%B9%E6%A1%88%E8%A6%96%E7%82%BA%E6%B5%AA%E8%B2%BB"><span class="toc-number">6.</span> <span class="toc-text">不需要把 200 美元方案視為浪費</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">7.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E5%A4%9A%E6%A8%A1%E5%9E%8B%E5%88%86%E5%B7%A5%E4%B8%80%E5%AE%9A%E6%AF%94%E5%96%AE%E4%B8%80-AI-Coding-%E6%96%B9%E6%A1%88%E4%BE%BF%E5%AE%9C%E5%97%8E%EF%BC%9F"><span class="toc-number">7.1.</span> <span class="toc-text">Q1：多模型分工一定比單一 AI Coding 方案便宜嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9A%E6%AF%8F%E6%9C%88-60-%E7%BE%8E%E5%85%83%E5%B0%B1%E8%83%BD%E5%8F%96%E4%BB%A3-200-%E7%BE%8E%E5%85%83%E7%9A%84%E9%AB%98%E9%9A%8E%E6%96%B9%E6%A1%88%E5%97%8E%EF%BC%9F"><span class="toc-number">7.2.</span> <span class="toc-text">Q2：每月 60 美元就能取代 200 美元的高階方案嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E7%82%BA%E4%BB%80%E9%BA%BC%E8%A6%81%E8%AE%93%E5%8F%A6%E4%B8%80%E5%80%8B%E6%A8%A1%E5%9E%8B%E5%AF%A9%E6%9F%A5%E8%A6%8F%E6%A0%BC%E6%88%96%E7%A8%8B%E5%BC%8F%E7%A2%BC%EF%BC%9F"><span class="toc-number">7.3.</span> <span class="toc-text">Q3：為什麼要讓另一個模型審查規格或程式碼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E6%80%8E%E9%BA%BC%E5%88%A4%E6%96%B7%E5%93%AA%E4%BA%9B%E4%BB%BB%E5%8B%99%E5%8F%AF%E4%BB%A5%E4%BA%A4%E7%B5%A6%E8%BC%83%E4%BE%BF%E5%AE%9C%E7%9A%84%E6%A8%A1%E5%9E%8B%EF%BC%9F"><span class="toc-number">7.4.</span> <span class="toc-text">Q4：怎麼判斷哪些任務可以交給較便宜的模型？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q5%EF%BC%9AChatGPT-Plus-%E6%9C%88%E8%B2%BB%E6%98%AF%E5%90%A6%E5%8C%85%E5%90%AB-OpenAI-API-%E4%BD%BF%E7%94%A8%EF%BC%9F"><span class="toc-number">7.5.</span> <span class="toc-text">Q5：ChatGPT Plus 月費是否包含 OpenAI API 使用？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AE%98%E6%96%B9%E6%96%B9%E6%A1%88%E8%88%87-API-%E8%B3%87%E8%A8%8A"><span class="toc-number">8.</span> <span class="toc-text">官方方案與 API 資訊</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (72)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (21)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (21)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (19)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (18)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (31)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (82)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (68)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (46)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (26)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (42)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (35)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI-Agent/" rel="tag">AI Agent</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/10/03 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">AI Coding 成本最佳化：多模型分工取代單一高價方案</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 把需求規劃、獨立審查、實作與驗收交給不同模型，讓高價能力用在真正需要判斷的地方。 -</h4>
+        
+        <p>最近我一直在想：AI Coding 有沒有必要每個月都花到 200 美元？我曾同時使用好幾個高階方案，處理 ERP、電商、遊戲化功能、自有平台，以及已上線的商用專案。按我當時的帳號組合計算，相關月費一度超過 1,100 美元。這是我的實際成本背景，不是各家目前的統一價目表。</p>
+<p>實際開發一段時間後，我開始重新拆解工作流程。我的結論不是「便宜模型比高價模型聰明」，而是：<strong>不要讓最貴的模型長時間處理它不必親自完成的重複工作。</strong></p>
+<h2 id="AI-Coding-最花錢的，不一定是第一次寫程式"><a href="#AI-Coding-最花錢的，不一定是第一次寫程式" class="headerlink" title="AI Coding 最花錢的，不一定是第一次寫程式"></a>AI Coding 最花錢的，不一定是第一次寫程式</h2><p>一個功能通常不只包含產生程式碼。開發過程還要理解需求、讀取 Repository、找出相關檔案、建立上下文、執行測試、閱讀錯誤、修改，再跑一次回歸檢查。</p>
+<p>以我的工作經驗，成本容易在這些反覆往返中累積。程式碼第一次產生出來，只是整個交付循環的一部分；「確認它有沒有做對」也需要時間、工具使用量與人工注意力。</p>
+<p>如果同一個模型從規劃一路做到測試、Debug 和 Code Review，它當然可能全部完成，但每個回合都可能重新讀取大量脈絡。這就像讓資深技術主管每天親自改 CSS、修 lint、重跑測試和讀 log：做得到，不代表每件事都值得用同一種成本處理。</p>
+<h2 id="先分配工作，再挑選模型"><a href="#先分配工作，再挑選模型" class="headerlink" title="先分配工作，再挑選模型"></a>先分配工作，再挑選模型</h2><p>我現在會把 AI Coding 流程拆成幾個角色。Claude、Codex、DeepSeek、Kimi 等名稱只是我使用過或評估過的例子；模型能力、工具整合與方案額度會變動，分工原則比固定排名耐用。</p>
+<table>
+<thead>
+<tr>
+<th>角色</th>
+<th>主要工作</th>
+<th>交付內容</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>規劃者</td>
+<td>釐清需求、找出限制、設計模組邊界、拆分任務</td>
+<td>SPEC、Issue、驗收條件</td>
+</tr>
+<tr>
+<td>獨立審查者</td>
+<td>從另一個角度找邏輯漏洞、權限與資料風險、測試缺口</td>
+<td>有證據的問題清單與修正建議</td>
+</tr>
+<tr>
+<td>實作者</td>
+<td>按照明確範圍完成程式碼、測試與必要修正</td>
+<td>可檢查的程式碼差異與測試結果</td>
+</tr>
+<tr>
+<td>最終驗收者</td>
+<td>核對需求、測試結果與整體風險，決定是否合併</td>
+<td>驗收紀錄與合併決策</td>
+</tr>
+</tbody></table>
+<h3 id="讓強模型把方向想清楚"><a href="#讓強模型把方向想清楚" class="headerlink" title="讓強模型把方向想清楚"></a>讓強模型把方向想清楚</h3><p>規劃階段會影響後續每一個 Issue。這時我會優先使用自己熟悉、能處理複雜上下文的模型，請它整理需求、資料流、模組邊界、依賴條件與可能的失敗情境。</p>
+<p>SPEC 不必很長，但要讓下一個角色能知道要改什麼、不能改什麼，以及如何判斷完成。把模糊的「做一個登入功能」改成明確的行為與驗收條件，通常比不停追加長提示更容易控制工作範圍。</p>
+<h3 id="請另一個模型獨立找問題"><a href="#請另一個模型獨立找問題" class="headerlink" title="請另一個模型獨立找問題"></a>請另一個模型獨立找問題</h3><p>規劃模型很容易沿著自己的假設往下推。讓不同模型閱讀同一份 SPEC 與 Issues，可以增加一個獨立檢查角度，但不保證一定找到所有缺陷，也可能產生不成立的疑慮。審查者應指出依據，最後仍由人判斷並透過測試確認。</p>
+<p>我會用類似以下的任務說明：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">請獨立檢查這份 SPEC 與工作項目，先不要開始實作。</span><br><span class="line"></span><br><span class="line">請找出：</span><br><span class="line">- 未定義的邊界情況</span><br><span class="line">- 權限與資料一致性風險</span><br><span class="line">- API 或模組設計上的衝突</span><br><span class="line">- 測試條件不足或互相矛盾之處</span><br><span class="line"></span><br><span class="line">每個問題請附上對應段落、影響與可驗證的修正建議。</span><br><span class="line">不確定的地方請標明假設，不要把推測寫成已確認的缺陷。</span><br></pre></td></tr></table></figure>
+
+<p>同一個模型自行規劃再自行審查，也可能有幫助；只是它未必能跳出先前採用的假設。換一個模型是增加檢查角度，不是把責任交出去。</p>
+<h3 id="把明確的實作工作交給合適成本的模型"><a href="#把明確的實作工作交給合適成本的模型" class="headerlink" title="把明確的實作工作交給合適成本的模型"></a>把明確的實作工作交給合適成本的模型</h3><p>當需求、檔案範圍和驗收方式已經清楚，實作者不一定每次都要重新推演整個產品背景。可以把工作拆成一個有邊界的 Issue，附上必要檔案與驗收條件，再依任務風險選擇模型或 API。</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">Issue：新增訂單狀態篩選</span><br><span class="line"></span><br><span class="line">依驗收條件實作，只修改訂單列表相關模組。</span><br><span class="line">新增或更新對應測試，執行測試並修正失敗。</span><br><span class="line">回報修改檔案、測試指令與結果；不要變更無關功能。</span><br></pre></td></tr></table></figure>
+
+<p>如果便宜模型無法完成，或實作牽涉安全、付款、資料遷移等高風險範圍，就應提高模型能力或安排更多人工審查。省下的 API 費用若換來大量重工，整體成本仍可能更高。</p>
+<h2 id="一套可試跑的多模型工作流程"><a href="#一套可試跑的多模型工作流程" class="headerlink" title="一套可試跑的多模型工作流程"></a>一套可試跑的多模型工作流程</h2><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">需求</span><br><span class="line">  ↓</span><br><span class="line">規劃模型：釐清需求、整理 SPEC 與 Issues</span><br><span class="line">  ↓</span><br><span class="line">另一個模型：獨立審查假設、風險與驗收缺口</span><br><span class="line">  ↓</span><br><span class="line">修正規格，由人確認範圍</span><br><span class="line">  ↓</span><br><span class="line">實作模型：逐項完成工作並執行測試</span><br><span class="line">  ↓</span><br><span class="line">獨立檢查：核對差異、測試與風險</span><br><span class="line">  ↓</span><br><span class="line">必要時請規劃模型處理重大設計問題</span><br><span class="line">  ↓</span><br><span class="line">人工決定是否合併</span><br></pre></td></tr></table></figure>
+
+<p>高價模型集中在開始前的關鍵決策與結束前的重要審查；大量、界線清楚的實作與修正，則可由成本較低且足以勝任的模型處理。不同任務的比例不必相同，也不需要為了湊出「三個模型」硬加一個角色。</p>
+<h2 id="20、-60-與-200-要怎麼比較？"><a href="#20、-60-與-200-要怎麼比較？" class="headerlink" title="$20、$60 與 $200 要怎麼比較？"></a>$20、$60 與 $200 要怎麼比較？</h2><p>「20 美元團隊打敗 200 美元方案」比較像工作流的比喻，不是每個人都能複製的保證結果。比較方案時，先把固定月費、API 用量、超額費用和人工檢查時間一起算進去。</p>
+<p>截至 2026 年 10 月 3 日，官方頁面列出的美國月繳價中，Claude Pro 為每月 20 美元，ChatGPT Plus 也為每月 20 美元。ChatGPT 方案的 API 用量另計，Codex 的可用功能與使用額度會依方案及帳戶狀態變動；DeepSeek API 則依模型與 Token 用量計價。地區定價、稅金、額度與方案內容可能不同，請以自己帳戶當下顯示的資訊為準。</p>
+<p>因此，<code>20 + 20 + 20 = 60</code> 只有在第三筆 API 預算實際用了 20 美元時，才是當月約 60 美元的情境估算。API 並不是固定每月 20 美元的訂閱；不用或少用時可能低於預算，長任務也可能超出預算。若把比較基準設成 200 美元月費，60 美元確實是算術上少 70%；這不代表每個專案都能以相同品質和時間完成。</p>
+<blockquote>
+<p>本文提到的高階方案支出是作者當時的個人經驗；上述方案資訊是依官方頁面於 2026 年 10 月 3 日查閱的美國月繳標價整理。價格、額度與模型可用性可能變動，應以官方頁面和帳戶實際顯示為準。</p>
+</blockquote>
+<p>更實用的比較單位是「每個通過驗收的工作項目花多少成本」。可以先挑一種低風險、可重複的任務，記錄 API 費用、修正回合、人工檢查時間與測試結果，再比較單一模型和分工流程。只看 Token 單價或訂閱金額，容易忽略重新交代上下文與返工的成本。</p>
+<h2 id="怎麼開始試，而不讓多模型增加混亂？"><a href="#怎麼開始試，而不讓多模型增加混亂？" class="headerlink" title="怎麼開始試，而不讓多模型增加混亂？"></a>怎麼開始試，而不讓多模型增加混亂？</h2><ol>
+<li><strong>選一個低風險任務。</strong> 暫時不要把付款、權限或正式資料遷移當成第一個試驗。</li>
+<li><strong>先寫好規格與驗收條件。</strong> 明列目標、修改範圍、不能變動的內容，以及要執行的測試。</li>
+<li><strong>讓審查者先看規格。</strong> 要求它列出有依據的風險與缺口，先由人確認哪些需要修正。</li>
+<li><strong>把實作切成小工作項目。</strong> 每項工作都應能單獨檢查，並有明確的完成條件。</li>
+<li><strong>記錄總成本與結果。</strong> 除了 API 帳單，也記下返工時間、失敗案例與人工驗收時間。</li>
+<li><strong>依數據調整分工。</strong> 如果模型切換讓你花更多時間搬運上下文，合併角色或改用單一模型可能更有效率。</li>
+</ol>
+<p>把程式碼、Issue 或內部文件交給不同服務前，也要先確認公司的資料政策與各服務的資料使用設定，不要把金鑰、<code>.env</code> 或不該外傳的內容放進提示。多模型協作會增加資料流向的服務數量，資料邊界應一起納入架構決策。</p>
+<p>如果想看更具體的需求討論、建立 Ticket，再交由 Codex 實作與 Review 的接力方式，可參考<a href="/posts/chatgpt-codex-ticket-workflow/">我把 ChatGPT 接上開發台後整理的 AI Coding 工作流</a>。</p>
+<h2 id="不需要把-200-美元方案視為浪費"><a href="#不需要把-200-美元方案視為浪費" class="headerlink" title="不需要把 200 美元方案視為浪費"></a>不需要把 200 美元方案視為浪費</h2><p>如果高階方案每月替你省下的時間或帶來的價值遠高於費用，它可能很划算。當下時間有限、專案複雜、需要更高使用額度，或一個錯誤的代價很高時，集中使用能力更強的模型也有合理性。</p>
+<p>我真正想改變的是「唯一最強模型包辦全部」這個預設。規劃、審查、實作和驗收是不同工作；先定義角色，再看現有模型與方案能不能勝任。模型是可以更換的供應者，流程、驗收條件和風險控制才是團隊長期要維護的資產。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：多模型分工一定比單一-AI-Coding-方案便宜嗎？"><a href="#Q1：多模型分工一定比單一-AI-Coding-方案便宜嗎？" class="headerlink" title="Q1：多模型分工一定比單一 AI Coding 方案便宜嗎？"></a>Q1：多模型分工一定比單一 AI Coding 方案便宜嗎？</h3><p>不一定。多模型可能降低高價模型處理重複工作的支出，也會增加 API 用量、切換上下文和人工整合成本。應以通過驗收的成果、API 帳單與人工時間一起比較。</p>
+<h3 id="Q2：每月-60-美元就能取代-200-美元的高階方案嗎？"><a href="#Q2：每月-60-美元就能取代-200-美元的高階方案嗎？" class="headerlink" title="Q2：每月 60 美元就能取代 200 美元的高階方案嗎？"></a>Q2：每月 60 美元就能取代 200 美元的高階方案嗎？</h3><p>這是 <code>20 + 20 + 20</code> 的情境算術，第三筆若是 API 預算，實際帳單會按用量變動。模型額度、任務複雜度和返工時間也會影響結果，因此不能把 60 美元當成固定套餐或品質保證。</p>
+<h3 id="Q3：為什麼要讓另一個模型審查規格或程式碼？"><a href="#Q3：為什麼要讓另一個模型審查規格或程式碼？" class="headerlink" title="Q3：為什麼要讓另一個模型審查規格或程式碼？"></a>Q3：為什麼要讓另一個模型審查規格或程式碼？</h3><p>不同模型可能採用不同假設，獨立審查有機會發現規劃階段漏掉的邊界條件、風險或測試缺口。但審查也可能誤報，必須提供依據並以程式碼、測試和人工判斷確認。</p>
+<h3 id="Q4：怎麼判斷哪些任務可以交給較便宜的模型？"><a href="#Q4：怎麼判斷哪些任務可以交給較便宜的模型？" class="headerlink" title="Q4：怎麼判斷哪些任務可以交給較便宜的模型？"></a>Q4：怎麼判斷哪些任務可以交給較便宜的模型？</h3><p>先從範圍小、驗收明確、出錯容易回復的任務開始。觀察它能否在可接受的修正次數內完成，並確認測試、權限和資料要求都符合專案標準。</p>
+<h3 id="Q5：ChatGPT-Plus-月費是否包含-OpenAI-API-使用？"><a href="#Q5：ChatGPT-Plus-月費是否包含-OpenAI-API-使用？" class="headerlink" title="Q5：ChatGPT Plus 月費是否包含 OpenAI API 使用？"></a>Q5：ChatGPT Plus 月費是否包含 OpenAI API 使用？</h3><p>不包含。OpenAI 說明 Plus 訂閱與 API 計費分開；Codex 功能和額度則依方案、帳戶及當下可用性而異。採用 API 工作流前，應分開估算訂閱費和 API 帳單。</p>
+<h2 id="官方方案與-API-資訊"><a href="#官方方案與-API-資訊" class="headerlink" title="官方方案與 API 資訊"></a>官方方案與 API 資訊</h2><p>以下官方頁面用來確認本文的方案／計費邊界，查閱日期為 2026 年 10 月 3 日。實際使用前請再次查看最新資訊：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://www.anthropic.com/pricing">Anthropic 方案價格</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/6950777-what-is-chatgpt-plus">ChatGPT Plus 方案與 API 計費說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/11369540-using-codex-with-your-chatgpt-plan">Codex 與 ChatGPT 方案的可用性和額度</a></li>
+<li><a target="_blank" rel="noopener" href="https://api-docs.deepseek.com/quick_start/pricing/">DeepSeek API 模型與 Token 價格</a></li>
+</ul>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover203.webp" class="img-fluid card-img-top rounded-3" alt="不要再蒐集 Skill 了：我開始建立自己的 Skill Factory">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不要再蒐集 Skill 了：我開始建立自己的 Skill Factory</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/03</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/build-your-own-ai-skill-factory/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover202.webp" class="img-fluid card-img-top rounded-3" alt="我現在做 Vibe Coding，不會只靠 Playwright 驗收了：SuperDesign × DESIGN.md × Codex Browser">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">我現在做 Vibe Coding，不會只靠 Playwright 驗收了：SuperDesign × DESIGN.md × Codex Browser</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Playwright</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/superdesign-designmd-codex-browser/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover200.webp" class="img-fluid card-img-top rounded-3" alt="GSAP AI Skills 教學：我把官方 Skills 裝進 Codex，讓 Vibe Coding 網站動起來">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">GSAP AI Skills 教學：我把官方 Skills 裝進 Codex，讓 Vibe Coding 網站動起來</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">GSAP</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/gsap-skills-vibe-coding/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover199.webp" class="img-fluid card-img-top rounded-3" alt="Custom GPT 要退場了，真正值得學的不只是 Plugin：開始打造自己的 Skill Library">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Custom GPT 要退場了，真正值得學的不只是 Plugin：開始打造自己的 Skill Library</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/custom-gpt-plugin-skill-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover198.webp" class="img-fluid card-img-top rounded-3" alt="ChatGPT Plugin 這波，我想先丟 5 個產品上去測水溫">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">ChatGPT Plugin 這波，我想先丟 5 個產品上去測水溫</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/02</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/chatgpt-plugin-market-test/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover197.webp" class="img-fluid card-img-top rounded-3" alt="Public APIs 開始收錄 MCP Server：48 萬 Star 的工具清單怎麼用？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Public APIs 開始收錄 MCP Server：48 萬 Star 的工具清單怎麼用？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/01</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/public-apis-mcp-servers/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover196.webp" class="img-fluid card-img-top rounded-3" alt="Claude 程式碼動畫怎麼做？從 Prompt 拆出 Motion Design Skill">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Claude 程式碼動畫怎麼做？從 Prompt 拆出 Motion Design Skill</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Claude</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/01</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/claude-code-animation-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover195.webp" class="img-fluid card-img-top rounded-3" alt="當 ChatGPT 可以接上 Pi：AI Agent 正在走向「模型與 Harness 分離」">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">當 ChatGPT 可以接上 Pi：AI Agent 正在走向「模型與 Harness 分離」</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/chatgpt-pi-agent-harness/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover194.webp" class="img-fluid card-img-top rounded-3" alt="從 Prompt 到 Skill Library：我從吳奇老師的 Agent Skill 講座學到什麼？以及如何打造自己的 AI 工作能力庫">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">從 Prompt 到 Skill Library：我從吳奇老師的 Agent Skill 講座學到什麼？以及如何打造自己的 AI 工作能力庫</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/09/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/from-prompt-to-skill-library/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
