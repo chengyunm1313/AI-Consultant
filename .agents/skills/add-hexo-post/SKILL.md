@@ -66,6 +66,25 @@ Slug 選擇後要一路完成內容、封面與本機 QA，最後只停一次等
 
 批次模式一次列出全部文章的 slug 候選，讓使用者在同一則回覆選完；完成後用一份 manifest 確認整批，不逐篇重問。不可替未選定的文章建立檔案。封面重做若發生在發布確認之前，納入最後 manifest 一起確認；確認之後才替換封面或新增／移除文章，才需要對變更後的 manifest 重新確認。
 
+### 本機驗收通過後的發布交接
+
+常見失誤是把「未獲發布授權，不可推送」誤當成流程終點，只回報「目前尚未發布」；另一種失誤是雖然詢問發布，卻只問泛化的「要不要發布？」而沒有列出確認範圍。兩者都會讓使用者必須追問，或無法判斷授權涵蓋哪些檔案與動作。
+
+文章與封面通過本機驗收後，若尚未取得發布授權，下一個面向使用者的回覆必須先明確說明「本機驗收已通過，文章可以發布」，再附上一份具體 release manifest，並直接詢問是否依該 manifest 發布。不可只以「尚未提交／尚未發布」作結，也不可因原始請求只授權新增文章而自行略過發布確認或自行推送。
+
+Manifest 必須列出：
+
+- 文章檔案路徑與正式網址。
+- 封面 source PNG 路徑與預期 production WebP 路徑。
+- 從 Hexo scaffold 保留的原始建立時間。
+- 明確目標分支。
+- 已完成的本機驗收結果，例如 build、日期、JSON-LD、文章頁與桌機／手機封面預覽。
+- 精確提交檔案清單與預定 commit message。
+
+結尾要用一個明確問題，請使用者授權將 manifest 列出的檔案精準 stage、commit 到指定分支並 push，觸發既有部署流程。不要用未列出檔案、分支或動作的泛化確認問題。若使用者在授權前詢問「發佈了嗎？」等狀態問題，先如實回答目前狀態，再補上相同的完整 manifest 與授權問題；不可要求使用者自己提醒要確認發布。
+
+使用者未授權時停在等待，不得 commit 或 push；使用者明確回覆「沒問題，發到 main」或同等授權後，依上述 manifest 完成發布，不再為同一範圍重複詢問。
+
 ### 使用者確認與平台核准是兩回事
 
 Skill 只能規範上述使用者決策，不能關閉 Codex、作業系統或瀏覽器的命令／桌面控制權限，也不能把平台核准當成已取得。遇到平台核准提示時，依提示處理；不得用另一個工具代按核准、改走未授權路徑，或重複執行已被拒絕的命令。為減少不必要往返，將同一階段彼此獨立的唯讀檢查集中在一次工具執行中；封面 QA 沿用一個 server 與瀏覽器 session，不逐張圖、逐個 viewport 另開流程。若平台仍要求核准，就如實指出被要求核准的具體操作，不宣稱 Skill 能免除它。
@@ -466,17 +485,17 @@ if rg -n '[[:blank:]]+$' source/_posts/<slug>.md; then exit 1; fi
 
 等待 `http://localhost:<free-port>/posts/<slug>/` 可讀取後，在上方同一個 server／browser session 確認文章標題、封面、標題階層、FAQ 與程式碼區塊；不要在 build 後再啟動第二個 server。只停止自己啟動的伺服器程序，不要使用廣泛的 `pkill` 或殺掉使用者既有的服務。
 
-### 瀏覽器快速驗收：一個 server、一個 session、一次 final capture
+### 瀏覽器快速驗收：內建瀏覽器優先，Playwright 只補驗收缺口
 
-Playwright 是定稿視覺證據，不是封面候選比較器。先完成 metadata、`cover-guard` 與裁切幾何檢查，再由同一個 Hexo 開發伺服器預覽 source PNG，完成桌機／手機卡片 QA 後才做最後一次 production build。若 4000 被占用，改用下一個 port，以目標 URL 的 HTTP 200 判斷 server ready，不固定 sleep，也不終止使用者的服務。
+文章與封面的本機視覺驗收預設使用 Codex 內建瀏覽器 `mcp__cua_repl`。先完成 metadata、`cover-guard` 與裁切幾何檢查，再啟動一個 Hexo 開發伺服器；沿用同一個 tab 依序檢查文章頁與 `/blog/`，用畫面和可取得的 accessibility tree 確認標題、內容、FAQ、封面載入與列表卡片裁切。完成這輪 QA 後才做最後一次 production build。若 4000 被占用，改用下一個 port，以目標 URL 的 HTTP 200 判斷 server ready，不固定 sleep，也不終止使用者的服務。
 
-若 Codex 內建瀏覽器工具 `mcp__cua_repl` 可用，優先用它開啟本機站，在同一個 tab/context 一次完成 DOM probe、桌機與手機截圖。這會避開啟動 Playwright CLI 的 shell 子程序，通常可減少逐條命令的授權提示；它不會繞過平台對瀏覽器／桌面控制的權限，也不能保證完全沒有核准提示。不要為每個 viewport 或截圖另問一次使用者許可。
+同一批文章集中在一次內建瀏覽器 session 完成；桌機與手機畫面若可由內建瀏覽器調整 viewport，就各擷取一次。使用 `/blog/` 完整頁面或同一列表畫面一併檢查所有新卡片；只有卡片跨頁而無法同圖檢查時才按列表頁分組截圖，不逐篇重開頁面。純文字修改且 cover、front matter、CSS、列表 layout 都未變時，可略過封面截圖。截圖放在 `/tmp/add-hexo-post/<slug>/` 或既有未追蹤目錄，絕不 stage。
 
-內建瀏覽器不可用時才用 Playwright CLI：先讀 CLI 用法一次；首次執行前把 `NPM_CONFIG_CACHE` 指到可寫的 `/private/tmp`，避免 npx 寫入受限的使用者 Cache。沿用一個具名 session，把頁面檢查與兩種 viewport 的操作放在同一個 session／批次命令；遇到 `EPERM` 或 `browser is not open`，修正 cache 路徑或重開同一 session 各一次即可，第二次仍失敗就停止並標記 `browser_qa_limited`，不可為了避開系統核准而改用未授權路徑或重試同一操作。
+只有在某一項驗收條件無法透過內建瀏覽器的畫面、accessibility tree 或可用的 viewport 操作確認時，才用 Playwright CLI 對該缺口做最小補測。例子包括內建瀏覽器無法設定指定手機 viewport 時擷取 390×844 畫面，或無法讀取驗收必需的 `currentSrc`／natural size、`object-fit`／computed `object-position`、精確卡片尺寸、水平溢出、互動結果或 console/network 狀態。先完成內建瀏覽器可做的檢查，記下仍缺少的具體證據，再只用 Playwright 補該項；不要整套改用 Playwright，也不要重複驗證已由內建瀏覽器確認的頁面、標題、FAQ 或截圖。不得同時啟動 Playwright MCP 與 CLI 來做同一輪 QA。
 
-每個批次只做一次 DOM probe，收集所有新文章的標題、FAQ、程式碼區塊、圖片 `currentSrc`／natural size、卡片尺寸、`object-fit`、computed `object-position` 和水平溢出。定稿封面只截 1440px 桌機與 390×844 手機各一張；用 `/blog/` 的完整頁面或含所有新卡片的列表畫面一併檢查。只有卡片跨頁而無法同圖檢查時才按列表頁分組截圖，不逐篇重開頁面。純文字修改且 cover、front matter、CSS、列表 layout 都未變時，可略過封面截圖。截圖放在 `/tmp/add-hexo-post/<slug>/` 或既有未追蹤目錄，絕不 stage。
+需要 Playwright CLI 時，先讀 CLI 用法一次；首次執行前把 `NPM_CONFIG_CACHE` 指到可寫的 `/private/tmp`，避免 npx 寫入受限的使用者 Cache。沿用一個具名 session，把缺口檢查放在同一個 session／批次命令；遇到 `EPERM` 或 `browser is not open`，修正 cache 路徑或重開同一 session 各一次即可，第二次仍失敗就停止並標記 `browser_qa_limited`，不可為了避開系統核准而改用未授權路徑或重試同一操作。
 
-若瀏覽器路徑兩次內仍無法使用，保留裁切幾何與 `view_image` 證據並標記受限；無法確認關鍵元素在列表裁切內時，才在 push gate 說明缺少的視覺證據，不要把 timeout 當成文章錯誤或花半小時反覆重啟。
+若內建瀏覽器與必要的 Playwright 補測仍無法確認關鍵元素，保留裁切幾何與 `view_image` 證據並標記受限；只有缺少的視覺證據會影響判斷時，才在 push gate 說明，不要把 timeout 當成文章錯誤或反覆重啟工具。使用者指定內建瀏覽器時，只有存在具體驗收缺口，或使用者當次明確要求 Playwright，才啟動 Playwright。
 
 若任一檢查失敗，先修正並重跑相關檢查。若 `hexo new` 已建立文章但後續失敗，不要自行刪除；回報已建立的檔案與失敗原因，等使用者決定是否清理。
 
