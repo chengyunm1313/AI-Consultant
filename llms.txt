@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 不要再蒐集 Skill 了：我開始建立自己的 Skill Factory
+  網址：https://blog.es2idea.com/posts/build-your-own-ai-skill-factory/
+  日期：2026-10-03
+  摘要：裝了 100 多個 Skill，AI 卻未必更懂你。本文從外部知識、實務經驗與 Agent 工作紀錄出發，整理 Capture、Distill、Test、Review、Promote 五個步驟，分享如何建立會持續成長的個人 Skill Factory。
+  主題：AI自動化、AI工具、AI Agent
+
 - 我現在做 Vibe Coding，不會只靠 Playwright 驗收了：SuperDesign × DESIGN.md × Codex Browser
   網址：https://blog.es2idea.com/posts/superdesign-designmd-codex-browser/
   日期：2026-10-02
@@ -101,12 +107,6 @@
   日期：2026-09-27
   摘要：Codex Skill 與 Plugin 差在哪？本文從工作流程、MCP 工具與套件散布拆解兩者分工，補上 2026 年 OpenAI Skills repository deprecated、skill-only plugin 與 plugin.jso...
   主題：AI工具、AI Agent、Codex
-
-- MiniMax H3 提示詞怎麼寫？用 Codex Skill 建立 AI 影片工作流
-  網址：https://blog.es2idea.com/posts/minimax-h3-prompt-standardizer/
-  日期：2026-09-27
-  摘要：從一句畫面構想到 MiniMax H3 影片提示詞，本文介紹 Codex Skill、Shot Manifest、參考圖、Lip Sync 與生成佇列，帶你把提示詞整理成可重複執行的影片工作流。
-  主題：AI工具、Codex、影音行銷
 
 ## 語言
 - zh-TW
