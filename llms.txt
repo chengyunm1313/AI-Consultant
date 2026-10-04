@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 不會讓你的工作更輕鬆，只會讓你有能力接下更大的工作
+  網址：https://blog.es2idea.com/posts/automate-later-build-better-agents/
+  日期：2026-10-04
+  摘要：AI 不一定讓工作變少，卻能放大一個人完成工作的能力。從手動、SOP、Skill 到 Agent，本文分享為何應該「最晚自動化」，以及如何透過脈絡設計、權限與驗收，打造可持續的 AI 工作流。
+  主題：AI自動化、AI工具、AI Agent
+
 - 【別再一鏡一鏡抽卡：我整理出一套真正能拍完整故事的 AI 短片製片 SOP】
   網址：https://blog.es2idea.com/posts/ai-film-production-sop/
   日期：2026-10-04
@@ -101,12 +107,6 @@
   日期：2026-09-30
   摘要：ChatGPT、Pi 與 Agent Harness 的整合，讓模型和執行環境可以分開選。本文拆解 Model、Harness、Skills、Tools、Workflow 五層架構，並說明 ChatGPT 方案授權與開源 Harness 的檢查邊界。
   主題：AI工具、AI Agent、ChatGPT
-
-- 從 Prompt 到 Skill Library：我從吳奇老師的 Agent Skill 講座學到什麼？以及如何打造自己的 AI 工作能力庫
-  網址：https://blog.es2idea.com/posts/from-prompt-to-skill-library/
-  日期：2026-09-30
-  摘要：從吳奇老師的 Agent Skill 講座出發，整理 Prompt、MCP 與 Skill 的差異、能力邊界與五種建立方式，並規劃「享哥 Skill Library」，示範如何把重複工作與判斷經驗蒸餾成可持續累積的 AI 工作能力。
-  主題：AI自動化、AI工具、AI Agent
 
 ## 語言
 - zh-TW
