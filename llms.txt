@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Claude for Startups 申請指南：一年 Claude Team 與 1,000 美元 API 額度
+  網址：https://blog.es2idea.com/posts/claude-startups-team-api-credits/
+  日期：2026-10-08
+  摘要：Claude for Startups 提供一年 Claude Team、1,000 美元 API 額度及合作夥伴優惠。本文整理 2026 年官方資格、五席限制、額度期限與申請方式，帶你先判斷公司是否符合條件。
+  主題：Claude、Claude API、AI創業
+
 - 【Adobe 全家桶替代品來了？7 套開源創作工具開始為 AI Agent 設計】
   網址：https://blog.es2idea.com/posts/artcraft-adobe-alternatives/
   日期：2026-10-08
@@ -101,12 +107,6 @@
   日期：2026-10-01
   摘要：Public APIs 除了整理免費 API，也新增 MCP Server 清單。本文整理 MCP Registry、Glama、Smithery 的搜尋方式，並用 MCP Scout 流程評估工具、安全權限與 API、MCP、Skill 的選擇。
   主題：AI工具、AI Agent、MCP
-
-- Claude 程式碼動畫怎麼做？從 Prompt 拆出 Motion Design Skill
-  網址：https://blog.es2idea.com/posts/claude-code-animation-prompts/
-  日期：2026-10-01
-  摘要：GitHub 專案整理 Claude Opus 5.5 程式碼動畫案例與提示詞，但有些只有節錄或原始貼文。本文帶你從作品反推時間軸、物件與動作，再把有效規則整理成可重複使用的 Motion Design Skill。
-  主題：AI Agent、影音行銷、Claude
 
 ## 語言
 - zh-TW
