@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 零基礎 AI 跳舞影片教學：用豆包寫專業舞蹈提示詞，10 秒也能跳出節奏感
+  網址：https://blog.es2idea.com/posts/doubao-seedance-dance-video-tutorial/
+  日期：2026-10-09
+  摘要：零基礎也能開始做 AI 跳舞影片。本文帶你用豆包規劃 10 秒舞蹈分鏡，描述動作、重心、表情與節奏，再交給 Seedance 生成；附可複製提示詞、三階段練習與常見問題，並說明版本與音樂授權限制。
+  主題：AI工具、影音行銷
+
 - 不會剪片也能做 MG 動畫：用 Codex、Claude、Canvas 與 FFmpeg 從零入門
   網址：https://blog.es2idea.com/posts/ai-motion-graphics-video-tutorial/
   日期：2026-10-09
@@ -52,13 +58,13 @@
   網址：https://blog.es2idea.com/posts/artcraft-adobe-alternatives/
   日期：2026-10-08
   摘要：ArtCraft Crafting Apps 公開七套 Rust 創作工具，涵蓋修圖、剪輯、特效與排版，並把 CLI、JSON Control Channel、MCP 納入操作架構。本文整理 FilmCraft、EffectCraft、PhotoCraf...
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - AI 不會讓你的工作更輕鬆，只會讓你有能力接下更大的工作
   網址：https://blog.es2idea.com/posts/automate-later-build-better-agents/
   日期：2026-10-04
   摘要：AI 不一定讓工作變少，卻能放大一個人完成工作的能力。從手動、SOP、Skill 到 Agent，本文分享為何應該「最晚自動化」，以及如何透過脈絡設計、權限與驗收，打造可持續的 AI 工作流。
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - 【別再一鏡一鏡抽卡：我整理出一套真正能拍完整故事的 AI 短片製片 SOP】
   網址：https://blog.es2idea.com/posts/ai-film-production-sop/
@@ -76,7 +82,7 @@
   網址：https://blog.es2idea.com/posts/build-your-own-ai-skill-factory/
   日期：2026-10-03
   摘要：裝了 100 多個 Skill，AI 卻未必更懂你。本文從外部知識、實務經驗與 Agent 工作紀錄出發，整理 Capture、Distill、Test、Review、Promote 五個步驟，分享如何建立會持續成長的個人 Skill Factory。
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - 我現在做 Vibe Coding，不會只靠 Playwright 驗收了：SuperDesign × DESIGN.md × Codex Browser
   網址：https://blog.es2idea.com/posts/superdesign-designmd-codex-browser/
@@ -101,12 +107,6 @@
   日期：2026-10-02
   摘要：Custom GPT 預計轉向 Plugin，但遷移不會保留所有設定。本文整理 Instructions、Knowledge、Apps 與 Actions 的轉換差異，並說明如何把自己的 SOP 整理成可重用的 Skill Library。
   主題：AI工具、AI Agent、ChatGPT
-
-- ChatGPT Plugin 這波，我想先丟 5 個產品上去測水溫
-  網址：https://blog.es2idea.com/posts/chatgpt-plugin-market-test/
-  日期：2026-10-02
-  摘要：ChatGPT 對話入口可能成為新產品通路。我盤點手上的工具，挑出個資清理、名單整理、台灣核銷、商業文件與 LINE 預約五個方向，先用小成本測需求，再決定要不要投入。
-  主題：商業策略、AI工具、ChatGPT
 
 ## 語言
 - zh-TW
