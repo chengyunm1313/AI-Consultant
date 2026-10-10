@@ -1,6 +1,6 @@
 ---
 title: 豆包 AI 跳舞影片完整教學：從角色生圖、中文提示詞到 10 秒 K-pop 街舞＋MG 動態特效
-cover: /images/cover212.png
+cover: /images/cover213.png
 toc: true
 categories:
   - 生成式AI應用
