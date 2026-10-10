@@ -1,0 +1,116 @@
+# 徐享 | AI 應用規劃師
+
+> 享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。
+
+## 官方頁面
+- 網站首頁：https://blog.es2idea.com/
+- AI Agent 專題頁：https://blog.es2idea.com/ai-agent/
+- 服務頁：https://blog.es2idea.com/service/
+- 關於享哥：https://blog.es2idea.com/collection/
+- 聯絡頁：https://blog.es2idea.com/contact/
+
+## 主要服務
+- AI 應用規劃：協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。
+- n8n 自動化工作：透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。
+- 電商社群行銷：結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。
+- AI 轉型顧問諮詢：提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。
+
+## 適合對象
+- 想導入 AI 內容產製與流程自動化的中小企業
+- 想提升電商轉換、品牌行銷與內容效率的團隊
+- 需要企業內訓、顧問診斷或專案陪跑的品牌與教育單位
+
+## 聯絡方式
+- Email：seanhsu1313@gmail.com
+- LINE：https://lin.ee/epeTR8o
+
+## 專長主題
+- AI Agent 與 Codex 工作流
+- AI 應用規劃
+- n8n 自動化工作
+- 電商社群行銷
+- AI 轉型顧問諮詢
+- 生成式 AI 應用
+- AI 自媒體與影音策略
+- 中小企業數位轉型
+
+## 最新文章
+
+- 豆包 AI 跳舞影片完整教學：從角色生圖、中文提示詞到 10 秒 K-pop 街舞＋MG 動態特效
+  網址：https://blog.es2idea.com/posts/doubao-seedance-mg-dance-video/
+  日期：2026-10-10
+  摘要：從角色參考圖到 10 秒 K-pop 舞蹈 MV，帶你用豆包整理 Seedance 提示詞，安排腳步、運鏡與 Motion Graphics 觸發條件。附中英提示詞、角色圖流程、生成 QA 與常見問題，並說明模型版本、入口和音樂限制。
+  主題：AI工具、影音行銷、Seedance
+
+- 零基礎 AI 跳舞影片教學：用豆包寫專業舞蹈提示詞，10 秒也能跳出節奏感
+  網址：https://blog.es2idea.com/posts/doubao-seedance-dance-video-tutorial/
+  日期：2026-10-09
+  摘要：零基礎也能開始做 AI 跳舞影片。本文帶你用豆包規劃 10 秒舞蹈分鏡，描述動作、重心、表情與節奏，再交給 Seedance 生成；附可複製提示詞、三階段練習與常見問題，並說明版本與音樂授權限制。
+  主題：AI工具、影音行銷
+
+- 不會剪片也能做 MG 動畫：用 Codex、Claude、Canvas 與 FFmpeg 從零入門
+  網址：https://blog.es2idea.com/posts/ai-motion-graphics-video-tutorial/
+  日期：2026-10-09
+  摘要：想用 AI 做 MG 動畫，卻卡在剪輯與輸出？本文從 Canvas、Playwright、FFmpeg 起步，帶你逐格渲染動畫、合成 MP4、加入旁白與驗收，再延伸成互動網站與教學素材。
+  主題：AI工具、Codex、影音行銷
+
+- Claude for Startups 申請指南：一年 Claude Team 與 1,000 美元 API 額度
+  網址：https://blog.es2idea.com/posts/claude-startups-team-api-credits/
+  日期：2026-10-08
+  摘要：Claude for Startups 提供一年 Claude Team、1,000 美元 API 額度及合作夥伴優惠。本文整理 2026 年官方資格、五席限制、額度期限與申請方式，帶你先判斷公司是否符合條件。
+  主題：Claude、Claude API、AI創業
+
+- 【Adobe 全家桶替代品來了？7 套開源創作工具開始為 AI Agent 設計】
+  網址：https://blog.es2idea.com/posts/artcraft-adobe-alternatives/
+  日期：2026-10-08
+  摘要：ArtCraft Crafting Apps 公開七套 Rust 創作工具，涵蓋修圖、剪輯、特效與排版，並把 CLI、JSON Control Channel、MCP 納入操作架構。本文整理 FilmCraft、EffectCraft、PhotoCraf...
+  主題：AI自動化、AI工具、AI Agent
+
+- AI 不會讓你的工作更輕鬆，只會讓你有能力接下更大的工作
+  網址：https://blog.es2idea.com/posts/automate-later-build-better-agents/
+  日期：2026-10-04
+  摘要：AI 不一定讓工作變少，卻能放大一個人完成工作的能力。從手動、SOP、Skill 到 Agent，本文分享為何應該「最晚自動化」，以及如何透過脈絡設計、權限與驗收，打造可持續的 AI 工作流。
+  主題：AI自動化、AI工具、AI Agent
+
+- 【別再一鏡一鏡抽卡：我整理出一套真正能拍完整故事的 AI 短片製片 SOP】
+  網址：https://blog.es2idea.com/posts/ai-film-production-sop/
+  日期：2026-10-04
+  摘要：AI 短片的難題不只是哪個模型最好，而是如何讓角色、空間與故事在多個鏡頭間保持一致。本文整理從 Shot List、Character Bible、Risk Shot 到 V2 修正的製片 SOP，並串起 AI Agent 與剪輯工作流。
+  主題：AI工具、AI Agent、影音行銷
+
+- AI Coding 成本最佳化：多模型分工取代單一高價方案
+  網址：https://blog.es2idea.com/posts/ai-coding-cost-optimization/
+  日期：2026-10-03
+  摘要：不必讓單一高價模型包辦規劃、實作與測試。本文拆解 AI Coding 多模型分工，說明如何把需求、獨立審查、實作與驗收交給合適角色，並用固定月費加 API 用量預算評估真實成本。
+  主題：AI工具、AI Agent、AI Coding
+
+- 不要再蒐集 Skill 了：我開始建立自己的 Skill Factory
+  網址：https://blog.es2idea.com/posts/build-your-own-ai-skill-factory/
+  日期：2026-10-03
+  摘要：裝了 100 多個 Skill，AI 卻未必更懂你。本文從外部知識、實務經驗與 Agent 工作紀錄出發，整理 Capture、Distill、Test、Review、Promote 五個步驟，分享如何建立會持續成長的個人 Skill Factory。
+  主題：AI自動化、AI工具、AI Agent
+
+- 我現在做 Vibe Coding，不會只靠 Playwright 驗收了：SuperDesign × DESIGN.md × Codex Browser
+  網址：https://blog.es2idea.com/posts/superdesign-designmd-codex-browser/
+  日期：2026-10-02
+  摘要：AI 產出的網站即使 build、lint 與測試全過，畫面仍可能失衡。本文整理 SuperDesign、DESIGN.md、Codex Browser 與 Playwright 的分工，帶你建立從設計探索、規格落地到 UI 檢查與核心流程回歸的 Vib...
+  主題：AI工具、Vibe Coding、Playwright
+
+- Claude Skill 可以用在 Codex 嗎？Claude → Codex Agent Skills 遷移指南
+  網址：https://blog.es2idea.com/posts/claude-skills-to-codex/
+  日期：2026-10-02
+  摘要：看到 Claude Code 的設計 Skill 很喜歡，想搬到 Codex？本文用卡斯柏設計風格圖鑑為例，拆解可共用的 SKILL.md、必須改寫的平台設定，並整理檢查、遷移與實際驗證流程。
+  主題：Vibe Coding、Codex、Claude
+
+- GSAP AI Skills 教學：我把官方 Skills 裝進 Codex，讓 Vibe Coding 網站動起來
+  網址：https://blog.es2idea.com/posts/gsap-skills-vibe-coding/
+  日期：2026-10-02
+  摘要：用 GSAP 官方 AI Skills 協助 Codex 規劃 Vibe Coding 網站動畫，從 Timeline 與 ScrollTrigger 實作到手機版、效能和 prefers-reduced-motion 檢查，讓網站動得更有節奏。
+  主題：AI Agent、Vibe Coding、GSAP
+
+## 語言
+- zh-TW
+
+## AI 可讀說明
+- 本站聚焦 AI Agent 與 Codex 工作流、AI 應用規劃、n8n 自動化工作流、電商品牌行銷與數位轉型顧問；AI 自媒體與影音策略為延伸內容。
+- 若要理解本站服務內容，請優先閱讀服務頁與上方最新文章。
