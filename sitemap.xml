@@ -38,7 +38,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/collection/</loc>
+    <loc>https://blog.es2idea.com/avatar/widget.html</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -47,7 +47,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/avatar/widget.html</loc>
+    <loc>https://blog.es2idea.com/collection/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -65,61 +65,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/visualize-ai-writing-sop-with-claude-svg/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/video-marketing-beginner-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/who-signed-the-test-form/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/voice-cloning-api/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/voicestudio-ai-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/why-frontend-engineers-should-become-fde/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/workplace-communication-failures-movie-analysis/</loc>
+    <loc>https://blog.es2idea.com/posts/yaml-image-deck-codex-guide/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -147,114 +93,6 @@
   
   <url>
     <loc>https://blog.es2idea.com/ai-agent/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/the-door-that-only-accepts-returns/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/the-sound-that-called-home/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/tripo-3d-prompts/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/turn-domain-expertise-into-software/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/understand-role-perspective-position-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/underworld-route-closed/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/value-stacking-pricing-strategy/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/vercel-supabase-neon-tutorial-cheapest-backend/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/vibe-coder-ultimate-guide-api-key-incident-lessons/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/vibe-coding-ai-cloudflare-api-security/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -308,7 +146,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/short-video-content-strategy-to-boost-visibility/</loc>
+    <loc>https://blog.es2idea.com/posts/video-marketing-beginner-guide/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -317,7 +155,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/short-drama-marketing-for-ecommerce-conversion/</loc>
+    <loc>https://blog.es2idea.com/posts/visualize-ai-writing-sop-with-claude-svg/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -326,7 +164,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/short-video-sfx-workflow/</loc>
+    <loc>https://blog.es2idea.com/posts/voice-cloning-api/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -335,7 +173,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/short-video-strategy-17-rules-from-zero-to-viral/</loc>
+    <loc>https://blog.es2idea.com/posts/who-signed-the-test-form/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -344,7 +182,133 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/skill-to-agent-harness/</loc>
+    <loc>https://blog.es2idea.com/posts/voicestudio-ai-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/why-frontend-engineers-should-become-fde/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/workplace-communication-failures-movie-analysis/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/the-door-that-only-accepts-returns/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/the-sound-that-called-home/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/tripo-3d-prompts/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/turn-domain-expertise-into-software/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/underworld-route-closed/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/value-stacking-pricing-strategy/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/understand-role-perspective-position-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/vercel-supabase-neon-tutorial-cheapest-backend/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/vibe-coding-ai-cloudflare-api-security/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/vibe-coder-ultimate-guide-api-key-incident-lessons/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/vibe-coding-ai-sales-page-line-registration/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/vibe-coding-cloudflare-twse-api-auto-stock-picker/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -380,7 +344,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/suno-ai-music-copyright-guide/</loc>
+    <loc>https://blog.es2idea.com/posts/stop-playing-with-chatgpt-ai-collaboration-map-top-user/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -389,7 +353,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/stop-playing-with-chatgpt-ai-collaboration-map-top-user/</loc>
+    <loc>https://blog.es2idea.com/posts/suno-ai-music-copyright-guide/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -407,7 +371,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/taiwan-domain-skills-vibe-coding/</loc>
+    <loc>https://blog.es2idea.com/posts/superman-has-to-queue/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -416,7 +380,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/superman-has-to-queue/</loc>
+    <loc>https://blog.es2idea.com/posts/taiwan-domain-skills-vibe-coding/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -435,6 +399,132 @@
   
   <url>
     <loc>https://blog.es2idea.com/posts/teach-your-browser-to-understand-you-in-5-minutes/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/qwen-image-edit-ai-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/real-time-ai-video-generation/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/refusing-friends-sales-pressure/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/rescue-ferry-no-return-trip/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/remotion-ai-agent-react-video-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/seo-complete-guide-for-beginners/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/seo-article-writing-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/short-drama-marketing-for-ecommerce-conversion/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/short-video-content-strategy-to-boost-visibility/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/short-video-strategy-17-rules-from-zero-to-viral/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/short-video-sfx-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/skill-to-agent-harness/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/one-video-multiple-platforms-strategy/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/open-source-ai-native-tools/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -506,96 +596,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/qwen-image-edit-ai-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/refusing-friends-sales-pressure/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/real-time-ai-video-generation/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/remotion-ai-agent-react-video-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/rescue-ferry-no-return-trip/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/seo-article-writing-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/seo-complete-guide-for-beginners/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-line-bot-webhook-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-llm-vs-ai-agent/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/n8n-one-line-setup/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -659,15 +659,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/night-market-gods-shift-swap/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/n8n-vs-make-automation-comparison/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -678,6 +669,15 @@
   
   <url>
     <loc>https://blog.es2idea.com/posts/n8n-web-scraping-top-platforms-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/night-market-gods-shift-swap/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -704,7 +704,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/one-video-multiple-platforms-strategy/</loc>
+    <loc>https://blog.es2idea.com/posts/n8n-automation-schedule-tutorial/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -713,7 +713,124 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/open-source-ai-native-tools/</loc>
+    <loc>https://blog.es2idea.com/posts/n8n-automation-ai-installation/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-chatgpt-api-integration/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-code-node-javascript-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-event-registration-automation/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-frontend-pwa-nextjs-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-gemini-api-json-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-if-node-filter-airtable/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-instagram-api-auto-post/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-line-bot-webhook-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-llm-vs-ai-agent/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/n8n-mcp-installation-guide-ai-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/marketing-strategy-application-breakdown/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/marketing-vibe-coding-crash-course-frontend-to-gtm/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -758,15 +875,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/n8n-ai-agent-memory-logging/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -776,97 +884,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/n8n-automation-schedule-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-automation-ai-installation/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-chatgpt-api-integration/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-frontend-pwa-nextjs-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-event-registration-automation/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-code-node-javascript-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-gemini-api-json-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-if-node-filter-airtable/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-line-booking-system-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/n8n-instagram-api-auto-post/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/government-tender-monitoring-platform/</loc>
+    <loc>https://blog.es2idea.com/posts/n8n-airtable-workflow-tutorial/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -893,7 +911,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/how-to-deploy-n8n-on-zeabur/</loc>
+    <loc>https://blog.es2idea.com/posts/how-to-automate-facebook-posts-with-n8n/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -902,7 +920,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/how-to-automate-facebook-posts-with-n8n/</loc>
+    <loc>https://blog.es2idea.com/posts/how-to-deploy-n8n-on-zeabur/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -920,7 +938,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/html-visualizer-ai-agent-collaboration/</loc>
+    <loc>https://blog.es2idea.com/posts/how-to-monetize-app-idea-for-passive-income/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -929,7 +947,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/how-to-monetize-app-idea-for-passive-income/</loc>
+    <loc>https://blog.es2idea.com/posts/html-visualizer-ai-agent-collaboration/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -947,7 +965,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/low-cost-automated-online-course-sales-with-portaly-youtube/</loc>
+    <loc>https://blog.es2idea.com/posts/learning-os-ai-personalized-education/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -956,7 +974,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/learning-os-ai-personalized-education/</loc>
+    <loc>https://blog.es2idea.com/posts/low-cost-automated-online-course-sales-with-portaly-youtube/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -974,25 +992,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/marketing-strategy-application-breakdown/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/marketing-vibe-coding-crash-course-frontend-to-gtm/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/gemini-canvas-google-drawings-public-link-guide/</loc>
+    <loc>https://blog.es2idea.com/posts/geo-ai-search-optimization/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1002,24 +1002,6 @@
   
   <url>
     <loc>https://blog.es2idea.com/posts/generative-ai-planning/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/gemini-veo3-wallpaper-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/geo-ai-search-optimization/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1064,7 +1046,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/google-gems-ai-assistant-team-collaboration/</loc>
+    <loc>https://blog.es2idea.com/posts/google-stitch-mcp-tutorial/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1073,7 +1055,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/google-stitch-mcp-tutorial/</loc>
+    <loc>https://blog.es2idea.com/posts/google-gems-ai-assistant-team-collaboration/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1091,52 +1073,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/developer-digital-card-creation/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/digital-transformation-purpose-vs-tools/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/divination-poem-wont-find-treasure/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/doubao-seedance-dance-video-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/doubao-seedance-mg-dance-video/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/e-e-a-t-guide-strategies/</loc>
+    <loc>https://blog.es2idea.com/posts/government-tender-monitoring-platform/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1199,7 +1136,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/chatgpt-seo-content-strategy/</loc>
+    <loc>https://blog.es2idea.com/posts/gemini-canvas-google-drawings-public-link-guide/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1208,7 +1145,88 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/chatgpt-sites-product-validation/</loc>
+    <loc>https://blog.es2idea.com/posts/gemini-veo3-wallpaper-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/d2-language-text-to-architecture-diagrams/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/daily-check-unsubmitted-assignment-email/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/deepseek-harness-multi-agent/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/developer-digital-card-creation/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/digital-transformation-purpose-vs-tools/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/doubao-seedance-dance-video-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/divination-poem-wont-find-treasure/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/doubao-seedance-mg-dance-video/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/e-e-a-t-guide-strategies/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1316,105 +1334,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/d2-language-text-to-architecture-diagrams/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/daily-check-unsubmitted-assignment-email/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/deepseek-harness-multi-agent/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/auto-generate-line-stickers-ai-background-removal/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/automate-later-build-better-agents/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/auto-post-multiple-images-facebook/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/automate-pre-class-reminder/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/automate-social-media-comments-commentflow-tutorial/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/bing-video-creator-ai-video-guide/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/automated-course-reminder-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/bmad-methodology-for-ai-driven-agile-teams/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/bo-le-and-the-thousand-mile-horse/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -1514,7 +1433,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-seo-tutorial-guide/</loc>
+    <loc>https://blog.es2idea.com/posts/chatgpt-seo-content-strategy/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1523,106 +1442,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-short-drama-steam-games/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-subtitle-workflow-gemini-capcut/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-tools-to-improve-video-audio-fast/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-translate-cursor-tutorial-github-pages/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-vibe-coding-for-non-coders/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-cost-pricing/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-editing-strategy-google-gemini/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-generation-value-shift/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-literacy/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-production-workflow/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-storyboard-9-square-grid/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-video-storytelling/</loc>
+    <loc>https://blog.es2idea.com/posts/chatgpt-sites-product-validation/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1667,7 +1487,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-mvp-outsourcing-revenue-share/</loc>
+    <loc>https://blog.es2idea.com/posts/auto-generate-line-stickers-ai-background-removal/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1676,7 +1496,178 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-native-organization/</loc>
+    <loc>https://blog.es2idea.com/posts/auto-post-multiple-images-facebook/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/automate-later-build-better-agents/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/automate-social-media-comments-commentflow-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/automate-pre-class-reminder/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/automated-course-reminder-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/bing-video-creator-ai-video-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/bmad-methodology-for-ai-driven-agile-teams/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-seo-tutorial-guide/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-subtitle-workflow-gemini-capcut/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-short-drama-steam-games/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-tools-to-improve-video-audio-fast/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-translate-cursor-tutorial-github-pages/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-vibe-coding-for-non-coders/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-cost-pricing/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-generation-value-shift/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-editing-strategy-google-gemini/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-production-workflow/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-literacy/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-storytelling/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-video-storyboard-9-square-grid/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1694,7 +1685,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-motion-graphics-video-tutorial/</loc>
+    <loc>https://blog.es2idea.com/posts/ai-personal-brand-evidence/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1704,15 +1695,6 @@
   
   <url>
     <loc>https://blog.es2idea.com/posts/ai-podcast-from-notes-with-notebooklm/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-personal-brand-evidence/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1739,15 +1721,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-regulations-global-vs-taiwan/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/ai-question-engineering/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -1757,7 +1730,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-schema-format-quick-start/</loc>
+    <loc>https://blog.es2idea.com/posts/ai-regulations-global-vs-taiwan/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1775,7 +1748,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/6-types-of-enterprise-ai-automation/</loc>
+    <loc>https://blog.es2idea.com/posts/ai-schema-format-quick-start/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1785,6 +1758,15 @@
   
   <url>
     <loc>https://blog.es2idea.com/posts/add-google-preferred-source/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/6-types-of-enterprise-ai-automation/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1910,25 +1892,7 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-digital-advertising-shift/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/posts/ai-cultivation-for-everyone/</loc>
-    
-    <lastmod>2026-10-10</lastmod>
-    
-    <changefreq>monthly</changefreq>
-    <priority>0.6</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/posts/ai-film-production-pipeline/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1946,7 +1910,16 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-fluency-4d-framework/</loc>
+    <loc>https://blog.es2idea.com/posts/ai-digital-advertising-shift/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-film-production-sop/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -1964,7 +1937,16 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/posts/ai-film-production-sop/</loc>
+    <loc>https://blog.es2idea.com/posts/ai-film-production-pipeline/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-fluency-4d-framework/</loc>
     
     <lastmod>2026-10-10</lastmod>
     
@@ -2000,6 +1982,33 @@
   </url>
   
   <url>
+    <loc>https://blog.es2idea.com/posts/ai-motion-graphics-video-tutorial/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-mvp-outsourcing-revenue-share/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/posts/ai-native-organization/</loc>
+    
+    <lastmod>2026-10-10</lastmod>
+    
+    <changefreq>monthly</changefreq>
+    <priority>0.6</priority>
+  </url>
+  
+  <url>
     <loc>https://blog.es2idea.com/posts/5-common-types-of-pitchers/</loc>
     
     <lastmod>2026-10-10</lastmod>
@@ -2025,27 +2034,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
-    <loc>https://blog.es2idea.com/tags/AI-Agent/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/tags/SEO/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -2061,6 +2049,27 @@
   
   <url>
     <loc>https://blog.es2idea.com/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/tags/AI%E5%B7%A5%E5%85%B7/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/tags/AI-Agent/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2123,14 +2132,14 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/tags/Higgsfield/</loc>
+    <loc>https://blog.es2idea.com/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/</loc>
+    <loc>https://blog.es2idea.com/tags/Higgsfield/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2186,13 +2195,6 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/</loc>
-    <lastmod>2026-10-10</lastmod>
-    <changefreq>weekly</changefreq>
-    <priority>0.2</priority>
-  </url>
-  
-  <url>
     <loc>https://blog.es2idea.com/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
@@ -2201,6 +2203,13 @@
   
   <url>
     <loc>https://blog.es2idea.com/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/</loc>
+    <lastmod>2026-10-10</lastmod>
+    <changefreq>weekly</changefreq>
+    <priority>0.2</priority>
+  </url>
+  
+  <url>
+    <loc>https://blog.es2idea.com/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
@@ -2454,14 +2463,14 @@
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
+    <loc>https://blog.es2idea.com/categories/AEO/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
   </url>
   
   <url>
-    <loc>https://blog.es2idea.com/categories/AEO/</loc>
+    <loc>https://blog.es2idea.com/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/</loc>
     <lastmod>2026-10-10</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.2</priority>
