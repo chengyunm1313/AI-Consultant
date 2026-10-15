@@ -290,7 +290,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
-            軟體開發 (18)
+            軟體開發 (19)
           </a>
         </li>
       
@@ -338,7 +338,7 @@
     <div class="d-flex flex-wrap gap-2">
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (78)
+          AI工具 (79)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
@@ -374,11 +374,11 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
-          Vibe Coding (42)
+          Vibe Coding (43)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
-          Codex (14)
+          Codex (15)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
@@ -389,12 +389,12 @@
           影音行銷 (41)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
-          Gemini (11)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
           AI Coding (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
@@ -588,6 +588,125 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-ai-film-production-sop"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover205.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: left center;"
+        alt="article-【別再一鏡一鏡抽卡：我整理出一套真正能拍完整故事的 AI 短片製片 SOP】"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/10/4
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI Agent
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              影音行銷
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          【別再一鏡一鏡抽卡：我整理出一套真正能拍完整故事的 AI 短片製片 SOP】
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近我一直在研究 AI 影片。研究到後來，我發現真正困難的，早就不是「哪個模型生成的影片最好看？」而是：怎麼把十幾個 AI 生成鏡頭，變成一支角色一致、空間合理、故事看得懂，而且可以持續修改的影片？
+最近看到漢森建築整理的 Kling AI 母女短片製作案例：從 12 格分鏡到 V2。再加上我前陣子研究的多人同場戲、平面圖與空間一致性、Blender 灰模、角色一致性、Risk Shot、AI 影片逐鏡生成、DaVinci Resolve MCP 和 AI Agent 自動粗剪，我開始把它們接成一套完整的 AI Film Pipeline。
+以下是我整理給自己反覆使用的「享哥 AI 短片製片 SOP」。它不是綁定某個模型的提示詞大全，而是把故事、鏡頭、參考資料、版本和驗收接起來的製片流程。
+先把故事拆成 Shot List，再開影片模型很多人做 AI 影片時，會直接對模型說：「一個媽媽看著多年沒回家的女兒，感動流淚，電影感。」生成不滿意就再抽一次。這樣很容易把時間和生成額度花在還沒定義清楚的故事上。
+比較穩定的起點是先寫劇本，再拆成 Shot List。以兩分鐘短片為例，可以先列出 Shot 01 到 Shot 12，再為每一鏡定義：
+
+時間與地點
+出場人物、景別與鏡頭位置
+人物在畫面中的位置、動作和視線
+台詞、情緒，以及鏡頭結束時的狀態
+
+例如 Shot 08 可以寫成：「地點是客廳；女兒站在玄關右側，母親坐在沙發左側。女兒停下腳步，轉頭看向母親，保持眼神接觸並說：『媽，我回來了。』母親不說話，停頓兩秒，眼眶開始泛淚。」
+「母親不說話」和「停頓兩秒」都是製片規格的一部分。若不寫清楚，模型可能自行加上台詞或動作。Shot List 的目的不是寫得更像小說，而是讓每一鏡都有能執行、能驗收的條件。
+建立 Character Bible，先穩住角色角色一致性是多鏡頭影片最容易失控的地方。主要角色可以先建立 Character Bible，整理正面、左右 3&amp;#x2F;4 側面、半身與全身參考，以及年齡、髮型、服裝、身高比例和表情特徵。
+角色跨越不同年齡時，分開整理，例如 Mother_Young、Mother_MiddleAge、Mother_Old，以及 Daughter_Child、Daughter_Teen、Daughter_Adult。每次生成只提供當下鏡頭需要的角色參考，避免把所有版本都塞進同一個 Context，讓模型多做不必要的判斷。
+用 Location Bible 和 Spatial Map 固定空間單張圖漂亮，不代表剪在一起會像同一個地方。沙發、窗戶、門和主要光源若在不同鏡頭裡反覆換位置，觀眾會感覺空間跳掉。
+重要場景可以建立 Location Bible，列出大門、沙發、電視、窗戶、餐桌、光源和人物活動區域，並畫一張 Top View 平面圖。多人同場戲再加 Spatial Map，固定人物 A、B、C 的站坐位置、彼此視線、前後景、攝影機位置，以及換機位後不能改變的相對關係。
+三個人以上、走位、遮擋或多機位的場景，可以先在 Blender 做灰模 Blocking。放入房間、家具、人物方塊和 Camera，確認人物會不會被擋、構圖是否合理、攝影機高度是否適合，再截圖作為 Composition Reference。這一步的重點不是做出漂亮模型，而是先把空間和機位講清楚。
+Storyboard 是 Keyframe，不只是分格漫畫規格和空間建立後，再為每個 Shot 製作 Keyframe，例如 shot_01_keyframe.png、shot_02_keyframe.png。需要控制重要動作時，可以再補 Start Frame、Middle Frame 和 End Frame。
+這些圖像參考要一起沿用 Character Bible、Location Bible、Spatial Map 和需要的 Blender Blocking，讓生圖模型有明確的構圖與人物依據。此時目標不是讓模型自由改編，而是先建立剪接時能接得起來的畫面。
+先測 Risk Shot，別按順序一路生成12 個鏡頭不一定要從 Shot 01 開始做。先找出最可能失敗的 Risk Shot，例如多人互看、擁抱、手碰臉、擦眼淚、嘴型、快速走位，或鏡頭和人物同時移動。
+假設 Shot 03、08、12 最難，就先做這三鏡的測試。若最難的鏡頭目前拍不出來，趁早改劇本、鏡位或表演設計；不要等前面十一鏡都完成，才發現結尾無法成立。順序應該是：
+Storyboard → Risk Shot Test → Production
+把 Prompt 寫成可以驗收的動作序列「電影感、溫暖、感人、細膩」可以描述氣氛，但很難用來判斷生成結果哪裡出錯。更可控的寫法，是把鏡頭拆成連續動作：
+
+女兒停下腳步。
+慢慢轉頭看向母親。
+維持眼神接觸，再開口說：「媽，我回來了。」
+說完自然閉口，保持視線，不再說話。
+
+每個鏡頭的 Prompt 可以依序整理成：
+Subject + Position + Camera + Action Sequence + Eye Contact + Dialogue Timing + Emotion + End State
+這樣比較容易判斷問題出在轉頭、視線、嘴型，還是結尾多出不需要的動作。模型版本和功能會變，鏡頭規格與驗收邏輯則可以保留下來。
+逐鏡生成並管理版本Risk Shot 通過後，再逐鏡進入正式 Production。Kling、Google Flow、Veo、MiniMax 等可以是不同階段的候選工具；具體能力、開放狀態和方案限制會隨版本變動，選擇時要以當下實際可用的功能為準。
+每個 Shot 都保留規格、參考圖、Prompt、模型、版本和狀態，例如：
+1234shot_08_v01.mp4  人物正確，視線錯shot_08_v02.mp4  視線正確，嘴型錯shot_08_v03.mp4  Passshot_08_final.mp4
+
+記下每次失敗的具體原因，之後才知道要改提示詞、參考圖、運鏡還是表演，而不是讓整支影片反覆重生。
+先完成 Rough Cut V1，再修單鏡第一輪素材不用每鏡都做到滿分。先把 Shot 01 到 Shot 12 放進 Timeline，完成 Rough Cut V1，再從整支影片檢查節奏。剪在一起後，可能發現 Shot 03 太長、Shot 06 可以刪掉、Shot 08 情緒不足，或 Shot 11 和 Shot 12 應該交換。
+先看整體，再修局部。單看一鏡覺得漂亮，不代表它適合整支影片的節奏和情緒。
+讓 AI Agent 和剪輯工具協助管理素材當每一鏡都整理成結構化資料，AI Agent 才有條件協助管理影片。例如為每個 Shot 記錄：
+12shot_id, duration, character, location, prompt, model,version, status, issue, selected_version
+
+Agent 可以依 Shot List 檢視時長、黑畫面、重複畫面、音訊斷裂、字幕缺漏和對白 Timing，也可以協助標記待人工確認的角色或畫面問題。這些檢查結果是 review 線索，不能直接當成最終判斷。
+若手上已有可用的 DaVinci Resolve MCP 或其他剪輯操作介面，可以把 Shot Metadata、素材搜尋、selected_version、時間軸排列、字幕和 Rough Cut 輸出接成一條流程。工具串接方式會依實際環境而異；每次操作仍應保留人工檢查和可回復的版本。
+V1 之後只修有問題的 ShotReview 時逐鏡記錄問題，例如 Shot 03、04 通過，Shot 05 嘴型不準、Shot 07 手部異常、Shot 08 節奏太慢。接著只處理需要修的鏡頭：嘴型問題可評估 Audio Fix 或 Lip Sync，手部問題可重生 Shot 07，節奏問題則可 Trim、調速或重生 Shot 08。
+替換後輸出 Rough Cut V2，再重新檢查前後鏡的銜接。保留其他已通過的鏡頭，才能把修改成本集中在真正出問題的地方。
+Technical QA 通過後，仍要 Human Final Review影片輸出後，先做 Technical QA：解析度、FPS、Codec、Bitrate、Duration、音訊取樣率、字幕數量、黑畫面、靜音與完整解碼。這些檢查能確認檔案是否符合技術條件。
+Technical QA Pass 不等於影片好看。最後還是要從頭看到尾，確認角色有沒有變臉、視線和空間方向是否合理、嘴型自然不自然、情緒有沒有中斷、音樂音量是否合適，以及故事是否看得懂。
+把流程接成一套 AI Film Production System整套流程可以整理成：
+123456789101112131415161718192021Idea ↓Script → Shot List ↓Character Bible → Location Bible → Spatial Map ↓Blender Blocking（複雜鏡頭需要時） ↓Storyboard / Keyframe ↓Risk Shot Test ↓逐鏡生成 → Version Management ↓Rough Cut V1 → AI Agent Review → 剪輯工作流 ↓局部修正／重生 → Rough Cut V2 ↓字幕／BGM／混音 → Technical QA ↓Human Final Review → Master Export
+
+研究到這裡，我反而覺得「AI 導演」比「AI 生影片」更值得學。模型會換，提示詞寫法也會變；但怎麼說故事、拆 Shot、控制角色和空間、安排鏡位、驗收素材與管理版本，仍然是製片能力。
+我想把 Shot List、Character Bible、Prompt、Reference、Version、Issue、Status 和 Selected Clip 都整理成結構化資料，再讓 AI Agent 協助管理。理想分工是：人負責導演和決策，Agent 協助製片管理，生成模型提供鏡頭素材，剪輯工具完成後期。這不是按一下就能完成整部片，而是一套能持續修正的 AI 影片工作流。
+想先從故事本身開始，可以接著讀AI 影片新手最容易學錯的：把「高級感」當成影片能力；想把鏡頭描述得更清楚，也可以看AI 攝影語言與 Google Flow 運鏡提示詞。
+常見問答 (FAQ)Q1：製作 AI 短片前，應該先生成影片嗎？建議先寫劇本和 Shot List，為每鏡定義人物、位置、動作、視線、台詞與結束狀態，再建立角色和場景參考。這能讓影片生成有明確規格，也方便判斷結果要修哪裡。
+Q2：什麼是 AI 短片的 Risk Shot？Risk Shot 是整支影片中最可能失敗的鏡頭，例如多人互看、擁抱、手部接觸、嘴型或複雜走位。先測這些鏡頭，可以在大量生成前調整劇本、鏡位或表演。
+Q3：Blender 灰模是 AI 影片製作的必要步驟嗎？不是。單人鏡頭或簡單對話通常可用平面圖和空間參考處理；多人、遮擋、走位或多機位等複雜場景，才值得用 Blender 灰模預演人物位置與構圖。
+Q4：AI Agent 可以直接決定哪些鏡頭要保留嗎？Agent 可以整理 Shot Metadata、標記技術問題或提供 review 線索，但角色一致性、情緒、空間連戲和故事可讀性仍需要人工從頭檢視，不能把自動檢查結果當成最終通過。
+Q5：Rough Cut V1 之後，要整支影片重新生成嗎？通常先定位有問題的鏡頭，再局部修正或重生並輸出 V2。保留已通過的版本，能避免把修改成本擴大到整支影片。
+
+
+        </p>
+        <a class="stretched-link" href="/posts/ai-film-production-sop/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -2716,163 +2835,6 @@ Q3：什麼類型的影片最適合用程式製作？需要精確文字、數據
 
         </p>
         <a class="stretched-link" href="/posts/claude-opus-video-workflow/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-codex-skills-vs-plugins"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover192.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/9/27
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI Agent
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Codex
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          Codex Skill 與 Plugin 到底差在哪？從個人工作流到團隊交付
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          最近我在研究 Codex Skill，發現 Agent 的擴充方式正逐漸變得清楚。以前看到好用的 Skill，我會想：下載、放進 Codex，自己開始用。但如果做出一套能重複使用的工作流，想交給十位學員、五十位同事，甚至其他公司安裝，接下來就不只是「怎麼寫好一份 SKILL.md」了。
-像是 MiniMax H3 影片提示詞整理、Slide Manifest 簡報流程、社群文章產生、課程企劃、AI 影片 Shot Manifest，或企業內部 SOP，都可能先從個人方法開始，最後變成團隊希望共用的能力。理解 Skill、Plugin 與 MCP 各自負責什麼，能幫我們用合適的結構保存這些方法。
-先用四個概念拆開來看
-
-
-元件
-負責什麼
-可以怎麼理解
-
-
-
-Prompt
-告訴 AI 這一次要做什麼
-單次任務說明
-
-
-Skill
-描述一類工作怎麼完成，包含步驟、判斷、範例與資源
-可重複使用的工作流程或 SOP
-
-
-MCP Server
-提供 Agent 可呼叫的工具、即時資料或動作
-能操作的工具入口
-
-
-Plugin
-把一個或多個 Skill，以及可選的 MCP、資源等組成套件
-能安裝與管理的能力包
-
-
-因此，我平常會把 Skill 記成「工作方法」，把 Plugin 記成「套件包裝」。Skill = Function、Plugin = Package 可以當作方便記憶的比喻，但它不是嚴格的技術等式：Plugin 裡可以只有一個 Skill，也可以加入 MCP Server 等元件。
-Skill 是 Agent 能重複遵循的工作方法Skill 通常是一個資料夾，核心是 SKILL.md，必要時再放入參考資料、範本、資產或腳本。它會交代什麼情況適用、要收集哪些輸入、如何做判斷、按什麼順序執行，以及怎樣算完成。
-例如 minimax-h3-prompt-standardizer 這類工作流，可以教 Codex 如何分析影片需求、拆分生成單元、處理人物與場景一致性、規劃鏡頭，再整理成適合模型使用的提示詞。Skill 教的是如何做這件事；影片仍由相應的模型或工具生成。
-Skill 的價值在於把個人的 Know-how 寫成可以複用、檢查和持續修正的流程。模型可以更換，成熟的工作步驟、範本與品質標準仍能留下來。若你正在整理 Skill 與 Agent 執行環境的關係，也可以參考我之前寫的從 Skill 到 Agent Harness。
-Plugin 是組合與交付能力的套件Plugin 的任務是把可重複使用的能力整理成一個有名稱、版本與結構的套件。官方架構允許 Plugin 包含一個 Skill，也可以放入多個相關 Skills；需要連接外部服務時，還能搭配 MCP Server。依套件需求，也可包含資產、生命週期 hooks 或選用介面。
-可以想像一個「AI Video Production Plugin」包含故事規劃、Shot Manifest、H3 Prompt、影片檢查等 Skills，再視需求連接素材庫或其他工具。使用者安裝的是一套有關聯的能力，維護者則能一起整理套件版本與分發方式。
-Plugin 不等於「把所有能力塞在一起」。官方建議從符合使用情境的最小結構開始；工作流程只需要說明和既有工具時，Skill-only Plugin 已經足夠。
-2026 年 9 月的重要更新：官方明確支援 Skill-only Plugin截至 2026 年 9 月，我特別留意到 OpenAI 舊的 openai/skills repository 已標示 deprecated，並把目前的 Codex Skill 與 Plugin 範例導向新的 openai/plugins repository 與 Plugins 文件。官方文件也明確寫出，Plugin 可以只包含 Skills，不需要 MCP Server。
-這不代表 Skill 失去獨立價值。Skill 仍是工作流程本身；改變的是，當我們需要依照新的 Plugin 格式整理、安裝或交付 Skills 時，可以直接用 skill-only plugin 作為套件結構。概念從 Skill 開始思考，交付時再判斷是否包成 Plugin，會是實用的路徑。
-新版文件中的 portable Plugin 以根目錄 plugin.json 作為 manifest，Skills 放在 skills/，需要時再加入 mcp.json 與資產等內容。.codex-plugin/plugin.json 仍是相容格式；OpenAI 的 Plugin Creator 也能產生相容布局。開始建立套件前，請依目前目標平台與官方文件選擇格式，不要把舊範例路徑當成唯一結構。
-一個最小的 Skill-only Plugin 可以概念化為：
-12345my-first-plugin/├── plugin.json└── skills/    └── hello/        └── SKILL.md
-
-這份套件可以只有說明、範本和其他工作資源，沒有 MCP、API、資料庫或 Connected App。它仍然是一個 Plugin，因為 Plugin 的核心價值是以可辨識的結構組合與交付能力，而不是一定要連外部服務。
-MCP 與 Skill 的分工：一個教流程，一個提供工具如果希望 Agent 讀取 Google Drive、查詢 CRM、建立文件或更新 Notion，Skill 可以說明何時呼叫工具、如何判讀結果，以及怎樣完成後續步驟；MCP Server 則提供 Agent 實際可呼叫的工具與資料連線。
-簡單來說：
-123Skill = 說明怎麼完成工作MCP   = 提供可呼叫的工具與即時資料Plugin = 將 Skill 與需要的工具配置等包在一起
-
-技能文件不會自動帶來外部帳號權限，也不會讓沒有連接的服務突然可用。實際能做什麼，仍取決於已安裝的工具、使用者授權、服務端權限，以及執行環境。
-什麼時候用 Skill，什麼時候包成 Plugin？
-
-
-使用情境
-建議起點
-判斷方式
-
-
-
-個人想固定文章、研究或簡報流程
-Skill
-流程清楚，現有工具已足夠
-
-
-想讓一套成熟流程方便安裝與更新
-Skill-only Plugin
-交付與版本管理比額外工具更重要
-
-
-多個緊密相關的 Skills 要一起使用
-Plugin
-使用者需要安裝一組有共同目的的工作流
-
-
-流程還要讀寫外部服務
-Plugin 加 MCP Server
-Skill 描述判斷步驟，MCP 提供受控工具
-
-
-不需要等到 Skill 累積到某個固定數量才開始考慮 Plugin。只要一個成熟的 Skill 已經需要被標準化交付，skill-only plugin 就可能有用；反過來說，很多互不相關的 Skills 也未必適合硬包成一個 Plugin。關鍵是安裝、更新與使用情境是否一致。
-從個人 Know-how 走到團隊工作流以公司 Sales Plugin 為例，可以先整理會議準備、客戶研究、會議摘要與 Follow-up Email 等工作方法，再確認哪些步驟需要 Gmail、Calendar、CRM 或 Drive 工具支援。Skill 寫清楚流程與判斷，MCP 讓 Agent 呼叫服務，Plugin 則把相關能力整理成團隊可管理的套件。
-實際導入時，還要分別處理登入、資料範圍、使用者授權與企業政策。安裝套件不等同於取得 CRM 或公司雲端資料的存取權；這些存取能力必須由服務整合與管理設定明確提供。
-這也提供一條較自然的發展路徑：先自己完成一項工作，記錄穩定的 SOP，整理成 Skill 並反覆使用；當流程需要工具時再連接 MCP 或 App；當能力需要成套維護與交付時，再包裝成 Plugin。先把真實工作做好，之後再依重複模式模組化，能避免一開始就替尚未驗證的需求建造太大的架構。
-知識產品也可能從「教你做」變成「依方法幫你做」書、課程、影片、PDF 和範本通常傳遞的是知識，使用者還需要自己把它轉成行動。Skill 能把部分 Know-how 寫成 Agent 可遵循的工作流程；Plugin 則能進一步把相關流程、工具配置與資源組成一套交付物。
-這讓課程設計也有新的方向：除了教 Prompt、圖像或影片工具，還可以教學員分析工作、建立 Skill、判斷何時需要 MCP，再把成熟且有共同目的的 Skills 包成 Plugin。交付的內容不只是「知道怎麼做」，也可以是讓 Agent 依照方法完成工作的起點。
-結語：先設計 Skill，再依交付需求決定 Plugin我目前會這樣記：Prompt 交代這一次的需求；Skill 保存一類工作的 Know-how；MCP 或 App 提供 Agent 可使用的能力；Plugin 將一個或多個 Skills，以及需要的工具與資源整理成套件。
-所以，個人工作流可以先從 Skill 開始。當它需要版本化、團隊共用、搭配多個相關工作流或連接工具時，再考慮用 Plugin 交付。OpenAI 在 2026 年 9 月明確提供 skill-only plugin 路徑，也讓「先設計 Skill，交付時採 Plugin 結構」成為值得採用的預設思路。
-常見問答 (FAQ)Q1：Codex Skill 和 Plugin 最大的差異是什麼？Skill 描述 Agent 如何完成一類工作，通常包含指示、判斷步驟與支援資源；Plugin 是安裝與交付套件，可以包含一個或多個 Skills，並可選擇加入 MCP Server、資產等元件。
-Q2：Skill-only Plugin 需要 MCP Server 嗎？不需要。OpenAI 官方 Plugin 架構支援只包含 Skills 的 Plugin。當工作流程仰賴外部服務資料或動作時，才需要再評估 MCP Server 或其他可用的工具連線。
-Q3：要分享 Skill，就一定得包成 Plugin 嗎？不一定。個人使用或簡單分享可以先維持 Skill 的形式；若需要標準化安裝、一起管理版本，或與相關 Skills 和工具配置成套交付，就可以改用 Plugin。選擇應配合使用者與維護方式。
-Q4：安裝 Plugin 後，Agent 就能操作我的 Google Drive 或 CRM 嗎？不一定。Plugin 需要包含或連接相應工具，服務端也要有適當的登入、授權與資料權限。Skill 說明工作流程，本身不會授予外部帳號的存取權。
-官方參考資料
-OpenAI Plugins 官方文件
-OpenAI Plugins GitHub
-OpenAI Skills 說明
-舊版 OpenAI Skills repository deprecated 公告
-Plugin 架構
-Plugin 封裝格式
-
-
-        </p>
-        <a class="stretched-link" href="/posts/codex-skills-vs-plugins/"></a>
       </div>
     </div>
   </article>
