@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學
+  網址：https://blog.es2idea.com/posts/google-colab-codex-ai-video/
+  日期：2026-10-18
+  摘要：沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。
+  主題：Codex、影音行銷、Google Colab
+
 - Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署
   網址：https://blog.es2idea.com/posts/void-vinext-cloudflare-guide/
   日期：2026-10-18
@@ -101,12 +107,6 @@
   日期：2026-10-09
   摘要：想用 AI 做 MG 動畫，卻卡在剪輯與輸出？本文從 Canvas、Playwright、FFmpeg 起步，帶你逐格渲染動畫、合成 MP4、加入旁白與驗收，再延伸成互動網站與教學素材。
   主題：AI工具、Codex、影音行銷
-
-- Claude for Startups 申請指南：一年 Claude Team 與 1,000 美元 API 額度
-  網址：https://blog.es2idea.com/posts/claude-startups-team-api-credits/
-  日期：2026-10-08
-  摘要：Claude for Startups 提供一年 Claude Team、1,000 美元 API 額度及合作夥伴優惠。本文整理 2026 年官方資格、五席限制、額度期限與申請方式，帶你先判斷公司是否符合條件。
-  主題：Claude、Claude API、AI創業
 
 ## 語言
 - zh-TW
