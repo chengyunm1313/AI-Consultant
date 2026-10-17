@@ -248,7 +248,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
-            生成式AI應用 (28)
+            生成式AI應用 (29)
           </a>
         </li>
       
@@ -338,11 +338,11 @@
     <div class="d-flex flex-wrap gap-2">
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (80)
+          AI工具 (81)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
-          ChatGPT (18)
+          ChatGPT (19)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
@@ -373,6 +373,10 @@
           Cursor (2)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (44)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
           Codex (15)
         </a>
@@ -381,12 +385,8 @@
           MCP (2)
         </a>
       
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
-          Vibe Coding (44)
-        </a>
-      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
-          影音行銷 (41)
+          影音行銷 (42)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
@@ -588,6 +588,262 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-ai-music-mv-series-planning"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover222.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: left center;"
+        alt="article-【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/10/18
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              ChatGPT
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              影音行銷
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近看到有人分享一個 GitHub 開源專案，搭配「金曲獎作詞家秘訣也開源了」這類說法，讓人忍不住想點進去看看。
+先說明：目前不能只憑這份文件確認作者具有金曲獎作詞家身分，也不適合把它說成官方作詞秘訣。真正值得看的，是如何先規劃一整季的歌曲與 MV，再一集一集製作。
+這個專案叫 autoip-mv-maker。它的 README 介紹的是一套 AI 音樂 MV 製作流程；本文聚焦在其中獨立的系列企劃文件，並把觀念改寫成新手可以用 ChatGPT 和 Suno 練習的步驟。這些提示詞是入門練習，不代表必須先安裝該專案。
+以前用 AI 寫歌，常常是想到一個主題，就請它「寫一首關於失戀的歌」，再把歌詞交給音樂生成工具。第一首完成後，下一首又從零開始想，歌與歌之間未必有關聯。
+另一種做法是先規劃整個系列：六首歌可以各自成立，也能依序講完一段故事。第一首相遇、第二首曖昧、第三首告白，直到最後一首重逢。當故事主軸、角色、音樂特色和畫面方向先有共識，後續寫歌詞、生成歌曲與安排 MV 都比較容易接起來。
+先認識這個 GitHub 專案與系列企劃文件GitHub 專案本身涵蓋歌曲分析、分鏡、影像生成、剪輯、字幕與上架素材等 MV 製作流程；SERIES_PLANNING.md 則是規劃一季內容的文件。兩者的用途不同：你可以先讀系列規劃文件、用 ChatGPT 和 Suno 做創作練習；如果之後要執行專案中的完整自動化流程，再依 README 準備需要的環境。
+初學時先搞懂這幾個詞就夠了：
+
+
+
+名詞
+白話解釋
+
+
+
+GitHub
+放置程式碼與開源文件的平台
+
+
+Prompt
+你交代 AI 工作的指令
+
+
+Hook
+歌曲中容易被記住、可能反覆出現的一句歌詞或旋律
+
+
+Suno
+可依文字描述生成歌曲的 AI 音樂工具
+
+
+系列企劃
+開始做第一首歌前，先定義整季的故事與共同特色
+
+
+第一步：替整季歌曲定主軸系列企劃文件建議先用一句話說明整季，再找一條能把各集排出順序的主軸，接著挑出幾個跨集固定的風格錨點，並為每集寫企劃卡。季數、題材與故事結局都可以自行決定；文件中的 4 到 8 集只是系列規劃的例子。
+例如：
+
+都市愛情流行 × 六首歌，每首歌推進兩個人之間的距離，從相遇走到重逢。
+
+這句話同時交代題材、形式、集數和故事變化方向。接著可以把六首歌排成一條故事線：
+
+
+
+集數
+歌曲概念
+故事位置
+可發展的 MV 畫面
+
+
+
+EP01
+那天的雨
+雨天第一次相遇
+捷運出口、雨傘、街燈
+
+
+EP02
+多走一站
+兩人開始曖昧
+一起搭車、錯過下車提醒
+
+
+EP03
+我想告訴你
+終於鼓起勇氣告白
+夜晚散步、停在路口的對話
+
+
+EP04
+沒說出口
+誤會讓兩人分開
+沒有送出的訊息、空下來的座位
+
+
+EP05
+你的城市
+分開後各自生活
+兩個城市、相似的雨景
+
+
+EP06
+還好是你
+多年後再次相遇
+熟悉的街角、再次撐起的雨傘
+
+
+每首歌都可以自己聽，但角色與事件會逐步往前走。除了愛情故事，也可以用季節、一天的時間、人物選擇、距離變化或逐步揭曉的線索當主軸。
+用幾個穩定錨點保留系列感系列企劃文件把固定項目稱為「錨點」。你可以挑 3 到 5 個跨集保留，例如：同一組主角、固定的歌曲段落結構、某個反覆出現的物件、相似的 MV 畫面語言，或固定的縮圖與標題格式。其他項目仍可依每首歌的故事調整。
+這樣做是為了讓觀眾感覺「這些作品屬於同一個系列」，不代表每首歌都要使用一模一樣的曲風、場景或旋律。
+四種可以自行採用的歌曲敘事練習以下是把系列故事轉成歌曲的創作方式，供新手練習；它們不是原專案規定的固定結構。
+
+
+
+練習方式
+怎麼使用
+簡單例子
+
+
+
+問答式
+讓前後兩首歌互相回應
+男生唱「如果那天我沒有轉身，你會不會等我？」；下一首由女生回答「我其實一直都在等。」
+
+
+變形 Hook
+保留熟悉句型，依劇情改變結尾
+「如果時間能夠重來」，從「我還是會遇見你」變成「我依然會選擇你」
+
+
+章回式
+每首歌代表故事的一個階段
+相遇、靠近、衝突、分開、重新選擇
+
+
+首尾呼應
+讓最後一首回到第一首的場景或意象
+開場在雨中相遇，結尾多年後又在雨中相逢
+
+
+新手可以先試「章回式＋變形 Hook」：前者幫你排故事順序，後者讓觀眾在不同歌曲裡聽到熟悉的線索。實際創作時仍要讓旋律、節奏和編曲有變化，避免每首歌聽起來只是同一首歌的改寫。
+第二步：先請 ChatGPT 規劃歌曲清單先不要一次寫完六首歌詞。打開 ChatGPT，請它先做系列企劃卡，讓你確認故事方向、歌曲情緒與畫面是否合理。
+提示詞：規劃一季歌曲12345678910111213141516你是一位華語流行音樂企劃人、作詞人與音樂製作人。我是沒有作詞經驗的新手，想製作一個六首歌的音樂系列。系列主題：從相遇到重逢的都市愛情故事。請幫我規劃六首歌，每首歌列出：1. 歌曲名稱2. 主要故事與它在整季中的位置3. 情緒氛圍與建議曲風4. 男聲、女聲或男女合唱5. 一句可以發展成 Hook 的歌詞概念6. 未來製作 MV 時可以呈現的視覺場景六首歌要有連續劇的感覺，但每首也能獨立欣賞。請使用自然的台灣繁體中文，不要過度文青或生硬。先用表格提供企劃，不要直接寫完整歌詞。
+
+收到企劃後，先檢查每一集是否真的改變了故事狀態。例如第二首是否讓兩人更靠近、第四首是否有足以造成衝突的事件、最後一首是否回應前面留下的問題。若只是六首歌都在重複「很愛你、很想你」，就回頭調整主軸或每集企劃卡。
+第三步：挑一首歌，分段寫歌詞先挑 EP01 試做，確認角色、語氣與 Hook 是否自然，再把相同的系列設定帶到下一首。提示詞可以像這樣：
+提示詞：寫第一首完整歌詞12345678910111213141516171819202122請根據剛才規劃的六首歌系列，開始寫 EP01《那天的雨》。故事：男女主角在雨天的捷運出口第一次相遇。曲風：華語流行抒情，溫暖自然，帶一點電影感。演唱：溫暖的男性聲線。歌詞要求：1. 使用自然的台灣繁體中文。2. 句子長短可以有變化，不要為了押韻使用奇怪的詞。3. 副歌有一句容易記住的 Hook。4. 使用雨傘、捷運出口、街燈等具體畫面，避免空泛形容。5. 歌曲要能接上後續五首的故事。請用以下段落標籤輸出，並檢查唱起來是否自然：[Verse 1][Pre-Chorus][Chorus][Verse 2][Chorus][Bridge][Final Chorus][Outro]
+
+Verse 是主歌、Pre-Chorus 是預副歌、Chorus 是副歌、Bridge 是橋段、Outro 是結尾。這些標籤可以協助描述歌曲段落，但生成結果仍要實際聽過再調整。
+第四步：把歌詞交給 Suno 生成歌曲打開 Suno，使用目前介面中可以自行輸入歌詞與音樂描述的創作方式。按鈕名稱與功能可能隨平台更新而變動；先確認現在的介面支援你要使用的輸入方式。
+準備三項內容：
+
+Title：例如「那天的雨」。
+Lyrics：貼上整理好的歌詞和段落標籤。
+Style：描述曲風、樂器、情緒與演唱方向。
+
+例如：
+123Mandarin pop ballad, warm male vocal, emotional storytelling,soft piano, acoustic guitar, gentle drums, cinematic atmosphere,memorable melodic chorus, natural vocal delivery.
+
+也可以用中文描述：
+12華語流行抒情，溫暖成熟男聲，鋼琴與木吉他編曲，柔和鼓組，有電影感，副歌旋律容易記住，演唱自然有情緒。
+
+生成後先聽歌詞是否順口、Hook 是否記得住、情緒是否符合這一集。若不滿意，先找出問題來自歌詞、旋律、演唱或編曲，再針對該項修改，不必立刻把整首歌全部推倒重來。
+第五步：整理系列風格設定在繼續做 EP02 前，把整季固定的錨點整理成一份 style.md。不需要把所有細節鎖死；保留幾個跨集共同點，讓每首歌仍有自己的變化。
+提示詞：建立系列風格設定1234567891011請根據這六首歌的企劃，整理一份系列風格設定草稿 style.md。請先挑出 3 到 5 個值得跨集固定的錨點，例如：- 整季故事主題與主軸- 主角外觀或人物關係- 歌曲段落結構、人聲配置或反覆出現的聲音記號- 歌詞用字與語言風格- MV 的共同視覺元素或包裝方式另外列出每集可以自由變化的項目，例如曲風、場景、主色或象徵物。說明每首歌如何連到下一首，並保留人工調整空間。
+
+相同的曲風文字不保證每次生成都會得到完全相同的歌聲或編曲。若你需要較一致的人聲，請依目前平台提供的設定測試，並以實際生成結果為準。
+第六步：從歌曲企劃發展 MV 分鏡先完成歌曲，再把故事和歌詞拆成畫面。初學可以先用簡單流程：
+歌曲 → 故事分鏡 → 角色參考圖 → AI 影片片段 → 剪輯成 MV
+以 EP01《那天的雨》為例，可以從下列畫面開始：
+
+
+
+分鏡
+畫面內容
+
+
+
+01
+台北雨夜，行人穿過捷運站出口
+
+
+02
+男主角走出車站，發現有人在屋簷下躲雨
+
+
+03
+他把雨傘往對方身邊移了一點
+
+
+04
+兩人在街燈下對視，音樂進入副歌
+
+
+05
+女主角離開，男主角回頭看向她的方向
+
+
+提示詞：把歌曲轉成 MV 分鏡123456789101112131415我已經完成歌曲《那天的雨》。請根據歌詞設計一支 AI 音樂 MV 分鏡表。影片比例：16:9。視覺方向：台灣都市愛情電影、寫實攝影、溫暖色調。場景：捷運站出口、雨天街道、便利商店、夜晚街燈。請依歌曲實際長度安排每個分鏡，列出：1. 開始與結束時間2. 對應歌詞3. 畫面與角色動作4. 攝影機運動5. 靜態圖片提示詞與影片提示詞以 5 到 10 秒片段作為初步規劃單位，維持角色外觀、服裝與場景連續。先給我分鏡表審核，不要直接生成影片。
+
+依照歌曲時間安排畫面，也要考慮生成片段可能需要裁切、延長或重新剪接。不要期待每段 AI 影片剛好符合節拍；最後仍要在剪輯軟體中調整鏡頭長度、音樂進點與轉場。
+進階：再考慮使用完整 MV 自動化專案如果只是練習系列企劃、寫歌詞和生成歌曲，可以先不下載或安裝 autoip-mv-maker。若要實際執行該專案，請先讀取它的官方 README：目前文件提到 AutoIP API、ffmpeg、字型與 API key 等前置條件，生成影像任務會使用點數。請在送出前查看靜圖與成本資訊，並依專案文件保管 API key；不要把 key 寫進一般檔案或貼進提示詞。
+若你只是想用 Codex 整理自己的企劃，也可以先建立簡單資料夾，管理故事設定和素材版本：
+1234567891011121314151617my-ai-music-series/├── README.md├── style.md├── research.md├── characters/│   ├── male.md│   └── female.md├── episodes/│   ├── EP01/│   │   ├── lyrics_v1.txt│   │   ├── suno_style.txt│   │   └── storyboard.md│   └── EP02/└── assets/    ├── images/    ├── audio/    └── videos/
+
+這只是方便自己管理的資料夾範例，不是 autoip-mv-maker 安裝後自動建立的目錄。你可以請 Codex 協助整理企劃、比對每首歌是否符合 style.md，或把歌詞改寫成分鏡表；真正的歌詞、生成歌曲與影片仍要逐項檢查。
+開始前，先確認這四件事
+用一句話說清楚整季的題材與變化方向。
+每首歌都有自己的故事位置，而不是重複同一種情緒。
+選出 3 到 5 個跨集錨點，其他細節保留變化空間。
+先完成一首歌和一支 MV 的分鏡，再決定如何延伸整季。
+
+AI 可以幫忙發想、整理和生成素材，但歌曲是否自然、故事是否說得通、角色是否連貫，仍要由創作者檢查。製作或發布作品前，也要確認歌曲、角色圖、字型與其他素材的使用權，並遵守所用平台的內容揭露規範。
+常見問答 (FAQ)Q1：這個專案證實作者是金曲獎作詞家嗎？不能只憑系列企劃文件確認作者具有金曲獎作詞家身分。本文聚焦的是文件中的系列規劃方法，不把網路貼文的說法當成已證實事實。
+Q2：只用 ChatGPT 和 Suno 練習，需要安裝 GitHub 專案嗎？不需要。你可以先用 ChatGPT 整理故事與歌曲企劃，再用 Suno 試做歌曲；若要執行 autoip-mv-maker 的完整 MV 流程，才依官方 README 準備 API、ffmpeg、字型等環境。
+Q3：把相同的 Style 提示詞貼給 Suno，就能固定歌手聲音嗎？不能保證。相同的描述可能產生不同的聲音或編曲；可依平台當前提供的聲音或延續功能測試，並以實際生成結果確認。
+Q4：一定要做六首歌，才能叫音樂系列嗎？不一定。六首只是本文的示範規模。你可以依故事調整集數，重點是有清楚的共同主軸，並讓每一集既能獨立欣賞，也能推進整體內容。
+
+
+        </p>
+        <a class="stretched-link" href="/posts/ai-music-mv-series-planning/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -3583,129 +3839,6 @@ Q5：安裝後沒有看到這個 Skill 怎麼辦？先確認 SKILL.md 位於 Cod
 
         </p>
         <a class="stretched-link" href="/posts/minimax-h3-prompt-standardizer/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-google-vids-ai-video-workflow"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover186.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/9/25
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              AI工具
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              影音行銷
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Google Vids
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          Google Vids 正在降低 AI 影片門檻：新手不必先學剪輯軟體？
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          最近我把兩則 Google Vids 更新放在一起看，突然覺得 Google 真正想做的，可能不只是另一套 AI 生影片工具。
-它想讓「做影片」變得像做簡報一樣普通。
-2026 年 4 月 2 日，Google 宣布 Google Vids 開放使用 Veo 3.1 生成影片片段，當時個人 Google 帳戶每月有 10 次免費生成額度。到了 9 月 23 日，Google 又宣布把 Gemini Omni 1.1 Flash 帶進 Vids，加入場景延伸、指定影片長度、1080p 生成與升頻等功能。4 月的 Google Vids 更新｜9 月的 Workspace Updates 公告
-免費額度也要看時間和帳戶類型：截至本文整理資料時，Google 說明頁列出的個人帳戶 AI 影片額度是每月 6 支，與 AI 頭像共用額度。Google 產品的功能開放和用量限制會調整，實際使用前應以帳戶介面和說明頁為準。Google Vids 功能可用性與額度
-把這些變化放在一起，我看到的重點不是模型又多強，而是：
-影片正在變成一種一般人也能完成的工作。
-AI 影片最難的，往往是生成之後很多人現在學 AI 影片，會經過一長串工具：先整理想法和文案，再生成圖片、影片、旁白，接著下載素材、打開剪輯軟體、排時間軸、補字幕和音樂，最後才輸出。
-真正讓新手卡住的，常不是「我不會生成」，而是「生成完以後，我不知道怎麼把東西組起來」。
-有些人已經會生圖，也做出十幾段漂亮的影片，卻遲遲沒有一支完整作品。缺的不是更多鏡頭，而是把素材排成有起承轉合、能看完也能分享的影片。
-Google Vids 正在補上生成後的最後一哩我以前把 Google Vids 想成「Google Slides 加上一條時間軸」：放進圖片、影片、文字和音訊，再安排它們出現的順序。這當然還是影片編輯，但當生成能力逐步進到同一個地方，使用者就不必每做一個步驟都先換一套工具。
-現在，Google Vids 能從文字或圖片開始生成影片，也支援延伸場景、調整生成片段長度和輸出不同影片比例；使用者可以把素材放進時間軸，繼續編排內容。Google 的說明列出寬螢幕 16:9、直式 9:16 和正方形 1:1，換比例後仍可能要手動微調畫面元素。Google Vids 影片尺寸說明
-從使用者的角度，這讓 Vids 的角色從「簡單影片編輯工具」逐漸靠近：
-把想法、素材和 AI 生成結果組成一支影片的地方。
-新手第一天，真的需要先學會運鏡嗎？Google Flow 很適合用來做重要鏡頭。人物一致性、參考素材、首尾畫面、鏡頭運動和場景延續，都是需要更細緻控制時會派上用場的能力；具體選項則會隨模型和產品更新而變動。
-但一個從來沒做過影片的人，第一天就需要理解所有鏡頭控制嗎？
-很多人的目標其實很具體：公司要做活動短片、老師要做一段教學、業務想整理提案、小店想介紹新品，或自媒體新手想完成第一支 Reels。他們不一定要當導演，先有能力把一支影片做完，可能更重要。
-如果我重新安排入門順序，會先走這條路：
-
-
-
-階段
-工具
-先練什麼
-
-
-
-先完成一支影片
-Google Vids
-把故事拆成幾個場景，放入素材，完成基本編排與輸出
-
-
-再做好重要鏡頭
-Google Flow
-練習描述人物、場景和運鏡，讓關鍵畫面更接近預期
-
-
-最後精修整支作品
-DaVinci Resolve
-深入剪輯節奏、聲音、色彩和更細的後製控制
-
-
-這不是唯一的學習順序，也不是每個人都必須走到第三階段。它只是把學習目標拆開：先學會把想法做成影片，再學會把每個鏡頭做好，最後才把整支作品磨得更完整。
-Google Vids 和 Flow，比較像分工，不是互相取代我現在會這樣理解兩個工具：
-
-Google Vids：做影片。 把影片、圖片、文字和音訊排進時間軸，組成可以播放與分享的完整內容。
-Google Flow：做鏡頭。 當人物、場景、運鏡或畫面連續性很重要時，用更聚焦的方式生成和調整素材。
-
-一個可能的製作流程是先用 Gemini 整理故事，再用 Flow 生成幾個重要鏡頭，接著把素材放進 Vids 完成整支影片。需要更多剪輯控制時，才把作品帶到 DaVinci Resolve。
-如果你想先理解 Flow 的鏡頭提示詞，可以接著看從攝影語言學會 Google Flow 運鏡；若想看 AI 影片工作流怎麼從 Prompt 走向製片流程，也可以參考AI 影片從生成走向製片工作流。
-AI 影片普及的關鍵，可能是它出現在熟悉的工作裡AI 圈常在比較哪個模型更強，但一般使用者會不會採用一套工具，未必只看模型排行榜。工具是否容易開始、素材能不能接上原本的工作流程，也很重要。
-Google Vids 能匯入 Slides，也能使用 Drive 裡的檔案；對本來就在 Google 工作環境裡整理簡報、圖片和文件的人來說，開始製作影片時需要重新搬動的東西可能比較少。Google Vids 的建立與匯入方式
-如果有一天，一份簡報能順手延伸成影片，一段教學內容可以直接整理成幾個場景，那麼「我要學 AI 影片」也許會慢慢變成「我想把這個想法做成一段影片」。這是我對產品方向的觀察，不代表每種影片都能一鍵完成。
-先問自己：能不能把想法做成一支完整影片？AI 影片的門檻降低，不代表剪輯、敘事和選擇素材就不重要。它改變的可能是入門順序：先不用把所有進階控制一次學完，也能從簡單的故事開始，完成一支可分享的影片，再逐步補上鏡頭和後製能力。
-所以如果你最近想開始學 AI 影片，我會先給自己一個小練習：試著在 30 分鐘內完成一支短片的初版。這不是對工具速度的保證，而是幫自己把目標從「再研究一個模型」移到「真的做出一個作品」。
-AI 時代重要的能力，可能不只是生成多漂亮的畫面，而是能不能把想法變成一個可以分享、可以繼續修改的成品。
-參考資料
-Google Vids updates: Veo 3.1 免費影片生成與其他更新（2026-04-02）
-Gemini Omni 1.1 Flash now in Vids（2026-09-23）
-Google Vids 的 Gemini 功能可用性與額度
-Google Vids 影片尺寸：16:9、9:16 與 1:1
-
-常見問答 (FAQ)Q1：Google Vids 可以免費生成 AI 影片嗎？可以使用個人 Google 帳戶體驗部分 AI 影片生成功能，但不是無限量。截至本文查核時，Google 說明頁列出的個人帳戶 AI 影片額度是每月 6 支，與 AI 頭像共用；實際可用功能和額度可能依帳戶方案或 Google 後續調整而變動。
-Q2：AI 影片新手應該先學 Google Vids 還是 Google Flow？如果目標是先完成一支影片，可以從 Google Vids 開始，練習安排場景、素材和時間軸；需要更精確地控制人物、場景或鏡頭時，再學 Google Flow。這是入門路徑建議，不是唯一選擇。
-Q3：Google Vids 支援直式或正方形影片嗎？支援。Google Vids 的尺寸選項包含 16:9 寬螢幕、9:16 直式和 1:1 正方形；改變比例後，仍可能需要手動調整場景中的文字和圖片位置。
-Q4：用了 AI 生成素材，就能自動完成影片嗎？不能只靠生成素材完成一支好懂的影片。使用者仍要決定故事順序、保留哪些鏡頭、安排節奏與音訊，並檢查輸出的內容是否符合分享或發布目的。
-
-        </p>
-        <a class="stretched-link" href="/posts/google-vids-ai-video-workflow/"></a>
       </div>
     </div>
   </article>

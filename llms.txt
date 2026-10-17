@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】
+  網址：https://blog.es2idea.com/posts/ai-music-mv-series-planning/
+  日期：2026-10-18
+  摘要：想用 ChatGPT 和 Suno 做 AI 音樂 MV，先別急著生成第一首歌。本文帶你規劃六首歌的故事主軸、固定風格錨點、歌曲結構與 MV 分鏡，從系列企劃一步步走到可執行的創作流程。
+  主題：AI工具、ChatGPT、影音行銷
+
 - AI 讓寫程式越來越便宜，但真正值錢的是產品判斷力
   網址：https://blog.es2idea.com/posts/ai-product-validation-guide/
   日期：2026-10-16
@@ -46,7 +52,7 @@
   網址：https://blog.es2idea.com/posts/codex-project-handoff-guide/
   日期：2026-10-16
   摘要：每次開新對話都要重講專案需求？用 project.md、AGENTS.md、handoff.md 分別保存企劃、規則與進度，再搭配初始化、開工、收工提示詞，讓 Codex 更容易接續工作。
-  主題：AI工具、Codex、Vibe Coding
+  主題：AI工具、Vibe Coding、Codex
 
 - 365 個免費 AI 行銷 Skills 開源了！我用一個賣雞排的案例，帶你實際玩一次
   網址：https://blog.es2idea.com/posts/365-free-ai-marketing-skills/
@@ -100,12 +106,6 @@
   網址：https://blog.es2idea.com/posts/artcraft-adobe-alternatives/
   日期：2026-10-08
   摘要：ArtCraft Crafting Apps 公開七套 Rust 創作工具，涵蓋修圖、剪輯、特效與排版，並把 CLI、JSON Control Channel、MCP 納入操作架構。本文整理 FilmCraft、EffectCraft、PhotoCraf...
-  主題：AI工具、AI自動化、AI Agent
-
-- AI 不會讓你的工作更輕鬆，只會讓你有能力接下更大的工作
-  網址：https://blog.es2idea.com/posts/automate-later-build-better-agents/
-  日期：2026-10-04
-  摘要：AI 不一定讓工作變少，卻能放大一個人完成工作的能力。從手動、SOP、Skill 到 Agent，本文分享為何應該「最晚自動化」，以及如何透過脈絡設計、權限與驗收，打造可持續的 AI 工作流。
   主題：AI工具、AI自動化、AI Agent
 
 ## 語言
