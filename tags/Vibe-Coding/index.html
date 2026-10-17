@@ -290,7 +290,7 @@
       
         <li class="mb-3">
           <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
-            軟體開發 (19)
+            軟體開發 (20)
           </a>
         </li>
       
@@ -338,7 +338,7 @@
     <div class="d-flex flex-wrap gap-2">
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
-          AI工具 (81)
+          AI工具 (82)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
@@ -374,7 +374,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
-          Vibe Coding (44)
+          Vibe Coding (45)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
@@ -458,7 +458,7 @@
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
-          Cloudflare (5)
+          Cloudflare (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
@@ -505,16 +505,16 @@
           Tauri (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
           奇幻喜劇 (2)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
           台灣民間信仰 (2)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
-          Git (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
@@ -588,6 +588,302 @@
       </div>
 
       <ul class="d-flex flex-column row-gap-6 row-gap-lg-9 gx-6 gx-lg-4 col-12 col-lg-9 mt-4 mt-lg-0 mb-0 pt-4 pt-lg-0">
+        
+          
+   <!-- prevent image appear -->
+
+
+
+<li
+  id="post-void-vinext-cloudflare-guide"
+  class="card border-0"
+  itemprop="blogPost"
+  itemscope
+  itemtype="https://schema.org/BlogPosting"
+>
+  <article class="row g-0">
+    <div class="col-12 col-lg-4">
+      <img
+        src="/images/cover224.webp"
+        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
+        style="object-position: center;"
+        alt="article-Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署"
+      >
+    </div>
+    <div class="col-12 col-lg-8">
+      <div class="card-body pt-lg-0 pe-lg-0">
+        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
+          <p class="card-text mb-0 fs-6 text-primary-600">
+            <small class="text-body-secondary">
+              2026/10/18
+            </small>
+          </p>
+
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              AI工具
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              Vibe Coding
+            </span>
+          
+            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
+              Cloudflare
+            </span>
+          
+
+        </div>
+        <h5 class="card-title mb-3 text-primary-700">
+          Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署
+        </h5>
+        <p class="cutoff-text mb-0 text-primary-700">
+          最近看到 MUKI WU 分享影片《Vite 被 Cloudflare 買了？Void 開源能取代 Vercel 嗎？》，我也開始研究 Void 和 Vinext。
+這兩個名稱都和 Vite 有關，也都出現在 Cloudflare 的開發工具消息裡，但它們解決的問題並不相同。Void 適合從 Vite 專案開始，整合全端功能與部署；Vinext 則讓既有 Next.js 專案改用 Vite 工具鏈。
+這篇會用一個新手能跟上的例子，帶你用 Codex 建立 Void 練習網站，再認識什麼時候才需要研究 Vinext。安裝與指令依本文整理時的官方文件編寫；文章中的範例不是每種環境都已實機驗證，實際操作仍要以所安裝版本的文件為準。
+Vite、Void、Vinext、Vercel 和 Cloudflare 有什麼不同？先把幾個常一起出現的名稱分開看：
+
+
+
+名稱
+主要工作
+可以先這樣理解
+
+
+
+Vite
+網頁開發伺服器與建置工具
+協助開發、即時預覽和打包網頁
+
+
+Vite+
+整合 JavaScript 開發工具鏈
+把建置、測試與程式碼檢查等工具放在一起
+
+
+Next.js
+React 全端框架
+提供頁面路由、伺服器渲染等網站開發功能
+
+
+Vinext
+以 Vite 重新實作 Next.js API 的外掛
+讓既有 Next.js 專案有機會改由 Vite 工具鏈執行
+
+
+Void
+Vite 全端 SDK、CLI 與部署平台
+協助建立 API、連接資料資源並部署 Vite 應用
+
+
+Vercel
+雲端部署與代管平台
+提供部署、預覽和團隊開發流程
+
+
+Cloudflare
+雲端基礎設施與全球網路平台
+提供 Workers、D1、KV、R2 等服務
+
+
+Void 和 Vinext 不是同一種工具。Void 的重點是從 Vite 應用出發，建立全端功能並管理部署；Vinext 的重點是讓 Next.js 專案沿用熟悉的應用目錄結構，改由 Vite 處理建置與執行。
+Cloudflare 在 2026 年 10 月介紹 Void 時，說明 VoidZero 已加入 Cloudflare，並公開 Void SDK、CLI 和 Platform。這不代表 Vite、Void 和 Vinext 是同一個產品，也不代表原有的 Vite 專案會自動變成 Void 專案。Cloudflare 的 Void 公告
+用一句話記住它們的差異
+Vite：負責開發和建置前端應用。
+Void：在 Vite 工作流上加上全端路由、資源管理與部署。
+Vinext：讓 Next.js 專案改用 Vite 工具鏈，並保留大量 Next.js 開發介面。
+Vercel 和 Cloudflare：提供網站部署及執行所需的雲端服務。
+
+Void 不是 Vercel 的直接替代品，Vinext 也不是把所有 Next.js 專案自動搬到 Cloudflare 的保證。選擇時應先看手上的專案、需要的功能和可接受的遷移成本。
+為什麼 Void 適合拿來學習 Vibe Coding？假設你想請 Codex 做一個活動報名網站。它可能需要網頁表單、API、資料庫和部署環境。過去，這些部分常要分別設定；Void 的目標是把 Vite 應用和 Cloudflare 資源放進較連貫的開發流程。
+Void 主要由三個部分組成：
+
+Void SDK：在 Vite 專案中開發前端、伺服器路由及資源操作。
+Void CLI：初始化專案、建置、建立或綁定 Cloudflare 資源、套用資料庫遷移並部署。
+Void Platform：供團隊共用的部署平台，可自行架設並設定使用者權限和資源限制。
+
+初學者通常可以先從 SDK 和 CLI 開始，不需要一開始就安裝團隊用的 Platform。你可以先在自己的 Cloudflare 帳號裡建立一個小型練習，再視需要研究共用平台。
+Void 的功能可以組合使用，也能和一些既有的 Vite 架構合作。不過官方目前將 Vinext adapters 列為實驗性支援；第一次學習時，先分開理解 Void 和 Vinext，會更容易判斷問題來自哪一層。Void Cloudflare 整合說明
+如何在 Mac 安裝 Void 並建立第一個專案？以下範例以 macOS 和 npm 說明。你需要 Node.js、終端機和 Void；若要部署到 Cloudflare，還需要 Cloudflare 帳號。Void 官方目前要求 Node.js 24.21.0 以上版本，其他作業系統也可依官方支援條件操作。Void 官方 GitHub
+先確認 Node.js 版本打開 Mac 的「終端機」，輸入：
+12node -vnpm -v
+
+若 Node.js 版本低於 Void 目前要求的版本，請先更新。若你電腦上有其他 Node.js 專案，可以用 nvm 管理多個版本，避免更新後影響舊專案。
+建立練習資料夾並初始化在終端機輸入：
+1234mkdir void-playgroundcd void-playgroundnpm install -D voidnpx void init
+
+初始化指令會啟動設定流程，讓你選擇 UI 框架、起始範本和部署目標。Void 的 Vite+ 工具鏈是預設選項；如果只想先在本機學習，可以先略過部署設定。Void Quickstart
+這篇用活動報名系統作為範例，可以選擇下列方向：
+
+
+
+設定項目
+練習選擇
+適合原因
+
+
+
+Toolchain
+Vite+（預設）
+使用 Void 提供的整合工具鏈
+
+
+Frontend
+React
+建立常見的互動式網頁
+
+
+Starter
+D1
+練習網站、API 與 SQL 資料庫
+
+
+Deployment
+Cloudflare
+之後可部署到自己的 Cloudflare 帳號
+
+
+初始化時，Void 也會準備 Agent 可讀的專案指引。若要重新設定 Codex 等 Coding Agent，可以在專案根目錄執行：
+1npx void init --agents
+
+它會建立或更新 AGENTS.md，並依照可偵測到的 Agent 設定連結對應技能；這樣 Codex 可以讀取專案所安裝版本的 Void 文件，而不是只依賴模型記憶。Void Coding Agents 指南
+在本機啟動網站和 API初始化完成後，在專案資料夾輸入：
+1npm run dev
+
+依照終端機顯示的網址開啟瀏覽器，Quickstart 範例通常使用：
+http://localhost:5173
+如果範本沒有 API 範例，可以新增 routes&amp;#x2F;api&amp;#x2F;hello.ts：
+1234567import &amp;#123; defineHandler &amp;#125; from &amp;#x27;void&amp;#x27;;export const GET = defineHandler(() =&amp;gt; &amp;#123;  return &amp;#123;    message: &amp;#x27;Hello from Void&amp;#x27;  &amp;#125;;&amp;#125;);
+
+再打開：
+http://localhost:5173/api/hello
+你會看到類似以下 JSON：
+123&amp;#123;  &amp;quot;message&amp;quot;: &amp;quot;Hello from Void&amp;quot;&amp;#125;
+
+這個路由的檔案路徑對應到 &amp;#x2F;api&amp;#x2F;hello，而 GET 表示用讀取方式回傳資料。Void 的官方 Quickstart 使用相同的入門範例；各種範本的檔案是否已預先建立，則要依初始化結果確認。Void Quickstart：呼叫伺服器路由
+如何用 Codex 開發一個報名網站？先把剛剛的 void-playground 專案開在 Codex。接著可以把以下提示詞貼給 Codex，請它先閱讀專案說明和已安裝版本的 Void 文件：
+1234567891011121314151617181920212223242526272829你是一位熟悉 Void、React、TypeScript 與 Cloudflare Workers 的全端工程師。請先閱讀專案中的 AGENTS.md，以及 node_modules/void/ 內目前安裝版本的官方文件，再開始修改程式。我要建立一套簡單的活動報名網站。前台功能：1. 顯示活動名稱、日期和地點。2. 提供姓名與 Email 欄位。3. 在瀏覽器與伺服器端檢查必填欄位和 Email 格式。4. 成功寫入資料後，再顯示報名完成訊息。後端功能：1. 使用 Void 官方伺服器路由。2. 使用 Cloudflare D1 儲存報名資料。3. 使用資料庫 migration 管理結構變更。4. 防止同一個 Email 重複報名。管理功能：1. 管理頁必須有身分驗證和權限檢查。2. 未完成授權前，不能公開報名名單或 Email。開發規則：1. 優先使用專案已安裝版本的官方 API。2. 不要使用過時的 Void 語法。3. 不要建立不必要的第二套伺服器或部署流程。4. 先在本機完成開發與檢查，不要直接修改正式環境，也不要擅自部署。完成後請說明建立了哪些檔案、API 如何運作、資料存在哪裡、如何在本機測試，以及部署前還需要確認什麼。
+
+接著你可以在瀏覽器測試表單，並確認資料真的寫進本機 D1。不要只看畫面有沒有出現「報名成功」，還要檢查 API 回應和資料庫內容。
+正式網站也需要補上個資告知、垃圾報名防護和管理者權限。練習時不要使用真實的客戶資料，也不要把公開的名單頁當成登入驗證。
+如何將 Void 網站部署到 Cloudflare？本機功能確認完成後，若初始化時已選 Cloudflare 作為部署目標，可執行：
+1npx void deploy
+
+若當時略過部署設定，也可以指定 Cloudflare：
+1npx void deploy --platform cloudflare
+
+首次部署時，Void 可能會開啟瀏覽器要求登入並選擇 Cloudflare 帳號。CLI 會建置應用、建立所需資源、套用 migrations 並回報部署網址。Void 的 Cloudflare 部署指南
+部署後可到 Cloudflare 控制台的 Workers &amp;amp; Pages 檢查 Worker 狀態；若使用 D1，也要確認資料庫已建立並收到測試資料。本機 D1 與正式環境的 D1 是不同資料庫，本機測試資料不會自動複製到正式環境。
+部署前也要檢查 migration。程式碼回復到舊版本，不代表資料庫結構會自動回到舊狀態。第一次公開部署前，先理解哪些資源會建立、資料存在哪裡、帳號目前使用的方案與額度。
+Vinext 是什麼？什麼時候才需要它？Vinext 是一個以 Vite 重新實作 Next.js API 的 Vite 外掛。它的目標是讓既有 Next.js 專案能保留許多熟悉的路由、元件和設定方式，再透過 Vite 建置並選擇合適的部署平台。
+如果你從零開始做一般 Vite 網站，通常不需要先安裝 Vinext。它主要適合已經有 Next.js 專案、想評估 Vite 工具鏈或 Cloudflare Workers 部署的開發者。
+怎麼辨認既有專案是不是 Next.js？可以查看專案根目錄的 package.json。如果依賴中有 next，通常就是 Next.js 專案。app&amp;#x2F;、pages&amp;#x2F; 和 next.config.js 或 next.config.ts 也常見於 Next.js 專案。
+如何先檢查相容性，再試用 Vinext？不要直接在正式專案上遷移。先建立 Git 備份或測試分支，再在專案目錄執行：
+1npx vinext check
+
+這會掃描部分已知相容性問題。檢查結果不能代替完整測試，但可以先找出值得注意的差異。
+若要建立 Vinext 設定，可接著執行：
+1npx vinext init
+
+Cloudflare 文件中的典型流程會加入 dev:vinext 和 build:vinext 等 scripts。初始化後請先檢查 package.json，再依實際產生的指令啟動開發伺服器與正式建置：
+12npm run dev:vinextnpm run build:vinext
+
+部署到 Cloudflare Workers 的範例指令是：
+1npx @vinext/cloudflare deploy
+
+詳細流程請參考Cloudflare 的 Next.js／Vinext 指南。Cloudflare 也提供建立 Cloudflare-ready 專案的 C3 流程；若你是在既有 Next.js 專案上遷移，請以目前文件和 vinext init 的輸出為準。
+Vinext 1.0 是否代表完全相容 Next.js？不是。Vinext 在 2026 年 9 月發布 1.0，代表它自身的公開 API 開始依循穩定版本規則；這不等於所有 Next.js API 和功能都已完整相容。官方文件仍列出部分功能差異，包括 Cache Components 和 Partial Prerendering，遷移正式網站前應查看相容性差異並實際測試。Vinext 1.0 說明・Vinext 相容性差異
+Cloudflare 目前推薦在 Workers 上評估 Vinext；如果既有應用仍有相容性缺口，也仍保留 OpenNext adapter 等其他路徑。若網站只需要靜態輸出，Cloudflare Pages 也是另一種情境。選擇前先看專案實際用到的功能，不要只根據版本號或建置速度決定。
+Vibe Coding 專案該選哪一種架構？可以先用下面幾種情境縮小範圍：
+
+
+
+專案情境
+可以先評估
+選擇時要注意
+
+
+
+品牌網站、作品集、簡單活動頁
+Vite + 靜態網站代管
+如果沒有後端資料需求，不必增加全端架構
+
+
+從零開始做表單、預約或內部工具
+Void + Vite + Cloudflare Workers + D1
+確認資料庫、使用權限、個資與資源額度
+
+
+已有 Next.js 專案，想評估 Workers
+Next.js + Vinext + Cloudflare Workers
+先跑相容性檢查，測試實際使用到的功能
+
+
+已有穩定的 Worker + D1
+維持現有架構，按需要改善
+不要只為了新框架而重寫
+
+
+有會員、訂單、金流或多人維護需求
+先定義資料、權限、金流與維運需求
+需要比較完整架構與維護成本，不能只看部署一鍵化
+
+
+簡單來說：從零開始、想在 Cloudflare 上建立 Vite 全端應用，可以研究 Void；已經有 Next.js，才需要評估 Vinext；既有系統運作正常，就先確認遷移能解決什麼問題。
+若專案已經使用 Next.js 並依賴特定功能，可以比較 Vinext 的相容性差異，或繼續評估 OpenNext 等現有部署方式。Void 對 Vinext 的 adapter 目前仍是實驗性支援，正式系統要先做獨立驗證。Void Cloudflare 整合說明
+開始寫程式前，先請 Codex 做技術選型把需求交給 AI 後，不一定要馬上讓它寫程式。你可以先請 Codex 說明架構選擇、風險和還需要確認的資訊：
+123456789101112131415161718你是一位熟悉 Vite、Next.js、Void、Vinext、Cloudflare 與 Vercel 的技術架構顧問。我準備建立一個網站。請先詢問並整理：1. 網站主要用途。2. 是否需要會員、資料庫、檔案上傳或金流。3. 是否已有現成專案，以及目前使用的框架。4. 是否指定部署平台、團隊流程或預算範圍。在開始寫程式前，請評估以下選項是否符合需求：A. Vite + 靜態網站代管B. Void + Cloudflare WorkersC. Next.js + Vinext + Cloudflare WorkersD. Next.js + VercelE. Cloudflare Worker + D1請比較學習成本、現有專案相容性、部署與維護需求、資料庫和權限設計，以及遷移風險。區分官方已說明的能力和仍需實測的部分。先提出推薦方案、理由和待確認事項；等我確認後再開始修改程式。不要直接部署正式環境。
+
+這段提示詞不保證 AI 每次都選對架構，但能讓你在程式碼產生前先看見方案取捨。架構不複雜時，也可以直接沿用熟悉且已運作穩定的工具。
+新手可以怎麼安排學習順序？如果要安排一門 Vibe Coding 入門實作課，我會拆成四個階段：
+
+先做一個簡單網站：用 Codex 和 Vite 建立互動網頁，認識本機開發與正式網站的差異。
+再加入 API 和資料庫：用 Void 建立表單、路由和 D1，確認資料如何從前端寫進資料庫。
+了解部署與環境：學習 Workers、D1、環境變數和 migration，理解測試資料與正式資料的區別。
+最後看既有 Next.js 專案：用測試分支檢查 Vinext 相容性，再比較不同部署路徑。
+
+這個順序會先建立網站與資料的基本概念，再逐步加入部署和遷移。新手不必在第一天就同時學會 Vite、Void、Vinext、Next.js、資料庫、Docker 和雲端維運。
+常見問答 (FAQ)Q1：Void 免費嗎？使用 Void 會不會產生 Cloudflare 費用？Void SDK、CLI 和 Platform 的原始碼以 MIT 授權公開，但 Cloudflare Workers、D1、R2 等雲端服務仍有各自的方案、額度和使用條件。軟體開源不代表雲端資源無限制免費；部署前請查看 Cloudflare 目前的方案與服務用量。
+Q2：使用 Void 一定要架設 Void Platform 嗎？不需要。個人專案可以用 Void SDK 和 CLI，部署到自己的 Cloudflare 帳號。Void Platform 主要提供團隊共用的部署環境、權限和資源管理功能。
+Q3：Void 可以完全取代 Vercel 嗎？不能一概而論。Void 適合需要 Vite 全端功能並希望部署到 Cloudflare 的情境；Vercel 有自己的 Next.js 整合、預覽部署和團隊工作流程。應依專案需求、既有架構和維護方式比較，而不是只看平台名稱。
+Q4：Next.js 專案可以直接改用 Vinext 嗎？不能保證直接替換就能運作。Vinext 提供相容性檢查與遷移指引，但仍有尚未完整支援的 Next.js 功能。先備份專案、執行 npx vinext check，再在測試分支驗證實際使用的頁面、資料載入、快取與部署行為。
+Q5：Void 和 Vinext 可以一起使用嗎？可以把兩者放在同一個架構評估中，但 Void 官方目前將 Vinext adapters 標示為實驗性支援。入門時先分開學習兩者；若要整合到正式專案，請查閱相同版本的官方文件並自行完整測試。
+結語：AI 幫你寫程式，選型仍需要理解Void 和 Vinext 代表兩種不同的開發需求：Void 把 Vite 全端應用、Cloudflare 資源和部署流程連在一起；Vinext 則讓既有 Next.js 專案有機會改用 Vite 工具鏈。
+使用 Codex 或其他 Coding Agent 時，不妨先確認網站是否需要後端、資料應存在哪裡、誰能存取資料，以及部署後由誰維護。AI 可以協助你寫程式，工具可以簡化部署，但是否值得採用某個架構，仍要回到專案本身。
+如果你想先補上 Vibe Coding 的基礎，可以接著閱讀從零開始用 AI 寫程式的 Vibe Coding 指南；若想了解 Cloudflare 專案的 API 與安全考量，也可以參考Vibe Coding、Cloudflare API 與安全設定。
+官方學習資源本文依據 2026 年 10 月 18 日可查閱的官方文件整理；指令和功能可能隨版本更新，請以安裝版本的文件為準。
+Void 與 Cloudflare：
+
+Void 官方網站
+Void Quickstart
+Void Coding Agents 指南
+Void Cloudflare 整合與限制
+Void 官方 GitHub
+Cloudflare：Deploy with Void
+Cloudflare Workers 文件
+Cloudflare D1 文件
+
+Vinext：
+
+Vinext 官方網站
+Vinext 1.0 說明
+Vinext 文件
+Vinext 相容性差異
+Cloudflare：Next.js 與 Vinext 部署指南
+
+Node.js：
+
+Node.js 下載頁面
+
+
+
+        </p>
+        <a class="stretched-link" href="/posts/void-vinext-cloudflare-guide/"></a>
+      </div>
+    </div>
+  </article>
+</li>
+
         
           
    <!-- prevent image appear -->
@@ -1719,129 +2015,6 @@ Q3：如何把產業經驗整理成 AI Agent Skill？先整理常見情境與踩
 
         </p>
         <a class="stretched-link" href="/posts/taiwan-domain-skills-vibe-coding/"></a>
-      </div>
-    </div>
-  </article>
-</li>
-
-        
-          
-   <!-- prevent image appear -->
-
-
-
-<li
-  id="post-chatgpt-sites-product-validation"
-  class="card border-0"
-  itemprop="blogPost"
-  itemscope
-  itemtype="https://schema.org/BlogPosting"
->
-  <article class="row g-0">
-    <div class="col-12 col-lg-4">
-      <img
-        src="/images/cover167.webp"
-        class="img-fluid w-100 h-100 object-fit-cover rounded-3"
-        style="object-position: center;"
-        alt="article-【ChatGPT Sites 真正適合的角色，不是正式網站，而是產品驗證層】"
-      >
-    </div>
-    <div class="col-12 col-lg-8">
-      <div class="card-body pt-lg-0 pe-lg-0">
-        <div class="d-flex justify-content-between justify-content-lg-start align-items-center gap-3 mb-3">
-          <p class="card-text mb-0 fs-6 text-primary-600">
-            <small class="text-body-secondary">
-              2026/9/12
-            </small>
-          </p>
-
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              ChatGPT
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Vibe Coding
-            </span>
-          
-            <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">
-              Cloudflare
-            </span>
-          
-
-        </div>
-        <h5 class="card-title mb-3 text-primary-700">
-          【ChatGPT Sites 真正適合的角色，不是正式網站，而是產品驗證層】
-        </h5>
-        <p class="cutoff-text mb-0 text-primary-700">
-          最近看到 ChatGPT Sites 上線三個月後，使用者已建立超過 500 萬個 Sites。OpenAI 在 2026 年 9 月 11 日的更新中，也提到團隊協作、私密分享、資料庫檢視、自訂網域，以及從提示到部署速度提升等功能。官方公告
-這些更新很容易讓人想到另一個問題：ChatGPT Sites 是不是準備和 Wix、Webflow、Vercel 競爭？
-我反而覺得，它最有價值的角色不是取代傳統網站平台，而是成為 AI 時代的產品驗證層。
-先釐清兩件事：500 萬是 OpenAI 公布的 Sites 建立數，不能直接當成活躍使用者、持續使用的產品或市場需求已驗證的證據；「產品驗證層」則是我對 Sites 的定位，不是官方替產品命名的功能。Sites 不會自動替你驗證需求，它的價值是讓你更快做出可以交給使用者試用的版本。
-以前做 MVP，程式碼還沒開始就得先準備一大堆事以前有個產品想法，就算只做 MVP，也可能先卡在一串工程工作：
-
-選 Framework、建立 GitHub Repository。
-設定 Cloudflare 或 Vercel、決定資料庫與 Auth。
-管理環境變數、串接 API、建立 Admin。
-準備部署、測試與後續維護。
-
-等到真的能交給使用者操作，往往已投入不少時間。最可惜的是，忙完才發現沒有人需要它。
-最大的浪費不一定是選錯 Framework，而是還沒確認問題是否存在，就先為一個未驗證的想法付出正式工程成本。
-Sites 把「做出一個可操作版本」提前了用 Sites，可以先用自然語言描述想解決的問題，再透過對話調整畫面、互動與資料。驗證流程因此可以縮短成：
-123456789想法  ↓描述需求、產生介面  ↓加入互動與必要資料  ↓交給目標使用者試用  ↓依回饋修改，或決定停止
-
-你不必一開始就決定要用 React 還是 Next.js，也不用先把整套正式環境建好。先讓某個人能完成一件具體的事，再觀察這個流程是否真的有用。
-不過，Sites 裡的「部署」不等於隔離的測試環境。OpenAI 文件說明，每個部署網址都是 production URL；若要先檢視變更，可以先儲存版本，確認後再部署。因此，拿給使用者試用前，也要確認分享對象、存取權限與資料內容。ChatGPT Sites 使用說明
-Sites 適合承載 Prototype 與早期 MVP你提供的展示圖裡，有像素寵物遊戲、3D 模型上色工具和計算機。這些作品的重點不只是資訊展示，而是有人可以打開頁面後實際操作的小型 Web App。
-因此，Sites 可以用來測試不少概念：
-
-簡易 CRM、活動管理系統或 Dashboard。
-計算工具、預約流程或測驗系統。
-客戶 Portal、內部資訊站或 AI 小工具。
-Micro SaaS 的第一版核心流程。
-
-這些用途仍要看產品需求是否符合 Sites 支援的執行環境。Sites 目前處於 Beta，使用額度會依方案或工作區而異；部分框架、資料庫、私有網路與背景服務可能不受支援，也不提供資料所在地或推論所在地保證。OpenAI Sites 開發文件
-驗證時也不要只問自己「我覺得好不好用」。把版本交給目標使用者，觀察他能不能完成核心任務、是否願意再用一次，以及這個問題是否值得投入下一階段。
-Sites 目前不是一鍵匯出到 GitHub這一點值得說清楚。目前公開的 Sites 文件描述了從提示開始建立，也能將相容的既有本機專案交給 Sites 建置與部署；本機來源專案的版本也可以連結到建置時使用的 Git commit。但文件沒有描述把已建立的 Sites 一鍵匯出成 GitHub Repository 的操作流程。
-所以我不會把它想成「按一下 Export、整個專案進 GitHub，再按一下就搬到 Cloudflare」。比較務實的做法，是把 Sites 當成已驗證的產品規格、UI Reference 與功能 Prototype。需求成熟後，再請 ChatGPT 或 Codex 根據使用情境、畫面、資料結構與流程，重建正式版本。
-這也是我偏好 Productionize 而不是 Migration 的原因：Migration 聽起來像把原始程式碼原封不動搬出去；Productionize 則是保留被驗證過的產品設計，再用合適的正式架構重新實作。
-你提供的資訊圖整理了這段思路。它呈現的是產品驗證到工程化的概念流程，不代表 Sites 內建一鍵匯出，或能自動把整套產品搬到 Cloudflare。
-
-從 Idea 到 Production，可以拆成九個階段
-Idea：描述想解決的問題，以及現在是誰、在什麼情境下遇到它。
-Sites Prototype：快速做出可以點、可以玩的原型，先呈現核心使用流程。
-MVP：加入驗證核心任務所需的表單、資料、Dashboard、Admin 或 AI 功能。
-Validation：交給真正的目標使用者測試，記錄他們是否完成任務、在哪裡卡住，以及是否願意再使用。
-Freeze Spec：整理並凍結 UI、User Flow、Database Schema、Business Logic、API、權限與已驗證的需求。
-Codex Productionize：由 Codex 根據已驗證的規格重建正式專案，補上工程結構與必要檢查。
-GitHub：從這一步開始，讓 GitHub 成為正式程式碼的 Source of Truth，管理版本、審查與自動化流程。
-Cloudflare：依產品需要選擇 Workers、D1、R2、KV、Queues、Durable Objects 或 Cron Triggers；這些是可組合的 Cloudflare 平台服務，不代表每個 Site 都會用到它們。Cloudflare Workers 文件
-Production：補上 Authentication、RBAC、Rate Limit、Logging、Monitoring、Backup、Analytics、CI&amp;#x2F;CD，以及 Dev、Staging、Production 等環境。
-
-如果你想看 Vibe Coding 如何落在一個真實系統，也可以延伸閱讀打造線上報價單與電子簽署系統的實作經驗。
-搬到 Cloudflare 後，控制權增加，工程責任也回到自己身上當正式版本改由自己維護，就能依需求決定資料庫、Auth、AI 模型、檔案儲存、Log 保存方式、排程、Queue、Rate Limit 與備份策略。這些自由度比只使用受支援的 Sites Runtime 大得多，但每個選擇也會變成需要設計、驗證與維護的工程責任。
-更精確地說，離開 Sites 後，消失的是 Sites 本身的限制，不是所有平台限制。Cloudflare 各服務仍有不同的適用情境與操作邊界；你需要根據資料量、流量、權限、可靠性與維護能力選擇組合，而不是把 Workers、D1、R2、KV、Queues、Durable Objects 和 Cron 全部加進第一版。
-如果一開始就把所有正式產品要求塞進 Prototype，反而會失去 Sites 最有價值的速度。先確認有人需要、真的會用，再判斷這個產品值不值得工程化。
-ChatGPT Sites 是 Production 前的產品驗證層我會把 ChatGPT Sites 定位為產品孵化器，而不是正式產品架構的終點。先快速做、快速改、快速測，也可以在發現沒人需要時及早停下；等到核心流程被驗證，再把規格交給 Codex、GitHub 與 Cloudflare，用正式工程方式重建。
-我現在會把這套 Vibe Coding 流程整理成：
-
-Sites → MVP → Validate → Codex → GitHub → Cloudflare → Production
-
-以前 AI 幫我們解決的是「怎麼更快寫程式」；現在它也開始降低另一種成本：怎麼更便宜地知道，這個程式到底值不值得寫。
-常見問答（FAQ）Q1：ChatGPT Sites 可以取代 Wix、Webflow 或 Vercel 嗎？這篇文章的定位不是比較平台功能，而是建議先把 Sites 用在 Prototype 與早期 MVP 驗證。當產品需求、資料與維運責任逐漸明確，再決定正式網站或系統要採用什麼架構與平台。
-Q2：OpenAI 說建立了 500 萬個 Sites，代表有 500 萬個活躍使用者嗎？不代表。OpenAI 公布的是 Sites 建立數，不是活躍使用者數、留存率或付費需求。它能反映建立行為的規模，不能單獨證明這些產品有人持續使用。
-Q3：ChatGPT Sites 可以直接匯出成 GitHub 專案嗎？目前公開文件沒有描述從已建立的 Site 一鍵匯出至 GitHub 的流程。文件有說明 Sites 可從提示或相容的本機專案開始，因此要區分「把本機專案部署到 Sites」和「把 Site 專案匯出到 GitHub」這兩件事。
-Q4：Sites 部署網址是測試站還是正式站？OpenAI 文件將每個部署網址視為 production URL。你可以先儲存版本供檢視，再決定是否部署；分享給使用者前，也要確認權限、資料和預期使用對象。
-Q5：把產品重建到 Cloudflare 後，平台限制就消失了嗎？Sites Runtime 的限制不會原封不動跟著搬過去，但 Cloudflare 服務有各自的功能範圍與操作邊界。正式版本也需要你負責 Auth、權限、監控、備份、資料保護與維運。
-參考資料
-OpenAI：ChatGPT Sites 功能更新與建立數
-OpenAI Help Center：建立與管理 ChatGPT Sites
-OpenAI：ChatGPT Sites 開發文件
-Cloudflare：Workers 文件
-
-
-        </p>
-        <a class="stretched-link" href="/posts/chatgpt-sites-product-validation/"></a>
       </div>
     </div>
   </article>
