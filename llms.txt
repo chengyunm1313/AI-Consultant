@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Codex × Concat 實測：打造 AI 短影音自動剪輯工作流
+  網址：https://blog.es2idea.com/posts/concat-ai-video-editing-workflow/
+  日期：2026-10-18
+  摘要：以 Concat 0.2.7 的本機實測，示範 Codex 如何透過自建 MCP Bridge 操作剪輯軟體，完成 30 秒短影音、封裝 Skill，並整理時間軸、匯出與驗收限制。
+  主題：Codex、MCP、影音行銷
+
 - 不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學
   網址：https://blog.es2idea.com/posts/google-colab-codex-ai-video/
   日期：2026-10-18
@@ -101,12 +107,6 @@
   日期：2026-10-09
   摘要：零基礎也能開始做 AI 跳舞影片。本文帶你用豆包規劃 10 秒舞蹈分鏡，描述動作、重心、表情與節奏，再交給 Seedance 生成；附可複製提示詞、三階段練習與常見問題，並說明版本與音樂授權限制。
   主題：AI工具、影音行銷
-
-- 不會剪片也能做 MG 動畫：用 Codex、Claude、Canvas 與 FFmpeg 從零入門
-  網址：https://blog.es2idea.com/posts/ai-motion-graphics-video-tutorial/
-  日期：2026-10-09
-  摘要：想用 AI 做 MG 動畫，卻卡在剪輯與輸出？本文從 Canvas、Playwright、FFmpeg 起步，帶你逐格渲染動畫、合成 MP4、加入旁白與驗收，再延伸成互動網站與教學素材。
-  主題：AI工具、Codex、影音行銷
 
 ## 語言
 - zh-TW
