@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學
+  網址：https://blog.es2idea.com/posts/zeabur-n8n-railway-coolify-migration/
+  日期：2026-10-19
+  摘要：Zeabur 將於 2026 年底停止營運，n8n 使用者該怎麼搬家？本文整理 Railway 與 Coolify 的費用差異、SQLite／PostgreSQL 備份、加密金鑰、Webhook 與切換流程，協助你安全規劃遷移。
+  主題：AI自動化、n8n、雲端部署
+
 - Codex × Concat 實測：打造 AI 短影音自動剪輯工作流
   網址：https://blog.es2idea.com/posts/concat-ai-video-editing-workflow/
   日期：2026-10-18
@@ -101,12 +107,6 @@
   日期：2026-10-10
   摘要：從角色參考圖到 10 秒 K-pop 舞蹈 MV，帶你用豆包整理 Seedance 提示詞，安排腳步、運鏡與 Motion Graphics 觸發條件。附中英提示詞、角色圖流程、生成 QA 與常見問題，並說明模型版本、入口和音樂限制。
   主題：AI工具、影音行銷、Seedance
-
-- 零基礎 AI 跳舞影片教學：用豆包寫專業舞蹈提示詞，10 秒也能跳出節奏感
-  網址：https://blog.es2idea.com/posts/doubao-seedance-dance-video-tutorial/
-  日期：2026-10-09
-  摘要：零基礎也能開始做 AI 跳舞影片。本文帶你用豆包規劃 10 秒舞蹈分鏡，描述動作、重心、表情與節奏，再交給 Seedance 生成；附可複製提示詞、三階段練習與常見問題，並說明版本與音樂授權限制。
-  主題：AI工具、影音行銷
 
 ## 語言
 - zh-TW

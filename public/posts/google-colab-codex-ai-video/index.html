@@ -1,0 +1,1146 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/google-colab-codex-ai-video/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學">
+<meta property="og:url" content="https://blog.es2idea.com/posts/google-colab-codex-ai-video/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover225.webp">
+<meta property="article:published_time" content="2026-10-18T02:49:37.000Z">
+<meta property="article:modified_time" content="2026-10-19T08:44:49.226Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="Codex">
+<meta property="article:tag" content="影音行銷">
+<meta property="article:tag" content="Google Colab">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover225.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#webpage","@type":"WebPage","name":"不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學","url":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/","description":"沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover225.webp","@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#blogposting","@type":"BlogPosting","headline":"不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學","name":"不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學","description":"沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。","url":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-10-18T02:49:37.000Z","dateModified":"2026-10-19T08:44:49.226Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover225.webp","@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#primaryimage","width":1200,"height":800},"articleSection":"AI工具","keywords":["Codex","影音行銷","Google Colab"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI工具","Codex","影音行銷","Google Colab"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學","item":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/"}]},{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"MacBook M2 沒有 NVIDIA 顯示卡，也能做 AI 影片嗎？","acceptedAnswer":{"@type":"Answer","text":"可以用 MacBook 操作 Colab、管理專案並下載成果；需要大量 GPU 的階段則要看雲端資源是否可用，以及模型授權是否允許在該執行環境使用。這不表示所有模型都能在 Mac 本機執行，也不保證 Colab 一定提供指定 GPU。"}},{"@type":"Question","name":"第一次使用 Google Colab 一定要購買 CCU 嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。你可以先用免費 Notebook 練習 Python 與 Colab 介面。若要取得付費方案或特定加速器，先確認帳號目前的方案與供應情況；付費也不保證分配到 G4。"}},{"@type":"Question","name":"取得 Colab G4 後，就能直接執行 MiniMax H3 嗎？","acceptedAnswer":{"@type":"Answer","text":"不能只憑取得 GPU 就判定可以。MiniMax H3 開放權重授權目前排除美國、歐盟、英國與南韓，而上游專案回報它測試到的 Colab G4 位於美國或歐盟。執行前要確認最新授權和雲端執行環境；不確定時先停止並向權利人確認。"}},{"@type":"Question","name":"關閉 Codex 或終端機，Colab GPU 會自動停止嗎？","acceptedAnswer":{"@type":"Answer","text":"不要這樣假設。請使用 colab stop -s 停止遠端執行階段，再用 colab sessions 確認 session 已結束，並查看 colab usage 檢查用量。"}},{"@type":"Question","name":"這套專案產出的影片可以商業使用嗎？","acceptedAnswer":{"@type":"Answer","text":"不能直接假設整套工作流都能商用。要逐一確認 H3、圖像與語音模型、音樂、角色素材、訓練或參考資料及輸出內容的授權；專案作者也標示部分模型僅供非商業用途。商用前請閱讀各模型與素材的現行條款。"}}]},{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#howto","@type":"HowTo","name":"不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學","description":"沒有 NVIDIA 顯示卡，也想試做 AI 影片？本文用 Google Colab、Codex 與山獅霸開源工作流，帶你從首次執行 Notebook、檢查環境，到評估雲端 GPU 費用、地區與模型授權。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover225.webp","@id":"https://blog.es2idea.com/posts/google-colab-codex-ai-video/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"第一步：先免費體驗 Colab，不用安裝模型","text":"先打開 Google Colab 並登入 Google 帳號。"},{"@type":"HowToStep","name":"第二步：先看懂山獅霸開源專案","text":"本文使用的範例是 山獅霸 AI 影片工作流 Colab 版。它把劇本、角色圖片、影片生成、配音、配樂、字幕與剪輯拆成多個階段，並提供給 AI Agent 閱讀的文件。"},{"@type":"HowToStep","name":"第三步：在 Mac 安裝基本工具","text":"開始前先確認專案文件與程式碼。以下是上游文件提供的 Mac 操作方向；執行前仍應核對該專案與 Colab CLI 的最新安裝說明。"},{"@type":"HowToStep","name":"第四步：下載專案，讓 Codex 先做唯讀檢查","text":"先在終端機建立工作資料夾，再下載公開 Repo："},{"@type":"HowToStep","name":"第五步：看清額度與 H3 授權，再考慮 GPU","text":"第一次操作不必急著購買 CCU 或啟動 GPU。若要使用付費方案，先打開 Colab 當下的方案頁，核對價格、帳號權益、額度到期規則與硬體供應情況。"},{"@type":"HowToStep","name":"第六步：在授權允許的環境執行範例工作流","text":"只有在 H3 授權與執行地區已確認相容、費用可接受，而且你已檢查上游腳本之後，才進入這一節。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 7.3.0"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#Google-Colab-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E7%82%BA%E4%BB%80%E9%BA%BC%E8%83%BD%E7%94%A8%E4%B8%80%E8%88%AC-MacBook-%E5%81%9A%E9%81%8B%E7%AE%97%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">Google Colab 是什麼？為什麼能用一般 MacBook 做運算？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E8%AA%8D%E8%AD%98%E5%B9%BE%E5%80%8B%E5%B8%B8%E8%A6%8B%E5%90%8D%E8%A9%9E"><span class="toc-number">1.1.</span> <span class="toc-text">先認識幾個常見名詞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%96%8B%E5%A7%8B%E5%89%8D%E8%A6%81%E6%BA%96%E5%82%99%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">開始前要準備什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%85%88%E5%85%8D%E8%B2%BB%E9%AB%94%E9%A9%97-Colab%EF%BC%8C%E4%B8%8D%E7%94%A8%E5%AE%89%E8%A3%9D%E6%A8%A1%E5%9E%8B"><span class="toc-number">3.</span> <span class="toc-text">第一步：先免費體驗 Colab，不用安裝模型</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%85%88%E7%9C%8B%E6%87%82%E5%B1%B1%E7%8D%85%E9%9C%B8%E9%96%8B%E6%BA%90%E5%B0%88%E6%A1%88"><span class="toc-number">4.</span> <span class="toc-text">第二步：先看懂山獅霸開源專案</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E5%9C%A8-Mac-%E5%AE%89%E8%A3%9D%E5%9F%BA%E6%9C%AC%E5%B7%A5%E5%85%B7"><span class="toc-number">5.</span> <span class="toc-text">第三步：在 Mac 安裝基本工具</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E7%A2%BA%E8%AA%8D-Git"><span class="toc-number">5.1.</span> <span class="toc-text">1. 確認 Git</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E5%AE%89%E8%A3%9D-uv-%E8%88%87-Python-3-12"><span class="toc-number">5.2.</span> <span class="toc-text">2. 安裝 uv 與 Python 3.12</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%AE%89%E8%A3%9D-Google-Colab-CLI"><span class="toc-number">5.3.</span> <span class="toc-text">3. 安裝 Google Colab CLI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E7%99%BB%E5%85%A5-Google-%E5%B8%B3%E8%99%9F"><span class="toc-number">5.4.</span> <span class="toc-text">4. 登入 Google 帳號</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%9B%9B%E6%AD%A5%EF%BC%9A%E4%B8%8B%E8%BC%89%E5%B0%88%E6%A1%88%EF%BC%8C%E8%AE%93-Codex-%E5%85%88%E5%81%9A%E5%94%AF%E8%AE%80%E6%AA%A2%E6%9F%A5"><span class="toc-number">6.</span> <span class="toc-text">第四步：下載專案，讓 Codex 先做唯讀檢查</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%A6-Codex-%E7%9A%84%E7%92%B0%E5%A2%83%E6%AA%A2%E6%9F%A5%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">6.1.</span> <span class="toc-text">給 Codex 的環境檢查提示詞</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E5%81%9A%E5%B8%B3%E8%99%9F%E8%88%87%E5%B0%88%E6%A1%88%E6%AA%A2%E6%9F%A5"><span class="toc-number">6.2.</span> <span class="toc-text">先做帳號與專案檢查</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%BA%94%E6%AD%A5%EF%BC%9A%E7%9C%8B%E6%B8%85%E9%A1%8D%E5%BA%A6%E8%88%87-H3-%E6%8E%88%E6%AC%8A%EF%BC%8C%E5%86%8D%E8%80%83%E6%85%AE-GPU"><span class="toc-number">7.</span> <span class="toc-text">第五步：看清額度與 H3 授權，再考慮 GPU</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#MiniMax-H3-%E7%9A%84%E5%9C%B0%E5%8D%80%E9%99%90%E5%88%B6%E6%98%AF%E9%87%8D%E8%A6%81%E5%81%9C%E6%AD%A5%E9%BB%9E"><span class="toc-number">7.1.</span> <span class="toc-text">MiniMax H3 的地區限制是重要停步點</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E8%8B%A5%E5%B7%B2%E7%A2%BA%E8%AA%8D%E5%8F%AF%E4%BB%A5%E6%B8%AC%E8%A9%A6%EF%BC%8C%E5%86%8D%E5%96%AE%E7%8D%A8%E6%AA%A2%E6%9F%A5-GPU"><span class="toc-number">7.2.</span> <span class="toc-text">若已確認可以測試，再單獨檢查 GPU</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%AA%A2%E6%9F%A5%E5%AE%8C%E5%B0%B1%E5%81%9C%E6%AD%A2%E5%9F%B7%E8%A1%8C%E9%9A%8E%E6%AE%B5"><span class="toc-number">7.3.</span> <span class="toc-text">檢查完就停止執行階段</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E5%85%AD%E6%AD%A5%EF%BC%9A%E5%9C%A8%E6%8E%88%E6%AC%8A%E5%85%81%E8%A8%B1%E7%9A%84%E7%92%B0%E5%A2%83%E5%9F%B7%E8%A1%8C%E7%AF%84%E4%BE%8B%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">8.</span> <span class="toc-text">第六步：在授權允許的環境執行範例工作流</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%85%88%E9%A9%97%E6%94%B6%E8%A7%92%E8%89%B2%E8%88%87%E9%A6%96%E5%B9%80%EF%BC%8C%E5%86%8D%E6%B1%BA%E5%AE%9A%E6%98%AF%E5%90%A6%E7%B9%BC%E7%BA%8C"><span class="toc-number">8.1.</span> <span class="toc-text">先驗收角色與首幀，再決定是否繼續</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AC%A1%E6%B8%AC%E8%A9%A6%E8%A6%81%E6%BA%96%E5%82%99%E5%A4%9A%E5%B0%91-CCU%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">第一次測試要準備多少 CCU？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%A2%BA%E8%AA%8D%E7%AF%84%E4%BE%8B%E5%8F%AF%E7%94%A8%E5%BE%8C%EF%BC%8C%E5%A6%82%E4%BD%95%E6%94%B9%E6%88%90%E8%87%AA%E5%B7%B1%E7%9A%84%E5%BD%B1%E7%89%87%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">確認範例可用後，如何改成自己的影片？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%B5%A6-Codex-%E7%9A%84%E5%8E%9F%E5%89%B5%E7%9F%AD%E5%8A%87%E8%A6%8F%E5%8A%83%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">10.1.</span> <span class="toc-text">給 Codex 的原創短劇規劃提示詞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">11.</span> <span class="toc-text">常見問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9AMacBook-M2-%E6%B2%92%E6%9C%89-NVIDIA-%E9%A1%AF%E7%A4%BA%E5%8D%A1%EF%BC%8C%E4%B9%9F%E8%83%BD%E5%81%9A-AI-%E5%BD%B1%E7%89%87%E5%97%8E%EF%BC%9F"><span class="toc-number">11.1.</span> <span class="toc-text">Q1：MacBook M2 沒有 NVIDIA 顯示卡，也能做 AI 影片嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E4%BD%BF%E7%94%A8-Google-Colab-%E4%B8%80%E5%AE%9A%E8%A6%81%E8%B3%BC%E8%B2%B7-CCU-%E5%97%8E%EF%BC%9F"><span class="toc-number">11.2.</span> <span class="toc-text">Q2：第一次使用 Google Colab 一定要購買 CCU 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E5%8F%96%E5%BE%97-Colab-G4-%E5%BE%8C%EF%BC%8C%E5%B0%B1%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%9F%B7%E8%A1%8C-MiniMax-H3-%E5%97%8E%EF%BC%9F"><span class="toc-number">11.3.</span> <span class="toc-text">Q3：取得 Colab G4 後，就能直接執行 MiniMax H3 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E9%97%9C%E9%96%89-Codex-%E6%88%96%E7%B5%82%E7%AB%AF%E6%A9%9F%EF%BC%8CColab-GPU-%E6%9C%83%E8%87%AA%E5%8B%95%E5%81%9C%E6%AD%A2%E5%97%8E%EF%BC%9F"><span class="toc-number">11.4.</span> <span class="toc-text">Q4：關閉 Codex 或終端機，Colab GPU 會自動停止嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q5%EF%BC%9A%E9%80%99%E5%A5%97%E5%B0%88%E6%A1%88%E7%94%A2%E5%87%BA%E7%9A%84%E5%BD%B1%E7%89%87%E5%8F%AF%E4%BB%A5%E5%95%86%E6%A5%AD%E4%BD%BF%E7%94%A8%E5%97%8E%EF%BC%9F"><span class="toc-number">11.5.</span> <span class="toc-text">Q5：這套專案產出的影片可以商業使用嗎？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E8%88%87%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80"><span class="toc-number">12.</span> <span class="toc-text">參考資料與延伸閱讀</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (30)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (74)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (23)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (82)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (19)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (32)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (27)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (86)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (49)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (44)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/Codex/" rel="tag">Codex</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/10/18 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 先熟悉免費 Notebook，再查運算額度、GPU 地區和模型授權 -</h4>
+        
+        <p>一台普通 MacBook，能不能搭配雲端 GPU，開始做 AI 影片？</p>
+<p>可以先從 Google Colab 的免費 Notebook 體驗雲端運算，再讓 Codex 協助閱讀開源專案、檢查環境與規劃工作流程。但「能用雲端 GPU」不代表每個帳號都能取得同一種 GPU，也不代表模型授權一定允許在分配到的機房執行。</p>
+<p>本文以 MacBook 為例，帶你從零開始認識 Colab、Google Colab CLI 與 AI Agent 工作流。先做不會啟動 GPU 的練習；等你看懂費用、執行環境與模型授權，再決定是否繼續。</p>
+<blockquote>
+<p><strong>先看這個重要限制：</strong> 上游專案回報，它測試到的 Colab G4 執行階段位於美國或歐盟；MiniMax H3 開放權重授權目前排除美國、歐盟、英國與南韓。不要因為成功分配到 GPU，就直接下載或執行 H3。先確認最新授權、實際執行地區與你的使用方式；有疑問就停下來詢問權利人或改用條款適用的替代方案。</p>
+</blockquote>
+<p>本文的 Colab 配額與模型授權資訊會隨方案及條款變動。Colab GPU 型號、使用限制與供應狀況也可能改變；本文不保證你能取得 G4，也不把上游作者的測試值當成每個人的預期成本。</p>
+<h2 id="Google-Colab-是什麼？為什麼能用一般-MacBook-做運算？"><a href="#Google-Colab-是什麼？為什麼能用一般-MacBook-做運算？" class="headerlink" title="Google Colab 是什麼？為什麼能用一般 MacBook 做運算？"></a>Google Colab 是什麼？為什麼能用一般 MacBook 做運算？</h2><p>Google Colab 是 Google 提供的雲端 Jupyter Notebook 服務。你可以在瀏覽器裡執行 Python 程式，運算工作由遠端執行階段處理；自己的電腦則負責操作、管理專案與下載成果。</p>
+<p>可以先把它想成：</p>
+<ul>
+<li><strong>MacBook：</strong> 你操作的工作桌，負責編輯、管理素材與發出指令。</li>
+<li><strong>Colab 執行階段：</strong> 暫時租用的遠端電腦，依帳號方案與當時供應情況提供 CPU、GPU 或 TPU。</li>
+<li><strong>Codex：</strong> 可以讀取你開啟的專案，協助理解程式、規劃步驟與整理檔案的 AI 助手。</li>
+<li><strong>GPU：</strong> 適合大量平行運算的硬體，可用於部分 AI 圖像與影片模型。</li>
+</ul>
+<p>Colab 的免費層可以用來練習 Notebook；但資源有使用限制，GPU 種類與可用性會變動。付費方案也不等於保證取得指定 GPU。Google 官方建議把 GPU 可用性視為依帳號與當下資源供應變動的服務。</p>
+<h3 id="先認識幾個常見名詞"><a href="#先認識幾個常見名詞" class="headerlink" title="先認識幾個常見名詞"></a>先認識幾個常見名詞</h3><table>
+<thead>
+<tr>
+<th>名詞</th>
+<th>入門理解</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google Colab</td>
+<td>Google 提供的雲端 Notebook 服務</td>
+</tr>
+<tr>
+<td>GPU</td>
+<td>執行部分 AI 模型時使用的平行運算硬體</td>
+</tr>
+<tr>
+<td>CCU</td>
+<td>Colab 運算單元；依方案和使用情況扣抵</td>
+</tr>
+<tr>
+<td>GitHub Repo</td>
+<td>放置程式碼、文件與設定檔的專案資料夾</td>
+</tr>
+<tr>
+<td>CLI</td>
+<td>用文字指令操作服務的命令列介面</td>
+</tr>
+<tr>
+<td>AI Agent</td>
+<td>能讀取任務、使用工具並協助完成多步驟工作的 AI 助手</td>
+</tr>
+</tbody></table>
+<p>本文提到的 Google Colab CLI 是 Google 維護的命令列工具，可以建立與停止 Colab 執行階段、執行程式及傳送檔案。它會連接你的 Colab 帳號，因此登入授權碼要由你自己操作，不要貼到 Codex 對話或公開分享。</p>
+<h2 id="開始前要準備什麼？"><a href="#開始前要準備什麼？" class="headerlink" title="開始前要準備什麼？"></a>開始前要準備什麼？</h2><p>這篇教學的練習環境是 MacBook。即使電腦沒有 NVIDIA 顯示卡，也可以先完成 Colab 的基本 Notebook 體驗；真正能否使用特定雲端 GPU，則要以帳號裡的實際選項為準。</p>
+<table>
+<thead>
+<tr>
+<th>工具或帳號</th>
+<th>用途</th>
+<th>需要注意的事</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>MacBook</td>
+<td>操作終端機、Codex 與專案檔案</td>
+<td>本文指令以 macOS 為例</td>
+</tr>
+<tr>
+<td>Google 帳號</td>
+<td>登入 Colab</td>
+<td>確認登入的是有 Colab 權益的帳號</td>
+</tr>
+<tr>
+<td>Google Colab</td>
+<td>練習 Notebook 與租用雲端執行階段</td>
+<td>GPU、限制與價格依當下方案而變</td>
+</tr>
+<tr>
+<td>Git</td>
+<td>下載公開專案</td>
+<td>下載前先閱讀專案文件與授權</td>
+</tr>
+<tr>
+<td>uv、Python 3.12</td>
+<td>安裝 Colab CLI，執行專案提供的 Python 指令</td>
+<td>以專案 README 與工具最新說明為準</td>
+</tr>
+<tr>
+<td>Codex App</td>
+<td>開啟本機資料夾，協助閱讀專案</td>
+<td>使用者仍要審查命令與執行結果</td>
+</tr>
+<tr>
+<td>Colab 運算單元</td>
+<td>使用部分付費 GPU 資源</td>
+<td>先看帳號餘額及當下費率，不要把測試數字視為保證</td>
+</tr>
+</tbody></table>
+<p><strong>Codex 的方案額度與 Colab 的 GPU 費用是分開的。</strong> 使用 Codex 不會自動附送 Colab 運算單元。</p>
+<p>符合資格的 Google AI 訂閱可能包含 Colab 權益，但實際內容依方案、地區與帳號而不同。不要依照舊文章中的固定 CCU 數量或價格購買；先到 Colab 帳號設定與付款頁，確認目前方案、餘額、費率與有效期限。</p>
+<h2 id="第一步：先免費體驗-Colab，不用安裝模型"><a href="#第一步：先免費體驗-Colab，不用安裝模型" class="headerlink" title="第一步：先免費體驗 Colab，不用安裝模型"></a>第一步：先免費體驗 Colab，不用安裝模型</h2><p>先打開 <a target="_blank" rel="noopener" href="https://colab.research.google.com/">Google Colab</a> 並登入 Google 帳號。</p>
+<ol>
+<li>新增一個 Notebook。</li>
+<li>在程式碼儲存格輸入：</li>
+</ol>
+<figure class="highlight python"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">print</span>(<span class="string">&quot;我的第一個 Google Colab 程式成功了！&quot;</span>)</span><br></pre></td></tr></table></figure>
+
+<ol start="3">
+<li>按儲存格左側的播放按鈕，或按 <code>Shift + Enter</code>。</li>
+<li>看見輸出文字後，就完成了第一次雲端 Python 練習。</li>
+</ol>
+<p>這一步不需要高階 GPU，也不需要下載影片模型。</p>
+<p>如果只是熟悉介面，可以先使用一般 CPU 執行階段。上方「執行階段」選單裡的硬體選項會依帳號與時間不同；先查看有哪些選項即可，不用急著啟用 GPU。</p>
+<p>工作完成後，從「執行階段」選單中停止或刪除執行階段。Colab 執行階段是暫時環境，重要檔案要下載回自己的電腦或另存到你信任的位置。</p>
+<h2 id="第二步：先看懂山獅霸開源專案"><a href="#第二步：先看懂山獅霸開源專案" class="headerlink" title="第二步：先看懂山獅霸開源專案"></a>第二步：先看懂山獅霸開源專案</h2><p>本文使用的範例是 <a target="_blank" rel="noopener" href="https://github.com/mathruffian-dot/shanshiba-workflow-colab">山獅霸 AI 影片工作流 Colab 版</a>。它把劇本、角色圖片、影片生成、配音、配樂、字幕與剪輯拆成多個階段，並提供給 AI Agent 閱讀的文件。</p>
+<p>下載之前，先認識幾個重要檔案：</p>
+<table>
+<thead>
+<tr>
+<th>檔案或資料夾</th>
+<th>用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>README.md</code></td>
+<td>專案介紹、硬體版本與快速開始方式</td>
+</tr>
+<tr>
+<td><code>AGENT_SETUP.md</code></td>
+<td>提供 AI Agent 的專案閱讀與環境檢查指引</td>
+</tr>
+<tr>
+<td><code>cloud/README.md</code></td>
+<td>Colab 操作、雲端費用、授權與機房注意事項</td>
+</tr>
+<tr>
+<td><code>THIRD_PARTY_NOTICES.md</code></td>
+<td>第三方程式與模型授權資訊</td>
+</tr>
+<tr>
+<td><code>docs/hardware.md</code></td>
+<td>各硬體版本與執行條件</td>
+</tr>
+<tr>
+<td><code>cloud/</code></td>
+<td>連接 Colab 與執行雲端流程的程式</td>
+</tr>
+<tr>
+<td><code>pipeline/template_local/</code></td>
+<td>建立新影片時可參考的範本流程</td>
+</tr>
+</tbody></table>
+<p>這是公開原始碼專案，但「開源」不等於每個模型都能自由商用，也不表示所有程式都適合直接執行。下載後先閱讀 README、安裝文件、授權與第三方告示；要執行任何安裝或雲端操作腳本前，請先讓 Codex 列出它會讀寫哪些檔案、下載什麼模型、連線到哪些服務、是否會啟動付費執行階段，再由你檢查。</p>
+<p>上游專案的流程涵蓋角色定妝、場景與首幀、配音、H3 影片、配樂、字幕和剪輯。原始專案也提醒，部分模型只供非商業用途；若要製作商用影片，必須逐一核對模型、素材、音訊與輸出的授權，不要只看整個 GitHub Repo 的授權名稱。</p>
+<h2 id="第三步：在-Mac-安裝基本工具"><a href="#第三步：在-Mac-安裝基本工具" class="headerlink" title="第三步：在 Mac 安裝基本工具"></a>第三步：在 Mac 安裝基本工具</h2><p>開始前先確認專案文件與程式碼。以下是上游文件提供的 Mac 操作方向；執行前仍應核對該專案與 Colab CLI 的最新安裝說明。</p>
+<h3 id="1-確認-Git"><a href="#1-確認-Git" class="headerlink" title="1. 確認 Git"></a>1. 確認 Git</h3><p>打開「終端機」，輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">git --version</span><br></pre></td></tr></table></figure>
+
+<p>若系統提示安裝 Command Line Developer Tools，依照 macOS 顯示的官方提示操作。</p>
+<h3 id="2-安裝-uv-與-Python-3-12"><a href="#2-安裝-uv-與-Python-3-12" class="headerlink" title="2. 安裝 uv 與 Python 3.12"></a>2. 安裝 uv 與 Python 3.12</h3><p>已安裝 Homebrew 的 Mac 可以用：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install uv</span><br></pre></td></tr></table></figure>
+
+<p>也可以參考 <a target="_blank" rel="noopener" href="https://docs.astral.sh/uv/getting-started/installation/">uv 官方安裝文件</a>選擇適合自己的方式。</p>
+<p>確認 uv 可用後，安裝 Python 3.12：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uv --version</span><br><span class="line">uv python install 3.12</span><br></pre></td></tr></table></figure>
+
+<h3 id="3-安裝-Google-Colab-CLI"><a href="#3-安裝-Google-Colab-CLI" class="headerlink" title="3. 安裝 Google Colab CLI"></a>3. 安裝 Google Colab CLI</h3><p>Google 官方 CLI 文件目前提供 uv 安裝方式：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">uv tool install google-colab-cli</span><br><span class="line">colab version</span><br></pre></td></tr></table></figure>
+
+<p>如果系統找不到 <code>colab</code> 指令，可以依 uv 文件更新 shell 路徑，然後重新開啟終端機再確認。</p>
+<p>Google Colab CLI 官方目前支援 macOS 與 Linux；Windows 尚未列為支援平台。不要直接把網路上找到的 Windows patch 套用到其他版本；先確認專案作者提供的修補方式、修改內容與備份方法，再決定是否使用。</p>
+<h3 id="4-登入-Google-帳號"><a href="#4-登入-Google-帳號" class="headerlink" title="4. 登入 Google 帳號"></a>4. 登入 Google 帳號</h3><p>輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colab usage</span><br></pre></td></tr></table></figure>
+
+<p>第一次使用時，CLI 可能會要求你在瀏覽器登入並完成授權。請由你本人在自己的終端機操作。</p>
+<p><strong>不要把 Google 顯示的授權碼貼到 Codex 對話、聊天室或程式碼檔案中。</strong> 授權碼與帳號登入資訊一樣，需要妥善保管。登入後，<code>colab usage</code> 可以查看帳號運算單元的使用率與餘額。</p>
+<h2 id="第四步：下載專案，讓-Codex-先做唯讀檢查"><a href="#第四步：下載專案，讓-Codex-先做唯讀檢查" class="headerlink" title="第四步：下載專案，讓 Codex 先做唯讀檢查"></a>第四步：下載專案，讓 Codex 先做唯讀檢查</h2><p>先在終端機建立工作資料夾，再下載公開 Repo：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">mkdir</span> -p ~/AI-Video-Test</span><br><span class="line"><span class="built_in">cd</span> ~/AI-Video-Test</span><br><span class="line">git <span class="built_in">clone</span> https://github.com/mathruffian-dot/shanshiba-workflow-colab.git</span><br><span class="line"><span class="built_in">cd</span> shanshiba-workflow-colab</span><br></pre></td></tr></table></figure>
+
+<p>下載 Repo 不代表已經下載所有模型。模型可能很大；上游 Colab 版本會在遠端執行階段準備所需環境，Mac 的硬碟仍需保留專案檔案與下載成果的空間。</p>
+<p>如果你使用 Codex App，可以開啟這個本機資料夾，讓 Codex 先閱讀 README、<code>AGENT_SETUP.md</code>、<code>cloud/README.md</code>、<code>docs/hardware.md</code> 和 <code>THIRD_PARTY_NOTICES.md</code>。初次檢查時，不要讓 Agent 自動安裝套件、啟動 GPU、下載模型或執行影片任務。</p>
+<h3 id="給-Codex-的環境檢查提示詞"><a href="#給-Codex-的環境檢查提示詞" class="headerlink" title="給 Codex 的環境檢查提示詞"></a>給 Codex 的環境檢查提示詞</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br></pre></td><td class="code"><pre><span class="line">你是我的 Google Colab 與 AI 影片工作流助教。</span><br><span class="line"></span><br><span class="line">我第一次使用 Google Colab，也第一次操作這個 GitHub 專案。</span><br><span class="line">我的設備是 MacBook，沒有 NVIDIA CUDA 顯示卡。</span><br><span class="line"></span><br><span class="line">請先唯讀閱讀：</span><br><span class="line">1. README.md</span><br><span class="line">2. AGENT_SETUP.md</span><br><span class="line">3. cloud/README.md</span><br><span class="line">4. docs/hardware.md</span><br><span class="line">5. THIRD_PARTY_NOTICES.md</span><br><span class="line"></span><br><span class="line">請整理以下資訊：</span><br><span class="line">1. Mac 本機需要哪些工具與版本。</span><br><span class="line">2. 哪些命令只會讀取資訊，哪些命令會安裝套件、修改檔案或連線到外部服務。</span><br><span class="line">3. 哪些命令會建立 Colab 執行階段、可能消耗 CCU 或產生費用。</span><br><span class="line">4. 專案中各模型、素材與輸出的授權限制。</span><br><span class="line">5. 使用 MiniMax H3 時，執行地區與目前授權是否相容；若無法確認，請明確標為未知。</span><br><span class="line">6. 完成範例影片所需的本機空間、下載內容與預估步驟。</span><br><span class="line"></span><br><span class="line">這一輪只做閱讀和檢查：</span><br><span class="line">不要執行安裝指令、不要修改檔案、不要登入帳號、</span><br><span class="line">不要啟動 GPU、不要下載模型，也不要開始影片生成。</span><br><span class="line">先列出檢查結果與仍需我確認的項目。</span><br></pre></td></tr></table></figure>
+
+<p>這樣可以先取得操作清單，再由你決定是否繼續。AI Agent 的建議仍需要人工檢查，尤其是任何會執行外部程式、寫入檔案、傳送素材或啟動付費資源的步驟。</p>
+<h3 id="先做帳號與專案檢查"><a href="#先做帳號與專案檢查" class="headerlink" title="先做帳號與專案檢查"></a>先做帳號與專案檢查</h3><p>在專案目錄中，上游提供的檢查指令是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py check</span><br></pre></td></tr></table></figure>
+
+<p>執行前先確認這支程式的內容與目前文件一致。依上游文件，<code>check</code> 用來檢查 CLI 與帳號用量；它不應替你啟動 GPU。若實際程式行為與文件不符，先停止並查明原因。</p>
+<h2 id="第五步：看清額度與-H3-授權，再考慮-GPU"><a href="#第五步：看清額度與-H3-授權，再考慮-GPU" class="headerlink" title="第五步：看清額度與 H3 授權，再考慮 GPU"></a>第五步：看清額度與 H3 授權，再考慮 GPU</h2><p>第一次操作不必急著購買 CCU 或啟動 GPU。若要使用付費方案，先打開 Colab 當下的方案頁，核對價格、帳號權益、額度到期規則與硬體供應情況。</p>
+<p>有餘額也不代表一定拿得到 G4。建立 GPU 執行階段前，先了解 Colab 可能分配的地區與硬體，再確認該執行環境是否符合模型授權。</p>
+<h3 id="MiniMax-H3-的地區限制是重要停步點"><a href="#MiniMax-H3-的地區限制是重要停步點" class="headerlink" title="MiniMax H3 的地區限制是重要停步點"></a>MiniMax H3 的地區限制是重要停步點</h3><p>MiniMax H3 開放權重的授權文件目前將美國、歐盟、英國與南韓列為排除地區。上游專案表示，它測試到的 Colab G4 執行階段位於美國或歐盟；因此「成功取得 G4」不代表「可以在這個執行階段使用 H3」。</p>
+<p>實際條款可能更新，且授權文件未必能回答每種跨境雲端情況。請直接閱讀<a target="_blank" rel="noopener" href="https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE">目前的 MiniMax H3 Community License</a>與上游<a target="_blank" rel="noopener" href="https://github.com/mathruffian-dot/shanshiba-workflow-colab/blob/main/cloud/README.md">Colab 機房說明</a>。如果地區或適用方式不清楚，不要下載或執行 H3 權重；先向權利人確認，或選擇授權明確適用的模型與雲端環境。</p>
+<p>上游文件提到可用 IP 地理位置服務作為線索，但 IP 顯示的城市不等於法律上的機房位置證明；向第三方地理位置服務查詢也會把執行階段的公開出口 IP 傳給該服務。不要把這種查詢結果當成授權確認。</p>
+<h3 id="若已確認可以測試，再單獨檢查-GPU"><a href="#若已確認可以測試，再單獨檢查-GPU" class="headerlink" title="若已確認可以測試，再單獨檢查 GPU"></a>若已確認可以測試，再單獨檢查 GPU</h3><p>只有在你已了解可能費用，並確認所在地與模型授權條件後，才考慮建立 GPU 執行階段。上游文件範例為：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">colab new -s h3 --gpu G4</span><br></pre></td></tr></table></figure>
+
+<p>這會嘗試建立名為 <code>h3</code> 的 G4 執行階段。建立前先確認帳號餘額與當下費率；建立後，運算單元可能隨執行時間扣抵。</p>
+<p>若不確定授權或費用，停在這裡即可。不要為了測試能否開機，就先建立 GPU 再說。</p>
+<p>若你已確認條件並建立了執行階段，可以用 CLI 查看狀態，並依官方命令將簡單檢查傳到遠端：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">colab status -s h3</span><br><span class="line"><span class="built_in">echo</span> <span class="string">&#x27;import subprocess; print(subprocess.getoutput(&quot;nvidia-smi&quot;))&#x27;</span> | colab <span class="built_in">exec</span> -s h3</span><br></pre></td></tr></table></figure>
+
+<p><code>nvidia-smi</code> 可以顯示遠端 GPU 資訊，但只能確認硬體狀態，不能證明模型授權、商用權利或 GPU 後續仍可取得。</p>
+<h3 id="檢查完就停止執行階段"><a href="#檢查完就停止執行階段" class="headerlink" title="檢查完就停止執行階段"></a>檢查完就停止執行階段</h3><p>完成硬體檢查後，若不打算繼續，立即停止：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">colab stop -s h3</span><br><span class="line">colab sessions</span><br><span class="line">colab usage</span><br></pre></td></tr></table></figure>
+
+<p>第一行停止名為 <code>h3</code> 的執行階段；後兩行可再次檢查目前連線與帳號用量。</p>
+<p>關閉 Codex、終端機或瀏覽器分頁，不等於遠端執行階段已停止。每次使用後，都要親自確認 Colab session 已停止。</p>
+<h2 id="第六步：在授權允許的環境執行範例工作流"><a href="#第六步：在授權允許的環境執行範例工作流" class="headerlink" title="第六步：在授權允許的環境執行範例工作流"></a>第六步：在授權允許的環境執行範例工作流</h2><p>只有在 H3 授權與執行地區已確認相容、費用可接受，而且你已檢查上游腳本之後，才進入這一節。</p>
+<p>上游專案的完整流程指令包括：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py start</span><br><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py smoke</span><br><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py film pipeline/template_local chars masters frames</span><br><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py film pipeline/template_local voices h3 amb edl music ending <span class="built_in">cut</span> review</span><br><span class="line">uv run --no-project --python 3.12 cloud/colab_h3.py stop</span><br></pre></td></tr></table></figure>
+
+<p>這些不是單純查看資訊的命令：</p>
+<ul>
+<li><code>start</code> 會建立雲端工作環境、安裝或準備多項依賴與模型。</li>
+<li><code>smoke</code> 會執行多個功能檢查。</li>
+<li><code>film ... chars masters frames</code> 會產生角色、場景和鏡頭首幀。</li>
+<li><code>film ... voices h3 ... review</code> 會生成配音、影片與其他素材，並執行後製檢查。</li>
+<li><code>stop</code> 會停止雲端執行階段；仍應用 <code>colab sessions</code> 確認停止狀態。</li>
+</ul>
+<p>先檢查每個命令會下載什麼、寫入哪個資料夾、連線哪些模型服務，以及哪些階段可能消耗 CCU。不要把整段流程一次交給 Agent 自動執行；分階段審核輸出，必要時手動停止。</p>
+<h3 id="先驗收角色與首幀，再決定是否繼續"><a href="#先驗收角色與首幀，再決定是否繼續" class="headerlink" title="先驗收角色與首幀，再決定是否繼續"></a>先驗收角色與首幀，再決定是否繼續</h3><p>在授權與費用條件都通過後，先產生範例角色和首幀，再人工檢查角色外觀、服裝、場景與構圖。若第一張圖就偏離劇本，先修正設定，不要直接進入大量影片生成。</p>
+<p>上游範例會把部分結果同步到專案資料夾。請核對目前版本的文件，確認實際輸出路徑與生成內容後再繼續；目錄名稱可能隨上游版本調整。</p>
+<p>影片生成、配音、下載或 GPU 連線失敗時，可能需要排錯或重跑。失敗重跑也可能增加運算時間與額度消耗，因此不保證第一次就能完成，也不應把作者某一次測試的耗時當成你的預估值。</p>
+<h2 id="第一次測試要準備多少-CCU？"><a href="#第一次測試要準備多少-CCU？" class="headerlink" title="第一次測試要準備多少 CCU？"></a>第一次測試要準備多少 CCU？</h2><p>可以先參考上游作者在 <strong>2026 年 10 月 10 日</strong>公開的測試紀錄，但它只代表該專案版本與該次執行情況，不是 Google 的固定價目或每支影片的保證成本。</p>
+<table>
+<thead>
+<tr>
+<th>上游測試項目</th>
+<th align="right">作者記錄值</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>G4 測試耗用</td>
+<td align="right">約 8.90 CCU／小時</td>
+</tr>
+<tr>
+<td>完整環境安裝</td>
+<td align="right">約 1.5 CCU</td>
+</tr>
+<tr>
+<td>單獨生成 30 鏡 H3 影片</td>
+<td align="right">約 3 CCU</td>
+</tr>
+<tr>
+<td>安裝、測試並完成 38.5 秒範例</td>
+<td align="right">合計約 8 CCU</td>
+</tr>
+<tr>
+<td>以 8.90 CCU／小時換算，100 CCU 理論值</td>
+<td align="right">約 11.2 小時</td>
+</tr>
+</tbody></table>
+<p>作者的「30 鏡影片約 3 CCU」只計算 H3 生成部分，不含所有配音、生圖、配樂與剪輯；「38.5 秒範例約 8 CCU」也不代表其他長度或不同設定會有相同消耗。</p>
+<p>購買或啟動前，請直接查看 Colab 帳號目前的方案、費率與餘額。可以先訂一個自己願意承擔的測試上限，逐階段檢查 <code>colab usage</code>；但這只是人工預算目標，不代表 Colab 已替你設定自動硬性上限。</p>
+<h2 id="確認範例可用後，如何改成自己的影片？"><a href="#確認範例可用後，如何改成自己的影片？" class="headerlink" title="確認範例可用後，如何改成自己的影片？"></a>確認範例可用後，如何改成自己的影片？</h2><p>上游專案以 <code>pipeline/template_local/film.json</code> 管理範例影片設定。它包含影片名稱、人物、場景、分鏡、台詞與剪輯等資料。</p>
+<p>不要直接覆蓋原始範例。先複製成自己的工作資料夾，確認新資料夾沒有帶入舊的生成快取，再讓 Codex 協助整理設定。每次生成前，先審核劇本、角色、鏡頭、輸出比例、素材來源、預計消耗與使用授權。</p>
+<h3 id="給-Codex-的原創短劇規劃提示詞"><a href="#給-Codex-的原創短劇規劃提示詞" class="headerlink" title="給 Codex 的原創短劇規劃提示詞"></a>給 Codex 的原創短劇規劃提示詞</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br></pre></td><td class="code"><pre><span class="line">我已閱讀並理解這個專案的工作流。</span><br><span class="line">我想製作一支自己的原創 AI 短劇，請先協助規劃，不要執行生成。</span><br><span class="line"></span><br><span class="line">片名：《當 AI 助理請假》</span><br><span class="line">影片長度：20～30 秒</span><br><span class="line">比例：先依目前範例設定</span><br><span class="line">風格：台灣職場喜劇</span><br><span class="line">人物：一位老闆、一位 AI 助理</span><br><span class="line">故事：老闆什麼都依賴 AI，結果 AI 突然宣布今天休假。</span><br><span class="line"></span><br><span class="line">請先協助：</span><br><span class="line">1. 寫出完整劇本。</span><br><span class="line">2. 設計角色外觀與個性。</span><br><span class="line">3. 規劃 4～6 個鏡頭。</span><br><span class="line">4. 列出各鏡的角色、動作、台詞與預期畫面。</span><br><span class="line">5. 說明需要修改或新增哪些檔案，以及是否會影響原始範例。</span><br><span class="line"></span><br><span class="line">這一輪只整理提案，不要複製檔案、修改 film.json、</span><br><span class="line">啟動 GPU、下載模型或產生素材。</span><br><span class="line">等我確認劇本、費用與授權後，再列下一階段計畫。</span><br></pre></td></tr></table></figure>
+
+<p>讓 AI Agent 先整理可檢查的提案，等你確認後再進入會寫檔、連線或花費的操作。</p>
+<p>如果你對「先租雲端 GPU 還是購買設備」也想比較，可以延伸閱讀<a href="/posts/minimax-h3-gpu-rental/">先租 GPU，還是該買 RTX 5090？</a>；想了解 Codex 如何串起影片工作的各階段，可以接著看<a href="/posts/codex-ai-video-factory/">用 Codex 打造 AI 影片工廠</a>。</p>
+<h2 id="常見問題"><a href="#常見問題" class="headerlink" title="常見問題"></a>常見問題</h2><h3 id="Q1：MacBook-M2-沒有-NVIDIA-顯示卡，也能做-AI-影片嗎？"><a href="#Q1：MacBook-M2-沒有-NVIDIA-顯示卡，也能做-AI-影片嗎？" class="headerlink" title="Q1：MacBook M2 沒有 NVIDIA 顯示卡，也能做 AI 影片嗎？"></a>Q1：MacBook M2 沒有 NVIDIA 顯示卡，也能做 AI 影片嗎？</h3><p>可以用 MacBook 操作 Colab、管理專案並下載成果；需要大量 GPU 的階段則要看雲端資源是否可用，以及模型授權是否允許在該執行環境使用。這不表示所有模型都能在 Mac 本機執行，也不保證 Colab 一定提供指定 GPU。</p>
+<h3 id="Q2：第一次使用-Google-Colab-一定要購買-CCU-嗎？"><a href="#Q2：第一次使用-Google-Colab-一定要購買-CCU-嗎？" class="headerlink" title="Q2：第一次使用 Google Colab 一定要購買 CCU 嗎？"></a>Q2：第一次使用 Google Colab 一定要購買 CCU 嗎？</h3><p>不一定。你可以先用免費 Notebook 練習 Python 與 Colab 介面。若要取得付費方案或特定加速器，先確認帳號目前的方案與供應情況；付費也不保證分配到 G4。</p>
+<h3 id="Q3：取得-Colab-G4-後，就能直接執行-MiniMax-H3-嗎？"><a href="#Q3：取得-Colab-G4-後，就能直接執行-MiniMax-H3-嗎？" class="headerlink" title="Q3：取得 Colab G4 後，就能直接執行 MiniMax H3 嗎？"></a>Q3：取得 Colab G4 後，就能直接執行 MiniMax H3 嗎？</h3><p>不能只憑取得 GPU 就判定可以。MiniMax H3 開放權重授權目前排除美國、歐盟、英國與南韓，而上游專案回報它測試到的 Colab G4 位於美國或歐盟。執行前要確認最新授權和雲端執行環境；不確定時先停止並向權利人確認。</p>
+<h3 id="Q4：關閉-Codex-或終端機，Colab-GPU-會自動停止嗎？"><a href="#Q4：關閉-Codex-或終端機，Colab-GPU-會自動停止嗎？" class="headerlink" title="Q4：關閉 Codex 或終端機，Colab GPU 會自動停止嗎？"></a>Q4：關閉 Codex 或終端機，Colab GPU 會自動停止嗎？</h3><p>不要這樣假設。請使用 <code>colab stop -s &lt;session&gt;</code> 停止遠端執行階段，再用 <code>colab sessions</code> 確認 session 已結束，並查看 <code>colab usage</code> 檢查用量。</p>
+<h3 id="Q5：這套專案產出的影片可以商業使用嗎？"><a href="#Q5：這套專案產出的影片可以商業使用嗎？" class="headerlink" title="Q5：這套專案產出的影片可以商業使用嗎？"></a>Q5：這套專案產出的影片可以商業使用嗎？</h3><p>不能直接假設整套工作流都能商用。要逐一確認 H3、圖像與語音模型、音樂、角色素材、訓練或參考資料及輸出內容的授權；專案作者也標示部分模型僅供非商業用途。商用前請閱讀各模型與素材的現行條款。</p>
+<h2 id="參考資料與延伸閱讀"><a href="#參考資料與延伸閱讀" class="headerlink" title="參考資料與延伸閱讀"></a>參考資料與延伸閱讀</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/mathruffian-dot/shanshiba-workflow-colab">山獅霸 AI 影片工作流 Colab 版 GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://youtu.be/rtqk8M1K85c">山獅霸的多重宇宙｜YouTube 原始影片</a></li>
+<li><a target="_blank" rel="noopener" href="https://colab.research.google.com/">Google Colab</a></li>
+<li><a target="_blank" rel="noopener" href="https://research.google.com/colaboratory/faq.html">Google Colab 官方常見問題</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/googlecolab/google-colab-cli">Google Colab CLI 官方 GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://huggingface.co/MiniMaxAI/MiniMax-H3/blob/main/LICENSE">MiniMax H3 Community License</a></li>
+<li><a target="_blank" rel="noopener" href="https://docs.astral.sh/uv/getting-started/installation/">uv 官方安裝文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/codex/app">OpenAI Codex App 文件</a></li>
+</ul>
+<p>本文依上游專案文件與官方說明整理，最後檢視日期為 2026 年 10 月 18 日。Colab 方案、GPU 供應、運算單元費率、CLI 功能與模型授權都可能更新；操作前請查看各官方頁面及專案目前版本。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover226.webp" class="img-fluid card-img-top rounded-3" alt="Codex × Concat 實測：打造 AI 短影音自動剪輯工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Codex × Concat 實測：打造 AI 短影音自動剪輯工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/concat-ai-video-editing-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover222.webp" class="img-fluid card-img-top rounded-3" alt="【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-music-mv-series-planning/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover219.webp" class="img-fluid card-img-top rounded-3" alt="Codex 新手教學：用 3 個 Markdown 檔案讓 AI 接續你的專案">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Codex 新手教學：用 3 個 Markdown 檔案讓 AI 接續你的專案</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/16</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/codex-project-handoff-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover217.webp" class="img-fluid card-img-top rounded-3" alt="AI 角色一致性實用教學：男生、女生設定與社群、電商、短影音中文提示詞">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 角色一致性實用教學：男生、女生設定與社群、電商、短影音中文提示詞</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-character-consistency-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover216.webp" class="img-fluid card-img-top rounded-3" alt="豆包街舞 × MG 四段提示詞教學：讓舞者推開畫框，做出 40 秒雙版本合輯">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">豆包街舞 × MG 四段提示詞教學：讓舞者推開畫框，做出 40 秒雙版本合輯</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Seedance</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/doubao-dance-mg-four-part-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover215.webp" class="img-fluid card-img-top rounded-3" alt="用 Codex 製作風格一致的 AI 簡報：YAML Image Deck 實作教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">用 Codex 製作風格一致的 AI 簡報：YAML Image Deck 實作教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/yaml-image-deck-codex-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover214.webp" class="img-fluid card-img-top rounded-3" alt="豆包 AI 跳舞影片完整教學：從角色生圖、中文提示詞到 10 秒 K-pop 街舞＋MG 動態特效">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">豆包 AI 跳舞影片完整教學：從角色生圖、中文提示詞到 10 秒 K-pop 街舞＋MG 動態特效</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Seedance</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/10</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/doubao-seedance-mg-dance-video/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover210.webp" class="img-fluid card-img-top rounded-3" alt="零基礎 AI 跳舞影片教學：用豆包寫專業舞蹈提示詞，10 秒也能跳出節奏感">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">零基礎 AI 跳舞影片教學：用豆包寫專業舞蹈提示詞，10 秒也能跳出節奏感</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/09</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/doubao-seedance-dance-video-tutorial/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover209.webp" class="img-fluid card-img-top rounded-3" alt="不會剪片也能做 MG 動畫：用 Codex、Claude、Canvas 與 FFmpeg 從零入門">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不會剪片也能做 MG 動畫：用 Codex、Claude、Canvas 與 FFmpeg 從零入門</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/09</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-motion-graphics-video-tutorial/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
