@@ -5,4 +5,9 @@ db.json
 node_modules/
 public/
 .deploy*/
+.env
+.env.*
+!.env.example
+.dev.vars
+.dev.vars.*
 _multiconfig.yml

@@ -19,7 +19,7 @@ const DEFAULT_PATHS = [
 const EXPECTED_SCHEMA = {
   '/': {faq: true, howto: false, requirePostChecks: false},
   '/service/': {faq: true, howto: false, requirePostChecks: false},
-  '/posts/aeo-implementation-tools-optimization-guide/': {faq: false, howto: false, requirePostChecks: true},
+  '/posts/aeo-implementation-tools-optimization-guide/': {faq: true, howto: false, requirePostChecks: true},
   '/posts/create-your-ai-writing-clone-with-writerule-txt/': {faq: true, howto: true, requirePostChecks: true},
   '/posts/visualize-ai-writing-sop-with-claude-svg/': {faq: true, howto: true, requirePostChecks: true},
   '/posts/seo-article-writing-guide/': {faq: false, howto: true, requirePostChecks: true}

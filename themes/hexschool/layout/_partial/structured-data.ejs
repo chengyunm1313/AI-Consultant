@@ -8,6 +8,10 @@ const professionalServiceId = siteUrl + '/#professional-service';
 const organizationId = siteUrl + '/#organization';
 const personId = siteUrl + '/#person';
 
+function serializeJsonLd(value) {
+  return JSON.stringify(value).replace(/</g, '\\u003c');
+}
+
 function absoluteUrl(path) {
   if (!path) return undefined;
   if (/^https?:\/\//.test(path)) return path;
@@ -632,7 +636,7 @@ if (is_home()) {
     '@graph': homeGraph
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(schemaGraph) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(schemaGraph) %></script>
 <% } else if (page.layout === 'service') {
   const serviceFaq = pages.service && pages.service.faq ? pages.service.faq : [];
   const serviceGraph = [
@@ -654,7 +658,7 @@ if (is_home()) {
     '@graph': serviceGraph
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(serviceSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(serviceSchema) %></script>
 <% } else if (page.layout === 'ai-agent') {
   const aiAgentTagNames = ['AI Agent', 'Codex'];
   const aiAgentPostsByPath = {};
@@ -695,7 +699,7 @@ if (is_home()) {
     ]
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(aiAgentSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(aiAgentSchema) %></script>
 <% } else if (page.layout === 'n8n-automation') {
   const n8nTagNames = ['n8n新手教學', 'API串接', '自動化講師應用'];
   const n8nPostsByPath = {};
@@ -736,7 +740,7 @@ if (is_home()) {
     ]
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(n8nSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(n8nSchema) %></script>
 <% } else if (is_post()) {
   const rawContent = typeof page.raw === 'string' ? page.raw : '';
   const postFaqItems = extractFaqItemsFromRaw(rawContent);
@@ -765,7 +769,7 @@ if (is_home()) {
     '@graph': postGraph
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(postSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(postSchema) %></script>
 <% } else if (page.layout === 'contact' || page.layout === 'collection' || page.base === '/blog/') {
   const pageType = page.base === '/blog/' ? 'CollectionPage' : 'WebPage';
   const breadcrumbLabel = page.title || (page.base === '/blog/' ? '部落格' : config.title);
@@ -794,7 +798,7 @@ if (is_home()) {
     ]
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(pageSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(pageSchema) %></script>
 <% } else if (page.layout === 'works') {
   const worksPageData = pages.works || {};
   const worksItems = Array.isArray(site.data.works) ? site.data.works.filter((item) => item && item.featured !== false).map((item) => ({
@@ -823,5 +827,5 @@ if (is_home()) {
     ]
   };
 %>
-<script type="application/ld+json"><%- JSON.stringify(worksSchema) %></script>
+<script type="application/ld+json"><%- serializeJsonLd(worksSchema) %></script>
 <% } %>

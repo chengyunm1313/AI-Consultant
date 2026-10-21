@@ -8,10 +8,10 @@ on:
   workflow_dispatch:
 
 permissions:
-  contents: write
+  contents: read
 
 concurrency:
-  group: hexo-deploy
+  group: hexo-deploy-${{ github.event.pull_request.number || github.ref }}
   cancel-in-progress: true
 
 env:
@@ -20,14 +20,18 @@ env:
 jobs:
   build:
     runs-on: ubuntu-latest
+    permissions:
+      contents: read
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+        with:
+          persist-credentials: false
 
       - name: Use Node.js
-        uses: actions/setup-node@v4
+        uses: actions/setup-node@49933ea5288caeca8642d1e84afbd3f7d6820020 # v4.4.0
         with:
-          node-version: "24"
+          node-version: "24.22.1"
           cache: "npm"
 
       - name: Install
@@ -39,22 +43,38 @@ jobs:
       - name: Build
         run: npm run build
 
-      - name: Upload public artifact (PR only)
-        if: github.event_name == 'pull_request'
-        uses: actions/upload-artifact@v4
+      - name: Upload public artifact
+        uses: actions/upload-artifact@ea165f8d65b6e75b540449e92b4886f43607fa02 # v4.6.2
         with:
           name: public
           path: public
+          if-no-files-found: error
+          retention-days: 1
+
+  deploy:
+    if: github.event_name == 'push' && github.ref == 'refs/heads/main'
+    needs: build
+    runs-on: ubuntu-latest
+    permissions:
+      contents: write
+    steps:
+      - name: Checkout
+        uses: actions/checkout@11bd71901bbe5b1630ceea73d27597364c9af683 # v4.2.2
+
+      - name: Download public artifact
+        uses: actions/download-artifact@d3f86a106a0bac45b974a628896c90dbdf5c8093 # v4.3.0
+        with:
+          name: public
+          path: ${{ runner.temp }}/public-site
 
       - name: Deploy to gh-pages
-        if: github.event_name == 'push'
         env:
           CNAME_DOMAIN: blog.es2idea.com
         run: |
           set -e
 
           DEPLOY_DIR="$(mktemp -d)"
-          cp -R public/. "$DEPLOY_DIR"/
+          cp -R "$RUNNER_TEMP/public-site"/. "$DEPLOY_DIR"/
           echo "$CNAME_DOMAIN" > "$DEPLOY_DIR/CNAME"
 
           git config user.name "github-actions[bot]"

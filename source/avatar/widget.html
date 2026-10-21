@@ -567,6 +567,7 @@ layout: false
         speak('你好，我是享哥的 AI 虛擬助理。你可以問我服務內容、企業內訓或自動化流程。');
       });
       window.addEventListener('message', function (event) {
+        if (event.source !== window.parent || event.origin !== window.location.origin) return;
         var data = event.data || {};
         if (data.ns === 'hsiang-avatar-host' && data.type === 'say') speak(String(data.text || '').slice(0, 500));
         if (data.ns === 'hsiang-avatar-host' && data.type === 'open') {
