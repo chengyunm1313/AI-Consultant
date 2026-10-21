@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -659,8 +661,8 @@
 如果你習慣將所有任務都塞給 AI Agent 處理，你可能會面臨 Token 費用暴增、執行流程不穩定，甚至是難以 Debug 的地獄。這篇文章將帶你深度解析 LLM 與 AI Agent 的本質差異，並教你如何針對不同的戰場，選擇最適合的自動化武器。
 💡 核心對決：LLM 與 AI Agent 的本質差異在哪裡？要理解兩者的差異，我們可以用最簡單的「積木（Function）」概念來看：
 
-LLM (大型語言模型)： 本質上它**只有一個大腦 (Model)**。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
-AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 **工具箱 (Tools)**。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
+LLM (大型語言模型)： 本質上它只有一個大腦 (Model)。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
+AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 工具箱 (Tools)。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
 
 🧠 為什麼 90% 的場景你只需要 LLM？（省錢又穩定）許多新手在初學 n8n 時，容易陷入「凡事皆用 Agent」的誤區。事實上，在日常的自動化任務中，有高達 90% 的時間你只需要使用單純的 LLM 節點。
 適合 LLM 處理的任務特徵：
@@ -682,7 +684,7 @@ LLM 的絕對優勢：
 
 ⚠️ 新手防坑警告：拜託不要濫用 Agent！AI Agent 雖然聰明，但會帶來高昂的代價。它在思考與嘗試的過程中會消耗大量 Token（成本直接爆炸），且由於具備自主決策權，非常容易產生「幻覺 (Hallucination)」導致過度行動。如果出錯，因為思考邏輯成謎，Debug 的難度將會非常高。
 鐵則：能用 LLM 解決的問題，就絕對不用 Agent！
-🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以「智能客服工作流」為例：
+🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以**「智能客服工作流」**為例：
 
 讓 Agent 當「廠長」負責決策 (Decision)：接收到客戶訊息後，由 AI Agent 判斷「是否需要回覆？」。如果需要，Agent 會決定去 Database 調出這筆訂單資料。
 讓 LLM 當「作業員」負責處理 (Process)：將訂單資訊與客訴內容交給純 LLM 節點，請它專心撰寫一封語氣誠懇的安撫 Email（生成內容）。
@@ -758,7 +760,7 @@ Q：如果我的 AI Agent 流程一直報錯，該如何優化？A：遇到 Agen
 
 為什麼你需要專屬的政府標案監控系統？大家好，我是想哥，致力於用 AI 改變世界。對於經常參與政府標案的企業或個人來說，每天到「政府電子採購網」搜尋案子是例行公事。然而，傳統的搜尋介面往往不夠直覺，手動查找不僅耗時，還極易錯失黃金商機。
 為了解決這個痛點，坊間推出了許多標案監控的付費平台。這些平台確實好用，但通常需要支付一筆不小的年費（例如每年高達 8,800 元）。這促使我思考：既然我們已經處於 AI 時代，何不透過 Vibe Coding 自己打造一套專屬的監控系統？
-這不僅是一個能幫你「精準賺錢」的工具，若你自己動手開發，更是一個能立即「省錢」的解決方案。今天，就帶大家來開箱我透過 Vibe Coding 完成的 MVP 作品——**Tender Radar (政府標案監控平台)**。
+這不僅是一個能幫你「精準賺錢」的工具，若你自己動手開發，更是一個能立即「省錢」的解決方案。今天，就帶大家來開箱我透過 Vibe Coding 完成的 MVP 作品——Tender Radar (政府標案監控平台)。
 如果你想先看看實際成果，也可以直接前往體驗網站：Tender Radar。
 每年省下近萬元！Tender Radar 核心功能解析透過 Tender Radar 系統，你可以完全掌握標案資訊。以下是系統的三大核心應用場景：
 1. 串接公開 API，打造直覺的高效搜尋介面系統底層串接了 g0v 與政府公開的 API 數據，目前已成功匯入超過兩千多筆的標案資料。我們將傳統複雜的介面，轉化為簡潔的資料看板（Dashboard）。你可以透過關鍵字快速檢索，並直接點擊連結跳轉回政府電子採購網查看原始公告，大幅縮短前置作業時間。
@@ -1013,10 +1015,12 @@ Authorization: Bearer &amp;#123;&amp;#123;你的_CHANNEL_ACCESS_TOKEN&amp;#125;&
 Content-Type: application/json
 
 
-Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
+Body (JSON):
+
+123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
 
 
-⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 **務必手動加上 Content-Type: application/json**。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
+⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 務必手動加上 Content-Type: application/json。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
 
 
 資訊安全必備：如何在 n8n 實作 LINE 簽章驗證？為了防止惡意攻擊者偽造 LINE 的請求打爆你的 Webhook，LINE 官方強烈建議驗證請求標頭中的 x-line-signature。
@@ -1037,7 +1041,7 @@ Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp
 
 2. 主動推播通知 (Push Messages)不需等待使用者講話，只要你有對方的 userId，就能利用 Push API 主動發送訊息。非常適合用於：電商訂單狀態更新、報名成功通知、定時提醒或 AI 每日摘要推播。
 
-邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為「兩層式架構」：
+邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為**「兩層式架構」**：
 
 入口層 (Gateway Workflow)：專門負責 Webhook 接收、簽章驗證、回覆 HTTP 200 OK 給 LINE（避免超時），並將事件標準化後，透過子工作流 (Execute Workflow node) 傳遞下去。
 業務層 (Business Workflows)：根據事件類型觸發不同的業務邏輯。例如：FAQ 智能客服 (串接 OpenAI)、會員資料寫入 (串接 Google Sheets &amp;#x2F; CRM)、預約系統建立 (串接 Notion &amp;#x2F; Airtable)。
@@ -1178,7 +1182,7 @@ Agent 不是把所有系統砍掉重練，而是坐在它們上面，變成全�
 企業導入的真正痛點：治理、權限與人機協作很多人談 Agent 時只關注模型推理能力。但企業實際上線時，最痛的往往是以下幾點：
 
 權限控管：代理到底能不能改資料、退費或碰付款？權限設計是核心。
-**可追蹤性 (Auditability)**：它為何做這決策？用了哪些工具？在哪裡失敗？
+可追蹤性 (Auditability)：它為何做這決策？用了哪些工具？在哪裡失敗？
 成本控制：多步推理與工具呼叫都是成本。Token 花費、延遲與重試都會變成營運議題。
 人機分工：哪些全自動？哪些半自動？哪些必須人工核准？
 
@@ -1427,7 +1431,7 @@ Vibe Design 真正的新，不是它能「做畫面」，而是它開始碰「�
 
 AI 時代設計師的 4 大高價值轉型策略那新的世界要從哪個角度切？我們可以從這四個角度看，會比討論「AI 會不會取代人」更有商業意義：
 1. 從「畫面供給」轉向「決策介面」以前設計師交付的是畫面。未來更值錢的，可能是幫團隊更快做出正確決策的介面。例如哪種 Onboarding 流程最能提高轉換？哪種表單拆法最能提高完成率？AI 可以幫你快速吐出十種版本，但哪十種值得測、為什麼測、怎麼解讀結果，這才是真正的價值。
-2. 從「單張設計稿」轉向「系統化設計規格」未來最值錢的不再是單張稿，而是交一套可以讓任何 AI 穩定產出的「設計憲法」。這包含品牌專屬的 DESIGN.md、AI 可讀的 Design Tokens、Prompt Library 或是企業內部的 UI Governance 套件。這是把設計經驗打包成「可重複執行的系統資產」。
+2. 從「單張設計稿」轉向「系統化設計規格」未來最值錢的不再是單張稿，而是交一套可以讓任何 AI 穩定產出的**「設計憲法」**。這包含品牌專屬的 DESIGN.md、AI 可讀的 Design Tokens、Prompt Library 或是企業內部的 UI Governance 套件。這是把設計經驗打包成「可重複執行的系統資產」。
 3. 從「客製化接案」轉向「垂直行業模板」當 AI 把製作成本壓低，很多機會會出現在垂直市場。你可以開發特定產業的最佳實踐包，例如：牙醫診所預約流程模板、B2B SaaS 後台管理檢視表規格庫。客戶買的不是「酷」，而是更快上線、更少踩雷、更能成交。
 4. 從「靜態作品集」轉向「動態增長實驗室」未來更值錢的可能是你有沒有能力持續跑實驗。當 AI 把 Variant Generation 變超便宜之後，真正拉開差距的是：你有沒有測試框架與資料回饋？你有沒有能力把「某次成功」變成「可複製成功」？這時候，設計不再只是美學，而是更接近 Growth（增長）。
 
@@ -1527,7 +1531,7 @@ Q：面對 AI 輔助設計的普及，接案設計師該如何佈局轉型？A�
 
 確保右上角的開關顯示為「綠色的 Publish」。
 只有在 Publish 狀態下，Schedule Trigger 才會在背景自動運作；若切換回 Unpublish，則會停止自動排程。
-**執行日誌 (Executions)**：上線後，若要查看工作流的運行狀況或除錯 (Debug)，可以切換到 Executions 面板查看歷史執行紀錄與錯誤提示。
+執行日誌 (Executions)：上線後，若要查看工作流的運行狀況或除錯 (Debug)，可以切換到 Executions 面板查看歷史執行紀錄與錯誤提示。
 
 2. 使用便利貼 (Sticky Note) 做好註解當工作流越來越長時，過段時間再回來看可能會忘記邏輯。
 
@@ -1696,7 +1700,7 @@ Q：為什麼貼上程式碼後會一直出現 Error？A：n8n 使用獨特的�
 如何使用 Set (Edit Fields) 節點？1. 新增並設定 Set 節點在流程中點擊 + 號，搜尋並加入 Edit Fields (Set) 節點。
 2. 切換至手動映射 (Manual Mapping)進入節點設定後，你會看到兩種模式：JS 與 Manual Map。請選擇 Manual Map，這能讓你直觀地透過拖放來選擇欄位。
 3. 挑選關鍵欄位從左側的輸入預覽中，將你需要的欄位（例如 orderID、employeeName）拉動至右側的輸出設定中。
-4. 關閉「包含其他欄位」 (Include Other Fields)這是最關鍵的一步！請確保將 Include Other Fields 選項設為 **False (關閉)**。
+4. 關閉「包含其他欄位」 (Include Other Fields)這是最關鍵的一步！請確保將 Include Other Fields 選項設為 False (關閉)。
 
 開啟時： 會保留所有原始欄位並新增你設定的欄位。
 關閉時： 輸出的資料將僅包含你剛剛手動挑選的那幾個欄位。
@@ -1774,7 +1778,7 @@ Q：如果我想對篩選後的數字進行計算（如加總訂單額）該怎�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

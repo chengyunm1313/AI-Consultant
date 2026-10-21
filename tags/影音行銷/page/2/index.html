@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -1950,7 +1952,7 @@ Agent 編輯檔案，動畫框架執行
 Renderer、FFmpeg 與可用的 QA 工具
 
 
-影片不是單純的媒體檔案，也可以是一套可重複產生影片的程式專案。這個差異，是理解 Opus 5.5 影片工作流的起點。
+**影片不是單純的媒體檔案，也可以是一套可重複產生影片的程式專案。**這個差異，是理解 Opus 5.5 影片工作流的起點。
 為什麼 Agent 做影片可能會累積數百萬 Token？我看到的個別案例分享中，有人提到用 Opus 5.5 做一支科普動畫，約 30 分鐘完成，整段 Agent 工作階段累積約 500～600 萬 Token。這是單一案例的分享，不是 Anthropic 公布的影片製作平均值；如果沒有 API usage 明細、平台計算方式和完整執行紀錄，也無法單憑總 Token 數推算出精確費用。
 Agent 不是只回答一次。它可能反覆讀取需求和程式、執行專案、檢查輸出、修正錯誤，再重跑 Render。程式碼量、工具輸出、Context 長度、修改輪數、QA 次數，都會讓不同專案的用量差很多。
 比起只看成片幾分鐘，更有參考價值的問題是：有多少個 Scene？Agent 讀了多少程式和輸出？改了幾輪？重跑幾次？有沒有用 Prompt Caching？是否加入 TTS、音訊分析或自動 QA？
@@ -2057,7 +2059,7 @@ QA 條件：文字、資料、時間長度、解析度與輸出檔案
 這已經很接近一份影片 PRD。Prompt 不只是說「做得漂亮一點」，還要交代輸入素材、限制、時間軸、驗收條件和交付格式。規格越清楚，Agent 就越容易在可檢查的範圍內工作。
 下一階段：Agentic Video Production我會把這種做法稱為 Agentic Video Production（Agent 化影片製作）：人提供主題、音樂、歌詞、素材和輸出要求，Agent 協助規劃、寫程式、呼叫工具、Render，再根據檢查結果修正。
 人仍然要負責方向、審美、素材權利與最後 Review。Agent 可以接手很多重複的製作步驟，但工具是否能互相呼叫、影片能否一次做對、素材是否合用，都取決於實際工作流和 QA。
-所以我看 Claude Opus 5.5 做影片，真正感興趣的不是「Claude 會生成影片了」，而是：影片製作也開始能透過自然語言和程式工作流來建構。這件事和 Vibe Coding 很像，讓不熟悉動畫或剪輯的人，也有機會把自己的影片製作流程做成可重複使用的工具。
+所以我看 Claude Opus 5.5 做影片，真正感興趣的不是「Claude 會生成影片了」，而是：**影片製作也開始能透過自然語言和程式工作流來建構。**這件事和 Vibe Coding 很像，讓不熟悉動畫或剪輯的人，也有機會把自己的影片製作流程做成可重複使用的工具。
 如果你也在建立自己的影片流程，可以延伸閱讀用 Codex 打造 AI 影片工廠與AI 影片生成的價值轉移。
 常見問答 (FAQ)Q1：Claude Opus 5.5 可以直接輸出 MP4 嗎？Opus 5.5 本身不是專門直接輸出影片畫面的生成模型。它可以在提供 Agent、程式執行環境與相關工具時，協助產生動畫程式、呼叫 Renderer 或 FFmpeg，再把輸出組合成影片；實際能力取決於你配置的工具和工作流。
 Q2：Agent 工作階段累積 600 萬 Token，代表影片要花很多錢嗎？不能只看總 Token 數。一般 Input、Cache Write、Cache Read 與 Output 的價格不同，也要確認平台報表如何計算快取用量。最好取得實際用量明細，依模型、平台和當時價格分項估算；沒有明細時，個案總數只能作為工作量參考。
@@ -3230,7 +3232,7 @@ Q5：一套運鏡快捷詞能套用在所有 AI 影片模型嗎？運鏡、景�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

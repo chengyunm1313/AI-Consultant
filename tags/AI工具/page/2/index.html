@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -658,7 +660,7 @@
 但這句話把好幾個不同的任務混在一起：整理內容、安排教學順序、設計版型、生成圖片、組裝簡報，以及檢查成品。
 這篇教學把它拆開：
 準備資料 → 確認大綱 → 建立規格 → 確認樣張 → 分批生成 → 組裝驗收 → 局部修改。
-YAML Image Deck 的角色，是讓 Codex 把整份簡報的視覺規則、版型與逐頁內容寫成規格，再依規格生成。它不是一套安裝完就能獨立運作的簡報軟體，也不會光靠 YAML 就自動產生 PPTX。最後仍需要實際可用的生圖與簡報組裝工具。
+YAML Image Deck 的角色，是讓 Codex 把整份簡報的視覺規則、版型與逐頁內容寫成規格，再依規格生成。**它不是一套安裝完就能獨立運作的簡報軟體，也不會光靠 YAML 就自動產生 PPTX。**最後仍需要實際可用的生圖與簡報組裝工具。
 
 一、先決定：你要「圖片式簡報」，還是「文字可修改的簡報」？這會影響後面整個流程。
 
@@ -887,7 +889,7 @@ visual
 例如第 3 頁的規格片段可能長這樣：
 12345678910111213141516171819# 這是單頁示意片段，不是完整可執行的 spec.yaml。page: 3role: &amp;quot;comparison&amp;quot;core_point: &amp;quot;提供清楚資訊，讓草稿有明確方向&amp;quot;semantic_structure: &amp;quot;contrast&amp;quot;layout:  id: &amp;quot;comparison_split&amp;quot;  variant: &amp;quot;left_right&amp;quot;visible_text:  title: &amp;quot;同樣請 AI，差在資訊&amp;quot;  labels:    - &amp;quot;模糊：幫我寫貼文&amp;quot;    - &amp;quot;清楚：對象＋目的＋事實＋格式&amp;quot;visual: &amp;quot;左右比較，左側凌亂紙片，右側整理好的資料卡。&amp;quot;output: &amp;quot;slides/images/page_03.png&amp;quot;
 
-你不需要自己寫這段。讓 Codex 依原專案模板產生即可。
+**你不需要自己寫這段。**讓 Codex 依原專案模板產生即可。
 plate 還需要多一份「文字放哪裡」的規格例如標題放在上方、比較文字放左右兩欄，這些都需要有明確位置。
 原專案提到 overlay_blocks，但沒有提供一套完整、通用的文字疊加渲染器。實務上要讓 Codex 配合你當前使用的簡報工具，補上文字方塊的位置、大小、字級與對齊。
 貼給 Codex：設計規格提示詞1234567891011121314151617181920212223242526272829303132333435363738394041424344使用 $yaml-image-deck。這一階段只建立設計規格，不生圖。請讀取：- 已核准的 prompt/outline.md- prompt/brand.md- 這個 Skill 的 spec-template.yaml- references/schema.md- references/layout-library.md- references/prompting.md請建立 prompt/spec.yaml，設定：- output_mode: plate- planning_mode: yaml_spec- generation_strategy: sequential- style_lock: golden_sample- 16:9- 台灣繁體中文每頁要依資訊關係選擇原專案支援的 layout.id。相同版型不要連續使用超過兩頁。沒有真正生成並核准樣張之前，design_system.style_reference 保持空白，不要假造一個已存在的參考圖片路徑。plate 模式的 visible_text 是後續要疊加的文字，不能要求生圖工具把這些字畫進底圖。另建立 prompt/overlay-plan.yaml：定義每頁文字內容、位置、尺寸、座標單位、字型、字級、顏色與對齊方式。這份 overlay-plan 是本專案的組裝規格。請說明實際簡報工具如何讀取，不要假稱原專案已經內建完整的文字疊加功能。檢查 Skill 指定的圓體是否已安裝；缺少時先回報，不要偷偷換成其他字型。執行原專案的 validate_spec.py，保存執行結果。完成後顯示設計摘要與待確認事項，不開始生圖。
@@ -963,7 +965,7 @@ verify_images.py
 沒錯字、沒遮擋、符合樣張風格
 
 
-所以，**VALID 不等於「可以直接交付」**。這是根據 validate_spec.py 與 verify_images.py 的檢查範圍所做的區分。
+所以，VALID 不等於「可以直接交付」。這是根據 validate_spec.py 與 verify_images.py 的檢查範圍所做的區分。
 貼給 Codex：組裝與驗收提示詞1234567891011121314151617181920212223242526272829303132333435363738394041424344454647請進行 PPTX 組裝與驗收。先確認 8 頁素材與上版文字都齊全，不要把缺頁或未核准頁當成完成。請執行：- validate_spec.py- verify_images.py把實際命令、輸出與退出碼保存到 qa/。使用目前環境實際可用的簡報製作工具，輸出：output/ai-social-post_v01.pptx本次是 plate 模式：- 每頁放入 AI 生成的無字底圖。- 標題、標籤、重點與頁碼使用原生可編輯文字。- 精確流程箭頭需要時使用原生物件。- 不准把整張含字預覽貼進 PPTX 冒充文字可編輯。文字依核准大綱，不自行改寫。加入講者備註與來源。保留可重新執行的組裝程式碼或指令。完成後，重新渲染這份匯出的 PPTX。逐頁檢查：- 頁數與順序。- 缺字與異常換行。- 文字遮擋與超出邊界。- 圖片是否被拉伸。- 文字區是否清楚。- 整份風格是否一致。建立完整總覽圖：slides/previews/contact-sheet_v01.png建立：qa/QA_REPORT.md報告分開記錄：1. 腳本檢查結果。2. 匯出 PPTX 的渲染檢查。3. 尚待人工確認的項目。沒有執行的檢查寫「未驗證」，不要寫 PASS。不要自行提交或推送 Git。
 
 你最後要親手做的一個測試用你上課實際使用的軟體開啟 PPTX，點選一段文字，試著修改。
@@ -1046,8 +1048,8 @@ Codex 說完成，卻沒有 PPTX
 例如，你原本已經有內容大綱、講者備註、精確流程圖，以及可編輯的表格，就保留這些成果。先選封面、觀念比較頁、案例情境頁來測試這個 Skill。
 當視覺流程穩定後，再逐步擴大範圍。
 對長期備課來說，我更建議分清楚兩類檔案：
-可以重用的：配色、字體方向、版型規則、已核准的風格樣張。
-每次課程要換的：受眾、教學目標、案例、逐頁內容、講者備註。
+**可以重用的：**配色、字體方向、版型規則、已核准的風格樣張。
+**每次課程要換的：**受眾、教學目標、案例、逐頁內容、講者備註。
 這樣你下一次不是從零開始，而是：
 
 沿用同一套視覺規則，換成適合新受眾的教學內容。
@@ -3585,7 +3587,7 @@ Playwright：Visual Comparisons
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

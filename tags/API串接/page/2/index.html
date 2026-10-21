@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -655,7 +657,7 @@
   
 
 
-如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 **ChatGPT (OpenAI API)**。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
+如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 ChatGPT (OpenAI API)。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
 
 實用資源連結：
 
@@ -800,8 +802,8 @@ Q：如果未來 OpenAI 模型更新，我現在的 n8n 工作流會壞掉嗎？
 如果你習慣將所有任務都塞給 AI Agent 處理，你可能會面臨 Token 費用暴增、執行流程不穩定，甚至是難以 Debug 的地獄。這篇文章將帶你深度解析 LLM 與 AI Agent 的本質差異，並教你如何針對不同的戰場，選擇最適合的自動化武器。
 💡 核心對決：LLM 與 AI Agent 的本質差異在哪裡？要理解兩者的差異，我們可以用最簡單的「積木（Function）」概念來看：
 
-LLM (大型語言模型)： 本質上它**只有一個大腦 (Model)**。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
-AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 **工具箱 (Tools)**。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
+LLM (大型語言模型)： 本質上它只有一個大腦 (Model)。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
+AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 工具箱 (Tools)。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
 
 🧠 為什麼 90% 的場景你只需要 LLM？（省錢又穩定）許多新手在初學 n8n 時，容易陷入「凡事皆用 Agent」的誤區。事實上，在日常的自動化任務中，有高達 90% 的時間你只需要使用單純的 LLM 節點。
 適合 LLM 處理的任務特徵：
@@ -823,7 +825,7 @@ LLM 的絕對優勢：
 
 ⚠️ 新手防坑警告：拜託不要濫用 Agent！AI Agent 雖然聰明，但會帶來高昂的代價。它在思考與嘗試的過程中會消耗大量 Token（成本直接爆炸），且由於具備自主決策權，非常容易產生「幻覺 (Hallucination)」導致過度行動。如果出錯，因為思考邏輯成謎，Debug 的難度將會非常高。
 鐵則：能用 LLM 解決的問題，就絕對不用 Agent！
-🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以「智能客服工作流」為例：
+🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以**「智能客服工作流」**為例：
 
 讓 Agent 當「廠長」負責決策 (Decision)：接收到客戶訊息後，由 AI Agent 判斷「是否需要回覆？」。如果需要，Agent 會決定去 Database 調出這筆訂單資料。
 讓 LLM 當「作業員」負責處理 (Process)：將訂單資訊與客訴內容交給純 LLM 節點，請它專心撰寫一封語氣誠懇的安撫 Email（生成內容）。
@@ -950,10 +952,12 @@ Authorization: Bearer &amp;#123;&amp;#123;你的_CHANNEL_ACCESS_TOKEN&amp;#125;&
 Content-Type: application/json
 
 
-Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
+Body (JSON):
+
+123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
 
 
-⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 **務必手動加上 Content-Type: application/json**。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
+⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 務必手動加上 Content-Type: application/json。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
 
 
 資訊安全必備：如何在 n8n 實作 LINE 簽章驗證？為了防止惡意攻擊者偽造 LINE 的請求打爆你的 Webhook，LINE 官方強烈建議驗證請求標頭中的 x-line-signature。
@@ -974,7 +978,7 @@ Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp
 
 2. 主動推播通知 (Push Messages)不需等待使用者講話，只要你有對方的 userId，就能利用 Push API 主動發送訊息。非常適合用於：電商訂單狀態更新、報名成功通知、定時提醒或 AI 每日摘要推播。
 
-邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為「兩層式架構」：
+邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為**「兩層式架構」**：
 
 入口層 (Gateway Workflow)：專門負責 Webhook 接收、簽章驗證、回覆 HTTP 200 OK 給 LINE（避免超時），並將事件標準化後，透過子工作流 (Execute Workflow node) 傳遞下去。
 業務層 (Business Workflows)：根據事件類型觸發不同的業務邏輯。例如：FAQ 智能客服 (串接 OpenAI)、會員資料寫入 (串接 Google Sheets &amp;#x2F; CRM)、預約系統建立 (串接 Notion &amp;#x2F; Airtable)。
@@ -1051,7 +1055,7 @@ Sending messages
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

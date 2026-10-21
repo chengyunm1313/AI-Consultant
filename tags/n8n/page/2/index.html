@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -748,7 +750,7 @@ n8n Facebook 自動發文失敗怎麼排查？常見報錯修復整理如果你�
 
 Data table 裡的 Facebook Page ID 是否填成正確粉專，而不是個人帳號 ID。
 Access Token 是否真的是該粉專對應的 Page Token。
-HTTP Request 節點送出的 endpoint 是否為 /&amp;#123;page_id&amp;#125;/feed，而不是其他物件路徑。
+HTTP Request 節點送出的 endpoint 是否為 /{page_id}/feed，而不是其他物件路徑。
 粉專角色是否足夠，且授權帳號仍然是該粉專的管理者或具備可發文權限的人員。
 
 4. 明明有 Token，卻跳出權限不足或 OAuth 相關錯誤這通常代表問題不在「有沒有 Token」，而在於 Token 綁定的權限範圍不夠。最常見的修法是重新生成權杖，並重新勾選 pages_manage_posts、pages_read_engagement 等必要權限，再重新做一次長效與 Page Token 轉換。只換節點設定、不重拿權杖，很多時候是修不好的。
@@ -1674,8 +1676,8 @@ Code 節點解析範例：
 實戰方法二：使用 AI Agent 輕鬆達成結構化輸出（專家推薦）為了避開繁瑣的程式碼解析，強烈建議使用 n8n 的 AI Agent 架構。透過「Agent + Model + Output Parser」的黃金三角，您可以讓系統自動將 Gemini 的輸出鎖定在嚴格的 JSON 規格內。
 完美輸出的配置步驟：
 加入 AI Agent 節點：在畫布中新增 AI Agent，並將輸入源連接至前置節點。
-**連接語言模型 (Language Model)**：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
-**強制結構化輸出 (Output Parser)**：
+連接語言模型 (Language Model)：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
+強制結構化輸出 (Output Parser)：
 開啟 Agent 節點內的 Require Specific Output Format。
 在 Parser 輸入端掛載 Structured Output Parser 節點。
 在 Parser 內直接定義您期待的 JSON Schema（如下方範例）。
@@ -1841,9 +1843,9 @@ Gmail：再寄一封 Email，把摘要結果與原始文字同步通知給自己
 第一步：如何在 Google Cloud Console 建立專案與啟用 API？要讓 n8n 可以代表你操作 Gmail，第一件事就是在 Google Cloud 建立專案，並啟用對應 API。
 
 登入平台： 前往Google Cloud Console 並使用你的 Google 帳號登入。（建議預先綁定實體信用卡以利通過身分驗證，避免使用易遭拒絕的簽帳金融卡）。
-建立新專案： 點擊左上角專案選單，選擇「**新增專案 (New Project)**」。將專案命名為易於辨識的名稱（例如：n8n-try），若無所屬機構可選擇「無組織」，接著點擊「建立」。
+建立新專案： 點擊左上角專案選單，選擇「新增專案 (New Project)」。將專案命名為易於辨識的名稱（例如：n8n-try），若無所屬機構可選擇「無組織」，接著點擊「建立」。
 進入 API 服務： 專案建立完成後，展開左側導覽選單，選擇「API 和服務」&amp;gt;「已啟用的 API 和服務」（建議將此選項加入星號釘選，未來會經常使用）。
-啟用所需 API： 點擊上方的「**+ 啟用 API 和服務**」，在搜尋框中尋找並啟用以下服務：
+啟用所需 API： 點擊上方的「+ 啟用 API 和服務」，在搜尋框中尋找並啟用以下服務：
 Gmail API (本次寄信必備)
 Google Calendar API (建議一併開啟)
 Google Drive API (建議一併開啟)
@@ -1854,7 +1856,7 @@ Google Drive API (建議一併開啟)
 第二步：如何設定 OAuth 同意畫面與新增測試使用者？在取得金鑰之前，還要先設定 OAuth 同意畫面。這個畫面就是你在 n8n 點擊 Sign in with Google 時，Google 會跳出來要求你確認授權的那一頁。
 
 設定同意畫面： 在「API 和服務」選單中點擊「OAuth 同意畫面」。
-選擇使用者類型： 一般個人用戶請選擇「**外部 (External)**」，點擊建立。
+選擇使用者類型： 一般個人用戶請選擇「外部 (External)」，點擊建立。
 填寫應用程式資訊：
 應用程式名稱：輸入如 n8n-try。
 使用者支援電子郵件：選擇你目前的 Google 帳號。
@@ -1862,7 +1864,7 @@ Google Drive API (建議一併開啟)
 
 
 新增測試使用者 (非常重要)：因為我們的應用程式仍在「測試中 (Testing)」狀態，並未經過 Google 官方審核發布，只有被加入「測試使用者」名單的帳號才能順利授權。
-在「測試使用者」區塊，點擊「**+ ADD USERS**」。
+在「測試使用者」區塊，點擊「+ ADD USERS」。
 輸入你即將用來「發送 Email」的 Google 帳號並儲存。
 
 
@@ -1870,8 +1872,8 @@ Google Drive API (建議一併開啟)
 
 第三步：如何取得 Client ID 與密鑰 (Secret)？前面都設定好後，現在就可以正式建立 n8n 要使用的 OAuth2 憑證。
 
-建立憑證： 點擊左側選單的「憑證」，接著點擊上方「**+ 建立憑證」，選擇「OAuth 用戶端 ID**」。
-設定應用程式類型： 選擇「**網頁應用程式 (Web application)**」，並輸入名稱（如：n8n-try）。
+建立憑證： 點擊左側選單的「憑證」，接著點擊上方「+ 建立憑證」，選擇「OAuth 用戶端 ID」。
+設定應用程式類型： 選擇「網頁應用程式 (Web application)」，並輸入名稱（如：n8n-try）。
 設定重新導向 URI (Redirect URI)：
 回到你的 n8n 介面，新增一個 Gmail 節點，動作選擇 Send a message。
 在認證 (Credential) 欄位選擇 Create new credential。
@@ -1879,7 +1881,7 @@ Google Drive API (建議一併開啟)
 將此網址貼回 Google Cloud 憑證設定的「已授權的重新導向 URI」欄位中（注意：網址結尾不可包含斜線 /）。
 
 
-取得金鑰： 點擊「建立」後，系統會彈出視窗顯示你的 用戶端 ID (Client ID) 與 **用戶端密鑰 (Client Secret)**。請將這兩組字串妥善複製並保存。
+取得金鑰： 點擊「建立」後，系統會彈出視窗顯示你的 用戶端 ID (Client ID) 與 用戶端密鑰 (Client Secret)。請將這兩組字串妥善複製並保存。
 
 
 專家提示： 密鑰 (Secret) 只會在第一次建立時完整顯示，請務必妥善備份。若不慎遺失或外洩，可回到憑證管理頁面刪除舊密鑰並重新生成。
@@ -1890,7 +1892,7 @@ Google Drive API (建議一併開啟)
 輸入憑證資訊： 回到 n8n 的 Credential 設定畫面，將剛剛取得的 Client ID 與 Client Secret 貼入對應欄位，點擊「Sign in with Google」。
 完成安全授權：
 登入你設定為「測試使用者」的 Google 帳號。
-系統會出現「這個應用程式未經 Google 驗證」的警告。這是正常現象，請點擊左下方的「繼續 &amp;#x2F; 進階」，再點擊「**前往 n8n-try (不安全)**」。
+系統會出現「這個應用程式未經 Google 驗證」的警告。這是正常現象，請點擊左下方的「繼續 &amp;#x2F; 進階」，再點擊「前往 n8n-try (不安全)」。
 勾選「全選」賦予讀寫信件的權限，最後點擊「繼續」，若顯示 Connection successful 即代表串接成功！
 
 
@@ -2151,10 +2153,10 @@ System Message 的設計重點則是：
 
 Schema 設計重點解析：
 
-**enum**：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
+enum：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
 keywords 陣列：讓 AI 自動提取 3 個關鍵字，方便後續做資料標籤或搜尋索引。
-**required**：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
-**additionalProperties: false**：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
+required：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
+additionalProperties: false：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
 
 
 5. 串接 OpenAI Chat ModelAI Agent 就像一個大腦，需要連接特定的語言模型才能運作：
@@ -2192,8 +2194,8 @@ AI Agent
 
 
 處理邏輯
-**線性直出 (Linear)**：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
-**循環思考 (Loop)**：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
+線性直出 (Linear)：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
+循環思考 (Loop)：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
 
 
 擴充能力
@@ -2304,7 +2306,7 @@ Q：什麼情況下我應該直接用 AI Agent，而不是 Message a model？A�
   
 
 
-如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 **ChatGPT (OpenAI API)**。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
+如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 ChatGPT (OpenAI API)。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
 
 實用資源連結：
 
@@ -2449,8 +2451,8 @@ Q：如果未來 OpenAI 模型更新，我現在的 n8n 工作流會壞掉嗎？
 如果你習慣將所有任務都塞給 AI Agent 處理，你可能會面臨 Token 費用暴增、執行流程不穩定，甚至是難以 Debug 的地獄。這篇文章將帶你深度解析 LLM 與 AI Agent 的本質差異，並教你如何針對不同的戰場，選擇最適合的自動化武器。
 💡 核心對決：LLM 與 AI Agent 的本質差異在哪裡？要理解兩者的差異，我們可以用最簡單的「積木（Function）」概念來看：
 
-LLM (大型語言模型)： 本質上它**只有一個大腦 (Model)**。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
-AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 **工具箱 (Tools)**。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
+LLM (大型語言模型)： 本質上它只有一個大腦 (Model)。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
+AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 工具箱 (Tools)。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
 
 🧠 為什麼 90% 的場景你只需要 LLM？（省錢又穩定）許多新手在初學 n8n 時，容易陷入「凡事皆用 Agent」的誤區。事實上，在日常的自動化任務中，有高達 90% 的時間你只需要使用單純的 LLM 節點。
 適合 LLM 處理的任務特徵：
@@ -2472,7 +2474,7 @@ LLM 的絕對優勢：
 
 ⚠️ 新手防坑警告：拜託不要濫用 Agent！AI Agent 雖然聰明，但會帶來高昂的代價。它在思考與嘗試的過程中會消耗大量 Token（成本直接爆炸），且由於具備自主決策權，非常容易產生「幻覺 (Hallucination)」導致過度行動。如果出錯，因為思考邏輯成謎，Debug 的難度將會非常高。
 鐵則：能用 LLM 解決的問題，就絕對不用 Agent！
-🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以「智能客服工作流」為例：
+🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以**「智能客服工作流」**為例：
 
 讓 Agent 當「廠長」負責決策 (Decision)：接收到客戶訊息後，由 AI Agent 判斷「是否需要回覆？」。如果需要，Agent 會決定去 Database 調出這筆訂單資料。
 讓 LLM 當「作業員」負責處理 (Process)：將訂單資訊與客訴內容交給純 LLM 節點，請它專心撰寫一封語氣誠懇的安撫 Email（生成內容）。
@@ -2599,10 +2601,12 @@ Authorization: Bearer &amp;#123;&amp;#123;你的_CHANNEL_ACCESS_TOKEN&amp;#125;&
 Content-Type: application/json
 
 
-Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
+Body (JSON):
+
+123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp;#123;&amp;#123;$json.body.events[0].replyToken&amp;#125;&amp;#125;&amp;quot;,  &amp;quot;messages&amp;quot;:[    &amp;#123;      &amp;quot;type&amp;quot;: &amp;quot;text&amp;quot;,      &amp;quot;text&amp;quot;: &amp;quot;你剛剛說的是：&amp;#123;&amp;#123;$json.body.events[0].message.text&amp;#125;&amp;#125;&amp;quot;    &amp;#125;  ]&amp;#125;
 
 
-⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 **務必手動加上 Content-Type: application/json**。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
+⚠️ 絕對不能省的 Content-Type 設定：雖然你已經設定了 Bearer Auth 來驗證身分，但 務必手動加上 Content-Type: application/json。Authorization 管的是「你是誰」，而 Content-Type 是告訴 LINE「你送的資料格式」。如果漏掉這行，LINE API 非常容易直接回傳 400 Bad Request 錯誤。
 
 
 資訊安全必備：如何在 n8n 實作 LINE 簽章驗證？為了防止惡意攻擊者偽造 LINE 的請求打爆你的 Webhook，LINE 官方強烈建議驗證請求標頭中的 x-line-signature。
@@ -2623,7 +2627,7 @@ Body (JSON):123456789&amp;#123;  &amp;quot;replyToken&amp;quot;: &amp;quot;=&amp
 
 2. 主動推播通知 (Push Messages)不需等待使用者講話，只要你有對方的 userId，就能利用 Push API 主動發送訊息。非常適合用於：電商訂單狀態更新、報名成功通知、定時提醒或 AI 每日摘要推播。
 
-邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為「兩層式架構」：
+邁向企業級：如何規劃高擴充性的 n8n 自動化架構？如果你打算打造正式商業用的 LINE 自動化系統，建議將 n8n 工作流拆分為**「兩層式架構」**：
 
 入口層 (Gateway Workflow)：專門負責 Webhook 接收、簽章驗證、回覆 HTTP 200 OK 給 LINE（避免超時），並將事件標準化後，透過子工作流 (Execute Workflow node) 傳遞下去。
 業務層 (Business Workflows)：根據事件類型觸發不同的業務邏輯。例如：FAQ 智能客服 (串接 OpenAI)、會員資料寫入 (串接 Google Sheets &amp;#x2F; CRM)、預約系統建立 (串接 Notion &amp;#x2F; Airtable)。
@@ -2720,7 +2724,7 @@ Sending messages
 
 確保右上角的開關顯示為「綠色的 Publish」。
 只有在 Publish 狀態下，Schedule Trigger 才會在背景自動運作；若切換回 Unpublish，則會停止自動排程。
-**執行日誌 (Executions)**：上線後，若要查看工作流的運行狀況或除錯 (Debug)，可以切換到 Executions 面板查看歷史執行紀錄與錯誤提示。
+執行日誌 (Executions)：上線後，若要查看工作流的運行狀況或除錯 (Debug)，可以切換到 Executions 面板查看歷史執行紀錄與錯誤提示。
 
 2. 使用便利貼 (Sticky Note) 做好註解當工作流越來越長時，過段時間再回來看可能會忘記邏輯。
 
@@ -2793,7 +2797,7 @@ Q：工作流節點越來越多，該如何標註說明方便未來維護？A：
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

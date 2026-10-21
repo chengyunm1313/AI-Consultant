@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -664,7 +666,7 @@
 點擊 Add Condition。
 針對 Value 1，點擊 Expression 模式。
 從左側的資料面板中，將前一個節點抓取到的 orderStatus 欄位拖拉進來，此時會自動產生變數語法：1&amp;#123;&amp;#123; $json.orderStatus &amp;#125;&amp;#125;
-設定判斷條件：選擇 String 類別下的 **is equal to**（等於）。
+設定判斷條件：選擇 String 類別下的 is equal to（等於）。
 針對 Value 2，輸入我們想要篩選的目標字串：processing。
 
 步驟三：測試與檢驗分流結果點擊 Execute Step（執行節點）。執行完畢後，你可以在 Output 面板看到資料被成功分流：
@@ -806,7 +808,7 @@ data.records:write (寫入記錄)
 schema.bases:read (讀取資料庫架構)
 
 
-**開放工作區 (Access)**：選擇 All workspaces（為方便測試，可選擇全部工作區）。
+開放工作區 (Access)：選擇 All workspaces（為方便測試，可選擇全部工作區）。
 點擊建立後，務必立刻複製該組 Token（它只會顯示一次），並將其貼回 n8n 的 Access Token 欄位中進行儲存。看到 Connection tested successfully 即代表連線成功！
 
 批次寫入資料：完成欄位映射與自動化測試連線成功後，最後一步就是告訴 n8n 要將資料丟到哪張表，以及如何對應欄位。
@@ -928,14 +930,14 @@ Q：為什麼我在 n8n 的 Base 下拉選單中，完全找不到我在 Airtabl
 
 3. 設定 HTTP Request 參數開啟 HTTP Request 節點的設定面板，我們需要依照 API 文件的要求填入對應的參數：
 
-**Method (方法)**：選擇 GET，因為我們要從伺服器讀取資料。
-**URL (網址)**：填入資料提供方給予的 Dataset URL。1http://learn.app.n8n.cloud/webhook/custom-erp
-**Send Headers (發送標頭)**：將此選項切換為 true。
+Method (方法)：選擇 GET，因為我們要從伺服器讀取資料。
+URL (網址)：填入資料提供方給予的 Dataset URL。1http://learn.app.n8n.cloud/webhook/custom-erp
+Send Headers (發送標頭)：將此選項切換為 true。
 在 Specify Headers 設定中，Name 輸入 unique_id。
 Value 輸入您專屬的 ID 數值。
 
 
-**Authentication (授權認證)**：由於資料具有機密性，我們需要設定 API 憑證。
+Authentication (授權認證)：由於資料具有機密性，我們需要設定 API 憑證。
 選擇 Generic Credential Type。
 Generic Auth Type 選擇 Header Auth。
 在 Credential for Header Auth 下拉選單中，點選 Create new credential。
@@ -950,7 +952,7 @@ Value 欄位填入：您取得的專屬 API Key 數值。
 點擊 Save 儲存憑證。
 
 4. 取得並驗證資料 (Get the Data)所有參數設定完成後，就可以測試 API 呼叫是否成功。
-點擊節點右上角的 **Execute step (執行步驟)**。如果設定正確，右側的 Output 面板將會回傳 JSON 格式的數據。您可以檢查是否成功撈取到了 Nathan 所需要的五個關鍵欄位：
+點擊節點右上角的 Execute step (執行步驟)。如果設定正確，右側的 Output 面板將會回傳 JSON 格式的數據。您可以檢查是否成功撈取到了 Nathan 所需要的五個關鍵欄位：
 
 orderId: 訂單的唯一編號。
 customerId: 客戶的唯一編號。
@@ -1065,7 +1067,7 @@ A：n8n 將憑證加密後儲存在資料庫中（預設使用 AES-256 加密）
 幫忙 debug、重構
 
 這些能力的共同特徵是：它們都集中在「寫功能」這件事上。也就是說，「寫畫面」正在變成基本能力，而不是競爭優勢。
-那什麼才是下一個關鍵能力？當開發變得越來越快，有一件事情會變得更重要：如何讓這些功能「穩定上線並持續運作」。這正是 FDE（Front-End Deployment Engineer）在解決的問題。
+那什麼才是下一個關鍵能力？當開發變得越來越快，有一件事情會變得更重要：**如何讓這些功能「穩定上線並持續運作」。**這正是 FDE（Front-End Deployment Engineer）在解決的問題。
 FDE 在做的，其實是這些事如果你把視角從「寫程式」往後看，你會發現很多關鍵環節：
 
 Build 怎麼設計才快、才穩？
@@ -1355,12 +1357,12 @@ Q5：沉浸式翻譯真的有用嗎？超級有用，尤其對官方文件：
 為什麼不建議在本機端使用 NPM 部署 n8n？如果你將 n8n 安裝在個人電腦（本地端），當你需要串接外部服務的 Webhook 時，外部系統是無法直接連線到你的本地主機的。除非你額外搭配 Cloudflare Tunnel 或是 ngrok 等內網穿透工具，否則像是 LINE、Slack 等需要外部 Webhook 觸發的服務，都將無法正常運作。
 為了解決這個問題，將 n8n 部署到雲端平台是最佳選擇。目前開發者社群中最推薦的方式之一，就是使用 Zeabur 這個 PaaS (Platform as a Service) 平台來進行線上部署。
 Zeabur 最新收費機制：共享叢集退場在使用 Zeabur 之前，必須先了解一項重大的政策更新。Zeabur 在 2026 年 2 月 23 日正式宣布：「共享叢集將不再開放新專案」。
-過去，使用者可以免租用獨立主機，直接在共享叢集上透過「用多少付多少」的方式架設 n8n。但現在登入的新帳號，已經無法使用這項服務。官方的用意是希望使用者能擁有更好的效能與穩定性，因此強制要求使用者必須綁定信用卡（訂閱 Developer 開發者方案），並在平台上**自行租用一台專屬的雲端伺服器 (VPS)**，才能將 n8n 架設在上面。
+過去，使用者可以免租用獨立主機，直接在共享叢集上透過「用多少付多少」的方式架設 n8n。但現在登入的新帳號，已經無法使用這項服務。官方的用意是希望使用者能擁有更好的效能與穩定性，因此強制要求使用者必須綁定信用卡（訂閱 Developer 開發者方案），並在平台上自行租用一台專屬的雲端伺服器 (VPS)，才能將 n8n 架設在上面。
 高 CP 值雲端伺服器 (VPS) 推薦與規格建議在 Zeabur 上購買伺服器時，你可以自由選擇偏好的供應商。以下是我實際測試過多家雲端服務商的心得總結：
 n8n 建議主機規格要讓 n8n 順暢運行，強烈建議主機規格至少要達到：
 
 CPU：2 vCPU 以上
-**記憶體 (RAM)**：4 GB 以上（2GB 勉強可用，但 4GB 較為保險）
+記憶體 (RAM)：4 GB 以上（2GB 勉強可用，但 4GB 較為保險）
 
 各大伺服器供應商評比
 
@@ -1581,8 +1583,8 @@ AI 思考後，會自動幫你生成檢查 Node.js 版本（node -v）以及安�
 4. 個性化設定 (更換亮色&amp;#x2F;暗色主題)如果你跟我一樣，覺得預設的暗色主題（Dark Theme）看久了不習慣，可以到 Settings -&amp;gt; Personal。在 Personalisation 區塊，將 Theme 改為 Light theme 並按下 Save，畫面就會變成清爽的白底了。
 建立你的第一個工作流 (Workflow)回到首頁 (Overview)，點擊 Add first step，你就可以開始建立自動化流程了：
 
-**設定觸發條件 (Trigger)**：例如選擇 Trigger manually（手動點擊執行），這是測試流程最常用的起點。
-**新增節點 (Nodes)**：點擊畫面的 + 號，你可以加入各種 AI 模組（例如 OpenAI、Gemini 節點）或應用程式。
+設定觸發條件 (Trigger)：例如選擇 Trigger manually（手動點擊執行），這是測試流程最常用的起點。
+新增節點 (Nodes)：點擊畫面的 + 號，你可以加入各種 AI 模組（例如 OpenAI、Gemini 節點）或應用程式。
 命名你的 Workflow：點擊左上角的預設名稱，將其改為 test 或你喜歡的名稱。
 
 到這裡，你已經成功踏入 n8n 的世界了！後續還有非常多強大、有趣的節點與自動化玩法，我們未來的教學會再一步步帶大家深入探索。趕快動手試試看，打造你的第一個自動化小幫手吧！
@@ -1970,7 +1972,7 @@ Q5: 這份選股清單可以直接當成投資建議嗎？不建議直接照單�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

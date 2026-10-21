@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -688,8 +690,8 @@ Code 節點解析範例：
 實戰方法二：使用 AI Agent 輕鬆達成結構化輸出（專家推薦）為了避開繁瑣的程式碼解析，強烈建議使用 n8n 的 AI Agent 架構。透過「Agent + Model + Output Parser」的黃金三角，您可以讓系統自動將 Gemini 的輸出鎖定在嚴格的 JSON 規格內。
 完美輸出的配置步驟：
 加入 AI Agent 節點：在畫布中新增 AI Agent，並將輸入源連接至前置節點。
-**連接語言模型 (Language Model)**：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
-**強制結構化輸出 (Output Parser)**：
+連接語言模型 (Language Model)：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
+強制結構化輸出 (Output Parser)：
 開啟 Agent 節點內的 Require Specific Output Format。
 在 Parser 輸入端掛載 Structured Output Parser 節點。
 在 Parser 內直接定義您期待的 JSON Schema（如下方範例）。
@@ -877,10 +879,10 @@ System Message 的設計重點則是：
 
 Schema 設計重點解析：
 
-**enum**：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
+enum：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
 keywords 陣列：讓 AI 自動提取 3 個關鍵字，方便後續做資料標籤或搜尋索引。
-**required**：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
-**additionalProperties: false**：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
+required：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
+additionalProperties: false：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
 
 
 5. 串接 OpenAI Chat ModelAI Agent 就像一個大腦，需要連接特定的語言模型才能運作：
@@ -918,8 +920,8 @@ AI Agent
 
 
 處理邏輯
-**線性直出 (Linear)**：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
-**循環思考 (Loop)**：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
+線性直出 (Linear)：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
+循環思考 (Loop)：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
 
 
 擴充能力
@@ -1034,8 +1036,8 @@ Q：什麼情況下我應該直接用 AI Agent，而不是 Message a model？A�
 如果你習慣將所有任務都塞給 AI Agent 處理，你可能會面臨 Token 費用暴增、執行流程不穩定，甚至是難以 Debug 的地獄。這篇文章將帶你深度解析 LLM 與 AI Agent 的本質差異，並教你如何針對不同的戰場，選擇最適合的自動化武器。
 💡 核心對決：LLM 與 AI Agent 的本質差異在哪裡？要理解兩者的差異，我們可以用最簡單的「積木（Function）」概念來看：
 
-LLM (大型語言模型)： 本質上它**只有一個大腦 (Model)**。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
-AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 **工具箱 (Tools)**。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
+LLM (大型語言模型)： 本質上它只有一個大腦 (Model)。它採取一問一答的線性模式（你問 → 他回），完全處於被動狀態。
+AI Agent (智能體)： 除了大腦 (Model) 之外，它還具備了 記憶 (Memory) 與 工具箱 (Tools)。它能夠根據你的目標，自主啟動 ReAct（理解目標 ➔ 規劃步驟 ➔ 呼叫工具 ➔ 檢查結果）的多步推理解迴路，直到任務完成。
 
 🧠 為什麼 90% 的場景你只需要 LLM？（省錢又穩定）許多新手在初學 n8n 時，容易陷入「凡事皆用 Agent」的誤區。事實上，在日常的自動化任務中，有高達 90% 的時間你只需要使用單純的 LLM 節點。
 適合 LLM 處理的任務特徵：
@@ -1057,7 +1059,7 @@ LLM 的絕對優勢：
 
 ⚠️ 新手防坑警告：拜託不要濫用 Agent！AI Agent 雖然聰明，但會帶來高昂的代價。它在思考與嘗試的過程中會消耗大量 Token（成本直接爆炸），且由於具備自主決策權，非常容易產生「幻覺 (Hallucination)」導致過度行動。如果出錯，因為思考邏輯成謎，Debug 的難度將會非常高。
 鐵則：能用 LLM 解決的問題，就絕對不用 Agent！
-🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以「智能客服工作流」為例：
+🏗️ 大師級實戰架構：如何打造「黃金混合生產線」？在實戰中，最強的架構不是全用 Agent，也不是全用 LLM，而是將兩者混搭，各司其職。我們以**「智能客服工作流」**為例：
 
 讓 Agent 當「廠長」負責決策 (Decision)：接收到客戶訊息後，由 AI Agent 判斷「是否需要回覆？」。如果需要，Agent 會決定去 Database 調出這筆訂單資料。
 讓 LLM 當「作業員」負責處理 (Process)：將訂單資訊與客訴內容交給純 LLM 節點，請它專心撰寫一封語氣誠懇的安撫 Email（生成內容）。
@@ -1193,7 +1195,7 @@ Agent 不是把所有系統砍掉重練，而是坐在它們上面，變成全�
 企業導入的真正痛點：治理、權限與人機協作很多人談 Agent 時只關注模型推理能力。但企業實際上線時，最痛的往往是以下幾點：
 
 權限控管：代理到底能不能改資料、退費或碰付款？權限設計是核心。
-**可追蹤性 (Auditability)**：它為何做這決策？用了哪些工具？在哪裡失敗？
+可追蹤性 (Auditability)：它為何做這決策？用了哪些工具？在哪裡失敗？
 成本控制：多步推理與工具呼叫都是成本。Token 花費、延遲與重試都會變成營運議題。
 人機分工：哪些全自動？哪些半自動？哪些必須人工核准？
 
@@ -1439,7 +1441,7 @@ AI 會先讀取專案裡的 SKILL.md，理解它能做什麼。接著它會規�
 
 AI 通常連這行指令都會幫你準備好。按下 Enter，一個真實的 MP4 檔案就會出現在輸出資料夾。
 60&amp;#x2F;40 的人機協作法則別指望 AI 一次給你 100% 的完美成品，那是不切實際的幻想。聰明的做法是讓 AI 搞定 60% 的苦工。讓它完成架構搭建、基礎動畫邏輯與素材佔位。
-剩下的 **40%**，靠你的人類美感去微調程式碼。這種工作流比從零開始剪輯快，又比全靠 AI 抽卡精準。這才是 Remotion 結合 Agent 的真正威力。
+剩下的 40%，靠你的人類美感去微調程式碼。這種工作流比從零開始剪輯快，又比全靠 AI 抽卡精準。這才是 Remotion 結合 Agent 的真正威力。
 
         </p>
         <a class="stretched-link" href="/posts/remotion-ai-agent-react-video-tutorial/"></a>
@@ -1504,7 +1506,7 @@ AI 工具爆炸成長的這兩年，你是不是也常覺得——「我每天�
 
 【給各階段讀者的閱讀建議】
 
-如果你是 AI 新手 (第 1 層)： 請重點閱讀第一、二層的說明，並親手完成「從 0 到 1 的第一步」練習。這將是你最大的收穫。
+如果你是 AI 新手 (第 1 層)： 請重點閱讀第一、二層的說明，並親手完成**「從 0 到 1 的第一步」**練習。這將是你最大的收穫。
 如果你是進階使用者 (第 2-3 層)： 第三、四層的框架將幫助你思考如何將 AI 系統化，並找到突破的方向。
 如果你是開發者或專家： 第四、五層的細化分類和工具鏈，可以作為你建構自主 Agent 系統的參考框架。
 
@@ -1524,7 +1526,7 @@ AI 工具爆炸成長的這兩年，你是不是也常覺得——「我每天�
 
 🧰 第二層：工作流交互關鍵詞：模板化｜任務助理｜SOP化
 你是否覺得，每次和 AI 對話，都像在跟一個記憶力只有三秒鐘的新同事說話？你必須不厭其煩地重複你的背景、風格和要求。
-第二層的核心，就是為你的 AI 打造一個「專屬大腦」或「長期記憶」。而目前最直觀的工具，就是 ChatGPT 的 GPTs (或 Gemini 的自訂指令)。
+第二層的核心，就是為你的 AI 打造一個**「專屬大腦」或「長期記憶」**。而目前最直觀的工具，就是 ChatGPT 的 GPTs (或 Gemini 的自訂指令)。
 你在 GPTs 的「指示 (Instructions)」欄位裡所做的事情——定義角色、給予規則、設定輸出格式——本質上就是在建立一個專屬的溝通協定 (MCP)。在第二層，你不需要把它想得太複雜，可以把它理解成一份給 AI 的、不會被忘記的「角色設定＋工作手冊」。這份手冊，就是你們之間穩定協作的基礎。
 第一層與第二層的具體差異：
 
@@ -1648,7 +1650,7 @@ AI 角色
 💡 重點提示第四層的關鍵在於自主決策與介面化：不僅要讓 AI 能自主規劃與執行，還要透過互動式應用的建構，將這份強大能力「產品化」，讓更多人可以使用。
 
 🌐 第五層：生態化協作關鍵詞：AI網絡｜持久化角色｜自我運行系統
-如果說第四層是組建一支「AI 專案特種部隊」來完成特定任務，那麼第五層就是建立一家「AI 自動化運營公司」。
+如果說第四層是組建一支「AI 專案特種部隊」來完成特定任務，那麼第五層就是建立一家**「AI 自動化運營公司」**。
 在這一層，AI Agent 不再是為臨時任務而生，而是擁有了持久化的崗位職責，形成一個能長期運行、甚至自我優化的商業生態系統。
 一個具體範例：一個全自動的電商公司
 
@@ -1803,7 +1805,7 @@ BMAD 到底是什麼？它不是另一個 Copilot 吧？問得好！這點一定
 BMAD，全名是《Breakthrough Method for Agile AI-Driven Development》 (突破性敏捷 AI 驅動開發方法)。它不僅僅是一個編碼工具，而是一個全面、以流程為導向的框架。它的核心理念在於「AI 即團隊」，透過多個專業化的 AI 代理來模擬一個完整的敏捷開發團隊。
 我們換個說法：BMAD 不是一個「工具」，而是一套「管理系統」或「作戰手冊」。
 它不是給你一把更厲害的槍 (像 Copilot 那樣幫你補完程式碼)，而是直接給你一整支海豹突擊隊，還附上詳細的作戰計畫。它將傳統軟體工程的紀律性，強加於大型語言模型 (LLM) 固有的隨機性之上。
-這支 AI 突擊隊裡，每個角色各司其職，分工明確到令人髮指。它們不像單一 AI 那樣健忘，因為所有重要的資訊——也就是【上下文】——都被有條理地記錄在各種「文件」裡，然後在對的時間點，交給對的 AI 角色。
+這支 AI 突擊隊裡，每個角色各司其職，分工明確到令人髮指。它們不像單一 AI 那樣健忘，因為所有重要的資訊——也就是**【上下文】**——都被有條理地記錄在各種「文件」裡，然後在對的時間點，交給對的 AI 角色。
 這就是 BMAD 的兩大秘密武器：【代理式規劃 (Agentic Planning)】 和 【上下文工程開發 (Context-Engineered Development)】。這種方法能消除 AI 編程中常見的上下文遺失與規劃不一致問題。
 
 重點：BMAD 的目標，是用傳統軟體工程的【紀律】，去馴服大型語言模型 (LLM) 內在的【隨機性】。它犧牲了 Vibe Coding 的部分流動性，換來的是企業級專案的【可預測性】與【穩定性】。
@@ -2232,7 +2234,7 @@ AI Agent 的時代才剛剛開始，充滿了無限的可能與挑戰。而你�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

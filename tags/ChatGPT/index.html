@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -1291,7 +1293,7 @@ OpenAI：ChatGPT 中的 Plugins
           最近看到有人把 ChatGPT 裡的工具生態，比喻成早期的 App Store 或 Facebook 應用程式。這個類比未必代表它們會走向同一種結果，但我看完後開始想另一件事：我手上是不是早就有很多可以重新包裝的產品？
 我不是想直接 All in，也不想先猜哪一個一定會紅。我比較想趁著做產品的成本降低，挑幾個真實工作裡反覆出現的需求，試著放進新的對話入口裡測一輪。
 這篇說的「Plugin」，先把名稱講清楚我這裡先用「Plugin」當一般說法，指的是讓使用者在 ChatGPT 對話裡叫得動的工具或工作流程。實際開發時，產品形式和上架流程要先分清楚：OpenAI 現行文件把 Plugin 描述成可組合 Skills、連接 App 等能力的工作流程；開發者也可以透過 Apps SDK 建立在 ChatGPT 中運作的 App，並了解如何提交到 ChatGPT app directory。OpenAI 的 Plugin 說明 與 Apps SDK 介紹 是兩條值得先讀的官方資料。
-官方說明也提到，ChatGPT 會在相關情境使用已安裝的 Plugin，並可能在對話中推薦 Plugin。這讓我想到一個新的產品入口：使用者先說出需求，對話工具再協助他找到能完成工作的能力。這是一個值得驗證的可能性，不代表每支產品都會被推薦或自然取得流量。產品能否上架、被看見、被使用，仍要看平台當時的規則與實際數據。查看 Plugin 的使用與推薦方式。
+官方說明也提到，ChatGPT 會在相關情境使用已安裝的 Plugin，並可能在對話中推薦 Plugin。這讓我想到一個新的產品入口：使用者先說出需求，對話工具再協助他找到能完成工作的能力。**這是一個值得驗證的可能性，不代表每支產品都會被推薦或自然取得流量。**產品能否上架、被看見、被使用，仍要看平台當時的規則與實際數據。查看 Plugin 的使用與推薦方式。
 我以前做過的工具，換個角度看都像產品雛形這一兩年，我為了課程、客戶和自己的工作，做過不少小工具：
 
 個資去識別化工具
@@ -2045,10 +2047,10 @@ System Message 的設計重點則是：
 
 Schema 設計重點解析：
 
-**enum**：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
+enum：限制 category 只能從預定義的分類中選擇，避免 AI 自由發揮產生不一致的分類名稱。
 keywords 陣列：讓 AI 自動提取 3 個關鍵字，方便後續做資料標籤或搜尋索引。
-**required**：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
-**additionalProperties: false**：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
+required：強制所有欄位都必須存在，防止 AI 漏掉任何一個欄位。
+additionalProperties: false：禁止 AI 額外輸出未定義的欄位，確保 JSON 結構乾淨一致。
 
 
 5. 串接 OpenAI Chat ModelAI Agent 就像一個大腦，需要連接特定的語言模型才能運作：
@@ -2086,8 +2088,8 @@ AI Agent
 
 
 處理邏輯
-**線性直出 (Linear)**：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
-**循環思考 (Loop)**：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
+線性直出 (Linear)：輸入問題 $\rightarrow$ 產出解答 $\rightarrow$ 結束。
+循環思考 (Loop)：接收任務 $\rightarrow$ 思考 $\rightarrow$ 調用工具 $\rightarrow$ 驗證 $\rightarrow$ 產出。
 
 
 擴充能力
@@ -2198,7 +2200,7 @@ Q：什麼情況下我應該直接用 AI Agent，而不是 Message a model？A�
   
 
 
-如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 **ChatGPT (OpenAI API)**。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
+如何快速開啟你的 AI 自動化冒險？在 AI 工具百花齊放的時代，雖然有多種大型語言模型可供選擇，但在 n8n 自動化流程中，最穩定且最常被使用的核心引擎依然是 ChatGPT (OpenAI API)。本篇文章將手把手帶你完成 n8n 與 ChatGPT 的串接，從申請 API 密鑰、模型選擇到完整的 Prompt 詠唱技巧，一次幫你打通自動化工作流的任督二脈！
 
 實用資源連結：
 
@@ -2333,7 +2335,7 @@ Q：如果未來 OpenAI 模型更新，我現在的 n8n 工作流會壞掉嗎？
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -686,9 +688,9 @@ Gmail：再寄一封 Email，把摘要結果與原始文字同步通知給自己
 第一步：如何在 Google Cloud Console 建立專案與啟用 API？要讓 n8n 可以代表你操作 Gmail，第一件事就是在 Google Cloud 建立專案，並啟用對應 API。
 
 登入平台： 前往Google Cloud Console 並使用你的 Google 帳號登入。（建議預先綁定實體信用卡以利通過身分驗證，避免使用易遭拒絕的簽帳金融卡）。
-建立新專案： 點擊左上角專案選單，選擇「**新增專案 (New Project)**」。將專案命名為易於辨識的名稱（例如：n8n-try），若無所屬機構可選擇「無組織」，接著點擊「建立」。
+建立新專案： 點擊左上角專案選單，選擇「新增專案 (New Project)」。將專案命名為易於辨識的名稱（例如：n8n-try），若無所屬機構可選擇「無組織」，接著點擊「建立」。
 進入 API 服務： 專案建立完成後，展開左側導覽選單，選擇「API 和服務」&amp;gt;「已啟用的 API 和服務」（建議將此選項加入星號釘選，未來會經常使用）。
-啟用所需 API： 點擊上方的「**+ 啟用 API 和服務**」，在搜尋框中尋找並啟用以下服務：
+啟用所需 API： 點擊上方的「+ 啟用 API 和服務」，在搜尋框中尋找並啟用以下服務：
 Gmail API (本次寄信必備)
 Google Calendar API (建議一併開啟)
 Google Drive API (建議一併開啟)
@@ -699,7 +701,7 @@ Google Drive API (建議一併開啟)
 第二步：如何設定 OAuth 同意畫面與新增測試使用者？在取得金鑰之前，還要先設定 OAuth 同意畫面。這個畫面就是你在 n8n 點擊 Sign in with Google 時，Google 會跳出來要求你確認授權的那一頁。
 
 設定同意畫面： 在「API 和服務」選單中點擊「OAuth 同意畫面」。
-選擇使用者類型： 一般個人用戶請選擇「**外部 (External)**」，點擊建立。
+選擇使用者類型： 一般個人用戶請選擇「外部 (External)」，點擊建立。
 填寫應用程式資訊：
 應用程式名稱：輸入如 n8n-try。
 使用者支援電子郵件：選擇你目前的 Google 帳號。
@@ -707,7 +709,7 @@ Google Drive API (建議一併開啟)
 
 
 新增測試使用者 (非常重要)：因為我們的應用程式仍在「測試中 (Testing)」狀態，並未經過 Google 官方審核發布，只有被加入「測試使用者」名單的帳號才能順利授權。
-在「測試使用者」區塊，點擊「**+ ADD USERS**」。
+在「測試使用者」區塊，點擊「+ ADD USERS」。
 輸入你即將用來「發送 Email」的 Google 帳號並儲存。
 
 
@@ -715,8 +717,8 @@ Google Drive API (建議一併開啟)
 
 第三步：如何取得 Client ID 與密鑰 (Secret)？前面都設定好後，現在就可以正式建立 n8n 要使用的 OAuth2 憑證。
 
-建立憑證： 點擊左側選單的「憑證」，接著點擊上方「**+ 建立憑證」，選擇「OAuth 用戶端 ID**」。
-設定應用程式類型： 選擇「**網頁應用程式 (Web application)**」，並輸入名稱（如：n8n-try）。
+建立憑證： 點擊左側選單的「憑證」，接著點擊上方「+ 建立憑證」，選擇「OAuth 用戶端 ID」。
+設定應用程式類型： 選擇「網頁應用程式 (Web application)」，並輸入名稱（如：n8n-try）。
 設定重新導向 URI (Redirect URI)：
 回到你的 n8n 介面，新增一個 Gmail 節點，動作選擇 Send a message。
 在認證 (Credential) 欄位選擇 Create new credential。
@@ -724,7 +726,7 @@ Google Drive API (建議一併開啟)
 將此網址貼回 Google Cloud 憑證設定的「已授權的重新導向 URI」欄位中（注意：網址結尾不可包含斜線 /）。
 
 
-取得金鑰： 點擊「建立」後，系統會彈出視窗顯示你的 用戶端 ID (Client ID) 與 **用戶端密鑰 (Client Secret)**。請將這兩組字串妥善複製並保存。
+取得金鑰： 點擊「建立」後，系統會彈出視窗顯示你的 用戶端 ID (Client ID) 與 用戶端密鑰 (Client Secret)。請將這兩組字串妥善複製並保存。
 
 
 專家提示： 密鑰 (Secret) 只會在第一次建立時完整顯示，請務必妥善備份。若不慎遺失或外洩，可回到憑證管理頁面刪除舊密鑰並重新生成。
@@ -735,7 +737,7 @@ Google Drive API (建議一併開啟)
 輸入憑證資訊： 回到 n8n 的 Credential 設定畫面，將剛剛取得的 Client ID 與 Client Secret 貼入對應欄位，點擊「Sign in with Google」。
 完成安全授權：
 登入你設定為「測試使用者」的 Google 帳號。
-系統會出現「這個應用程式未經 Google 驗證」的警告。這是正常現象，請點擊左下方的「繼續 &amp;#x2F; 進階」，再點擊「**前往 n8n-try (不安全)**」。
+系統會出現「這個應用程式未經 Google 驗證」的警告。這是正常現象，請點擊左下方的「繼續 &amp;#x2F; 進階」，再點擊「前往 n8n-try (不安全)」。
 勾選「全選」賦予讀寫信件的權限，最後點擊「繼續」，若顯示 Connection successful 即代表串接成功！
 
 
@@ -935,7 +937,7 @@ Q：這組 Google OAuth2 設定之後只能拿來寄 Gmail 嗎？A：不是。�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

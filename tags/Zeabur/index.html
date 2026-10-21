@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -659,12 +661,12 @@
 為什麼不建議在本機端使用 NPM 部署 n8n？如果你將 n8n 安裝在個人電腦（本地端），當你需要串接外部服務的 Webhook 時，外部系統是無法直接連線到你的本地主機的。除非你額外搭配 Cloudflare Tunnel 或是 ngrok 等內網穿透工具，否則像是 LINE、Slack 等需要外部 Webhook 觸發的服務，都將無法正常運作。
 為了解決這個問題，將 n8n 部署到雲端平台是最佳選擇。目前開發者社群中最推薦的方式之一，就是使用 Zeabur 這個 PaaS (Platform as a Service) 平台來進行線上部署。
 Zeabur 最新收費機制：共享叢集退場在使用 Zeabur 之前，必須先了解一項重大的政策更新。Zeabur 在 2026 年 2 月 23 日正式宣布：「共享叢集將不再開放新專案」。
-過去，使用者可以免租用獨立主機，直接在共享叢集上透過「用多少付多少」的方式架設 n8n。但現在登入的新帳號，已經無法使用這項服務。官方的用意是希望使用者能擁有更好的效能與穩定性，因此強制要求使用者必須綁定信用卡（訂閱 Developer 開發者方案），並在平台上**自行租用一台專屬的雲端伺服器 (VPS)**，才能將 n8n 架設在上面。
+過去，使用者可以免租用獨立主機，直接在共享叢集上透過「用多少付多少」的方式架設 n8n。但現在登入的新帳號，已經無法使用這項服務。官方的用意是希望使用者能擁有更好的效能與穩定性，因此強制要求使用者必須綁定信用卡（訂閱 Developer 開發者方案），並在平台上自行租用一台專屬的雲端伺服器 (VPS)，才能將 n8n 架設在上面。
 高 CP 值雲端伺服器 (VPS) 推薦與規格建議在 Zeabur 上購買伺服器時，你可以自由選擇偏好的供應商。以下是我實際測試過多家雲端服務商的心得總結：
 n8n 建議主機規格要讓 n8n 順暢運行，強烈建議主機規格至少要達到：
 
 CPU：2 vCPU 以上
-**記憶體 (RAM)**：4 GB 以上（2GB 勉強可用，但 4GB 較為保險）
+記憶體 (RAM)：4 GB 以上（2GB 勉強可用，但 4GB 較為保險）
 
 各大伺服器供應商評比
 
@@ -817,7 +819,7 @@ Zeabur 部署 n8n 實戰教學 (圖文步驟)決定好伺服器後，我們就�
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

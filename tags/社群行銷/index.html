@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -871,7 +873,7 @@ Q：如果我想把這個流程擴充成「一鍵同步發 Facebook + Instagram�
 最短版修改清單如果你手上已經有上一篇的單圖工作流，要改成多圖版，實務上先完成這 5 件事就夠了：
 
 Form Trigger 把 Multiple Files 改成 true
-原本的「如果圖片不存在」條件，改成檢查 Object.keys($binary ?? &amp;#123;&amp;#125;).length === 0
+原本的「如果圖片不存在」條件，改成檢查 Object.keys($binary ?? {}).length === 0
 新增一個 Code 節點，把多張圖片展開成多個 item
 新增一個 Code 節點，把所有 photo id 整理成 attached_media
 最後發文的節點，把 attached_media[0] 改成整個 attached_media 陣列
@@ -879,7 +881,7 @@ Form Trigger 把 Multiple Files 改成 true
 如果你是用既有模板直接改，這 5 項通常就是變更範圍的 80%。剩下的問題，多半都是權限、Graph API 版本，或請求格式設定錯誤。
 多圖上傳的資料處理與判斷邏輯1. 先展開圖片，再逐張上傳表單收到多張圖片後，n8n 內部通常不會直接變成多筆獨立資料，而是先包在同一個輸入裡。這時要先新增一個節點，把圖片展開成一張圖一個 item，後面的 Facebook 上傳節點才能逐張處理。
 這一步的重點不是「看起來有三張圖」，而是流程裡真的要變成三個可迭代的 item。只有這樣，後面的 POST /photos 才能對每張圖各自拿到一個 photo id。
-2. 每張圖都先走 POST /photosFacebook 多圖貼文不是直接把多張 binary 一次送到 /feed。正確做法是每張圖先打一次 /&amp;#123;page_id&amp;#125;/photos，並設定為不立即發佈，讓 Facebook 先建立暫存照片。
+2. 每張圖都先走 POST /photosFacebook 多圖貼文不是直接把多張 binary 一次送到 /feed。正確做法是每張圖先打一次 /{page_id}/photos，並設定為不立即發佈，讓 Facebook 先建立暫存照片。
 等每張圖都成功回傳 ID 之後，才進到最後一個發文節點。這也是很多人一直測不通的原因，因為他們跳過了「先建立 temporary photo」這一步。
 3. 最後一次把所有 media_fbid 組回 attached_media當你拿到多張圖的 photo id 後，接下來不是再一張一張發貼文，而是把所有 ID 整理成 Facebook 要的格式，例如：
 12345[  &amp;#123; &amp;quot;media_fbid&amp;quot;: &amp;quot;photo_id_1&amp;quot; &amp;#125;,  &amp;#123; &amp;quot;media_fbid&amp;quot;: &amp;quot;photo_id_2&amp;quot; &amp;#125;,  &amp;#123; &amp;quot;media_fbid&amp;quot;: &amp;quot;photo_id_3&amp;quot; &amp;#125;]
@@ -896,7 +898,7 @@ Form Trigger 把 Multiple Files 改成 true
 
 這段的重點是：
 
-先用 Object.entries($binary ?? &amp;#123;&amp;#125;) 取出所有圖片
+先用 Object.entries($binary ?? {}) 取出所有圖片
 每張圖各自回傳成一個 item
 保留原本的 $json，避免後面發文文案或其他欄位不見
 
@@ -906,7 +908,7 @@ Form Trigger 把 Multiple Files 改成 true
 如果你的最後一個發文節點還需要貼文文字、Page ID 或其他欄位，就記得在這裡一起帶回去，不要只剩 attached_media。
 最後發文節點要注意什麼？整理完之後，最後一個 POST /feed 節點要送的，不再是單一的 attached_media[0]，而是整包 attached_media。也就是說，這一步的重點不只是欄位名稱改掉，而是前面的資料形狀已經從單張圖邏輯，變成多張圖陣列邏輯。
 跨平台自動發文的策略與考量在學會了 Facebook 多圖發文後，你可能會想：「我能不能把這個多圖工作流直接套用到 Instagram、Threads、X (Twitter) 或 LinkedIn 上？」
-這裡要特別提醒，每個社群平台的 API 設計與支援度皆不相同。Facebook 接受的 attached_media 多圖陣列格式，放到其他平台可能會導致報錯。如果你追求的是「一鍵同時發布到所有平台」，那麼維持「一圖一文」會是最安全、兼容性最高的方式。
+這裡要特別提醒，每個社群平台的 API 設計與支援度皆不相同。Facebook 接受的 attached_media 多圖陣列格式，放到其他平台可能會導致報錯。如果你追求的是「一鍵同時發布到所有平台」，那麼維持**「一圖一文」**會是最安全、兼容性最高的方式。
 然而，如果你是為了深入學習 API 串接與自動化邏輯，強烈建議你親手實作一次專屬於 Facebook 的多圖發文流程。這能幫助你透徹理解 API 格式的差異、陣列資料的轉換，大幅提升你的 n8n 實戰能力！
 常見問答 (FAQ)Q：多圖貼文是不是只要多加幾個 attached_media[1]、attached_media[2] 就可以？A：不行。這是最常見的誤解。Facebook 多圖貼文的重點不是多塞幾個欄位，而是要先讓每張圖各自上傳成未發佈照片，再把所有 photo id 組成 attached_media 後一次送進 POST /feed。如果你只是在原本單圖節點上多加幾個欄位，通常流程會不穩，或根本不會被 Facebook 正確識別成同一篇多圖貼文。
 Q：在 n8n 裡，正確的多圖發文順序是什麼？A：最穩的順序是這樣：
@@ -1117,7 +1119,7 @@ n8n Facebook 自動發文失敗怎麼排查？常見報錯修復整理如果你�
 
 Data table 裡的 Facebook Page ID 是否填成正確粉專，而不是個人帳號 ID。
 Access Token 是否真的是該粉專對應的 Page Token。
-HTTP Request 節點送出的 endpoint 是否為 /&amp;#123;page_id&amp;#125;/feed，而不是其他物件路徑。
+HTTP Request 節點送出的 endpoint 是否為 /{page_id}/feed，而不是其他物件路徑。
 粉專角色是否足夠，且授權帳號仍然是該粉專的管理者或具備可發文權限的人員。
 
 4. 明明有 Token，卻跳出權限不足或 OAuth 相關錯誤這通常代表問題不在「有沒有 Token」，而在於 Token 綁定的權限範圍不夠。最常見的修法是重新生成權杖，並重新勾選 pages_manage_posts、pages_read_engagement 等必要權限，再重新做一次長效與 Page Token 轉換。只換節點設定、不重拿權杖，很多時候是修不好的。
@@ -1468,7 +1470,7 @@ Q：這套流程適合哪些人先導入？A：最適合的是有固定內容產
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>

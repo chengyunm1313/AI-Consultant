@@ -50,7 +50,9 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
   <link
     rel="stylesheet"
-    href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
   />
   
 <link rel="stylesheet" href="/css/all.min.css">
@@ -63,7 +65,7 @@
   <script src="/js/copy-code.js"></script>
   
 
-<meta name="generator" content="Hexo 7.3.0"></head>
+<meta name="generator" content="Hexo 8.1.2"></head>
 
 <body class="site-v1">
   <a class="site-skip-link" href="#main-content">跳到主要內容</a>
@@ -313,14 +315,14 @@
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
-            數位轉型 (1)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
           </a>
         </li>
       
         <li class="mb-3">
-          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
-            小說 (10)
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
           </a>
         </li>
       
@@ -433,16 +435,16 @@
           社群行銷 (4)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
           社群自動化 (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
           Facebook機器人 (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
-          自動化講師應用 (6)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
@@ -517,16 +519,16 @@
           Git (1)
         </a>
       
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
           Google (1)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
           Google Colab (1)
-        </a>
-      
-        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
-          知識變現 (4)
         </a>
       
         <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
@@ -837,8 +839,8 @@ Code 節點解析範例：
 實戰方法二：使用 AI Agent 輕鬆達成結構化輸出（專家推薦）為了避開繁瑣的程式碼解析，強烈建議使用 n8n 的 AI Agent 架構。透過「Agent + Model + Output Parser」的黃金三角，您可以讓系統自動將 Gemini 的輸出鎖定在嚴格的 JSON 規格內。
 完美輸出的配置步驟：
 加入 AI Agent 節點：在畫布中新增 AI Agent，並將輸入源連接至前置節點。
-**連接語言模型 (Language Model)**：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
-**強制結構化輸出 (Output Parser)**：
+連接語言模型 (Language Model)：在 Agent 的 Model 輸入端，掛載 Google Gemini Chat Model 節點，並選定模型（如 gemini-2.5-flash）。
+強制結構化輸出 (Output Parser)：
 開啟 Agent 節點內的 Require Specific Output Format。
 在 Parser 輸入端掛載 Structured Output Parser 節點。
 在 Parser 內直接定義您期待的 JSON Schema（如下方範例）。
@@ -1015,7 +1017,7 @@ AI 擅長：拆結構、拆敘事、列節奏、找切點、補 B-roll、建議�
 
 
 
-加速小技巧：讓 AI 回答更準的 3 個輸入你提供的「素材描述」越具體，回覆越像你的專屬剪輯師：    1.	一句話目標：這支片要讓觀眾看完做什麼？（收藏&amp;#x2F;留言&amp;#x2F;點連結&amp;#x2F;買單）    2.	受眾輪廓：新手&amp;#x2F;進階&amp;#x2F;專業？痛點是什麼？    3.	時間碼筆記：不需要逐字稿，有「段落 + 時間」就很夠用
+加速小技巧：讓 AI 回答更準的 3 個輸入你提供的「素材描述」越具體，回覆越像你的專屬剪輯師：1.	一句話目標：這支片要讓觀眾看完做什麼？（收藏&amp;#x2F;留言&amp;#x2F;點連結&amp;#x2F;買單）2.	受眾輪廓：新手&amp;#x2F;進階&amp;#x2F;專業？痛點是什麼？3.	時間碼筆記：不需要逐字稿，有「段落 + 時間」就很夠用
 
 結語：你把時間花在哪裡，就會變成什麼樣的剪輯師
 當 AI 幫你把策略、結構、節奏先打底，你就能把力氣用在「更像作品」的地方：更準的鏡頭、更漂亮的節奏、更好的品味、更一致的整體感。
@@ -1098,7 +1100,7 @@ AI 影片生成 4 步實戰工作流第一步：請 AI 構思短影音與分鏡�
 第四步：使用 Grok 進行動態影片生成因為我們是採取「單張圖片轉影片」的模式，不一定要使用即夢或是可靈等具備高階首尾幀技術的影片生成工具，Grok 就是一個非常合適且強大的選擇。
 進入 Grok 後，依照順序將分割好的單張圖片上傳，並把第二步準備好的「中文提示詞與對白」丟上去，Grok 就可以直接開始生成影片。
 畫質提升關鍵：Grok 影片升級與下載技巧影片生成後，旁邊會有一個下載按鈕，但下載前請特別注意這個細節！
-在還沒有點擊任何設定前，直接下載的影片大概都只有 480p 的一般畫質。請務必點擊畫面上的「升級影片」選項，將影片升級為 HD 畫質。
+在還沒有點擊任何設定前，直接下載的影片大概都只有 480p 的一般畫質。請務必點擊畫面上的**「升級影片」選項**，將影片升級為 HD 畫質。
 12- 一般畫質：480p- HD 畫質：解析度將提升至 1504 x 832
 
 升級為 HD 後再下載，能夠大幅彌補原本單張圖片裁切後解析度的不足，讓最終成品的視覺體驗更好。
@@ -1508,7 +1510,7 @@ AI 字幕工作流完整教學／提示詞
 你不需要懂任何程式碼，只要用聊天的方式，教 AI 處理一件特定的任務，然後把它「打包」成一個專屬的 Gem。這個 Gem，就像一個 Google 文件一樣，可以透過一個連結，分享給任何人。
 這徹底改變了遊戲規則。
 
-關鍵心法：別再把 AI 當成一個「聊天對象」，開始把它當成一個可以被創造、被分享、被協作的【數位資產】。
+**關鍵心法：**別再把 AI 當成一個「聊天對象」，開始把它當成一個可以被創造、被分享、被協作的【數位資產】。
 
 這個「可以分享的 AI」到底強在哪裡？聽起來很酷，但這對我們的實際工作有什麼幫助？來，我們一條一條拆解給你聽。
 關鍵優勢一：它幾乎沒有門檻 🚀
@@ -1521,7 +1523,7 @@ AI 字幕工作流完整教學／提示詞
 無縫整合 Google 生態圈： 這才是 Google 的大殺器。你創造的 Gem，可以直接在 Gmail、Docs、Sheets 這些我們每天都在用的工具裡運作。它不是一個需要額外打開的軟體，而是融入你既有工作流程的超級外掛。
 
 
-重點：Gems 的核心價值不在於技術多新，而在於它用一種我們最熟悉、最沒有摩擦的方式，讓 AI 的協作變得可能。
+**重點：**Gems 的核心價值不在於技術多新，而在於它用一種我們最熟悉、最沒有摩擦的方式，讓 AI 的協作變得可能。
 
 理論聽完了，Gems 到底能用在哪？說真的，它的應用場景，只受限於你的想像力。我們先從每天待最久的辦公室開始聊起。
 場景一：自動化處理煩人的「會議與文件」📑你有沒有這樣的經驗？開了一下午的會，腦袋都糊了，還得花一小時整理會議記錄？
@@ -1763,7 +1765,7 @@ Google 雲端硬碟 &amp;gt; + 新增 &amp;gt; 更多 &amp;gt; Google 繪圖
 第二步：命名，然後把圖片請進來先幫這個檔案取個好辨識的名字，例如：「Gemini Canvas 專用 - 我的 APP Logo」。點擊「插入」&amp;gt;「圖片」&amp;gt;「從電腦上傳」，把你那張讓 Gemini 鬧脾氣的圖片放進來。
 第三步：（強烈建議）調整畫布，完美塑形圖片進來後，用滑鼠拖動畫布右下角的小三角形，讓畫布大小剛好貼合你的圖片尺寸。這個動作可以確保產生的圖片連結，不會有多餘的白邊，看起來更專業。
 第四步：取得那把「萬能鑰匙」🔑這是決定成敗的關鍵，請務必一個字一個字看清楚。
-點擊左上角「檔案」 &amp;gt; 「分享」 &amp;gt; 「發布到網路」。我再說一次，是【發布到網路】！不是隔壁那個藍色的「共用」按鈕！走錯棚，結果會完全不一樣。
+點擊左上角「檔案」 &amp;gt; 「分享」 &amp;gt; 「發布到網路」。我再說一次，是**【發布到網路】**！不是隔壁那個藍色的「共用」按鈕！走錯棚，結果會完全不一樣。
 
 思考一下：這一步的本質，是把一張存在你「私人電腦」裡的圖片，變成一個網路世界人人都能憑券入場的「公開展品」。Gemini 需要的就是這張入場券，而不是你家的鑰匙。
 在跳出的視窗，直接按下大大的「發布」按鈕，然後再次「確定」。接著，一條神聖的連結就會出現在你眼前。把它完整地複製下來。
@@ -1773,7 +1775,7 @@ Google 雲端硬碟 &amp;gt; + 新增 &amp;gt; 更多 &amp;gt; Google 繪圖
 操作SOP總結：在 Google 繪圖中放入圖片後，最關鍵的步驟是找到「檔案 &amp;gt; 分享 &amp;gt; 發布到網路」，取得該連結後貼回 Gemini Canvas 即可成功。
 
 疑難雜症排解 (FAQ)講到這裡，我知道你腦中可能還會冒出幾個小問號。別急，我都幫你想好了。
-Q1：為什麼不能用那個藍色的「共用」按鈕取得連結？很好的問題！「共用」產生的連結，是帶著「權限」的。它會去檢查誰可以看、誰可以編輯，比較像是辦公室內部傳檔案的邏輯。但 AI (Gemini) 是一個「訪客」，它沒有你的 Google 帳號權限，所以會被擋在門外。而「發布到網路」產生的連結，是完全公開、無權限檢查的「靜態網頁」連結。任何人（包括 AI）拿到連結就能直接看到內容，這才是 AI 需要的溝通方式。
+Q1：為什麼不能用那個藍色的「共用」按鈕取得連結？很好的問題！「共用」產生的連結，是帶著「權限」的。它會去檢查誰可以看、誰可以編輯，比較像是辦公室內部傳檔案的邏輯。但 AI (Gemini) 是一個「訪客」，它沒有你的 Google 帳號權限，所以會被擋在門外。而**「發布到網路」**產生的連結，是完全公開、無權限檢查的「靜態網頁」連結。任何人（包括 AI）拿到連結就能直接看到內容，這才是 AI 需要的溝通方式。
 Q2：如果我後來修改了 Google 繪圖裡的圖片，連結需要重產生嗎？答案是：不需要！ 這就是這個方法最神奇的地方。你發布的，其實是那個「畫布」本身。所以只要你在同一個檔案裡修改內容（例如換圖、裁切、加上文字），過幾分鐘後，原本的連結就會自動更新成最新的樣子！非常方便管理。
 Q3：用「發布到網路」會不會不安全？是的，理論上知道這串網址的任何人都能看到。所以，這個方法非常適合用在 App Logo、產品圖、教學素材…這類本來就是要公開的圖片上。但請不要用這個方法來處理你的身分證、信用卡、或是任何涉及個人隱私的機密照片。這很重要！
 
@@ -1983,7 +1985,7 @@ Q4: 如何讓摘要品質更上一層樓？答案永遠是：優化你的指令 
 </footer>
 
   
-  <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
   
 <script src="/js/swiper.js"></script>
