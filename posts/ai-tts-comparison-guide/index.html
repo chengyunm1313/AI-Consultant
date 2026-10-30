@@ -1,0 +1,1270 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-tts-comparison-guide/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較">
+<meta property="og:url" content="https://blog.es2idea.com/posts/ai-tts-comparison-guide/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover233.webp">
+<meta property="article:published_time" content="2026-10-30T16:14:23.000Z">
+<meta property="article:modified_time" content="2026-10-30T09:23:32.506Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover233.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#webpage","@type":"WebPage","name":"AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較","url":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/","description":"比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover233.webp","@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#blogposting","@type":"BlogPosting","headline":"AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較","name":"AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較","description":"比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。","url":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-10-30T16:14:23.000Z","dateModified":"2026-10-30T09:23:32.506Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover233.webp","@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","AI自動化","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","AI自動化","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較","item":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/"}]},{"@id":"https://blog.es2idea.com/posts/ai-tts-comparison-guide/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"免費 TTS 一定比訂閱 ElevenLabs 便宜嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。比較時應納入 GPU 或雲端費用、生成失敗與重試、環境維護時間，以及商用授權；低用量時按量計費可能更方便，實際價格與方案仍以官方公告及帳單為準。"}},{"@type":"Question","name":"Gemini TTS 可以複製固定角色的聲音嗎？","acceptedAnswer":{"@type":"Answer","text":"Google 文件介紹了 Voice Replication，但實際可用性、聲音樣本與同意驗證要求、權限和費用會依服務設定變動。請在自己的專案確認功能，並使用有權使用的聲音樣本，實測連續台詞的一致性。"}},{"@type":"Question","name":"BreezyVoice 和 Ming 可以直接用於商業影片嗎？","acceptedAnswer":{"@type":"Answer","text":"不能只因模型開源或免費就推定可以商用。使用前應分別查閱程式碼、模型權重、使用平台及聲音樣本的適用授權條款，並確認用途符合條件。"}}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81%E5%85%88%E6%90%9E%E6%87%82%EF%BC%9AAI-%E9%85%8D%E9%9F%B3%E5%92%8C%E8%81%B2%E9%9F%B3%E8%A4%87%E8%A3%BD%E6%9C%89%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、先搞懂：AI 配音和聲音複製有什麼不同？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E6%96%87%E5%AD%97%E8%BD%89%E8%AA%9E%E9%9F%B3%EF%BC%88TTS%EF%BC%89"><span class="toc-number">1.1.</span> <span class="toc-text">1. 文字轉語音（TTS）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%81%B2%E9%9F%B3%E8%A4%87%E8%A3%BD%EF%BC%88Voice-Cloning%EF%BC%89"><span class="toc-number">1.2.</span> <span class="toc-text">2. 聲音複製（Voice Cloning）</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E8%81%B2%E9%9F%B3%E8%A1%A8%E6%BC%94%E8%88%87%E6%83%85%E7%B7%92%E6%8E%A7%E5%88%B6"><span class="toc-number">1.3.</span> <span class="toc-text">3. 聲音表演與情緒控制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%9B%9B%E6%AC%BE-AI-%E9%85%8D%E9%9F%B3%E6%A8%A1%E5%9E%8B%EF%BC%8C%E7%A9%B6%E7%AB%9F%E6%9C%89%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、四款 AI 配音模型，究竟有什麼不同？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#ElevenLabs%EF%BC%9A%E6%88%90%E7%86%9F%E7%9A%84%E5%95%86%E6%A5%AD%E9%85%8D%E9%9F%B3%E6%9C%8D%E5%8B%99"><span class="toc-number">2.1.</span> <span class="toc-text">ElevenLabs：成熟的商業配音服務</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Gemini%EF%BC%9A%E6%9C%80%E5%80%BC%E5%BE%97%E7%A0%94%E7%A9%B6%E7%9A%84%E9%9B%B2%E7%AB%AF%E6%9B%BF%E4%BB%A3%E6%96%B9%E6%A1%88"><span class="toc-number">2.2.</span> <span class="toc-text">Gemini：最值得研究的雲端替代方案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#BreezyVoice%EF%BC%9A%E5%8F%B0%E7%81%A3%E5%89%B5%E4%BD%9C%E8%80%85%E5%80%BC%E5%BE%97%E9%97%9C%E6%B3%A8%E7%9A%84%E9%96%8B%E6%BA%90%E6%A8%A1%E5%9E%8B"><span class="toc-number">2.3.</span> <span class="toc-text">BreezyVoice：台灣創作者值得關注的開源模型</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Ming-3-0-TTS%EF%BC%9A%E9%80%B2%E9%9A%8E%E8%81%B2%E9%9F%B3%E8%A1%A8%E6%BC%94%E7%9A%84%E6%96%B0%E9%81%B8%E9%A0%85"><span class="toc-number">2.4.</span> <span class="toc-text">Ming-3.0-TTS：進階聲音表演的新選項</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E7%9C%9F%E6%AD%A3%E7%9A%84%E5%95%8F%E9%A1%8C%EF%BC%9AElevenLabs-%E6%AF%8F%E6%9C%88-US-6%EF%BC%8C%E5%80%BC%E5%BE%97%E7%B9%BC%E7%BA%8C%E4%BB%98%E5%97%8E%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">三、真正的問題：ElevenLabs 每月 US$6，值得繼續付嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%85%8D%E8%B2%BB%E9%96%8B%E6%BA%90%E6%A8%A1%E5%9E%8B%EF%BC%8C%E7%9C%9F%E7%9A%84%E5%AE%8C%E5%85%A8%E4%B8%8D%E7%94%A8%E9%8C%A2%E5%97%8E%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">四、免費開源模型，真的完全不用錢嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AF%A6%E6%88%B0%E6%95%99%E5%AD%B8%EF%BC%9A%E7%94%A8%E5%90%8C%E4%B8%80%E4%BB%BD%E8%85%B3%E6%9C%AC%E6%AF%94%E8%BC%83%E5%9B%9B%E5%A5%97-TTS"><span class="toc-number">5.</span> <span class="toc-text">五、實戰教學：用同一份腳本比較四套 TTS</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E4%B8%80%EF%BC%9AAI-%E7%B6%B2%E7%B4%85%E7%94%9F%E6%B4%BB-Vlog"><span class="toc-number">5.1.</span> <span class="toc-text">測試一：AI 網紅生活 Vlog</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E4%BA%8C%EF%BC%9AAI-%E7%9F%A5%E8%AD%98%E5%9C%96%E5%8D%A1%E5%8B%95%E7%95%AB"><span class="toc-number">5.2.</span> <span class="toc-text">測試二：AI 知識圖卡動畫</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%B8%AC%E8%A9%A6%E4%B8%89%EF%BC%9A%E6%83%85%E7%B7%92%E8%A1%A8%E6%BC%94"><span class="toc-number">5.3.</span> <span class="toc-text">測試三：情緒表演</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E8%A9%95%E5%88%86%E8%A1%A8"><span class="toc-number">5.4.</span> <span class="toc-text">建議評分表</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E9%80%B2%E9%9A%8E%E6%87%89%E7%94%A8%EF%BC%9A%E7%94%A8-Codex-%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84-AI-%E9%85%8D%E9%9F%B3%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">6.</span> <span class="toc-text">六、進階應用：用 Codex 建立自己的 AI 配音工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E6%9C%80%E5%BE%8C%E5%BB%BA%E8%AD%B0%EF%BC%9AElevenLabs-%E4%B8%8D%E4%B8%80%E5%AE%9A%E8%A6%81%E7%BA%8C%E8%A8%82%EF%BC%8C%E4%BD%86%E4%B8%8D%E8%A6%81%E7%82%BA%E4%BA%86%E7%9C%81%E9%8C%A2%E8%80%8C%E5%A2%9E%E5%8A%A0%E5%B7%A5%E4%BD%9C%E9%87%8F"><span class="toc-number">7.</span> <span class="toc-text">七、最後建議：ElevenLabs 不一定要續訂，但不要為了省錢而增加工作量</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Gemini-%E7%95%B6%E4%BD%9C%E4%B8%BB%E8%A6%81%E9%85%8D%E9%9F%B3%E5%BC%95%E6%93%8E"><span class="toc-number">7.1.</span> <span class="toc-text">1. Gemini 當作主要配音引擎</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-BreezyVoice-%E8%B2%A0%E8%B2%AC%E5%8F%B0%E7%81%A3%E5%9C%8B%E8%AA%9E%E8%88%87%E7%9F%A5%E8%AD%98%E5%9E%8B%E6%97%81%E7%99%BD"><span class="toc-number">7.2.</span> <span class="toc-text">2. BreezyVoice 負責台灣國語與知識型旁白</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Ming-%E7%95%99%E7%B5%A6%E9%9C%80%E8%A6%81%E7%89%B9%E6%AE%8A%E8%81%B2%E9%9F%B3%E8%A1%A8%E6%BC%94%E7%9A%84%E5%BD%B1%E7%89%87"><span class="toc-number">7.3.</span> <span class="toc-text">3. Ming 留給需要特殊聲音表演的影片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-ElevenLabs-%E5%85%88%E7%95%B6%E6%AF%94%E8%BC%83%E5%9F%BA%E6%BA%96%EF%BC%8C%E9%A9%97%E6%94%B6%E9%80%9A%E9%81%8E%E5%BE%8C%E5%86%8D%E5%8F%96%E6%B6%88"><span class="toc-number">7.4.</span> <span class="toc-text">4. ElevenLabs 先當比較基準，驗收通過後再取消</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%8F%96%E6%B6%88-ElevenLabs-%E5%89%8D%EF%BC%8C%E8%A8%98%E5%BE%97%E7%A2%BA%E8%AA%8D%E9%80%99%E4%BA%94%E4%BB%B6%E4%BA%8B"><span class="toc-number">8.</span> <span class="toc-text">八、取消 ElevenLabs 前，記得確認這五件事</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E7%9C%9F%E6%AD%A3%E5%80%BC%E5%BE%97%E6%8A%95%E8%B3%87%E7%9A%84%EF%BC%8C%E6%98%AF%E8%87%AA%E5%B7%B1%E7%9A%84-AI-%E9%85%8D%E9%9F%B3%E7%B3%BB%E7%B5%B1"><span class="toc-number">9.</span> <span class="toc-text">九、真正值得投資的，是自己的 AI 配音系統</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%88%91%E7%9A%84%E9%A0%90%E8%A8%88%E6%8E%A1%E7%94%A8%E6%96%B9%E6%A1%88"><span class="toc-number">9.1.</span> <span class="toc-text">我的預計採用方案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E7%B5%90%E8%AA%9E%EF%BC%9A%E5%BE%9E%E8%A8%82%E9%96%B1-AI-%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%B5%B0%E5%90%91%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84-AI-%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">10.</span> <span class="toc-text">十、結語：從訂閱 AI 工具，走向建立自己的 AI 工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">11.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E5%85%8D%E8%B2%BB-TTS-%E4%B8%80%E5%AE%9A%E6%AF%94%E8%A8%82%E9%96%B1-ElevenLabs-%E4%BE%BF%E5%AE%9C%E5%97%8E%EF%BC%9F"><span class="toc-number">11.1.</span> <span class="toc-text">Q1：免費 TTS 一定比訂閱 ElevenLabs 便宜嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9AGemini-TTS-%E5%8F%AF%E4%BB%A5%E8%A4%87%E8%A3%BD%E5%9B%BA%E5%AE%9A%E8%A7%92%E8%89%B2%E7%9A%84%E8%81%B2%E9%9F%B3%E5%97%8E%EF%BC%9F"><span class="toc-number">11.2.</span> <span class="toc-text">Q2：Gemini TTS 可以複製固定角色的聲音嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9ABreezyVoice-%E5%92%8C-Ming-%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E7%94%A8%E6%96%BC%E5%95%86%E6%A5%AD%E5%BD%B1%E7%89%87%E5%97%8E%EF%BC%9F"><span class="toc-number">11.3.</span> <span class="toc-text">Q3：BreezyVoice 和 Ming 可以直接用於商業影片嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%B6%E4%BC%B8%E9%96%B1%E8%AE%80%E8%88%87%E5%AE%98%E6%96%B9%E8%B3%87%E6%BA%90"><span class="toc-number">11.4.</span> <span class="toc-text">延伸閱讀與官方資源</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (36)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (74)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (23)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (33)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (87)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (19)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (89)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (49)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (50)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/10/30 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較</h1>
+        
+        <p><strong>AI 網紅、知識型短影音創作者必看：如何兼顧聲音複製、台灣國語、商業使用與自動化製片？</strong></p>
+<p>以前想要讓 AI 幫影片配音，第一個想到的可能就是 ElevenLabs。</p>
+<p>聲音自然、支援聲音複製（Voice Cloning），還能控制說話的情緒。對於不想自己錄音，又希望影片有專業旁白的創作者來說，確實很方便。</p>
+<p>我自己也訂閱了 ElevenLabs Starter，每個月付費 US$6。</p>
+<p>但最近研究 AI 網紅與 AI 知識型動畫影片的製作流程時，我開始思考一件事情：</p>
+<p><strong>現在 AI 語音模型進步這麼快，我真的還需要每個月付這筆訂閱費嗎？</strong></p>
+<p>尤其最近研究了三套替代方案：</p>
+<ul>
+<li><strong>Google Gemini 3.8 Flash TTS</strong>：雲端語音生成與聲音複製。</li>
+<li><strong>BreezyVoice</strong>：聯發科技研究院推出、針對台灣國語最佳化的開源語音模型。</li>
+<li><strong>Ming-3.0-TTS</strong>：支援聲音複製、情緒控制與多語言的開源語音模型。</li>
+</ul>
+<p>這三套模型各有特色。</p>
+<p>研究之後，我發現真正值得討論的，已經不是哪個 AI 配音工具最厲害，而是：</p>
+<p><strong>如何用最低成本，建立一套可以長期使用、能自動化、又能維持角色聲音一致性的 AI 配音工作流？</strong></p>
+<p>這篇就從實際創作者的角度，帶大家一起了解。</p>
+<hr>
+<h2 id="一、先搞懂：AI-配音和聲音複製有什麼不同？"><a href="#一、先搞懂：AI-配音和聲音複製有什麼不同？" class="headerlink" title="一、先搞懂：AI 配音和聲音複製有什麼不同？"></a>一、先搞懂：AI 配音和聲音複製有什麼不同？</h2><p>很多人以為 AI TTS 就是輸入文字，讓 AI 幫忙念出來。</p>
+<p>其實現在的 TTS（Text-to-Speech，文字轉語音）已經進步很多。</p>
+<p>至少可以分成三種能力。</p>
+<h3 id="1-文字轉語音（TTS）"><a href="#1-文字轉語音（TTS）" class="headerlink" title="1. 文字轉語音（TTS）"></a>1. 文字轉語音（TTS）</h3><p>輸入一段文字，選擇男聲或女聲，AI 就能生成配音。</p>
+<p>例如：</p>
+<p>「哈囉大家，我是米樂！今天要跟大家分享三個超實用的 AI 工具。」</p>
+<p>這是最基本的應用，適合知識型短影音、教學動畫與新聞摘要。</p>
+<h3 id="2-聲音複製（Voice-Cloning）"><a href="#2-聲音複製（Voice-Cloning）" class="headerlink" title="2. 聲音複製（Voice Cloning）"></a>2. 聲音複製（Voice Cloning）</h3><p>提供一段自己或已取得授權的聲音樣本，AI 就能模仿這個人的聲線，朗讀不同內容。</p>
+<p>例如你錄製一段 15 秒的聲音，以後只要輸入文字，就能產生相似聲線的新配音。</p>
+<p>這對 AI 網紅尤其重要。</p>
+<p>因為觀眾可能不會記住每支影片的內容，但會逐漸熟悉角色的聲音。</p>
+<p>如果每支影片的聲線都不同，就很難建立角色辨識度。</p>
+<h3 id="3-聲音表演與情緒控制"><a href="#3-聲音表演與情緒控制" class="headerlink" title="3. 聲音表演與情緒控制"></a>3. 聲音表演與情緒控制</h3><p>這是更進階的功能。</p>
+<p>同一句話：</p>
+<p>「真的假的？這也太厲害了吧！」</p>
+<p>可以用驚訝、開心、懷疑，甚至有點不耐煩的方式來表達。</p>
+<p>對一般知識型影片來說，可能不需要太複雜的情緒。</p>
+<p>但如果要製作 AI 網紅 Vlog、故事型短影音，情緒表現就會直接影響影片的自然程度。</p>
+<hr>
+<h2 id="二、四款-AI-配音模型，究竟有什麼不同？"><a href="#二、四款-AI-配音模型，究竟有什麼不同？" class="headerlink" title="二、四款 AI 配音模型，究竟有什麼不同？"></a>二、四款 AI 配音模型，究竟有什麼不同？</h2><p>這次研究的四個選項，分別代表不同的技術路線。功能、價格與授權可能隨版本及方案變動；本文是規劃與比較方法，並非四套模型的同條件實測排名。</p>
+<table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>ElevenLabs</th>
+<th>Gemini TTS</th>
+<th>BreezyVoice</th>
+<th>Ming-3.0-TTS</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主要定位</td>
+<td>商業語音平台</td>
+<td>雲端 AI 語音服務</td>
+<td>台灣國語模型</td>
+<td>開源多語言 TTS</td>
+</tr>
+<tr>
+<td>聲音複製</td>
+<td>支援</td>
+<td>依 API 權限與同意驗證</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>台灣國語</td>
+<td>需實測</td>
+<td>需實測</td>
+<td>專門最佳化</td>
+<td>需實測</td>
+</tr>
+<tr>
+<td>情緒控制</td>
+<td>豐富</td>
+<td>豐富</td>
+<td>相對基礎</td>
+<td>豐富</td>
+</tr>
+<tr>
+<td>中文夾英文</td>
+<td>支援</td>
+<td>支援</td>
+<td>在地化優勢</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>自行部署</td>
+<td>不提供</td>
+<td>不提供</td>
+<td>可以</td>
+<td>可以</td>
+</tr>
+<tr>
+<td>API 整合</td>
+<td>支援</td>
+<td>支援</td>
+<td>可自行封裝</td>
+<td>可自行封裝</td>
+</tr>
+<tr>
+<td>費用模式</td>
+<td>訂閱制</td>
+<td>免費額度／按量計費</td>
+<td>自行負擔運算</td>
+<td>自行負擔運算</td>
+</tr>
+</tbody></table>
+<p>要注意，這不是四款模型在相同環境下的音質排名，而是根據公開功能與部署方式整理的比較。</p>
+<h3 id="ElevenLabs：成熟的商業配音服務"><a href="#ElevenLabs：成熟的商業配音服務" class="headerlink" title="ElevenLabs：成熟的商業配音服務"></a>ElevenLabs：成熟的商業配音服務</h3><p>ElevenLabs 最大的優勢，就是使用門檻低。</p>
+<p>不用安裝模型、不用準備 GPU，也不需要了解太多技術。</p>
+<p>選擇聲音、輸入文字，就能產生配音。</p>
+<p>它也提供聲音複製、情緒控制及 API，適合需要穩定製作商業內容的創作者。</p>
+<p>缺點就是持續訂閱的固定成本。</p>
+<p>我目前使用 Starter，每月 US$6。</p>
+<p>雖然不算貴，但如果一個月只做幾支影片，實際使用率可能不高。</p>
+<h3 id="Gemini：最值得研究的雲端替代方案"><a href="#Gemini：最值得研究的雲端替代方案" class="headerlink" title="Gemini：最值得研究的雲端替代方案"></a>Gemini：最值得研究的雲端替代方案</h3><p>Gemini TTS 吸引我的地方，不只是可以生成自然語音，而是能透過 API 整合自動化工作流。</p>
+<p>以 AI 網紅來說，我希望做到：</p>
+<p>輸入腳本 → 選擇角色聲音 → AI 生成配音 → 自動產生字幕 → 合成影片。</p>
+<p>不必每次打開不同網站，手動下載音訊，再放進剪輯軟體。</p>
+<p>Gemini 的 Voice Replication 也提供聲音複製能力，不過要注意，<strong>一般 TTS 免費額度不代表所有聲音複製功能都保證免費開放</strong>。</p>
+<p>聲音建立、使用權限、同意驗證及實際計費，都應先在自己的 API 專案測試。</p>
+<h3 id="BreezyVoice：台灣創作者值得關注的開源模型"><a href="#BreezyVoice：台灣創作者值得關注的開源模型" class="headerlink" title="BreezyVoice：台灣創作者值得關注的開源模型"></a>BreezyVoice：台灣創作者值得關注的開源模型</h3><p>BreezyVoice 是聯發科技研究院推出的語音合成模型。</p>
+<p>它最吸引我的地方，是針對台灣國語最佳化。</p>
+<p>例如：</p>
+<p>「今天教大家使用 ChatGPT、Google Flow 和 Codex 製作 AI 短影音。」</p>
+<p>這種中文夾英文的句子，在台灣知識型影片非常常見。</p>
+<p>有些 TTS 模型中文講得很好，但遇到英文產品名稱就會突然變成奇怪的口音。</p>
+<p>BreezyVoice 的在地化設計與注音發音控制，正好值得拿來測試這類情境。</p>
+<p>它也支援聲音複製，不只是一般文字朗讀工具。</p>
+<p>不過，開源不等於完全沒有成本。</p>
+<p>如果使用 Google Colab，仍然要考慮 GPU 額度、啟動時間、環境安裝與維護。</p>
+<h3 id="Ming-3-0-TTS：進階聲音表演的新選項"><a href="#Ming-3-0-TTS：進階聲音表演的新選項" class="headerlink" title="Ming-3.0-TTS：進階聲音表演的新選項"></a>Ming-3.0-TTS：進階聲音表演的新選項</h3><p>Ming-3.0-TTS 則是另一條值得研究的路線。</p>
+<p>它支援聲音複製、聲音設計、多語言與情緒控制。</p>
+<p>其中 0.5B 版本相對輕量，適合優先研究部署。</p>
+<p>如果只是製作一般知識型旁白，未必需要這麼多進階功能。</p>
+<p>但如果想讓 AI 網紅有更豐富的語氣，例如笑聲、嘆氣、驚訝或情緒轉換，就值得進一步測試。</p>
+<p>我的看法是：Ming 不一定要成為第一套配音工具，但很適合作為未來的進階引擎。</p>
+<hr>
+<h2 id="三、真正的問題：ElevenLabs-每月-US-6，值得繼續付嗎？"><a href="#三、真正的問題：ElevenLabs-每月-US-6，值得繼續付嗎？" class="headerlink" title="三、真正的問題：ElevenLabs 每月 US$6，值得繼續付嗎？"></a>三、真正的問題：ElevenLabs 每月 US$6，值得繼續付嗎？</h2><p>我們直接來算帳。</p>
+<p>以 ElevenLabs Starter 每月 US$6 計算：</p>
+<table>
+<thead>
+<tr>
+<th>時間</th>
+<th align="right">訂閱費</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>1 個月</td>
+<td align="right">US$6</td>
+</tr>
+<tr>
+<td>3 個月</td>
+<td align="right">US$18</td>
+</tr>
+<tr>
+<td>6 個月</td>
+<td align="right">US$36</td>
+</tr>
+<tr>
+<td>12 個月</td>
+<td align="right">US$72</td>
+</tr>
+</tbody></table>
+<p>假設匯率為 1 美元兌 32 元新台幣，一年約 NT$2,304。</p>
+<p>這筆費用不算大。</p>
+<p>但真正值得注意的是：<strong>不管這個月有沒有製作影片，訂閱費都會持續產生。</strong></p>
+<p>對偶爾使用的創作者來說，固定訂閱未必是最划算的選擇。</p>
+<p>相較之下，Gemini 採用按量計費的方式，就有機會降低閒置成本。</p>
+<p>舉個例子。</p>
+<p>假設某個 TTS 模型生成一分鐘音訊的成本約 US$0.0135。這是單純的試算假設，不代表任何特定模型的現行報價。</p>
+<p>那麼：</p>
+<table>
+<thead>
+<tr>
+<th>每月生成量</th>
+<th align="right">預估費用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>10 分鐘</td>
+<td align="right">US$0.135</td>
+</tr>
+<tr>
+<td>20 分鐘</td>
+<td align="right">US$0.270</td>
+</tr>
+<tr>
+<td>30 分鐘</td>
+<td align="right">US$0.405</td>
+</tr>
+</tbody></table>
+<p>即使每段音訊平均重做兩次（共生成三次），上述估算分別為 US$0.405、US$0.810、US$1.215，成本仍可能遠低於每月 US$6。</p>
+<p>這只是便於理解的假設示例，不包含文字輸入、聲音複製建立費、額外功能費用與其他計費項目。實際仍要以 Google 官方價格表為準。</p>
+<p>所以不能單純說 Gemini 一定比 ElevenLabs 便宜幾十倍。</p>
+<p>比較合理的結論是：</p>
+<p><strong>對低用量創作者而言，按量計費通常比固定月費更值得優先評估。</strong></p>
+<hr>
+<h2 id="四、免費開源模型，真的完全不用錢嗎？"><a href="#四、免費開源模型，真的完全不用錢嗎？" class="headerlink" title="四、免費開源模型，真的完全不用錢嗎？"></a>四、免費開源模型，真的完全不用錢嗎？</h2><p>這也是很多人容易忽略的問題。</p>
+<p>BreezyVoice 和 Ming 都能自行部署，不需要依照每次生成的音訊向模型供應商支付 API 費用。</p>
+<p>但你還是需要運算資源。</p>
+<p>例如使用 Google Colab 執行模型，就可能遇到：</p>
+<ul>
+<li>免費 GPU 使用時間有限。</li>
+<li>每次啟動需要載入模型。</li>
+<li>套件更新造成相容性問題。</li>
+<li>GPU 記憶體不足。</li>
+<li>模型生成失敗，需要重新執行。</li>
+</ul>
+<p>如果原本只需要五分鐘完成一段配音，結果花了半小時處理 Colab 環境，那就算 API 費用是零，也不代表真的比較省。</p>
+<p>所以我認為開源 TTS 的價值，不只是省錢。</p>
+<p>更重要的是可以自行控制工作流、保存聲音參考素材、整合 Codex，甚至未來把整套系統做成自己的 AI 製片工具。</p>
+<p>如果只是偶爾生成幾分鐘旁白，雲端 API 可能更省事。</p>
+<p>如果要大量批次生成，或希望建立完全由自己掌握的配音系統，開源模型才會逐漸展現優勢。</p>
+<hr>
+<h2 id="五、實戰教學：用同一份腳本比較四套-TTS"><a href="#五、實戰教學：用同一份腳本比較四套-TTS" class="headerlink" title="五、實戰教學：用同一份腳本比較四套 TTS"></a>五、實戰教學：用同一份腳本比較四套 TTS</h2><p>如果你跟我一樣，正在考慮取消 ElevenLabs，我建議先不要只看網路上的模型排行榜。</p>
+<p>最有效的方法，就是讓四個模型生成相同的台詞，自己比較。</p>
+<h3 id="測試一：AI-網紅生活-Vlog"><a href="#測試一：AI-網紅生活-Vlog" class="headerlink" title="測試一：AI 網紅生活 Vlog"></a>測試一：AI 網紅生活 Vlog</h3><p>先準備一段有權使用的參考聲音；15～30 秒可作為測試規劃的起點，實際長度與同意驗證請依各模型要求調整。</p>
+<p>再使用以下台詞：</p>
+<blockquote>
+<p>哈囉大家，我是米樂！今天原本想出門喝咖啡，結果外面突然下起大雨。算了，我們就在家裡度過一個舒服的下午吧！</p>
+</blockquote>
+<p>這段主要測試三件事。</p>
+<p>第一，聲音是否自然，像真人聊天，而不是照稿朗讀。</p>
+<p>第二，情緒是否合理，能不能呈現輕鬆、親切的感覺。</p>
+<p>第三，複製聲音後，是否能維持原本角色的聲線。</p>
+<p>對 AI 網紅來說，我認為第三點特別重要。</p>
+<p>因為我們要的不是每次都生成一個好聽的聲音，而是每次都生成<strong>同一個角色的聲音</strong>。</p>
+<h3 id="測試二：AI-知識圖卡動畫"><a href="#測試二：AI-知識圖卡動畫" class="headerlink" title="測試二：AI 知識圖卡動畫"></a>測試二：AI 知識圖卡動畫</h3><p>使用另一段台詞：</p>
+<blockquote>
+<p>你知道嗎？現在透過 ChatGPT、Google Flow 和 Codex，就能把一篇文章變成有旁白、字幕與動畫的短影音。</p>
+</blockquote>
+<p>這次重點不在情緒，而在發音。</p>
+<p>尤其要注意 ChatGPT、Google Flow、Codex 這些英文名稱。</p>
+<p>還要聽中文語氣是否自然，有沒有不符合台灣習慣的用詞或口音。</p>
+<p>我會優先拿 BreezyVoice 跟 Gemini 比較這一段。</p>
+<h3 id="測試三：情緒表演"><a href="#測試三：情緒表演" class="headerlink" title="測試三：情緒表演"></a>測試三：情緒表演</h3><p>最後測試：</p>
+<blockquote>
+<p>等等！你是說這段影片完全不用真人配音？真的假的？這也太厲害了吧！</p>
+</blockquote>
+<p>這段用來觀察 AI 能否自然表現驚訝、停頓與語氣變化。</p>
+<p>我會優先比較 ElevenLabs、Gemini 與 Ming。</p>
+<p>每套模型至少生成三次，避免只憑一次結果下結論。</p>
+<h3 id="建議評分表"><a href="#建議評分表" class="headerlink" title="建議評分表"></a>建議評分表</h3><table>
+<thead>
+<tr>
+<th>評估項目</th>
+<th align="right">權重</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>台灣國語自然度</td>
+<td align="right">25%</td>
+</tr>
+<tr>
+<td>聲線一致性</td>
+<td align="right">25%</td>
+</tr>
+<tr>
+<td>發音正確率</td>
+<td align="right">20%</td>
+</tr>
+<tr>
+<td>情緒表達</td>
+<td align="right">15%</td>
+</tr>
+<tr>
+<td>生成速度與穩定性</td>
+<td align="right">10%</td>
+</tr>
+<tr>
+<td>操作便利性</td>
+<td align="right">5%</td>
+</tr>
+</tbody></table>
+<p>成本與商業授權另外作為必要條件，不應只靠音質分數決定。</p>
+<hr>
+<h2 id="六、進階應用：用-Codex-建立自己的-AI-配音工作流"><a href="#六、進階應用：用-Codex-建立自己的-AI-配音工作流" class="headerlink" title="六、進階應用：用 Codex 建立自己的 AI 配音工作流"></a>六、進階應用：用 Codex 建立自己的 AI 配音工作流</h2><p>這才是我認為最有價值的部分。</p>
+<p>與其一直尋找哪個 TTS 模型最好，不如建立一套可以自由切換模型的工作流。</p>
+<p>例如：</p>
+<p><strong>第一步：產生腳本</strong></p>
+<p>使用 ChatGPT 或 Codex 生成 AI 網紅台詞、知識型影片旁白。</p>
+<p><strong>第二步：選擇角色</strong></p>
+<p>例如「許米樂」使用固定聲線，知識型動畫則使用另一套旁白聲音。</p>
+<p><strong>第三步：選擇配音引擎</strong></p>
+<ul>
+<li>Gemini：一般 AI 網紅配音。</li>
+<li>BreezyVoice：台灣國語知識型旁白。</li>
+<li>Ming：需要特殊情緒表演時使用。</li>
+<li>ElevenLabs：測試階段的音質基準或備用引擎。</li>
+</ul>
+<p><strong>第四步：生成音訊</strong></p>
+<p>由程式自動呼叫 API，或使用本機／Colab 模型。</p>
+<p><strong>第五步：自動產生字幕</strong></p>
+<p>透過 Whisper 或其他語音辨識、字幕對齊工具，輸出 SRT。</p>
+<p><strong>第六步：自動合成影片</strong></p>
+<p>最後使用 Concat、FFmpeg 或其他剪輯工具，將配音、字幕、背景音樂及影片素材合成。</p>
+<p>完成後，輸出直式 9:16 影片。</p>
+<p>這樣做最大的好處，就是未來即使出現新的 TTS 模型，也不需要重新設計整個製片流程。</p>
+<p>只需要替換配音引擎。</p>
+<p>對經常製作 AI 影片的人來說，這比單純省下每月 US$6 更有長期價值。</p>
+<hr>
+<h2 id="七、最後建議：ElevenLabs-不一定要續訂，但不要為了省錢而增加工作量"><a href="#七、最後建議：ElevenLabs-不一定要續訂，但不要為了省錢而增加工作量" class="headerlink" title="七、最後建議：ElevenLabs 不一定要續訂，但不要為了省錢而增加工作量"></a>七、最後建議：ElevenLabs 不一定要續訂，但不要為了省錢而增加工作量</h2><p>研究完四套模型，我目前最傾向的做法是：</p>
+<h3 id="1-Gemini-當作主要配音引擎"><a href="#1-Gemini-當作主要配音引擎" class="headerlink" title="1. Gemini 當作主要配音引擎"></a>1. Gemini 當作主要配音引擎</h3><p>原因很簡單。</p>
+<p>不需要自行管理 GPU，容易透過 API 整合 Codex，對低使用量創作者來說，按量計費也比較有彈性。</p>
+<p>尤其 AI 網紅需要經常修改台詞，雲端 API 的操作便利性非常重要。</p>
+<p>不過，聲音複製是否可用、實際費用與聲線一致性，都必須先測試。</p>
+<h3 id="2-BreezyVoice-負責台灣國語與知識型旁白"><a href="#2-BreezyVoice-負責台灣國語與知識型旁白" class="headerlink" title="2. BreezyVoice 負責台灣國語與知識型旁白"></a>2. BreezyVoice 負責台灣國語與知識型旁白</h3><p>對台灣創作者來說，發音自然可能比情緒豐富更重要。</p>
+<p>尤其是教學影片、AI 新聞、知識圖卡動畫，觀眾要的是聽得清楚、容易理解。</p>
+<p>BreezyVoice 值得保留在工具箱裡。</p>
+<h3 id="3-Ming-留給需要特殊聲音表演的影片"><a href="#3-Ming-留給需要特殊聲音表演的影片" class="headerlink" title="3. Ming 留給需要特殊聲音表演的影片"></a>3. Ming 留給需要特殊聲音表演的影片</h3><p>不是每支影片都需要複雜的情緒控制。</p>
+<p>一般旁白能用簡單模型完成，就不必使用更耗資源的模型。</p>
+<p>等到需要特殊情緒、角色化敘事或多語言配音，再使用 Ming。</p>
+<h3 id="4-ElevenLabs-先當比較基準，驗收通過後再取消"><a href="#4-ElevenLabs-先當比較基準，驗收通過後再取消" class="headerlink" title="4. ElevenLabs 先當比較基準，驗收通過後再取消"></a>4. ElevenLabs 先當比較基準，驗收通過後再取消</h3><p>這是我最重要的建議。</p>
+<p>不要看到新模型免費，就立刻取消已經能正常使用的服務。</p>
+<p>先用相同腳本、相同聲音參考，實際比較音質與生成效率。</p>
+<p>如果 Gemini 可以維持 AI 網紅的固定聲線，BreezyVoice 又能滿足知識型影片的台灣國語需求，那麼 ElevenLabs 就不一定需要繼續訂閱。</p>
+<p>以我目前使用的 ElevenLabs Starter 來說，每月 US$6，一年就是 US$72。這是我的帳單範例，實際方案、稅費與價格請以自己的帳單與官方公告為準。</p>
+<p>這筆錢雖然不多，但如果一年只使用幾次，固定訂閱就不一定划算。</p>
+<p>我會採取以下策略：</p>
+<ul>
+<li><strong>第一階段：</strong> 保留 ElevenLabs，建立配音比較基準。</li>
+<li><strong>第二階段：</strong> 測試 Gemini 聲音複製與 BreezyVoice 中文旁白。</li>
+<li><strong>第三階段：</strong> 將主要配音流程整合到 Codex。</li>
+<li><strong>第四階段：</strong> 確認替代方案可以穩定完成商業影片後，取消 ElevenLabs 訂閱。</li>
+<li><strong>第五階段：</strong> 未來若有特殊專案，再評估是否短期重新訂閱。</li>
+</ul>
+<p>這樣既能降低固定成本，也不會因為更換工具而影響原本的影片製作。</p>
+<hr>
+<h2 id="八、取消-ElevenLabs-前，記得確認這五件事"><a href="#八、取消-ElevenLabs-前，記得確認這五件事" class="headerlink" title="八、取消 ElevenLabs 前，記得確認這五件事"></a>八、取消 ElevenLabs 前，記得確認這五件事</h2><p>如果你也正在考慮取消付費 TTS，我建議先完成以下檢查。</p>
+<ul>
+<li><strong>聲音資產備份</strong>：保留自己錄製或有權使用的原始聲音樣本、既有配音成品與角色設定。</li>
+<li><strong>角色聲線一致性</strong>：同一個角色連續生成至少 10 段不同台詞，確認聲音不會明顯改變。</li>
+<li><strong>中文發音測試</strong>：確認繁體中文、台灣國語及中英混合的專有名詞能正確朗讀。</li>
+<li><strong>商業使用授權</strong>：確認替代模型、API 方案及聲音樣本的授權符合商業影片用途。</li>
+<li><strong>實際成本與自動化驗收</strong>：將 API 費用、GPU 資源、重試次數及維護時間全部納入。</li>
+</ul>
+<p>尤其要注意：<strong>免費使用不等於免費商用，開源也不等於沒有使用條件。</strong></p>
+<p>如果影片要用於品牌宣傳、課程招生、商品行銷或廣告，最好先確認相關授權條款。</p>
+<p>另外，取消 ElevenLabs 前，應先確認目前的帳單週期、未使用額度，以及取消後能否繼續存取原本的聲音設定。不要把平台上的聲音 ID 當成唯一備份。</p>
+<hr>
+<h2 id="九、真正值得投資的，是自己的-AI-配音系統"><a href="#九、真正值得投資的，是自己的-AI-配音系統" class="headerlink" title="九、真正值得投資的，是自己的 AI 配音系統"></a>九、真正值得投資的，是自己的 AI 配音系統</h2><p>研究完這四套模型，我最大的感想不是哪一個比較厲害，而是對 AI 工具的使用方式應該開始改變。</p>
+<p>以前我們可能會問：「哪個 AI 配音工具最好用？」現在我認為應該改問：</p>
+<p><strong>「能不能讓不同 AI 模型，成為同一套製片工作流裡可以自由替換的元件？」</strong></p>
+<p>以我的 AI 網紅與知識型動畫製作來說，理想的流程應該是：</p>
+<p><strong>腳本生成 → 角色聲音設定 → TTS 配音 → 音訊驗收 → 字幕同步 → 自動剪輯 → 影片輸出</strong></p>
+<p>這個流程裡，TTS 只是其中一個環節。今天用 Gemini，明天可以換 BreezyVoice；未來如果出現更好的開源模型，也可以評估加入。整合仍需處理各引擎的介面、聲音設定與授權差異。</p>
+<p>對內容創作者來說，最有價值的是能不能讓這些工具真正協同工作。</p>
+<h3 id="我的預計採用方案"><a href="#我的預計採用方案" class="headerlink" title="我的預計採用方案"></a>我的預計採用方案</h3><table>
+<thead>
+<tr>
+<th>用途</th>
+<th>優先選擇</th>
+<th>原因</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>AI 網紅日常 Vlog</td>
+<td>Gemini TTS</td>
+<td>API 整合容易、可評估按量計費</td>
+</tr>
+<tr>
+<td>AI 知識圖卡動畫</td>
+<td>BreezyVoice</td>
+<td>台灣國語在地化優勢值得測試</td>
+</tr>
+<tr>
+<td>情緒豐富的故事配音</td>
+<td>Ming-3.0-TTS</td>
+<td>聲音表演與情緒控制值得測試</td>
+</tr>
+<tr>
+<td>高要求商業配音</td>
+<td>ElevenLabs</td>
+<td>保留作為品質基準</td>
+</tr>
+<tr>
+<td>長期自動化製片</td>
+<td>Codex + 多模型 TTS</td>
+<td>可以規劃切換引擎</td>
+</tr>
+</tbody></table>
+<p>這是我的預計採用方案，並非已經完成四模型同條件音質測試的最終排名。至於 ElevenLabs Starter，我會先保留到替代方案完成驗收，再考慮取消。</p>
+<p>如果 Gemini 能滿足日常配音需求，BreezyVoice 又能把台灣國語處理好，就可以重新評估偶爾使用的固定月費。不過，如果為了節省每月 US$6，結果每個月多花兩小時維護 Colab，那就失去省錢的意義。</p>
+<p><strong>省錢，不是單純選免費工具，而是用最低的總成本，完成原本需要做的事情。</strong></p>
+<hr>
+<h2 id="十、結語：從訂閱-AI-工具，走向建立自己的-AI-工作流"><a href="#十、結語：從訂閱-AI-工具，走向建立自己的-AI-工作流" class="headerlink" title="十、結語：從訂閱 AI 工具，走向建立自己的 AI 工作流"></a>十、結語：從訂閱 AI 工具，走向建立自己的 AI 工作流</h2><p>AI 語音生成正在快速進步。從固定聲線，到聲音複製、情緒控制與自行部署，創作者有了更多選擇。</p>
+<p>尤其是偶爾需要配音，卻希望把 AI 網紅與知識型影片製作自動化的使用者，更應該重新檢查自己的訂閱服務：有些工具適合訂閱，有些適合按量計費，有些則值得自行部署。</p>
+<p><strong>不要為了免費而免費，也不要因為過去一直付費，就忘了重新評估是否還需要。</strong></p>
+<p>我接下來會繼續實測 Gemini、BreezyVoice 與 Ming，看看能不能把整套配音流程整合進 Codex。目標是建立一套屬於自己的 AI 自動化配音系統，讓角色聲音固定、知識型動畫能快速生成旁白，也讓影片製作成本更可控。</p>
+<p><strong>AI 工具會一直更新，但真正值得累積的，是我們自己的工作流。</strong></p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：免費-TTS-一定比訂閱-ElevenLabs-便宜嗎？"><a href="#Q1：免費-TTS-一定比訂閱-ElevenLabs-便宜嗎？" class="headerlink" title="Q1：免費 TTS 一定比訂閱 ElevenLabs 便宜嗎？"></a>Q1：免費 TTS 一定比訂閱 ElevenLabs 便宜嗎？</h3><p>不一定。比較時應納入 GPU 或雲端費用、生成失敗與重試、環境維護時間，以及商用授權；低用量時按量計費可能更方便，實際價格與方案仍以官方公告及帳單為準。</p>
+<h3 id="Q2：Gemini-TTS-可以複製固定角色的聲音嗎？"><a href="#Q2：Gemini-TTS-可以複製固定角色的聲音嗎？" class="headerlink" title="Q2：Gemini TTS 可以複製固定角色的聲音嗎？"></a>Q2：Gemini TTS 可以複製固定角色的聲音嗎？</h3><p>Google 文件介紹了 Voice Replication，但實際可用性、聲音樣本與同意驗證要求、權限和費用會依服務設定變動。請在自己的專案確認功能，並使用有權使用的聲音樣本，實測連續台詞的一致性。</p>
+<h3 id="Q3：BreezyVoice-和-Ming-可以直接用於商業影片嗎？"><a href="#Q3：BreezyVoice-和-Ming-可以直接用於商業影片嗎？" class="headerlink" title="Q3：BreezyVoice 和 Ming 可以直接用於商業影片嗎？"></a>Q3：BreezyVoice 和 Ming 可以直接用於商業影片嗎？</h3><p>不能只因模型開源或免費就推定可以商用。使用前應分別查閱程式碼、模型權重、使用平台及聲音樣本的適用授權條款，並確認用途符合條件。</p>
+<h3 id="延伸閱讀與官方資源"><a href="#延伸閱讀與官方資源" class="headerlink" title="延伸閱讀與官方資源"></a>延伸閱讀與官方資源</h3><ul>
+<li><a target="_blank" rel="noopener" href="https://elevenlabs.io/pricing">ElevenLabs 官方網站與訂閱方案</a></li>
+<li><a target="_blank" rel="noopener" href="https://ai.google.dev/gemini-api/docs/speech-generation">Google Gemini API 語音生成文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://ai.google.dev/gemini-api/docs/pricing">Google Gemini API 價格表</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/mtkresearch/BreezyVoice">MediaTek BreezyVoice GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/inclusionAI/Ming-3.0-tts">Ming-3.0-TTS GitHub</a></li>
+</ul>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover232.webp" class="img-fluid card-img-top rounded-3" alt="AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-motion-transfer-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover231.webp" class="img-fluid card-img-top rounded-3" alt="從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/28</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/hac-ai-influencer-brand/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover230.webp" class="img-fluid card-img-top rounded-3" alt="【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/20</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openverse-api-codex-media-search/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover229.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-lighting-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover228.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-facial-expression-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover227.webp" class="img-fluid card-img-top rounded-3" alt="Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">雲端部署</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/zeabur-n8n-railway-coolify-migration/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover226.webp" class="img-fluid card-img-top rounded-3" alt="Codex × Concat 實測：打造 AI 短影音自動剪輯工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Codex × Concat 實測：打造 AI 短影音自動剪輯工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/concat-ai-video-editing-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover225.webp" class="img-fluid card-img-top rounded-3" alt="不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Google Colab</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/google-colab-codex-ai-video/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover224.webp" class="img-fluid card-img-top rounded-3" alt="Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Cloudflare</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/void-vinext-cloudflare-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
