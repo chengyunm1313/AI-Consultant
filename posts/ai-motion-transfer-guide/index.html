@@ -1,0 +1,976 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-motion-transfer-guide/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移">
+<meta property="og:url" content="https://blog.es2idea.com/posts/ai-motion-transfer-guide/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover232.webp">
+<meta property="article:published_time" content="2026-10-30T13:21:24.000Z">
+<meta property="article:modified_time" content="2026-10-30T08:10:03.410Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover232.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#webpage","@type":"WebPage","name":"AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移","url":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/","description":"想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover232.webp","@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#blogposting","@type":"BlogPosting","headline":"AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移","name":"AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移","description":"想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。","url":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-10-30T13:21:24.000Z","dateModified":"2026-10-30T08:10:03.410Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover232.webp","@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","AI自動化","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","AI自動化","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移","item":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/"}]},{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"第一次做 AI 跳舞影片，該選骨架還是白模？","acceptedAnswer":{"@type":"Answer","text":"建議先用 2D 骨架測試短片與簡單動作。它較容易理解與自動化；遇到轉身、遮擋或虛擬運鏡等需求，再評估 3D 白模。"}},{"@type":"Question","name":"白模動畫一定能讓 AI 精準複製舞步嗎？","acceptedAnswer":{"@type":"Answer","text":"不一定。白模能呈現更多立體資訊，但生成效果取決於模型是否支援相應參考與控制方式，以及動作資料品質和生成設定。"}},{"@type":"Question","name":"單鏡頭影片可以直接還原準確的 3D 動作嗎？","acceptedAnswer":{"@type":"Answer","text":"可以用相關方法估計，但單鏡頭存在深度與遮擋的不確定性，重建結果可能需要骨骼對應及人工修正，不能假設一定準確。"}},{"@type":"Question","name":"產生骨架影片後，還需要檢查什麼？","acceptedAnswer":{"@type":"Answer","text":"應對照原片檢查關節跳動、左右腳交換、遮擋、轉身與時間同步，並確認偵測失敗的影格已被記錄。"}},{"@type":"Question","name":"需要準備什麼才能開始？","acceptedAnswer":{"@type":"Answer","text":"先準備一支有使用權限、人物全身清楚且遮擋少的短影片，以及可執行 Python、MediaPipe、OpenCV 和 FFmpeg 的環境；影片生成階段還需確認所選工具支援的控制輸入。"}}]},{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#howto","@type":"HowTo","name":"AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移","description":"想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover232.webp","@id":"https://blog.es2idea.com/posts/ai-motion-transfer-guide/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"第一步：準備適合的影片","text":"先選一支具有使用權限、長度約 5～10 秒的影片。建議只有一位人物、全身清楚入鏡、遮擋少、攝影機固定，動作也不要太複雜。第一次測試先避開多人舞蹈與快速旋轉。"},{"@type":"HowToStep","name":"第二步：請 Codex 建立轉換工具","text":"將舞蹈影片放進專案資料夾，再使用以下提示詞："},{"@type":"HowToStep","name":"第三步：檢查骨架影片","text":"能輸出影片不代表姿態正確。請對照原影片檢查："}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BB%80%E9%BA%BC%E6%98%AF-AI-%E5%8B%95%E4%BD%9C%E9%81%B7%E7%A7%BB%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">什麼是 AI 動作遷移？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%A8%E6%9E%B6%E5%8B%95%E7%95%AB%EF%BC%9A%E7%94%A8%E9%97%9C%E7%AF%80%E9%BB%9E%E8%A8%98%E9%8C%84%E5%8B%95%E4%BD%9C"><span class="toc-number">2.</span> <span class="toc-text">骨架動畫：用關節點記錄動作</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%AA%A8%E6%9E%B6%E5%8B%95%E7%95%AB%E7%9A%84%E5%84%AA%E9%BB%9E%E8%88%87%E9%99%90%E5%88%B6"><span class="toc-number">2.1.</span> <span class="toc-text">骨架動畫的優點與限制</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#3D-%E7%99%BD%E6%A8%A1%E5%8B%95%E7%95%AB%EF%BC%9A%E5%91%88%E7%8F%BE%E8%BA%AB%E9%AB%94%E9%AB%94%E7%A9%8D%E8%88%87%E9%81%AE%E6%93%8B"><span class="toc-number">3.</span> <span class="toc-text">3D 白模動畫：呈現身體體積與遮擋</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%A8%E6%9E%B6%E8%88%87%E7%99%BD%E6%A8%A1%E6%80%8E%E9%BA%BC%E9%81%B8%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">骨架與白模怎麼選？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%96%B0%E6%89%8B%E5%AF%A6%E4%BD%9C%EF%BC%9A%E6%8A%8A%E7%9C%9F%E4%BA%BA%E8%88%9E%E8%B9%88%E5%BD%B1%E7%89%87%E8%BD%89%E6%88%90%E9%AA%A8%E6%9E%B6%E5%8B%95%E7%95%AB"><span class="toc-number">5.</span> <span class="toc-text">新手實作：把真人舞蹈影片轉成骨架動畫</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E6%BA%96%E5%82%99%E9%81%A9%E5%90%88%E7%9A%84%E5%BD%B1%E7%89%87"><span class="toc-number">5.1.</span> <span class="toc-text">第一步：準備適合的影片</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E8%AB%8B-Codex-%E5%BB%BA%E7%AB%8B%E8%BD%89%E6%8F%9B%E5%B7%A5%E5%85%B7"><span class="toc-number">5.2.</span> <span class="toc-text">第二步：請 Codex 建立轉換工具</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E6%AA%A2%E6%9F%A5%E9%AA%A8%E6%9E%B6%E5%BD%B1%E7%89%87"><span class="toc-number">5.3.</span> <span class="toc-text">第三步：檢查骨架影片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%80%B2%E9%9A%8E%E5%AF%A6%E4%BD%9C%EF%BC%9A%E5%A6%82%E4%BD%95%E8%A3%BD%E4%BD%9C-3D-%E7%99%BD%E6%A8%A1%E5%8B%95%E7%95%AB%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">進階實作：如何製作 3D 白模動畫？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E9%AA%A8%E6%9E%B6%E5%92%8C%E7%99%BD%E6%A8%A1%E5%8F%AF%E4%BB%A5%E4%B8%80%E8%B5%B7%E4%BD%BF%E7%94%A8%E5%97%8E%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">骨架和白模可以一起使用嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%AF%A6%E9%9A%9B%E6%87%89%E7%94%A8%EF%BC%9A%E8%AE%93-AI-%E7%B6%B2%E7%B4%85%E8%B7%B3%E8%88%9E"><span class="toc-number">8.</span> <span class="toc-text">實際應用：讓 AI 網紅跳舞</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BE%9E%E9%AA%A8%E6%9E%B6%E9%96%8B%E5%A7%8B%EF%BC%8C%E9%80%90%E6%AD%A5%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">9.</span> <span class="toc-text">從骨架開始，逐步建立自己的工作流</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">10.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%81%9A-AI-%E8%B7%B3%E8%88%9E%E5%BD%B1%E7%89%87%EF%BC%8C%E8%A9%B2%E9%81%B8%E9%AA%A8%E6%9E%B6%E9%82%84%E6%98%AF%E7%99%BD%E6%A8%A1%EF%BC%9F"><span class="toc-number">10.1.</span> <span class="toc-text">Q1：第一次做 AI 跳舞影片，該選骨架還是白模？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9A%E7%99%BD%E6%A8%A1%E5%8B%95%E7%95%AB%E4%B8%80%E5%AE%9A%E8%83%BD%E8%AE%93-AI-%E7%B2%BE%E6%BA%96%E8%A4%87%E8%A3%BD%E8%88%9E%E6%AD%A5%E5%97%8E%EF%BC%9F"><span class="toc-number">10.2.</span> <span class="toc-text">Q2：白模動畫一定能讓 AI 精準複製舞步嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E5%96%AE%E9%8F%A1%E9%A0%AD%E5%BD%B1%E7%89%87%E5%8F%AF%E4%BB%A5%E7%9B%B4%E6%8E%A5%E9%82%84%E5%8E%9F%E6%BA%96%E7%A2%BA%E7%9A%84-3D-%E5%8B%95%E4%BD%9C%E5%97%8E%EF%BC%9F"><span class="toc-number">10.3.</span> <span class="toc-text">Q3：單鏡頭影片可以直接還原準確的 3D 動作嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q4%EF%BC%9A%E7%94%A2%E7%94%9F%E9%AA%A8%E6%9E%B6%E5%BD%B1%E7%89%87%E5%BE%8C%EF%BC%8C%E9%82%84%E9%9C%80%E8%A6%81%E6%AA%A2%E6%9F%A5%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">10.4.</span> <span class="toc-text">Q4：產生骨架影片後，還需要檢查什麼？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q5%EF%BC%9A%E9%9C%80%E8%A6%81%E6%BA%96%E5%82%99%E4%BB%80%E9%BA%BC%E6%89%8D%E8%83%BD%E9%96%8B%E5%A7%8B%EF%BC%9F"><span class="toc-number">10.5.</span> <span class="toc-text">Q5：需要準備什麼才能開始？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (35)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (74)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (23)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (86)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (19)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (33)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (88)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (49)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (49)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/10/30 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移</h1>
+        
+        <p>最近看到有人把真人跳舞影片轉換成骨架動畫，再搭配人物照片，讓 AI 生成相當擬真的跳舞影片。這讓我想到：如果想讓 AI 網紅模仿真人跳舞，該用骨架動畫，還是 3D 白模動畫？</p>
+<p>兩者都能提供動作參考，但保留的資訊和製作難度不同。這篇文章會從基本概念開始，帶你了解選擇方式、實作流程，以及使用 Codex、Python、Blender 和 ComfyUI 時需要注意的事。</p>
+<h2 id="什麼是-AI-動作遷移？"><a href="#什麼是-AI-動作遷移？" class="headerlink" title="什麼是 AI 動作遷移？"></a>什麼是 AI 動作遷移？</h2><p>想像你看到一支舞蹈影片，希望自己設計的 AI 網紅跳出類似的舞步。傳統上可能要觀察舞蹈、拆分動作、撰寫提示詞，再反覆生成；動作遷移（Motion Transfer）則是分析參考影片中的人物動作，並將動作套用到另一個角色。</p>
+<p>可以把它拆成兩部分：</p>
+<ul>
+<li><strong>動作來源</strong>：決定角色怎麼跳、走或轉身。</li>
+<li><strong>角色來源</strong>：決定角色的外貌、服裝與造型。</li>
+</ul>
+<p>將動作和角色分開處理，是動作遷移的核心概念。不過，不是所有 AI 影片模型都支援精確動作控制；效果取決於模型支援的輸入方式與設定。</p>
+<h2 id="骨架動畫：用關節點記錄動作"><a href="#骨架動畫：用關節點記錄動作" class="headerlink" title="骨架動畫：用關節點記錄動作"></a>骨架動畫：用關節點記錄動作</h2><p>人體姿態估計（Pose Estimation）可以偵測頭部、肩膀、手肘、手腕、髖部、膝蓋和腳踝等關鍵點；部分模型也能辨識手指或臉部。將關節點連線後，就像一個彩色火柴人在跳舞。</p>
+<p>例如，一支 10 秒、每秒 30 幀的影片共有 300 幀。姿態估計模型可以逐幀分析關節位置，儲存座標或繪製骨架影片，保留主要動作節奏，而不必保留原始臉部、服裝及背景。</p>
+<h3 id="骨架動畫的優點與限制"><a href="#骨架動畫的優點與限制" class="headerlink" title="骨架動畫的優點與限制"></a>骨架動畫的優點與限制</h3><p>骨架擷取通常速度較快，也方便自動化。MediaPipe、DWPose 等工具可以分析人體姿態；Codex 則能協助撰寫 Python 程式，批次處理影片。站立跳舞、揮手和簡單律動，都適合作為入門測試。</p>
+<p>但 2D 骨架主要描述畫面中的關節位置，缺乏完整人體體積與可靠的前後深度。轉身、手臂遮擋、肢體交錯、蹲下或翻滾時，關節可能判斷錯誤。3D 骨架能提供更多空間資訊，仍不等同於完整的人體表面幾何。</p>
+<h2 id="3D-白模動畫：呈現身體體積與遮擋"><a href="#3D-白模動畫：呈現身體體積與遮擋" class="headerlink" title="3D 白模動畫：呈現身體體積與遮擋"></a>3D 白模動畫：呈現身體體積與遮擋</h2><p>這裡的白模動畫，是指使用沒有複雜貼圖與材質的 3D 人體模型呈現動作。它不一定有五官、髮型或服裝細節，但有身體形狀，能呈現軀幹方向、肢體體積及前後遮擋。</p>
+<p>對於轉身、蹲下、地板舞蹈或雙人互動，完整 3D 白模通常能提供比 2D 骨架更多空間資訊。你也可以在 Blender 安排人物動作和虛擬攝影機，再輸出白模動畫作為參考。</p>
+<p>代價是流程較複雜：需要取得或估計 3D 動作、套用到模型，可能還要修正腳底滑動、肢體穿模，並設定攝影機。從單一攝影機影片重建 3D 動作時，深度與遮擋也存在不確定性。</p>
+<p>**真正的 3D 白模動畫，與把真人影片轉成白色人物輪廓並不相同。**後者可能只是影像風格轉換，未必具有可調整的 3D 空間資訊。</p>
+<h2 id="骨架與白模怎麼選？"><a href="#骨架與白模怎麼選？" class="headerlink" title="骨架與白模怎麼選？"></a>骨架與白模怎麼選？</h2><table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>2D 骨架動畫</th>
+<th>3D 白模動畫</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>主要資訊</td>
+<td>畫面中的關節位置</td>
+<td>人體外形與動作</td>
+</tr>
+<tr>
+<td>人體體積</td>
+<td>缺乏</td>
+<td>有</td>
+</tr>
+<tr>
+<td>轉身與遮擋</td>
+<td>深度資訊不足</td>
+<td>可呈現立體方向與遮擋</td>
+</tr>
+<tr>
+<td>虛擬運鏡</td>
+<td>控制有限</td>
+<td>可搭配 3D 攝影機</td>
+</tr>
+<tr>
+<td>製作速度與難度</td>
+<td>通常較快、較容易自動化</td>
+<td>通常較慢、處理較複雜</td>
+</tr>
+<tr>
+<td>適合應用</td>
+<td>簡單舞蹈、手勢、短影音</td>
+<td>複雜舞蹈、動作場景、虛擬運鏡</td>
+</tr>
+</tbody></table>
+<p>如果只是想嘗試 10 秒的 AI 網紅跳舞影片，我會建議先從骨架開始。若要研究 K-pop 舞蹈、轉身、武打或複雜運鏡，則可以進一步探索 3D 白模。</p>
+<p>白模資訊較完整，並不代表所有生成模型都能正確使用。直接把白模影片放進影片生成工具，不一定能精準複製動作；要先確認工具的參考模式、控制能力與輸入格式。工具功能也可能隨版本和方案變動。</p>
+<h2 id="新手實作：把真人舞蹈影片轉成骨架動畫"><a href="#新手實作：把真人舞蹈影片轉成骨架動畫" class="headerlink" title="新手實作：把真人舞蹈影片轉成骨架動畫"></a>新手實作：把真人舞蹈影片轉成骨架動畫</h2><p>準備 Codex、Python、MediaPipe Pose Landmarker、OpenCV 與 FFmpeg。MediaPipe 和 OpenCV 提供開源工具；安裝前應確認目前版本的 API 與對應模型。Codex 可以協助建立程式，但執行及安裝前仍要檢查程式與依賴。</p>
+<h3 id="第一步：準備適合的影片"><a href="#第一步：準備適合的影片" class="headerlink" title="第一步：準備適合的影片"></a>第一步：準備適合的影片</h3><p>先選一支具有使用權限、長度約 5～10 秒的影片。建議只有一位人物、全身清楚入鏡、遮擋少、攝影機固定，動作也不要太複雜。第一次測試先避開多人舞蹈與快速旋轉。</p>
+<h3 id="第二步：請-Codex-建立轉換工具"><a href="#第二步：請-Codex-建立轉換工具" class="headerlink" title="第二步：請 Codex 建立轉換工具"></a>第二步：請 Codex 建立轉換工具</h3><p>將舞蹈影片放進專案資料夾，再使用以下提示詞：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br></pre></td><td class="code"><pre><span class="line">請幫我建立一個 AI 舞蹈骨架動畫轉換工具。</span><br><span class="line"></span><br><span class="line">目標：</span><br><span class="line">將真人舞蹈 MP4 影片轉換成</span><br><span class="line">黑色背景、彩色人體關節連線的骨架動畫。</span><br><span class="line"></span><br><span class="line">技術：</span><br><span class="line">1. Python</span><br><span class="line">2. MediaPipe Pose Landmarker</span><br><span class="line">3. OpenCV</span><br><span class="line">4. FFmpeg</span><br><span class="line"></span><br><span class="line">功能需求：</span><br><span class="line">1. 讀取 input/dance.mp4</span><br><span class="line">2. 逐幀偵測人體關節</span><br><span class="line">3. 將關節繪製在黑色背景</span><br><span class="line">4. 保留原始影片 FPS</span><br><span class="line">5. 輸出 1080x1920 骨架 MP4</span><br><span class="line">6. 同時輸出關節座標 JSON</span><br><span class="line">7. 記錄偵測失敗的影格</span><br><span class="line">8. 不得將偵測失敗的影格當成成功結果</span><br><span class="line"></span><br><span class="line">輸出：</span><br><span class="line">output/skeleton.mp4</span><br><span class="line">output/pose.json</span><br><span class="line">output/report.json</span><br><span class="line"></span><br><span class="line">請先檢查環境，再安裝必要套件。</span><br><span class="line">完成後執行測試，確認影片能正常播放。</span><br></pre></td></tr></table></figure>
+
+<p>這個提示詞提供基本方向；實作時還要確認影片比例與畫面縮放方式，避免輸出直式影片時拉伸人物。MediaPipe 的模型與 API 需依實際版本調整。</p>
+<h3 id="第三步：檢查骨架影片"><a href="#第三步：檢查骨架影片" class="headerlink" title="第三步：檢查骨架影片"></a>第三步：檢查骨架影片</h3><p>能輸出影片不代表姿態正確。請對照原影片檢查：</p>
+<ul>
+<li>手腕是否突然跳到另一邊？</li>
+<li>左右腳是否交換？</li>
+<li>轉身時骨架是否混亂？</li>
+<li>手臂被遮擋時是否判斷錯誤？</li>
+<li>動作節奏是否同步？</li>
+<li>偵測失敗影格是否在報告中如實記錄？</li>
+</ul>
+<p>骨架本身若有問題，後續生成也可能跟著出錯。</p>
+<h2 id="進階實作：如何製作-3D-白模動畫？"><a href="#進階實作：如何製作-3D-白模動畫？" class="headerlink" title="進階實作：如何製作 3D 白模動畫？"></a>進階實作：如何製作 3D 白模動畫？</h2><p>一種常見流程是：<strong>真人影片 → 3D 人體姿態估計 → 動作重建 → Blender 人體模型 → 白模動畫</strong>。過程中可能遇到這些名詞：</p>
+<ol>
+<li><strong>Motion Capture（動作捕捉）</strong>：記錄真人動作，轉成虛擬角色可使用的資料。</li>
+<li><strong>3D Human Pose Estimation（3D 人體姿態估計）</strong>：從影像推估關節在三維空間中的位置；單鏡頭仍有深度與遮擋的不確定性。</li>
+<li><strong>SMPL 人體模型</strong>：參數化 3D 人體模型，可透過身形與姿態參數產生人體表面幾何。</li>
+<li><strong>Blender</strong>：開源 3D 製作軟體，可匯入模型、套用動作、調整骨骼、設定攝影機並輸出影片。</li>
+</ol>
+<p>動作資料不一定能直接套用到任何模型，經常需要做骨骼對應（Retargeting）。腳底滑動、穿模和遮擋也可能需要人工修正。</p>
+<h2 id="骨架和白模可以一起使用嗎？"><a href="#骨架和白模可以一起使用嗎？" class="headerlink" title="骨架和白模可以一起使用嗎？"></a>骨架和白模可以一起使用嗎？</h2><p>可以。你可以先取得舞蹈影片的關節資料，再研究 3D 人體重建與動作轉換，讓同一段動作輸出不同參考：</p>
+<ul>
+<li><strong>版本 A：2D 骨架動畫</strong>，保留關節點、連線和動作節奏。</li>
+<li><strong>版本 B：3D 白模動畫</strong>，呈現人體體積、旋轉和遮擋。</li>
+<li><strong>版本 C：多條件輔助控制</strong>，在支援相應訊號的生成系統中，結合姿態、深度或其他控制資訊。</li>
+</ul>
+<p>第三種做法需要模型或工作流真正支援相應條件，不能假設上傳兩段參考影片就能達成。從 2D 骨架重建 3D 動作也不是直接轉檔，仍需要估計、對應和檢查。</p>
+<h2 id="實際應用：讓-AI-網紅跳舞"><a href="#實際應用：讓-AI-網紅跳舞" class="headerlink" title="實際應用：讓 AI 網紅跳舞"></a>實際應用：讓 AI 網紅跳舞</h2><p>假設我設計了一位 AI 網紅「米樂」，希望她跳一段 10 秒舞蹈，可以依序嘗試：</p>
+<ol>
+<li><strong>準備角色</strong>：建立正面、側面和全身等參考畫面，盡量固定髮型、服裝與人物比例。</li>
+<li><strong>取得動作</strong>：使用有權限的舞蹈參考影片，先用 Codex 和 MediaPipe 產生並檢查骨架。</li>
+<li><strong>生成影片</strong>：挑選支援動作參考或姿態控制的工具，提供角色圖與相容的控制素材。Google Flow、Seedance 或 ComfyUI 工作流可列為研究對象，但要分別確認當前實際支援的格式及控制能力。</li>
+<li><strong>檢查角色一致性</strong>：確認臉型、服裝、髮型、身材比例、手指與動作同步狀況。骨架或白模不能單獨解決這些問題。</li>
+<li><strong>剪輯輸出</strong>：可用 Codex 協助搭配 FFmpeg，處理配樂與節拍、裁切、字幕、9:16 直式輸出及社群平台安全區域。</li>
+</ol>
+<h2 id="從骨架開始，逐步建立自己的工作流"><a href="#從骨架開始，逐步建立自己的工作流" class="headerlink" title="從骨架開始，逐步建立自己的工作流"></a>從骨架開始，逐步建立自己的工作流</h2><p>初學者可以先用骨架製作簡單舞蹈和手勢參考；當轉身或遮擋成為瓶頸，再研究 3D 白模。更完整的製片流程則能結合動作擷取、3D 重建、角色控制、影片生成與剪輯。</p>
+<p>過去我們常花很多時間用文字描述「抬手、轉身、跨步」；即使描述詳細，也不一定能精確控制時間、角度與節奏。骨架和白模提供另一種方向：<strong>把可分析的動作參考交給支援相應控制方式的系統，再透過檢查與修正逐步接近想要的結果。</strong></p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：第一次做-AI-跳舞影片，該選骨架還是白模？"><a href="#Q1：第一次做-AI-跳舞影片，該選骨架還是白模？" class="headerlink" title="Q1：第一次做 AI 跳舞影片，該選骨架還是白模？"></a>Q1：第一次做 AI 跳舞影片，該選骨架還是白模？</h3><p>建議先用 2D 骨架測試短片與簡單動作。它較容易理解與自動化；遇到轉身、遮擋或虛擬運鏡等需求，再評估 3D 白模。</p>
+<h3 id="Q2：白模動畫一定能讓-AI-精準複製舞步嗎？"><a href="#Q2：白模動畫一定能讓-AI-精準複製舞步嗎？" class="headerlink" title="Q2：白模動畫一定能讓 AI 精準複製舞步嗎？"></a>Q2：白模動畫一定能讓 AI 精準複製舞步嗎？</h3><p>不一定。白模能呈現更多立體資訊，但生成效果取決於模型是否支援相應參考與控制方式，以及動作資料品質和生成設定。</p>
+<h3 id="Q3：單鏡頭影片可以直接還原準確的-3D-動作嗎？"><a href="#Q3：單鏡頭影片可以直接還原準確的-3D-動作嗎？" class="headerlink" title="Q3：單鏡頭影片可以直接還原準確的 3D 動作嗎？"></a>Q3：單鏡頭影片可以直接還原準確的 3D 動作嗎？</h3><p>可以用相關方法估計，但單鏡頭存在深度與遮擋的不確定性，重建結果可能需要骨骼對應及人工修正，不能假設一定準確。</p>
+<h3 id="Q4：產生骨架影片後，還需要檢查什麼？"><a href="#Q4：產生骨架影片後，還需要檢查什麼？" class="headerlink" title="Q4：產生骨架影片後，還需要檢查什麼？"></a>Q4：產生骨架影片後，還需要檢查什麼？</h3><p>應對照原片檢查關節跳動、左右腳交換、遮擋、轉身與時間同步，並確認偵測失敗的影格已被記錄。</p>
+<h3 id="Q5：需要準備什麼才能開始？"><a href="#Q5：需要準備什麼才能開始？" class="headerlink" title="Q5：需要準備什麼才能開始？"></a>Q5：需要準備什麼才能開始？</h3><p>先準備一支有使用權限、人物全身清楚且遮擋少的短影片，以及可執行 Python、MediaPipe、OpenCV 和 FFmpeg 的環境；影片生成階段還需確認所選工具支援的控制輸入。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover231.webp" class="img-fluid card-img-top rounded-3" alt="從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/28</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/hac-ai-influencer-brand/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover230.webp" class="img-fluid card-img-top rounded-3" alt="【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/20</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openverse-api-codex-media-search/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover229.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-lighting-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover228.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-facial-expression-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover227.webp" class="img-fluid card-img-top rounded-3" alt="Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">n8n</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">雲端部署</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/zeabur-n8n-railway-coolify-migration/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover226.webp" class="img-fluid card-img-top rounded-3" alt="Codex × Concat 實測：打造 AI 短影音自動剪輯工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Codex × Concat 實測：打造 AI 短影音自動剪輯工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/concat-ai-video-editing-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover225.webp" class="img-fluid card-img-top rounded-3" alt="不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Google Colab</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/google-colab-codex-ai-video/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover224.webp" class="img-fluid card-img-top rounded-3" alt="Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Vibe Coding 新手教學：Void 是什麼？Vinext 又是什麼？用 Codex 建站與選擇 Cloudflare 部署</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Cloudflare</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/void-vinext-cloudflare-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover222.webp" class="img-fluid card-img-top rounded-3" alt="【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【六首歌如何寫成一季故事？用 ChatGPT、Suno 規劃 AI 音樂 MV】</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-music-mv-series-planning/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
