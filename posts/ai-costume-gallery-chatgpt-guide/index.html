@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝">
+<meta property="og:url" content="https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover235.webp">
+<meta property="article:published_time" content="2026-11-05T00:44:49.000Z">
+<meta property="article:modified_time" content="2026-11-04T17:06:49.867Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="ChatGPT">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover235.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#webpage","@type":"WebPage","name":"1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝","url":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/","description":"AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover235.webp","@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#blogposting","@type":"BlogPosting","headline":"1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝","name":"1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝","description":"AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。","url":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-11-05T00:44:49.000Z","dateModified":"2026-11-04T17:06:49.867Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover235.webp","@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","ChatGPT","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","ChatGPT","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝","item":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/"}]},{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"AI Costume Gallery 免費嗎？可以用在商業作品嗎？","acceptedAnswer":{"@type":"Answer","text":"依本文查核時的官網說明，可免費用於作品製作，包括商業製作、編輯與參考使用，不強制署名。但不能轉載、散布或販售參考圖片本身，也不能整批下載；商用前仍要確認最新規範及生成結果是否涉及第三方權利。"}},{"@type":"Question","name":"可以用這套圖庫替自己的真人照片換裝嗎？","acceptedAnswer":{"@type":"Answer","text":"不可以依本文流程這樣使用這套圖庫。官網明確禁止用於表現真人或未成年人，即使照片是本人、或已取得人物同意，也不能據此推定圖庫允許使用。本文教學以符合規範的成人虛擬人物為對象。"}},{"@type":"Question","name":"ChatGPT 換裝後臉變了，或衣服細節不對，怎麼辦？","acceptedAnswer":{"@type":"Answer","text":"先確認兩張參考圖的用途已分別標明，並用清晰的角色母圖重新指定身份。把換裝、換場景與改動作拆成不同階段，逐步比較五官、髮型、領口、袖口、圖案及配件；複雜服裝可嘗試局部修改，但提示詞無法保證百分之百還原。"}}]},{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#howto","@type":"HowTo","name":"1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝","description":"AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover235.webp","@id":"https://blog.es2idea.com/posts/ai-costume-gallery-chatgpt-guide/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"STEP 1：挑選喜歡的服裝參考圖","text":"打開 AI Costume Gallery，從八大分類中挑選適合的穿搭。"},{"@type":"HowToStep","name":"STEP 2：準備已確定身份的成人虛擬人物母圖","text":"接著準備一張自己有權使用、且不代表真人或未成年人的成人虛擬角色圖片。建議具備以下條件："},{"@type":"HowToStep","name":"STEP 3：上傳兩張圖，明確指定各自用途","text":"開啟 ChatGPT，先上傳人物母圖，再上傳服裝參考圖，確認兩張圖的順序與用途後，貼上以下提示詞。如果介面中的排序不明確，就用檔名補充指認。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#AI-Costume-Gallery-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E6%9C%89%E5%93%AA%E4%BA%9B%E6%9C%8D%E8%A3%9D%E5%88%86%E9%A1%9E%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">AI Costume Gallery 是什麼？有哪些服裝分類？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8-ChatGPT-%E5%AE%8C%E6%88%90-AI-%E6%8F%9B%E8%A3%9D%EF%BC%9F%E4%B8%89%E5%80%8B%E6%AD%A5%E9%A9%9F%E9%96%8B%E5%A7%8B"><span class="toc-number">2.</span> <span class="toc-text">如何用 ChatGPT 完成 AI 換裝？三個步驟開始</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-1%EF%BC%9A%E6%8C%91%E9%81%B8%E5%96%9C%E6%AD%A1%E7%9A%84%E6%9C%8D%E8%A3%9D%E5%8F%83%E8%80%83%E5%9C%96"><span class="toc-number">2.1.</span> <span class="toc-text">STEP 1：挑選喜歡的服裝參考圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-2%EF%BC%9A%E6%BA%96%E5%82%99%E5%B7%B2%E7%A2%BA%E5%AE%9A%E8%BA%AB%E4%BB%BD%E7%9A%84%E6%88%90%E4%BA%BA%E8%99%9B%E6%93%AC%E4%BA%BA%E7%89%A9%E6%AF%8D%E5%9C%96"><span class="toc-number">2.2.</span> <span class="toc-text">STEP 2：準備已確定身份的成人虛擬人物母圖</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#STEP-3%EF%BC%9A%E4%B8%8A%E5%82%B3%E5%85%A9%E5%BC%B5%E5%9C%96%EF%BC%8C%E6%98%8E%E7%A2%BA%E6%8C%87%E5%AE%9A%E5%90%84%E8%87%AA%E7%94%A8%E9%80%94"><span class="toc-number">2.3.</span> <span class="toc-text">STEP 3：上傳兩張圖，明確指定各自用途</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%93%E5%90%8C%E4%B8%80%E5%80%8B-AI-%E7%B6%B2%E7%B4%85%E6%8F%9B%E9%80%A0%E5%9E%8B%EF%BC%8C%E4%BB%8D%E7%B6%AD%E6%8C%81%E8%A7%92%E8%89%B2%E4%B8%80%E8%87%B4%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">如何讓同一個 AI 網紅換造型，仍維持角色一致？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E7%B6%B2%E7%B4%85%E5%B0%88%E7%94%A8%E6%8F%90%E7%A4%BA%E8%A9%9E"><span class="toc-number">3.1.</span> <span class="toc-text">AI 網紅專用提示詞</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E6%8A%8A%E6%9C%8D%E8%A3%9D%E3%80%81%E5%8B%95%E4%BD%9C%E8%88%87%E5%A0%B4%E6%99%AF%E5%88%86%E9%96%8B%E6%8E%A7%E5%88%B6%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">如何把服裝、動作與場景分開控制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BD%BF%E7%94%A8%E5%89%8D%E8%A6%81%E7%A2%BA%E8%AA%8D%E5%93%AA%E4%BA%9B%E6%8E%88%E6%AC%8A%E8%88%87%E4%BD%BF%E7%94%A8%E9%99%90%E5%88%B6%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">使用前要確認哪些授權與使用限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%AB%E5%93%A5%E7%9A%84%E5%BB%B6%E4%BC%B8%E6%87%89%E7%94%A8%EF%BC%9A%E8%AE%93-AI-Agent-%E5%8D%94%E5%8A%A9%E8%A6%8F%E5%8A%83%E7%A9%BF%E6%90%AD"><span class="toc-number">6.</span> <span class="toc-text">享哥的延伸應用：讓 AI Agent 協助規劃穿搭</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%8A%8A%E5%8F%83%E8%80%83%E5%9C%96%E6%95%B4%E7%90%86%E6%88%90%E5%8F%AF%E4%BB%A5%E9%87%8D%E8%A4%87%E4%BD%BF%E7%94%A8%E7%9A%84%E5%89%B5%E4%BD%9C%E6%B5%81%E7%A8%8B"><span class="toc-number">7.</span> <span class="toc-text">把參考圖整理成可以重複使用的創作流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">8.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9AAI-Costume-Gallery-%E5%85%8D%E8%B2%BB%E5%97%8E%EF%BC%9F%E5%8F%AF%E4%BB%A5%E7%94%A8%E5%9C%A8%E5%95%86%E6%A5%AD%E4%BD%9C%E5%93%81%E5%97%8E%EF%BC%9F"><span class="toc-number">8.1.</span> <span class="toc-text">Q1：AI Costume Gallery 免費嗎？可以用在商業作品嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9A%E5%8F%AF%E4%BB%A5%E7%94%A8%E9%80%99%E5%A5%97%E5%9C%96%E5%BA%AB%E6%9B%BF%E8%87%AA%E5%B7%B1%E7%9A%84%E7%9C%9F%E4%BA%BA%E7%85%A7%E7%89%87%E6%8F%9B%E8%A3%9D%E5%97%8E%EF%BC%9F"><span class="toc-number">8.2.</span> <span class="toc-text">Q2：可以用這套圖庫替自己的真人照片換裝嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9AChatGPT-%E6%8F%9B%E8%A3%9D%E5%BE%8C%E8%87%89%E8%AE%8A%E4%BA%86%EF%BC%8C%E6%88%96%E8%A1%A3%E6%9C%8D%E7%B4%B0%E7%AF%80%E4%B8%8D%E5%B0%8D%EF%BC%8C%E6%80%8E%E9%BA%BC%E8%BE%A6%EF%BC%9F"><span class="toc-number">8.3.</span> <span class="toc-text">Q3：ChatGPT 換裝後臉變了，或衣服細節不對，怎麼辦？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (75)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (38)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (23)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (33)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (91)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (89)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (51)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (20)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (51)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/11/05 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 先鎖定人物身份，再決定服裝，最後安排場景與動作。 -</h4>
+        
+        <p>AI 生圖的人物，為什麼總是穿那幾套衣服？如果你也遇過穿搭靈感不足的問題，可以認識這個免費資源：<strong>AI Costume Gallery</strong>。</p>
+<p>原始資源分享資訊提到，這個網站整理了 <strong>1,407 套 AI 服裝參考圖</strong>，涵蓋春夏秋冬、派對等不同穿搭風格。本文查核時，官網可讀文字未列出總數，因此 1,407 套保留為分享資訊，實際數量以網站當下顯示為準。</p>
+<p>最方便的地方是，你不必懂服裝設計，也不用從零描述領口、剪裁、材質與配色。選好服裝參考圖，再搭配自己設計的成人虛擬人物母圖，就能請支援圖片編輯的 ChatGPT 協助換裝。</p>
+<p><strong>先提醒：這套圖庫明確禁止用於表現真人或未成年人。</strong> 因此，本文教學一律以成人虛擬人物為例；完整限制整理在後面的使用規範段落。</p>
+<p>對正在製作 AI 網紅、AI 短影音、虛擬角色或虛擬品牌形象照的人來說，這是一個值得收藏的創作資源。不過，「一鍵換裝」不代表每次都能完整還原，仍要檢查人物身份與衣服細節。</p>
+<h2 id="AI-Costume-Gallery-是什麼？有哪些服裝分類？"><a href="#AI-Costume-Gallery-是什麼？有哪些服裝分類？" class="headerlink" title="AI Costume Gallery 是什麼？有哪些服裝分類？"></a>AI Costume Gallery 是什麼？有哪些服裝分類？</h2><p>網站連結：<a target="_blank" rel="noopener" href="https://ai-costume-gallery.pages.dev/">AI Costume Gallery（衣装集 COSTUME-DB-01）</a>。</p>
+<p>依官網說明，參考圖是 <strong>2:3 直式、沒有實際人物的服裝圖</strong>，以文字生成圖片的方式製作，並非實際商品照片。分類包括以下八種：</p>
+<table>
+<thead>
+<tr>
+<th>服裝分類</th>
+<th>可發想的成人虛擬角色情境</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>春季</td>
+<td>日常穿搭、踏青、咖啡廳</td>
+</tr>
+<tr>
+<td>夏季</td>
+<td>旅遊、街拍、戶外生活</td>
+</tr>
+<tr>
+<td>秋季</td>
+<td>文青風格、城市街拍</td>
+</tr>
+<tr>
+<td>冬季</td>
+<td>大衣、毛衣、冬季旅行</td>
+</tr>
+<tr>
+<td>派對</td>
+<td>晚宴、活動、時尚攝影</td>
+</tr>
+<tr>
+<td>內衣</td>
+<td>符合圖庫與生成工具規範的成人虛擬服飾展示</td>
+</tr>
+<tr>
+<td>泳裝</td>
+<td>海灘、度假、成人虛擬泳裝展示</td>
+</tr>
+<tr>
+<td>性感</td>
+<td>符合圖庫與生成工具規範的成人虛擬時尚造型</td>
+</tr>
+</tbody></table>
+<p>這類圖片的重點是呈現服裝本身。我的理解是：它可以減少另一張人物照片中的臉孔與姿勢干擾，讓你更清楚地指定「這張圖只用來參考衣服」。但這不保證 AI 一定能把人物身份與服裝完全分開處理。</p>
+<p>官網也提供 ID 與服裝關鍵字搜尋，例如 <code>denim</code>、<code>lace</code>、<code>白</code>。如果中文詞找不到結果，可以試著改用網站示範的字詞。</p>
+<p>比起只說「幫我換一套時尚的衣服」，我更建議提供具體參考圖，再說明需要保留與替換的部分。</p>
+<h2 id="如何用-ChatGPT-完成-AI-換裝？三個步驟開始"><a href="#如何用-ChatGPT-完成-AI-換裝？三個步驟開始" class="headerlink" title="如何用 ChatGPT 完成 AI 換裝？三個步驟開始"></a>如何用 ChatGPT 完成 AI 換裝？三個步驟開始</h2><p>不必另外安裝修圖軟體，但使用的 ChatGPT 帳號與當前功能必須支援圖片上傳及圖片生成或編輯；可用額度與功能依方案及服務當下狀態為準。</p>
+<p>OpenAI 的<a target="_blank" rel="noopener" href="https://help.openai.com/en/articles/11084440-images-in-chatgpt">圖片功能說明</a>也介紹了上傳既有圖片後，透過文字描述修改需求的方式。</p>
+<h3 id="STEP-1：挑選喜歡的服裝參考圖"><a href="#STEP-1：挑選喜歡的服裝參考圖" class="headerlink" title="STEP 1：挑選喜歡的服裝參考圖"></a>STEP 1：挑選喜歡的服裝參考圖</h3><p>打開 AI Costume Gallery，從八大分類中挑選適合的穿搭。</p>
+<p>例如今天要製作 AI 網紅的秋季咖啡廳形象照，可以先找大地色系、針織衫或長裙。選好後，使用網站提供的原尺寸 PNG 下載功能，<strong>一次取得所需的單張圖片</strong>，不要整批抓取圖庫。</p>
+<h3 id="STEP-2：準備已確定身份的成人虛擬人物母圖"><a href="#STEP-2：準備已確定身份的成人虛擬人物母圖" class="headerlink" title="STEP 2：準備已確定身份的成人虛擬人物母圖"></a>STEP 2：準備已確定身份的成人虛擬人物母圖</h3><p>接著準備一張自己有權使用、且不代表真人或未成年人的成人虛擬角色圖片。建議具備以下條件：</p>
+<ul>
+<li>正面或四分之三側面，臉部清晰可辨。</li>
+<li>半身或全身構圖，能看見需要替換的服裝區域。</li>
+<li>光線自然，身體沒有被大量遮擋。</li>
+<li>角色身份已確定，可作為後續系列作品的共同基準。</li>
+</ul>
+<p>如果是 AI 網紅，最好沿用已選定的「角色母圖」，避免每次重新生成都換了一張臉。即使你有權使用某位真人照片，也不代表這套圖庫允許你拿它替真人換裝。</p>
+<h3 id="STEP-3：上傳兩張圖，明確指定各自用途"><a href="#STEP-3：上傳兩張圖，明確指定各自用途" class="headerlink" title="STEP 3：上傳兩張圖，明確指定各自用途"></a>STEP 3：上傳兩張圖，明確指定各自用途</h3><p>開啟 ChatGPT，先上傳人物母圖，再上傳服裝參考圖，確認兩張圖的順序與用途後，貼上以下提示詞。如果介面中的排序不明確，就用檔名補充指認。</p>
+<p><strong>AI 換裝提示詞：</strong></p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br></pre></td><td class="code"><pre><span class="line">請以第一張圖片作為成人虛擬人物的身份參考，以第二張圖片作為服裝設計參考。</span><br><span class="line"></span><br><span class="line">保持第一張圖片人物的五官、臉型、髮型、膚色、身材比例與辨識特徵，不要改變人物身份。</span><br><span class="line"></span><br><span class="line">將人物原本的服裝替換成第二張圖片的完整穿搭，盡可能還原服裝的款式、顏色、材質、剪裁、層次與配件。</span><br><span class="line"></span><br><span class="line">請依照人物姿勢與身形自然調整衣服的穿著效果，保留合理的布料皺褶、光影與遮擋關係。</span><br><span class="line"></span><br><span class="line">採用寫實時尚攝影風格，保持自然光線與真實布料質感。</span><br><span class="line"></span><br><span class="line">除服裝與必要的配件外，不要任意改變人物的臉部、背景或其他元素。</span><br></pre></td></tr></table></figure>
+
+<p>生成後，先比較臉型、五官與髮型，再檢查領口、袖口、下襬、圖案、配件及手部遮擋。複雜刺繡、細小圖案、特殊剪裁或多層配件，仍可能需要局部修改或重新生成。</p>
+<p>這是一份可嘗試的操作範本，本文沒有提供這組提示詞的實際換裝對照圖；封面為原創概念示意，並非圖庫或 ChatGPT 的實測成果。</p>
+<h2 id="如何讓同一個-AI-網紅換造型，仍維持角色一致？"><a href="#如何讓同一個-AI-網紅換造型，仍維持角色一致？" class="headerlink" title="如何讓同一個 AI 網紅換造型，仍維持角色一致？"></a>如何讓同一個 AI 網紅換造型，仍維持角色一致？</h2><p>如果只是偶爾換裝，前面的提示詞可以作為起點。但如果你和我一樣，正在經營 AI 網紅，就需要考慮系列內容的一致性。</p>
+<p>我們希望同一個角色可以拍攝：</p>
+<ul>
+<li>今天在咖啡廳喝咖啡的生活 Vlog。</li>
+<li>明天到海邊度假的旅遊短片。</li>
+<li>後天參加品牌活動的時尚影片。</li>
+<li>下週穿冬季服裝到日本旅行。</li>
+</ul>
+<p>觀眾需要一眼認出這是同一個人。所以我的建議是：<strong>先鎖定人物身份，再決定服裝，最後才決定場景與動作。</strong></p>
+<p>例如我的 AI 網紅「許米樂」，就可以把製作流程拆成：</p>
+<p><strong>角色身份母圖 → 服裝參考圖 → 換裝定裝照 → 場景首幀 → AI 影片生成</strong></p>
+<p>每一階段先檢查，再進入下一步，可以避免把換臉或服裝錯誤一起帶進影片。</p>
+<h3 id="AI-網紅專用提示詞"><a href="#AI-網紅專用提示詞" class="headerlink" title="AI 網紅專用提示詞"></a>AI 網紅專用提示詞</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br></pre></td><td class="code"><pre><span class="line">你是一位專業 AI 虛擬人物造型師與時尚攝影師。</span><br><span class="line"></span><br><span class="line">請以第一張圖片作為唯一成人虛擬人物身份基準，第二張圖片作為服裝設計參考。</span><br><span class="line"></span><br><span class="line">這是同一位虛擬人物的系列形象照，請優先維持人物身份一致性。</span><br><span class="line">保留人物的臉部骨架、五官比例、膚色、髮型與整體身材比例。</span><br><span class="line"></span><br><span class="line">將服裝更換成參考圖中的完整穿搭，呈現真實的布料材質、剪裁與穿著效果。</span><br><span class="line"></span><br><span class="line">場景設定為：秋日下午的質感咖啡廳。</span><br><span class="line">人物自然站立，姿勢放鬆，呈現生活 Vlog 的真實攝影感。</span><br><span class="line">使用自然柔和光線、真實皮膚紋理與合理的衣物陰影。</span><br><span class="line"></span><br><span class="line">請輸出 9:16 直式全身構圖，適合後續製作短影音。</span><br><span class="line">不要改變人物身份，不要額外增加服裝圖中沒有的主要配件。</span><br></pre></td></tr></table></figure>
+
+<p>這份進階提示詞會同時改變場景，適合在換裝定裝照確認後使用。若一次修改太多導致人物漂移，就先完成單純換裝，再把通過檢查的定裝照作為場景生成參考。</p>
+<p>通過審閱的圖片，可以再交給支援圖片轉影片的工具，例如 Google Flow、Seedance 等，依各工具當時的功能、格式與使用規範製作動態短片。</p>
+<p>想進一步規劃角色經營，可延伸閱讀：<a href="/posts/hac-ai-influencer-brand/">從 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？</a>。</p>
+<h2 id="如何把服裝、動作與場景分開控制？"><a href="#如何把服裝、動作與場景分開控制？" class="headerlink" title="如何把服裝、動作與場景分開控制？"></a>如何把服裝、動作與場景分開控制？</h2><p>除了服裝，AI 人物還有另一個常見問題：動作太單調。例如每次都是站著、看鏡頭、雙手自然垂放。</p>
+<p>如果搭配自己有權使用、且符合相關規範的姿勢參考，就能更明確地指定角色怎麼站、怎麼坐。完整流程可以拆成六個部分：</p>
+<ol>
+<li><strong>人物母圖</strong>：決定這個人是誰。</li>
+<li><strong>服裝參考圖</strong>：決定這個人穿什麼。</li>
+<li><strong>動作參考圖</strong>：決定這個人採取什麼姿勢。</li>
+<li><strong>場景描述</strong>：決定人物出現在哪裡。</li>
+<li><strong>AI 圖片生成</strong>：整合參考條件，檢查身份、服裝及肢體。</li>
+<li><strong>AI 影片生成</strong>：再指定動作方向、速度與鏡頭運動。</li>
+</ol>
+<p>靜態姿勢圖只能提供姿態線索，不能保證影片會照著完成整段動作。若需要明確的動作順序，仍要補上分鏡或動作描述。</p>
+<p>我會把這種做法當成一套方便比較與修正的工作流：當結果不對時，較容易找出是人物身份、服裝、姿勢還是場景出了問題。</p>
+<h2 id="使用前要確認哪些授權與使用限制？"><a href="#使用前要確認哪些授權與使用限制？" class="headerlink" title="使用前要確認哪些授權與使用限制？"></a>使用前要確認哪些授權與使用限制？</h2><p>免費不代表所有用途都沒有限制。以下依 <a target="_blank" rel="noopener" href="https://ai-costume-gallery.pages.dev/">AI Costume Gallery 官網「注意點」</a>整理，查核日期為 <strong>2026 年 11 月 5 日</strong>；使用前仍請重新閱讀網站最新說明。</p>
+<ul>
+<li>可免費用於作品製作，包括商業製作、編輯與參考使用；不強制署名。</li>
+<li>禁止轉載、散布或販售圖片資料本身，包含原尺寸及加工後版本。</li>
+<li>禁止整批下載，包含透過工具自動取得；可為生成參考逐張使用。</li>
+<li>禁止用於表現真人、未成年人或違反公序良俗的用途。</li>
+<li>網站不保證不涉及第三方權利，使用者仍須自行確認。</li>
+</ul>
+<p>因此，本文以<strong>符合網站規範的成人虛擬人物</strong>為主要應用對象。即使生成工具技術上能替真人換裝，也不能推定圖庫同意這種用途。</p>
+<p>商業製作可用，也不等於任何生成結果都已取得完整權利保證。若畫面出現疑似品牌標誌、特殊圖案或他人設計，正式使用前仍需確認；圖庫許可與生成工具的規範也要分別遵守。</p>
+<h2 id="享哥的延伸應用：讓-AI-Agent-協助規劃穿搭"><a href="#享哥的延伸應用：讓-AI-Agent-協助規劃穿搭" class="headerlink" title="享哥的延伸應用：讓 AI Agent 協助規劃穿搭"></a>享哥的延伸應用：讓 AI Agent 協助規劃穿搭</h2><p>對我來說，這個資源最有價值的地方，是讓 AI 角色製作多了一組可以明確控制的造型素材。</p>
+<p>過去我們常直接說：「幫這個女生穿一套時尚的衣服。」結果生成來生成去，就是那幾種常見穿搭。現在可以先挑好服裝，再依照服裝安排角色造型與拍攝情境。</p>
+<p>未來，我想把這套流程整合進 AI Agent。例如只要交辦：</p>
+<blockquote>
+<p>幫米樂規劃五套秋季穿搭，分別適合咖啡廳、逛街、約會、旅遊與品牌活動。</p>
+</blockquote>
+<p>Agent 可以先整理穿搭需求與選圖條件，由我到網站逐張挑選、提供允許使用的參考圖，再協助產生提示詞、整理定裝照與檢查項目。圖片生成仍需接上具備相應能力的工具，這裡描述的是延伸構想，並非已建置完成的自動化服務。</p>
+<p><strong>這套流程不需要 Agent 自動爬取整個圖庫。</strong> 使用者選圖後，Agent 就能協助後續的造型規劃與素材整理。</p>
+<p>接著將通過審閱的定裝照交給影片生成工具，便能繼續製作不同主題的生活短影音。</p>
+<h2 id="把參考圖整理成可以重複使用的創作流程"><a href="#把參考圖整理成可以重複使用的創作流程" class="headerlink" title="把參考圖整理成可以重複使用的創作流程"></a>把參考圖整理成可以重複使用的創作流程</h2><p>以前使用 AI 生圖，我們常想著如何把提示詞寫得更長、更詳細。但我越來越覺得，重要的是能不能建立一套穩定、可重複使用的創作流程。</p>
+<p>人物身份用母圖控制，服裝用參考圖指定，動作用姿勢圖說明，場景用分鏡與首幀安排，最後再讓 AI 整合，並逐步審閱結果。</p>
+<p>如此一來，我們就有機會更有系統地掌握角色、造型、畫面與故事。相關思路也可以參考：<a href="/posts/ai-video-production-workflow/">從 Prompt 到專家 Skill 的 AI 製片工作流</a>。</p>
+<p>如果你也正在研究 AI 網紅、AI 短影音或虛擬角色製作，可以收藏 <a target="_blank" rel="noopener" href="https://ai-costume-gallery.pages.dev/">AI Costume Gallery</a>，從一套服裝、一張母圖開始練習。</p>
+<p>感謝願意整理與分享資源的開發者，讓 AI 創作者多了更多靈感與可能性。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：AI-Costume-Gallery-免費嗎？可以用在商業作品嗎？"><a href="#Q1：AI-Costume-Gallery-免費嗎？可以用在商業作品嗎？" class="headerlink" title="Q1：AI Costume Gallery 免費嗎？可以用在商業作品嗎？"></a>Q1：AI Costume Gallery 免費嗎？可以用在商業作品嗎？</h3><p>依本文查核時的官網說明，可免費用於作品製作，包括商業製作、編輯與參考使用，不強制署名。但不能轉載、散布或販售參考圖片本身，也不能整批下載；商用前仍要確認最新規範及生成結果是否涉及第三方權利。</p>
+<h3 id="Q2：可以用這套圖庫替自己的真人照片換裝嗎？"><a href="#Q2：可以用這套圖庫替自己的真人照片換裝嗎？" class="headerlink" title="Q2：可以用這套圖庫替自己的真人照片換裝嗎？"></a>Q2：可以用這套圖庫替自己的真人照片換裝嗎？</h3><p>不可以依本文流程這樣使用這套圖庫。官網明確禁止用於表現真人或未成年人，即使照片是本人、或已取得人物同意，也不能據此推定圖庫允許使用。本文教學以符合規範的成人虛擬人物為對象。</p>
+<h3 id="Q3：ChatGPT-換裝後臉變了，或衣服細節不對，怎麼辦？"><a href="#Q3：ChatGPT-換裝後臉變了，或衣服細節不對，怎麼辦？" class="headerlink" title="Q3：ChatGPT 換裝後臉變了，或衣服細節不對，怎麼辦？"></a>Q3：ChatGPT 換裝後臉變了，或衣服細節不對，怎麼辦？</h3><p>先確認兩張參考圖的用途已分別標明，並用清晰的角色母圖重新指定身份。把換裝、換場景與改動作拆成不同階段，逐步比較五官、髮型、領口、袖口、圖案及配件；複雜服裝可嘗試局部修改，但提示詞無法保證百分之百還原。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover234.webp" class="img-fluid card-img-top rounded-3" alt="Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/agent-use-cases-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover233.webp" class="img-fluid card-img-top rounded-3" alt="AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-tts-comparison-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover232.webp" class="img-fluid card-img-top rounded-3" alt="AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-motion-transfer-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover231.webp" class="img-fluid card-img-top rounded-3" alt="從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/28</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/hac-ai-influencer-brand/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover230.webp" class="img-fluid card-img-top rounded-3" alt="【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/20</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openverse-api-codex-media-search/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover229.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-lighting-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover228.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/19</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-facial-expression-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover226.webp" class="img-fluid card-img-top rounded-3" alt="Codex × Concat 實測：打造 AI 短影音自動剪輯工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Codex × Concat 實測：打造 AI 短影音自動剪輯工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">MCP</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/concat-ai-video-editing-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover225.webp" class="img-fluid card-img-top rounded-3" alt="不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不用買高階顯示卡，也能用 AI 做影片！Google Colab × Codex 零基礎實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Google Colab</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/18</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/google-colab-codex-ai-video/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
