@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成
+  網址：https://blog.es2idea.com/posts/toonflow-ai-comic-guide/
+  日期：2026-11-05
+  摘要：Toonflow 是免費開源的 AI 漫劇與短劇製作平台，整合劇本、角色三視圖、分鏡與影片生成。本文整理安裝方式、15 秒短片製作流程、官方成本案例，以及與 Codex、ComfyUI 整合前需要驗證的能力與限制。
+  主題：AI工具、AI自動化、影音行銷
+
 - 別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工
   網址：https://blog.es2idea.com/posts/ai-team-management-guide/
   日期：2026-11-05
@@ -101,12 +107,6 @@
   日期：2026-10-19
   摘要：Zeabur 將於 2026 年底停止營運，n8n 使用者該怎麼搬家？本文整理 Railway 與 Coolify 的費用差異、SQLite／PostgreSQL 備份、加密金鑰、Webhook 與切換流程，協助你安全規劃遷移。
   主題：AI自動化、n8n、雲端部署
-
-- Codex × Concat 實測：打造 AI 短影音自動剪輯工作流
-  網址：https://blog.es2idea.com/posts/concat-ai-video-editing-workflow/
-  日期：2026-10-18
-  摘要：以 Concat 0.2.7 的本機實測，示範 Codex 如何透過自建 MCP Bridge 操作剪輯軟體，完成 30 秒短影音、封裝 Skill，並整理時間軸、匯出與驗收限制。
-  主題：Codex、MCP、影音行銷
 
 ## 語言
 - zh-TW
