@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Open Pose & Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計
+  網址：https://blog.es2idea.com/posts/open-pose-costume-guide/
+  日期：2026-11-06
+  摘要：想替 AI 網紅換裝，又希望保留原來的臉和髮型？用 Open Pose & Costume 挑選服裝與姿勢，搭配同一張人物母圖生成新造型。文內附三組可直接改用的提示詞，並說明如何延伸到動漫三視圖、短影音關鍵畫面，以及商用前要確認的素材條款。
+  主題：ChatGPT、影音行銷、AI繪圖
+
 - Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成
   網址：https://blog.es2idea.com/posts/toonflow-ai-comic-guide/
   日期：2026-11-05
@@ -46,7 +52,7 @@
   網址：https://blog.es2idea.com/posts/ai-team-management-guide/
   日期：2026-11-05
   摘要：AI Agent 不是越多越好，分工、工作方法與驗收才是關鍵。從 AI 員工管理出發，理解 Skills、Scripts 與 Routines 如何搭配，建立能持續執行、處理例外並由人類把關的 AI 工作系統。
-  主題：AI工具、商業策略、AI自動化
+  主題：商業策略、AI工具、AI自動化
 
 - AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值
   網址：https://blog.es2idea.com/posts/ai-agent-line-management/
@@ -101,12 +107,6 @@
   日期：2026-10-19
   摘要：AI 影片角色常出現誇張大笑、表情僵硬或反應不連貫？本文用微表情、肢體動作與情緒分段，整理提示詞公式、三種新手範例與修正方法，帶你把抽象情緒寫成可見的表演細節。
   主題：AI工具、影音行銷
-
-- Zeabur 停止營運後，n8n 搬去哪？Railway、Coolify 費用與搬遷教學
-  網址：https://blog.es2idea.com/posts/zeabur-n8n-railway-coolify-migration/
-  日期：2026-10-19
-  摘要：Zeabur 將於 2026 年底停止營運，n8n 使用者該怎麼搬家？本文整理 Railway 與 Coolify 的費用差異、SQLite／PostgreSQL 備份、加密金鑰、Webhook 與切換流程，協助你安全規劃遷移。
-  主題：AI自動化、n8n、雲端部署
 
 ## 語言
 - zh-TW
