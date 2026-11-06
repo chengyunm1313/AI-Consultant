@@ -52,7 +52,7 @@
   網址：https://blog.es2idea.com/posts/ai-team-management-guide/
   日期：2026-11-05
   摘要：AI Agent 不是越多越好，分工、工作方法與驗收才是關鍵。從 AI 員工管理出發，理解 Skills、Scripts 與 Routines 如何搭配，建立能持續執行、處理例外並由人類把關的 AI 工作系統。
-  主題：商業策略、AI工具、AI自動化
+  主題：AI工具、商業策略、AI自動化
 
 - AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值
   網址：https://blog.es2idea.com/posts/ai-agent-line-management/
