@@ -1046,7 +1046,6 @@ AI 影片製作可分為三個主要環節：
 | [**Suno**](https://suno.com/invite/@syntheticrecordcollection778)       | AI 作曲與演唱平台，可生成完整的歌曲（旋律、歌詞、歌聲）。<br>📌 延伸閱讀：[SUNO 著作權指南](https://blog.es2idea.com/posts/%E4%BD%BF%E7%94%A8-Suno-%E5%89%B5%E4%BD%9C%E9%9F%B3%E6%A8%82%E7%9A%84%E8%91%97%E4%BD%9C%E6%AC%8A%E9%A0%88%E7%9F%A5/) |
 | [**ElevenLabs AI**](https://try.elevenlabs.io/wld79yirbo6j)             | 擬人化語音朗讀工具，支援多語言、自然語調與情感表達。 |
 | [**MINIMAX**](https://www.minimax.io/audio/voices)                      | 可上傳樣本聲音進行 AI 聲音模型訓練，克隆個人聲音。 |
-| [**Hedra**](https://www.hedra.com/)                                     | 根據音訊自動生成對嘴動畫，適合 VTuber、AI MV 應用。 |
 | [**Chosic**](https://www.chosic.com/)                                   | 免費音樂搜尋平台，支援依風格、情緒與用途篩選 CC 授權音樂，適合配樂用。 |
 | [**MMAudio (HuggingFace)**](https://huggingface.co/spaces/hkchengrex/MMAudio) | 利用深度學習模型將語音轉換成音樂提示詞，可作為聲音創作輔助工具。 |
 
