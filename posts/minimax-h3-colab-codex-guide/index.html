@@ -1,0 +1,1243 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較">
+<meta property="og:url" content="https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover243.webp">
+<meta property="article:published_time" content="2026-11-07T22:06:35.000Z">
+<meta property="article:modified_time" content="2026-11-07T14:12:04.593Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover243.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#webpage","@type":"WebPage","name":"MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較","url":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/","description":"沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover243.webp","@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#blogposting","@type":"BlogPosting","headline":"MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較","name":"MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較","description":"沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。","url":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-11-07T22:06:35.000Z","dateModified":"2026-11-07T14:12:04.593Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover243.webp","@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","AI自動化","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","AI自動化","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較","item":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/"}]},{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"沒有 NVIDIA 顯示卡，Mac 也能用 MiniMax H3 嗎？","acceptedAnswer":{"@type":"Answer","text":"可以採本文的 Colab 路線，把生成運算交給雲端 GPU，本機主要負責操作與接收檔案。仍須具備作者文件要求的帳號資格、可用運算單元與 GPU 配額；作者的本機方案則以 NVIDIA GPU 為條件。"}},{"@type":"Question","name":"minimax-h3-colab 和 h3-colab-skill 應該選哪個？","acceptedAnswer":{"@type":"Answer","text":"想先透過網頁調整參數、理解生成品質，可從 minimax-h3-colab 的 Toybox 開始。若已有能執行本機指令的 Codex 或 Claude Code，且需要批次處理圖片、影片與配音，可研究 h3-colab-skill 的工作清單與 Colab 管理流程。"}},{"@type":"Question","name":"開源代表免費產片、也能直接完成剪輯嗎？","acceptedAnswer":{"@type":"Answer","text":"程式碼可取得不代表 GPU 運算免費。Colab 仍可能消耗付費運算單元，模型與附加素材也各有授權條款。這兩個專案主要處理生成與素材回收，完整短劇仍須剪輯與人工驗收，不能把批次生成視為成片品質保證。"}}]},{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#howto","@type":"HowTo","name":"MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較","description":"沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover243.webp","@id":"https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"Step 1：安裝 Skill","text":"作者已經提供 AI Agent 專用的安裝指南。"},{"@type":"HowToStep","name":"Step 2：選擇生成環境","text":"Skill 可以選擇兩種執行模式。"},{"@type":"HowToStep","name":"Step 3：交辦 AI 影音生成任務","text":"假設你正在經營一個 AI 網紅角色。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81MiniMax-H3-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、MiniMax H3 是什麼？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%A6%82%E4%BD%95%E9%81%B8%E6%93%87-Colab-%E6%89%8B%E5%8B%95%E6%93%8D%E4%BD%9C%E8%88%87-Codex-%E8%87%AA%E5%8B%95%E5%8C%96%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、如何選擇 Colab 手動操作與 Codex 自動化？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%95%99%E5%AD%B8%E4%B8%80%EF%BC%9A%E4%BD%BF%E7%94%A8-minimax-h3-colab"><span class="toc-number">3.</span> <span class="toc-text">三、教學一：使用 minimax-h3-colab</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-H3-Basic-ComfyUI"><span class="toc-number">3.1.</span> <span class="toc-text">1. H3 Basic ComfyUI</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-H3-Digital-Human"><span class="toc-number">3.2.</span> <span class="toc-text">2. H3 Digital Human</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-H3-Toybox"><span class="toc-number">3.3.</span> <span class="toc-text">3. H3 Toybox</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%AF%A6%E9%9A%9B%E6%93%8D%E4%BD%9C%E6%AD%A5%E9%A9%9F"><span class="toc-number">3.4.</span> <span class="toc-text">實際操作步驟</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E6%95%99%E5%AD%B8%E4%BA%8C%EF%BC%9A%E5%AE%89%E8%A3%9D-h3-colab-skill%EF%BC%8C%E8%AE%93-Codex-%E8%87%AA%E5%8B%95%E7%94%9F%E6%88%90"><span class="toc-number">4.</span> <span class="toc-text">四、教學二：安裝 h3-colab-skill，讓 Codex 自動生成</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E5%AE%89%E8%A3%9D-Skill"><span class="toc-number">4.1.</span> <span class="toc-text">Step 1：安裝 Skill</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E9%81%B8%E6%93%87%E7%94%9F%E6%88%90%E7%92%B0%E5%A2%83"><span class="toc-number">4.2.</span> <span class="toc-text">Step 2：選擇生成環境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E4%BA%A4%E8%BE%A6-AI-%E5%BD%B1%E9%9F%B3%E7%94%9F%E6%88%90%E4%BB%BB%E5%8B%99"><span class="toc-number">4.3.</span> <span class="toc-text">Step 3：交辦 AI 影音生成任務</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E7%AC%AC%E4%BA%8C%E5%80%8B%E5%B0%88%E6%A1%88%E6%9C%80%E9%87%8D%E8%A6%81%E7%9A%84%E5%8A%9F%E8%83%BD%EF%BC%9A%E6%89%B9%E6%AC%A1%E7%94%9F%E6%88%90"><span class="toc-number">5.</span> <span class="toc-text">五、第二個專案最重要的功能：批次生成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81Google-Colab-%E6%9C%83%E8%8A%B1%E5%A4%9A%E5%B0%91%E9%81%8B%E7%AE%97%E5%96%AE%E5%85%83%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">六、Google Colab 會花多少運算單元？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81Skill-%E9%82%84%E8%83%BD%E8%87%AA%E5%8B%95%E7%AE%A1%E7%90%86-GPU"><span class="toc-number">7.</span> <span class="toc-text">七、Skill 還能自動管理 GPU</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E4%BD%BF%E7%94%A8%E4%B9%8B%E5%89%8D%E8%A6%81%E6%B3%A8%E6%84%8F%E4%BB%80%E9%BA%BC%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">八、使用之前要注意什麼？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E9%96%8B%E6%BA%90%E4%B8%8D%E4%BB%A3%E8%A1%A8%E9%81%8B%E7%AE%97%E5%85%8D%E8%B2%BB"><span class="toc-number">8.1.</span> <span class="toc-text">1. 開源不代表運算免費</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E6%A8%A1%E5%9E%8B%E6%8E%88%E6%AC%8A%E8%A6%81%E5%88%86%E9%96%8B%E7%9C%8B"><span class="toc-number">8.2.</span> <span class="toc-text">2. 模型授權要分開看</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E7%95%99%E6%84%8F-Colab-%E9%80%A3%E7%B7%9A%E5%AE%89%E5%85%A8"><span class="toc-number">8.3.</span> <span class="toc-text">3. 留意 Colab 連線安全</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-AI-%E7%94%9F%E6%88%90%E9%82%84%E9%9C%80%E8%A6%81%E4%BA%BA%E5%B7%A5%E9%A9%97%E6%94%B6"><span class="toc-number">8.4.</span> <span class="toc-text">4. AI 生成還需要人工驗收</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E6%88%91%E6%9C%83%E6%80%8E%E9%BA%BC%E6%87%89%E7%94%A8%E5%9C%A8-AI-%E7%B6%B2%E7%B4%85%E8%88%87%E7%9F%AD%E5%8A%87%E5%B7%A5%E4%BD%9C%E6%B5%81%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">九、我會怎麼應用在 AI 網紅與短劇工作流？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9AAI-%E5%BD%B1%E9%9F%B3%E5%89%B5%E4%BD%9C%EF%BC%8C%E6%AD%A3%E5%9C%A8%E5%BE%9E%E5%B7%A5%E5%85%B7%E6%93%8D%E4%BD%9C%E8%B5%B0%E5%90%91-Agent-%E8%87%AA%E5%8B%95%E5%8C%96"><span class="toc-number">10.</span> <span class="toc-text">結語：AI 影音創作，正在從工具操作走向 Agent 自動化</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99"><span class="toc-number">11.</span> <span class="toc-text">參考資料</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">12.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E6%B2%92%E6%9C%89-NVIDIA-%E9%A1%AF%E7%A4%BA%E5%8D%A1%EF%BC%8CMac-%E4%B9%9F%E8%83%BD%E7%94%A8-MiniMax-H3-%E5%97%8E%EF%BC%9F"><span class="toc-number">12.1.</span> <span class="toc-text">Q1：沒有 NVIDIA 顯示卡，Mac 也能用 MiniMax H3 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9Aminimax-h3-colab-%E5%92%8C-h3-colab-skill-%E6%87%89%E8%A9%B2%E9%81%B8%E5%93%AA%E5%80%8B%EF%BC%9F"><span class="toc-number">12.2.</span> <span class="toc-text">Q2：minimax-h3-colab 和 h3-colab-skill 應該選哪個？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E9%96%8B%E6%BA%90%E4%BB%A3%E8%A1%A8%E5%85%8D%E8%B2%BB%E7%94%A2%E7%89%87%E3%80%81%E4%B9%9F%E8%83%BD%E7%9B%B4%E6%8E%A5%E5%AE%8C%E6%88%90%E5%89%AA%E8%BC%AF%E5%97%8E%EF%BC%9F"><span class="toc-number">12.3.</span> <span class="toc-text">Q3：開源代表免費產片、也能直接完成剪輯嗎？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (42)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (76)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (24)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (94)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (34)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (95)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (51)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (56)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/11/07 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 兩個開源專案的操作方式、批次生成與使用限制 -</h4>
+        
+        <p>想用 AI 生成會說話的數位人影片、AI 網紅短劇，卻發現自己的電腦沒有 NVIDIA 顯示卡？</p>
+<p>最近在 GitHub 發現兩個很有意思的開源專案：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/minimax-h3-colab">minimax-h3-colab</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/h3-colab-skill">h3-colab-skill</a></li>
+</ul>
+<p>這兩個專案都由開發者 dseditor 製作，而且都能透過 Google Colab 的 GPU 執行 MiniMax H3 影片生成模型。</p>
+<p>乍看之下，似乎只是兩種不同的安裝方式。</p>
+<p>但仔細研究後，我發現它們代表的是兩種完全不同的 AI 工作模式。</p>
+<p><strong>第一個專案，是讓我們操作 AI 生成工具。</strong></p>
+<p><strong>第二個專案，是讓 AI Agent 幫我們操作 AI 生成工具。</strong></p>
+<p>差別看似不大，卻會直接影響未來 AI 影音製作的自動化程度。</p>
+<h2 id="一、MiniMax-H3-是什麼？"><a href="#一、MiniMax-H3-是什麼？" class="headerlink" title="一、MiniMax H3 是什麼？"></a>一、MiniMax H3 是什麼？</h2><p>MiniMax H3 是一套可以結合視覺與音訊條件生成影片的 AI 模型。</p>
+<p>除了基本的影片生成，也能依照不同工作流，實現以下功能：</p>
+<ul>
+<li>文字生成有聲影片</li>
+<li>人物照片生成會說話的影片</li>
+<li>參考圖片、影片、音訊生成新影片</li>
+<li>利用首幀與尾幀控制影片</li>
+<li>延伸既有影片</li>
+<li>搭配額外的 P-H3-Image 元件進行圖片生成及編輯</li>
+<li>透過特定工作流生成 TTS 語音</li>
+</ul>
+<p>不過，H3 對硬體的要求不低，想在一般個人電腦上執行並不容易。</p>
+<p>這時候，Google Colab 就派上用場了。</p>
+<p>你可以利用 Colab 提供的雲端 GPU 執行 H3，不必購買高階 NVIDIA 顯示卡。</p>
+<p>而今天介紹的兩個專案，就是利用這個方式降低使用門檻。</p>
+<h2 id="二、如何選擇-Colab-手動操作與-Codex-自動化？"><a href="#二、如何選擇-Colab-手動操作與-Codex-自動化？" class="headerlink" title="二、如何選擇 Colab 手動操作與 Codex 自動化？"></a>二、如何選擇 Colab 手動操作與 Codex 自動化？</h2><table>
+<thead>
+<tr>
+<th>比較項目</th>
+<th>minimax-h3-colab</th>
+<th>h3-colab-skill</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>專案定位</td>
+<td>Colab 影片生成平台</td>
+<td>AI Agent 自動化 Skill</td>
+</tr>
+<tr>
+<td>操作方式</td>
+<td>使用者手動操作</td>
+<td>自然語言交辦 AI</td>
+</tr>
+<tr>
+<td>執行引擎</td>
+<td>H3 + ComfyUI／Toybox</td>
+<td>使用 H3 Toybox 引擎</td>
+</tr>
+<tr>
+<td>文字生成影片</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>參考圖片生成影片</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>頭尾幀生成</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>影片延伸</td>
+<td>支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>圖片生成</td>
+<td>選用</td>
+<td>選用</td>
+</tr>
+<tr>
+<td>獨立 TTS 任務</td>
+<td>非主要功能</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>多工作批次生成</td>
+<td>以網頁操作為主，Toybox 另有短片 Agent</td>
+<td>以工作清單串接多種任務</td>
+</tr>
+<tr>
+<td>自動啟動 Colab</td>
+<td>不支援完整自動啟動</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>自動下載成品</td>
+<td>部分筆記本支援</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>自動關閉 GPU</td>
+<td>主要由使用者管理</td>
+<td>支援</td>
+</tr>
+<tr>
+<td>適合對象</td>
+<td>初學者、教學</td>
+<td>Codex、Claude Code 使用者</td>
+</tr>
+</tbody></table>
+<p>簡單來說：</p>
+<p>如果你只是偶爾生成一兩支影片，第一個專案就很好用。</p>
+<p>但如果你需要反覆生成分鏡圖、多支影片與配音，第二個專案的批次工作清單會更有吸引力。剪輯仍須交給其他工具。</p>
+<p>兩者並非「有無 Agent」的絕對區分：第一個專案的 Toybox 文件也列有 Gemini 短片 Agent。本文主要比較使用者操作網頁，以及由桌面 Agent 管理 Colab、提交批次與收回檔案的差異。</p>
+<p>值得注意的是，第一個專案本身也包含一個基礎的數位人 Skill。</p>
+<p>不過，該 Skill 需要你先手動啟動 Colab，再把連線網址交給 AI。</p>
+<p>第二個專案則更進一步，讓 AI 負責整個 Colab 執行流程。</p>
+<h2 id="三、教學一：使用-minimax-h3-colab"><a href="#三、教學一：使用-minimax-h3-colab" class="headerlink" title="三、教學一：使用 minimax-h3-colab"></a>三、教學一：使用 minimax-h3-colab</h2><p>這個專案比較適合第一次接觸 MiniMax H3 的使用者。</p>
+<p>作者準備了三套 Google Colab 筆記本。</p>
+<h3 id="1-H3-Basic-ComfyUI"><a href="#1-H3-Basic-ComfyUI" class="headerlink" title="1. H3 Basic ComfyUI"></a>1. H3 Basic ComfyUI</h3><p>這是最基礎的版本。</p>
+<p>它會在 Google Colab 中安裝 ComfyUI 與 H3 模型，讓你自行操作工作流節點。</p>
+<p>適合：</p>
+<ul>
+<li>已經熟悉 ComfyUI 的使用者</li>
+<li>想研究 H3 工作流的人</li>
+<li>想修改模型參數及節點組合的開發者</li>
+</ul>
+<h3 id="2-H3-Digital-Human"><a href="#2-H3-Digital-Human" class="headerlink" title="2. H3 Digital Human"></a>2. H3 Digital Human</h3><p>這個版本專門用來生成數位人影片。</p>
+<p>你可以上傳一張人物照片，再提供提示詞。</p>
+<p>例如：</p>
+<p>「讓照片中的台灣女生對鏡頭說：大家好，我是米樂，今天帶大家一起探索台北最好吃的咖啡廳。」</p>
+<p>接著設定影片長度、解析度和 Seed，就能開始生成。</p>
+<p>這個版本特別適合：</p>
+<ul>
+<li>AI 網紅口播</li>
+<li>數位人介紹影片</li>
+<li>虛擬主播</li>
+<li>角色對白實驗</li>
+</ul>
+<h3 id="3-H3-Toybox"><a href="#3-H3-Toybox" class="headerlink" title="3. H3 Toybox"></a>3. H3 Toybox</h3><p><strong>想先體驗網頁操作，可從這個版本開始。</strong></p>
+<p>Toybox 是作者製作的網頁操作介面。</p>
+<p>你不用學會 ComfyUI 的節點，也能直接操作多種 H3 影片生成模式。</p>
+<p>目前包含：</p>
+<ul>
+<li>參考生成</li>
+<li>頭尾幀生成</li>
+<li>純文字生成</li>
+<li>影片延伸</li>
+<li>提示詞改寫</li>
+<li>選用的圖片生成及編輯功能</li>
+</ul>
+<p>此外，Toybox 還可以設定不同的提示詞改寫來源，例如本地模型、Gemini 或 OpenAI 相容 API。</p>
+<h3 id="實際操作步驟"><a href="#實際操作步驟" class="headerlink" title="實際操作步驟"></a>實際操作步驟</h3><p><strong>Step 1：開啟 Colab</strong></p>
+<p>直接點選：</p>
+<p><a target="_blank" rel="noopener" href="https://colab.research.google.com/github/dseditor/minimax-h3-colab/blob/main/H3_Toybox.ipynb">開啟 H3 Toybox Google Colab</a></p>
+<p><strong>Step 2：設定 GPU</strong></p>
+<p>進入 Colab 後，選擇：</p>
+<p>「執行階段 → 變更執行階段類型」</p>
+<p>將 GPU 設為 L4。專案文件以 Google AI Pro 與可用 Colab 運算單元為前置條件，並指出這套 int8 工作流不適用 T4。實際方案資格與 GPU 配額，請先在自己的 Colab 帳號確認。</p>
+<p><strong>Step 3：執行筆記本</strong></p>
+<p>Toybox 筆記本主要執行三格：</p>
+<ol>
+<li>安裝 ComfyUI 與必要元件。</li>
+<li>下載 H3 模型。</li>
+<li>啟動 Toybox 網頁。</li>
+</ol>
+<p>這與 Basic、Digital Human 筆記本的分格不同，請以你開啟的筆記本標示為準。</p>
+<p>完成後，點選畫面提供的網頁連結。</p>
+<p><strong>Step 4：生成第一支影片</strong></p>
+<p>建議第一次先測試：</p>
+<ul>
+<li>片長：5 秒</li>
+<li>解析度：480P</li>
+<li>比例：9:16</li>
+<li>模式：參考生成</li>
+</ul>
+<p>先上傳人物照片，再描述人物動作、鏡頭和對白。</p>
+<p>如果要做 AI 網紅，建議固定使用同一張正式角色定裝照作為參考。</p>
+<p><strong>Step 5：檢查成果</strong></p>
+<p>生成後，不要只確認影片能播放。</p>
+<p>還應該檢查：</p>
+<ul>
+<li>五官是否與參考人物一致</li>
+<li>服裝是否跑掉</li>
+<li>中文發音是否自然</li>
+<li>嘴型是否對得上</li>
+<li>有沒有產生多餘字幕</li>
+<li>鏡頭及動作是否符合需求</li>
+</ul>
+<p>H3 有官方提示詞格式，專案建議參考生成採英文描述、台詞保留原語言。上面的中文台詞是需求示意，正式生成前仍應轉成對應工作流的提示詞。</p>
+<p>可以利用 Toybox 的提示詞改寫功能，讓提示詞更符合模型需求。</p>
+<h2 id="四、教學二：安裝-h3-colab-skill，讓-Codex-自動生成"><a href="#四、教學二：安裝-h3-colab-skill，讓-Codex-自動生成" class="headerlink" title="四、教學二：安裝 h3-colab-skill，讓 Codex 自動生成"></a>四、教學二：安裝 h3-colab-skill，讓 Codex 自動生成</h2><p>接下來這個專案，才是我認為最值得 AI Agent 使用者研究的部分。</p>
+<p>它的正式 Skill 名稱叫做：</p>
+<p><code>h3-multimodal-colab</code></p>
+<p>目前支援 Claude Code、Codex，以及其他能操作本機命令列的 AI Agent。</p>
+<p>主要概念是：</p>
+<p>你不用再自己開啟 Colab、下載模型、設定工作流。</p>
+<p>只要告訴 AI 你想做什麼，它就會協助完成操作流程。</p>
+<h3 id="Step-1：安裝-Skill"><a href="#Step-1：安裝-Skill" class="headerlink" title="Step 1：安裝 Skill"></a>Step 1：安裝 Skill</h3><p>作者已經提供 AI Agent 專用的安裝指南。</p>
+<p>你可以直接在 Codex 或 Claude Code 中貼上：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br></pre></td><td class="code"><pre><span class="line">請先閱讀以下專案作者提供的安裝指南：</span><br><span class="line"></span><br><span class="line">https://github.com/dseditor/h3-colab-skill/blob/main/INSTALL_FOR_AGENTS.md</span><br><span class="line"></span><br><span class="line">我想安裝 h3-multimodal-colab Skill。</span><br><span class="line"></span><br><span class="line">開始安裝前，請先告訴我：</span><br><span class="line"></span><br><span class="line">1. 這個 Skill 可以完成哪些工作？</span><br><span class="line">2. 需要哪些 Google 訂閱？</span><br><span class="line">3. 會安裝哪些本機工具？</span><br><span class="line">4. 如何使用我的 Colab GPU？</span><br><span class="line">5. 什麼時候需要 Google 帳號授權？</span><br><span class="line"></span><br><span class="line">請先靜態審查安裝腳本與連帶下載內容，說明來源版本、讀寫路徑、權限與網路目的地。</span><br><span class="line">預設安裝在目前專案的技能目錄；若需全域工具，請另列出。</span><br><span class="line">請等我同意後，再執行安裝。</span><br></pre></td></tr></table></figure>
+
+<p>依作者安裝指南，本機會涉及 uv、Python 3.12、google-colab-cli 0.7.4 與 Skill 檔案；ComfyUI 與模型則在 Colab 環境安裝／下載。這是流程說明，本文未執行該安裝或審查完整供應鏈。</p>
+<p>第一次使用時，需要透過 Google 帳號完成授權。</p>
+<p>注意：這是讓程式存取你帳號中的 Colab 運算資源，因此應該先確認授權內容。</p>
+<h3 id="Step-2：選擇生成環境"><a href="#Step-2：選擇生成環境" class="headerlink" title="Step 2：選擇生成環境"></a>Step 2：選擇生成環境</h3><p>Skill 可以選擇兩種執行模式。</p>
+<p><strong>模式 A：Google Colab</strong></p>
+<p>適合沒有 NVIDIA 顯示卡的使用者。</p>
+<p>需要使用 Colab 運算單元，每次啟動環境時可能需要重新下載模型。</p>
+<p><strong>模式 B：本機 ComfyUI Desktop</strong></p>
+<p>作者本機指南以 ComfyUI Desktop 與至少 16GB 顯示記憶體的 NVIDIA 顯示卡為條件；文件中的路徑與操作範例以 Windows 為主，其他系統仍須另行確認。</p>
+<p>模型下載一次後，就能重複使用。</p>
+<p>如果你使用的是 MacBook Pro M 系列，建議先選 Colab，因為目前作者的本機方案是以 NVIDIA GPU 為主要條件。</p>
+<h3 id="Step-3：交辦-AI-影音生成任務"><a href="#Step-3：交辦-AI-影音生成任務" class="headerlink" title="Step 3：交辦 AI 影音生成任務"></a>Step 3：交辦 AI 影音生成任務</h3><p>假設你正在經營一個 AI 網紅角色。</p>
+<p>你可以直接對 Codex 說：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br></pre></td><td class="code"><pre><span class="line">請使用 h3-multimodal-colab Skill，</span><br><span class="line">幫我的 AI 網紅製作一支 15 秒的直式短片。</span><br><span class="line"></span><br><span class="line">角色：</span><br><span class="line">使用我提供的角色定裝照。</span><br><span class="line"></span><br><span class="line">影片風格：</span><br><span class="line">真人寫實、台灣生活 Vlog、自然跟拍。</span><br><span class="line"></span><br><span class="line">劇情：</span><br><span class="line">第一段 5 秒：女生走進咖啡廳。</span><br><span class="line">第二段 5 秒：她看到帳單，露出震驚表情。</span><br><span class="line">第三段 5 秒：她對店員說出搞笑台詞，</span><br><span class="line">最後出現冷面幽默反轉。</span><br><span class="line"></span><br><span class="line">製作需求：</span><br><span class="line"></span><br><span class="line">1. 保持角色五官、髮型、服裝一致。</span><br><span class="line">2. 使用 9:16 直式畫面。</span><br><span class="line">3. 先以 L4、480P 測試。</span><br><span class="line">4. 中文對白使用台灣華語。</span><br><span class="line">5. 影片不要字幕。</span><br><span class="line">6. 請先整理分鏡與生成提示詞。</span><br><span class="line">7. 先讓我確認規格，再開始批次生成。</span><br><span class="line">8. 完成後下載影片，檢查畫面和聲音。</span><br><span class="line">9. 詢問我要不要繼續修改，再決定是否關閉 GPU。</span><br></pre></td></tr></table></figure>
+
+<p>這樣 Codex 就能依照 Skill 的規則，規劃生成工作並進行操作。</p>
+<p>當然，AI 產出的角色一致性、動作和對白仍需要驗收，不代表一次生成就一定成功。</p>
+<h2 id="五、第二個專案最重要的功能：批次生成"><a href="#五、第二個專案最重要的功能：批次生成" class="headerlink" title="五、第二個專案最重要的功能：批次生成"></a>五、第二個專案最重要的功能：批次生成</h2><p>我認為 <code>h3-colab-skill</code> 最有價值的地方，就是它的批次工作機制。</p>
+<p>例如你有一支 30 秒的 AI 短劇。</p>
+<p>傳統流程可能是：</p>
+<ol>
+<li>打開圖片生成工具，產生分鏡。</li>
+<li>下載分鏡圖片。</li>
+<li>打開 H3，逐張上傳。</li>
+<li>逐段生成影片。</li>
+<li>下載所有影片。</li>
+<li>打開配音工具，產生語音。</li>
+<li>將素材匯入剪輯軟體。</li>
+</ol>
+<p>如果每次都要切換工具，會花不少時間。</p>
+<p>但第二個專案可以讓 Agent 把工作整理成 <code>manifest.json</code>。</p>
+<p>支援的工作類型包括：</p>
+<table>
+<thead>
+<tr>
+<th>類型</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td><code>image</code></td>
+<td>圖片生成與編輯</td>
+</tr>
+<tr>
+<td><code>video</code></td>
+<td>影片生成</td>
+</tr>
+<tr>
+<td><code>video + extend</code></td>
+<td>延伸既有影片</td>
+</tr>
+<tr>
+<td><code>tts</code></td>
+<td>語音生成</td>
+</tr>
+</tbody></table>
+<p>還能利用 <code>@id</code> 引用前面任務的輸出成果。</p>
+<p>也就是說，前一個工作生成的圖片，可以接著交給後續的影片生成工作使用。</p>
+<p>這才是真正值得延伸研究的地方。</p>
+<p>未來可以把它和 AI 編劇、分鏡、剪輯工作流串接起來。</p>
+<p>不過要提醒，批次執行並不等於完全無人監督。角色不一致、動作錯誤或生成失敗時，仍然需要針對個別片段調整。</p>
+<h2 id="六、Google-Colab-會花多少運算單元？"><a href="#六、Google-Colab-會花多少運算單元？" class="headerlink" title="六、Google Colab 會花多少運算單元？"></a>六、Google Colab 會花多少運算單元？</h2><p>這也是大家很關心的問題。</p>
+<p>根據 <a target="_blank" rel="noopener" href="https://github.com/dseditor/h3-colab-skill#%E9%9C%80%E8%A6%81%E4%BB%80%E9%BA%BC">h3-colab-skill README</a> 的估計（非 Colab 固定費率）：</p>
+<table>
+<thead>
+<tr>
+<th>GPU</th>
+<th align="right">作者估計每小時消耗</th>
+<th>Skill 預設解析度</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>L4</td>
+<td align="right">約 1.5 個運算單元</td>
+<td>480P</td>
+</tr>
+<tr>
+<td>G4</td>
+<td align="right">約 11 個運算單元</td>
+<td>720P</td>
+</tr>
+</tbody></table>
+<p>作者在 2026 年 11 月 4 日公布的一組 L4 測試，包含：</p>
+<ul>
+<li>啟動 Colab</li>
+<li>安裝環境與下載模型</li>
+<li>兩張參考圖進行圖片編輯</li>
+<li>生成一支 5 秒影片</li>
+<li>生成約 6 秒配音</li>
+<li>完成後關閉 GPU</li>
+</ul>
+<p>整批約花費 10.1 分鐘、0.5 個運算單元。</p>
+<p>這是作者在特定環境下的實測，不能視為所有影片都能達到相同速度。</p>
+<p>而且 GPU 供應、Colab 政策、實際點數消耗，都可能變動。</p>
+<p>建議第一次先做一支 5 秒影片，確認自己的帳號可以正常執行，再開始大量生成。</p>
+<h2 id="七、Skill-還能自動管理-GPU"><a href="#七、Skill-還能自動管理-GPU" class="headerlink" title="七、Skill 還能自動管理 GPU"></a>七、Skill 還能自動管理 GPU</h2><p>這是另一個我覺得很實用的功能。</p>
+<p>因為很多人使用 Colab 時，會遇到兩個問題。</p>
+<p>第一個是每次啟動都要重新下載模型。</p>
+<p>第二個是影片做完後，忘記關閉 GPU。</p>
+<p><code>h3-colab-skill</code> 設計了相關管理機制：</p>
+<ul>
+<li>開始工作前檢查剩餘運算單元。</li>
+<li>批次任務有執行時間上限。</li>
+<li>工作完成後，預設暫時保留 GPU 15 分鐘；保留期間仍可能消耗運算單元。</li>
+<li>如果需要修改，可以沿用同一個環境。</li>
+<li>如果沒有新的任務，依專案設計，本機閒置計時器會嘗試自動關閉 GPU；仍應讀回執行階段狀態確認釋放。</li>
+<li>任務失敗或中斷時，會嘗試釋放 GPU。</li>
+</ul>
+<p>換句話說，它不只是影片生成 Skill，也包含部分 Colab 資源管理功能。</p>
+<p>對於經常使用 AI Agent 批次生成素材的人，這種管理方式相當有價值。</p>
+<h2 id="八、使用之前要注意什麼？"><a href="#八、使用之前要注意什麼？" class="headerlink" title="八、使用之前要注意什麼？"></a>八、使用之前要注意什麼？</h2><h3 id="1-開源不代表運算免費"><a href="#1-開源不代表運算免費" class="headerlink" title="1. 開源不代表運算免費"></a>1. 開源不代表運算免費</h3><p>兩個 GitHub 專案可以免費取得程式碼，但執行 Colab GPU 可能會消耗付費方案的運算單元。</p>
+<p>因此，不能把「開源」直接理解成「無限免費生成影片」。</p>
+<h3 id="2-模型授權要分開看"><a href="#2-模型授權要分開看" class="headerlink" title="2. 模型授權要分開看"></a>2. 模型授權要分開看</h3><p><code>h3-colab-skill</code> 專案採 MIT 授權。</p>
+<p>但 MiniMax H3、P-H3-Image，以及附加的 LoRA 模型，各有不同授權條款。</p>
+<p>如果要用在商業接案、企業服務或對外提供生成平台，應該先確認模型授權。</p>
+<h3 id="3-留意-Colab-連線安全"><a href="#3-留意-Colab-連線安全" class="headerlink" title="3. 留意 Colab 連線安全"></a>3. 留意 Colab 連線安全</h3><p>第一個專案如果使用 Cloudflare 公開連線網址，作者提醒該網址沒有密碼保護。</p>
+<p>因此不要把連線網址貼到公開社群。</p>
+<p>第二個專案則需要 Google 帳號授權，也應確認授權範圍並保護本機憑證。</p>
+<h3 id="4-AI-生成還需要人工驗收"><a href="#4-AI-生成還需要人工驗收" class="headerlink" title="4. AI 生成還需要人工驗收"></a>4. AI 生成還需要人工驗收</h3><p>特別是 AI 網紅與連載短劇，人物的一致性非常重要。</p>
+<p>即使使用相同參考照片，仍可能出現：</p>
+<ul>
+<li>人物臉型改變</li>
+<li>服裝細節不一致</li>
+<li>台詞不完整</li>
+<li>動作不連貫</li>
+<li>鏡頭方向錯誤</li>
+</ul>
+<p>最好的做法，是先建立正式角色素材，再將產片流程標準化。</p>
+<h2 id="九、我會怎麼應用在-AI-網紅與短劇工作流？"><a href="#九、我會怎麼應用在-AI-網紅與短劇工作流？" class="headerlink" title="九、我會怎麼應用在 AI 網紅與短劇工作流？"></a>九、我會怎麼應用在 AI 網紅與短劇工作流？</h2><p>以我目前研究的 AI 網紅、短劇、Codex 自動剪輯工作流來看，我會把這兩個專案分成不同用途。</p>
+<p><strong>第一階段：使用 H3 Toybox 測試生成品質。</strong></p>
+<p>先測試角色的一致性、中文口音、嘴型，以及動作生成是否符合預期。</p>
+<p>這個階段的重點是確認模型能做到什麼。</p>
+<p><strong>第二階段：使用 h3-colab-skill 自動化批次產片。</strong></p>
+<p>讓 Codex 負責：</p>
+<ol>
+<li>整理短劇腳本。</li>
+<li>拆解分鏡。</li>
+<li>產生影片提示詞。</li>
+<li>建立生成工作清單。</li>
+<li>啟動 Colab GPU。</li>
+<li>批次生成圖片、影片與音訊。</li>
+<li>下載並檢查素材。</li>
+</ol>
+<p>接著，再把產出的素材交給既有的 Concat、FFmpeg 或 DaVinci Resolve 自動剪輯流程。</p>
+<p>如此一來，就能逐步建立一套從腳本到影片的 AI Agent 製作流程。</p>
+<p>當然，這是值得實作驗證的整合方向，並不是這兩個專案已經內建完整的成片剪輯功能。</p>
+<h2 id="結語：AI-影音創作，正在從工具操作走向-Agent-自動化"><a href="#結語：AI-影音創作，正在從工具操作走向-Agent-自動化" class="headerlink" title="結語：AI 影音創作，正在從工具操作走向 Agent 自動化"></a>結語：AI 影音創作，正在從工具操作走向 Agent 自動化</h2><p>我認為這兩個專案最大的啟發，不只是 MiniMax H3 終於可以透過 Colab 使用。</p>
+<p>更重要的是，它們讓我們看到 AI 影音工具正在發生什麼變化。</p>
+<p>以前，我們需要學會操作各種 AI 工具。</p>
+<p>現在，我們開始讓 AI Agent 替我們操作工具。</p>
+<p>從生成圖片、產生影片、生成語音，到下載素材，越來越多步驟可以交給 Agent 處理。</p>
+<p>所以，我的建議是：</p>
+<p>如果你是初學者，先從 <code>minimax-h3-colab</code> 的 H3 Toybox 開始。</p>
+<p>如果你已經熟悉 Codex 或 Claude Code，想建立自己的 AI 網紅或短劇自動化工作流，那麼 <code>h3-colab-skill</code> 更值得深入研究。</p>
+<p><strong>未來 AI 影音製作的競爭力，不只是誰會用更多生成工具，而是誰能把創作流程變成可重複、可驗證、可持續改進的 AI Agent 工作流。</strong></p>
+<hr>
+<h2 id="參考資料"><a href="#參考資料" class="headerlink" title="參考資料"></a>參考資料</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/minimax-h3-colab">MiniMax H3 Colab 專案</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/minimax-h3-colab/blob/main/toybox/README.md">H3 Toybox 技術說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/h3-colab-skill">H3 Colab Skill 專案</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/h3-colab-skill/blob/main/INSTALL_FOR_AGENTS.md">Agent 安裝指南</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/dseditor/h3-colab-skill/blob/main/localguide.md">本機 ComfyUI 執行說明</a></li>
+</ul>
+<p><em>資料整理日期：2026 年 11 月 7 日。功能、預設值與費用估計依作者公開文件整理，可能隨版本、方案與 GPU 供應改變。本文未實際安裝這兩個專案或完成完整實機效能評測。</em></p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：沒有-NVIDIA-顯示卡，Mac-也能用-MiniMax-H3-嗎？"><a href="#Q1：沒有-NVIDIA-顯示卡，Mac-也能用-MiniMax-H3-嗎？" class="headerlink" title="Q1：沒有 NVIDIA 顯示卡，Mac 也能用 MiniMax H3 嗎？"></a>Q1：沒有 NVIDIA 顯示卡，Mac 也能用 MiniMax H3 嗎？</h3><p>可以採本文的 Colab 路線，把生成運算交給雲端 GPU，本機主要負責操作與接收檔案。仍須具備作者文件要求的帳號資格、可用運算單元與 GPU 配額；作者的本機方案則以 NVIDIA GPU 為條件。</p>
+<h3 id="Q2：minimax-h3-colab-和-h3-colab-skill-應該選哪個？"><a href="#Q2：minimax-h3-colab-和-h3-colab-skill-應該選哪個？" class="headerlink" title="Q2：minimax-h3-colab 和 h3-colab-skill 應該選哪個？"></a>Q2：minimax-h3-colab 和 h3-colab-skill 應該選哪個？</h3><p>想先透過網頁調整參數、理解生成品質，可從 minimax-h3-colab 的 Toybox 開始。若已有能執行本機指令的 Codex 或 Claude Code，且需要批次處理圖片、影片與配音，可研究 h3-colab-skill 的工作清單與 Colab 管理流程。</p>
+<h3 id="Q3：開源代表免費產片、也能直接完成剪輯嗎？"><a href="#Q3：開源代表免費產片、也能直接完成剪輯嗎？" class="headerlink" title="Q3：開源代表免費產片、也能直接完成剪輯嗎？"></a>Q3：開源代表免費產片、也能直接完成剪輯嗎？</h3><p>程式碼可取得不代表 GPU 運算免費。Colab 仍可能消耗付費運算單元，模型與附加素材也各有授權條款。這兩個專案主要處理生成與素材回收，完整短劇仍須剪輯與人工驗收，不能把批次生成視為成片品質保證。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover242.webp" class="img-fluid card-img-top rounded-3" alt="OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openmontage-codex-video-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover240.webp" class="img-fluid card-img-top rounded-3" alt="600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Gemini</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-short-video-prompt-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover239.webp" class="img-fluid card-img-top rounded-3" alt="Open Pose &amp; Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Open Pose &amp; Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI繪圖</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/06</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/open-pose-costume-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover238.webp" class="img-fluid card-img-top rounded-3" alt="Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/toonflow-ai-comic-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover236.webp" class="img-fluid card-img-top rounded-3" alt="別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-team-management-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover237.webp" class="img-fluid card-img-top rounded-3" alt="AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">職場溝通</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-agent-line-management/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover235.webp" class="img-fluid card-img-top rounded-3" alt="1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-costume-gallery-chatgpt-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover234.webp" class="img-fluid card-img-top rounded-3" alt="Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/agent-use-cases-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover233.webp" class="img-fluid card-img-top rounded-3" alt="AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-tts-comparison-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>

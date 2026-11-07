@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較
+  網址：https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/
+  日期：2026-11-07
+  摘要：沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。
+  主題：AI工具、AI自動化、影音行銷
+
 - OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯
   網址：https://blog.es2idea.com/posts/openmontage-codex-video-guide/
   日期：2026-11-07
@@ -101,12 +107,6 @@
   日期：2026-10-28
   摘要：從劉德華與虛擬角色 HAC 的消息出發，思考 AI 網紅與虛擬 IP 的差別，並掌握角色定位、一致性、故事、粉絲互動及商業化五個實用經營方向。
   主題：商業策略、內容行銷、影音行銷
-
-- 【Openverse API 教學】用 Codex 自動搜尋影片圖片、音樂與音效
-  網址：https://blog.es2idea.com/posts/openverse-api-codex-media-search/
-  日期：2026-10-20
-  摘要：想讓 AI 影片工作流自動找素材？本文帶你用 Codex 串接 Openverse API，搜尋開放授權圖片與音訊、整理作者與授權資訊，並在下載和剪輯前保留人工確認。
-  主題：AI工具、AI自動化、影音行銷
 
 ## 語言
 - zh-TW
