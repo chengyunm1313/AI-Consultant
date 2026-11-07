@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學
+  網址：https://blog.es2idea.com/posts/ai-short-video-prompt-guide/
+  日期：2026-11-07
+  摘要：600 組 AI 短影音提示詞怎麼改成自己的作品？從 QuickPhoto 找靈感，拆解角色、場景、動作與時間軸，附雨夜舞蹈英文提示詞，整理 Gemini Omni 1.2 Flash、Seedance 2.5 的規格、成本與驗收方法。
+  主題：AI工具、影音行銷、Gemini
+
 - Open Pose & Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計
   網址：https://blog.es2idea.com/posts/open-pose-costume-guide/
   日期：2026-11-06
@@ -46,13 +52,13 @@
   網址：https://blog.es2idea.com/posts/toonflow-ai-comic-guide/
   日期：2026-11-05
   摘要：Toonflow 是免費開源的 AI 漫劇與短劇製作平台，整合劇本、角色三視圖、分鏡與影片生成。本文整理安裝方式、15 秒短片製作流程、官方成本案例，以及與 Codex、ComfyUI 整合前需要驗證的能力與限制。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - 別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工
   網址：https://blog.es2idea.com/posts/ai-team-management-guide/
   日期：2026-11-05
   摘要：AI Agent 不是越多越好，分工、工作方法與驗收才是關鍵。從 AI 員工管理出發，理解 Skills、Scripts 與 Routines 如何搭配，建立能持續執行、處理例外並由人類把關的 AI 工作系統。
-  主題：AI工具、商業策略、AI自動化
+  主題：商業策略、AI自動化、AI工具
 
 - AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值
   網址：https://blog.es2idea.com/posts/ai-agent-line-management/
@@ -70,19 +76,19 @@
   網址：https://blog.es2idea.com/posts/agent-use-cases-guide/
   日期：2026-11-05
   摘要：訂閱 Claude Code、Codex 或 Grok Bot，卻不知道能交辦什麼？本篇介紹 Agent Use Cases 案例庫，帶你用五個步驟搜尋工作流、檢查原始來源、改寫發票整理提示詞，並用正確率、處理時間與人工介入量驗收結果，從小規模測試開始導...
-  主題：AI工具、AI自動化、AI Agent
+  主題：AI自動化、AI工具、AI Agent
 
 - AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較
   網址：https://blog.es2idea.com/posts/ai-tts-comparison-guide/
   日期：2026-10-30
   摘要：比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移
   網址：https://blog.es2idea.com/posts/ai-motion-transfer-guide/
   日期：2026-10-30
   摘要：想讓 AI 網紅模仿真人跳舞？本文比較 2D 骨架與 3D 白模的優缺點，介紹動作遷移、MediaPipe、Blender 和 ComfyUI 的工作流程，並提供 Codex 實作提示詞與檢查重點。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - 從劉德華 HAC 談 AI 網紅與虛擬 IP：如何打造能長期經營的角色？
   網址：https://blog.es2idea.com/posts/hac-ai-influencer-brand/
@@ -94,18 +100,12 @@
   網址：https://blog.es2idea.com/posts/openverse-api-codex-media-search/
   日期：2026-10-20
   摘要：想讓 AI 影片工作流自動找素材？本文帶你用 Codex 串接 Openverse API，搜尋開放授權圖片與音訊、整理作者與授權資訊，並在下載和剪輯前保留人工確認。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - AI 影片打光教學：從 8 種光線到三點布光、倫勃朗光
   網址：https://blog.es2idea.com/posts/ai-video-lighting-guide/
   日期：2026-10-19
   摘要：AI 影片只寫「電影感」仍難控制光影？本文從頂光、逆光等 8 種常見光線，帶你理解三點布光、倫勃朗光與 AI 提示詞寫法，並附同一角色的實作練習，讓你用光線方向、陰影和情緒描述畫面。
-  主題：AI工具、影音行銷
-
-- AI 影片人物表情太假？用提示詞拆解微表情與情緒節奏
-  網址：https://blog.es2idea.com/posts/ai-video-facial-expression-prompts/
-  日期：2026-10-19
-  摘要：AI 影片角色常出現誇張大笑、表情僵硬或反應不連貫？本文用微表情、肢體動作與情緒分段，整理提示詞公式、三種新手範例與修正方法，帶你把抽象情緒寫成可見的表演細節。
   主題：AI工具、影音行銷
 
 ## 語言
