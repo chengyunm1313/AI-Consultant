@@ -1,0 +1,1141 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/openmontage-codex-video-guide/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯">
+<meta property="og:url" content="https://blog.es2idea.com/posts/openmontage-codex-video-guide/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover242.webp">
+<meta property="article:published_time" content="2026-11-07T21:33:47.000Z">
+<meta property="article:modified_time" content="2026-11-07T13:45:18.271Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="影音行銷">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover242.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#webpage","@type":"WebPage","name":"OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯","url":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/","description":"OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover242.webp","@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#blogposting","@type":"BlogPosting","headline":"OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯","name":"OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯","description":"OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。","url":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-11-07T21:33:47.000Z","dateModified":"2026-11-07T13:45:18.271Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover242.webp","@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#primaryimage","width":1200,"height":800},"articleSection":"生成式AI應用","keywords":["AI工具","AI自動化","影音行銷"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["生成式AI應用","AI工具","AI自動化","影音行銷"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯","item":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/"}]},{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"OpenMontage 和 Codex 是什麼關係？","acceptedAnswer":{"@type":"Answer","text":"OpenMontage 提供影片工作流、Skill 與工具，Codex 則是讀取規則、檢查環境並協調執行的 AI Coding Agent。它不是新的影片生成模型；製作前仍需確認實際可用的工具、素材、模型與成本。"}},{"@type":"Question","name":"沒有付費 API Key，也能製作影片嗎？","acceptedAnswer":{"@type":"Answer","text":"可以先嘗試現有素材、動態圖文、本機配音與影片合成的路徑，前提是相關工具與語音模型已安裝且適用。雲端影片生成、Coding Agent 使用及運算可能另有成本，工具與素材授權也需要各自確認。"}},{"@type":"Question","name":"OpenMontage 能保證 AI 網紅長相一致，或直接控制 Google Flow 嗎？","acceptedAnswer":{"@type":"Answer","text":"不能保證。人物一致性仍取決於參考圖、生成模型、鏡頭設計與人工審核；Google Flow 等網頁工具是否能自動操作，也要看實際 API 與整合方式。可先讓 Agent 規劃，再以人工產出素材並交回後製，但這需要明確設計交接流程。"}}]},{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#howto","@type":"HowTo","name":"OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯","description":"OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover242.webp","@id":"https://blog.es2idea.com/posts/openmontage-codex-video-guide/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"Step 1：準備執行環境","text":"官方列出的基本需求包括 Python 3.10 以上、Node.js 18 以上、FFmpeg，以及 AI Coding Agent；下載原始碼也需要 Git。"},{"@type":"HowToStep","name":"Step 2：下載 OpenMontage，先檢視安裝內容","text":"建議在獨立測試資料夾操作，先閱讀 README、Makefile 與相依套件設定，再執行安裝。本文提供的是安裝說明，並未在這次文章整理中安裝或執行 OpenMontage。"},{"@type":"HowToStep","name":"Step 3：安裝相依套件並啟用虛擬環境","text":"確認下載版本的安裝內容後，執行："},{"@type":"HowToStep","name":"Step 4：使用 Codex 開啟專案","text":"如果已安裝 Codex CLI，可在 OpenMontage 根目錄執行："},{"@type":"HowToStep","name":"Step 1：先產出企劃、劇本與分鏡","text":"把以下提示詞交給 Codex："},{"@type":"HowToStep","name":"Step 2：檢查劇本與分鏡","text":"建議確認："},{"@type":"HowToStep","name":"Step 3：核准後生成素材與合成影片","text":"這是第一支 OpenMontage 影片的基本操作流程。輸出後仍要實際觀看與聆聽，確認旁白、畫面節奏與字幕可讀性；自動檢查通過不等於觀眾體驗良好。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%81OpenMontage-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E5%A6%82%E4%BD%95%E8%AE%93-AI-Agent-%E5%8D%94%E8%AA%BF%E8%A3%BD%E7%89%87%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、OpenMontage 是什麼？如何讓 AI Agent 協調製片？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81OpenMontage-%E8%83%BD%E8%A3%BD%E4%BD%9C%E5%93%AA%E4%BA%9B%E5%BD%B1%E7%89%87%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、OpenMontage 能製作哪些影片？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#AI-%E7%9F%AD%E5%8A%87%EF%BC%9A%E5%BE%9E%E6%95%85%E4%BA%8B%E6%A7%8B%E6%83%B3%E5%88%B0%E9%8F%A1%E9%A0%AD%E8%A6%8F%E5%8A%83"><span class="toc-number">2.1.</span> <span class="toc-text">AI 短劇：從故事構想到鏡頭規劃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%95%86%E5%93%81%E5%B8%B6%E8%B2%A8%EF%BC%9A%E6%8A%8A%E5%95%86%E5%93%81%E7%85%A7%E7%89%87%E8%AE%8A%E6%88%90%E5%BB%A3%E5%91%8A%E4%BC%81%E5%8A%83"><span class="toc-number">2.2.</span> <span class="toc-text">商品帶貨：把商品照片變成廣告企劃</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E9%95%B7%E5%BD%B1%E7%89%87%E8%BD%89%E7%9F%AD%E5%BD%B1%E9%9F%B3%EF%BC%9A%E8%AE%93%E6%97%A2%E6%9C%89%E5%85%A7%E5%AE%B9%E9%87%8D%E6%96%B0%E7%99%BC%E6%8F%AE%E5%83%B9%E5%80%BC"><span class="toc-number">2.3.</span> <span class="toc-text">長影片轉短影音：讓既有內容重新發揮價值</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E6%A0%B8%E5%BF%83%E5%B7%A5%E4%BD%9C%E6%B5%81%E7%A8%8B%EF%BC%9A%E5%BE%9E%E7%A0%94%E7%A9%B6%E5%88%B0%E5%BD%B1%E7%89%87%E5%90%88%E6%88%90%E7%9A%84%E4%B8%83%E5%80%8B%E9%9A%8E%E6%AE%B5"><span class="toc-number">3.</span> <span class="toc-text">三、核心工作流程：從研究到影片合成的七個階段</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81Backlot-%E5%88%86%E9%8F%A1%E5%B7%A5%E4%BD%9C%E5%8F%B0%EF%BC%9A%E7%94%9F%E6%88%90%E4%B9%8B%E5%BE%8C%EF%BC%8C%E5%85%88%E5%AF%A9%E6%A0%B8%E5%86%8D%E5%90%88%E6%88%90"><span class="toc-number">4.</span> <span class="toc-text">四、Backlot 分鏡工作台：生成之後，先審核再合成</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81OpenMontage-%E5%AE%89%E8%A3%9D%E6%95%99%E5%AD%B8%EF%BC%9A%E5%A6%82%E4%BD%95%E7%94%A8-Codex-%E9%96%8B%E5%A7%8B%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">五、OpenMontage 安裝教學：如何用 Codex 開始？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E6%BA%96%E5%82%99%E5%9F%B7%E8%A1%8C%E7%92%B0%E5%A2%83"><span class="toc-number">5.1.</span> <span class="toc-text">Step 1：準備執行環境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E4%B8%8B%E8%BC%89-OpenMontage%EF%BC%8C%E5%85%88%E6%AA%A2%E8%A6%96%E5%AE%89%E8%A3%9D%E5%85%A7%E5%AE%B9"><span class="toc-number">5.2.</span> <span class="toc-text">Step 2：下載 OpenMontage，先檢視安裝內容</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E5%AE%89%E8%A3%9D%E7%9B%B8%E4%BE%9D%E5%A5%97%E4%BB%B6%E4%B8%A6%E5%95%9F%E7%94%A8%E8%99%9B%E6%93%AC%E7%92%B0%E5%A2%83"><span class="toc-number">5.3.</span> <span class="toc-text">Step 3：安裝相依套件並啟用虛擬環境</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-4%EF%BC%9A%E4%BD%BF%E7%94%A8-Codex-%E9%96%8B%E5%95%9F%E5%B0%88%E6%A1%88"><span class="toc-number">5.4.</span> <span class="toc-text">Step 4：使用 Codex 開啟專案</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E7%AC%AC%E4%B8%80%E6%AC%A1%E5%AF%A6%E4%BD%9C%EF%BC%9A%E8%A6%8F%E5%8A%83-30-%E7%A7%92-AI-%E7%9F%A5%E8%AD%98%E7%9F%AD%E5%BD%B1%E9%9F%B3"><span class="toc-number">6.</span> <span class="toc-text">六、第一次實作：規劃 30 秒 AI 知識短影音</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E5%85%88%E7%94%A2%E5%87%BA%E4%BC%81%E5%8A%83%E3%80%81%E5%8A%87%E6%9C%AC%E8%88%87%E5%88%86%E9%8F%A1"><span class="toc-number">6.1.</span> <span class="toc-text">Step 1：先產出企劃、劇本與分鏡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E6%AA%A2%E6%9F%A5%E5%8A%87%E6%9C%AC%E8%88%87%E5%88%86%E9%8F%A1"><span class="toc-number">6.2.</span> <span class="toc-text">Step 2：檢查劇本與分鏡</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E6%A0%B8%E5%87%86%E5%BE%8C%E7%94%9F%E6%88%90%E7%B4%A0%E6%9D%90%E8%88%87%E5%90%88%E6%88%90%E5%BD%B1%E7%89%87"><span class="toc-number">6.3.</span> <span class="toc-text">Step 3：核准後生成素材與合成影片</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E9%80%B2%E9%9A%8E%E5%AF%A6%E4%BD%9C%EF%BC%9A15-%E7%A7%92-AI-%E7%B6%B2%E7%B4%85%E6%90%9E%E7%AC%91%E5%8F%8D%E8%BD%89%E7%9F%AD%E5%8A%87"><span class="toc-number">7.</span> <span class="toc-text">七、進階實作：15 秒 AI 網紅搞笑反轉短劇</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AF%84%E4%BE%8B%EF%BC%9A15-%E7%A7%92%E6%90%9E%E7%AC%91%E5%8F%8D%E8%BD%89%E7%9F%AD%E5%8A%87"><span class="toc-number">7.1.</span> <span class="toc-text">提示詞範例：15 秒搞笑反轉短劇</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E5%95%86%E5%93%81%E5%B8%B6%E8%B2%A8%E5%BD%B1%E7%89%87%EF%BC%9A%E5%85%88%E6%AF%94%E8%BC%83%E4%B8%89%E7%A8%AE%E6%95%85%E4%BA%8B%EF%BC%8C%E5%86%8D%E8%A3%BD%E4%BD%9C%E7%B4%A0%E6%9D%90"><span class="toc-number">8.</span> <span class="toc-text">八、商品帶貨影片：先比較三種故事，再製作素材</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E6%8F%90%E7%A4%BA%E8%A9%9E%E7%AF%84%E4%BE%8B%EF%BC%9A30-%E7%A7%92%E5%95%86%E5%93%81%E5%B8%B6%E8%B2%A8%E7%9F%AD%E5%8A%87"><span class="toc-number">8.1.</span> <span class="toc-text">提示詞範例：30 秒商品帶貨短劇</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81OpenMontage-%E5%8F%AF%E4%BB%A5%E5%85%8D%E8%B2%BB%E4%BD%BF%E7%94%A8%E5%97%8E%EF%BC%9F%E6%88%90%E6%9C%AC%E8%A6%81%E6%80%8E%E9%BA%BC%E7%AE%97%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">九、OpenMontage 可以免費使用嗎？成本要怎麼算？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81OpenMontage-%E5%92%8C-Google-Flow%E3%80%81Seedance-%E6%9C%89%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%90%8C%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">十、OpenMontage 和 Google Flow、Seedance 有什麼不同？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%9C%80%E5%80%BC%E5%BE%97%E5%AD%B8%E7%BF%92%E7%9A%84-Skill-%E6%9E%B6%E6%A7%8B%EF%BC%9A%E6%8A%8A%E8%A3%BD%E7%89%87%E7%B6%93%E9%A9%97%E8%AE%8A%E6%88%90%E5%B7%A5%E4%BD%9C%E8%A6%8F%E5%89%87"><span class="toc-number">11.</span> <span class="toc-text">十一、最值得學習的 Skill 架構：把製片經驗變成工作規則</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E4%BD%BF%E7%94%A8%E5%89%8D%E8%A6%81%E6%B3%A8%E6%84%8F%E5%93%AA%E4%BA%9B%E9%99%90%E5%88%B6%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">十二、使用前要注意哪些限制？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E5%BE%9E%E6%93%8D%E4%BD%9C%E5%BD%B1%E7%89%87%E5%B7%A5%E5%85%B7%EF%BC%8C%E8%B5%B0%E5%90%91%E7%AE%A1%E7%90%86-Agent-%E8%A3%BD%E7%89%87%E6%B5%81%E7%A8%8B"><span class="toc-number">13.</span> <span class="toc-text">十三、從操作影片工具，走向管理 Agent 製片流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">14.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9AOpenMontage-%E5%92%8C-Codex-%E6%98%AF%E4%BB%80%E9%BA%BC%E9%97%9C%E4%BF%82%EF%BC%9F"><span class="toc-number">14.1.</span> <span class="toc-text">Q1：OpenMontage 和 Codex 是什麼關係？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9A%E6%B2%92%E6%9C%89%E4%BB%98%E8%B2%BB-API-Key%EF%BC%8C%E4%B9%9F%E8%83%BD%E8%A3%BD%E4%BD%9C%E5%BD%B1%E7%89%87%E5%97%8E%EF%BC%9F"><span class="toc-number">14.2.</span> <span class="toc-text">Q2：沒有付費 API Key，也能製作影片嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9AOpenMontage-%E8%83%BD%E4%BF%9D%E8%AD%89-AI-%E7%B6%B2%E7%B4%85%E9%95%B7%E7%9B%B8%E4%B8%80%E8%87%B4%EF%BC%8C%E6%88%96%E7%9B%B4%E6%8E%A5%E6%8E%A7%E5%88%B6-Google-Flow-%E5%97%8E%EF%BC%9F"><span class="toc-number">14.3.</span> <span class="toc-text">Q3：OpenMontage 能保證 AI 網紅長相一致，或直接控制 Google Flow 嗎？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E8%88%87%E5%B0%88%E6%A1%88%E9%80%A3%E7%B5%90"><span class="toc-number">15.</span> <span class="toc-text">參考資料與專案連結</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (41)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (76)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (24)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (93)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (34)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (94)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (51)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (28)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (45)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (17)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (55)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/11/07 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯</h1>
+        
+        <p>以前用 AI 做影片，你要自己當編劇、導演、剪輯師；現在，連製片流程都可以交給 AI Agent 協助！</p>
+<p>最近在 GitHub 發現一個很值得研究的開源專案，叫做 <strong>OpenMontage</strong>。</p>
+<p>它不是另一個影片生成模型，而是一套可以搭配 Codex、Claude Code 等 AI Coding Agent 使用的自動化影片製作系統。</p>
+<p>簡單來說，你只要告訴 AI：</p>
+<blockquote>
+<p>幫我製作一支 30 秒的商品宣傳短片。</p>
+</blockquote>
+<p>AI 就能依照工作流程，協助完成題材研究、劇本撰寫、角色與場景規劃、分鏡設計、素材取得、配音、剪輯與影片輸出。</p>
+<p>更有趣的是，你還可以提供一支喜歡的 YouTube Shorts 或 Reels，讓 AI 分析它的敘事結構與剪輯節奏，再規劃一支原創影片。</p>
+<p>對於正在製作 AI 網紅、AI 短劇、商品帶貨影片，或希望用 Codex 自動化剪輯的朋友，這套工具相當值得研究。</p>
+<p>這篇文章就帶大家認識 OpenMontage，了解安裝與操作流程，並提供可以交給 Agent 使用的短影音提示詞。</p>
+<blockquote>
+<p><strong>版本與實測範圍</strong>：本文依 2026 年 11 月查閱的公開文件整理，教學提示詞為作者延伸設計，尚未逐一完成端到端實機測試。官方網站目前介紹 Windows 版 OpenMontage Studio，標示為私人 Alpha；本文安裝章節介紹的是 GitHub 原始碼工作流程。桌面產品、原始碼與其他同名儲存庫的功能及指令，請分別以各自文件為準。</p>
+</blockquote>
+<h2 id="一、OpenMontage-是什麼？如何讓-AI-Agent-協調製片？"><a href="#一、OpenMontage-是什麼？如何讓-AI-Agent-協調製片？" class="headerlink" title="一、OpenMontage 是什麼？如何讓 AI Agent 協調製片？"></a>一、OpenMontage 是什麼？如何讓 AI Agent 協調製片？</h2><p>OpenMontage 是一套開源的 Agentic Video Production System，也就是「代理式影片製作系統」。</p>
+<p>它的核心概念，是把傳統影片製作團隊的工作流程拆解成多個階段，再交由 AI Agent 協調執行。</p>
+<p>根據 <a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage">GitHub 主專案</a> 的介紹，目前包含多種影片製作 Pipeline、100 多種製作工具，以及 700 多份 Agent Skill 與製作知識檔案；數量會隨版本變動。它也整合圖片、影片、語音與素材服務，提供 Remotion、HyperFrames、FFmpeg 等合成與後製路徑，以及 Backlot 分鏡與進度工作台。</p>
+<p>最重要的是，它可以搭配 Codex、Claude Code、Cursor 等能讀取檔案與執行程式碼的 AI Coding Agent 使用。</p>
+<p>這代表我們不需要每個步驟都親自切換不同工具，而是可以讓 Agent 根據任務，選擇合適的製作流程。</p>
+<p>例如，想製作科技知識影片，可以使用圖片、旁白與動態圖表；想製作城市紀錄片，則可以優先搜尋現有的動態素材，而不一定要花錢生成影片。</p>
+<p><strong>OpenMontage 的價值，是把不同工具組織成一個可以協作的製片團隊。</strong></p>
+<h2 id="二、OpenMontage-能製作哪些影片？"><a href="#二、OpenMontage-能製作哪些影片？" class="headerlink" title="二、OpenMontage 能製作哪些影片？"></a>二、OpenMontage 能製作哪些影片？</h2><p>OpenMontage 不只支援 AI 動畫，也涵蓋多種常見的影片製作情境。以下整理主專案 README 列出的工作流範例，並非固定不變的完整清單。</p>
+<table>
+<thead>
+<tr>
+<th>影片類型</th>
+<th>適合應用</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Animated Explainer</td>
+<td>知識型短影音、教學解說</td>
+</tr>
+<tr>
+<td>Animation</td>
+<td>動態圖文、品牌動畫</td>
+</tr>
+<tr>
+<td>Avatar Spokesperson</td>
+<td>AI 虛擬人物口播</td>
+</tr>
+<tr>
+<td>Cinematic</td>
+<td>電影預告、品牌形象影片</td>
+</tr>
+<tr>
+<td>Clip Factory</td>
+<td>從長影片擷取並排序短影音精華</td>
+</tr>
+<tr>
+<td>Documentary Montage</td>
+<td>紀錄片、素材混剪</td>
+</tr>
+<tr>
+<td>Hybrid</td>
+<td>真人影片搭配 AI 素材</td>
+</tr>
+<tr>
+<td>Localization &amp; Dub</td>
+<td>多語言配音與字幕</td>
+</tr>
+<tr>
+<td>Podcast Repurpose</td>
+<td>Podcast 轉短影音</td>
+</tr>
+<tr>
+<td>Screen Demo</td>
+<td>軟體操作教學</td>
+</tr>
+<tr>
+<td>Talking Head</td>
+<td>人物講解、Vlog、訪談</td>
+</tr>
+</tbody></table>
+<p>其中我認為有三個方向特別值得關注。</p>
+<h3 id="AI-短劇：從故事構想到鏡頭規劃"><a href="#AI-短劇：從故事構想到鏡頭規劃" class="headerlink" title="AI 短劇：從故事構想到鏡頭規劃"></a>AI 短劇：從故事構想到鏡頭規劃</h3><p>你可以讓 AI 從故事構想開始，規劃人物、場景、鏡頭，再使用合適的影片生成模型製作素材。</p>
+<h3 id="商品帶貨：把商品照片變成廣告企劃"><a href="#商品帶貨：把商品照片變成廣告企劃" class="headerlink" title="商品帶貨：把商品照片變成廣告企劃"></a>商品帶貨：把商品照片變成廣告企劃</h3><p>例如提供商品圖片，讓 AI 設計廣告腳本、商品特寫、場景與剪輯節奏，最後輸出適合 Instagram Reels 或 YouTube Shorts 的直式影片。</p>
+<h3 id="長影片轉短影音：讓既有內容重新發揮價值"><a href="#長影片轉短影音：讓既有內容重新發揮價值" class="headerlink" title="長影片轉短影音：讓既有內容重新發揮價值"></a>長影片轉短影音：讓既有內容重新發揮價值</h3><p>對講師、自媒體經營者與 Podcast 創作者來說，這個應用很實用。我們可能已經有一小時的演講影片，卻沒有時間逐段尋找精華；這時就能利用 Clip Factory 工作流，協助分析內容、擷取片段並重新剪輯。</p>
+<p>不過，Pipeline 的實際效果仍取決於輸入素材、可用模型與安裝環境，不代表每種影片都能完全無人介入完成。</p>
+<h2 id="三、核心工作流程：從研究到影片合成的七個階段"><a href="#三、核心工作流程：從研究到影片合成的七個階段" class="headerlink" title="三、核心工作流程：從研究到影片合成的七個階段"></a>三、核心工作流程：從研究到影片合成的七個階段</h2><p>一般使用影片生成模型，可能只需要輸入提示詞，等待模型輸出幾秒鐘的影片。但 OpenMontage 的設計更接近真正的製片流程。</p>
+<p>主專案將共同工作流整理為：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">Research → Proposal → Script → Scene Plan → Assets → Edit → Compose</span><br></pre></td></tr></table></figure>
+
+<ol>
+<li><strong>研究</strong>：了解題材、受眾與參考影片。</li>
+<li><strong>企劃</strong>：決定影片方向、製作方式與成本。</li>
+<li><strong>劇本</strong>：撰寫故事、旁白與對白。</li>
+<li><strong>分鏡</strong>：安排鏡頭、場景與時間。</li>
+<li><strong>素材</strong>：取得圖片、影片、配音與音樂。</li>
+<li><strong>剪輯</strong>：整理素材、調整節奏與轉場。</li>
+<li><strong>合成</strong>：完成影片輸出與品質檢查。</li>
+</ol>
+<p>每個階段都有對應的 Skill 與工作規則。AI 應該先確認影片類型、長度、畫面比例與製作預算，再進行素材製作；實際執行仍應讀取所選 Pipeline 的 manifest 與階段規則。</p>
+<p>這個設計很重要。AI 影片製作的問題，往往不只是模型能力，也包括缺少可以反覆執行、修改與驗收的標準流程。</p>
+<p>如果某個鏡頭的角色不一致，應該針對該鏡頭重做；如果旁白時間太長，應該先調整劇本與剪輯節奏。這也是 Agent 工作流和單純使用影片生成工具的主要差別。</p>
+<h2 id="四、Backlot-分鏡工作台：生成之後，先審核再合成"><a href="#四、Backlot-分鏡工作台：生成之後，先審核再合成" class="headerlink" title="四、Backlot 分鏡工作台：生成之後，先審核再合成"></a>四、Backlot 分鏡工作台：生成之後，先審核再合成</h2><p>我覺得 OpenMontage 很值得注意的一項設計，是 <strong>Backlot Living Storyboard</strong>。</p>
+<p>它把影片製作進度顯示在本機工作台，你可以查看劇本、場景、素材生成狀態，以及服務選擇與成本紀錄。素材審核則讓你在正式合成前，先檢查人物長相、服裝、場景與畫面是否符合需求。</p>
+<p>這對 AI 網紅影片尤其重要。因為我們最怕的就是：第一個鏡頭人物長得很漂亮，第二個鏡頭卻變成另外一個人！</p>
+<p>透過分鏡審核，至少可以提早發現部分一致性問題，但它本身不會保證生成結果一致。</p>
+<p>完成下一節的安裝並啟用 Python 虛擬環境後，可在 OpenMontage 根目錄開啟工作台：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python -m backlot open</span><br></pre></td></tr></table></figure>
+
+<p>若只是想先了解介面，也可以執行專案提供的模擬流程：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">python scripts/backlot_simulate_run.py</span><br></pre></td></tr></table></figure>
+
+<p>模擬流程可以協助熟悉介面，不等於已完成真實影片生成或驗證所有供應商整合。</p>
+<h2 id="五、OpenMontage-安裝教學：如何用-Codex-開始？"><a href="#五、OpenMontage-安裝教學：如何用-Codex-開始？" class="headerlink" title="五、OpenMontage 安裝教學：如何用 Codex 開始？"></a>五、OpenMontage 安裝教學：如何用 Codex 開始？</h2><p>以下依 <a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage#quick-start">主專案 Quick Start</a> 整理，實際相依套件與指令仍以你下載版本的 README、Makefile 為準。</p>
+<h3 id="Step-1：準備執行環境"><a href="#Step-1：準備執行環境" class="headerlink" title="Step 1：準備執行環境"></a>Step 1：準備執行環境</h3><p>官方列出的基本需求包括 Python 3.10 以上、Node.js 18 以上、FFmpeg，以及 AI Coding Agent；下載原始碼也需要 Git。</p>
+<p>如果使用 macOS 且已安裝 Homebrew，可安裝必要工具：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">brew install python node ffmpeg git</span><br></pre></td></tr></table></figure>
+
+<p>檢查版本：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">python3 --version</span><br><span class="line">node --version</span><br><span class="line">ffmpeg -version</span><br><span class="line">git --version</span><br><span class="line">make --version</span><br></pre></td></tr></table></figure>
+
+<p>請確認 Python 與 Node.js 符合最低需求；使用 <code>make setup</code> 也需要系統有 <code>make</code>。若 macOS 尚未提供開發工具，可先依 Apple 官方方式安裝 Command Line Tools。</p>
+<h3 id="Step-2：下載-OpenMontage，先檢視安裝內容"><a href="#Step-2：下載-OpenMontage，先檢視安裝內容" class="headerlink" title="Step 2：下載 OpenMontage，先檢視安裝內容"></a>Step 2：下載 OpenMontage，先檢視安裝內容</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">git <span class="built_in">clone</span> https://github.com/calesthio/OpenMontage.git</span><br><span class="line"><span class="built_in">cd</span> OpenMontage</span><br></pre></td></tr></table></figure>
+
+<p>建議在獨立測試資料夾操作，先閱讀 README、Makefile 與相依套件設定，再執行安裝。本文提供的是安裝說明，並未在這次文章整理中安裝或執行 OpenMontage。</p>
+<h3 id="Step-3：安裝相依套件並啟用虛擬環境"><a href="#Step-3：安裝相依套件並啟用虛擬環境" class="headerlink" title="Step 3：安裝相依套件並啟用虛擬環境"></a>Step 3：安裝相依套件並啟用虛擬環境</h3><p>確認下載版本的安裝內容後，執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">make setup</span><br></pre></td></tr></table></figure>
+
+<p>目前 <a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage/blob/main/Makefile">Makefile</a> 會使用或建立 Python 虛擬環境、安裝 Python 與 Remotion 相依套件、嘗試安裝 Piper TTS，並準備 HyperFrames 執行環境，也會在不存在時由範本建立 <code>.env</code>。安裝需要連線下載套件；部分選用功能失敗時可能只顯示略過訊息，所以看到完成提示後，仍應檢查實際可用工具。</p>
+<p>若安裝使用預設的專案內 <code>.venv</code>，macOS／Linux 接著執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">source</span> .venv/bin/activate</span><br><span class="line">python --version</span><br></pre></td></tr></table></figure>
+
+<p>若原本已有啟用中的虛擬環境，請沿用安裝實際使用的環境。後續 <code>python -m backlot open</code> 等指令，都應在該環境中執行，避免遇到找不到模組的問題。</p>
+<p>套件安裝失敗時，先確認版本與錯誤訊息，再依 README 的替代安裝方式處理。API Key 僅在需要時設定於本機，不要貼進對話或提交到 GitHub。</p>
+<h3 id="Step-4：使用-Codex-開啟專案"><a href="#Step-4：使用-Codex-開啟專案" class="headerlink" title="Step 4：使用 Codex 開啟專案"></a>Step 4：使用 Codex 開啟專案</h3><p>如果已安裝 Codex CLI，可在 OpenMontage 根目錄執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">codex</span><br></pre></td></tr></table></figure>
+
+<p>接著告訴 Codex：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">請先閱讀 AGENT_GUIDE.md、PROJECT_CONTEXT.md，以及目前版本存在的 AGENTS.md 與 CODEX.md，了解 OpenMontage 的製作流程及工具使用規則。</span><br><span class="line"></span><br><span class="line">先檢查環境與可用功能，不要立即開始生成付費素材。列出可用 Pipeline、工具、缺少的相依套件與需要設定的服務；不要讀出或回報任何 API Key 的實際值。</span><br></pre></td></tr></table></figure>
+
+<p>這一步是讓 Agent 先理解專案，再根據實際環境工作。完整啟動規則可參考 <a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage/blob/main/AGENT_GUIDE.md">AGENT_GUIDE.md</a>。</p>
+<h2 id="六、第一次實作：規劃-30-秒-AI-知識短影音"><a href="#六、第一次實作：規劃-30-秒-AI-知識短影音" class="headerlink" title="六、第一次實作：規劃 30 秒 AI 知識短影音"></a>六、第一次實作：規劃 30 秒 AI 知識短影音</h2><p>第一次測試，我建議先從簡單的知識型短影音開始。複雜的 AI 真人短劇會同時涉及角色一致性、口型同步、肢體動作與場景連續性，較容易增加難度與成本。</p>
+<h3 id="Step-1：先產出企劃、劇本與分鏡"><a href="#Step-1：先產出企劃、劇本與分鏡" class="headerlink" title="Step 1：先產出企劃、劇本與分鏡"></a>Step 1：先產出企劃、劇本與分鏡</h3><p>把以下提示詞交給 Codex：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br></pre></td><td class="code"><pre><span class="line">請使用 OpenMontage 製作一支 30 秒、9:16 直式的 AI 知識短影音。</span><br><span class="line"></span><br><span class="line">主題：「為什麼 AI Agent 不只是聊天機器人？」</span><br><span class="line"></span><br><span class="line">目標觀眾：對 AI 有興趣，但沒有程式設計背景的一般上班族。</span><br><span class="line"></span><br><span class="line">製作要求：</span><br><span class="line">- 前三秒提出吸引觀眾的問題。</span><br><span class="line">- 使用簡單易懂的繁體中文。</span><br><span class="line">- 以台灣觀眾熟悉的工作情境舉例。</span><br><span class="line">- 使用動態圖文、免費素材與旁白。</span><br><span class="line">- 畫面比例為 9:16。</span><br><span class="line">- 影片長度控制在 30 秒。</span><br><span class="line">- 輸出 MP4。</span><br><span class="line"></span><br><span class="line">請先檢查目前環境可用的 Pipeline 與工具，優先使用不需要付費 API 的方案。</span><br><span class="line"></span><br><span class="line">先產出企劃、劇本、分鏡、預估成本與工具清單，等我確認後再進行素材生成與合成。</span><br></pre></td></tr></table></figure>
+
+<p>這段提示詞的重點是：<strong>先規劃，再製作</strong>。直接要求 Agent 一口氣完成，可能等到方向不對時，已經消耗許多時間與 API 額度。先確認劇本和分鏡，通常更有效率。</p>
+<h3 id="Step-2：檢查劇本與分鏡"><a href="#Step-2：檢查劇本與分鏡" class="headerlink" title="Step 2：檢查劇本與分鏡"></a>Step 2：檢查劇本與分鏡</h3><p>建議確認：</p>
+<ul>
+<li>開場三秒是否有吸引力？</li>
+<li>內容是否能在 30 秒內說完？</li>
+<li>是否有不必要的鏡頭？</li>
+<li>旁白是否符合台灣用語？</li>
+<li>是否需要付費影片模型？</li>
+<li>素材授權是否符合使用目的？</li>
+</ul>
+<h3 id="Step-3：核准後生成素材與合成影片"><a href="#Step-3：核准後生成素材與合成影片" class="headerlink" title="Step 3：核准後生成素材與合成影片"></a>Step 3：核准後生成素材與合成影片</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">請依照已核准的分鏡開始製作。優先使用免費素材、Piper TTS、Remotion 或 HyperFrames。</span><br><span class="line"></span><br><span class="line">請先確認 Piper 是否有適合本次中文旁白的可用語音模型，提供短句試聽，確認發音與口音；若不適合，先提出替代方案。</span><br><span class="line"></span><br><span class="line">若需要付費 API，先列出原因與預估費用，取得同意後再執行。完成後檢查影片長度、解析度、音量、字幕與畫面比例，回報實際輸出位置。</span><br></pre></td></tr></table></figure>
+
+<p>這是第一支 OpenMontage 影片的基本操作流程。輸出後仍要實際觀看與聆聽，確認旁白、畫面節奏與字幕可讀性；自動檢查通過不等於觀眾體驗良好。</p>
+<h2 id="七、進階實作：15-秒-AI-網紅搞笑反轉短劇"><a href="#七、進階實作：15-秒-AI-網紅搞笑反轉短劇" class="headerlink" title="七、進階實作：15 秒 AI 網紅搞笑反轉短劇"></a>七、進階實作：15 秒 AI 網紅搞笑反轉短劇</h2><p>接下來才是我真正感興趣的部分。</p>
+<p>最近我一直在研究，如何讓 AI 網紅演出 15 秒或 30 秒的幽默反轉短劇，例如美女日常、第一人稱跟拍、對話誤會、最後突然反轉。</p>
+<p>這種影片看起來簡單，卻很考驗劇本節奏。尤其要在 15 秒內完成開場、鋪陳與笑點，並不容易。可以先讓 OpenMontage 負責製作規劃，再搭配適合的影片模型生成畫面。</p>
+<h3 id="提示詞範例：15-秒搞笑反轉短劇"><a href="#提示詞範例：15-秒搞笑反轉短劇" class="headerlink" title="提示詞範例：15 秒搞笑反轉短劇"></a>提示詞範例：15 秒搞笑反轉短劇</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">請幫我規劃一支 15 秒的 AI 網紅搞笑反轉短劇。</span><br><span class="line"></span><br><span class="line">主角：25 歲左右的台灣女性 AI 網紅，使用我提供的角色參考照片，保持五官、髮型與服裝一致。</span><br><span class="line"></span><br><span class="line">影片風格：美女日常 × 第一人稱跟拍 × 諧音誤會 × 搞笑反轉。</span><br><span class="line"></span><br><span class="line">故事結構：</span><br><span class="line">- 0–3 秒：用一句令人好奇的對白吸引觀眾。</span><br><span class="line">- 3–10 秒：透過人物互動逐步累積誤會。</span><br><span class="line">- 10–15 秒：揭露真相，產生出乎意料的笑點。</span><br><span class="line"></span><br><span class="line">製作規格：</span><br><span class="line">- 9:16 直式。</span><br><span class="line">- 真人寫實風格。</span><br><span class="line">- 台灣自然口語。</span><br><span class="line">- 不加入字幕。</span><br><span class="line">- 優先使用少量鏡頭，避免頻繁切換場景。</span><br><span class="line">- 保持人物與服裝一致。</span><br><span class="line"></span><br><span class="line">請先輸出完整劇本、逐秒分鏡、人物動作、對白、鏡頭運動與影片生成提示詞。</span><br><span class="line"></span><br><span class="line">評估每個鏡頭的生成難度，確認適合的模型與預估成本，等待我審核後再開始生成。</span><br></pre></td></tr></table></figure>
+
+<p>OpenMontage 可以協調製作流程，但不能保證影片模型生成的人物完全一致。角色一致性仍需透過參考圖、人物設定、分鏡設計與生成後檢查提高成功率。</p>
+<p>像 Google Flow 這類網頁工具，也不代表能直接透過 OpenMontage 原生操作。整合前需要另外確認 API、Adapter 或人工交接方式。</p>
+<h2 id="八、商品帶貨影片：先比較三種故事，再製作素材"><a href="#八、商品帶貨影片：先比較三種故事，再製作素材" class="headerlink" title="八、商品帶貨影片：先比較三種故事，再製作素材"></a>八、商品帶貨影片：先比較三種故事，再製作素材</h2><p>假設你是一位蝦皮賣家，手上有一張商品圖片，希望製作一支 30 秒廣告。傳統做法可能是先寫文案、生成商品場景，再用剪輯軟體組合；現在可以把這些工作整合成一個 Agent 任務。</p>
+<h3 id="提示詞範例：30-秒商品帶貨短劇"><a href="#提示詞範例：30-秒商品帶貨短劇" class="headerlink" title="提示詞範例：30 秒商品帶貨短劇"></a>提示詞範例：30 秒商品帶貨短劇</h3><figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">請根據我提供的商品照片，規劃一支 30 秒的 9:16 商品短影音。</span><br><span class="line"></span><br><span class="line">影片風格：幽默情境短劇。</span><br><span class="line"></span><br><span class="line">核心公式：熟悉的故事 × 商品角色化 × 意外反轉。</span><br><span class="line"></span><br><span class="line">不要直接介紹產品功能，而是讓商品自然融入故事。</span><br><span class="line"></span><br><span class="line">劇情結構：</span><br><span class="line">- 前 3 秒：建立吸引人的情境。</span><br><span class="line">- 第 4–15 秒：讓主角遇到問題或衝突。</span><br><span class="line">- 第 16–25 秒：出現意外反轉。</span><br><span class="line">- 最後 5 秒：自然帶出商品價值與行動呼籲。</span><br><span class="line"></span><br><span class="line">請先提供三種故事方向。</span><br><span class="line"></span><br><span class="line">每個方向都要包含劇本、分鏡、生成難度、預估成本及行銷效果評估；行銷效果請標示為待測試假設，不要捏造成效數據。</span><br><span class="line"></span><br><span class="line">商品外觀、包裝與品牌標誌必須與參考照片一致。</span><br><span class="line">不要自行編造商品功效或不存在的規格。</span><br><span class="line"></span><br><span class="line">我選定故事後，再進行影片素材生成與剪輯。</span><br></pre></td></tr></table></figure>
+
+<p>這個提示詞適合規劃不同版本的商品廣告。同一個商品，可以測試強調痛點、搞笑反轉與生活情境三種開場，再比較實際觀看完成率、點擊率與轉換率。</p>
+<p>這就不只是影片生成，而是把 AI Agent 納入數位行銷工作流程。</p>
+<h2 id="九、OpenMontage-可以免費使用嗎？成本要怎麼算？"><a href="#九、OpenMontage-可以免費使用嗎？成本要怎麼算？" class="headerlink" title="九、OpenMontage 可以免費使用嗎？成本要怎麼算？"></a>九、OpenMontage 可以免費使用嗎？成本要怎麼算？</h2><p>OpenMontage 本身是開源軟體，也有不需要付費影片生成 API 的製作方式，但不代表所有影片都能免費生成。</p>
+<table>
+<thead>
+<tr>
+<th>工具或來源</th>
+<th>用途與注意事項</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Piper TTS</td>
+<td>本機文字轉語音，需確認語音模型、語言支援與授權</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>影片剪輯、混音與轉檔</td>
+</tr>
+<tr>
+<td>Remotion</td>
+<td>程式化影片合成，實際使用仍應確認適用授權</td>
+</tr>
+<tr>
+<td>HyperFrames</td>
+<td>動態圖文與動畫合成</td>
+</tr>
+<tr>
+<td>Archive.org</td>
+<td>開放與典藏影音來源，逐項確認權利資訊</td>
+</tr>
+<tr>
+<td>Wikimedia Commons</td>
+<td>開放媒體素材，依檔案確認授權與署名要求</td>
+</tr>
+<tr>
+<td>Pexels／Pixabay</td>
+<td>免費素材來源，部分存取功能需要 API Key</td>
+</tr>
+</tbody></table>
+<p>例如，使用現有素材、文字動畫與本機配音，就有機會在不使用付費影片生成 API 的情況下完成作品。</p>
+<p>但如果希望生成高品質真人 AI 影片，可能需要搭配 Kling、Veo、Seedance、MiniMax 等雲端模型。實際可用整合、費用、片長與解析度，依模型版本與供應商而異。Coding Agent 本身的訂閱或 API 使用、本機運算，也應納入成本考量。</p>
+<p>專案提供成本追蹤、預算與審核相關機制；仍應請 Agent 根據當前版本確認可執行的限制，不要把提示詞中的預算要求當成服務端絕不超支的保證。</p>
+<p>我建議初學者先設定每支影片的預算上限，要求付費生成前取得同意。另外，免費素材不代表全部都能無條件商用，仍要檢查每項素材與工具的授權條款。</p>
+<h2 id="十、OpenMontage-和-Google-Flow、Seedance-有什麼不同？"><a href="#十、OpenMontage-和-Google-Flow、Seedance-有什麼不同？" class="headerlink" title="十、OpenMontage 和 Google Flow、Seedance 有什麼不同？"></a>十、OpenMontage 和 Google Flow、Seedance 有什麼不同？</h2><p>這些工具的主要角色不同，可以放在同一條製作流程中理解：</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>本文中的主要定位</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Google Flow</td>
+<td>AI 影片生成與創作介面</td>
+</tr>
+<tr>
+<td>Seedance</td>
+<td>AI 影片生成模型</td>
+</tr>
+<tr>
+<td>OpenMontage</td>
+<td>AI Agent 影片製作流程與工具協調</td>
+</tr>
+<tr>
+<td>Remotion</td>
+<td>程式化影片合成</td>
+</tr>
+<tr>
+<td>FFmpeg</td>
+<td>影片與音訊處理</td>
+</tr>
+</tbody></table>
+<p>例如，可以使用 Seedance 生成角色演出素材，再交給 OpenMontage 工作流管理後續剪輯與合成；或先由 OpenMontage 規劃劇本、分鏡及成本，人工使用 Google Flow 產出素材，最後交回 Agent 後製。</p>
+<p>這些是混合式工作流的構想，自動化程度取決於 API、Adapter 與實際環境，不是每項工具都能直接串接，也不代表本文已測試全部組合。</p>
+<h2 id="十一、最值得學習的-Skill-架構：把製片經驗變成工作規則"><a href="#十一、最值得學習的-Skill-架構：把製片經驗變成工作規則" class="headerlink" title="十一、最值得學習的 Skill 架構：把製片經驗變成工作規則"></a>十一、最值得學習的 Skill 架構：把製片經驗變成工作規則</h2><p>研究這個專案時，我最感興趣的其實不是它支援多少個影片模型，而是它如何使用 Skill，把製片經驗變成 AI 可以重複執行的規則。</p>
+<p>編劇要知道故事結構，導演要安排鏡頭，剪輯師要控制節奏，製片要管理成本。若把所有專業寫成一段超長提示詞，任務變複雜後很容易失去控制。</p>
+<p>拆成獨立 Skill，就可以讓 Agent 根據階段讀取對應規則。例如，我們可以進一步設計自己的 AI 短劇工作流：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">劇本 Skill → 角色設定 Skill → 分鏡 Skill → 影片生成 Skill → 剪輯 Skill → 品質檢查 Skill</span><br></pre></td></tr></table></figure>
+
+<p>每個 Skill 負責自己的專業；需要執行程式碼的部分，再交給 Scripts 處理，例如素材整理、影片合併、字幕產生、音量檢查與批次輸出。</p>
+<p>這種架構也可以延伸到漫畫、條漫、AI 動漫 MV、Podcast 與數位行銷素材生產。未來更換影片模型時，有機會保留製作流程，再調整生成工具或整合元件；實際仍需重新驗證新模型的輸入、輸出與品質限制。</p>
+<p>這才是我認為 OpenMontage 真正值得研究的地方。</p>
+<h2 id="十二、使用前要注意哪些限制？"><a href="#十二、使用前要注意哪些限制？" class="headerlink" title="十二、使用前要注意哪些限制？"></a>十二、使用前要注意哪些限制？</h2><p>雖然功能很吸引人，我不建議一開始就把所有製片工作全部交給它。</p>
+<p>首先，這是持續開發中的開源專案，安裝環境、API 整合與穩定性都需要實測。</p>
+<p>其次，Agent 可以協助檢查影片，但自動品質檢查不等於人類的創意判斷。影片是否有趣、故事是否感人、笑點是否成立，仍需要創作者把關。</p>
+<p>另外，主專案標示採用 <a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage/blob/main/LICENSE">GNU AGPLv3</a>。如果要修改、散布，或透過網路提供修改後的程式服務，應先閱讀完整授權，依實際用途確認義務；第三方工具、語音模型與素材也有各自條款。</p>
+<p>最後，建議使用隔離的開發環境測試，安裝前先檢視原始碼與相依套件，不要把 API Key 寫進提示詞或提交到 GitHub。</p>
+<h2 id="十三、從操作影片工具，走向管理-Agent-製片流程"><a href="#十三、從操作影片工具，走向管理-Agent-製片流程" class="headerlink" title="十三、從操作影片工具，走向管理 Agent 製片流程"></a>十三、從操作影片工具，走向管理 Agent 製片流程</h2><p>過去學 AI 影片製作，常常是在學不同工具的操作方式：今天學 Google Flow，明天研究 Seedance，後天又出現新的生成模型。</p>
+<p>當工具越來越多，真正的瓶頸就不只是影片生成能力，而是如何把它們整合成可以持續生產內容的工作流程。</p>
+<p>OpenMontage 提供了一個值得參考的方向，讓 Coding Agent 從寫程式，延伸到企劃、編劇、分鏡、素材生成、剪輯、合成與品質檢查。</p>
+<p>對我來說，下一步最想測試的是：能不能讓 AI 每天自動提出十個搞笑反轉短劇，挑選三個完成分鏡，再依預算生成影片，最後輸出適合社群平台的短影音？</p>
+<p>如果流程能穩定運作，經營 AI 網紅、品牌短劇與商品帶貨內容，就有機會從「一支一支製作」，逐漸轉變成「管理一條 AI 內容生產線」。</p>
+<p>但創意方向、角色定位與最後的作品品質，必須有人負責。</p>
+<p>AI Agent 讓你有機會從影片操作者，轉變成整個 AI 製片流程的管理者。這才是我最期待的改變。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：OpenMontage-和-Codex-是什麼關係？"><a href="#Q1：OpenMontage-和-Codex-是什麼關係？" class="headerlink" title="Q1：OpenMontage 和 Codex 是什麼關係？"></a>Q1：OpenMontage 和 Codex 是什麼關係？</h3><p>OpenMontage 提供影片工作流、Skill 與工具，Codex 則是讀取規則、檢查環境並協調執行的 AI Coding Agent。它不是新的影片生成模型；製作前仍需確認實際可用的工具、素材、模型與成本。</p>
+<h3 id="Q2：沒有付費-API-Key，也能製作影片嗎？"><a href="#Q2：沒有付費-API-Key，也能製作影片嗎？" class="headerlink" title="Q2：沒有付費 API Key，也能製作影片嗎？"></a>Q2：沒有付費 API Key，也能製作影片嗎？</h3><p>可以先嘗試現有素材、動態圖文、本機配音與影片合成的路徑，前提是相關工具與語音模型已安裝且適用。雲端影片生成、Coding Agent 使用及運算可能另有成本，工具與素材授權也需要各自確認。</p>
+<h3 id="Q3：OpenMontage-能保證-AI-網紅長相一致，或直接控制-Google-Flow-嗎？"><a href="#Q3：OpenMontage-能保證-AI-網紅長相一致，或直接控制-Google-Flow-嗎？" class="headerlink" title="Q3：OpenMontage 能保證 AI 網紅長相一致，或直接控制 Google Flow 嗎？"></a>Q3：OpenMontage 能保證 AI 網紅長相一致，或直接控制 Google Flow 嗎？</h3><p>不能保證。人物一致性仍取決於參考圖、生成模型、鏡頭設計與人工審核；Google Flow 等網頁工具是否能自動操作，也要看實際 API 與整合方式。可先讓 Agent 規劃，再以人工產出素材並交回後製，但這需要明確設計交接流程。</p>
+<h2 id="參考資料與專案連結"><a href="#參考資料與專案連結" class="headerlink" title="參考資料與專案連結"></a>參考資料與專案連結</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage">OpenMontage GitHub 主專案</a>：本文原始碼工作流與功能說明的主要來源。</li>
+<li><a target="_blank" rel="noopener" href="https://www.openmontage.video/">OpenMontage 官方網站</a>：目前另介紹 OpenMontage Studio 桌面產品及其開放狀態。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/calesthio/OpenMontage/blob/main/PROMPT_GALLERY.md">主專案提示詞集 PROMPT_GALLERY.md</a>：官方提示詞與零 API Key 示範入口。</li>
+<li><a target="_blank" rel="noopener" href="https://github.com/charliewwdev/OpenMontage/blob/main/docs/examples.md">15 組中英文影片提示詞範例</a>：另一個 OpenMontage 儲存庫的範例，操作方式請以該版本文件為準，不要與主專案指令混用。</li>
+</ul>
+<p>本文依據 2026 年 11 月公開文件整理，包含專案功能說明與延伸教學提示詞，不代表所有整合情境均已完成實機測試。功能、安裝需求、服務方案與授權請以各自當前文件為準。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover240.webp" class="img-fluid card-img-top rounded-3" alt="600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Gemini</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-short-video-prompt-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover239.webp" class="img-fluid card-img-top rounded-3" alt="Open Pose &amp; Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Open Pose &amp; Costume 教學：用免費姿勢與服裝圖庫做 AI 換裝與角色設計</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI繪圖</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/06</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/open-pose-costume-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover238.webp" class="img-fluid card-img-top rounded-3" alt="Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/toonflow-ai-comic-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover236.webp" class="img-fluid card-img-top rounded-3" alt="別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-team-management-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover237.webp" class="img-fluid card-img-top rounded-3" alt="AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">職場溝通</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-agent-line-management/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover235.webp" class="img-fluid card-img-top rounded-3" alt="1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">1,407 套免費 AI 服裝參考圖：用 AI Costume Gallery 搭配 ChatGPT 替虛擬人物換裝</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">ChatGPT</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-costume-gallery-chatgpt-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover234.webp" class="img-fluid card-img-top rounded-3" alt="Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/agent-use-cases-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover233.webp" class="img-fluid card-img-top rounded-3" alt="AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-tts-comparison-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover232.webp" class="img-fluid card-img-top rounded-3" alt="AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-motion-transfer-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
