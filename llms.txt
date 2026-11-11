@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 一天能做 5 台機甲？從白模、法線貼圖到骨架綁定，搞懂 AI 3D 建模的完整流程
+  網址：https://blog.es2idea.com/posts/ai-mecha-modeling-workflow/
+  日期：2026-11-12
+  摘要：AI 一天能做 5 台機甲，指的是外觀模型，還是遊戲級可動角色？用一台可以走路的機甲，拆解圖片轉 3D、網格整理、UV、PBR 材質、法線貼圖、關節拆分與骨架動畫，理解如何搭配 Blender、AI Agent 與 Godot 建立工作流。
+  主題：AI工具、AI自動化、Vibe Coding
+
 - 不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學
   網址：https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/
   日期：2026-11-12
@@ -101,12 +107,6 @@
   日期：2026-11-05
   摘要：AI 人物總是穿那幾套衣服？本文介紹 AI Costume Gallery 免費服裝參考圖庫，示範用 ChatGPT 替成人虛擬人物換裝的三個步驟、可複製提示詞與角色一致性流程，並整理商用、單張下載及禁止真人用途等使用限制。
   主題：AI工具、ChatGPT、影音行銷
-
-- Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流
-  網址：https://blog.es2idea.com/posts/agent-use-cases-guide/
-  日期：2026-11-05
-  摘要：訂閱 Claude Code、Codex 或 Grok Bot，卻不知道能交辦什麼？本篇介紹 Agent Use Cases 案例庫，帶你用五個步驟搜尋工作流、檢查原始來源、改寫發票整理提示詞，並用正確率、處理時間與人工介入量驗收結果，從小規模測試開始導...
-  主題：AI工具、AI自動化、AI Agent
 
 ## 語言
 - zh-TW
