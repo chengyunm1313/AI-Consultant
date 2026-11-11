@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學
+  網址：https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/
+  日期：2026-11-12
+  摘要：不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。
+  主題：AI自動化、AI Agent、Vibe Coding
+
 - Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統
   網址：https://blog.es2idea.com/posts/obsidian-ai-second-brain/
   日期：2026-11-11
@@ -101,12 +107,6 @@
   日期：2026-11-05
   摘要：訂閱 Claude Code、Codex 或 Grok Bot，卻不知道能交辦什麼？本篇介紹 Agent Use Cases 案例庫，帶你用五個步驟搜尋工作流、檢查原始來源、改寫發票整理提示詞，並用正確率、處理時間與人工介入量驗收結果，從小規模測試開始導...
   主題：AI工具、AI自動化、AI Agent
-
-- AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較
-  網址：https://blog.es2idea.com/posts/ai-tts-comparison-guide/
-  日期：2026-10-30
-  摘要：比較 ElevenLabs、Gemini、BreezyVoice 與 Ming 的配音、聲音複製及部署方式，從台灣國語、授權、實測方法與總成本出發，規劃可切換模型的 AI 配音工作流。
-  主題：AI工具、AI自動化、影音行銷
 
 ## 語言
 - zh-TW

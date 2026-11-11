@@ -1,0 +1,1334 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學">
+<meta property="og:url" content="https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover246.webp">
+<meta property="article:published_time" content="2026-11-12T00:36:01.000Z">
+<meta property="article:modified_time" content="2026-11-11T16:42:44.647Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI Agent">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="Vibe Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover246.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#webpage","@type":"WebPage","name":"不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學","url":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/","description":"不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover246.webp","@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#blogposting","@type":"BlogPosting","headline":"不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學","name":"不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學","description":"不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。","url":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-11-12T00:36:01.000Z","dateModified":"2026-11-11T16:42:44.647Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover246.webp","@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#primaryimage","width":1200,"height":800},"articleSection":"AI自動化","keywords":["AI自動化","AI Agent","Vibe Coding"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI自動化","AI自動化","AI Agent","Vibe Coding"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學","item":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/"}]},{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"安裝 Herdr 後，Grok Bot 就會自動指揮 Claude Code 和 Codex 嗎？","acceptedAnswer":{"@type":"Answer","text":"不會。Herdr 提供終端執行與通訊能力；Grok Bot 仍須接上工具呼叫或自建的派工橋接服務，才能把聊天需求轉成 hc 操作。本文的 herdr-dispatcher 與工單 API 是建議設計，並非官方內建整合。"}},{"@type":"Question","name":"Mac 與 Windows 不在同一個網路，也能跨電腦派工嗎？","acceptedAnswer":{"@type":"Answer","text":"可以規劃透過 SSH 連線，必要時搭配 Tailscale 建立私人網路。前提是遠端 SSH、帳號權限、herdr-core、AI CLI 登入與工作目錄都已設定；應先完成一個小型遠端任務，再接上多階段工作流。"}},{"@type":"Question","name":"Herdr 免費，就能免費執行整個 AI 團隊嗎？","acceptedAnswer":{"@type":"Answer","text":"不能這樣推論。開源軟體授權與模型使用費用是不同項目；Claude Code、Codex 與 Grok Bot 相關的訂閱或 API、常駐電腦、網路儲存及維護都可能產生成本。建議以少量 Agent 與真實工單測試，再評估是否擴大。"}}]},{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#howto","@type":"HowTo","name":"不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學","description":"不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover246.webp","@id":"https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"Step 1：Mac 安裝 herdr-core","text":"官方提供 Shell 安裝腳本。建議先下載、檢視，再決定是否執行："},{"@type":"HowToStep","name":"Step 2：Windows 安裝 herdr-core","text":"在 PowerShell 先下載並檢視官方腳本："},{"@type":"HowToStep","name":"Step 3：測試本機 Agent","text":"先在 Mac 上測試能不能啟動 Codex。"},{"@type":"HowToStep","name":"Step 1：確認 SSH 可以連線","text":"先確認 Windows 已安裝並啟用 OpenSSH Server，設定允許連線的使用者。"},{"@type":"HowToStep","name":"Step 2：加入遠端機器","text":"依照 Herdr CLI 的遠端機器管理功能，加入電腦："},{"@type":"HowToStep","name":"Step 3：驗證跨電腦派工","text":"建議第一個測試不要太複雜。"}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%82%BA%E4%BB%80%E9%BA%BC%E9%9C%80%E8%A6%81%E8%B7%A8%E9%9B%BB%E8%85%A6%E7%9A%84-AI-Agent-%E5%9C%98%E9%9A%8A%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">為什麼需要跨電腦的 AI Agent 團隊？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Herdr-%E6%98%AF%E4%BB%80%E9%BA%BC%EF%BC%9F%E5%85%88%E5%88%86%E6%B8%85%E6%A5%9A-App%E3%80%81TUI-%E8%88%87-herdr-core"><span class="toc-number">2.</span> <span class="toc-text">Herdr 是什麼？先分清楚 App、TUI 與 herdr-core</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Herdr-%E7%9A%84%E6%A0%B8%E5%BF%83%E5%85%83%E4%BB%B6"><span class="toc-number">2.1.</span> <span class="toc-text">Herdr 的核心元件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E8%AE%93-Grok-Bot-%E7%95%B6-AI-%E5%B9%95%E5%83%9A%E9%95%B7%EF%BC%9F%E5%85%88%E5%BB%BA%E7%AB%8B%E6%B4%BE%E5%B7%A5%E6%9E%B6%E6%A7%8B"><span class="toc-number">3.</span> <span class="toc-text">如何讓 Grok Bot 當 AI 幕僚長？先建立派工架構</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%AE%89%E8%A3%9D-herdr-core-%E4%B8%A6%E6%B8%AC%E8%A9%A6%E6%9C%AC%E6%A9%9F-Agent%EF%BC%9F"><span class="toc-number">4.</span> <span class="toc-text">如何安裝 herdr-core 並測試本機 Agent？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9AMac-%E5%AE%89%E8%A3%9D-herdr-core"><span class="toc-number">4.1.</span> <span class="toc-text">Step 1：Mac 安裝 herdr-core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9AWindows-%E5%AE%89%E8%A3%9D-herdr-core"><span class="toc-number">4.2.</span> <span class="toc-text">Step 2：Windows 安裝 herdr-core</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E6%B8%AC%E8%A9%A6%E6%9C%AC%E6%A9%9F-Agent"><span class="toc-number">4.3.</span> <span class="toc-text">Step 3：測試本機 Agent</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#Mac-%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E-SSH-%E6%B4%BE%E5%B7%A5%E7%B5%A6-Windows%EF%BC%9F"><span class="toc-number">5.</span> <span class="toc-text">Mac 如何透過 SSH 派工給 Windows？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E7%A2%BA%E8%AA%8D-SSH-%E5%8F%AF%E4%BB%A5%E9%80%A3%E7%B7%9A"><span class="toc-number">5.1.</span> <span class="toc-text">Step 1：確認 SSH 可以連線</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E5%8A%A0%E5%85%A5%E9%81%A0%E7%AB%AF%E6%A9%9F%E5%99%A8"><span class="toc-number">5.2.</span> <span class="toc-text">Step 2：加入遠端機器</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-3%EF%BC%9A%E9%A9%97%E8%AD%89%E8%B7%A8%E9%9B%BB%E8%85%A6%E6%B4%BE%E5%B7%A5"><span class="toc-number">5.3.</span> <span class="toc-text">Step 3：驗證跨電腦派工</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E9%80%8F%E9%81%8E-herdr-dispatcher-%E8%AE%93-Grok-Bot-%E6%8E%A5%E7%AE%A1%E6%B4%BE%E5%B7%A5%EF%BC%9F"><span class="toc-number">6.</span> <span class="toc-text">如何透過 herdr-dispatcher 讓 Grok Bot 接管派工？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#herdr-dispatcher-%E7%9A%84%E4%BA%94%E5%80%8B%E5%9F%BA%E6%9C%AC%E5%8A%9F%E8%83%BD"><span class="toc-number">6.1.</span> <span class="toc-text">herdr-dispatcher 的五個基本功能</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E5%BB%BA%E8%AD%B0%E5%A2%9E%E5%8A%A0%E7%9A%84%E4%BB%BB%E5%8B%99%E7%8B%80%E6%85%8B"><span class="toc-number">6.2.</span> <span class="toc-text">建議增加的任務狀態</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E6%83%85%E5%A2%83%E7%A4%BA%E4%BE%8B%EF%BC%9AAI-%E5%9C%98%E9%9A%8A%E5%A6%82%E4%BD%95%E6%8E%A5%E5%8A%9B%E9%96%8B%E7%99%BC%E7%B6%B2%E7%AB%99%EF%BC%9F"><span class="toc-number">7.</span> <span class="toc-text">情境示例：AI 團隊如何接力開發網站？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E7%94%A8%E4%BA%8B%E4%BB%B6%E9%A9%85%E5%8B%95%E6%B8%9B%E5%B0%91-AI-Agent-%E7%9A%84%E7%84%A1%E6%95%88%E6%AA%A2%E6%9F%A5%EF%BC%9F"><span class="toc-number">8.</span> <span class="toc-text">如何用事件驅動減少 AI Agent 的無效檢查？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E9%9B%BB%E8%85%A6%E5%8D%94%E4%BD%9C%E6%99%82%EF%BC%8CGitHub-%E8%88%87-Google-Drive-%E5%A6%82%E4%BD%95%E5%88%86%E5%B7%A5%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">跨電腦協作時，GitHub 與 Google Drive 如何分工？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%BB%BA%E7%AB%8B-AI-Agent-%E5%9C%98%E9%9A%8A%E9%9C%80%E8%A6%81%E5%93%AA%E4%BA%9B%E6%88%90%E6%9C%AC%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">建立 AI Agent 團隊需要哪些成本？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E8%B7%A8%E9%9B%BB%E8%85%A6%E6%B4%BE%E5%B7%A5%E6%9C%80%E9%9C%80%E8%A6%81%E6%B3%A8%E6%84%8F%E7%9A%84%E4%BA%94%E5%80%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">11.</span> <span class="toc-text">跨電腦派工最需要注意的五個問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Agent-%E5%AE%8C%E6%88%90%E4%B8%8D%E7%AD%89%E6%96%BC%E4%BB%BB%E5%8B%99%E6%88%90%E5%8A%9F"><span class="toc-number">11.1.</span> <span class="toc-text">1. Agent 完成不等於任務成功</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%81%A0%E7%AB%AF%E5%9F%B7%E8%A1%8C%E5%BF%85%E9%A0%88%E9%99%90%E5%88%B6%E6%AC%8A%E9%99%90"><span class="toc-number">11.2.</span> <span class="toc-text">2. 遠端執行必須限制權限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E4%BB%BB%E5%8B%99%E5%BF%85%E9%A0%88%E5%8F%AF%E4%BB%A5%E8%BF%BD%E8%B9%A4"><span class="toc-number">11.3.</span> <span class="toc-text">3. 任務必須可以追蹤</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-%E9%9B%BB%E8%85%A6%E9%87%8D%E6%96%B0%E5%95%9F%E5%8B%95%E5%BE%8C%E5%A6%82%E4%BD%95%E6%81%A2%E5%BE%A9%EF%BC%9F"><span class="toc-number">11.4.</span> <span class="toc-text">4. 電腦重新啟動後如何恢復？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-%E5%A4%9A-Agent-%E9%9C%80%E8%A6%81%E9%81%BF%E5%85%8D%E8%A1%9D%E7%AA%81"><span class="toc-number">11.5.</span> <span class="toc-text">5. 多 Agent 需要避免衝突</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%A6%82%E4%BD%95%E5%88%86%E4%B8%89%E9%9A%8E%E6%AE%B5%E5%BB%BA%E7%AB%8B%E6%9C%80%E5%B0%8F%E5%8F%AF%E8%A1%8C%E7%9A%84-AI-%E5%9C%98%E9%9A%8A%EF%BC%9F"><span class="toc-number">12.</span> <span class="toc-text">如何分三階段建立最小可行的 AI 團隊？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%EF%BC%9A%E8%B7%A8%E9%9B%BB%E8%85%A6%E9%80%A3%E7%B7%9A"><span class="toc-number">12.1.</span> <span class="toc-text">第一階段：跨電腦連線</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%EF%BC%9A%E8%87%AA%E5%8B%95%E6%B4%BE%E5%B7%A5"><span class="toc-number">12.2.</span> <span class="toc-text">第二階段：自動派工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%AE%8C%E6%95%B4%E5%B7%A5%E4%BD%9C%E6%B5%81"><span class="toc-number">12.3.</span> <span class="toc-text">第三階段：完整工作流</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E7%B5%90%E8%AA%9E%EF%BC%9A%E6%9C%AA%E4%BE%86%E4%B8%8D%E6%98%AF%E4%BD%A0%E6%9C%83%E7%94%A8%E5%A4%9A%E5%B0%91-AI%EF%BC%8C%E8%80%8C%E6%98%AF%E4%BD%A0%E8%83%BD%E7%AE%A1%E7%90%86%E5%A4%9A%E5%B0%91-AI"><span class="toc-number">13.</span> <span class="toc-text">結語：未來不是你會用多少 AI，而是你能管理多少 AI</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">14.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E5%AE%89%E8%A3%9D-Herdr-%E5%BE%8C%EF%BC%8CGrok-Bot-%E5%B0%B1%E6%9C%83%E8%87%AA%E5%8B%95%E6%8C%87%E6%8F%AE-Claude-Code-%E5%92%8C-Codex-%E5%97%8E%EF%BC%9F"><span class="toc-number">14.1.</span> <span class="toc-text">Q1：安裝 Herdr 後，Grok Bot 就會自動指揮 Claude Code 和 Codex 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9AMac-%E8%88%87-Windows-%E4%B8%8D%E5%9C%A8%E5%90%8C%E4%B8%80%E5%80%8B%E7%B6%B2%E8%B7%AF%EF%BC%8C%E4%B9%9F%E8%83%BD%E8%B7%A8%E9%9B%BB%E8%85%A6%E6%B4%BE%E5%B7%A5%E5%97%8E%EF%BC%9F"><span class="toc-number">14.2.</span> <span class="toc-text">Q2：Mac 與 Windows 不在同一個網路，也能跨電腦派工嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9AHerdr-%E5%85%8D%E8%B2%BB%EF%BC%8C%E5%B0%B1%E8%83%BD%E5%85%8D%E8%B2%BB%E5%9F%B7%E8%A1%8C%E6%95%B4%E5%80%8B-AI-%E5%9C%98%E9%9A%8A%E5%97%8E%EF%BC%9F"><span class="toc-number">14.3.</span> <span class="toc-text">Q3：Herdr 免費，就能免費執行整個 AI 團隊嗎？</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%BA%90"><span class="toc-number">15.</span> <span class="toc-text">參考資源</span></a></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (43)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (78)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (24)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (95)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (35)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (97)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (52)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (46)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (18)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (57)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI-Agent/" rel="tag">AI Agent</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/11/12 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學</h1>
+        
+          <h4 class="mb-4 mb-lg-9 text-center fw-normal">- 讓 Claude Code 與 Codex 接力工作的派工架構、安裝與驗收指南 -</h4>
+        
+        <p>以前使用 AI，我們習慣打開 ChatGPT、Claude、Codex，然後自己決定每個任務要交給誰。</p>
+<p>寫程式找 Codex、規劃架構找 Claude Code、整理資料找另一個 AI。</p>
+<p>工具越來越多，能力越來越強，但問題也跟著出現：</p>
+<p><strong>明明已經有這麼多 AI 助手，為什麼還是要我自己當專案經理？</strong></p>
+<p>最近我研究了一個很有趣的開源工具：<strong>Herdr</strong>。</p>
+<p>它可以把不同電腦上的 AI Coding Agent 串接起來，讓它們互相傳遞任務、查詢執行狀態，甚至協助完成跨電腦的工作。</p>
+<p>如果再搭配 Grok Bot 當作 AI 幕僚長，就有機會建立一套「只要交代工作，AI 就會自己找其他 AI 完成」的系統。</p>
+<p>這篇文章就來拆解 Herdr 的技術架構、安裝方式、跨電腦派工流程，以及如何整合 Grok Bot、Claude Code 和 Codex。</p>
+<p>本文將 Grok Bot 視為具備工具呼叫能力的聊天派工入口；實際接法取決於你使用的 Bot 實作。以下安裝與 CLI 範例依官方文件整理，跨電腦接力與網站案例則是建議的實作流程，並非本文已完成的端到端實測。Claude Code 與 Codex 的分工也是工作流示例，能力與適用情境會隨版本、方案及專案而變動。</p>
+<hr>
+<h2 id="為什麼需要跨電腦的-AI-Agent-團隊？"><a href="#為什麼需要跨電腦的-AI-Agent-團隊？" class="headerlink" title="為什麼需要跨電腦的 AI Agent 團隊？"></a>為什麼需要跨電腦的 AI Agent 團隊？</h2><p>先想像一個情境。</p>
+<p>假設我現在有三個 AI 助手：</p>
+<ul>
+<li>Mac 上的 Claude Code：負責規劃系統架構。</li>
+<li>Mac 上的 Codex：負責寫程式、測試與修正。</li>
+<li>Windows 上的 Claude Code：負責 Windows 環境的工作。</li>
+</ul>
+<p>傳統做法是什麼？</p>
+<p>我先開 Claude Code，請它分析需求。</p>
+<p>等它完成，再把規格複製到 Codex，請 Codex 實作。</p>
+<p>如果需要 Windows 電腦上的工具，我還得切換電腦，重新交代任務。</p>
+<p>等到所有工作完成，再自己檢查結果。</p>
+<p>這其實不是 AI 自動化，而是「人類負責管理一群 AI」。</p>
+<p>我想要的方式不太一樣。</p>
+<p>我只要跟 Grok Bot 說：</p>
+<blockquote>
+<p>幫我做一個課程網站。先分析需求，再完成網站開發，最後檢查程式碼，完成後通知我。</p>
+</blockquote>
+<p>接下來：</p>
+<ol>
+<li>Grok Bot 把工作拆成不同任務。</li>
+<li>Claude Code 負責規劃架構。</li>
+<li>Codex 根據規格開發網站。</li>
+<li>另一個 Claude Code 負責程式碼審查。</li>
+<li>Grok Bot 彙整結果，通知我驗收。</li>
+</ol>
+<p>整個過程，我只需要在必要時做決策。</p>
+<p><strong>從「我操作 AI」變成「我管理 AI 團隊」。</strong></p>
+<p>這就是 Multi-Agent Orchestration（多代理協調）的概念。</p>
+<h2 id="Herdr-是什麼？先分清楚-App、TUI-與-herdr-core"><a href="#Herdr-是什麼？先分清楚-App、TUI-與-herdr-core" class="headerlink" title="Herdr 是什麼？先分清楚 App、TUI 與 herdr-core"></a>Herdr 是什麼？先分清楚 App、TUI 與 herdr-core</h2><p>Herdr 是一套以 Rust 開發的開源工具，主要用來管理終端機中的 AI Coding Agent。</p>
+<p>它不只是一般的終端機管理器，更重要的是提供了讓不同 Agent 互相協作的能力。</p>
+<p>在研究 Herdr 時，有一個地方需要特別注意。</p>
+<p>Herdr 有不同的實作架構，包括原本的 TUI 終端機版本，以及新版 Herdr App 搭配 herdr-core 的架構。</p>
+<p>這兩套系統不能直接當成同一個東西。</p>
+<p>如果目標是跨電腦派工，我會優先研究新版的 herdr-core。</p>
+<h3 id="Herdr-的核心元件"><a href="#Herdr-的核心元件" class="headerlink" title="Herdr 的核心元件"></a>Herdr 的核心元件</h3><table>
+<thead>
+<tr>
+<th>元件</th>
+<th>功能</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Herdr App</td>
+<td>檢視與管理 AI Agent</td>
+</tr>
+<tr>
+<td>herdr-core</td>
+<td>負責執行環境與 Agent 通訊</td>
+</tr>
+<tr>
+<td>hc CLI</td>
+<td>透過命令列控制 Agent</td>
+</tr>
+<tr>
+<td>SSH</td>
+<td>遠端連線不同電腦</td>
+</tr>
+<tr>
+<td>Tailscale</td>
+<td>建立跨網路的私人連線</td>
+</tr>
+<tr>
+<td>OSC 7501</td>
+<td>傳遞 Agent 執行狀態</td>
+</tr>
+</tbody></table>
+<p>其中最值得注意的是 <code>hc</code> CLI。</p>
+<p>因為有了命令列介面，我們就不需要人工操作 Herdr 的圖形介面。</p>
+<p>Grok Bot 接上工具呼叫或橋接服務後，可以透過程式呼叫 <code>hc</code>，啟動 Agent、傳送指令、等待執行結果。</p>
+<p>這也是整套自動派工系統的技術基礎。</p>
+<p>官方資源：</p>
+<ul>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/">Herdr</a></li>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/core/">herdr-core</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr-core">herdr-core GitHub</a></li>
+</ul>
+<h2 id="如何讓-Grok-Bot-當-AI-幕僚長？先建立派工架構"><a href="#如何讓-Grok-Bot-當-AI-幕僚長？先建立派工架構" class="headerlink" title="如何讓 Grok Bot 當 AI 幕僚長？先建立派工架構"></a>如何讓 Grok Bot 當 AI 幕僚長？先建立派工架構</h2><p>整套系統可以分成四個層次。</p>
+<p><strong>第一層：使用者</strong></p>
+<p>只負責交代工作、確認方向與驗收成果。</p>
+<p><strong>第二層：Grok Bot</strong></p>
+<p>負責理解需求、拆解任務、決定派給哪個 Agent，以及彙整工作結果。</p>
+<p><strong>第三層：Herdr</strong></p>
+<p>負責連接各台電腦，啟動 Agent、傳遞工作指令及取得執行狀態。</p>
+<p><strong>第四層：實際執行的 AI Agent</strong></p>
+<p>包含 Claude Code、Codex，以及未來其他支援的命令列工具。</p>
+<p>概念架構如下：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br><span class="line">31</span><br><span class="line">32</span><br><span class="line">33</span><br></pre></td><td class="code"><pre><span class="line">        使用者</span><br><span class="line">          │</span><br><span class="line">     自然語言交辦</span><br><span class="line">          │</span><br><span class="line">          ▼</span><br><span class="line">      Grok Bot</span><br><span class="line">     AI 幕僚長</span><br><span class="line">          │</span><br><span class="line">   拆解任務、派工</span><br><span class="line">          │</span><br><span class="line">          ▼</span><br><span class="line">  herdr-dispatcher</span><br><span class="line">     派工橋接層</span><br><span class="line">          │</span><br><span class="line">          ▼</span><br><span class="line">    Herdr / hc</span><br><span class="line">          │</span><br><span class="line">  ┌───────┼───────┐</span><br><span class="line">  │       │       │</span><br><span class="line">  ▼       ▼       ▼</span><br><span class="line"> Mac     Mac    Windows</span><br><span class="line">  │       │       │</span><br><span class="line">Claude  Codex   Claude</span><br><span class="line"> Code            Code</span><br><span class="line">  │       │       │</span><br><span class="line">  └───────┼───────┘</span><br><span class="line">          │</span><br><span class="line">     執行結果回報</span><br><span class="line">          │</span><br><span class="line">          ▼</span><br><span class="line">      Grok Bot</span><br><span class="line">          │</span><br><span class="line">     通知使用者</span><br></pre></td></tr></table></figure>
+
+<p>這裡有個重要觀念：</p>
+<p><strong>Herdr 負責 Agent 的執行與通訊，不代表它會自動替我們完成所有專案管理工作。</strong></p>
+<p>例如：</p>
+<ul>
+<li>任務應該派給誰？</li>
+<li>哪個任務必須先完成？</li>
+<li>失敗時應該重試幾次？</li>
+<li>哪些操作需要使用者批准？</li>
+<li>如何判斷工作是否真正完成？</li>
+</ul>
+<p>這些還需要 Grok Bot 或額外的派工系統處理。</p>
+<p>因此，我建議在 Grok Bot 和 Herdr 之間增加一個 <code>herdr-dispatcher</code>。</p>
+<p>這是我們自己規劃的橋接元件，不是 Herdr 內建的官方產品。</p>
+<p>它的工作很單純：把 AI 幕僚長的指令轉換成安全、可追蹤的 Herdr 操作。</p>
+<h2 id="如何安裝-herdr-core-並測試本機-Agent？"><a href="#如何安裝-herdr-core-並測試本機-Agent？" class="headerlink" title="如何安裝 herdr-core 並測試本機 Agent？"></a>如何安裝 herdr-core 並測試本機 Agent？</h2><p>接下來進入實作。</p>
+<p>假設目前有兩台電腦：</p>
+<ul>
+<li>Mac：安裝 Claude Code 與 Codex。</li>
+<li>Windows：安裝 Claude Code。</li>
+</ul>
+<p>目標是讓兩台電腦都能接受遠端派工。</p>
+<h3 id="Step-1：Mac-安裝-herdr-core"><a href="#Step-1：Mac-安裝-herdr-core" class="headerlink" title="Step 1：Mac 安裝 herdr-core"></a>Step 1：Mac 安裝 herdr-core</h3><p>官方提供 Shell 安裝腳本。建議先下載、檢視，再決定是否執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://releases.herdr.dev/core/install.sh -o herdr-install.sh</span><br><span class="line">less herdr-install.sh</span><br></pre></td></tr></table></figure>
+
+<p>確認腳本來源、下載位置與會修改的路徑後，再於另一個步驟執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh herdr-install.sh</span><br></pre></td></tr></table></figure>
+
+<p>安裝完成後，可以檢查 CLI：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc --<span class="built_in">help</span></span><br></pre></td></tr></table></figure>
+
+<p>也可以查看 Herdr 提供的 Agent 操作說明：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc --skill</span><br></pre></td></tr></table></figure>
+
+<p>實際支援的參數，請以目前安裝版本的說明為準。</p>
+<h3 id="Step-2：Windows-安裝-herdr-core"><a href="#Step-2：Windows-安裝-herdr-core" class="headerlink" title="Step 2：Windows 安裝 herdr-core"></a>Step 2：Windows 安裝 herdr-core</h3><p>在 PowerShell 先下載並檢視官方腳本：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">Invoke-WebRequest</span> https://releases.herdr.dev/core/install.ps1 <span class="literal">-OutFile</span> herdr<span class="literal">-install</span>.ps1</span><br><span class="line"><span class="built_in">Get-Content</span> .\herdr<span class="literal">-install</span>.ps1</span><br></pre></td></tr></table></figure>
+
+<p>確認內容與執行範圍後，再執行：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">&amp; .\herdr<span class="literal">-install</span>.ps1</span><br></pre></td></tr></table></figure>
+
+<p>若執行原則阻擋腳本，先確認所在組織的規範，不要直接停用防護。</p>
+<p>安裝後檢查：</p>
+<figure class="highlight powershell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc <span class="literal">--help</span></span><br></pre></td></tr></table></figure>
+
+<p>如果找不到指令，先重新開啟 PowerShell，確認安裝路徑是否已加入 PATH。Windows 上若要使用 Herdr 的 templates 或引號包住的 Shell 指令，官方 README 另提醒 PATH 需有 <code>sh</code>，例如 Git for Windows 提供的環境。</p>
+<p>另外，兩台電腦都必須先安裝各自要執行的 AI CLI，並完成登入或 API 設定。</p>
+<p>Herdr 不會自動提供 Claude Code 或 Codex 的模型使用額度。</p>
+<h3 id="Step-3：測試本機-Agent"><a href="#Step-3：測試本機-Agent" class="headerlink" title="Step 3：測試本機 Agent"></a>Step 3：測試本機 Agent</h3><p>先在 Mac 上測試能不能啟動 Codex。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc run --<span class="built_in">bg</span> --name review codex <span class="string">&quot;Review this project&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>這個指令的概念是：</p>
+<ul>
+<li><code>--bg</code>：背景執行。</li>
+<li><code>--name review</code>：將工作命名為 review。</li>
+<li><code>codex</code>：指定執行的工具。</li>
+<li>後面的文字：交給 Agent 的任務。</li>
+</ul>
+<p>接著查詢目前的 Agent：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>如果想追加工作：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc send review <span class="string">&quot;Also check the tests&quot;</span></span><br></pre></td></tr></table></figure>
+
+<p>等待工作完成：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc <span class="built_in">wait</span> review</span><br></pre></td></tr></table></figure>
+
+<p>讀取最近 60 行輸出：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc <span class="built_in">read</span> --lines 60 review</span><br></pre></td></tr></table></figure>
+
+<p>這些指令展示了 Herdr 最有價值的地方。</p>
+<p>我們不需要自己操作 Codex 視窗，就能透過程式控制工作流程。</p>
+<p>不過要注意，<code>hc wait</code> 的等待結果不代表程式碼已經通過測試。若回傳仍在執行或需要介入，應保留任務識別資訊再讀取狀態；正式系統仍然需要獨立驗收。</p>
+<p>以上基本指令可對照 <a target="_blank" rel="noopener" href="https://herdr.dev/core/">Herdr Core 官方說明</a>。</p>
+<h2 id="Mac-如何透過-SSH-派工給-Windows？"><a href="#Mac-如何透過-SSH-派工給-Windows？" class="headerlink" title="Mac 如何透過 SSH 派工給 Windows？"></a>Mac 如何透過 SSH 派工給 Windows？</h2><p>本機執行成功後，下一步就是跨電腦。</p>
+<p>Herdr 可以搭配 SSH 連接遠端電腦。</p>
+<p>如果兩台電腦不在同一個區域網路，也可以考慮使用 Tailscale。</p>
+<p>Tailscale 的好處是可以建立私人網路，減少直接暴露 SSH 服務到公開網際網路的需求。</p>
+<p>但 Tailscale 只是網路連線層，仍然需要正確設定 SSH 驗證與存取權限。</p>
+<h3 id="Step-1：確認-SSH-可以連線"><a href="#Step-1：確認-SSH-可以連線" class="headerlink" title="Step 1：確認 SSH 可以連線"></a>Step 1：確認 SSH 可以連線</h3><p>先確認 Windows 已安裝並啟用 OpenSSH Server，設定允許連線的使用者。</p>
+<p>在 Mac 上測試：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ssh username@windows-host</span><br></pre></td></tr></table></figure>
+
+<p>其中 <code>username</code> 和 <code>windows-host</code> 必須替換成實際使用者與主機名稱。</p>
+<p>建議使用 SSH 金鑰驗證，不要把密碼寫進 AI Agent 的提示詞。</p>
+<h3 id="Step-2：加入遠端機器"><a href="#Step-2：加入遠端機器" class="headerlink" title="Step 2：加入遠端機器"></a>Step 2：加入遠端機器</h3><p>依照 Herdr CLI 的遠端機器管理功能，加入電腦：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc machine add username@windows-host --name windows-host</span><br></pre></td></tr></table></figure>
+
+<p>完成後，可以檢查機器與 Agent 狀態。</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc <span class="built_in">ls</span></span><br></pre></td></tr></table></figure>
+
+<p>如果遠端機器名稱為 <code>windows-host</code>，可以嘗試指定遠端機器執行 Claude：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc run --on windows-host --<span class="built_in">bg</span> claude</span><br></pre></td></tr></table></figure>
+
+<p>這裡的遠端機器名稱、CLI 參數與支援方式，應先使用 <code>hc --help</code> 和 <code>hc --skill</code> 核對。</p>
+<p>Windows 的 SSH Shell、工作目錄、PATH 與 Claude Code 登入狀態，也可能影響遠端執行結果。遠端工作與檔案仍留在目標電腦，SSH 串接不會自動同步專案；相關限制可對照 <a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr-core">herdr-core 官方 README</a>。</p>
+<h3 id="Step-3：驗證跨電腦派工"><a href="#Step-3：驗證跨電腦派工" class="headerlink" title="Step 3：驗證跨電腦派工"></a>Step 3：驗證跨電腦派工</h3><p>建議第一個測試不要太複雜。</p>
+<p>可以讓 Windows 上的 Claude Code：</p>
+<ol>
+<li>讀取指定測試專案。</li>
+<li>分析 README。</li>
+<li>產出一份簡短摘要。</li>
+<li>將結果寫入指定檔案。</li>
+</ol>
+<p>接著由 Mac 端取得執行結果。</p>
+<p>如果能順利完成，代表基本的跨電腦派工通道已經建立。</p>
+<h2 id="如何透過-herdr-dispatcher-讓-Grok-Bot-接管派工？"><a href="#如何透過-herdr-dispatcher-讓-Grok-Bot-接管派工？" class="headerlink" title="如何透過 herdr-dispatcher 讓 Grok Bot 接管派工？"></a>如何透過 herdr-dispatcher 讓 Grok Bot 接管派工？</h2><p>接下來才是整套架構最有趣的部分。</p>
+<p>我們不希望每次都要手動輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">hc run ...</span><br></pre></td></tr></table></figure>
+
+<p>而是希望直接跟 Grok Bot 說：</p>
+<blockquote>
+<p>請 Windows 的 Claude 幫我分析這個專案，完成後再交給 Mac 的 Codex 做程式碼審查。</p>
+</blockquote>
+<p>要做到這件事，我建議建立一個派工橋接服務。</p>
+<h3 id="herdr-dispatcher-的五個基本功能"><a href="#herdr-dispatcher-的五個基本功能" class="headerlink" title="herdr-dispatcher 的五個基本功能"></a>herdr-dispatcher 的五個基本功能</h3><table>
+<thead>
+<tr>
+<th>功能</th>
+<th>說明</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>create_task</td>
+<td>建立工單</td>
+</tr>
+<tr>
+<td>assign_task</td>
+<td>指定 Agent 與電腦</td>
+</tr>
+<tr>
+<td>get_status</td>
+<td>查詢工作進度</td>
+</tr>
+<tr>
+<td>get_result</td>
+<td>讀取工作成果</td>
+</tr>
+<tr>
+<td>cancel_task</td>
+<td>取消執行中的任務</td>
+</tr>
+</tbody></table>
+<p>這五個是建議設計的 API，不是 Herdr 原生 API 名稱。</p>
+<p>例如 Grok Bot 建立一張工單：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;task_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TASK-001&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;分析網站專案&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;agent&quot;</span><span class="punctuation">:</span> <span class="string">&quot;claude&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;machine&quot;</span><span class="punctuation">:</span> <span class="string">&quot;windows-host&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pending&quot;</span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>派工服務收到後：</p>
+<ol>
+<li>驗證 Grok Bot 的請求。</li>
+<li>檢查目標機器是否允許執行任務。</li>
+<li>呼叫 Herdr CLI。</li>
+<li>儲存工單與執行識別資訊。</li>
+<li>持續取得 Agent 狀態。</li>
+<li>完成後回報 Grok Bot。</li>
+</ol>
+<p>這樣就能把聊天介面與實際執行環境分開。</p>
+<p>而且未來想更換 AI 幕僚長，也不用重新設計底層 Agent 系統。</p>
+<h3 id="建議增加的任務狀態"><a href="#建議增加的任務狀態" class="headerlink" title="建議增加的任務狀態"></a>建議增加的任務狀態</h3><p>不要只用「進行中」與「完成」兩種狀態。</p>
+<p>至少應該有：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br></pre></td><td class="code"><pre><span class="line">pending</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">assigned</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">running</span><br><span class="line">   │</span><br><span class="line">   ├──► waiting_approval</span><br><span class="line">   │</span><br><span class="line">   ├──► failed</span><br><span class="line">   │</span><br><span class="line">   ▼</span><br><span class="line">completed</span><br></pre></td></tr></table></figure>
+
+<p>如果任務失敗，應該記錄失敗原因、執行次數與是否允許重試。</p>
+<p>另外，對於刪除檔案、部署正式網站、推送 GitHub 主分支等操作，最好保留人工批准機制。</p>
+<p>這樣才能讓 AI 自動化長時間運作，而不是出問題時完全不知道發生什麼事。</p>
+<h2 id="情境示例：AI-團隊如何接力開發網站？"><a href="#情境示例：AI-團隊如何接力開發網站？" class="headerlink" title="情境示例：AI 團隊如何接力開發網站？"></a>情境示例：AI 團隊如何接力開發網站？</h2><p>假設今天我要建立一個新的 AI 課程網站。</p>
+<p>我只需要跟 Grok Bot 說：</p>
+<blockquote>
+<p>幫我建立一個 AI Agent 教學網站。先規劃網站架構，再完成前端開發，最後檢查程式碼並部署測試版本。</p>
+</blockquote>
+<p>Grok Bot 可以拆成四張工單。</p>
+<p><strong>工單一：規劃網站</strong></p>
+<p>交給 Mac 上的 Claude Code。</p>
+<p>工作內容包含：</p>
+<ul>
+<li>分析需求。</li>
+<li>設計網站架構。</li>
+<li>規劃頁面與功能。</li>
+<li>產出技術規格。</li>
+</ul>
+<p><strong>工單二：網站開發</strong></p>
+<p>交給 Mac 上的 Codex。</p>
+<p>工作內容包含：</p>
+<ul>
+<li>根據規格撰寫程式碼。</li>
+<li>建立前端元件。</li>
+<li>加入互動功能。</li>
+<li>執行測試。</li>
+</ul>
+<p><strong>工單三：程式碼審查</strong></p>
+<p>交給另一個 Claude Code 工作階段。</p>
+<p>工作內容包含：</p>
+<ul>
+<li>檢查程式碼結構。</li>
+<li>檢查安全性問題。</li>
+<li>找出潛在 Bug。</li>
+<li>提出修正建議。</li>
+</ul>
+<p><strong>工單四：彙整與驗收</strong></p>
+<p>由 Grok Bot 負責。</p>
+<p>確認測試結果、彙整 GitHub Commit 與網站預覽網址，最後通知我：</p>
+<p>「網站測試版本完成，請確認是否部署正式環境。」</p>
+<p>這才是我期待的 AI Agent 工作模式。</p>
+<p>不是讓一個 AI 從頭做到尾，而是讓不同 AI 依照專長分工。</p>
+<p>不過，多 Agent 不一定比單一 Agent 更有效率。</p>
+<p>如果只是修改一個按鈕顏色，交給 Codex 直接完成就好。</p>
+<p>只有當任務可以拆分、需要不同環境，或獨立審查能帶來明顯價值時，多 Agent 協作才值得使用。</p>
+<h2 id="如何用事件驅動減少-AI-Agent-的無效檢查？"><a href="#如何用事件驅動減少-AI-Agent-的無效檢查？" class="headerlink" title="如何用事件驅動減少 AI Agent 的無效檢查？"></a>如何用事件驅動減少 AI Agent 的無效檢查？</h2><p>這也是實作時很容易忽略的問題。</p>
+<p>假設你有七個 Agent，每個都設定每小時醒來一次，檢查有沒有工作。</p>
+<p>如果全天候執行，一週會產生：</p>
+<p>7 × 24 × 7 &#x3D; 1,176 次檢查。</p>
+<p>即使完全沒有工作，也會一直執行檢查。不過，這是排程次數；是否消耗模型額度，取決於每次檢查有沒有實際呼叫模型。</p>
+<p>我比較推薦使用<strong>事件驅動（Event-Driven）架構</strong>。</p>
+<p>只保留一個主要派工入口。</p>
+<p>當有新工單時，才通知對應的 Agent。</p>
+<p>當 Agent 完成後，再觸發下一張工單。</p>
+<p>例如：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br></pre></td><td class="code"><pre><span class="line">Grok Bot 建立工單</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">Claude Code 規劃</span><br><span class="line">        │</span><br><span class="line">     完成事件</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">Codex 開發</span><br><span class="line">        │</span><br><span class="line">     完成事件</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">Claude Code 審查</span><br><span class="line">        │</span><br><span class="line">     完成事件</span><br><span class="line">        │</span><br><span class="line">        ▼</span><br><span class="line">Grok Bot 通知</span><br></pre></td></tr></table></figure>
+
+<p>這種做法可以減少無意義的輪詢。</p>
+<p>但事件驅動不代表完全不需要狀態檢查。</p>
+<p>實務上還是建議有低頻率的健康檢查，處理 Agent 當機、網路中斷或任務遺失的情況。</p>
+<h2 id="跨電腦協作時，GitHub-與-Google-Drive-如何分工？"><a href="#跨電腦協作時，GitHub-與-Google-Drive-如何分工？" class="headerlink" title="跨電腦協作時，GitHub 與 Google Drive 如何分工？"></a>跨電腦協作時，GitHub 與 Google Drive 如何分工？</h2><p>跨電腦協作還有一個重要問題：</p>
+<p><strong>不同電腦上的 AI，怎麼取得同一份工作資料？</strong></p>
+<p>我不建議所有檔案都透過聊天訊息傳來傳去。</p>
+<p>可以依照檔案類型分工。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>建議用途</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>GitHub</td>
+<td>程式碼、規格、版本控制</td>
+</tr>
+<tr>
+<td>Google Drive</td>
+<td>圖片、影片、報告、教材</td>
+</tr>
+<tr>
+<td>SQLite &#x2F; PostgreSQL</td>
+<td>工單與執行狀態</td>
+</tr>
+<tr>
+<td>Herdr</td>
+<td>Agent 執行與通訊</td>
+</tr>
+<tr>
+<td>Grok Bot</td>
+<td>派工與使用者互動</td>
+</tr>
+</tbody></table>
+<p>例如 AI 條漫專案：</p>
+<p>Claude Code 完成劇本後，將 Markdown 規格提交到 GitHub。</p>
+<p>Codex 取得規格，建立條漫網站。</p>
+<p>大型圖片與影片素材則放在 Google Drive。</p>
+<p>最後 Grok Bot 只需要回報：</p>
+<ul>
+<li>劇本版本。</li>
+<li>GitHub Commit。</li>
+<li>網站預覽網址。</li>
+<li>待審核事項。</li>
+</ul>
+<p>這樣比讓 Agent 不斷複製大量內容更容易管理。</p>
+<p>如果多個 Agent 會修改同一個專案，也應該使用獨立 Git Branch 或 Git Worktree，避免互相覆蓋程式碼。</p>
+<h2 id="建立-AI-Agent-團隊需要哪些成本？"><a href="#建立-AI-Agent-團隊需要哪些成本？" class="headerlink" title="建立 AI Agent 團隊需要哪些成本？"></a>建立 AI Agent 團隊需要哪些成本？</h2><p>Herdr 的開源版本本身不需要另外支付軟體授權費。</p>
+<p>但整套系統並不是完全零成本。</p>
+<p>主要成本包括：</p>
+<p><strong>AI 模型費用</strong></p>
+<p>Claude Code、Codex、Grok Bot 等工具，仍然依照各自的訂閱方案、API 費率及使用限制計算。</p>
+<p><strong>電腦與運算資源</strong></p>
+<p>如果直接使用既有 Mac 與 Windows，通常不需要另外購買硬體。</p>
+<p>如果要全天候執行，則可能需要常駐主機。</p>
+<p><strong>網路與儲存</strong></p>
+<p>SSH 可以直接使用既有網路。</p>
+<p>Tailscale 的實際費用依使用方案而定。</p>
+<p>GitHub、Google Drive 也可能因儲存量或團隊需求產生額外費用。</p>
+<p><strong>維護成本</strong></p>
+<p>這是最容易被忽略的部分。</p>
+<p>跨電腦 Agent 系統需要處理權限、網路中斷、版本更新、工單失敗、重試及執行紀錄。</p>
+<p>所以我不建議一開始就部署十幾個 Agent。</p>
+<p>先用兩台電腦、三個 Agent，完成一個真實工作流程，會比較容易驗證投資報酬。</p>
+<h2 id="跨電腦派工最需要注意的五個問題"><a href="#跨電腦派工最需要注意的五個問題" class="headerlink" title="跨電腦派工最需要注意的五個問題"></a>跨電腦派工最需要注意的五個問題</h2><h3 id="1-Agent-完成不等於任務成功"><a href="#1-Agent-完成不等於任務成功" class="headerlink" title="1. Agent 完成不等於任務成功"></a>1. Agent 完成不等於任務成功</h3><p>AI 回報完成後，還是要檢查實際產出。</p>
+<p>例如程式碼是否通過測試、檔案是否存在、網站是否能正常開啟。</p>
+<h3 id="2-遠端執行必須限制權限"><a href="#2-遠端執行必須限制權限" class="headerlink" title="2. 遠端執行必須限制權限"></a>2. 遠端執行必須限制權限</h3><p>不要讓聊天介面可以直接執行任意 Shell 指令。</p>
+<p>建議透過派工橋接服務建立允許清單，限制可執行的工具、工作目錄與操作範圍。</p>
+<h3 id="3-任務必須可以追蹤"><a href="#3-任務必須可以追蹤" class="headerlink" title="3. 任務必須可以追蹤"></a>3. 任務必須可以追蹤</h3><p>每張工單都應該有唯一 ID、負責 Agent、建立時間、開始時間、完成時間、輸出位置及錯誤紀錄。</p>
+<h3 id="4-電腦重新啟動後如何恢復？"><a href="#4-電腦重新啟動後如何恢復？" class="headerlink" title="4. 電腦重新啟動後如何恢復？"></a>4. 電腦重新啟動後如何恢復？</h3><p>Herdr 能維持終端工作，但這不等於具備完整的持久化任務佇列。</p>
+<p>如果電腦重新開機或執行環境停止，必須另外設計恢復機制。</p>
+<h3 id="5-多-Agent-需要避免衝突"><a href="#5-多-Agent-需要避免衝突" class="headerlink" title="5. 多 Agent 需要避免衝突"></a>5. 多 Agent 需要避免衝突</h3><p>同一個專案如果有兩個 Agent 同時修改相同檔案，很容易發生覆蓋或合併衝突。</p>
+<p>可以使用 Git Worktree、工作鎖定與明確的任務邊界處理。</p>
+<h2 id="如何分三階段建立最小可行的-AI-團隊？"><a href="#如何分三階段建立最小可行的-AI-團隊？" class="headerlink" title="如何分三階段建立最小可行的 AI 團隊？"></a>如何分三階段建立最小可行的 AI 團隊？</h2><p>如果你也想建立自己的 AI Agent 團隊，我建議分三個階段。</p>
+<h3 id="第一階段：跨電腦連線"><a href="#第一階段：跨電腦連線" class="headerlink" title="第一階段：跨電腦連線"></a>第一階段：跨電腦連線</h3><p>先完成：</p>
+<ul>
+<li>Mac 安裝 herdr-core。</li>
+<li>Windows 安裝 herdr-core。</li>
+<li>建立 SSH 或 Tailscale 連線。</li>
+<li>成功從一台電腦啟動另一台電腦的 Agent。</li>
+<li>成功取得遠端 Agent 的執行結果。</li>
+</ul>
+<p>這個階段先不要整合 Grok Bot。</p>
+<p>目標只有一個：確認跨電腦 Agent 可以正常運作。</p>
+<h3 id="第二階段：自動派工"><a href="#第二階段：自動派工" class="headerlink" title="第二階段：自動派工"></a>第二階段：自動派工</h3><p>建立 <code>herdr-dispatcher</code>。</p>
+<p>讓 Grok Bot 可以：</p>
+<ul>
+<li>建立工單。</li>
+<li>指派 Agent。</li>
+<li>查詢狀態。</li>
+<li>取得結果。</li>
+<li>回報異常。</li>
+</ul>
+<p>這個階段完成後，就能從聊天視窗管理 AI 團隊。</p>
+<h3 id="第三階段：完整工作流"><a href="#第三階段：完整工作流" class="headerlink" title="第三階段：完整工作流"></a>第三階段：完整工作流</h3><p>最後才加入：</p>
+<ul>
+<li>任務相依關係。</li>
+<li>自動接力。</li>
+<li>GitHub 整合。</li>
+<li>Google Drive 整合。</li>
+<li>失敗重試。</li>
+<li>人工審核。</li>
+<li>定期任務。</li>
+<li>成本與額度監控。</li>
+</ul>
+<p>做到這裡，才算真正建立一套可以持續運作的 AI Agent 工作系統。</p>
+<hr>
+<h2 id="結語：未來不是你會用多少-AI，而是你能管理多少-AI"><a href="#結語：未來不是你會用多少-AI，而是你能管理多少-AI" class="headerlink" title="結語：未來不是你會用多少 AI，而是你能管理多少 AI"></a>結語：未來不是你會用多少 AI，而是你能管理多少 AI</h2><p>過去一年，我們一直在學怎麼使用 AI 工具。</p>
+<p>從 ChatGPT、Claude、Codex，到各種 AI Agent。</p>
+<p>但我覺得下一個值得研究的方向，是讓這些 AI 不再各自獨立工作。</p>
+<p>以前，我們需要自己打開每個 AI 視窗，交代任務、複製資料、檢查結果。</p>
+<p>現在，透過 Grok Bot、Herdr 與適當的派工架構，我們可以嘗試把這些工作交給 AI 自己協調。</p>
+<p><strong>人類負責決策，AI 幕僚長負責管理，AI Agent 負責執行。</strong></p>
+<p>當然，這不代表所有事情都能完全無人化。</p>
+<p>真正重要的，是建立清楚的任務分工、驗收標準、權限管理與錯誤處理。</p>
+<p>我的目標也不是讓電腦上同時跑最多 AI。</p>
+<p>而是有一天，我只需要打開一個聊天視窗，說出今天要完成的工作。</p>
+<p>剩下的事情，就交給我的 AI 小團隊。</p>
+<p>完成後，再回來跟我報告。</p>
+<p>這才是我真正期待的 AI Agent 自動化。</p>
+<p>如果你也有一整隊 AI 助手，你最想先把哪件麻煩事交出去？</p>
+<hr>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：安裝-Herdr-後，Grok-Bot-就會自動指揮-Claude-Code-和-Codex-嗎？"><a href="#Q1：安裝-Herdr-後，Grok-Bot-就會自動指揮-Claude-Code-和-Codex-嗎？" class="headerlink" title="Q1：安裝 Herdr 後，Grok Bot 就會自動指揮 Claude Code 和 Codex 嗎？"></a>Q1：安裝 Herdr 後，Grok Bot 就會自動指揮 Claude Code 和 Codex 嗎？</h3><p>不會。Herdr 提供終端執行與通訊能力；Grok Bot 仍須接上工具呼叫或自建的派工橋接服務，才能把聊天需求轉成 <code>hc</code> 操作。本文的 <code>herdr-dispatcher</code> 與工單 API 是建議設計，並非官方內建整合。</p>
+<h3 id="Q2：Mac-與-Windows-不在同一個網路，也能跨電腦派工嗎？"><a href="#Q2：Mac-與-Windows-不在同一個網路，也能跨電腦派工嗎？" class="headerlink" title="Q2：Mac 與 Windows 不在同一個網路，也能跨電腦派工嗎？"></a>Q2：Mac 與 Windows 不在同一個網路，也能跨電腦派工嗎？</h3><p>可以規劃透過 SSH 連線，必要時搭配 Tailscale 建立私人網路。前提是遠端 SSH、帳號權限、herdr-core、AI CLI 登入與工作目錄都已設定；應先完成一個小型遠端任務，再接上多階段工作流。</p>
+<h3 id="Q3：Herdr-免費，就能免費執行整個-AI-團隊嗎？"><a href="#Q3：Herdr-免費，就能免費執行整個-AI-團隊嗎？" class="headerlink" title="Q3：Herdr 免費，就能免費執行整個 AI 團隊嗎？"></a>Q3：Herdr 免費，就能免費執行整個 AI 團隊嗎？</h3><p>不能這樣推論。開源軟體授權與模型使用費用是不同項目；Claude Code、Codex 與 Grok Bot 相關的訂閱或 API、常駐電腦、網路儲存及維護都可能產生成本。建議以少量 Agent 與真實工單測試，再評估是否擴大。</p>
+<p>延伸閱讀：<a href="/posts/ai-team-management-guide/">學會管理 AI 員工</a>、<a href="/posts/ai-agent-line-management/">AI 幕僚長與私人 LINE 管理</a>。</p>
+<h2 id="參考資源"><a href="#參考資源" class="headerlink" title="參考資源"></a>參考資源</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/">Herdr 官方網站</a></li>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/core/">Herdr Core</a></li>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/guide/">Herdr Guide</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">Herdr GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr-core">herdr-core GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://tailscale.com/">Tailscale</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/">Claude Code</a></li>
+<li><a target="_blank" rel="noopener" href="https://developers.openai.com/codex/">OpenAI Codex</a></li>
+</ul>
+<p><em>本文的 Herdr CLI 範例以所研究的官方文件為基礎，實際安裝與參數請依使用版本確認。Grok Bot 派工橋接服務、工單 API 與多階段自動化流程屬於建議實作架構，不代表 Herdr 已內建所有功能。</em></p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover245.webp" class="img-fluid card-img-top rounded-3" alt="Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/obsidian-ai-second-brain/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover243.webp" class="img-fluid card-img-top rounded-3" alt="MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/minimax-h3-colab-codex-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover242.webp" class="img-fluid card-img-top rounded-3" alt="OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openmontage-codex-video-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover238.webp" class="img-fluid card-img-top rounded-3" alt="Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/toonflow-ai-comic-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover236.webp" class="img-fluid card-img-top rounded-3" alt="別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">商業策略</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-team-management-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover237.webp" class="img-fluid card-img-top rounded-3" alt="AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">職場溝通</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-agent-line-management/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover234.webp" class="img-fluid card-img-top rounded-3" alt="Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Agent Use Cases 教學：從 1,800 多個案例找到 AI Agent 工作流</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/agent-use-cases-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover233.webp" class="img-fluid card-img-top rounded-3" alt="AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 配音還需要每月付費嗎？ElevenLabs、Gemini、BreezyVoice、Ming 四大 TTS 比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-tts-comparison-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover232.webp" class="img-fluid card-img-top rounded-3" alt="AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 跳舞影片怎麼做？骨架動畫 VS 3D 白模，從零認識動作遷移</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/10/30</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-motion-transfer-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>
