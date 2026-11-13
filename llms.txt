@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- AI 影片運鏡提示詞教學：12 種鏡頭技巧，讓畫面更有電影感
+  網址：https://blog.es2idea.com/posts/ai-video-camera-movement-prompts/
+  日期：2026-11-13
+  摘要：AI 影片畫面精緻卻缺少電影感？一次學會推進、拉遠、跟拍、環繞、滑動變焦等 12 種鏡頭技巧，附可直接練習的中文提示詞、15 秒短影音分鏡範例與人物一致性檢查重點，讓每一次運鏡都有敘事目的。
+  主題：AI工具、內容行銷、影音行銷
+
 - 如果一支短影音一年只賺 100 元，你還願意做嗎？AI 時代真正值錢的是內容資產
   網址：https://blog.es2idea.com/posts/ai-short-video-content-assets/
   日期：2026-11-12
@@ -100,13 +106,7 @@
   網址：https://blog.es2idea.com/posts/ai-team-management-guide/
   日期：2026-11-05
   摘要：AI Agent 不是越多越好，分工、工作方法與驗收才是關鍵。從 AI 員工管理出發，理解 Skills、Scripts 與 Routines 如何搭配，建立能持續執行、處理例外並由人類把關的 AI 工作系統。
-  主題：AI工具、商業策略、AI自動化
-
-- AI Agent 能幫你管理私人 LINE 嗎？從訊息整理看 AI 幕僚長的工作價值
-  網址：https://blog.es2idea.com/posts/ai-agent-line-management/
-  日期：2026-11-05
-  摘要：每天處理 LINE 訊息太耗心力？從 M觀點分享的 Grok Bot 案例，看看 AI 幕僚長如何整理重要訊息、追蹤未回覆事項，以及交辦 AI Agent 時應如何設定目標、權限與人工確認，重新設計個人工作流程。
-  主題：AI自動化、AI Agent、職場溝通
+  主題：商業策略、AI工具、AI自動化
 
 ## 語言
 - zh-TW
