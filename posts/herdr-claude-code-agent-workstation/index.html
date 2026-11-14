@@ -1,0 +1,1335 @@
+<!DOCTYPE html>
+
+<html lang="zh-TW">
+<head>
+  <meta charset="utf-8">
+  
+<!-- Global site tag (gtag.js) - Google Analytics -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-KD5W9RGBR5"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-KD5W9RGBR5');
+</script>
+<!-- End Google Analytics -->
+
+
+
+  
+  <title>不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學 | 徐享 | AI應用規劃師</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  
+    <meta name="author" content="hsu hsiang">
+  
+  
+  <link rel="canonical" href="https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/">
+  <link rel="llms-txt" href="https://blog.es2idea.com/llms.txt">
+  <meta name="description" content="不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。">
+<meta property="og:type" content="article">
+<meta property="og:title" content="不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學">
+<meta property="og:url" content="https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/">
+<meta property="og:site_name" content="徐享 | AI應用規劃師">
+<meta property="og:description" content="不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。">
+<meta property="og:locale" content="zh_TW">
+<meta property="og:image" content="https://blog.es2idea.com/images/cover250.webp">
+<meta property="article:published_time" content="2026-11-14T23:42:05.000Z">
+<meta property="article:modified_time" content="2026-11-14T16:09:59.996Z">
+<meta property="article:author" content="hsu hsiang">
+<meta property="article:tag" content="AI工具">
+<meta property="article:tag" content="AI自動化">
+<meta property="article:tag" content="Vibe Coding">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.es2idea.com/images/cover250.webp">
+  
+  
+    <link rel="shortcut icon" href="/images/site-v1/brand-mark-v2-inverse.svg">
+  
+  
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=IBM+Plex+Mono:wght@400;500;600&family=Noto+Sans+TC:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+  <link
+    rel="stylesheet"
+    href="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.css"
+    integrity="sha256-dMpqrlRo28kkeQw7TSGaCJuQo0utU6D3yjpz5ztvWrg="
+    crossorigin="anonymous"
+  />
+  
+<link rel="stylesheet" href="/css/all.min.css">
+
+  
+<link rel="stylesheet" href="/css/custom.css">
+
+  <link rel="stylesheet" href="/css/site-v1.css?v=20260920-nav-ux">
+  
+  <script src="/js/copy-code.js"></script>
+  
+<script type="application/ld+json">{"@context":"https://schema.org","@graph":[{"@id":"https://blog.es2idea.com/#website","@type":"WebSite","name":"徐享 | AI應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","inLanguage":"zh-TW","publisher":{"@id":"https://blog.es2idea.com/#organization"}},{"@id":"https://blog.es2idea.com/#organization","@type":"Organization","name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#organization-logo"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#organization-image"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"founder":{"@id":"https://blog.es2idea.com/#person"},"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"]},{"@id":"https://blog.es2idea.com/#person","@type":"Person","name":"徐享（享哥）","alternateName":"享哥","jobTitle":"AI 應用規劃師","description":"具備 10 年數位行銷與電商廣告實戰經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","url":"https://blog.es2idea.com/","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"]},{"@id":"https://blog.es2idea.com/#professional-service","@type":["ProfessionalService","LocalBusiness"],"name":"徐享 | AI 應用規劃師","url":"https://blog.es2idea.com/","description":"享哥，10年數位行銷與電商廣告經驗，專精 AI 應用規劃、AI Agent 與 Codex 工作流、n8n 自動化及中小企業數位轉型顧問。","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/assets/workbench-hero.webp","@id":"https://blog.es2idea.com/#service-image"},"logo":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/site-v1/brand-mark-v2-inverse.svg","@id":"https://blog.es2idea.com/#logo"},"email":"seanhsu1313@gmail.com","sameAs":["https://www.instagram.com/skypassion2013/","https://www.facebook.com/HsiangPMKT?locale=zh_TW","https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ","https://lin.ee/epeTR8o"],"areaServed":{"@type":"Country","name":"Taiwan"},"availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"knowsAbout":["AI Agent 與 Codex 工作流","AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢","生成式 AI 應用","AI 自媒體與影音策略","中小企業數位轉型"],"serviceType":["AI 應用規劃","n8n 自動化工作","電商社群行銷","AI 轉型顧問諮詢"],"founder":{"@id":"https://blog.es2idea.com/#person"},"parentOrganization":{"@id":"https://blog.es2idea.com/#organization"},"contactPoint":[{"@type":"ContactPoint","contactType":"customer support","email":"seanhsu1313@gmail.com","url":"https://blog.es2idea.com/contact/","availableLanguage":[{"@type":"Language","name":"zh-TW"},{"@type":"Language","name":"zh-Hant"}],"areaServed":"Taiwan"}],"address":{"@type":"PostalAddress","addressLocality":"新北市中和區","addressRegion":"新北市","addressCountry":"TW"},"hasOfferCatalog":{"@type":"OfferCatalog","name":"AI 顧問與自動化服務","itemListElement":[{"@type":"Offer","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 應用規劃","description":"協助企業盤點目標、流程與資源，規劃可落地的 AI 導入策略與執行藍圖。","serviceType":"AI 應用規劃","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"n8n 自動化工作","description":"透過 n8n 串接表單、LINE、Email、CRM 與內容排程，降低重複作業與人力成本。","serviceType":"n8n 自動化工作","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"電商社群行銷","description":"結合內容策略、廣告優化與轉換設計，提升品牌聲量與電商營運效益。","serviceType":"電商社群行銷","url":"https://blog.es2idea.com/service/"}},{"@type":"Offer","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","url":"https://blog.es2idea.com/service/","itemOffered":{"@type":"Service","name":"AI 轉型顧問諮詢","description":"提供顧問診斷、企業內訓與專案陪跑，協助團隊建立 AI 與數位轉型能力。","serviceType":"AI 轉型顧問諮詢","url":"https://blog.es2idea.com/service/"}}]}},{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#webpage","@type":"WebPage","name":"不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學","url":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/","description":"不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。","inLanguage":"zh-TW","isPartOf":{"@id":"https://blog.es2idea.com/#website"},"about":{"@id":"https://blog.es2idea.com/#professional-service"},"breadcrumb":{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#breadcrumb"},"primaryImageOfPage":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover250.webp","@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#primaryimage","width":1200,"height":800}},{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#blogposting","@type":"BlogPosting","headline":"不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學","name":"不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學","description":"不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。","url":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#webpage"},"inLanguage":"zh-TW","datePublished":"2026-11-14T23:42:05.000Z","dateModified":"2026-11-14T16:09:59.996Z","image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover250.webp","@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#primaryimage","width":1200,"height":800},"articleSection":"AI自動化","keywords":["AI工具","AI自動化","Vibe Coding"],"author":{"@id":"https://blog.es2idea.com/#person"},"publisher":{"@id":"https://blog.es2idea.com/#organization"},"about":["AI自動化","AI工具","AI自動化","Vibe Coding"],"isPartOf":{"@id":"https://blog.es2idea.com/#website"}},{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#breadcrumb","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"首頁","item":"https://blog.es2idea.com/"},{"@type":"ListItem","position":2,"name":"部落格","item":"https://blog.es2idea.com/blog/"},{"@type":"ListItem","position":3,"name":"不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學","item":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/"}]},{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#faqpage","@type":"FAQPage","mainEntity":[{"@type":"Question","name":"打造 24×7 AI Agent 工作站，一定要買多台 Mac 嗎？","acceptedAnswer":{"@type":"Answer","text":"不需要。可以先用現有 Mac、Windows 或 Linux 設備，建立少量 Agent 工作階段，搭配不同工作目錄與 Git Worktree 分工。需要 macOS 專屬工具或完整環境隔離時，再評估 Apple Silicon 與 Tart VM；電腦持續供電、避免休眠及服務可恢復，比先增加設備更重要。"}},{"@type":"Question","name":"Herdr、Tailscale 與 Claude Code Remote Control 有什麼差別？","acceptedAnswer":{"@type":"Answer","text":"Herdr 管理 Agent 的終端機與工作階段，Tailscale 提供設備之間的私人網路連線，Remote Control 則讓支援的 Claude 網頁或手機介面接續本機 Claude Code。三者的功能互補，但 Remote Control 本身不要求 Tailscale；另外，Herdr TUI 與 App／Core 不共用工作階段，手機管理須選對產品路線。"}},{"@type":"Question","name":"安裝這些工具後，AI 就能每天自動完成工作嗎？","acceptedAnswer":{"@type":"Answer","text":"還不能。遠端連線與持續存在的工作階段只是基礎，仍須設定排程或事件觸發、Dispatcher、任務狀態、成果交接、驗收、重試上限及通知。建議先讓研究與寫作兩個 Agent 完成小型接力流程，產出草稿後交由人工審核，再逐步擴充。"}}]},{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#howto","@type":"HowTo","name":"不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學","description":"不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。","inLanguage":"zh-TW","mainEntityOfPage":{"@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#webpage"},"image":{"@type":"ImageObject","url":"https://blog.es2idea.com/images/cover250.webp","@id":"https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/#primaryimage","width":1200,"height":800},"step":[{"@type":"HowToStep","name":"四、實戰第一步：安裝 Tailscale 並確認設備連線","text":"這裡假設你有一台 Mac、一台 Windows，以及一台 Linux 雲端 VM。沒有三台設備也沒關係，只用 Mac 就可以先測試本機工作階段；跨設備連線則需要另一台已加入網路的設備。"},{"@type":"HowToStep","name":"Step 1：下載並登入同一個 Tailnet","text":"前往 Tailscale 下載頁，依照作業系統安裝。Mac 與 Windows 都有圖形介面版本；安裝完成後，登入同一個帳號或受邀加入組織的 Tailnet。"},{"@type":"HowToStep","name":"Step 2：檢查設備狀態與 IP","text":"在已安裝且可使用 Tailscale CLI 的 Mac 終端機輸入："},{"@type":"HowToStep","name":"五、實戰第二步：安裝 Herdr TUI 並測試工作階段恢復","text":"本文這一步安裝的是 Herdr TUI。官方提供的一行安裝方式是："},{"@type":"HowToStep","name":"六、實戰第三步：設定 Claude Code 遠端操作","text":"先依 Claude Code 安裝說明完成安裝與登入。進入你的專案："}]}]}</script>
+
+
+<meta name="generator" content="Hexo 8.1.2"></head>
+
+<body class="site-v1">
+  <a class="site-skip-link" href="#main-content">跳到主要內容</a>
+  
+<header class="site-header" data-site-header>
+  <nav class="site-nav" aria-label="主要導覽">
+    <div class="container">
+      <div class="site-nav__bar">
+        <a class="site-brand" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2-inverse.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <button class="site-nav__toggle navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#siteNavMenu" aria-controls="siteNavMenu" aria-expanded="false" aria-label="開啟導覽選單">
+          <span class="site-nav__toggle-label">選單</span>
+          <span class="material-symbols-outlined" aria-hidden="true">menu</span>
+        </button>
+      </div>
+
+      <div class="collapse navbar-collapse" id="siteNavMenu">
+        <div class="site-nav__groups">
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">服務</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/service"
+                    
+                    
+                  >
+                    <span>完整服務</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link site-nav__link--cta"
+                    href="/contact"
+                    
+                    data-track-event="contact_page_click" data-track-placement="navigation"
+                  >
+                    <span>合作洽詢</span>
+                    <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">案例</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/works"
+                    
+                    
+                  >
+                    <span>作品集</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/ai-agent"
+                    
+                    
+                  >
+                    <span>AI Agent</span>
+                    
+                  </a>
+                
+                  <a
+                    class="site-nav__link"
+                    href="/n8n-automation"
+                    
+                    
+                  >
+                    <span>n8n 自動化</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">知識</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/blog"
+                    
+                    
+                  >
+                    <span>部落格</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">創作</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/sean-verse"
+                    
+                    
+                  >
+                    <span>享哥宇宙</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+            <div class="site-nav__group">
+              <span class="site-nav__group-label">關於</span>
+              <div class="site-nav__group-links">
+                
+                  <a
+                    class="site-nav__link"
+                    href="/collection"
+                    
+                    
+                  >
+                    <span>關於享哥</span>
+                    
+                  </a>
+                
+              </div>
+            </div>
+          
+        </div>
+      </div>
+    </div>
+  </nav>
+</header>
+
+
+  <main id="main-content" class="post-page">
+  <section class="container pb-7 pt-lg-9 pb-lg-7 mt-lg-9">
+    <div class="row flex-lg-row-reverse justify-content-lg-between pb-md-7">
+      <div class="col-12 col-lg-3">
+        <div class="d-none d-lg-block">
+
+  <div class="mb-7 p-7 bg-white border rounded-4 text-center">
+    <img src="/images/hsu-hsiang02.webp" alt="Frank Chiu" class="rounded-circle mb-4" style="width: 120px; height: 120px; object-fit: cover;">
+    <h3 class="mb-2 fs-5 fw-bold">徐享／享哥</h3>
+    <p class="text-primary fw-semibold mb-2">AI應用規劃師</p>
+    <p class="mb-3 text-secondary">
+      具有 10 年經驗在數位行銷與電商廣告領域，專精生成式AI應用與個人資料保護，致力於以獨特商業洞察與實戰案例研討，助力品牌突破成長瓶頸。
+    </p>
+    <div class="d-flex justify-content-center align-items-center gap-2">
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.instagram.com/skypassion2013/">
+        <i class="bi bi-instagram"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.facebook.com/aihsaing/">
+        <i class="bi bi-facebook"></i>
+      </a>
+      <a class="icon-link link-primary-600 px-2 fs-4" target="_blank" rel="noopener" href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ">
+        <i class="bi bi-youtube"></i>
+      </a>
+    </div>
+  </div>
+
+  <!-- portaly.cc E-mail 搜集 -->
+  <iframe src="https://portaly.cc/embed/block/skypassion5000/c2GvD4Clmr5wffdiYeqJ" width="306" height="450" style="border:0;" frameborder="0" loading="lazy"></iframe>
+
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">文章目錄</h3>
+    <div class="d-flex flex-wrap gap-2">
+      <div id="toc" class="toc-article">
+        <ol class="toc"><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%80%E3%80%8124%C3%977-AI-Agent-%E5%92%8C%E4%B8%80%E8%88%AC-AI-%E5%8A%A9%E6%89%8B%E5%B7%AE%E5%9C%A8%E5%93%AA%E8%A3%A1%EF%BC%9F"><span class="toc-number">1.</span> <span class="toc-text">一、24×7 AI Agent 和一般 AI 助手差在哪裡？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%8C%E3%80%81%E5%85%88%E8%AA%8D%E8%AD%98%E4%BA%94%E5%80%8B%E6%A0%B8%E5%BF%83%E5%B7%A5%E5%85%B7%EF%BC%8C%E5%90%84%E8%87%AA%E8%A7%A3%E6%B1%BA%E4%BB%80%E9%BA%BC%E5%95%8F%E9%A1%8C%EF%BC%9F"><span class="toc-number">2.</span> <span class="toc-text">二、先認識五個核心工具，各自解決什麼問題？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-Claude-Code%EF%BC%9A%E8%B2%A0%E8%B2%AC%E5%B7%A5%E4%BD%9C%E7%9A%84-AI-%E5%93%A1%E5%B7%A5"><span class="toc-number">2.1.</span> <span class="toc-text">1. Claude Code：負責工作的 AI 員工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-Herdr%EF%BC%9A%E9%9B%86%E4%B8%AD%E7%AE%A1%E7%90%86%E6%95%B4%E9%9A%8A-Agent-%E7%9A%84%E5%B7%A5%E4%BD%9C%E9%9A%8E%E6%AE%B5"><span class="toc-number">2.2.</span> <span class="toc-text">2. Herdr：集中管理整隊 Agent 的工作階段</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-Tailscale%EF%BC%9A%E8%AE%93%E4%B8%8D%E5%90%8C%E9%9B%BB%E8%85%A6%E5%BB%BA%E7%AB%8B%E7%A7%81%E4%BA%BA%E9%80%A3%E7%B7%9A"><span class="toc-number">2.3.</span> <span class="toc-text">3. Tailscale：讓不同電腦建立私人連線</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#4-Tart%EF%BC%9A%E5%9C%A8%E6%9C%89%E9%9C%80%E8%A6%81%E6%99%82%E6%8F%90%E4%BE%9B%E7%8D%A8%E7%AB%8B%E8%99%9B%E6%93%AC%E6%A9%9F"><span class="toc-number">2.4.</span> <span class="toc-text">4. Tart：在有需要時提供獨立虛擬機</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#5-Claude-Code-Remote-Control%EF%BC%9A%E4%BA%BA%E5%9C%A8%E5%A4%96%E9%9D%A2%E4%B9%9F%E8%83%BD%E6%8E%A5%E6%89%8B"><span class="toc-number">2.5.</span> <span class="toc-text">5. Claude Code Remote Control：人在外面也能接手</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%89%E3%80%81%E5%A6%82%E4%BD%95%E6%8A%8A%E4%BA%94%E5%80%8B%E5%B7%A5%E5%85%B7%E6%95%B4%E5%90%88%E6%88%90%E5%B7%A5%E4%BD%9C%E7%B3%BB%E7%B5%B1%EF%BC%9F"><span class="toc-number">3.</span> <span class="toc-text">三、如何把五個工具整合成工作系統？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%9B%9B%E3%80%81%E5%AF%A6%E6%88%B0%E7%AC%AC%E4%B8%80%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%9D-Tailscale-%E4%B8%A6%E7%A2%BA%E8%AA%8D%E8%A8%AD%E5%82%99%E9%80%A3%E7%B7%9A"><span class="toc-number">4.</span> <span class="toc-text">四、實戰第一步：安裝 Tailscale 並確認設備連線</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-1%EF%BC%9A%E4%B8%8B%E8%BC%89%E4%B8%A6%E7%99%BB%E5%85%A5%E5%90%8C%E4%B8%80%E5%80%8B-Tailnet"><span class="toc-number">4.1.</span> <span class="toc-text">Step 1：下載並登入同一個 Tailnet</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Step-2%EF%BC%9A%E6%AA%A2%E6%9F%A5%E8%A8%AD%E5%82%99%E7%8B%80%E6%85%8B%E8%88%87-IP"><span class="toc-number">4.2.</span> <span class="toc-text">Step 2：檢查設備狀態與 IP</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%BA%94%E3%80%81%E5%AF%A6%E6%88%B0%E7%AC%AC%E4%BA%8C%E6%AD%A5%EF%BC%9A%E5%AE%89%E8%A3%9D-Herdr-TUI-%E4%B8%A6%E6%B8%AC%E8%A9%A6%E5%B7%A5%E4%BD%9C%E9%9A%8E%E6%AE%B5%E6%81%A2%E5%BE%A9"><span class="toc-number">5.</span> <span class="toc-text">五、實戰第二步：安裝 Herdr TUI 並測試工作階段恢復</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AD%E3%80%81%E5%AF%A6%E6%88%B0%E7%AC%AC%E4%B8%89%E6%AD%A5%EF%BC%9A%E8%A8%AD%E5%AE%9A-Claude-Code-%E9%81%A0%E7%AB%AF%E6%93%8D%E4%BD%9C"><span class="toc-number">6.</span> <span class="toc-text">六、實戰第三步：設定 Claude Code 遠端操作</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B8%83%E3%80%81%E5%A6%82%E4%BD%95%E8%AE%93-Agent-%E9%95%B7%E6%99%82%E9%96%93%E5%9F%B7%E8%A1%8C%EF%BC%9F%E5%88%86%E9%96%8B%E8%99%95%E7%90%86%E4%B8%89%E5%80%8B%E5%95%8F%E9%A1%8C"><span class="toc-number">7.</span> <span class="toc-text">七、如何讓 Agent 長時間執行？分開處理三個問題</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E8%AE%93%E9%9B%BB%E8%85%A6%E4%BF%9D%E6%8C%81%E9%81%8B%E4%BD%9C"><span class="toc-number">7.1.</span> <span class="toc-text">1. 讓電腦保持運作</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E8%AE%93%E5%B7%A5%E4%BD%9C%E9%9A%8E%E6%AE%B5%E6%8C%81%E7%BA%8C%E5%AD%98%E5%9C%A8"><span class="toc-number">7.2.</span> <span class="toc-text">2. 讓工作階段持續存在</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E5%8A%A0%E5%85%A5%E6%8E%92%E7%A8%8B%E8%88%87%E8%87%AA%E5%8B%95%E6%81%A2%E5%BE%A9"><span class="toc-number">7.3.</span> <span class="toc-text">3. 加入排程與自動恢復</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%85%AB%E3%80%81%E9%80%B2%E9%9A%8E%E8%A8%AD%E8%A8%88%EF%BC%9A%E5%BB%BA%E7%AB%8B%E8%87%AA%E5%B7%B1%E7%9A%84-AI-%E5%B9%95%E5%83%9A%E9%95%B7%E8%88%87%E6%8E%A5%E5%8A%9B%E6%B5%81%E7%A8%8B"><span class="toc-number">8.</span> <span class="toc-text">八、進階設計：建立自己的 AI 幕僚長與接力流程</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E4%B9%9D%E3%80%81%E7%82%BA%E4%BB%80%E9%BA%BC%E4%B8%8D%E5%BB%BA%E8%AD%B0%E4%B8%80%E9%96%8B%E5%A7%8B%E5%B0%B1%E8%B7%91%E5%85%AB%E5%80%8B-Agent%EF%BC%9F"><span class="toc-number">9.</span> <span class="toc-text">九、為什麼不建議一開始就跑八個 Agent？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E3%80%81%E7%A1%AC%E9%AB%94%E6%80%8E%E9%BA%BC%E9%81%B8%EF%BC%9F%E4%B8%80%E5%AE%9A%E8%A6%81%E8%B2%B7-Mac-%E5%97%8E%EF%BC%9F"><span class="toc-number">10.</span> <span class="toc-text">十、硬體怎麼選？一定要買 Mac 嗎？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%80%E3%80%81%E6%88%90%E6%9C%AC%E6%80%8E%E9%BA%BC%E7%AE%97%EF%BC%9F%E5%88%A5%E6%8A%8A%E8%A8%82%E9%96%B1%E7%95%B6%E6%88%90%E7%84%A1%E9%99%90%E9%A1%8D%E5%BA%A6"><span class="toc-number">11.</span> <span class="toc-text">十一、成本怎麼算？別把訂閱當成無限額度</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%BA%8C%E3%80%81%E5%BE%9E%E5%85%A9%E5%80%8B-Agent-%E9%96%8B%E5%A7%8B%EF%BC%8C%E5%88%86%E4%B8%89%E9%9A%8E%E6%AE%B5%E6%93%B4%E5%85%85"><span class="toc-number">12.</span> <span class="toc-text">十二、從兩個 Agent 開始，分三階段擴充</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%80%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%BB%BA%E7%AB%8B%E9%81%A0%E7%AB%AF-AI-%E5%B7%A5%E4%BD%9C%E7%AB%99"><span class="toc-number">12.1.</span> <span class="toc-text">第一階段：建立遠端 AI 工作站</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%BA%8C%E9%9A%8E%E6%AE%B5%EF%BC%9A%E5%8A%A0%E5%85%A5%E8%87%AA%E5%8B%95%E6%B4%BE%E5%B7%A5"><span class="toc-number">12.2.</span> <span class="toc-text">第二階段：加入自動派工</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#%E7%AC%AC%E4%B8%89%E9%9A%8E%E6%AE%B5%EF%BC%9A%E6%93%B4%E5%85%85%E6%88%90%E5%AE%8C%E6%95%B4-AI-%E5%9C%98%E9%9A%8A"><span class="toc-number">12.3.</span> <span class="toc-text">第三階段：擴充成完整 AI 團隊</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E4%B8%89%E3%80%81%E4%B8%8A%E7%B7%9A%E5%89%8D%E9%82%84%E6%9C%89%E5%93%AA%E4%BA%9B%E5%AF%A6%E5%8B%99%E5%95%8F%E9%A1%8C%EF%BC%9F"><span class="toc-number">13.</span> <span class="toc-text">十三、上線前還有哪些實務問題？</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#1-%E4%B8%8D%E8%A6%81%E8%AE%93%E6%89%80%E6%9C%89-Agent-%E5%85%B1%E7%94%A8%E6%9C%80%E9%AB%98%E6%AC%8A%E9%99%90"><span class="toc-number">13.1.</span> <span class="toc-text">1. 不要讓所有 Agent 共用最高權限</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#2-%E9%81%BF%E5%85%8D%E5%A4%9A%E5%80%8B-Agent-%E5%90%8C%E6%99%82%E4%BF%AE%E6%94%B9%E5%90%8C%E4%B8%80%E4%BB%BD%E6%AA%94%E6%A1%88"><span class="toc-number">13.2.</span> <span class="toc-text">2. 避免多個 Agent 同時修改同一份檔案</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#3-%E6%AF%8F%E5%80%8B-Agent-%E9%83%BD%E5%BF%85%E9%A0%88%E6%9C%89%E5%81%9C%E6%AD%A2%E6%A2%9D%E4%BB%B6"><span class="toc-number">13.3.</span> <span class="toc-text">3. 每個 Agent 都必須有停止條件</span></a></li></ol></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8D%81%E5%9B%9B%E3%80%81%E6%9C%AA%E4%BE%86%E5%A6%82%E4%BD%95%E5%BE%9E%E4%BD%BF%E7%94%A8-AI%EF%BC%8C%E8%B5%B0%E5%90%91%E7%AE%A1%E7%90%86-AI-%E5%9C%98%E9%9A%8A%EF%BC%9F"><span class="toc-number">14.</span> <span class="toc-text">十四、未來如何從使用 AI，走向管理 AI 團隊？</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%8F%83%E8%80%83%E8%B3%87%E6%96%99%E8%88%87%E5%B7%A5%E5%85%B7%E9%80%A3%E7%B5%90"><span class="toc-number">15.</span> <span class="toc-text">參考資料與工具連結</span></a></li><li class="toc-item toc-level-2"><a class="toc-link" href="#%E5%B8%B8%E8%A6%8B%E5%95%8F%E7%AD%94-FAQ"><span class="toc-number">16.</span> <span class="toc-text">常見問答 (FAQ)</span></a><ol class="toc-child"><li class="toc-item toc-level-3"><a class="toc-link" href="#Q1%EF%BC%9A%E6%89%93%E9%80%A0-24%C3%977-AI-Agent-%E5%B7%A5%E4%BD%9C%E7%AB%99%EF%BC%8C%E4%B8%80%E5%AE%9A%E8%A6%81%E8%B2%B7%E5%A4%9A%E5%8F%B0-Mac-%E5%97%8E%EF%BC%9F"><span class="toc-number">16.1.</span> <span class="toc-text">Q1：打造 24×7 AI Agent 工作站，一定要買多台 Mac 嗎？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q2%EF%BC%9AHerdr%E3%80%81Tailscale-%E8%88%87-Claude-Code-Remote-Control-%E6%9C%89%E4%BB%80%E9%BA%BC%E5%B7%AE%E5%88%A5%EF%BC%9F"><span class="toc-number">16.2.</span> <span class="toc-text">Q2：Herdr、Tailscale 與 Claude Code Remote Control 有什麼差別？</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Q3%EF%BC%9A%E5%AE%89%E8%A3%9D%E9%80%99%E4%BA%9B%E5%B7%A5%E5%85%B7%E5%BE%8C%EF%BC%8CAI-%E5%B0%B1%E8%83%BD%E6%AF%8F%E5%A4%A9%E8%87%AA%E5%8B%95%E5%AE%8C%E6%88%90%E5%B7%A5%E4%BD%9C%E5%97%8E%EF%BC%9F"><span class="toc-number">16.3.</span> <span class="toc-text">Q3：安裝這些工具後，AI 就能每天自動完成工作嗎？</span></a></li></ol></li></ol>
+      </div>
+    </div>
+  </div>
+  
+
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">分類</h3>
+    <ul class="list-unstyled mb-0">
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%94%9F%E6%88%90%E5%BC%8FAI%E6%87%89%E7%94%A8/">
+            生成式AI應用 (45)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E7%B6%B2%E8%B7%AF%E8%A1%8C%E9%8A%B7/">
+            網路行銷 (26)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+            AI自動化 (80)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AEO/">
+            AEO (8)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/AI%E5%B7%A5%E5%85%B7/">
+            AI工具 (24)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+            商業策略 (22)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/Vibe-Coding/">
+            Vibe Coding (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%BB%9F%E9%AB%94%E9%96%8B%E7%99%BC/">
+            軟體開發 (20)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%80%8B%E4%BA%BA%E8%B3%87%E6%96%99%E4%BF%9D%E8%AD%B7/">
+            個人資料保護 (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/SEO/">
+            SEO (3)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%89%B5%E6%A5%AD%E6%80%9D%E7%B6%AD/">
+            創業思維 (2)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E6%95%B8%E4%BD%8D%E8%BD%89%E5%9E%8B/">
+            數位轉型 (1)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E5%B0%8F%E8%AA%AA/">
+            小說 (10)
+          </a>
+        </li>
+      
+        <li class="mb-3">
+          <a class="link-primary-600 text-decoration-none" href="/categories/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+            職場溝通 (2)
+          </a>
+        </li>
+      
+    </ul>
+  </div>
+  
+  <div class="mb-7 p-7 bg-primary-100 rounded-4">
+    <h3 class="mb-4 text-primary-700">標籤</h3>
+    <div class="d-flex flex-wrap gap-2">
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/">
+          AI工具 (98)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/ChatGPT/">
+          ChatGPT (21)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%95%86%E6%A5%AD%E7%AD%96%E7%95%A5/">
+          商業策略 (35)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E8%87%AA%E5%8B%95%E5%8C%96/">
+          AI自動化 (100)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Agent/">
+          AI Agent (52)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AEO/">
+          AEO (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cursor/">
+          Cursor (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/SEO/">
+          SEO (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%85%A7%E5%AE%B9%E8%A1%8C%E9%8A%B7/">
+          內容行銷 (31)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Vibe-Coding/">
+          Vibe Coding (48)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Codex/">
+          Codex (18)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/MCP/">
+          MCP (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%81%B7%E5%A0%B4%E6%BA%9D%E9%80%9A/">
+          職場溝通 (3)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%BD%B1%E9%9F%B3%E8%A1%8C%E9%8A%B7/">
+          影音行銷 (59)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Gemini/">
+          Gemini (12)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI-Coding/">
+          AI Coding (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Meta-Ads/">
+          Meta Ads (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Higgsfield/">
+          Higgsfield (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E9%A2%A8%E9%9A%AA%E6%8E%A7%E7%AE%A1/">
+          AI風險控管 (5)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/NotebookLM/">
+          NotebookLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GEO/">
+          GEO (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E7%B9%AA%E5%9C%96/">
+          AI繪圖 (9)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n/">
+          n8n (29)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%87%AA%E5%8B%95%E5%8C%96%E8%AC%9B%E5%B8%AB%E6%87%89%E7%94%A8/">
+          自動化講師應用 (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%87%AA%E5%8B%95%E5%8C%96/">
+          社群自動化 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Facebook%E6%A9%9F%E5%99%A8%E4%BA%BA/">
+          Facebook機器人 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/API%E4%B8%B2%E6%8E%A5/">
+          API串接 (13)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A4%BE%E7%BE%A4%E8%A1%8C%E9%8A%B7/">
+          社群行銷 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/RAG/">
+          RAG (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/VLM/">
+          VLM (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%90%91%E9%87%8F%E8%B3%87%E6%96%99%E5%BA%AB/">
+          向量資料庫 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Cloudflare/">
+          Cloudflare (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude/">
+          Claude (6)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Claude-API/">
+          Claude API (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E5%89%B5%E6%A5%AD/">
+          AI創業 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%B7%A5%E4%BD%9C%E6%B5%81/">
+          工作流 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E4%BA%AB%E5%93%A5%E5%AE%87%E5%AE%99/">
+          享哥宇宙 (10)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%A7%91%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          科幻喜劇 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/AI%E6%95%85%E4%BA%8B/">
+          AI故事 (8)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Seedance/">
+          Seedance (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E6%8A%80%E8%A1%93%E9%81%B8%E5%9E%8B/">
+          技術選型 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Electron/">
+          Electron (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Tauri/">
+          Tauri (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%A5%87%E5%B9%BB%E5%96%9C%E5%8A%87/">
+          奇幻喜劇 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%8F%B0%E7%81%A3%E6%B0%91%E9%96%93%E4%BF%A1%E4%BB%B0/">
+          台灣民間信仰 (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Git/">
+          Git (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E7%9F%A5%E8%AD%98%E8%AE%8A%E7%8F%BE/">
+          知識變現 (4)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google/">
+          Google (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Colab/">
+          Google Colab (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Google-Vids/">
+          Google Vids (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/GSAP/">
+          GSAP (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/n8n%E6%96%B0%E6%89%8B%E6%95%99%E5%AD%B8/">
+          n8n新手教學 (11)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Zeabur/">
+          Zeabur (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Remotion/">
+          Remotion (2)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Antigravity/">
+          Antigravity (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%89%8D%E7%AB%AF%E6%9E%B6%E6%A7%8B/">
+          前端架構 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/PWA/">
+          PWA (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E8%B3%87%E6%96%99%E8%99%95%E7%90%86/">
+          資料處理 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E5%80%8B%E4%BA%BA%E5%93%81%E7%89%8C/">
+          個人品牌 (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Power-Automate/">
+          Power Automate (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/Playwright/">
+          Playwright (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/LINE/">
+          LINE (1)
+        </a>
+      
+        <a class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4 text-decoration-none" href="/tags/%E9%9B%B2%E7%AB%AF%E9%83%A8%E7%BD%B2/">
+          雲端部署 (1)
+        </a>
+      
+    </div>
+  </div>
+
+</div>
+      </div>
+      <article class="article-container col-12 col-lg-8 mt-9 mt-lg-0 mb-0 pt-9 pt-lg-0 text-primary-700" itemprop="blogPost" itemscope itemtype="https://schema.org/BlogPosting">
+        <nav class="mb-3 mb-lg-7" aria-label="breadcrumb">
+          <ol class="breadcrumb">
+            
+              <li class="breadcrumb-item text-primary-500">
+                <a class="text-primary-500 text-decoration-none" href="/tags/AI%E5%B7%A5%E5%85%B7/" rel="tag">AI工具</a>
+
+              </li>
+            
+            <li class="breadcrumb-item text-primary-500 active" aria-current="page">2026/11/14 發佈</li>
+          </ol>
+        </nav>
+        <h1 class="mb-3 mb-lg-4 fs-2 text-center">不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學</h1>
+        
+        <p>最近看到一位開發者分享自己的 AI 工作流，讓我覺得很有意思。</p>
+<p>依照那則分享，他買了三台 Mac，使用兩個 Claude Code 高階訂閱帳號，總共執行八個 AI Agents。每個 Agent 都有自己的 Tart 虛擬機，再透過 Herdr、Tailscale 和 Claude Code Remote Control，讓整套系統可以遠端操作、長時間執行。</p>
+<p>他的工作包含開發、寫書、製作講義、簡報、研究新技術，甚至整理郵件與 AI 新聞。這些工作逐漸從自己動手，變成由 AI Agent 負責。</p>
+<p>而且不只是坐在電腦前操作，出差在外也能透過手機或筆電，接手原本正在執行的工作。</p>
+<p>看到這裡，我開始思考：<strong>我們真的需要三台 Mac、八個 Agent，才能打造自己的 24 小時 AI 團隊嗎？</strong></p>
+<p>研究之後，我發現答案是不一定。真正值得學習的，是這套架構背後的設計思維。</p>
+<p>這篇就來拆解核心技術、實際安裝方法、成本，以及如何利用現有設備，打造自己的 24×7 AI Agent 工作站。</p>
+<blockquote>
+<p>閱讀範圍：開場的設備數量、訂閱數量與工作內容，是作者轉述的開發者分享；本文未取得原始分享連結，並非本文實測紀錄。以下安裝步驟供讀者實作驗證；Dispatcher 與跨設備接力流程屬於延伸設計，不是安裝工具後就會自動具備的功能。</p>
+</blockquote>
+<h2 id="一、24×7-AI-Agent-和一般-AI-助手差在哪裡？"><a href="#一、24×7-AI-Agent-和一般-AI-助手差在哪裡？" class="headerlink" title="一、24×7 AI Agent 和一般 AI 助手差在哪裡？"></a>一、24×7 AI Agent 和一般 AI 助手差在哪裡？</h2><p>我們平常使用 ChatGPT、Claude、Gemini，大部分都是這樣：</p>
+<ol>
+<li>打開聊天介面。</li>
+<li>輸入問題或交代工作。</li>
+<li>等待 AI 回答。</li>
+<li>自己檢查結果。</li>
+<li>再交代下一件事。</li>
+</ol>
+<p>這種模式比較像是「AI 助手」。24×7 AI Agent 則像是一個隨時待命的數位工作團隊，例如可以規劃這樣的工作日：</p>
+<table>
+<thead>
+<tr>
+<th>時間</th>
+<th>Agent</th>
+<th>預期工作</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>早上六點</td>
+<td>研究 Agent</td>
+<td>整理昨天的重要 AI 新聞</td>
+</tr>
+<tr>
+<td>早上七點</td>
+<td>教材 Agent</td>
+<td>根據研究結果，產生技術教學文章草稿</td>
+</tr>
+<tr>
+<td>早上八點</td>
+<td>開發 Agent</td>
+<td>檢查 GitHub 專案、執行測試並整理異常</td>
+</tr>
+<tr>
+<td>下午</td>
+<td>影音 Agent</td>
+<td>處理影片素材、字幕及剪輯工作</td>
+</tr>
+<tr>
+<td>晚上</td>
+<td>幕僚長 Agent</td>
+<td>彙整成果，產生每日報告</td>
+</tr>
+</tbody></table>
+<p>你不需要一直坐在電腦前面盯著它們。不過，<strong>24×7 在線，不等於 AI 真的會自動工作。</strong></p>
+<p>要做到真正的自動化，至少需要五個部分：</p>
+<ul>
+<li>持續運作的電腦或伺服器。</li>
+<li>能執行工作的 AI Agent。</li>
+<li>排程或事件觸發機制。</li>
+<li>任務管理與失敗重試機制。</li>
+<li>遠端監控及通知機制。</li>
+</ul>
+<p>少了其中幾個，可能只是讓 AI 一直開著，卻沒有真正提高工作效率。</p>
+<h2 id="二、先認識五個核心工具，各自解決什麼問題？"><a href="#二、先認識五個核心工具，各自解決什麼問題？" class="headerlink" title="二、先認識五個核心工具，各自解決什麼問題？"></a>二、先認識五個核心工具，各自解決什麼問題？</h2><h3 id="1-Claude-Code：負責工作的-AI-員工"><a href="#1-Claude-Code：負責工作的-AI-員工" class="headerlink" title="1. Claude Code：負責工作的 AI 員工"></a>1. Claude Code：負責工作的 AI 員工</h3><p><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/overview">Claude Code</a> 是 Anthropic 推出的 AI Coding Agent。雖然名字裡有 Code，但它不只能寫程式。</p>
+<p>只要工作能透過檔案、指令、API 或其他支援的工具完成，就有機會交給它處理，例如：</p>
+<ul>
+<li>開發網站與應用程式、修改 GitHub 專案。</li>
+<li>撰寫 Markdown 教材、整理研究資料及產生簡報內容。</li>
+<li>執行 Python 程式、批次處理文件。</li>
+<li>操作已設定且支援的外部工具。</li>
+</ul>
+<p>與一般聊天式 AI 最大的差別，是 Claude Code 可以直接在工作環境中執行操作。例如你交代：</p>
+<blockquote>
+<p>幫我檢查這個網站專案，把錯誤修好，測試通過後整理修改報告。</p>
+</blockquote>
+<p>它可以讀取程式碼、修改檔案、執行測試，再回報結果；前提是你已提供適當的工作環境、工具與權限。</p>
+<h3 id="2-Herdr：集中管理整隊-Agent-的工作階段"><a href="#2-Herdr：集中管理整隊-Agent-的工作階段" class="headerlink" title="2. Herdr：集中管理整隊 Agent 的工作階段"></a>2. Herdr：集中管理整隊 Agent 的工作階段</h3><p>如果你同時開啟好幾個 Claude Code、Codex 或 OpenCode，可能會遇到這種情況：一個視窗正在寫程式、另一個跑測試、第三個等待回答，第四個則不知道什麼時候已經失敗。最後，你花很多時間切換視窗、檢查進度。</p>
+<p><a target="_blank" rel="noopener" href="https://herdr.dev/">Herdr</a> 就是想改善這類問題。它能集中管理多個 Agent 的終端機工作階段；但必須先分清楚目前官方的兩條產品路線：</p>
+<ul>
+<li><strong>Herdr TUI</strong>：終端機介面，使用自己的背景 server；本文的 <code>herdr</code> 指令與 <a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">herdrdev&#x2F;herdr</a> repo 屬於這條路線。</li>
+<li><strong>Herdr App、手機 App 與 Herdr Core</strong>：另一套以 Core 管理工作階段的架構，須依對應文件設定。官方首頁說明，TUI 與 App 不共用 Agent，不能假設 TUI 開出的工作階段會直接出現在 App。</li>
+</ul>
+<p>Herdr TUI 的主要能力包括：</p>
+<table>
+<thead>
+<tr>
+<th>能力</th>
+<th>實際意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>工作階段持續存在</td>
+<td>終端機關閉或 SSH 中斷後，背景 server 可維持窗格內的程序；主機關機仍會中斷工作</td>
+</tr>
+<tr>
+<td>跨電腦管理</td>
+<td>透過 SSH 連接其他設備上的工作階段，仍須具備連線與驗證條件</td>
+</tr>
+<tr>
+<td>Agent 狀態監控</td>
+<td>在支援的整合與狀態回報機制下，辨識工作中、閒置或等待輸入等狀態</td>
+</tr>
+<tr>
+<td>程式化操作</td>
+<td>提供 CLI 與 Socket API，讓其他程式管理窗格及工作階段</td>
+</tr>
+</tbody></table>
+<p>這些介面讓另一個 AI Agent 有機會參與協調工作。不過，Herdr 的工作階段管理不能直接取代完整的任務排程、持久化佇列、重試、權限審核與成果驗收。</p>
+<p>功能與指令請以安裝版本的 <a target="_blank" rel="noopener" href="https://herdr.dev/docs/">TUI 文件</a>及 <a target="_blank" rel="noopener" href="https://herdr.dev/docs/socket-api/">Socket API 文件</a>為準。</p>
+<h3 id="3-Tailscale：讓不同電腦建立私人連線"><a href="#3-Tailscale：讓不同電腦建立私人連線" class="headerlink" title="3. Tailscale：讓不同電腦建立私人連線"></a>3. Tailscale：讓不同電腦建立私人連線</h3><p>假設你有家裡的 Mac、辦公室的 Windows，以及 Oracle Cloud 上的 Linux VM。這三台設備可能位於不同網路。</p>
+<p>傳統做法可能需要處理固定 IP、Port Forwarding、防火牆與 VPN。<a target="_blank" rel="noopener" href="https://tailscale.com/">Tailscale</a> 利用 WireGuard 技術簡化私人加密網路的建立。設備加入同一個 Tailnet，並符合存取權限設定後，就能透過私人網路連線。</p>
+<p>你可以人在外面用筆電連回家裡的 Mac，或讓雲端 Linux 連接辦公室的 Windows。不過，Tailscale 負責的是網路連線，Agent 的啟動與派工仍要另外設定。</p>
+<h3 id="4-Tart：在有需要時提供獨立虛擬機"><a href="#4-Tart：在有需要時提供獨立虛擬機" class="headerlink" title="4. Tart：在有需要時提供獨立虛擬機"></a>4. Tart：在有需要時提供獨立虛擬機</h3><p><a target="_blank" rel="noopener" href="https://tart.run/">Tart</a> 是針對 Apple Silicon 設計的虛擬機管理工具，可以執行 macOS 與 Linux VM；原始碼位於 <a target="_blank" rel="noopener" href="https://github.com/cirruslabs/tart">cirruslabs&#x2F;tart</a>。</p>
+<p>開場分享採用的方式，是讓不同 Agent 在各自的 Tart VM 工作。這能減少環境衝突，例如 Agent A 安裝 Node.js 套件、Agent B 修改 Python 環境、Agent C 更新系統設定時，不必全部共用同一套作業系統環境。</p>
+<p>但虛擬機需要額外 CPU、記憶體與磁碟空間。如果 Mac 只有 16GB RAM，我不建議一開始就替每個 Agent 建立一台 VM。</p>
+<p>比較實際的方式，是先用不同工作目錄搭配 Git Worktree；確實需要隔離作業系統或相依套件時，再考慮 Tart。使用前也應確認所選版本的授權與使用條件，不把「可查看原始碼」直接當成所有用途都免費或無限制。</p>
+<h3 id="5-Claude-Code-Remote-Control：人在外面也能接手"><a href="#5-Claude-Code-Remote-Control：人在外面也能接手" class="headerlink" title="5. Claude Code Remote Control：人在外面也能接手"></a>5. Claude Code Remote Control：人在外面也能接手</h3><p>假設 Claude Code 正在家裡的 Mac 工作，而你已經出門。當它需要確認下一步時，可以透過 <a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/remote-control">Remote Control</a>，從支援的 Claude 網頁或手機介面接續本機工作階段。</p>
+<p>在 Claude Code 裡可以輸入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/remote-control</span><br></pre></td></tr></table></figure>
+
+<p>實際執行的仍是原本的電腦，電腦必須保持開機、Claude 程序持續運作且能連網。休眠或網路中斷時會影響可用性，恢復後的重新連線行為也要實測。</p>
+<p>可用性受到訂閱、登入方式、組織政策與版本影響；目前官方文件說明 API key 不支援 Remote Control，使用前應查看最新需求。它與透過 Tailscale 建立 SSH 連線是兩條不同的遠端操作路徑，啟用 Remote Control 本身不要求先安裝 Tailscale。</p>
+<h2 id="三、如何把五個工具整合成工作系統？"><a href="#三、如何把五個工具整合成工作系統？" class="headerlink" title="三、如何把五個工具整合成工作系統？"></a>三、如何把五個工具整合成工作系統？</h2><p>我會把延伸架構分成五層：</p>
+<table>
+<thead>
+<tr>
+<th>層級</th>
+<th>角色或工具</th>
+<th>負責事項</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>第一層：使用者</td>
+<td>手機、筆電、聊天介面</td>
+<td>交代工作、審核成果</td>
+</tr>
+<tr>
+<td>第二層：AI 幕僚長</td>
+<td>Dot、Grok Bot 或自建 Dispatcher</td>
+<td>分析工作、判斷所需資料與權限；能否串接須另外確認</td>
+</tr>
+<tr>
+<td>第三層：任務管理</td>
+<td>任務佇列、排程器、資料庫</td>
+<td>保存任務、依賴關係、狀態與重試紀錄</td>
+</tr>
+<tr>
+<td>第四層：執行環境</td>
+<td>Herdr、Tailscale、必要時使用 Tart</td>
+<td>管理工作階段、連線與環境隔離</td>
+</tr>
+<tr>
+<td>第五層：實際執行</td>
+<td>Claude Code、Codex、OpenCode 等</td>
+<td>執行任務並回報成果</td>
+</tr>
+</tbody></table>
+<p>例如任務管理層可以記錄：Task-001 研究 AI 新聞、Task-002 撰寫教學文章、Task-003 更新課程網站、Task-004 執行 GitHub 測試。</p>
+<p>完整流程是：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">使用者交代工作 → AI 幕僚長分析 → 建立任務 → 指派 Agent</span><br><span class="line">→ 執行工作 → 驗收成果 → 通知使用者</span><br></pre></td></tr></table></figure>
+
+<p>這才是一套比較完整的 AI Agent 工作系統。以下先建立能遠端管理的基礎環境，再說明派工設計。</p>
+<h2 id="四、實戰第一步：安裝-Tailscale-並確認設備連線"><a href="#四、實戰第一步：安裝-Tailscale-並確認設備連線" class="headerlink" title="四、實戰第一步：安裝 Tailscale 並確認設備連線"></a>四、實戰第一步：安裝 Tailscale 並確認設備連線</h2><p>這裡假設你有一台 Mac、一台 Windows，以及一台 Linux 雲端 VM。沒有三台設備也沒關係，只用 Mac 就可以先測試本機工作階段；跨設備連線則需要另一台已加入網路的設備。</p>
+<h3 id="Step-1：下載並登入同一個-Tailnet"><a href="#Step-1：下載並登入同一個-Tailnet" class="headerlink" title="Step 1：下載並登入同一個 Tailnet"></a>Step 1：下載並登入同一個 Tailnet</h3><p>前往 <a target="_blank" rel="noopener" href="https://tailscale.com/download">Tailscale 下載頁</a>，依照作業系統安裝。Mac 與 Windows 都有圖形介面版本；安裝完成後，登入同一個帳號或受邀加入組織的 Tailnet。</p>
+<h3 id="Step-2：檢查設備狀態與-IP"><a href="#Step-2：檢查設備狀態與-IP" class="headerlink" title="Step 2：檢查設備狀態與 IP"></a>Step 2：檢查設備狀態與 IP</h3><p>在已安裝且可使用 Tailscale CLI 的 Mac 終端機輸入：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">tailscale status</span><br><span class="line">tailscale ip -4</span><br></pre></td></tr></table></figure>
+
+<p>Tailscale IPv4 通常位於 <code>100.64.0.0/10</code> 範圍。再確認另一台設備：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tailscale ping &lt;另一台設備名稱或IP&gt;</span><br></pre></td></tr></table></figure>
+
+<p>若要使用 SSH 遠端操作，還需要在目標設備啟用 SSH 服務、設定帳號驗證及存取權限。<strong>Tailscale 連線成功，不代表 SSH 已開啟。</strong></p>
+<h2 id="五、實戰第二步：安裝-Herdr-TUI-並測試工作階段恢復"><a href="#五、實戰第二步：安裝-Herdr-TUI-並測試工作階段恢復" class="headerlink" title="五、實戰第二步：安裝 Herdr TUI 並測試工作階段恢復"></a>五、實戰第二步：安裝 Herdr TUI 並測試工作階段恢復</h2><p>本文這一步安裝的是 <strong>Herdr TUI</strong>。官方提供的一行安裝方式是：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://herdr.dev/install.sh | sh</span><br></pre></td></tr></table></figure>
+
+<p>這會直接下載並執行遠端腳本。實作時，我建議先下載、閱讀內容，再決定是否安裝：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">curl -fsSL https://herdr.dev/install.sh -o herdr-install.sh</span><br><span class="line">less herdr-install.sh</span><br></pre></td></tr></table></figure>
+
+<p>確認來源、腳本內容、下載項目、寫入路徑與權限需求，並接受安裝行為後，再執行已檢查的本機檔案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">sh herdr-install.sh</span><br></pre></td></tr></table></figure>
+
+<p>以上是文章教學指令；安裝方式可能隨版本調整，請對照 <a target="_blank" rel="noopener" href="https://herdr.dev/docs/install/">Herdr 官方安裝說明</a>。安裝完成後，在工作目錄啟動：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">herdr</span><br></pre></td></tr></table></figure>
+
+<p>先建立少量窗格或工作區，例如 Claude Code 開發、Codex 文件整理與 OpenCode 研究工作，觀察狀態回報是否符合實際情況。</p>
+<p>可先依官方方式按 <code>Ctrl+B</code>，再按 <code>Q</code>，脫離 TUI；重新執行 <code>herdr</code> 接回。確認後，再以低風險測試任務檢查終端機關閉、SSH 中斷與重新連線的結果。</p>
+<p>依 <a target="_blank" rel="noopener" href="https://herdr.dev/docs/persistence-remote/">Herdr 持續運作與遠端連線文件</a>，背景 server 是工作階段得以持續的關鍵。關閉 client、停止 server、主機重開機是不同情況；恢復版面也不代表原本程序完整恢復。</p>
+<p>如果目標是手機管理 Herdr，請改查 App／Core 的安裝與手機連線文件；<strong>TUI 工作階段不會自動出現在 Herdr App</strong>。</p>
+<h2 id="六、實戰第三步：設定-Claude-Code-遠端操作"><a href="#六、實戰第三步：設定-Claude-Code-遠端操作" class="headerlink" title="六、實戰第三步：設定 Claude Code 遠端操作"></a>六、實戰第三步：設定 Claude Code 遠端操作</h2><p>先依 <a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/setup">Claude Code 安裝說明</a>完成安裝與登入。進入你的專案：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line"><span class="built_in">cd</span> ~/projects/my-project</span><br><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<p>在 Claude Code 工作階段中輸入：</p>
+<figure class="highlight text"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">/remote-control</span><br></pre></td></tr></table></figure>
+
+<p>依畫面指示完成設定，也可以查看 <code>/config</code> 中是否提供預設啟用的選項。接著從支援的 Claude 網頁或手機介面連接原本的工作階段。</p>
+<p>建議驗證三件事：</p>
+<ol>
+<li>電腦保持喚醒時，能否從手機接續操作？</li>
+<li>網路短暫中斷後，能否重新連線？</li>
+<li>Claude Code 等待使用者確認時，能否在遠端完成確認？</li>
+</ol>
+<p>這些測試比單純看到連線成功更重要。測試請使用不涉及正式部署或刪除資料的任務。</p>
+<h2 id="七、如何讓-Agent-長時間執行？分開處理三個問題"><a href="#七、如何讓-Agent-長時間執行？分開處理三個問題" class="headerlink" title="七、如何讓 Agent 長時間執行？分開處理三個問題"></a>七、如何讓 Agent 長時間執行？分開處理三個問題</h2><p>很多人以為只要開著 Claude Code，就等於有一個 24 小時 Agent。其實電腦休眠、程序結束、卡在權限確認，都可能讓工作中斷或停滯。</p>
+<h3 id="1-讓電腦保持運作"><a href="#1-讓電腦保持運作" class="headerlink" title="1. 讓電腦保持運作"></a>1. 讓電腦保持運作</h3><p>MacBook 長時間工作時，需要妥善設定電源管理。可以使用 macOS 的 <code>caffeinate</code>，在特定工作期間避免系統閒置休眠：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">caffeinate -i claude</span><br></pre></td></tr></table></figure>
+
+<p>這個例子適用於直接啟動 <code>claude</code> 的情境；如果 Agent 由 Herdr 等背景服務啟動，應另確認該服務存續期間的電源設定。</p>
+<p>這也不能保證 MacBook 合蓋後仍持續執行。真正長期運作時，桌上型電腦或雲端伺服器通常更合適。</p>
+<h3 id="2-讓工作階段持續存在"><a href="#2-讓工作階段持續存在" class="headerlink" title="2. 讓工作階段持續存在"></a>2. 讓工作階段持續存在</h3><p>可以使用 Herdr、tmux 等工具。以已安裝 tmux 的 Linux 為例：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux new -s ai-agent</span><br></pre></td></tr></table></figure>
+
+<p>在工作階段內執行：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">claude</span><br></pre></td></tr></table></figure>
+
+<p>按 <code>Ctrl+B</code>，再按 <code>D</code>，可脫離 tmux 而不主動終止工作階段。重新連線後接回：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">tmux attach -t ai-agent</span><br></pre></td></tr></table></figure>
+
+<p>tmux 能保護工作階段，但主機關機仍會終止執行程序。</p>
+<h3 id="3-加入排程與自動恢復"><a href="#3-加入排程與自動恢復" class="headerlink" title="3. 加入排程與自動恢復"></a>3. 加入排程與自動恢復</h3><p>每天固定執行任務，可以依設備選擇：</p>
+<table>
+<thead>
+<tr>
+<th>環境</th>
+<th>可用的排程方式</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>macOS</td>
+<td>launchd</td>
+</tr>
+<tr>
+<td>Linux</td>
+<td>systemd timer、cron</td>
+</tr>
+<tr>
+<td>Windows</td>
+<td>Task Scheduler（工作排程器）</td>
+</tr>
+<tr>
+<td>雲端</td>
+<td>排程服務、工作佇列</td>
+</tr>
+</tbody></table>
+<p>Claude Code 也有排程能力，但不同模式的持續性與執行環境不同。本機 <code>/loop</code> 適合工作階段內的循環任務；即使某些版本可恢復排程，也不能直接把它視為獨立、永久的背景服務。詳細限制見 <a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/scheduled-tasks">Claude Code 排程文件</a>。</p>
+<p>真正長期執行的工作，我更建議由外部排程器或適合的雲端排程服務啟動 Agent。無人值守時還要設計非互動輸入、最低必要權限、逾時與結果回收，避免停在確認畫面。</p>
+<h2 id="八、進階設計：建立自己的-AI-幕僚長與接力流程"><a href="#八、進階設計：建立自己的-AI-幕僚長與接力流程" class="headerlink" title="八、進階設計：建立自己的 AI 幕僚長與接力流程"></a>八、進階設計：建立自己的 AI 幕僚長與接力流程</h2><p>前面的設定主要解決「讓 AI Agent 可以遠端執行」。接下來，才是讓 AI 分配工作的延伸設計。</p>
+<p>假設有四個 Agent：</p>
+<table>
+<thead>
+<tr>
+<th>Agent</th>
+<th>主要任務</th>
+<th>執行設備</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Research</td>
+<td>AI 新聞、GitHub 研究</td>
+<td>Linux VM</td>
+</tr>
+<tr>
+<td>Developer</td>
+<td>網站開發、程式測試</td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>Writer</td>
+<td>教材、文章、講義</td>
+<td>Mac</td>
+</tr>
+<tr>
+<td>Media</td>
+<td>影片、字幕、轉檔</td>
+<td>Windows</td>
+</tr>
+</tbody></table>
+<p>再建立 Dispatcher 負責派工。例如你交代：</p>
+<blockquote>
+<p>研究最近一週值得教學的 AI Agent 開源專案，選出三個，產生教學文章，最後更新課程網站。</p>
+</blockquote>
+<p>Dispatcher 可以拆成三個有依賴關係的任務：</p>
+<ol>
+<li><strong>任務 A：研究。</strong> 交給 Research Agent，產出 <code>research.md</code>。</li>
+<li>**任務 B：撰寫教材。**等待 A 通過檢查後，交給 Writer Agent，產出 <code>tutorial.md</code>。</li>
+<li>**任務 C：更新網站。**等待 B 完成後，交給 Developer Agent 修改專案並執行測試；正式部署仍依權限與審核流程處理。</li>
+</ol>
+<p>這就是多 Agent 接力工作流。但要做到這件事，還需要真正的任務管理系統，可以使用 SQLite、PostgreSQL、Redis 或適合的持久化佇列方案。</p>
+<p>最基本的任務資料可以長這樣：</p>
+<figure class="highlight json"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br></pre></td><td class="code"><pre><span class="line"><span class="punctuation">&#123;</span></span><br><span class="line">  <span class="attr">&quot;task_id&quot;</span><span class="punctuation">:</span> <span class="string">&quot;TASK-001&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;title&quot;</span><span class="punctuation">:</span> <span class="string">&quot;研究 AI Agent 開源專案&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;agent&quot;</span><span class="punctuation">:</span> <span class="string">&quot;research&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;status&quot;</span><span class="punctuation">:</span> <span class="string">&quot;pending&quot;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;input&quot;</span><span class="punctuation">:</span> <span class="punctuation">&#123;</span></span><br><span class="line">    <span class="attr">&quot;topic&quot;</span><span class="punctuation">:</span> <span class="string">&quot;AI Agent&quot;</span><span class="punctuation">,</span></span><br><span class="line">    <span class="attr">&quot;days&quot;</span><span class="punctuation">:</span> <span class="number">7</span></span><br><span class="line">  <span class="punctuation">&#125;</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;retry_count&quot;</span><span class="punctuation">:</span> <span class="number">0</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;max_retries&quot;</span><span class="punctuation">:</span> <span class="number">3</span><span class="punctuation">,</span></span><br><span class="line">  <span class="attr">&quot;requires_approval&quot;</span><span class="punctuation">:</span> <span class="literal"><span class="keyword">false</span></span></span><br><span class="line"><span class="punctuation">&#125;</span></span><br></pre></td></tr></table></figure>
+
+<p>這筆 JSON 不會自己執行工作。還需要 Dispatcher 讀取任務、選擇可用 Agent、透過已驗證的介面啟動工作，並接收結果。範例中的 <code>requires_approval</code> 只是任務欄位，不能取代工具或執行環境的權限控管。</p>
+<p>Herdr CLI 或 Socket API 可以是其中一種整合方式，但指令、權限、認證與連線方式必須對照實際版本。跨設備還要安排成果傳遞，例如受控的 Git repo、檔案傳輸或共用儲存；只有 <code>research.md</code> 這個檔名，Writer 不一定就能取得內容。</p>
+<p>Dot、Grok Bot 能否直接觸發，也要看支援哪些工具、Webhook 或外部整合。不能因為 Herdr 有 API，就認為所有雲端 Agent 都能直接操作它。</p>
+<h2 id="九、為什麼不建議一開始就跑八個-Agent？"><a href="#九、為什麼不建議一開始就跑八個-Agent？" class="headerlink" title="九、為什麼不建議一開始就跑八個 Agent？"></a>九、為什麼不建議一開始就跑八個 Agent？</h2><p>因為 Agent 數量不等於生產力。</p>
+<p>假設同時啟動八個 Agent，其中三個等待權限確認、兩個修改相同檔案、一個測試失敗，另外兩個完成卻沒有回報。最後你可能比自己做還累。</p>
+<p>真正重要的，是任務有沒有被管理。我建議先建立以下狀態：</p>
+<table>
+<thead>
+<tr>
+<th>狀態</th>
+<th>意義</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Pending</td>
+<td>等待執行</td>
+</tr>
+<tr>
+<td>Running</td>
+<td>正在執行</td>
+</tr>
+<tr>
+<td>Blocked</td>
+<td>等待人工處理</td>
+</tr>
+<tr>
+<td>Done</td>
+<td>完成並通過驗收</td>
+</tr>
+<tr>
+<td>Failed</td>
+<td>執行失敗</td>
+</tr>
+<tr>
+<td>Retrying</td>
+<td>重新執行中</td>
+</tr>
+</tbody></table>
+<p>每個任務都應留下執行紀錄、成果位置與錯誤資訊，再依工作類型設計驗收：</p>
+<ul>
+<li><strong>程式開發：</strong> 自動化測試與程式碼審查。</li>
+<li><strong>教材製作：</strong> 文件完整性、範例能否執行、來源連結與內容是否正確。</li>
+<li><strong>影音工作：</strong> 長度、解析度、音軌及輸出格式，另保留必要的觀看與聆聽審核。</li>
+</ul>
+<p>這些驗收機制，比多開幾個 Agent 更有價值。</p>
+<h2 id="十、硬體怎麼選？一定要買-Mac-嗎？"><a href="#十、硬體怎麼選？一定要買-Mac-嗎？" class="headerlink" title="十、硬體怎麼選？一定要買 Mac 嗎？"></a>十、硬體怎麼選？一定要買 Mac 嗎？</h2><p>不一定。Claude Code、Codex 或其他 CLI Agent 的許多工作，可以在支援的 Linux 或 Windows 環境完成；安裝方式仍要對照各工具的系統需求。</p>
+<p>Mac 的優勢在 macOS 開發工具、生態系，以及只能在 macOS 執行的工作。Tart 適合需要 Apple Silicon 上 macOS／Linux VM 的情況，但一般網站開發、Python 自動化與文件處理，未必需要每個 Agent 都有 macOS VM。</p>
+<p>以一台 16GB RAM 的 MacBook 為例，我會依序考慮：</p>
+<table>
+<thead>
+<tr>
+<th>方案</th>
+<th>適合情境</th>
+<th>限制與取捨</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>A：多個工作階段</td>
+<td>不同 Agent 處理不同專案</td>
+<td>設定簡單，但仍共用主機環境</td>
+</tr>
+<tr>
+<td>B：Git Worktree</td>
+<td>同一 repo 的功能、修錯與測試分工</td>
+<td>工作目錄分開，但不是作業系統或權限隔離；整合仍可能衝突</td>
+</tr>
+<tr>
+<td>C：Docker</td>
+<td>隔離 Linux 相依套件</td>
+<td>容器與完整 VM 的隔離程度不同</td>
+</tr>
+<tr>
+<td>D：Tart</td>
+<td>獨立 macOS／Linux VM</td>
+<td>隔離較完整，硬體需求也較高</td>
+</tr>
+</tbody></table>
+<p>我的建議是先從 A、B 開始。真的遇到環境衝突，再考慮 C、D。Worktree 的使用方式可參考 <a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-worktree">Git 官方文件</a>。</p>
+<h2 id="十一、成本怎麼算？別把訂閱當成無限額度"><a href="#十一、成本怎麼算？別把訂閱當成無限額度" class="headerlink" title="十一、成本怎麼算？別把訂閱當成無限額度"></a>十一、成本怎麼算？別把訂閱當成無限額度</h2><p>先不計算原本已購買的 AI 訂閱。如果已經有設備，第一階段可以用較低的新增成本開始，但仍須確認服務資格與用途限制。</p>
+<table>
+<thead>
+<tr>
+<th>工具</th>
+<th>成本考量</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>Herdr</td>
+<td>官方提供 Apache 2.0 開源專案，可先使用開源版本</td>
+</tr>
+<tr>
+<td>Tailscale</td>
+<td>個人非商業用途可評估免費 Personal 方案；工作與商業用途須確認適用方案</td>
+</tr>
+<tr>
+<td>Tart</td>
+<td>需要硬體資源，並應確認所用版本的授權及使用條件</td>
+</tr>
+<tr>
+<td>Claude Code</td>
+<td>依訂閱或適用計費方式與額度；Remote Control 另有登入及方案要求</td>
+</tr>
+<tr>
+<td>Codex</td>
+<td>依訂閱、計費方式與使用限制</td>
+</tr>
+<tr>
+<td>Oracle Cloud</td>
+<td>符合 Always Free 資源與資格時可降低成本，仍須確認容量及回收政策</td>
+</tr>
+<tr>
+<td>任務管理</td>
+<td>SQLite 等可自行架設，另計主機、儲存、維運與備份成本</td>
+</tr>
+</tbody></table>
+<p>Tailscale 的用途區分請查 <a target="_blank" rel="noopener" href="https://tailscale.com/pricing">官方方案頁</a>；雲端免費資源請查 <a target="_blank" rel="noopener" href="https://www.oracle.com/cloud/free/">Oracle Cloud Free Tier</a>。</p>
+<p>即使是高階 AI 訂閱，仍可能受到使用額度、公平使用政策或其他服務限制影響。</p>
+<p>開場分享還提到，每月 200 美元訂閱可以使用相當於 1 萬美元 API 的工作量。這應視為分享者的個人估算，本文未取得原始計算方法，也不是官方固定換算比例。訂閱與 API 的條款、額度算法不同，不能直接相除就當成實際節省金額。</p>
+<p>真正需要衡量的是：每月完成多少工作、每件平均成本、人工介入次數、失敗重試耗用額度，以及產出是否符合需求。</p>
+<h2 id="十二、從兩個-Agent-開始，分三階段擴充"><a href="#十二、從兩個-Agent-開始，分三階段擴充" class="headerlink" title="十二、從兩個 Agent 開始，分三階段擴充"></a>十二、從兩個 Agent 開始，分三階段擴充</h2><h3 id="第一階段：建立遠端-AI-工作站"><a href="#第一階段：建立遠端-AI-工作站" class="headerlink" title="第一階段：建立遠端 AI 工作站"></a>第一階段：建立遠端 AI 工作站</h3><p>先完成這五件事：</p>
+<ol>
+<li>Mac 與 Windows 安裝 Tailscale，確認連線與存取權限。</li>
+<li>安裝適合需求的 Herdr TUI 或 App／Core 路線。</li>
+<li>設定 Claude Code 與 Codex。</li>
+<li>測試 Claude Code Remote Control。</li>
+<li>驗證遠端連線與工作階段恢復。</li>
+</ol>
+<p>這個階段不需要複雜的多 Agent 系統。人在外面也能掌握家裡或辦公室的 AI 工作階段，就已經很實用。</p>
+<h3 id="第二階段：加入自動派工"><a href="#第二階段：加入自動派工" class="headerlink" title="第二階段：加入自動派工"></a>第二階段：加入自動派工</h3><p>建立簡單 Dispatcher，先管理兩個 Agent：Research 負責研究，Writer 負責撰寫。</p>
+<p>每天固定時間蒐集新技術，研究成果通過檢查後交給 Writer 產生文章草稿，最後通知你審核。這是一個適合練習的接力流程，也能逐步驗證成果交接與失敗處理。</p>
+<h3 id="第三階段：擴充成完整-AI-團隊"><a href="#第三階段：擴充成完整-AI-團隊" class="headerlink" title="第三階段：擴充成完整 AI 團隊"></a>第三階段：擴充成完整 AI 團隊</h3><p>等前兩個 Agent 穩定後，再增加 Developer 維護網站、Media 處理多媒體、Supervisor 負責監控、驗收與異常通知。</p>
+<p>此時再深入考慮工作佇列、跨設備派工、資源分配及成本管理，比一開始就堆滿 Agent 更容易找到瓶頸。</p>
+<h2 id="十三、上線前還有哪些實務問題？"><a href="#十三、上線前還有哪些實務問題？" class="headerlink" title="十三、上線前還有哪些實務問題？"></a>十三、上線前還有哪些實務問題？</h2><h3 id="1-不要讓所有-Agent-共用最高權限"><a href="#1-不要讓所有-Agent-共用最高權限" class="headerlink" title="1. 不要讓所有 Agent 共用最高權限"></a>1. 不要讓所有 Agent 共用最高權限</h3><p>Agent 可以執行 Shell、存取檔案與連接內部系統時，需要做好權限分離。研究 Agent 不需要修改正式網站，教材 Agent 不需要存取公司財務資料。</p>
+<p>刪除資料、部署正式環境、寄送對外郵件等操作，建議保留人工確認；研究、修改、驗收與發布也應有清楚邊界。</p>
+<h3 id="2-避免多個-Agent-同時修改同一份檔案"><a href="#2-避免多個-Agent-同時修改同一份檔案" class="headerlink" title="2. 避免多個 Agent 同時修改同一份檔案"></a>2. 避免多個 Agent 同時修改同一份檔案</h3><p>透過 Git Worktree、不同工作目錄及任務鎖定降低衝突。程式碼整合時，再以 Pull Request 與測試驗收。</p>
+<h3 id="3-每個-Agent-都必須有停止條件"><a href="#3-每個-Agent-都必須有停止條件" class="headerlink" title="3. 每個 Agent 都必須有停止條件"></a>3. 每個 Agent 都必須有停止條件</h3><p>無限制重試可能浪費大量額度。每個任務都應設定：</p>
+<ul>
+<li>最長執行時間。</li>
+<li>最大重試次數。</li>
+<li>Token 或費用預算。</li>
+<li>失敗通知。</li>
+<li>人工介入條件。</li>
+</ul>
+<p>真正可靠的自動化，是知道什麼時候應該停止。</p>
+<h2 id="十四、未來如何從使用-AI，走向管理-AI-團隊？"><a href="#十四、未來如何從使用-AI，走向管理-AI-團隊？" class="headerlink" title="十四、未來如何從使用 AI，走向管理 AI 團隊？"></a>十四、未來如何從使用 AI，走向管理 AI 團隊？</h2><p>以前使用 AI，是一個問題、一個回答；後來 Coding Agent 可以連續完成多個步驟。現在更進一步，我們開始讓不同 Agent 分工：研究、開發、寫教材、檢查成果。</p>
+<p>人的角色也逐漸轉為規劃、決策與驗收。我認為，這才是 24×7 AI Agent 真正值得研究的地方。</p>
+<p>把八個 Claude Code 開著，還需要加上工作分配、追蹤、驗收、恢復與通知，才能形成能持續產生成果的團隊。</p>
+<p>AI Agent 的下一個階段，是讓 AI 能夠持續把事情做好。</p>
+<p>如果手上已經有 Mac 或 Windows 電腦，不妨先從 Herdr、Tailscale 和 Claude Code 開始。先讓兩個 Agent 穩定合作、遠端管理、自動回報，再逐步擴充，比一次投入大量硬體與訂閱費，更容易建立能長期使用的工作系統。</p>
+<h2 id="參考資料與工具連結"><a href="#參考資料與工具連結" class="headerlink" title="參考資料與工具連結"></a>參考資料與工具連結</h2><ul>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/">Herdr 官方網站</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/herdrdev/herdr">Herdr TUI GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/docs/quick-start/">Herdr TUI 快速入門</a></li>
+<li><a target="_blank" rel="noopener" href="https://herdr.dev/docs/persistence-remote/">Herdr TUI 持續運作與遠端連線</a></li>
+<li><a target="_blank" rel="noopener" href="https://tailscale.com/">Tailscale</a></li>
+<li><a target="_blank" rel="noopener" href="https://tailscale.com/download">Tailscale 下載</a></li>
+<li><a target="_blank" rel="noopener" href="https://tailscale.com/pricing">Tailscale 方案與用途限制</a></li>
+<li><a target="_blank" rel="noopener" href="https://tart.run/">Tart</a></li>
+<li><a target="_blank" rel="noopener" href="https://github.com/cirruslabs/tart">Tart GitHub</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/overview">Claude Code 官方文件</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/setup">Claude Code 安裝說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/remote-control">Claude Code Remote Control</a></li>
+<li><a target="_blank" rel="noopener" href="https://code.claude.com/docs/en/scheduled-tasks">Claude Code 排程說明</a></li>
+<li><a target="_blank" rel="noopener" href="https://git-scm.com/docs/git-worktree">Git Worktree</a></li>
+<li><a target="_blank" rel="noopener" href="https://www.oracle.com/cloud/free/">Oracle Cloud Free Tier</a></li>
+</ul>
+<p>本文根據開發者分享的工作流進行技術拆解，並提出適合一般使用者的實作架構。各項工具功能、授權、訂閱限制及安裝方式可能隨版本更新，實際操作請以官方文件為準。</p>
+<h2 id="常見問答-FAQ"><a href="#常見問答-FAQ" class="headerlink" title="常見問答 (FAQ)"></a>常見問答 (FAQ)</h2><h3 id="Q1：打造-24×7-AI-Agent-工作站，一定要買多台-Mac-嗎？"><a href="#Q1：打造-24×7-AI-Agent-工作站，一定要買多台-Mac-嗎？" class="headerlink" title="Q1：打造 24×7 AI Agent 工作站，一定要買多台 Mac 嗎？"></a>Q1：打造 24×7 AI Agent 工作站，一定要買多台 Mac 嗎？</h3><p>不需要。可以先用現有 Mac、Windows 或 Linux 設備，建立少量 Agent 工作階段，搭配不同工作目錄與 Git Worktree 分工。需要 macOS 專屬工具或完整環境隔離時，再評估 Apple Silicon 與 Tart VM；電腦持續供電、避免休眠及服務可恢復，比先增加設備更重要。</p>
+<h3 id="Q2：Herdr、Tailscale-與-Claude-Code-Remote-Control-有什麼差別？"><a href="#Q2：Herdr、Tailscale-與-Claude-Code-Remote-Control-有什麼差別？" class="headerlink" title="Q2：Herdr、Tailscale 與 Claude Code Remote Control 有什麼差別？"></a>Q2：Herdr、Tailscale 與 Claude Code Remote Control 有什麼差別？</h3><p>Herdr 管理 Agent 的終端機與工作階段，Tailscale 提供設備之間的私人網路連線，Remote Control 則讓支援的 Claude 網頁或手機介面接續本機 Claude Code。三者的功能互補，但 Remote Control 本身不要求 Tailscale；另外，Herdr TUI 與 App／Core 不共用工作階段，手機管理須選對產品路線。</p>
+<h3 id="Q3：安裝這些工具後，AI-就能每天自動完成工作嗎？"><a href="#Q3：安裝這些工具後，AI-就能每天自動完成工作嗎？" class="headerlink" title="Q3：安裝這些工具後，AI 就能每天自動完成工作嗎？"></a>Q3：安裝這些工具後，AI 就能每天自動完成工作嗎？</h3><p>還不能。遠端連線與持續存在的工作階段只是基礎，仍須設定排程或事件觸發、Dispatcher、任務狀態、成果交接、驗收、重試上限及通知。建議先讓研究與寫作兩個 Agent 完成小型接力流程，產出草稿後交由人工審核，再逐步擴充。</p>
+
+
+        
+      </article>
+    </div>
+  </section>
+
+  <section class="container px-6 px-lg-0 pt-7 pb-7 pb-lg-9 mt-lg-7 mb-7 mb-lg-9 border-top border-primary-400">
+    <h3 class="mb-7 text-center text-lg-start text-primary-700">相關文章</h3>
+    <div class="row row-gap-5">
+      
+
+      
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover249.webp" class="img-fluid card-img-top rounded-3" alt="AI 影片運鏡提示詞教學：12 種鏡頭技巧，讓畫面更有電影感">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 影片運鏡提示詞教學：12 種鏡頭技巧，讓畫面更有電影感</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/13</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-video-camera-movement-prompts/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover248.webp" class="img-fluid card-img-top rounded-3" alt="如果一支短影音一年只賺 100 元，你還願意做嗎？AI 時代真正值錢的是內容資產">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">如果一支短影音一年只賺 100 元，你還願意做嗎？AI 時代真正值錢的是內容資產</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">內容行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/12</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-short-video-content-assets/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover247.webp" class="img-fluid card-img-top rounded-3" alt="AI 一天能做 5 台機甲？從白模、法線貼圖到骨架綁定，搞懂 AI 3D 建模的完整流程">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">AI 一天能做 5 台機甲？從白模、法線貼圖到骨架綁定，搞懂 AI 3D 建模的完整流程</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/12</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-mecha-modeling-workflow/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover246.webp" class="img-fluid card-img-top rounded-3" alt="不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI Agent</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Vibe Coding</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/12</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/grok-herdr-ai-agent-team/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover245.webp" class="img-fluid card-img-top rounded-3" alt="Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Codex</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/11</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/obsidian-ai-second-brain/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover243.webp" class="img-fluid card-img-top rounded-3" alt="MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">MiniMax H3 不用買顯示卡也能跑！Colab 手動生成與 Codex 自動產片比較</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/minimax-h3-colab-codex-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover242.webp" class="img-fluid card-img-top rounded-3" alt="OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/openmontage-codex-video-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover240.webp" class="img-fluid card-img-top rounded-3" alt="600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">Gemini</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/07</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/ai-short-video-prompt-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+          <div class="col-12 col-md-6 col-lg-4">
+            <div class="card border-0">
+              <img src="/images/cover238.webp" class="img-fluid card-img-top rounded-3" alt="Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成">
+              <div class="card-body">
+                <h5 class="card-title mb-3 text-primary-700">Toonflow 教學：免費開源 AI 漫劇製作平台，從劇本、角色、分鏡到影片生成</h5>
+                <div class="d-flex flex-wrap gap-2 justify-content-between align-items-center">
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI工具</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">AI自動化</span>
+                  
+                    <span class="badge fs-6 lh-base fw-normal text-primary-700 bg-primary-200 rounded-4">影音行銷</span>
+                  
+                  <p class="card-text fs-6 text-primary-600"><small class="text-body-secondary">2026/11/05</small></p>
+                </div>
+                <a class="stretched-link" href="/posts/toonflow-ai-comic-guide/"></a>
+              </div>
+            </div>
+          </div>
+        
+      
+    </div>
+
+  </section>
+</main>
+
+
+  
+<footer class="site-footer">
+  <div class="container">
+    <div class="site-footer__grid">
+      <div class="site-footer__identity">
+        <a class="site-brand site-brand--inverse mb-4" href="/" aria-label="回到徐享 AI 工作流顧問首頁">
+          <img class="site-brand__logo" src="/images/site-v1/brand-lockup-v2.svg" width="420" height="80" alt="徐享 AI WORKFLOW STUDIO">
+        </a>
+        <p class="mb-0">把目前卡住的流程帶來，從問題盤點開始，一起整理成能執行的下一步。</p>
+      </div>
+      <div class="site-footer__action">
+        <p class="site-footer__kicker mb-3">START WITH THE PROBLEM</p>
+        <h2 class="mb-4">準備好把流程整理好了嗎？</h2>
+        <a class="site-button site-button--signal" href="https://lin.ee/epeTR8o" target="_blank" rel="noopener noreferrer" data-track-event="contact_cta_click" data-track-method="line" data-track-placement="footer">
+          LINE 先聊聊
+          <span class="material-symbols-outlined" aria-hidden="true">arrow_outward</span>
+        </a>
+      </div>
+    </div>
+    <div class="site-footer__meta">
+      <address>
+        <strong>徐享 | AI 應用規劃師</strong>
+        <span>Email：<a href="mailto:seanhsu1313@gmail.com" data-track-event="contact_cta_click" data-track-method="email" data-track-placement="footer">seanhsu1313@gmail.com</a></span>
+        <span>新北市中和捷運站步行五分鐘</span>
+      </address>
+      <div class="site-footer__socials" aria-label="社群連結">
+        <a href="https://www.instagram.com/skypassion2013/" target="_blank" rel="noopener noreferrer">Instagram</a>
+        <a href="https://www.facebook.com/HsiangPMKT?locale=zh_TW" target="_blank" rel="noopener noreferrer">Facebook</a>
+        <a href="https://www.youtube.com/channel/UC8f4hKwj7P4ca_lcaDFoxiQ" target="_blank" rel="noopener noreferrer">YouTube</a>
+      </div>
+    </div>
+  </div>
+</footer>
+
+  
+  <script src="https://cdn.jsdelivr.net/npm/swiper@11.2.10/swiper-bundle.min.js" integrity="sha256-mF8SJMDu7JnTZ6nbNeWORLIefrnORYMbFbTBCOQf2X8=" crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
+  
+<script src="/js/swiper.js"></script>
+
+  
+<script src="/js/site-v1.js"></script>
+
+  
+<script src="/js/conversion-tracking.js"></script>
+
+  <script
+    src="/avatar/embed.js"
+    data-widget="/avatar/widget.html"
+    data-open="false">
+  </script>
+</body>
+</html>

@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學
+  網址：https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/
+  日期：2026-11-14
+  摘要：不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。
+  主題：AI工具、AI自動化、Vibe Coding
+
 - AI 影片運鏡提示詞教學：12 種鏡頭技巧，讓畫面更有電影感
   網址：https://blog.es2idea.com/posts/ai-video-camera-movement-prompts/
   日期：2026-11-13
@@ -101,12 +107,6 @@
   日期：2026-11-05
   摘要：Toonflow 是免費開源的 AI 漫劇與短劇製作平台，整合劇本、角色三視圖、分鏡與影片生成。本文整理安裝方式、15 秒短片製作流程、官方成本案例，以及與 Codex、ComfyUI 整合前需要驗證的能力與限制。
   主題：AI工具、AI自動化、影音行銷
-
-- 別再一直建立 AI Agent 了！你真正需要的是學會管理 AI 員工
-  網址：https://blog.es2idea.com/posts/ai-team-management-guide/
-  日期：2026-11-05
-  摘要：AI Agent 不是越多越好，分工、工作方法與驗收才是關鍵。從 AI 員工管理出發，理解 Skills、Scripts 與 Routines 如何搭配，建立能持續執行、處理例外並由人類把關的 AI 工作系統。
-  主題：商業策略、AI工具、AI自動化
 
 ## 語言
 - zh-TW
