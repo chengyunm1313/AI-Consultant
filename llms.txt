@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 一台舊電腦能養 300 個 AI 機器人？Rakazo 自架與 AI 軍團實戰指南
+  網址：https://blog.es2idea.com/posts/rakazo-ai-agents-guide/
+  日期：2026-11-21
+  摘要：一台舊電腦能跑多少 AI Agent？用開源 Rakazo 自架第一個機器人，從 Docker 沙盒、記憶體與 Token 成本估算，到並行測試和多 Agent 派工，搞懂如何讓 AI 小隊穩定交付成果。
+  主題：AI自動化、AI工具、AI Agent
+
 - 2027 年 AI 會消滅短影音操盤手？內容產業重新定價後，真正值錢的是什麼？
   網址：https://blog.es2idea.com/posts/ai-short-video-outlook-2027/
   日期：2026-11-21
@@ -46,13 +52,13 @@
   網址：https://blog.es2idea.com/posts/chatgpt-accounting-plugin-guide/
   日期：2026-11-20
   摘要：OpenAI 推出 ChatGPT Accounting 外掛，可協助比對銀行明細與 Excel 帳本、整理發票分錄草稿與準備月結報表。本文整理安裝資格、免費安裝與用量限制，附上可直接使用的對帳提示詞，帶你用假資料試跑並逐筆人工複核。
-  主題：AI工具、ChatGPT、AI自動化
+  主題：AI自動化、AI工具、ChatGPT
 
 - 不用買三台 Mac，也能打造 24×7 AI Agent 工作站！Herdr × Claude Code × Tailscale 完整實戰教學
   網址：https://blog.es2idea.com/posts/herdr-claude-code-agent-workstation/
   日期：2026-11-14
   摘要：不用一次買三台 Mac，也能用現有設備打造 24×7 AI Agent 工作站。本文拆解 Herdr、Claude Code、Tailscale、Tart 與 Remote Control，帶你完成遠端連線、工作階段管理，並規劃排程、派工、驗收與成本控管。
-  主題：AI工具、AI自動化、Vibe Coding
+  主題：AI自動化、AI工具、Vibe Coding
 
 - AI 影片運鏡提示詞教學：12 種鏡頭技巧，讓畫面更有電影感
   網址：https://blog.es2idea.com/posts/ai-video-camera-movement-prompts/
@@ -70,7 +76,7 @@
   網址：https://blog.es2idea.com/posts/ai-mecha-modeling-workflow/
   日期：2026-11-12
   摘要：AI 一天能做 5 台機甲，指的是外觀模型，還是遊戲級可動角色？用一台可以走路的機甲，拆解圖片轉 3D、網格整理、UV、PBR 材質、法線貼圖、關節拆分與骨架動畫，理解如何搭配 Blender、AI Agent 與 Godot 建立工作流。
-  主題：AI工具、AI自動化、Vibe Coding
+  主題：AI自動化、AI工具、Vibe Coding
 
 - 不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學
   網址：https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/
@@ -82,7 +88,7 @@
   網址：https://blog.es2idea.com/posts/obsidian-ai-second-brain/
   日期：2026-11-11
   摘要：Obsidian 執行長 kepano 免費公開第二大腦範本！從 GitHub 下載、雙向連結、Properties 到每日筆記，學習他的知識管理方法，再延伸結合 Codex、Claude Code 與 AI Agent，讓收藏的資料變成能持續運用的個人...
-  主題：AI工具、AI自動化、Codex
+  主題：AI自動化、AI工具、Codex
 
 - AI 短劇為什麼會紅，AI 分身帶貨卻不一定有效？搞懂 AI 影片的創意與信任
   網址：https://blog.es2idea.com/posts/ai-short-drama-vs-avatar-marketing/
@@ -94,19 +100,13 @@
   網址：https://blog.es2idea.com/posts/minimax-h3-colab-codex-guide/
   日期：2026-11-07
   摘要：沒有 NVIDIA 顯示卡也想用 MiniMax H3 生成數位人影片？比較 minimax-h3-colab 與 h3-colab-skill，整理 Colab 操作、Codex 批次產片、GPU 點數與人工驗收重點。
-  主題：AI工具、AI自動化、影音行銷
+  主題：AI自動化、AI工具、影音行銷
 
 - OpenMontage 教學：一句話讓 Codex 幫你製作影片！從劇本、分鏡到配音與剪輯
   網址：https://blog.es2idea.com/posts/openmontage-codex-video-guide/
   日期：2026-11-07
   摘要：OpenMontage 如何讓 Codex 協助完成劇本、分鏡、配音與剪輯？本文整理開源專案安裝、Backlot 分鏡工作台、免費工具與成本限制，提供知識短影音、AI 網紅反轉短劇及商品帶貨影片三組提示詞，帶你建立可審核的 AI 製片流程。
-  主題：AI工具、AI自動化、影音行銷
-
-- 600 組 AI 短影音提示詞怎麼用？從 Y2K 廣告圖鑑到 Gemini Omni 1.2 Flash、Seedance 2.5 實戰教學
-  網址：https://blog.es2idea.com/posts/ai-short-video-prompt-guide/
-  日期：2026-11-07
-  摘要：600 組 AI 短影音提示詞怎麼改成自己的作品？從 QuickPhoto 找靈感，拆解角色、場景、動作與時間軸，附雨夜舞蹈英文提示詞，整理 Gemini Omni 1.2 Flash、Seedance 2.5 的規格、成本與驗收方法。
-  主題：AI工具、影音行銷、Gemini
+  主題：AI自動化、AI工具、影音行銷
 
 ## 語言
 - zh-TW
