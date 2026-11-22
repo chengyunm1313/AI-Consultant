@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- Kling 4.0 提示詞教學：Edit 與 Reference 怎麼選？換人、換場景與動作參考
+  網址：https://blog.es2idea.com/posts/kling-4-edit-vs-reference/
+  日期：2026-11-22
+  摘要：Kling 4.0 Omni Reference 裡，想在原片中換人時怎麼寫 Edit？想借用舞步和運鏡重拍時又該怎麼寫？本文提供換人、場景重製與 Rei 舞蹈的可改用提示詞，並整理多支影片共用的 30 秒限制與原始音軌的對拍做法。
+  主題：AI工具、影音行銷
+
 - OwnVoice Meet 教學｜國際研討會即時翻譯、錄音逐字稿與英文提詞
   網址：https://blog.es2idea.com/posts/ownvoice-meet-guide/
   日期：2026-11-22
@@ -101,12 +107,6 @@
   日期：2026-11-12
   摘要：不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。
   主題：AI自動化、AI Agent、Vibe Coding
-
-- Obsidian 執行長公開自己的第二大腦！免費下載 GitHub 範本，打造你的 AI 知識管理系統
-  網址：https://blog.es2idea.com/posts/obsidian-ai-second-brain/
-  日期：2026-11-11
-  摘要：Obsidian 執行長 kepano 免費公開第二大腦範本！從 GitHub 下載、雙向連結、Properties 到每日筆記，學習他的知識管理方法，再延伸結合 Codex、Claude Code 與 AI Agent，讓收藏的資料變成能持續運用的個人...
-  主題：AI工具、AI自動化、Codex
 
 ## 語言
 - zh-TW
