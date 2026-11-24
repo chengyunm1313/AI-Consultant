@@ -36,6 +36,12 @@
 
 ## 最新文章
 
+- 關掉電腦也能生成 AI 影片！Google Antigravity × Colab × MiniMax H3 雲端工作流
+  網址：https://blog.es2idea.com/posts/antigravity-colab-h3-video/
+  日期：2026-11-24
+  摘要：讓 Google Antigravity Remote Agent 調度 Colab GPU，用 MiniMax H3 生成影片，再把成果存回 Google Drive。本文整理第一支 5 秒試片的設定、200 個運算單元的預算試算，以及 Codex 跨...
+  主題：AI工具、AI自動化、影音行銷
+
 - Kling 4.0 提示詞教學：Edit 與 Reference 怎麼選？換人、換場景與動作參考
   網址：https://blog.es2idea.com/posts/kling-4-edit-vs-reference/
   日期：2026-11-22
@@ -101,12 +107,6 @@
   日期：2026-11-12
   摘要：AI 一天能做 5 台機甲，指的是外觀模型，還是遊戲級可動角色？用一台可以走路的機甲，拆解圖片轉 3D、網格整理、UV、PBR 材質、法線貼圖、關節拆分與骨架動畫，理解如何搭配 Blender、AI Agent 與 Godot 建立工作流。
   主題：AI工具、AI自動化、Vibe Coding
-
-- 不用再開一堆 AI 視窗！Grok Bot + Herdr 跨電腦 AI Agent 團隊教學
-  網址：https://blog.es2idea.com/posts/grok-herdr-ai-agent-team/
-  日期：2026-11-12
-  摘要：不用再開一堆 AI 視窗！了解如何用 Herdr 串接 Mac 與 Windows，讓 Grok Bot 透過派工橋接服務協調 Claude Code、Codex，從安裝、SSH 連線到事件驅動、任務驗收與成本管理，規劃可追蹤的 AI 團隊接力工作流。
-  主題：AI自動化、AI Agent、Vibe Coding
 
 ## 語言
 - zh-TW
